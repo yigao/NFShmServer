@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "thread": "cpp",
+        "xlocale": "cpp",
+        "xlocnum": "cpp"
+    }
+}

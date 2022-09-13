@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArray.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArraySequence.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFAutoFree.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFBaseDBObj.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFCSharedMem.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDBObjMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDBObjTrans.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreTrans.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDynamicHead.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFIDescStore.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFIDescStoreModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFISharedMemModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFLinearQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFResDb.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSeqOP.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFServerFrameTypeDefines.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmBitMap.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashMap.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashTable.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObjHashMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOrderedSet.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmPtr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStack.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStaticList.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmTimerObj.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSizeString.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSubGameTypeDefines.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTypeDefines.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFBaseDBObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFCSharedMem.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDBObjMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDBObjTrans.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreTrans.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashTable.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmTimerObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.cpp" />
+  </ItemGroup>
+</Project>

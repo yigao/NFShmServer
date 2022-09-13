@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="NFUserDetail">
+      <UniqueIdentifier>{82c42e2c-b067-4f24-a35a-37eab46e0574}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFMoneyLogHandle.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFPlayerBindPhoneTrans.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransCreateUserDetail.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetEventLog.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetUserDetail.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransHandleEventLog.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransLogicUserBase.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSendEventLog.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserDetail.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserDetailMgr.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserEventLog.cpp">
+      <Filter>NFUserDetail</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFMoneyLogHandle.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFPlayerBindPhoneTrans.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransCreateUserDetail.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetEventLog.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetUserDetail.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransHandleEventLog.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransLogicUserBase.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSendEventLog.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserDetail.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserDetailMgr.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserEventLog.h">
+      <Filter>NFUserDetail</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

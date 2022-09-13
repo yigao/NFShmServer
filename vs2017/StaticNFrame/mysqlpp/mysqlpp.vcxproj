@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{636D46C0-207A-478A-A1E8-FB803946A875}</ProjectGuid>
+    <RootNamespace>mysqlpp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>
+      </ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty\mysql\win;$(SolutionDir)..\thirdparty\mysql\include;$(SolutionDir)..\thirdparty\;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_USRDLL;DLL_EXPORTS;_DEBUG;UNICODE;_UNICODE;MYSQLPP_MAKING_DLL;HAVE_MYSQL_SSL_SET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4024;047;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty\mysql\win;$(SolutionDir)..\thirdparty\mysql\include;$(SolutionDir)..\thirdparty\;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_USRDLL;DLL_EXPORTS;_DEBUG;UNICODE;_UNICODE;MYSQLPP_MAKING_DLL;HAVE_MYSQL_SSL_SET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4024;047;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\autoflag.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\beemutex.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\cmdline.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\common.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\comparable.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\connection.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\cpool.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\datetime.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\dbdriver.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\exceptions.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\field.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\field_names.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\field_types.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\insertpolicy.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\manip.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\myset.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\mysql++.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\mystring.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\noexceptions.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\null.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\options.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\qparms.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\query.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\querydef.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\refcounted.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\result.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\row.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\scopedconnection.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\sqlstream.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\sql_buffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\sql_types.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\ssqls2.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\stadapter.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\stream2string.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\tcp_connection.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\tiny_int.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\transaction.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\type_info.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\uds_connection.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\utility.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\vallist.h" />
+    <ClInclude Include="..\..\..\thirdparty\mysqlpp\wnp_connection.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\beemutex.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\cmdline.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\connection.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\cpool.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\datetime.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\dbdriver.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\field_names.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\field_types.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\manip.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\myset.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\mysql++.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\mystring.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\null.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\options.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\qparms.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\query.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\result.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\row.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\scopedconnection.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\sqlstream.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\sql_buffer.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\ssqls2.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\stadapter.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\tcp_connection.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\transaction.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\type_info.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\uds_connection.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\utility.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\vallist.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\mysqlpp\wnp_connection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\thirdparty\mysqlpp\Doxyfile.in" />
+    <None Include="..\..\..\thirdparty\mysqlpp\mysql++.h.in" />
+    <None Include="..\..\..\thirdparty\mysqlpp\querydef.pl" />
+    <None Include="..\..\..\thirdparty\mysqlpp\ssqls.pl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

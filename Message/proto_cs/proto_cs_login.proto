@@ -1,0 +1,346 @@
+package proto_login;
+
+// 命令字
+enum Proto_LOGIN_CS_CMD {
+  NF_CS_MSG_CHECK_CONTRACT_INFO_REQ = 1001; //检查合同号
+  NF_SC_MSG_CHECK_CONTRACT_INFO_RSP = 1002; //检查合同号
+
+  //////////////1100----1149/////////////////////////////
+  NF_CS_Msg_ReConnect_REQ = 1005;
+  NF_SC_Msg_ReConnect_RSP = 1006;
+
+  NF_SC_Msg_KitPlayer_Notify = 1007;
+
+  NF_CS_Msg_HeartBeat_REQ = 1009;
+  NF_SC_Msg_HeartBeat_RSP = 1010;
+
+  NF_CS_MSG_AccountLoginReq = 1101; //账号登陆 Proto_CSAccountLoginReq
+  NF_SC_MSG_AccountLoginRsp = 1102; //登陆返回 Proto_SCAccountLoginRsp
+
+  NF_CS_MSG_UserLoginReq = 1103; //玩家ID登陆 Proto_CSUserLoginReq
+  NF_SC_MSG_UserLoginRsp = 1104; //玩家ID登陆 Proto_SCUserLoginRsp
+
+  NF_CS_MSG_RegisterAccountReq = 1105; //注册帐号 Proto_CSAccountLoginReq
+  NF_SC_MSG_RegisterAccountRsp = 1106; //注册帐号 Proto_SCAccountLoginRsp
+
+  NF_CS_MSG_LoginServer_PhoneAutoCodeReq = 1107; //请求手机验证码
+  NF_SC_MSG_LoginServer_PhoneAutoCodeRsp = 1108; //请求手机验证码
+
+  NF_CS_MSG_LoginServer_CheckPhoneCodeReq = 1109; //校验手机验证码
+  NF_SC_MSG_LoginServer_CheckPhoneCodeRsp = 1110; //校验手机验证码
+
+  NF_CS_MSG_CHANGE_PASSWORD_REQ = 1111; //修改账号密码
+  NF_SC_MSG_CHANGE_PASSWORD_RESP = 1112; //修改账号密码
+
+  NF_SC_MSG_LoginServer_NotifyPhoneCheck = 1113; //通知需要手机验证
+
+  NF_CS_MSG_PlayerPhoneAutoCodeReq = 1130; //玩家请求手机验证码
+  NF_SC_MSG_PlayerPhoneAutoCodeRsp = 1131; //玩家请求手机验证码
+
+  NF_CS_MSG_PlayerCheckPhoneCodeReq = 1132; //玩家校验手机验证码
+  NF_SC_MSG_PlayerCheckPhoneCodeRsp = 1133; //玩家校验手机验证码
+
+  NF_CS_MSG_ChangeFaceReq = 1134; //修改头像 Proto_CSChangeFaceReq
+  NF_SC_MSG_ChangeFaceRsp = 1135; //修改头像返回 Proto_SCChangeFaceRsp
+
+  NF_CS_MSG_ChangeNickNameReq = 1136; //修改头像 Proto_CSChangeNameReq
+  NF_SC_MSG_ChangeNickNameRsp = 1137; //修改头像返回 Proto_SCChangeNameRsp
+
+  NF_CS_MSG_BIND_PHONE_REQ = 1138; //绑定手机号码
+  NF_CS_MSG_BIND_PHONE_RSP = 1139; //绑定手机号码
+  NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_REQ = 1140; //手机验证修改银行密码
+  NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_RSP = 1141; //手机验证修改银行密码
+
+  NF_CS_QUERY_USER_SIMPLE_DATA_REQ = 1198; //获取玩家简单数据 Proto_CSQueryUserReq
+  NF_SC_QUERY_USER_SIMPLE_DATA_RSP = 1199; //获取玩家简单数据 Proto_SCQueryUserRsp
+}
+
+message Proto_UserSimpleData
+{
+  optional uint64 userid = 1; //UserID用户ID
+  optional string nickname = 2;
+  optional uint32 face = 3; //
+  optional uint32 gender = 4; //
+  optional uint32 age = 5;//
+}
+
+message Proto_UserLoginExternalData
+{
+  optional uint32 aread_id = 1;
+  optional uint32 agent_id = 2;
+  optional uint32 channel_id = 3;
+  optional uint64 referral_code = 4;
+  optional string platform_os = 5;
+  optional string country = 6;
+  optional string province = 7;
+  optional string city = 8;
+  optional string phone_mode = 9;
+  optional string device_id = 10;
+}
+
+message Proto_UserDetailCommonData
+{
+  optional string nick_name = 1; //用户昵称
+  optional uint32 face_id = 2;	//头像标识
+  optional uint32 gender = 3;		//用户性别
+  optional uint64 jetton = 4;		//money
+  optional uint64 bank_jetton = 5;		//money
+  optional uint64 agent_id = 6; //代理标识
+  optional uint64 phonenum = 7; //手机
+  optional uint32 vip_level = 8;//vip等级
+  optional uint32 aread_id = 9;//运营商id
+  optional uint64 referrer_id = 10; //推荐人id
+  optional bool first_recharge = 11; //是否首冲
+  optional uint64 show_userid = 12; //代理靓号
+}
+
+message Proto_CSReconnectReq
+{
+  optional uint64 userid = 1;
+}
+
+message Proto_SCReconnectRsp
+{
+  optional int32 result = 1;
+}
+
+message Proto_CSHeartBeatReq
+{
+  optional int32 userid = 1;
+}
+
+message Proto_SCHeartBeatRsp
+{
+  optional int32 result = 1;
+}
+
+//注册帐号 NF_CS_MSG_RegisterAccountReq = 1105;
+message Proto_CSRegisterAccountReq
+{
+  optional string account = 1;
+  optional string password = 2;
+  optional string nick_name = 3;
+  optional Proto_UserLoginExternalData ext_data = 4;
+  optional bool is_phone = 5; //phone register
+  optional string device_id = 6;
+  optional string contract_info = 7;
+}
+
+//注册帐号 NF_CS_MSG_RegisterAccountRsp = 1106;
+message Proto_SCRegisterAccountRsp
+{
+  optional int32 result = 1; //0:success !=0 fail
+  optional uint64 user_id = 2;
+  optional uint64 login_time = 3;
+  optional string token = 4;
+  repeated Proto_CSServerIP server_ip_list = 5;
+}
+
+message Proto_CSServerIP
+{
+  optional string ip = 1;
+  optional uint32 port = 2;
+}
+
+//账号登陆 NF_CS_MSG_AccountLoginReq = 1101;
+message Proto_CSAccountLoginReq
+{
+  optional uint32 login_type = 1; //    E_VISITOR       = 0; E_ACCOUNT   = 1; E_WECHAT		= 2; E_PHONE = 3
+  optional string account = 2;
+  optional string password = 3;
+  optional string device_id = 4;
+  optional string contract_info = 5;
+}
+
+//登陆返回 NF_SC_MSG_AccountLoginRsp = 1105
+message Proto_SCAccountLoginRsp
+{
+  optional int32 result = 1; //0:success !=0 fail
+  optional uint64 user_id = 2;
+  optional uint64 login_time = 3;
+  optional string token = 4;
+  repeated Proto_CSServerIP server_ip_list = 5;
+}
+
+//账号登陆 NF_CS_MSG_UserLoginReq = 1103;
+message Proto_CSUserLoginReq
+{
+  optional string account = 1;
+  optional uint64 user_id = 2;
+  optional uint64 login_time = 3;
+  optional string token = 4;
+  optional Proto_UserLoginExternalData ext_data = 5;
+}
+
+//登陆返回 NF_SC_MSG_UserLoginRsp = 1104
+message Proto_SCUserLoginRsp
+{
+  optional int32 result = 1; //0:success !=0 fail
+  optional uint64 user_id = 2;
+  optional Proto_UserDetailCommonData detail_data = 3;
+}
+
+//修改头像 NF_CS_MSG_ChangeFaceReq = 1116;
+message Proto_CSChangeFaceReq
+{
+  optional uint32 face_id = 1;
+}
+
+//修改头像返回 NF_SC_MSG_ChangeFaceRsp = 1117;
+message Proto_SCChangeFaceRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional int32 face_id = 2;
+}
+
+//NF_CS_MSG_ChangeNickNameReq = 1136; //修改头像 Proto_CSChangeNameReq
+message Proto_CSChangeNickNameReq
+{
+  optional string nick_name = 1;
+}
+
+//NF_SC_MSG_ChangeNickNameRsp = 1137; //修改头像返回 Proto_SCChangeNameRsp
+message Proto_SCChangNickNameRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional string nick_name = 2;
+}
+
+//NF_CS_QUERY_USER_SIMPLE_DATA_REQ = 1198; //获取玩家简单数据 Proto_CSQueryUserReq
+message Proto_CSQueryUserReq
+{
+  repeated uint64 query_user_id = 1;
+}
+
+//NF_SC_QUERY_USER_SIMPLE_DATA_REQ = 1199; //获取玩家简单数据 Proto_SCQueryUserRsp
+message Proto_SCQueryUserRsp
+{
+  optional int32 result = 1;
+  repeated Proto_UserSimpleData query_user_list = 2;
+}
+
+message Proto_CS_LoginServer_PhoneAutoCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 code_type = 2; //1手机注册 2修改密码 3设备更改，手机验证登录
+}
+
+message Proto_SC_LoginServer_PhoneAutoCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional uint32 code_type = 3; //4 绑定手机 5 修改修改银行密码
+}
+
+message Proto_CS_LoginServer_CheckPhoneCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 auth_code = 2;
+}
+
+message Proto_SC_LoginServer_CheckPhoneCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional uint32 code_type = 3; //4 绑定手机 5 修改修改银行密码
+}
+
+//NF_CS_MSG_CHANGE_PASSWORD_REQ = 1111; //修改账号密码
+message Proto_CS_ChangePasswordReq
+{
+  optional string account = 1;
+  optional string new_password = 2;
+  optional string device_id = 3;
+  
+}
+
+//NF_SC_MSG_CHANGE_PASSWORD_RESP = 1112; //修改账号密码
+message Proto_SC_ChangePasswordRsp
+{
+  optional int32 result = 1;
+}
+
+//NF_SC_MSG_LoginServer_NotifyPhoneCheck = 1113; //通知需要手机验证
+message Proto_SC_LoginServer_NotifyPhoneCheck
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+}
+
+//NF_CS_MSG_PlayerPhoneAutoCodeReq = 1130; //玩家请求手机验证码
+message Proto_CS_Player_PhoneAutoCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 code_type = 2; //4 绑定手机 5 修改修改银行密码
+}
+
+//NF_SC_MSG_PlayerPhoneAutoCodeRsp = 1131; //玩家请求手机验证码
+message Proto_SC_Player_PhoneAutoCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional uint32 code_type = 3; //4 绑定手机 5 修改修改银行密码
+}
+
+//NF_CS_MSG_PlayerCheckPhoneCodeReq = 1132; //玩家校验手机验证码
+message Proto_CS_Player_CheckPhoneCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 auth_code = 2;
+}
+
+//NF_SC_MSG_PlayerCheckPhoneCodeRsp = 1133; //玩家校验手机验证码
+message Proto_SC_Player_CheckPhoneCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional uint32 code_type = 3; //4 绑定手机 5 修改修改银行密码
+}
+
+//NF_CS_MSG_BIND_PHONE_REQ = 1138; //绑定手机号码
+message Proto_CS_Player_BindPhoneReq
+{
+  optional uint64 phone_num = 1;
+  optional string nick_name = 2;
+  optional string password = 3;
+  optional string device_id = 4;
+}
+
+//NF_CS_MSG_BIND_PHONE_RSP = 1139; //绑定手机号码
+message Proto_SC_Player_BindPhoneRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional string nick_name = 3;
+}
+
+//NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_REQ = 1140; //手机验证修改银行密码
+message Proto_CS_PhoneChangeBandPasswordReq
+{
+  optional uint64 phone_num = 1;
+  optional string new_password = 2;
+}
+
+//NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_RSP = 1141; //手机验证修改银行密码
+message Proto_SC_PhoneChangeBandPasswordRsp
+{
+  optional int32 result = 1;
+}
+
+//NF_CS_MSG_CHECK_CONTRACT_INFO_REQ = 1001; //检查合同号
+message Proto_CSCheckContractInfoReq
+{
+  optional string contract_info = 1;
+}
+
+//NF_SC_MSG_CHECK_CONTRACT_INFO_RSP = 1002; //检查合同号
+message Proto_SCCheckContractInfoRsp
+{
+  optional int32 result = 1;
+}
+
+//NF_SC_Msg_KitPlayer_Notify = 1007;
+message Proto_SCKetPlayerNotify
+{
+  optional int32 result = 1;
+}

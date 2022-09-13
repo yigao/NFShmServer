@@ -1,0 +1,261 @@
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+import "proto_kernel.proto";
+import "proto_error_code.proto";
+import "proto_cs.proto";
+import "proto_cs_login.proto";
+
+package proto_ff;
+
+// 服务器内部的消息id，是个统一的
+// 
+enum Proto_SvrMsgID
+{
+  NF_LTW_LOAD_SERVER_FROM_WORLD_REQ = 38; //login to world
+  NF_WTL_LOAD_SERVER_TO_LOGIN_RSP = 39; //world to login
+
+  NF_STSTORE_CHECK_STORE_SERVER_REQ = 40; //server to store server, check exist
+  NF_STORETS_CHECK_STORE_SERVER_RSP = 41; //store server to server, check exist rsp
+
+//  NF_WTL_PLAYER_LOGIN_REQ = 130;      //world to logic, login msg
+//  NF_LTW_PLAYER_LOGIN_RSP = 131;      //logic to world, login rsp msg
+//  NF_PTW_PLAYER_LOGIN_MSG = 132;      //proxy to world, login msg
+//  NF_WTP_PLAYER_LOGIN_MSG_RSP = 133;      //world to proxy, login rsp msg
+//  NF_LTS_PLAYER_LOGIN_REQ = 134;      //logic to sns, login msg
+//  NF_STL_PLAYER_LOGIN_RSP = 135;     //sns to logic, login rsp msg
+//  NF_LTS_PLAYER_LOGOUT_REQ = 136;      //logic to sns, logout msg
+//  NF_STL_PLAYER_LOGOUT_RSP = 137;     //sns to logic, logout msg
+//  NF_LTW_PLAYER_LOGOUT_REQ = 138;     //logic to world, logout msg
+//  NF_WTL_PLAYER_LOGOUT_NOTIFY = 139;  //world to logic, notify msg
+//
+//  NF_LTW_REGISTER_USER_TO_WORLD_REQ = 140;
+//  NF_WTL_REGISTER_USER_TO_LOGIC_REQ = 141;
+//  NF_LTL_REGISTER_USER_TO_LOGIN_RSP = 142;
+//
+//  NF_LTWeb_PHONE_AUTH_CODE_REQ = 143;
+//  NF_WebTL_PHONE_AUTH_CODE_RSP = 144;
+//
+//  NF_LTWeb_PHONE_CHECK_CODE_REQ = 145;
+//  NF_WebTL_PHONE_CHECK_CODE_RSP = 146;
+//
+//  NF_LTSns_CHANGE_FACE_NOTIFY = 147;
+//  NF_LTSns_CHANGE_NICKNAME_NOTIFY = 148;
+//
+//  NF_PTW_PLAYER_RECONNECT_MSG = 150;      //
+//  NF_WTP_PLAYER_RECONNECT_MSG_RSP = 151;  //
+//  NF_WTL_PLAYER_RECONNECT_MSG = 152;
+//  NF_LTW_PLAYER_RECONNECT_MSG_RSP = 153;  //
+//  NF_LTS_PLAYER_RECONNECT_MSG = 154;
+//  NF_WTG_PLAYER_RECONNECT_MSG = 155;
+//  NF_GTW_PLAYER_RECONNECT_MSG_RSP = 156;  //
+//
+//  NF_PTW_PLAYER_DISCONNECT_MSG = 170;      //
+//  NF_WTL_PLAYER_DISCONNECT_MSG = 171;      //
+//  NF_LTS_PLAYER_DISCONNECT_MSG = 172;      //
+//  NF_WTG_PLAYER_DISCONNECT_MSG = 173;      //
+//
+//  NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ = 176;
+//  NF_WebTL_PLAYER_PHONE_AUTH_CODE_RSP = 177;
+//
+//  NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ = 178;
+//  NF_WebTL_PLAYER_PHONE_CHECK_CODE_RSP = 179;
+
+//  NF_GTW_ROOM_REGISTER_REQ = 220;   //房间注册
+//  NF_GTW_ROOM_REGISTER_RSP = 221;   //房间注册
+//  NF_GTW_ROOM_UNREGISTER_REQ = 222;   //注销房间
+//  NF_GTW_ROOM_UNREGISTER_RSP = 223;   //注销房间
+//  NF_GTW_ROOM_UPDATE_ONLINE_COUNT_REQ = 224;   //更新人数
+//  NF_GTW_ROOM_UPDATE_ONLINE_COUNT_RSP = 225;   //更新人数
+//
+//  NF_WTG_LOGIN_ROOM_REQ = 226; //login room
+//  NF_GTW_LOGIN_ROOM_RSP = 227; //login room
+
+  ////////////////////////////mail/////////////////////////
+//  NF_LTS_MAIL_LIST_REQ = 235;
+//  NF_STL_MAIL_LIST_RSP = 236;
+//  NF_LTS_MAIL_READ_REQ = 237;
+//  NF_STL_MAIL_READ_RSP = 238;
+//  NF_LTS_MAIL_DEL_REQ = 239;
+//  NF_STL_MAIL_DEL_RSP = 240;
+//  NF_OtherTS_MAIL_CREATE_REQ = 241;
+//  NF_STOther_MAIL_CREATE_RSP = 242;
+//  NF_STL_MAIL_MAIL_AUTO_PUSH_RSP = 243;
+//  NF_LTS_MAIL_GET_ITEM_REQ = 244;
+//  NF_STL_MAIL_GET_ITEM_RSP = 245;
+//  NF_STL_MAIL_READ_ITEM_REQ = 246;
+//  NF_LTS_MAIL_READ_ITEM_RSP = 247;
+  //////////////////////////////mail///////////////////////////////
+
+
+
+//  E_GTL_UPDATE_JETTON_REQ = 250;
+//  E_LTG_UPDATE_JETTON_RSP = 251;
+//  E_LTW_UPDATE_JETTON_NOTIFY = 252;
+//  E_WTL_NOTIFY_PLAYER_ENTER_GAME = 253;
+//  E_WTL_NOTIFY_PLAYER_EXIT_GAME = 254;
+//  E_GTL_COIN_QUERY_BALANCE_REQ = 255;
+//  E_GTL_COIN_QUERY_BALANCE_RPS = 256;
+//
+//  E_STS_GAME_PLAYER_LEAVE_GAME = 257;
+//  E_STS_CLEAR_ALL_GAME_PLAYER_NOTIFY = 258;
+//  E_STS_GAME_SERVER_DUMP_NOTIFY = 259;
+//
+//  E_LTSns_NOTIFY_PLAYER_ENTER_GAME = 260;
+//  E_LTSns_NOTIFY_PLAYER_EXIT_GAME = 261;
+//
+//  E_SnsTGame_SET_USER_MANAGER_INFO = 262;
+//  E_GameTSns_WRITE_BACK_USER_MANAGER_IFNO = 263;
+//  E_WorldTSns_GAME_ROOM_REG_NOTIFY = 264;
+//  E_GameTSns_GAME_ROOM_STAT_INFO_SEND = 265;
+//  E_GameTSns_GAME_PLAYER_ACH_INFO_SEND = 267;
+//  E_LogicTGame_UPDATE_PLAYER_COINBALANCE = 268;
+//  E_SnsTGame_SET_GM_CTRL_GIVE_DATA = 269;
+
+
+  ///////////////////rank///////////////////////////////////
+//  NF_STSns_UPDATE_RANK_REQ = 280;
+//  NF_SnsTS_UPDATE_RANK_RSP = 281;
+//  NF_LTS_GET_COMMON_RANK_REQ = 284;
+//  NF_STL_GET_COMMON_RANK_RSP = 285;
+  ///////////////////rank///////////////////////////////////
+  NF_SNSTLOGIC_CHANGE_AGENT_NOTIFY = 295;
+  NF_UNICASTMSG_EVENTLOG_NOTIFY = 296;
+  NF_LTS_QUERY_USER_REQ = 297;
+  NF_STL_QUERY_USER_RSP = 298;
+  ///////////////////web///////////////////////////////////
+//  NF_WebToSns_SetBaoDi_REQ = 300;
+//  NF_WebToSns_SetTaxBaoDi_REQ = 301;
+//  NF_WebToSns_ModifyAgent_REQ = 302;
+//  NF_WebToSns_ModifyLiuShui_REQ = 303;
+//  NF_WebToLogic_SetBan_REQ = 304;
+//  NF_WebToLogic_SetTransfer_REQ = 305;
+//  NF_SERVER_CMD_CheckAgent_REQ = 306;
+//  NF_WebToSns_SendUserMail_REQ = 307;
+//  NF_WebToLogic_ZhuanZhang_REQ = 308;
+//  NF_WebToLogic_GiveMoney_REQ = 309;
+//  NF_WebToSns_SetWhiteBlack_REQ = 310;
+//  NF_WebToSns_DeleteWhiteBlack_REQ = 311;
+//  NF_WebToWorld_ClearJiangChi_Req = 312;
+//  NF_WebToWorld_SetJiangChi_Req = 313;
+  ///////////////////web///////////////////////////////////
+  ///////////////////400 - 500 system stat//////////////////////////
+  NF_STSNS_PlayerJettonChangeStatReq = 400;
+  ///////////////////400 - 500 system stat//////////////////////////
+}
+
+message CommonMsgRsp
+{
+  optional int32 result = 1;
+}
+
+message Proto_STMasterServerDumpInfoNtf
+{
+  optional string dump_info = 1;
+  optional uint32 bus_id = 2;
+}
+
+message Proto_MasterTMonitorReloadReq
+{
+  optional string server_name = 1;
+  optional string server_id = 2;
+}
+
+message Proto_MasterTMonitorRestartReq
+{
+  optional string server_name = 1;
+  optional string server_id = 2;
+}
+
+message Proto_MasterTMonitorStartReq
+{
+  optional string server_name = 1;
+  optional string server_id = 2;
+}
+
+message Proto_MasterTMonitorStopReq
+{
+  optional string server_name = 1;
+  optional string server_id = 2;
+}
+
+message Proto_MonitorTMasterReloadRsp
+{
+  optional int32 result = 1;
+  optional string server_name = 2;
+  optional string server_id = 3;
+}
+
+message Proto_MonitorTMasterRestartRsp
+{
+  optional int32 result = 1;
+  optional string server_name = 2;
+  optional string server_id = 3;
+}
+
+
+message Proto_MonitorTMasterStartRsp
+{
+  optional int32 result = 1;
+  optional string server_name = 2;
+  optional string server_id = 3;
+}
+
+
+message Proto_MonitorTMasterStopRsp
+{
+  optional int32 result = 1;
+  optional string server_name = 2;
+  optional string server_id = 3;
+}
+
+message Proto_LTSQueryUserReq
+{
+  optional uint64 user_id = 1;
+  repeated uint64 query_user_id = 2;
+}
+
+message Proto_STLQueryUserRsp
+{
+  optional uint64 user_id = 1;
+  optional int32 result = 2;
+  repeated UserSimpleData query_user_list = 3;
+}
+
+message SSEventLogNotify
+{
+  optional uint64 user_id = 1;
+  optional uint64 eventlog_id = 2;
+}
+
+message emailSender
+{
+  optional string email = 1;
+  optional string title = 2;
+  optional string msg = 3;
+}
+
+message Proto_STStoreCheckReq
+{
+
+}
+
+message Proto_StoreTSCheckRsp
+{
+
+}
+
+message Proto_NotifyChangeAgent
+{
+  optional uint64 user_id = 1;
+  optional uint64 agent_id = 2;
+}
+
+message Proto_PlayerJettonChangeStatReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 account_type = 2;
+  optional uint32 opt_type = 3;
+  optional uint32 opt_reason = 4;
+  optional int64 money_change = 5;
+  optional bool is_first_recharge = 6;
+}

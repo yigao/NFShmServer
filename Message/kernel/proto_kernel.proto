@@ -1,0 +1,412 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+// 命令字
+enum Proto_Kernel_CMD {
+  //NF_SERVER_TO_SERVER_HEART_BEAT = 1;  //服务器心跳
+  //NF_SERVER_TO_SERVER_HEART_BEAT_RSP = 2;  //服务器心跳
+
+  NF_GTM_KILL_ALL_SERVER_NTF = 3;
+  NF_STS_KILL_ALL_SERVER_NTF = 4;
+
+  NF_STMaster_SEND_DUMP_INFO_NTF = 44;
+
+  NF_MasterTMonitor_RELOAD_CMD_REQ = 80;
+  NF_MasterTMonitor_RESTART_CMD_REQ = 81;
+  NF_MasterTMonitor_START_CMD_REQ = 82;
+  NF_MasterTMonitor_STOP_CMD_REQ = 83;
+  NF_MasterTMonitor_STOP_ALL_CMD_REQ = 84;
+  NF_MasterTMonitor_RELOAD_ALL_CMD_REQ = 85;
+  NF_MasterTMonitor_RESTART_ALL_CMD_REQ = 86;
+  NF_MasterTMonitor_START_ALL_CMD_REQ = 87;
+
+  NF_MonitorTMaster_RELOAD_CMD_RSP = 90;
+  NF_MonitorTMaster_RESTART_CMD_RSP = 91;
+  NF_MonitorTMaster_START_CMD_RSP = 92;
+  NF_MonitorTMaster_STOP_CMD_RSP = 93;
+  NF_MonitorTMaster_STOP_ALL_CMD_RSP = 94;
+  NF_MonitorTMaster_RELOAD_ALL_CMD_RSP = 95;
+  NF_MonitorTMaster_RESTART_ALL_CMD_RSP = 96;
+  NF_MonitorTMaster_START_ALL_CMD_RSP = 97;
+
+  NF_SERVER_TO_SERVER_REGISTER = 100;  //服务器注册
+  NF_SERVER_TO_SERVER_REGISTER_RSP = 101;  //服务器注册
+  NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER = 102;  //master服务器反馈别的服务器给注册服务器
+  NF_SERVER_TO_MASTER_SERVER_REPORT = 103;  //服务器注册master
+
+  NF_ROUTER_CMD_INTERNAL_C2R_REGISTER = 104; // 注册，内部命令
+  NF_ROUTER_CMD_INTERNAL_R2C_REGISTER = 105; // 注册回应
+  NF_ROUTER_CMD_INTERNAL_C2R_HEARTBEAT = 106; // client到routersvr的心跳，内部命令
+  NF_ROUTER_CMD_INTERNAL_R2C_HEARTBEAT = 107; // routersvr到client的心跳，内部命令
+  NF_ROUTER_CMD_DISPATCH_MOD = 108; // 取模转发，转发命令
+  NF_ROUTER_CMD_DISPATCH_ROUNDROBIN = 109; // 随机转发，转发命令，routersvr可自己设定random策略，是随机计算，是roundrobin
+  NF_ROUTER_CMD_DISPATCH_BROADCAST = 110; // 广播，转发命令，平等的广播
+  NF_ROUTER_CMD_DISPATCH_BROADCAST_AND_MASTER = 111; // 广播，同时选择主服务，转发命令  c-->router
+  NF_ROUTER_CMD_DISPATCH_BORADCAST_MASTER = 112; // 广播，确定某一个为master router---->dest
+  NF_ROUTER_CMD_DISPATCH_BORADCAST_SLAVE = 113; // 广播，确定某一个为slave  router---->dest
+  NF_ROUTER_CMD_DISPATCH_DIRECT = 114; // 直接转发，转发命令
+  NF_ROUTER_CMD_INTERNAL_R2C_DISPATCHFAILED = 115; // routersvr到client，转发失败回应
+  NF_ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSVS = 116; // routeragent和appsvr的对应关系注册到routersvr
+
+  NF_SERVER_TO_SERVER_TRANS_CMD = 120; //trans msg
+  NF_SERVER_TO_STORE_SERVER_DB_CMD = 121; //send db msg
+  NF_STORE_SERVER_TO_SERVER_DB_CMD = 122; //send db msg
+  NF_WORLD_ROUTER_CMD_TO_SUIT_LOGIC = 123; //logic send msg to world, world trans msg to suit logic
+  NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 124; //logic send msg to sns, sns trans msg to suit logic
+  NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125;
+  NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126;
+}
+
+enum NFROUTER_ERRCODE {
+  NF_ROUTER_ERRCODE_OK = 0; // 内部错误码，
+  NF_ROUTER_ERRCODE_DISPATCHFAILD_DESTSVR_NOTEXIST = 1; // 转发失败，对端服务不存在
+};
+
+// 命令字
+enum STORESVR_CS_COMMAND {
+  E_STORESVR_C2S_SELECT = 0;					// select req  按条件去查询，
+  E_STORESVR_S2C_SELECT = 1;						// select res
+  E_STORESVR_C2S_SELECTOBJ = 2;					// 按对象去查询
+  E_STORESVR_S2C_SELECTOBJ = 3;
+  E_STORESVR_C2S_INSERT = 4;
+  E_STORESVR_S2C_INSERT = 5;
+  E_STORESVR_C2S_DELETE = 6;
+  E_STORESVR_S2C_DELETE = 7;
+  E_STORESVR_C2S_DELETEOBJ = 8;
+  E_STORESVR_S2C_DELETEOBJ = 9;
+  E_STORESVR_C2S_MODIFY = 10;
+  E_STORESVR_S2C_MODIFY = 11;
+  E_STORESVR_C2S_MODIFYOBJ = 12;
+  E_STORESVR_S2C_MODIFYOBJ = 13;
+  E_STORESVR_C2S_MODINS = 14;						// modify + insert
+  E_STORESVR_S2C_MODINS = 15;
+  E_STORESVR_C2S_MODINSOBJ = 16;						// modify + insert
+  E_STORESVR_S2C_MODINSOBJ = 17;
+  E_STORESVR_C2S_DESCSTORE = 18;
+  E_STORESVR_S2C_DESCSTORE = 19;
+  E_STORESVR_C2S_EXECUTE = 20;
+  E_STORESVR_S2C_EXECUTE = 21;
+};
+
+// 错误码
+enum STORESVR_ERRCODE {
+  E_STORESVR_ERRCODE_OK = 0;
+  E_STORESVR_ERRCODE_BUSY = 1;
+  E_STORESVR_ERRCODE_EINVAL = 2;
+  E_STORESVR_ERRCODE_PARSEFROMSTRINGFAILED = 3;
+  E_STORESVR_ERRCODE_DBNAME_OR_MODKEY_INVALID = 4;
+  E_STORESVR_ERRCODE_TBNAME_INVALID = 5;
+  E_STORESVR_ERRCODE_SELECT_EMPTY = 6;
+  E_STORESVR_ERRCODE_SELECT_FILLMESSAGEBYRESULTFAILED = 7;
+  E_STORESVR_ERRCODE_CANNOTCREATERECORDMSGOBJECT = 8;
+  E_STORESVR_ERRCODE_CANNOTFINDSQLTEMPALTE = 9;
+  E_STORESVR_ERRCODE_SETPREPARESTATEMENTFAILED = 10;
+  E_STORESVR_ERRCODE_INSERTFAILED = 11;
+  E_STORESVR_ERRCODE_DELETEFAILED = 12;
+  E_STORESVR_ERRCODE_DELETERECORDISNOTEXIST = 13;
+  E_STORESVR_ERRCODE_UPDATERECORDISNOTEXIST = 14;
+  E_STORESVR_ERRCODE_UPDATENOROWAFFECTED = 15;
+  E_STORESVR_ERRCODE_UPDATEFAILED = 16;
+  E_STORESVR_ERRCODE_UPDATEINSERTFAILED = 17;
+  E_STORESVR_ERRCODE_UNKNOWN = 18;
+};
+
+enum PacketDispType
+{
+  E_DISP_TYPE_NONE = 0;
+  E_DISP_TYPE_BY_TRANSACTION = 1;
+  E_DISP_TYPE_BY_ROLEID = 2;
+  E_DISP_TYPE_BY_MSGID = 3;
+  E_DISP_TYPE_BY_RPC = 4;
+};
+
+enum TableID
+{
+  E_TABLE_NONE                                     = 0;
+  E_TABLE_ACCOUNT_PLAYER 			                     = 1;
+  E_TABLE_USER_MAIL                                = 2;
+  E_TABLE_MAIL_DETAIL                              = 3;
+  E_TABLE_USER_DETAIL                              = 4;
+  E_TABLE_USER_SIMPLE                              = 5;
+  E_TABLE_USER_MISC                                = 6;
+  E_TABLE_GIVE_BANK_JETTON                         = 7;
+  E_TABLE_EVENT_LOG                                = 8;
+  E_TABLE_RANK_COMMON                              = 9;
+  E_TABLE_GAME_ROBOT                               = 10;
+  E_TABLE_MONEY_DETAIL                             = 11;
+  E_TABLE_LOG_SYSTEM_DAY                           = 12;
+  E_TABLE_LOG_GAME_DAY                             = 13;
+};
+
+message Proto_DispInfo
+{
+  optional uint64        user_id = 1;
+  optional int32         req_trans_id = 2;        //req transaction id  事务ID。请求方的ID
+  optional int32         rsp_trans_id = 3;       //rsp transaction id  事务ID回包携带的，需要据此在PacketDisp里处理
+}
+
+message Proto_StoreInfo_CB
+{
+  optional PacketDispType  type = 1;
+  optional uint64 id = 2;
+  optional TableID table_id = 3;
+  optional uint32 seq = 4;
+}
+
+message Proto_StoreInfo
+{
+  optional STORESVR_CS_COMMAND        cmd = 1;
+  optional STORESVR_ERRCODE        err_code = 2;
+  optional Proto_StoreInfo_CB   cb_data = 3;
+}
+
+message Proto_SvrPkg
+{
+  optional int32          msg_id = 1;              //trans send msg id
+  optional bytes          msg_data = 2;
+  optional Proto_DispInfo disp_info = 3;              //trans send msg id
+  optional Proto_StoreInfo store_info = 4;
+}
+
+//服务器类型
+enum ServerType
+{
+  NF_ST_NONE = 0;		//
+  NF_ST_MASTER_SERVER = 1;    //Master服务器	--
+  NF_ST_LOGIN_SERVER = 2;    	//登陆服务器
+  NF_ST_WORLD_SERVER = 3;    	//大厅服务器
+  NF_ST_GAME_SERVER = 4;    	//游戏服务器
+  NF_ST_PROXY_SERVER = 5;    	//网关服务器
+  NF_ST_ROUTE_AGENT_SERVER = 6; //路由代理服务器  负责同一台机子服务器数据之间的转发
+  NF_ST_ROUTE_SERVER = 7; //路由集群服务器 负责不同机子服务器数据之间的转发
+  NF_ST_STORE_SERVER = 8; //DB服务器
+  NF_ST_MAX = 20;    	//	--
+}
+
+enum EServerState
+{
+  EST_CRASH = 0;
+  EST_NARMAL = 1;
+  EST_BUSY = 2;
+  EST_FIRE = 3;
+  EST_MAINTEN = 4;
+}
+
+message ServerInfoReport
+{
+  optional uint32   bus_id = 1;
+  optional string  bus_name = 2 ;
+  optional uint32   server_type = 3;
+  optional string  server_name = 4 ;
+  optional string  url = 5;
+  optional string  link_mode = 6 ;
+  optional uint32  bus_length = 7; //NFBUS/TBUS共享内存通信大小
+  optional string  server_ip = 9;
+  optional uint32  server_port = 10;
+  optional uint32  server_http_port = 11;
+  optional string  external_server_ip = 12;
+  optional uint32  external_server_port = 13;
+  optional string  route_svr = 15;
+  optional uint32   server_max_online = 30;
+  optional uint32   server_cur_online = 31;
+  optional uint32  server_state = 32;
+  optional string  system_info = 33;
+  optional uint64  total_mem = 34;
+  optional uint64  free_mem = 35;
+  optional uint64  used_mem = 36;
+  optional double  proc_cpu = 37;  //cur process cpu used
+  optional uint64  proc_mem = 38;  //cur process mem used
+  optional uint32  proc_thread = 39; //cur process thread num
+  optional string  proc_name = 40;
+  optional string  proc_cwd = 41;
+  optional uint32  proc_pid = 42;
+  optional string  last_date = 43;
+  optional uint64  last_time = 44;
+  optional string  contract_info = 45;
+  optional string  machine_addr = 46;
+  repeated string  db_name_list = 47;
+}
+
+message ServerInfoReportList
+{
+  repeated ServerInfoReport server_list = 1;
+}
+
+message ZkServerInfo
+{
+  optional string   bus_url = 1;
+  optional string   tcp_url = 2;
+}
+
+message DynLibFileInfo
+{
+  optional string  file_md5 = 1;
+  optional int32  file_size = 2;
+}
+
+message DynLibFileInfoArray
+{
+  repeated DynLibFileInfo file_list = 1;
+}
+
+message Proto_KillAllServerNtf
+{
+}
+
+message Proto_KillAllServerRsp
+{
+    optional int32 result = 1;
+}
+
+//NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125;
+message Proto_STSBroadPlayerMsgNotify
+{
+  repeated uint64 user_id = 1;
+  optional uint32 msg_id = 2;
+  optional bytes msg_data = 3;
+}
+
+//NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126;
+message Proto_STWebMsgRspNotify
+{
+  optional uint64 request_id = 1;
+  optional int32 result = 2;
+  optional string err_msg = 3;
+}
+
+/* Behavior日志接入公共头部 */
+message BehaviorLogHeader
+{
+  ////////////////////////////////1-20///////////////////////////
+  optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];                         /*   游戏事件ID */
+  optional uint32  sequence = 2;													/*   日志事件的序列号 */
+  optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+  optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+  optional uint64 user_id = 5;                        /*   玩家ID */
+  optional string user_name = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];													  /*   玩家名-Base64 */
+  ///////////////////////////////////////////////////////////////
+};
+
+// 错误码
+enum Proto_Kernel_ErrorCode {
+  option allow_alias = true;
+  //0------10000
+  /////////////////////////zk调用返回码/////////////////////////////////////
+  ERR_CODE_ZOOKEEPER_BASE = 0;
+  ERR_CODE_ZK_SYSTEMERROR = -1;///< System and server-side errors.
+  ERR_CODE_ZK_RUNTIMEINCONSISTENCY = -2;///< A runtime inconsistency was found
+  ERR_CODE_ZK_DATAINCONSISTENCY = -3;  ///< A data inconsistency was found
+  ERR_CODE_ZK_CONNECTIONLOSS = -4; ///< Connection to the server has been lost
+  ERR_CODE_ZK_MARSHALLINGERROR = -5; ///< Error while marshalling or unmarshalling data
+  ERR_CODE_ZK_UNIMPLEMENTED = -6; ///< Operation is unimplemented
+  ERR_CODE_ZK_OPERATIONTIMEOUT = -7; ///< Operation timeout
+  ERR_CODE_ZK_BADARGUMENTS = -8; ///< Invalid arguments
+  ERR_CODE_ZK_INVALIDSTATE = -9; ///< Invliad zhandle state
+  ERR_CODE_kSM_DNSFAILURE = -10; ///< Error occurs when dns lookup
+
+  ERR_CODE_ZK_APIERROR = -100;
+  ERR_CODE_ZK_NONODE = -101; ///< Node does not exist
+  ERR_CODE_ZK_NOAUTH = -102; ///< Not authenticated
+  ERR_CODE_ZK_BADVERSION = -103; ///< Version conflict
+  ERR_CODE_ZK_NOCHILDRENFOREPHEMERALS = -108;  ///< Ephemeral nodes may not have children
+  ERR_CODE_ZK_NODEEXISTS = -110;  ///< The node already exists
+  ERR_CODE_ZK_NOTEMPTY = -111; ///< The node has children
+  ERR_CODE_ZK_SESSIONEXPIRED = -112; ///< The session has been expired by the server
+  ERR_CODE_ZK_INVALIDCALLBACK = -113;  ///< Invalid callback specified
+  ERR_CODE_ZK_INVALIDACL = -114;  ///< Invalid ACL specified
+  ERR_CODE_ZK_AUTHFAILED = -115;  ///< Client authentication failed
+  ERR_CODE_ZK_CLOSING = -116;  ///< ZooKeeper is closing
+  ERR_CODE_ZK_NOTHING = -117; ///< (not error) no server responses to process
+  ERR_CODE_ZK_SESSIONMOVED = -118;  ///< session moved to another server, so operation is ignored
+  ERR_CODE_ZK_NOQUOTA = -119;  ///< quota is not enough.
+  ERR_CODE_ZK_SERVEROVERLOAD = -120;  ///< server overload.
+  ERR_CODE_ZK_NOT_SET_APPKEY = -200;  ///< 未设置appkey
+  /////////////////////////zk调用返回码/////////////////////////////////////
+
+  ERR_CODE_SVR_SYSTEM_ERROR = -1;
+  ERR_CODE_SVR_OK = 0;
+
+  ERR_CODE_MSG_RPC_BASE = 100;
+  ERR_CODE_SESSION_BASE = 200;
+  ERR_CODE_MESSAGE_BASE = 300;
+  ////////////////////////////////////////////////////////////////////
+  ERR_CODE_NAMING_BASE = 400;
+  ERR_CODE_NAMING_NOT_SUPPORTTED = 401;
+  ERR_CODE_NAMING_INVAILD_PARAM = 402;
+  ERR_CODE_NAMING_URL_REGISTERED = 403; ///< 已经注册过了
+  ERR_CODE_NAMING_URL_NOT_BINDED = 404; ///< 注册的地址没有bind
+  ERR_CODE_NAMING_REGISTER_FAILED = 405; ///< 注册地址失败
+  ERR_CODE_NAMING_FACTORY_MAP_NULL = 406; ///< 名字工厂map为空
+  ERR_CODE_NAMING_FACTORY_EXISTED = 407;  ///< 名字工厂已存在
+  ///////////////////////////////////////////////////////////////////
+  ERR_CODE_ROUTER_BASE = 500;
+  ERR_CODE_ROUTER_NOT_SUPPORTTED = 501;
+  ERR_CODE_ROUTER_INVAILD_PARAM = 502;
+  ERR_CODE_ROUTER_NONE_VALID_HANDLE = 503;
+  ERR_CODE_ROUTER_FACTORY_MAP_NULL = 504;     ///< 名字工厂map为空
+  ERR_CODE_ROUTER_FACTORY_EXISTED = 505;     ///< 名字工厂已存在
+  ////////////////////////////////////////////////////////////////////
+  ERR_CODE_TIMER_BASE = 600;
+  ERR_CODE_PIPE_BASE = 700;
+  /////////////////////////协程模块错误码定义/////////////////////////////////////
+  ERR_CODE_COROUTINE_BASE = 800;
+  ERR_CODE_CO_INVALID_PARAM = 801;
+  ERR_CODE_CO_NOT_IN_COROUTINE = 802;
+  ERR_CODE_CO_NOT_RUNNING = 803;
+  ERR_CODE_CO_START_TIMER_FAILED = 804;
+  ERR_CODE_CO_TIMEOUT = 805;
+  ERR_CODE_CO_CANNOT_RESUME_IN_COROUTINE = 806;
+  ERR_CODE_CO_COROUTINE_UNEXIST = 807;
+  ERR_CODE_CO_COROUTINE_STATUS_ERROR = 809;
+  /////////////////////////协程模块错误码定义/////////////////////////////////////
+  ERR_CODE_CHANNEL_BASE = 900;
+
+  ERR_CODE_SVR_SYSTEM_TIMEOUT = 10000;
+  ERR_CODE_SVR_SYSTEM_DATABASE_ERROR = 10001;
+}
+
+enum NFEventSrcType
+{
+  NF_EVENT_NONE_TYPE = 0;
+  NF_EVENT_SERVER_TYPE = 1; //server event
+  NF_EVENT_GM_TYPE = 2;   //GM
+  NF_EVENT_PLAYER_TYPE = 3;   //player event
+}
+
+enum NFEventIdType
+{
+  //////server event////////////
+  NF_EVENT_SERVER_TYPE_BEGIN = 1;
+  NF_EVENT_SERVER_APP_TASK_FINISH = 2;
+  NF_EVENT_SERVER_LOAD_DESC_STORE = 3;
+  NF_EVENT_SERVER_OBJ_LOAD_FROM_DB = 4;
+  NF_EVENT_SERVER_APP_FINISH_INITED = 5;
+  NF_EVENT_SERVER_DEAD_EVENT = 6;
+  NF_EVENT_SERVER_REG_EVENT = 7;
+  NF_EVENT_GAME_SERVER_DUMP_EVENT = 8;
+  NF_EVENT_LOGIC_SERVER_DUMP_EVENT = 9;
+
+  NF_EVENT_SERVER_TYPE_END = 99;
+  //////gm event/////////////////
+  NF_EVENT_GM_TYPE_BEGIN = 100;
+  NF_EVENT_GM_TYPE_END = 199;
+
+  /////player evnet//////////////
+  NF_EVENT_PLAYER_TYPE_BEGIN = 200;
+  NF_EVENT_PLAYER_LOGIN_SUCCESS = 201; //player login success
+  NF_EVENT_PLAYER_LOGIN_FAILED = 202;  //player login failed
+  NF_EVENT_PLAYER_RECONNECT_SUCCESS = 203; //player reconnct
+  NF_EVENT_PLAYER_DISCONNECT = 204;   //player disconnect
+
+  NF_EVENT_PLAYER_TYPE_END = 299;
+}
+
+message NFEventNoneData
+{
+  optional string param1 = 1;
+  optional string param2 = 2;
+  optional string param3 = 3;
+  optional string param4 = 4;
+  optional string param5 = 5;
+}

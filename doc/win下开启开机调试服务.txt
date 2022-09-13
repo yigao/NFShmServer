@@ -1,0 +1,20 @@
+1、Install/Plugin3/ProxyServer.lua: 
+ProxyServer_5_1:
+对外IP ExternalServerIp = "127.0.0.1" 改为本机的IP，如 192.168.10.133 ;
+
+2、Install/Plugin3/Plugin.lua: 
+把所要调试的游戏服里的几个Plugin注释掉,如：
+	--"NFGameServerPlugin",
+	--"NFGameFishPlugin",
+	--"NFFishAlgoPlugin",
+
+3、把所要调试的游戏VS的启动命令行改成所要调试的游戏的ID，如：
+ --Server=GameServer --ID=1.2001.4.1 --Config=../../Config2001_1 --Plugin=../../Config2001_1
+
+4、把所要调试的游戏的配置的数据库的IP由127.0.0.1改成远程的ip，因为本机没有数据库；如：
+Config2001_3/GameServer.lua里：
+把MysqlIp = "127.0.0.1" 改为 MysqlIp = "120.79.47.22"；
+
+5、本机开启其它服：Install/Bin/Debug下双击：runAll.bat
+
+6、VS里调试运行所要调试的游戏

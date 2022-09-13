@@ -1,0 +1,314 @@
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+import "proto_kernel.proto";
+import "proto_error_code.proto";
+import "proto_cs.proto";
+import "proto_cs_login.proto";
+
+package proto_ff;
+
+// 服务器内部的消息id，是个统一的
+//
+enum Proto_LoginSvrMsgID
+{
+  NF_WTL_PLAYER_LOGIN_REQ = 130;      //world to logic, login msg
+  NF_LTW_PLAYER_LOGIN_RSP = 131;      //logic to world, login rsp msg
+  NF_PTW_PLAYER_LOGIN_MSG = 132;      //proxy to world, login msg
+  NF_WTP_PLAYER_LOGIN_MSG_RSP = 133;      //world to proxy, login rsp msg
+  NF_LTS_PLAYER_LOGIN_REQ = 134;      //logic to sns, login msg
+  NF_STL_PLAYER_LOGIN_RSP = 135;     //sns to logic, login rsp msg
+  NF_LTS_PLAYER_LOGOUT_REQ = 136;      //logic to sns, logout msg
+  NF_STL_PLAYER_LOGOUT_RSP = 137;     //sns to logic, logout msg
+  NF_LTW_PLAYER_LOGOUT_REQ = 138;     //logic to world, logout msg
+  NF_WTL_PLAYER_LOGOUT_NOTIFY = 139;  //world to logic, notify msg
+
+  NF_LTW_REGISTER_USER_TO_WORLD_REQ = 140;
+  NF_WTL_REGISTER_USER_TO_LOGIC_REQ = 141;
+  NF_LTL_REGISTER_USER_TO_LOGIN_RSP = 142;
+
+  NF_LTWeb_PHONE_AUTH_CODE_REQ = 143;
+  NF_WebTL_PHONE_AUTH_CODE_RSP = 144;
+
+  NF_LTWeb_PHONE_CHECK_CODE_REQ = 145;
+  NF_WebTL_PHONE_CHECK_CODE_RSP = 146;
+
+  NF_LTSns_CHANGE_FACE_NOTIFY = 147;
+  NF_LTSns_CHANGE_NICKNAME_NOTIFY = 148;
+  NF_LTSns_CHANGE_USERID_NOTIFY = 149;
+
+  NF_PTW_PLAYER_RECONNECT_MSG = 150;      //
+  NF_WTP_PLAYER_RECONNECT_MSG_RSP = 151;  //
+  NF_WTL_PLAYER_RECONNECT_MSG = 152;
+  NF_LTW_PLAYER_RECONNECT_MSG_RSP = 153;  //
+  NF_LTS_PLAYER_RECONNECT_MSG = 154;
+  NF_WTG_PLAYER_RECONNECT_MSG = 155;
+  NF_GTW_PLAYER_RECONNECT_MSG_RSP = 156;  //
+
+  NF_PTW_PLAYER_DISCONNECT_MSG = 170;      //
+  NF_WTL_PLAYER_DISCONNECT_MSG = 171;      //
+  NF_LTS_PLAYER_DISCONNECT_MSG = 172;      //
+  NF_WTG_PLAYER_DISCONNECT_MSG = 173;      //
+
+  NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ = 176;
+  NF_WebTL_PLAYER_PHONE_AUTH_CODE_RSP = 177;
+
+  NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ = 178;
+  NF_WebTL_PLAYER_PHONE_CHECK_CODE_RSP = 179;
+
+  NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY = 180;
+  NF_LTS_PLAYER_VIPLVEL_CHANGE_NOTIFY = 181;
+}
+
+enum Proto_AccountState
+{
+  E_ACCOUNTSTATE_OK = 0;        // 状态ok
+  E_ACCOUNTSTATE_FREEZE = 1;        // 冻结，有时间周期
+  E_ACCOUNTSTATE_FORBIT = 2;        // 禁止，无限期
+}
+
+message Proto_LTWRegisterUserReq
+{
+  optional uint64 user_id = 1;
+  optional string nick_name = 2;
+  optional uint64 phone_num = 3;
+  optional LoginCommonData ext_data = 4;
+}
+
+message Proto_WTLRegisterUserReq
+{
+  optional uint64 user_id = 1;
+  optional string nick_name = 2;
+  optional uint64 phone_num = 3;
+  optional LoginCommonData ext_data = 4;
+  optional uint32 login_bus_id = 5;
+  optional uint32 req_trans_id = 6;
+}
+
+message Proto_LTLRegisterUserRsp
+{
+  optional int32 result = 1;
+  optional uint64 user_id = 2;
+}
+
+message Proto_PTWUserLoginReq
+{
+  optional uint64 user_id = 1;
+  optional string account = 2;
+  optional uint32 proxy_bus_id = 3; //proxy bus id
+  optional string client_ip = 4;
+  optional proto_login.Proto_UserLoginExternalData ext_data = 5;
+}
+
+message Proto_WTPPlayerLoginRsp
+{
+  optional int32 result = 1;
+  optional uint64 user_id = 2;
+  optional uint32 game_id = 3;
+  optional uint32 room_id = 4;
+  optional uint32 game_bus_id = 5;
+  optional uint32 logic_bus_id = 6;
+  optional proto_login.Proto_UserDetailCommonData detail_data = 7;
+}
+
+message Proto_WorldToLogicLoginReq
+{
+  optional uint64 user_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 game_bus_id = 4;
+  optional uint32 proxy_bus_id = 5;
+  optional proto_login.Proto_UserLoginExternalData ext_data = 6;
+  optional string client_ip = 7;
+}
+
+message Proto_LogicToWorldLoginRsp
+{
+  optional uint32 result = 1;
+  optional uint64 user_id = 2;
+  optional proto_login.Proto_UserDetailCommonData detail_data = 3;
+}
+
+message NotifyPlayerDisconnect
+{
+  optional uint64 player_id = 1;
+}
+
+message NotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 proxy_bus_id = 2;
+}
+
+message NotifyPlayerReconnctRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+  optional uint32 game_id = 3;
+  optional uint32 room_id = 4;
+  optional uint32 game_bus_id = 5;
+  optional uint32 logic_bus_id = 6;
+}
+
+message WTLNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 game_bus_id = 4;
+  optional uint32 proxy_bus_id = 6;
+}
+
+message LTWNotifyPlayerReconnectRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+}
+
+message WTGNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 proxy_bus_id = 2;
+  optional uint32 logic_bus_id = 3;
+}
+
+message GTWNotifyPlayerReconnectRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+}
+
+message LTSNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 logic_bus_id = 2;
+  optional uint32 game_bus_id = 3;
+  optional uint64 last_login_time = 4;
+  optional uint64 last_logout_time = 5;
+  optional UserSimpleData simple_data = 6;
+}
+
+message Proto_WorldToLogicLogoutReq
+{
+  optional uint64 player_id = 1;
+}
+
+message Proto_LogicToWorldLogoutRsp
+{
+  optional uint64 player_id = 1;
+  optional uint32 result = 2;
+}
+
+message Proto_LogicToSnsLoginReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 logic_bus_id = 2;
+  optional uint32 game_bus_id = 3;
+  optional uint64 last_login_time = 4;
+  optional uint64 last_logout_time = 5;
+  optional UserSimpleData simple_data = 6;
+}
+
+message Proto_SnsToLogicLoginRsp
+{
+  optional uint64 player_id = 1;
+  optional uint32 result = 2;
+}
+
+message Proto_LogicToSnsLogoutReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 logic_svr_id = 2;
+}
+
+message Proto_SnsToLogicLogoutRsp
+{
+  optional uint64 player_id = 1;
+  optional uint32 result = 2;
+}
+
+message Proto_LogicToWorldLogoutReq
+{
+  optional uint64 player_id = 1;
+}
+
+enum PhoneCodeType {
+  PHONE_AUTO_CODE_NONE = 0;
+  PHONE_AUTO_CODE_REGISTER = 1;
+  PHONE_AUTO_CODE_CHANGE_PASSWORD = 2;
+  PHONE_AUTO_CODE_CHANGE_DEVICE = 3;
+  PHONE_AUTO_CODE_BIND_PHONE = 4;
+  PHONE_AUTO_CODE_CHANG_BANK_PASSWORD = 5;
+};
+
+
+//NF_LTWeb_PHONE_AUTH_CODE_REQ = 143;
+message LTWebPhoneAuthCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 code_type = 2;
+}
+
+//NF_WebTL_PHONE_AUTH_CODE_RSP = 144;
+message WebTLPhoneAuthCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional string msg = 3;
+}
+//    NF_LTWeb_PHONE_CHECK_CODE_REQ = 145;
+message LTWebPhoneCheckCodeReq
+{
+  optional uint64 phone_num = 1;
+  optional uint32 code = 2;
+  optional uint32 code_type = 3;
+}
+
+//    NF_WebTL_PHONE_CHECK_CODE_RSP = 146;
+message WebTLPhoneCheckCodeRsp
+{
+  optional int32 result = 1;
+  optional uint64 phone_num = 2;
+  optional string msg = 3;
+}
+
+message WebPhoneCodeRetMsg
+{
+  optional int32 code = 1;
+  optional string msg = 2;
+  optional int64 time = 3;
+}
+
+//NF_LTSns_CHANGE_FACE_NOTIFY = 147;
+message LTSnsChangeFaceNotify
+{
+  optional uint64 user_id = 1;
+  optional uint32 face_id = 2;
+}
+
+//NF_LTSns_CHANGE_NICKNAME_NOTIFY = 148;
+message LTSnsChangeNickNameNotify
+{
+  optional uint64 user_id = 1;
+  optional string nick_name = 2;
+}
+
+//NF_LTS_PLAYER_VIPLVEL_CHANGE_NOTIFY
+message LTSnsChangeVipLevelNotify
+{
+  optional uint64 user_id = 1;
+  optional uint32 vip_level = 3;
+}
+
+//NF_LTSns_CHANGE_USERID_NOTIFY
+message LTSnsChangeUserIdNotify
+{
+  optional uint64 user_id = 1;
+  optional uint64 show_userid = 2;
+}
+
+//NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY
+message LTLPlayerDeviceChangeNotify
+{
+  optional uint64 user_id = 1;
+  optional string device_id = 2;
+}

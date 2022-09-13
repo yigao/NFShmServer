@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="NFEventLog">
+      <UniqueIdentifier>{8d317cfe-7740-4dce-8b1f-46d9a57b4b94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFOnlineUser">
+      <UniqueIdentifier>{a062008e-70cc-4ece-be0a-3dee5ba649f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFUserSimple">
+      <UniqueIdentifier>{15ad714b-69bb-4b9d-932c-752917efb81d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFEventLog\NFTransSnsSendEventLog.cpp">
+      <Filter>NFEventLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFOnlineUser.cpp">
+      <Filter>NFOnlineUser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFOnlineUserMgr.cpp">
+      <Filter>NFOnlineUser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFTransSnsUserOnline.cpp">
+      <Filter>NFOnlineUser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimple.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimpleMgr.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimpleUtil.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransGetSnsUserSimple.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSaveSimpleDB.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSnsBase.cpp">
+      <Filter>NFUserSimple</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFEventLog\NFTransSnsSendEventLog.h">
+      <Filter>NFEventLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFOnlineUser.h">
+      <Filter>NFOnlineUser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFOnlineUserMgr.h">
+      <Filter>NFOnlineUser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineUser\NFTransSnsUserOnline.h">
+      <Filter>NFOnlineUser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimple.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimpleMgr.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFSnsUserSimpleUtil.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransGetSnsUserSimple.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSaveSimpleDB.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSnsBase.h">
+      <Filter>NFUserSimple</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

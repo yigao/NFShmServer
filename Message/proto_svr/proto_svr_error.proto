@@ -1,0 +1,7 @@
+package proto_ff;
+
+// 错误码
+enum Proto_SVR_ErrorCode {
+  ERR_CODE_SERVER_SYSTEM_ERROR = -1;
+  ERR_CODE_SERVER_OK = 0;
+}

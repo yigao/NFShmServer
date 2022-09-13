@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lpeg">
+      <UniqueIdentifier>{9d6751ae-f83d-4143-830e-d7927f96edf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua">
+      <UniqueIdentifier>{eb1d1d70-bd5e-4fe5-a042-294aea0e2819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua_protobuf">
+      <UniqueIdentifier>{711dbdd9-02b1-4885-b23d-eb1743bdd2b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luacjson">
+      <UniqueIdentifier>{35e3fa28-2dbe-4385-aafd-c09ef1876624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luafilesystem">
+      <UniqueIdentifier>{4691eedf-fd01-4d8d-8c8c-97e0b00fa63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luaintf">
+      <UniqueIdentifier>{b3006eed-f295-44f2-9d5d-d2b95b66adc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protoc-gen-lua">
+      <UniqueIdentifier>{5b3b5163-1075-47ea-b522-b16a2610d8b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpcap.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpcode.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpprint.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lptree.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpvm.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lapi.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lauxlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lbaselib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lbitlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lcode.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lcorolib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lctype.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ldblib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ldebug.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ldo.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ldump.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lfunc.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lgc.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\linit.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\liolib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\llex.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lmathlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lmem.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\loadlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lobject.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lopcodes.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\loslib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lparser.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lstate.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lstring.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lstrlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ltable.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ltablib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\ltm.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lundump.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lutf8lib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lvm.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua\lzio.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua_protobuf\pb.c">
+      <Filter>lua_protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\dtoa.c">
+      <Filter>luacjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\g_fmt.c">
+      <Filter>luacjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\lua_cjson.c">
+      <Filter>luacjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\strbuf.c">
+      <Filter>luacjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\luafilesystem\lfs.c">
+      <Filter>luafilesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\protoc-gen-lua\gen_pb.c">
+      <Filter>protoc-gen-lua</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lpcap.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lpcode.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lpprint.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lptree.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lptypes.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lpeg\lpvm.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lapi.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lauxlib.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lcode.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lctype.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\ldebug.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\ldo.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lfunc.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lgc.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\llex.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\llimits.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lmem.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lobject.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lopcodes.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lparser.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lprefix.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lstate.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lstring.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\ltable.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\ltm.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lua.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lua.hpp">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\luaconf.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lualib.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lundump.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lvm.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua\lzio.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\lua_protobuf\pb.h">
+      <Filter>lua_protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luacjson\dtoa_config.h">
+      <Filter>luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luacjson\fpconv.h">
+      <Filter>luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luacjson\strbuf.h">
+      <Filter>luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luafilesystem\lfs.h">
+      <Filter>luafilesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\LuaCompat.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\LuaContext.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\LuaIntf.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\LuaRef.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\LuaState.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\luaintf\QtLuaIntf.h">
+      <Filter>luaintf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\LuaBind\protoc-gen-lua\gen_pb.h">
+      <Filter>protoc-gen-lua</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServer\NFProxyServer\NFProxyServerPlugin\NFProxyServerModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFProxyServer\NFProxyServerPlugin\NFProxyServerPlugin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServer\NFProxyServer\NFProxyServerPlugin\NFProxyServerModule.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFProxyServer\NFProxyServerPlugin\NFProxyServerPlugin.h" />
+  </ItemGroup>
+</Project>

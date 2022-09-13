@@ -1,0 +1,938 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+
+// 账号类型
+enum Proto_AccountType {
+    E_VISITOR       = 0;
+    E_ACCOUNT   = 1;
+    E_WECHAT		= 2;
+    E_PHONE			= 3;
+    E_ROBOT     = 10;
+};
+
+// 性别
+enum Proto_SexType {
+    E_MALE          = 0;
+    E_FEMALE        = 1;
+}
+
+// 平台类型
+enum Proto_PlatType {
+	E_PLAT_NONE		= 0;
+    E_PLAT_ANDROID  = 1;
+    E_PLAT_IOS      = 2;
+    E_PLAT_WP       = 3;
+    E_PLAT_MAX 		= 4;
+}
+
+// 网络类型
+enum Proto_NetworkType {
+    E_NETWORK_2G    = 0;
+    E_NETWORK_3G    = 1;
+    E_NETWORK_4G    = 2;
+    E_NETWORK_WIFI  = 3;
+}
+
+//登录状态
+enum Proto_PlayerCreateState
+{
+	E_CREATE_SUCESS = 0;
+	E_CREATE_REGIST_NAME = 1;
+	E_CREATE_WAIT_NAME = 2;
+}
+
+enum Proto_AgentLevel
+{
+	E_AGENT_LEVEL_GENERAL = 0; //普通代理
+	E_AGENT_LEVEL_MAX = 1; //总代理
+	E_AGENT_LEVEL_ONE = 2; //一级代理
+	E_AGENT_LEVEL_TWO = 3; //二级代理
+	E_AGENT_LEVEL_THREE = 4; //三级代理
+}
+
+message GameServerRoomInfo
+{
+  optional  uint32 game_id = 1;	//游戏ID
+  optional	uint32 room_id = 2; //房间ID
+  optional  string room_name = 3[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional  uint64 enter_min = 4;
+	optional  uint64 enter_max = 5;
+	optional	uint32 online_count = 6; //在线人数
+  optional  uint32 bus_id = 7; //bus id, 进程唯一ID
+  optional  uint32 status = 8;
+}
+
+message tbServerMgr
+{
+	optional uint64 id			= 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];
+	optional string contract = 2 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "合同号"];
+	optional string machine_addr = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "机器码"];
+	optional string ip = 4 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "IP地址"];
+	optional string bus_name = 5 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "服务器ID"];
+	optional string server_desc = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "描述信息"];
+	optional uint32 cur_count = 7 [(yd_fieldoptions.db_field_comment) = "当前服务器数"];
+	optional uint64 last_login_time = 8 [(yd_fieldoptions.db_field_comment) = "上一次登录时间"];
+	optional uint64 last_logout_time = 9 [(yd_fieldoptions.db_field_comment) = "上一次下线时间"];
+	optional uint64 create_time = 10 [(yd_fieldoptions.db_field_comment) = "创建时间"];
+}
+
+message tbContractMgr
+{
+	optional uint64 id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=1, (yd_fieldoptions.db_field_comment) = "ID"];
+	optional string contract = 2 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_UNIQUE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "合同号"];
+	optional string machine_addr = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "机器码"];
+	optional string ip = 4 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "IP地址"];
+	optional string server_desc = 5 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "描述信息"];
+}
+
+message tbAccountTable
+{
+	optional uint64 player_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=10000];
+	optional string account = 2 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_UNIQUE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+	optional string password = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+	optional uint32 account_type = 4;
+	optional string device_id = 5[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+	optional uint64 phonenum = 6;
+	optional uint64 real_player_id = 7;
+}
+
+enum enSnsMailStatus
+{
+	EN_SNS_MAIL_NO_READ					= 0;	// 未读
+	EN_SNS_MAIL_ALREADY_READ			= 1;	// 已读
+}
+
+message ItemData
+{
+	optional int32 item_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 item_num = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message SingleMailInfo
+{
+	optional uint64 id					= 1;	// 唯一id
+	optional uint32 status		= 3;	// 邮件状态
+}
+
+// 特殊活动邮件领取记录（mailtemplate用表配置）
+message UserSpecialMailData
+{
+	optional int32 static_id		= 1;	// mailtemplate表里面的编号（策划保证说不重复）
+	optional uint64 time			= 2;	// 领取记录结束时间
+}
+
+// 邮件信息
+message UserMailInfo
+{
+	repeated SingleMailInfo simple_mail					= 1[(yd_fieldoptions.field_arysize) = 1000];	// 普通邮件(无物品的)
+	repeated UserSpecialMailData receive_data 			= 2[(yd_fieldoptions.field_arysize) = 100];	// 特殊活动邮件领取记录
+	repeated uint64 del_role_mail						= 4[(yd_fieldoptions.field_arysize) = 100]; // 删除的个人邮件
+}
+
+message tbUserMailInfo
+{
+	required uint64 user_id 			= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional UserMailInfo base_info		= 2;
+}
+
+// 数据库中邮件新结构
+message tbUserMailDetail
+{
+	optional uint64 id			= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY]; //唯一ID
+	optional uint64 user_id 				= 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX ]; //收件者ID
+	optional string send_name	= 3[(yd_fieldoptions.field_bufsize)=32, (yd_fieldoptions.db_field_bufsize)=32]; //发送者名字
+	optional int32 static_id	= 4;														//邮件表格里的静态ID
+	optional string content		= 5[(yd_fieldoptions.field_bufsize)=1600, (yd_fieldoptions.db_field_bufsize)=1600]; //自定义邮件内容
+	optional string title		= 6[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64]; //邮件标题
+	optional uint64 send_time	= 7; 														//发送时间
+	repeated string mail_name = 8; 	//邮件格式里用到的人名
+	optional int64 add_gold = 9;  //赠送的gold
+	//repeated ItemData item_data = 10[(yd_fieldoptions.field_arysize) = 5, (yd_fieldoptions.db_field_arysize)=5];
+}
+
+message UserMailDetailInfo
+{
+	repeated tbUserMailDetail simple_mail = 1 [(yd_fieldoptions.field_arysize)=50];
+}
+
+enum EnumGiveBankJettonStatus
+{
+	ENUM_GIVE_BANK_JETTON_STATUS_NONE = 0;
+	ENUM_GIVE_BANK_JETTON_STATUS_DEL_MONEY_FAIL = 1;
+	ENUM_GIVE_BANK_JETTON_STATUS_DEL_MONEY_SUCCESS = 2;
+	ENUM_GIVE_BANK_JETTON_STATUS_ADD_MONEY_FAIL = 3;
+	ENUM_GIVE_BANK_JETTON_STATUS_SUCCESS = 4;
+	ENUM_GIVE_BANK_JETTON_STATUS_CANCEL = 5;
+	ENUM_GIVE_BANK_JETTON_STATUS_CANCEL_SUCCESS = 6;
+	ENUM_GIVE_BANK_JETTON_STATUS_CANCEL_FAILED_RECHARGE_SUCCESS= 7;
+}
+
+message tbGiveBankJetton
+{
+	required uint64 id			= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"]; //唯一ID
+  optional uint64 user_id = 2[(yd_fieldoptions.db_field_comment) = "赠送者ID"];
+  optional string user_name = 3[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "赠送者昵称"];
+	optional uint64 user_vip_level = 4[(yd_fieldoptions.db_field_comment) = "赠送者VIP"];
+	optional uint64 give_user_id = 5[(yd_fieldoptions.db_field_comment) = "玩家ID"];
+  optional string give_user_name = 6[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "昵称"];
+  optional uint64 give_jetton = 7[(yd_fieldoptions.db_field_comment) = "数量"];
+  optional uint32 give_user_vip_level = 8[(yd_fieldoptions.db_field_comment) = "玩家VIP"];
+  optional uint32 status = 9[(yd_fieldoptions.db_field_comment) = "状态:0=进行中,1=失败,2=成功,3=取消中,4=取消成功"];
+  optional uint64 create_time = 10[(yd_fieldoptions.db_field_comment) = "日期"];
+}
+
+message UserMiscData
+{
+	optional uint64 tmp_phone_num = 1;
+	optional uint32 tmp_auth_code = 2;
+	optional uint64 auth_code_stamp = 3;
+	optional int32  tmp_code_type = 4;
+	optional bool   tmp_code_success = 5;
+	optional int32  tmp_redeemcard_recharge_count =6;
+}
+
+message tbUserDetailData
+{
+	optional uint64 userid = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "玩家ID"]; //UserID用户ID
+	optional string nickname = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "昵称"];
+	optional uint32 faceid = 3[(yd_fieldoptions.db_field_comment) = "头像"];
+	optional uint64 regdate = 4[(yd_fieldoptions.db_field_comment) = "注册时间"]; //
+	optional uint32 gender = 5[(yd_fieldoptions.db_field_comment) = "性别"]; //
+	optional uint32 age = 6[(yd_fieldoptions.db_field_comment) = "年龄"];//
+	optional string email = 7[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "邮件"];
+	optional uint64 phonenum = 8[(yd_fieldoptions.db_field_comment) = "手机号码"];
+	optional uint64 jetton = 9[(yd_fieldoptions.db_field_comment) = "金币"];
+	optional string country = 10[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "国家"];
+	optional string province = 11[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "省份"];
+	optional string city = 12[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "城市"];
+	optional bool isrobot = 13[(yd_fieldoptions.db_field_comment) = "机器人:0=否,1=是"];
+	optional string bank_password = 14[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64]; //
+	optional uint64 bank_jetton = 15[(yd_fieldoptions.db_field_comment) = "银行存款"];
+	optional string ip = 16[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "IP地址"];
+	optional uint64 last_login_time = 17[(yd_fieldoptions.db_field_comment) = "最近一次登录时间"];
+	optional uint64 last_logout_time = 18[(yd_fieldoptions.db_field_comment) = "最近一次退出时间"];
+	optional uint32 aread_id = 19[(yd_fieldoptions.db_field_comment) = "地区id"];		//
+	optional uint32 channel_id = 20[(yd_fieldoptions.db_field_comment) = "渠道id"];	//
+	optional string platform_os = 21[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "手机系统"];
+	optional string phone_model = 22[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "手机型号"];
+	optional bool first_recharge = 23[(yd_fieldoptions.db_field_comment) = "首冲:0=否,1=是"];
+	optional uint64 agent_id = 24[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "上级代理ID"];
+	optional uint64 referrer_id = 25;
+	optional uint32 vip_level = 26;
+	optional UserMiscData misc_data = 27;
+	optional bool online = 28[(yd_fieldoptions.db_field_comment) = "在线:0=否,1=是"];
+	optional uint32 game_id = 29[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];
+	optional uint32 room_id = 30[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];
+	optional int64  all_win = 31[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "总输赢"];
+	optional uint64 all_recharge = 32[(yd_fieldoptions.db_field_comment) = "总付费"];
+	optional uint64 all_give = 33[(yd_fieldoptions.db_field_comment) = "总赠送"];
+	optional uint64 all_draw = 34[(yd_fieldoptions.db_field_comment) = "总出款"];
+	optional int64 today_win = 35[(yd_fieldoptions.db_field_comment) = "今日输赢"];
+	optional uint64 today_recharge = 36[(yd_fieldoptions.db_field_comment) = "今日付费"];
+	optional uint64 today_give = 37[(yd_fieldoptions.db_field_comment) = "今日赠送"];
+	optional uint64 today_draw = 38[(yd_fieldoptions.db_field_comment) = "今日出款"];
+	optional int64 week_win = 39[(yd_fieldoptions.db_field_comment) = "周输赢"];
+	optional uint64 week_recharge = 40[(yd_fieldoptions.db_field_comment) = "周付费"];
+	optional uint64 week_give = 41[(yd_fieldoptions.db_field_comment) = "周赠送"];
+	optional uint64 week_draw = 42[(yd_fieldoptions.db_field_comment) = "周出款"];
+	optional int64 month_win = 43[(yd_fieldoptions.db_field_comment) = "月输赢"];
+	optional uint64 month_recharge = 44[(yd_fieldoptions.db_field_comment) = "月付费"];
+	optional uint64 month_give = 45[(yd_fieldoptions.db_field_comment) = "月赠送"];
+	optional uint64 month_draw = 46[(yd_fieldoptions.db_field_comment) = "月出款"];
+	optional uint32 is_ban = 47[(yd_fieldoptions.db_field_comment) = "封号:0=正常,1=封号"];
+	optional uint32 no_transfer = 48[(yd_fieldoptions.db_field_comment) = "转账:0=正常,1=禁止"];
+	optional string reg_ip = 49[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "注册IP地址"];
+	optional string device_id = 50[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "机器码"];
+	optional string reg_device_id = 51[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "注册机器码"];
+	optional uint64 show_userid = 52 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "显示玩家ID"]; //UserID用户ID
+	optional uint64 all_vip_zhuanru = 53[(yd_fieldoptions.db_field_comment) = "VIP总转入"];
+	optional uint64 today_vip_zhuanru = 54[(yd_fieldoptions.db_field_comment) = "VIP今日转入"];
+	optional uint64 week_vip_zhuanru = 55[(yd_fieldoptions.db_field_comment) = "VIP周转入"];
+	optional uint64 month_vip_zhuanru = 56[(yd_fieldoptions.db_field_comment) = "VIP月转入"];
+	optional uint64 all_vip_zhuanchu = 57[(yd_fieldoptions.db_field_comment) = "VIP总转出"];
+	optional uint64 today_vip_zhuanchu = 58[(yd_fieldoptions.db_field_comment) = "VIP今日转出"];
+	optional uint64 week_vip_zhuanchu = 59[(yd_fieldoptions.db_field_comment) = "VIP周转出"];
+	optional uint64 month_vip_zhuanchu = 60[(yd_fieldoptions.db_field_comment) = "VIP月转出"];
+}
+
+message UserSimpleMiscData
+{
+  optional uint64 last_valid_player_time = 1; //一次有效玩家时间，在线超过15分钟，为有效玩家
+  optional uint64 last_pay_player_time = 2; //上一次付费时间
+}
+
+message tbUserSimpleData
+{
+	optional uint64 userid = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "用户ID"]; //UserID用户ID
+	optional string nickname = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "昵称"];
+	optional uint32 face = 3[(yd_fieldoptions.db_field_comment) = "头像"]; //
+	optional uint32 gender = 4[(yd_fieldoptions.db_field_comment) = "性别"];
+	optional uint32 age = 5[(yd_fieldoptions.db_field_comment) = "年龄"];
+	optional uint64 agentid = 6[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "上级代理ID"];
+	optional uint64 create_time = 7[(yd_fieldoptions.db_field_comment) = "注册时间"];
+	optional bool is_robot = 8[(yd_fieldoptions.db_field_comment) = "机器人:0=否,1=是"];
+	optional uint32 agent_level = 9[(yd_fieldoptions.db_field_comment) = "代理:0=普通代理,1=总代,2=一级代理,3=二级代理,4=三级代理"];
+	optional uint64 ach_day = 10[(yd_fieldoptions.db_field_comment) = "今日流水"];
+	optional uint64 ach_week = 11[(yd_fieldoptions.db_field_comment) = "周流水"];
+	optional uint64 ach_month = 12[(yd_fieldoptions.db_field_comment) = "月流水"];
+	optional uint64 ach_all = 13[(yd_fieldoptions.db_field_comment) = "总流水"];
+	optional uint64 ach_team_day = 14[(yd_fieldoptions.db_field_comment) = "今日团队流水"];
+	optional uint64 ach_team_week = 15[(yd_fieldoptions.db_field_comment) = "周团队流水"];
+	optional uint64 ach_team_month = 17[(yd_fieldoptions.db_field_comment) = "月团队流水"];
+	optional uint64 ach_team_all = 18[(yd_fieldoptions.db_field_comment) = "总团队流水"];
+	optional uint64 team_user_num = 19[(yd_fieldoptions.db_field_comment) = "团队人数"];
+	optional uint64 new_user_day = 20[(yd_fieldoptions.db_field_comment) = "每日新增团队人数"];
+	optional uint64 activity_user_day = 21[(yd_fieldoptions.db_field_comment) = "团队活跃人数"];
+	optional uint32 getrate = 22[(yd_fieldoptions.db_field_comment) = "流水保底"];
+	optional uint32 tax_getrate= 23[(yd_fieldoptions.db_field_comment) = "税收保底"];
+	optional uint32 takemoney= 24[(yd_fieldoptions.db_field_comment) = "可提现佣金余额"];
+	optional uint32 tax_takemoney= 25[(yd_fieldoptions.db_field_comment) = "可提现税收佣金余额"];
+	optional uint64 all_takemoney= 26[(yd_fieldoptions.db_field_comment) = "佣金总额"];
+	optional uint64 all_fee = 27[(yd_fieldoptions.db_field_comment) = "抽水总额"];
+	optional uint64 show_userid = 28[(yd_fieldoptions.db_field_comment) = "代理靓号"];
+	optional uint64 vip_level = 29[(yd_fieldoptions.db_field_comment) = "vip"];
+	optional UserSimpleMiscData misc_data = 30;
+}
+
+enum enConstType
+{
+	EN_CONST_NONE													= 0;
+	EN_CONST_USER_INIT_JETTON 						= 1	 [(yd_fieldoptions.field_enum_cname) = "玩家初始赠送金币"];
+	EN_CONST_USER_INIT_FACE 							= 2	 [(yd_fieldoptions.field_enum_cname) = "玩家初始头像"];
+	EN_CONST_USER_INIT_BANK_JETTON 				= 3	 [(yd_fieldoptions.field_enum_cname) = "玩家初始银行密码"];
+	EN_CONST_USER_ACH_WITH_FEE		 				= 4	 [(yd_fieldoptions.field_enum_cname) = "=0 抽水算个流水， =1 抽水不算流水"];
+	EN_CONST_USER_FEE_WITH_POUR 				  = 5	 [(yd_fieldoptions.field_enum_cname) = "=0时为不加本金的抽水， =1时为加上本金的抽水"];
+	EN_CONST_USER_MIN_BANK_DRAW 				  = 6	 [(yd_fieldoptions.field_enum_cname) = "非VIP转VIP最小转账额度"];
+}
+
+//账号币种类型枚举定义
+enum eAccountMoneyType
+{
+	E_ACCOUNT_TYPE_JETTON  = 0;		//游戏币类型
+	E_ACCOUNT_TYPE_BANK_JETTON      = 1;		//银行类型
+  E_ACCOUNT_TYPE_MAX = 2;
+};
+
+enum eChangeMoneyType
+{
+	E_CHAGEMONEY_GAME_ADD                    = 0;          //游戏中增加金币
+	E_CHAGEMONEY_GAME_REMOVE                 = 1;          //游戏中减少金币
+	E_CHAGEMONEY_GAME_ADD_GM                 = 2;         //有点控情况下的增加金币
+	E_CHAGEMONEY_GAME_REMOVE_GM              = 3;         //有点控情况下的减少金币
+	E_CHAGEMONEY_BANK_SAVE_MONEY_REMOVE			 = 4;				 //存款到银行
+	E_CHAGEMONEY_BANK_GET_MONEY_ADD          = 5;				 //从银行取款
+	E_CHAGEMONEY_MAIL_ADD          					 = 6;				 //邮件中获取
+	E_CHAGEMONEY_GIVE_JETTON_TO_OTHER_REMOVE = 7;				 //赠送筹码给别人
+	E_CHAGEMONEY_OTHER_GEVE_JETTON_TO_ME_ADD = 8;				 //别人赠送筹码给我
+	E_CHAGEMONEY_TYPE_MAX = 9;
+};
+
+enum eOperationType
+{
+	E_USER_JETTON_OPER_TYPE_GAME_BALANCED_WIN   = 0; //游戏结算
+	E_USER_JETTON_OPER_TYPE_GAME_BALANCED_LOST   = 1; //游戏结算
+	E_USER_JETTON_OPER_TYPE_EXCHANGE            = 2; //币种兑换
+	E_USER_JETTON_OPER_TYPE_TRANSFER            = 3;  //转账
+	E_USER_JETTON_OPER_TYPE_RECHARGE            = 4;  //充值
+	E_USER_JETTON_OPER_TYPE_WEB_DEDUCT_NONEY        = 5; //WEB减币
+	E_USER_JETTON_OPER_TYPE_WEB_GIVE_MONEY          = 6; //WEB加币
+  E_USER_JETTON_OPER_TYPE_GIVE_JETTON					= 7; //赠送
+	E_USER_JETTON_OPER_TYPE_DRAW = 8; //提现
+  E_USER_JETTON_OPER_TYPE_MAX = 9;
+}
+
+enum eDrawReasonType
+{
+	E_RECHARGE_PAY_TYPE_VIP_DRAW	= 1; //VIP
+}
+
+//充值时的支付类型
+enum eRechargeResonType
+{
+	E_RECHARGE_PAY_TYPE_VIP_RECHARGE	= 1; //VIP
+	E_RECHARGE_PAY_TYPE_WEB_ZHUANGZHANG_PLATFORM       = 2;		//平台web手动充值
+	E_RECHARGE_PAY_TYPE_POINTCARD      = 3;		//点卡
+	E_RECHARGE_PAY_TYPE_ALIPAY         = 4;		//支付宝
+	E_RECHARGE_PAY_TYPE_TENPAY         = 5;		//财付通微支付
+	E_RECHARGE_PAY_TYPE_APPLE          = 6;     //苹果支付
+	E_RECHARGE_PAY_TYPE_YINGYONGBAO    = 7;     //应用宝支付(米大师)
+};
+
+enum eGameBalanceOperationWinReason
+{
+	E_GAME_BALANCE_REASON_PLAY_GAME_WIN       = 0; //游戏博弈win
+	E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_WIN     = 1;   //赢局或赢分后抽奖消耗
+  E_GAME_BALANCE_REASON_WIN_MAX = 2;
+}
+
+enum eGameBalanceOperationLostReason
+{
+	E_GAME_BALANCE_REASON_PLAY_GAME_LOST      = 0;	//参与游戏消耗
+	E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_LOST     = 1;   //赢局或赢分后抽奖消耗
+	E_GAME_BALANCE_REASON_LOST_MAX = 2;
+}
+
+enum eGiveMoneyReason
+{
+	E_GIVE_MONEY_REASON_WEB_SYSTEM         = 0;  //Web直接赠送
+	E_GIVE_MONEY_REASON_PROMOTE        = 1;  //推广活动赠送
+	E_GIVE_MONEY_REASON_FIRST_RECHARGE = 2;  //首次充值赠送
+	E_GIVE_MONEY_REASON_BUY_PROP       = 3;  //购买道具或者道具包赠送
+
+	E_GIVE_MONEY_SHARE_GAME            = 4;  //用户分享游戏, 赠送
+	E_GIVE_MONEY_REASON_RECLAIM_PROP   = 5;  //回收道具赠送
+	E_GIVE_MONEY_REASON_FIRST_REGISTER = 6;  //首次注册赠送
+	E_GIVE_MONEY_REASON_PLAT_USER_CHANGE_TO_AGENT_USER = 7; //平台用户通过推荐码成为代理的下线用户
+	E_GIVE_MONEY_REASON_FINISH_TASK    = 8;  //完成任务, 赠送任务奖励
+	E_GIVE_MONEY_REASON_RELIF_FUND     = 9; //救济金赠送
+	E_GIVE_MONEY_REASON_EVERYDAY_LOGIN_COMMERCE = 10; //商务产品，每日登陆赠送金币
+	E_GIVE_MONEY_REASON_COMPLETE_USER_INFO      = 11; //品牌电玩, 完善用户信息赠送
+	E_GIVE_MONEY_REASON_TOOL_CMD                    = 12; //手动修改
+	E_GIVE_MONEY_REASON_PROMOTE_PROFIT              = 13; //推广收益, (推广员在后台领取收益, 直接走后台加币接口)
+	E_GIVE_MONEY_REASON_MAX = 14;
+}
+
+
+//币种兑换原因
+enum eMoneyExchangeReason
+{
+	E_EXCHANGE_REASON_SAVE_MONEY = 0;
+	E_EXCHANGE_REASON_DRAW_MONEY = 1;
+	E_EXCHANGE_REASON_MAX = 2;
+};
+
+//转账原因
+enum eMoneyTransferReason
+{
+	E_TRANSFER_REASON_USER = 0; //用户主动转账
+	E_TRANSFER_REASON_FROM_USER = 1; //接受用户主动转账
+	E_TRANSFER_REASON_VIP_ZHUANRU = 2; //vip 转入
+	E_TRANSFER_REASON_VIP_ZHUANCHU = 3; //VIP 转出
+	E_TRANSFER_REASON_VIP_TO_VIP = 4; //VIP 转 VIP
+  E_TRANSFER_REASON_MAX = 5;
+};
+
+message GamePlayerWealthData
+{
+	optional uint64  	  player_id = 1;
+	optional int64       recharge = 2;                  //充值累计
+	optional int64       total_lost = 3;                 //输分累计
+	optional int64       total_win = 4;                  //赢分累计
+	optional int64       this_game_lost = 5;              //本游戏输分累计
+	optional int64       this_game_win = 6;               //本游戏赢分累计	
+}
+
+message GamePlayerDetailData
+{
+	optional uint64  	  player_id = 1;
+	optional int64 	  	cur_money = 2;
+	optional uint32     vip_level = 3;
+	optional uint32 	  sex = 4;
+	optional int32 		  chair_id = 5;
+	optional string 	  nick_name = 6[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional uint32 	  face = 7;
+	optional bool       isRobot = 8;
+}
+
+message GamePlayerAchievementData
+{
+	optional uint64     cur_ach = 2;
+	optional uint64			cur_fee = 3;
+}
+
+message UserSimpleData
+{
+	optional uint64 userid = 1; //UserID用户ID
+	optional string nickname = 2[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional uint32 face = 3; //VipLevelVIP等级
+	optional uint32 gender = 4; //
+	optional uint32 age = 5;//
+	optional uint64 show_userid = 6;
+	optional uint32 vip_level = 7;
+}
+
+//bank data银行数据
+message UserBankInfo
+{
+	repeated uint64 record_id = 1[(yd_fieldoptions.field_arysize) = 1000];	//玩家银行赠送记录
+}
+
+message tbUserMiscInfo
+{
+	required uint64 user_id 			= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional UserBankInfo bank_info		= 2;
+}
+
+// RankCommon
+enum enRankType
+{
+	E_RANK_TYPE_NONE            = 0;
+	E_RANK_TYPE_GOLD            = 1; //
+	E_RANK_TYPE_TODAY_WIN_GOLD  = 2;
+}
+
+message RankCommonInfo
+{
+	optional uint64 id = 1;
+	optional int32  rank = 2;
+}
+
+message RankCommonScore
+{
+	optional uint64 id = 1;
+	optional uint64 score = 2;
+}
+
+message RankCommonBody
+{
+	repeated RankCommonScore score_list = 1[(yd_fieldoptions.field_arysize) = 5001];
+	repeated RankCommonInfo  info_list  = 2[(yd_fieldoptions.field_arysize) = 5001];
+}
+
+message tbRankCommon
+{
+	optional int32 id4db = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional RankCommonBody body = 2[(yd_fieldoptions.field_bufsize)=1600000];
+}
+
+message RobotCommonData
+{
+	optional uint64 robot_id = 1;
+	optional string nickname = 2[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional uint32 face_id = 3;
+	optional uint32 age = 4;
+	optional uint32 gender = 5;
+	optional uint64 jetton = 6;
+	optional bool is_use = 7;
+}
+
+message RobotCommonBody
+{
+	repeated RobotCommonData robot_data = 1[(yd_fieldoptions.field_arysize) = 1000];
+}
+
+message tbGameRobot
+{
+	optional int32 id4db = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional RobotCommonBody body = 2[(yd_fieldoptions.field_bufsize)=1600000];
+}
+
+enum EventLogType
+{
+	EN_EVENTLOG_GIVE_BANK_JETTON                 = 1;       //银行赠送
+	EN_EVENTLOG_MAX                         		= 20;		   //最大值，如果超了修改更新
+}
+
+message EventLogData
+{
+	optional EventLogType                    event_type     	= 1;
+}
+
+message tbEventLog
+{
+	optional uint64 user_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional uint64 event_id = 2 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional int32  create_time = 3;	//创建时间
+	optional int32  expire_time = 4;	//过期时间
+	optional EventLogData data = 5;	//数据
+}
+
+message LoginCommonData
+{
+	optional uint32 aread_id = 1;
+	optional uint64 agent_id = 2;
+	optional uint32 channel_id = 3;
+	optional uint32 referral_code = 4;
+	optional string platform_os = 5[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string country = 6[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string province = 7[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string city = 8[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string ip = 9[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string phone_mode = 10[(yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+	optional string device_id = 11[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+}
+
+message LogMoneyDetail
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+  ///////////////////////////////////////////////////////////////
+
+	optional uint32  game_id = 20[(yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                         /*   game_id */
+	optional uint32  room_id = 21[(yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];													/*   room_id */
+	optional uint32  desk_id = 22[(yd_fieldoptions.db_field_comment) = "桌子ID"];													/*   desk_id */
+	optional uint32  chair_id = 23[(yd_fieldoptions.db_field_comment) = "椅子ID"];											/*   chair_id */
+	optional uint32  account_type = 24[(yd_fieldoptions.db_field_comment) = "账号类型"];
+	optional uint32  opt_type = 26[(yd_fieldoptions.db_field_comment) = "操作类型"];
+  optional uint32 opt_reason = 27[(yd_fieldoptions.db_field_comment) = "操作缘由"];
+	optional uint64 all_jetton = 28[(yd_fieldoptions.db_field_comment) = "全部金币"];
+	optional uint64 jetton = 29[(yd_fieldoptions.db_field_comment) = "身上金币"];;
+	optional uint64 bank_jetton = 30[(yd_fieldoptions.db_field_comment) = "银行金币"];;
+	optional uint64 change_count = 31[(yd_fieldoptions.db_field_comment) = "改变数量"];
+	optional uint64 agent_id = 32[(yd_fieldoptions.db_field_comment) = "上级代理ID"];;
+	optional string ip = 33 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "IP地址"];
+	optional uint64  record_id = 34[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏记录索引"];
+}
+
+message LogGameRecordDetail
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+	optional uint64  record_id = 20[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏记录索引"];
+	optional uint32  game_id = 21[(yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                         /*   game_id */
+	optional uint32  room_id = 22[(yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];													/*   room_id */
+	optional uint32  desk_id = 23[(yd_fieldoptions.db_field_comment) = "桌子ID"];													/*   desk_id */
+	optional uint32  chair_id = 24[(yd_fieldoptions.db_field_comment) = "椅子ID"];											/*   chair_id */
+	optional string  result_info = 25[(yd_fieldoptions.field_bufsize)=1024, (yd_fieldoptions.db_field_bufsize)=1024, (yd_fieldoptions.db_field_comment) = "开奖结果"];
+	optional uint64  pour_jetton = 26[(yd_fieldoptions.db_field_comment) = "下注总额"];
+	optional int64   win_jetton = 27[(yd_fieldoptions.db_field_comment) = "盈利总和"];
+	optional uint64  tax_jetton = 28[(yd_fieldoptions.db_field_comment) = "税收总额"];
+	optional string  win_list = 29[(yd_fieldoptions.field_bufsize)=1024, (yd_fieldoptions.db_field_bufsize)=1024, (yd_fieldoptions.db_field_comment) = "压住在赢的区域列表"];
+	optional string  lost_list = 30[(yd_fieldoptions.field_bufsize)=1024, (yd_fieldoptions.db_field_bufsize)=1024, (yd_fieldoptions.db_field_comment) = "压住在输区域列表"];
+}
+
+message LogGameDetail
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_comment) = "庄家ID"];                        /*   玩家ID */
+	optional string user_name = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "庄家昵称"];													  /*   玩家名-Base64 */
+	///////////////////////////////////////////////////////////////
+
+	optional uint64  record_id = 20[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏记录索引"];
+	optional uint32  game_id = 21[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                           /*   game_id */
+	optional uint32  room_id = 22[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];    													/*   room_id */
+	optional uint32  desk_id = 23[(yd_fieldoptions.db_field_comment) = "桌子ID"];
+	optional string  bet_info = 24[(yd_fieldoptions.field_bufsize)=1024, (yd_fieldoptions.db_field_bufsize)=1024, (yd_fieldoptions.db_field_comment) = "游戏下注信息"];
+	optional string  result_info = 25[(yd_fieldoptions.field_bufsize)=1024, (yd_fieldoptions.db_field_bufsize)=1024, (yd_fieldoptions.db_field_comment) = "游戏结果信息"];
+	optional uint64  game_time = 26[(yd_fieldoptions.db_field_comment) = "游戏时间"];
+}
+
+message tbLogGameDay
+{
+	optional string  date_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.field_bufsize)=32, (yd_fieldoptions.db_field_bufsize)=32, (yd_fieldoptions.db_field_comment) = "ID"];
+	optional uint32  game_id = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                         /*   game_id */
+	optional uint32  room_id = 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];													/*   room_id */
+	optional uint64  all_pour = 4[(yd_fieldoptions.db_field_comment) = "总投注"];
+	optional uint64  pour_day = 5[(yd_fieldoptions.db_field_comment) = "今日投注"];
+	optional uint64  pour_week = 6[(yd_fieldoptions.db_field_comment) = "周投注"];
+	optional uint64  pour_month = 7[(yd_fieldoptions.db_field_comment) = "月投注"];
+	optional int64   all_win = 8[(yd_fieldoptions.db_field_comment) = "总输赢"];
+	optional int64   win_day = 9[(yd_fieldoptions.db_field_comment) = "今日输赢"];
+	optional int64   win_week = 10[(yd_fieldoptions.db_field_comment) = "周输赢"];
+	optional int64   win_month = 11[(yd_fieldoptions.db_field_comment) = "月输赢"];
+	optional uint64  all_fee = 12[(yd_fieldoptions.db_field_comment) = "总抽水"];
+	optional uint64  fee_day = 13[(yd_fieldoptions.db_field_comment) = "今日抽水"];
+	optional uint64  fee_week = 14[(yd_fieldoptions.db_field_comment) = "周抽水"];
+	optional uint64  fee_month = 15[(yd_fieldoptions.db_field_comment) = "月抽水"];
+	optional string  stat_time = 16[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=32, (yd_fieldoptions.db_field_bufsize)=32, (yd_fieldoptions.db_field_comment) = "统计日期"];
+}
+
+enum WhiteBlackState
+{
+	WHITE_BLACK_STATE_NONE = 0; //不起作用
+	WHITE_BLACK_STATE_USEING = 1; //运行中
+	WHITE_BLACK_STATE_TIMEOUT = 2; //过期
+	WHITE_BLACK_STATE_FINISH = 3; //完成
+}
+
+enum WhiteBlackRosterType
+{
+	WHITE_BLACK_ROSTER_TYPE_BLACK = 0; //黑名单
+	WHITE_BLACK_ROSTER_TYPE_WHITE = 1; //白名单
+}
+
+message tbGameUserManagerData
+{
+	optional uint64 id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional uint64 user_id = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+  optional string create_date = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "创建日期"];
+  optional uint32 roster_type = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "类型:0=黑名单,1=白名单"];
+  optional uint64 start_time = 6[(yd_fieldoptions.db_field_comment) = "开始时间"];
+  optional uint64 end_time = 7[(yd_fieldoptions.db_field_comment) = "结束时间"];
+	optional uint32  game_id = 8[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                         /*   game_id */
+	optional uint32  room_id = 9[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];
+	optional uint32 state = 10[(yd_fieldoptions.db_field_comment) = "状态:0=不起作用,1=运行中,2=过期,3=完成"];
+	optional int64 opt_mark = 11[(yd_fieldoptions.db_field_comment) = "输盈最大总额"]; //赢输总额标记，一旦达到这个额度。那么对应的控制就会失效
+	optional float  rate_mark = 12[(yd_fieldoptions.db_field_comment) = "输盈概率"]; //
+	optional int32  control_level = 13[(yd_fieldoptions.db_field_comment) = "控制等级:-5=难-等级5,-4=难-等级4,-3=非常难,-2=很难,-1=难,0=正常,1=容易,2=很容易,3=非常容易,4=易-等级4,5=易-等级5"]; //
+	optional uint64 max_win_jetton = 14[(yd_fieldoptions.db_field_comment) = "单次最大赢筹码"]; //
+	optional int64 cur_win = 15[(yd_fieldoptions.db_field_comment) = "当前输盈总额"];
+}
+
+message tbMachineManagerData
+{
+	optional uint64 id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=1];
+	optional string device_id = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "机器码"];
+	optional string create_date = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "创建日期"];
+	optional uint32 roster_type = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "类型:0=黑名单,1=白名单"];
+	optional uint64 start_time = 6[(yd_fieldoptions.db_field_comment) = "开始时间"];
+	optional uint64 end_time = 7[(yd_fieldoptions.db_field_comment) = "结束时间"];
+	optional uint32  game_id = 8[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,2001=大闹天空2,2002=大闹天空,2003=欢乐捕鱼3D,2004=海王"];                         /*   game_id */
+	optional uint32  room_id = 9[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "房间ID:1=体验场,2=初级场,3=普通场,4=中级场,5=高级场"];
+	optional uint32 state = 10[(yd_fieldoptions.db_field_comment) = "状态:0=不起作用,1=运行中,2=过期,3=完成"];
+	optional int64 opt_mark = 11[(yd_fieldoptions.db_field_comment) = "输盈最大总额"]; //赢输总额标记，一旦达到这个额度。那么对应的控制就会失效
+	optional float  rate_mark = 12[(yd_fieldoptions.db_field_comment) = "输盈概率"]; //
+	optional int32  control_level = 13[(yd_fieldoptions.db_field_comment) = "控制等级:-5=难-等级5,-4=难-等级4,-3=非常难,-2=很难,-1=难,0=正常,1=容易,2=很容易,3=非常容易,4=易-等级4,5=易-等级5"]; //
+	optional uint64 max_win_jetton = 14[(yd_fieldoptions.db_field_comment) = "单次最大赢筹码"]; //
+	optional int64 cur_win = 15[(yd_fieldoptions.db_field_comment) = "当前输盈总额"];
+}
+
+message Sheet_tbGameUserManagerData
+{
+	repeated tbGameUserManagerData tbGameUserManagerData_List = 1[(yd_fieldoptions.field_arysize)=5000];
+}
+
+enum GMCtrlGiveDataControlType {
+	GM_CTRL_GIVE_DATA_STATE_GIVE_CAIJING_BY_RATE = 0;
+	GM_CTRL_GIVE_DATA_STATE_GIVE_BONUS = 1;
+	GM_CTRL_GIVE_DATA_STATE_GIVE_FREE_GAME = 2;
+};
+
+enum GMCtrlGiveDataState
+{
+	GM_CTRL_GIVE_DATA_STATE_NONE = 0; //不起作用
+	GM_CTRL_GIVE_DATA_STATE_WAITING = 1; //待送
+	GM_CTRL_GIVE_DATA_STATE_TIMEOUT = 2; //过期
+	GM_CTRL_GIVE_DATA_STATE_FINISH = 3; //已送
+}
+
+enum GMCtrlGiveDataJackpotType
+{
+		GM_CTRL_GIVE_DATA_JACKPOT_TYPE_GENERAL = 0; //普通彩金
+	GM_CTRL_GIVE_DATA_JACKPOT_TYPE_LITTLE = 1; //小彩金
+	GM_CTRL_GIVE_DATA_JACKPOT_TYPE_MIDDLE = 2; //中彩金
+	GM_CTRL_GIVE_DATA_JACKPOT_TYPE_BIG = 3; //大彩金
+	GM_CTRL_GIVE_DATA_JACKPOT_TYPE_TOO_BIG = 4; //超级彩金
+}
+
+message tbGmCtrlGiveCtrlData
+{
+	optional uint64 id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional uint64 user_id = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	optional string create_date = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "创建日期"];
+	optional uint32 control_type = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "类型:0=游戏内送彩金,1=送bouns,2=送免费小游戏"];
+	optional uint64 start_time = 6[(yd_fieldoptions.db_field_comment) = "开始时间"];
+	optional uint64 end_time = 7[(yd_fieldoptions.db_field_comment) = "结束时间"];
+	optional uint32  game_id = 8[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "游戏ID:1001=水果玛丽,1002=幸运转轮,1003=水浒传,1004=鼠来宝,1005=福星高照,1006=跳高高,1007=女赌神,1008=疯狂的猴子"];                         /*   game_id */
+	optional uint32 state = 9[(yd_fieldoptions.db_field_comment) = "状态:0=不起作用,1=待送,2=过期,3=已送"];
+	optional int32 jackpot_type = 10[(yd_fieldoptions.db_field_comment) = "送彩金类型:0=普通彩金, 1=小彩金, 2=中彩金, 3=大彩金, 4=超级彩金"]; //
+	optional float jackpot_rate = 11[(yd_fieldoptions.db_field_comment) = "送彩金的百分比"]; //
+	optional uint64 jackpot_jetton = 12[(yd_fieldoptions.db_field_comment) = "送彩金金额"]; //
+}
+
+message Sheet_tbGmCtrlGiveCtrlData
+{
+	repeated tbGmCtrlGiveCtrlData tbGmCtrlGiveCtrlData_List = 1[(yd_fieldoptions.field_arysize)=5000];
+}
+
+message LogVipRechargeRecord
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+  optional uint64 amount = 20[(yd_fieldoptions.db_field_comment) = "充值金额"];
+	optional uint32 recharge_id = 21[(yd_fieldoptions.db_field_comment) = "充值者ID"];
+	optional string recharge_name = 22 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "充值者昵称"];													  /*   -Base64 */
+  optional uint64 status = 23[(yd_fieldoptions.db_field_comment) = "状态:0=成功 1=失败"];
+}
+
+message LogZhuangRecord
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+	optional int64 amount = 20[(yd_fieldoptions.db_field_comment) = "充值金额"];
+	optional uint64 status = 21[(yd_fieldoptions.db_field_comment) = "状态:0=成功 1=失败"];
+}
+
+message LogRechargeOrder
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+	optional string order_id = 20[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "订单ID"];
+	optional uint32 pay_id = 21[(yd_fieldoptions.db_field_comment) = "支付类型"];
+	optional string pay_channel = 22[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "充值渠道"];
+	optional uint32 pay_type = 23[(yd_fieldoptions.db_field_comment) = "充值:0=支付宝,1=微信,3=银联"];
+	optional string ch_order_id = 24[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "渠道获得的ID"];
+	optional uint32 state = 25[(yd_fieldoptions.db_field_comment) = "支付状态:0=收到支付回调，支付成功,1=发起支付请求,2=返回失败"];
+}
+
+message LogGiveMoneyRecord
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "玩家ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+  optional uint32 type = 20[(yd_fieldoptions.db_field_comment) = "赠送类型:0=Web直接赠送"];
+	optional uint64 amount = 21[(yd_fieldoptions.db_field_comment) = "赠送金额"];
+	optional uint64 status = 22[(yd_fieldoptions.db_field_comment) = "状态:0=成功 1=失败"];
+}
+
+message tbLogSystemDay
+{
+	optional string  date_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.field_bufsize)=32, (yd_fieldoptions.db_field_bufsize)=32, (yd_fieldoptions.db_field_comment) = "统计日期"];
+	optional uint32 active_player = 2[(yd_fieldoptions.db_field_comment) = "活跃玩家"];
+	optional uint32 login_count = 3[(yd_fieldoptions.db_field_comment) = "登录次数"];
+	optional uint32 valid_player = 4[(yd_fieldoptions.db_field_comment) = "有效玩家"]; //有效玩家，每天登录进去，最少呆了15分钟的
+  optional uint32 new_player = 5[(yd_fieldoptions.db_field_comment) = "新增玩家"];
+  optional uint32 pay_player = 6[(yd_fieldoptions.db_field_comment) = "付费人数"];
+  optional uint32 pay_times = 7[(yd_fieldoptions.db_field_comment) = "付费次数"];
+  optional uint64 pay_all = 8[(yd_fieldoptions.db_field_comment) = "付费总额"];
+	optional uint32 new_pay_player = 9[(yd_fieldoptions.db_field_comment) = "付费新玩家人数"];
+	optional uint32 new_pay_all = 100[(yd_fieldoptions.db_field_comment) = "付费新玩家总额"];
+
+	optional uint64  commission_all = 10[(yd_fieldoptions.db_field_comment) = "佣金发放总额"];
+	optional uint64  all_fee = 11[(yd_fieldoptions.db_field_comment) = "税收总和"];
+	optional uint64  all_pour = 12[(yd_fieldoptions.db_field_comment) = "投注总和"];
+	optional int64  all_win = 13[(yd_fieldoptions.db_field_comment) = "系统盈利总和"];
+	optional uint64  jetton_init = 14[(yd_fieldoptions.db_field_comment) = "每日初始值"];
+	optional uint64  all_draw = 15[(yd_fieldoptions.db_field_comment) = "出款总额"];
+	optional uint64  jetton_in = 16[(yd_fieldoptions.db_field_comment) = "系统进项"];
+	optional uint64  jetton_out = 17[(yd_fieldoptions.db_field_comment) = "系统出款总额"];
+	optional uint64  sys_award = 18[(yd_fieldoptions.db_field_comment) = "系统发放奖励总额"];
+	optional uint64  player_jetton = 19[(yd_fieldoptions.db_field_comment) = "玩家金币库存"];
+	optional uint64  trd_pay_all = 20[(yd_fieldoptions.db_field_comment) = "第三方支付总额"];
+	optional uint64  vip_pay_all = 21[(yd_fieldoptions.db_field_comment) = "vip支付总额"];
+	optional uint64  zhuangzhang_all = 22[(yd_fieldoptions.db_field_comment) = "充值转账总额"];
+	optional uint64  activity_award = 23[(yd_fieldoptions.db_field_comment) = "活动奖励总额"];
+	optional uint64  all_bank_jetton = 25[(yd_fieldoptions.db_field_comment) = "全部银行库存"];
+	optional uint64  freeze_jetton = 26[(yd_fieldoptions.db_field_comment) = "被冻结的库存"];
+	optional uint64  all_jetton = 27[(yd_fieldoptions.db_field_comment) = "全部库存"];
+	optional uint64  all_player = 28[(yd_fieldoptions.db_field_comment) = "玩家总数"];
+	optional uint64  active_seven = 29[(yd_fieldoptions.db_field_comment) = "最近7日日活"];
+	optional uint64  active_thirty = 30[(yd_fieldoptions.db_field_comment) = "最近30天日活"];
+	optional uint64  pour_day_all = 31[(yd_fieldoptions.db_field_comment) = "今日投注"];
+	optional uint64  pour_week_all = 32[(yd_fieldoptions.db_field_comment) = "周投注"];
+	optional uint64  pour_month_all = 33[(yd_fieldoptions.db_field_comment) = "月投注"];
+	optional int64  sys_win_day = 34[(yd_fieldoptions.db_field_comment) = "系统今日盈利"];
+	optional int64  sys_win_week = 35[(yd_fieldoptions.db_field_comment) = "系统周盈利"];
+	optional int64  sys_win_month = 36[(yd_fieldoptions.db_field_comment) = "系统月盈利"];
+	optional uint64  fee_day = 37[(yd_fieldoptions.db_field_comment) = "每日抽水"];
+	optional uint64  fee_week = 38[(yd_fieldoptions.db_field_comment) = "每周抽水"];
+	optional uint64  fee_month = 39[(yd_fieldoptions.db_field_comment) = "每月抽水"];
+	optional uint64  commision_all = 40[(yd_fieldoptions.db_field_comment) = "佣金总额"];
+	optional uint64  commision_take = 41[(yd_fieldoptions.db_field_comment) = "取出佣金总额"];
+	optional uint64  commision_day = 42[(yd_fieldoptions.db_field_comment) = "每日佣金"];
+	optional uint64  commision_week = 43[(yd_fieldoptions.db_field_comment) = "每周佣金"];
+	optional uint64  commision_month = 44[(yd_fieldoptions.db_field_comment) = "每月佣金"];
+	optional uint64  max_online = 45[(yd_fieldoptions.db_field_comment) = "当然最大在线人数"];
+	optional uint64 win_cost_value = 46[(yd_fieldoptions.db_field_comment) = "出差值"];
+	optional uint64 day_money_value = 47[(yd_fieldoptions.db_field_comment) = "当日库存"];
+	optional uint64  pay_day = 48[(yd_fieldoptions.db_field_comment) = "每日付费"];
+	optional uint64  pay_week = 49[(yd_fieldoptions.db_field_comment) = "每周付费"];
+	optional uint64  pay_month = 50[(yd_fieldoptions.db_field_comment) = "每月付费"];
+	optional uint64  draw_day = 51[(yd_fieldoptions.db_field_comment) = "每日出款"];
+	optional uint64  draw_week = 52[(yd_fieldoptions.db_field_comment) = "每周出款"];
+	optional uint64  draw_month = 53[(yd_fieldoptions.db_field_comment) = "每月出款"];
+	optional uint64  trd_pay_day = 54[(yd_fieldoptions.db_field_comment) = "每日第三方支付"];
+	optional uint64  trd_pay_week = 55[(yd_fieldoptions.db_field_comment) = "每周第三方支付"];
+	optional uint64  trd_pay_month = 56[(yd_fieldoptions.db_field_comment) = "每月第三方支付"];
+	optional uint64  vip_pay_day = 57[(yd_fieldoptions.db_field_comment) = "每日vip支付"];
+	optional uint64  vip_pay_week = 58[(yd_fieldoptions.db_field_comment) = "每周vip支付"];
+	optional uint64  vip_pay_month = 59[(yd_fieldoptions.db_field_comment) = "每月vip支付"];
+	optional uint64  zhuangzhang_day = 60[(yd_fieldoptions.db_field_comment) = "每日充值转账"];
+	optional uint64  zhuangzhang_week = 61[(yd_fieldoptions.db_field_comment) = "每周充值转账"];
+	optional uint64  zhuangzhang_month = 62[(yd_fieldoptions.db_field_comment) = "每月充值转账"];
+	optional uint64  give_day = 63[(yd_fieldoptions.db_field_comment) = "每日赠送"];
+	optional uint64  give_week = 64[(yd_fieldoptions.db_field_comment) = "每周赠送"];
+	optional uint64  give_month = 65[(yd_fieldoptions.db_field_comment) = "每月赠送"];
+	optional uint64  all_give = 66[(yd_fieldoptions.db_field_comment) = "赠送总额"];
+	optional uint64  all_vip_zhuanru = 67[(yd_fieldoptions.db_field_comment) = "VIP总转入"];
+	optional uint64  today_vip_zhuanru = 68[(yd_fieldoptions.db_field_comment) = "VIP今日转入"];
+	optional uint64  week_vip_zhuanru = 69[(yd_fieldoptions.db_field_comment) = "VIP周转入"];
+	optional uint64  month_vip_zhuanru = 70[(yd_fieldoptions.db_field_comment) = "VIP月转入"];
+	optional uint64  all_vip_zhuanchu = 71[(yd_fieldoptions.db_field_comment) = "VIP总转出"];
+	optional uint64  today_vip_zhuanchu = 72[(yd_fieldoptions.db_field_comment) = "VIP今日转出"];
+	optional uint64  week_vip_zhuanchu = 73[(yd_fieldoptions.db_field_comment) = "VIP周转出"];
+	optional uint64  month_vip_zhuanchu = 74[(yd_fieldoptions.db_field_comment) = "VIP月转出"];
+}
+
+message tbRedeemCode
+{
+	optional string	id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "ID"];
+	optional uint64 gold = 2[(yd_fieldoptions.db_field_comment) = "点卡额度"];
+	optional uint64 create_time = 3[(yd_fieldoptions.db_field_comment) = "创建时间"];
+	optional string code_name = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "代号名"];
+	optional uint32 state = 6[(yd_fieldoptions.db_field_comment) = "状态:0=未使用,1=已使用"];
+	optional uint64 user_id = 7[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "使用玩家ID"];
+	optional uint64 use_time = 8[(yd_fieldoptions.db_field_comment) = "使用时间"];
+}
+
+message LogRedeemCodeRechargeRecord
+{
+	////////////////////////////////1-20///////////////////////////
+	optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];                         /*   游戏事件ID */
+	optional uint32  sequence = 2;													/*   日志事件的序列号 */
+	optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+	optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "时间"];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+	optional uint64 user_id = 5[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "充值者ID"];
+	optional string user_name = 6 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "充值者昵称"];													  /*   -Base64 */
+	///////////////////////////////////////////////////////////////
+
+	optional uint64 amount = 20[(yd_fieldoptions.db_field_comment) = "充值金额"];
+	optional uint64 status = 21[(yd_fieldoptions.db_field_comment) = "状态:0=成功 1=失败"];
+}
+
+//游戏房间统计
+message GameRoomStat
+{
+	optional uint64 cur_fee = 1; //当前抽水
+	optional uint64 cur_pour = 2; //当前投注
+	optional int64 cur_win = 3; //当前输赢
+}
+
+//玩家投注信息
+message GamePlayerPourInfo
+{
+  optional uint64 user_id = 1;
+  optional int64 pour = 2;
+}
+
+message GameTablePourInfo
+{
+	repeated GamePlayerPourInfo pour_info = 1;
+}

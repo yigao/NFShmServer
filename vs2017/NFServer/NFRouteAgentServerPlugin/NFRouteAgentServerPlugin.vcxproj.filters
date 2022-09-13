@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServer\NFRouteAgentServer\NFRouteAgentServerPlugin\NFRouteAgentServerPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFRouteAgentServer\NFRouteAgentServerPlugin\NFRouteAgentServerModule.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServer\NFRouteAgentServer\NFRouteAgentServerPlugin\NFRouteAgentServerPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFRouteAgentServer\NFRouteAgentServerPlugin\NFRouteAgentServerModule.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFCommHead\NFIRouteAgentServerModule.h" />
+  </ItemGroup>
+</Project>

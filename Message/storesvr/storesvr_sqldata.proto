@@ -1,0 +1,183 @@
+package storesvr_sqldata;
+
+// 关于运算符的定义 http://msdn.microsoft.com/zh-cn/library/ms174986.aspx
+
+// 逻辑运算
+enum storesvr_logic_operator {
+	E_LOGICOP_AND	= 1;
+	E_LOGICOP_OR	= 2;
+	E_LOGICOP_NONE	= 3;
+};
+
+// 比较运算
+enum storesvr_cmp_operator {
+	E_CMPOP_EQUAL	= 1;
+	E_CMPOP_GREATER	= 2;
+	E_CMPOP_LESS	= 3;
+	E_CMPOP_GREATEREQUAL	= 4;
+	E_CMPOP_LESSEQUAL	= 5; 
+	E_CMPOP_NOTEQUAL	= 6;
+};
+
+enum storesvr_column_type {
+	E_COLUMNTYPE_STRING	= 1;
+	E_COLUMNTYPE_NUM	= 2;	
+};
+
+message storesvr_vk {
+	optional string	column_name		= 1;				// 字段名称
+	optional string column_value	= 2;				// 字段值
+	optional storesvr_cmp_operator cmp_operator = 3;	//
+	optional storesvr_column_type column_type = 4 [default = E_COLUMNTYPE_NUM];
+	optional storesvr_logic_operator logic_operator = 5 [default = E_LOGICOP_NONE];	// 多个条件的相互关系
+};
+
+message storesvr_wherecond {
+	optional uint64 mod_key						= 1;	// 用来取模用
+	repeated storesvr_vk where_conds			= 2;	// 可能有多个查询条件，
+	optional string where_additional_conds 		= 3;	// where的附加条件，例如limit、orderby, 调用端写好，storesvr会附加在查询的最后。
+};
+
+message storesvr_baseinfo {
+	optional string dbname				= 1;
+	optional string tbname				= 2;
+	optional string clname              = 3; //class name
+};
+
+message storesvr_opres {
+	optional uint64 mod_key				= 1;
+	optional string zdb_errmsg			= 2; // libzdb失败的错误原因
+};
+
+//--------------------------------------------------------------------------------------------------
+// 条件查询
+// select的数据包
+message storesvr_sel {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_wherecond  sel_cond		= 2;
+};
+
+// select返回数据
+message storesvr_sel_res {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional storesvr_opres		 sel_opres	= 2;	// 查询结果
+	optional bool	is_lastbatch			= 3;	// 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
+	optional int32  row_count				= 4;	// 查询返回行数
+	repeated bytes  sel_records				= 5;	// 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
+};
+
+//--------------------------------------------------------------------------------------------------
+// 对象查询
+message storesvr_selobj {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional uint64 mod_key						= 2;	// db+table取模值
+	optional bytes  sel_record					= 3;	// 查询条件就是对象的key字段
+};
+
+// select返回数据
+message storesvr_selobj_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres		sel_opres		= 2;	// 查询结果
+	optional bytes  sel_record					= 3;	// select的结果
+};
+
+//--------------------------------------------------------------------------------------------------
+// insert 
+message storesvr_ins {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	optional bytes  ins_record				= 3;	// insert对象序列化后buffer
+};
+
+message storesvr_ins_res {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional storesvr_opres		 ins_opres	= 2;	// 插入结果
+}
+//--------------------------------------------------------------------------------------------------
+// delete 条件删除
+message storesvr_del {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_wherecond  del_cond		= 2;	// 删除的条件	,可以有多个条件
+};
+
+message storesvr_del_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres      del_opres		= 2;	// 删除的结果
+};
+//--------------------------------------------------------------------------------------------------
+// delete 对象删除
+message storesvr_delobj {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional uint64 mod_key						= 2;	// db+table取模值
+	optional bytes  del_record					= 3;	// 查询条件就是对象的key字段
+};
+
+message storesvr_delobj_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres      del_opres		= 2;	// 删除的结果
+};
+
+//--------------------------------------------------------------------------------------------------
+// update
+message storesvr_mod {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_wherecond  mod_cond		= 2;
+	optional bytes  mod_record				= 3;	// 对象protobuf序列化后的的buf
+};
+
+// select返回数据
+message storesvr_mod_res {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional storesvr_opres		 mod_opres	= 2;	// 更新的结果
+};
+
+message storesvr_modobj {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	optional bytes  mod_record				= 3;	// 对象protobuf序列化后的的buf
+};
+
+message storesvr_modobj_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres	 mod_opres		= 2;	// 更新的结果
+};
+
+//--------------------------------------------------------------------------------------------------
+// update+insert
+message storesvr_modins {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_wherecond  mod_cond		= 2;
+	optional bytes  mod_record				= 3;	// 对象protobuf序列化后的的buf
+};
+
+// select返回数据
+message storesvr_modins_res {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional storesvr_opres		 mod_opres	= 2;	// 更新的结果
+};
+
+message storesvr_modinsobj {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	optional bytes  modins_record			= 3;	// 对象protobuf序列化后的的buf
+};
+
+message storesvr_modinsobj_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres		 modins_opres	= 2;	// 更新的结果
+};
+
+//--------------------------------------------------------------------------------------------------
+// execute
+message storesvr_execute {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	optional bytes  execute_record			= 3;	// execute sql
+};
+
+message storesvr_execute_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres		 exe_opres	= 2;	// 更新的结果
+};
+
+

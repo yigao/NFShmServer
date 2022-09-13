@@ -1,0 +1,37 @@
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+import "proto_kernel.proto";
+
+package proto_ff;
+
+message AccountRegisterFlow
+{
+  ////////////////////////////////1-20///////////////////////////
+  optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];                         /*   游戏事件ID */
+  optional uint32  sequence = 2;													/*   日志事件的序列号 */
+  optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+  optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+  optional uint64 user_id = 5;                        /*   玩家ID */
+  optional string user_name = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];													  /*   玩家名-Base64 */
+  ///////////////////////////////////////////////////////////////
+
+  optional string account = 20;
+  optional string ip = 21;
+  optional int32 result = 22;
+}
+
+message AccountLoginFlow
+{
+  ////////////////////////////////1-20///////////////////////////
+  optional uint64	event_id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];                         /*   游戏事件ID */
+  optional uint32  sequence = 2;													/*   日志事件的序列号 */
+  optional string bus_name = 3 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];											/*   登录的游戏服务器编号 */
+  optional string event_time = 4 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];                       /*   游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS */
+  optional uint64 user_id = 5;                        /*   玩家ID */
+  optional string user_name = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];													  /*   玩家名-Base64 */
+  ///////////////////////////////////////////////////////////////
+
+  optional string account = 20;
+  optional string ip = 21;
+  optional int32 result = 22;
+}

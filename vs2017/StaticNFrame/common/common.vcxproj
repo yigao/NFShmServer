@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\async.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\dict.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\fmacros.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\hiredis.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\net.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\sds.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\gcc_atomic.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_define.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_template.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\predef.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\preprocessor.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sysdep.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\type.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_define.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_template.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\util.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\versioning.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version_master.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone_decl.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\allocators.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\document.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\encodedstream.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\encodings.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\filereadstream.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\filewritestream.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\fwd.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\memorybuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\memorystream.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\optimized_writer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\pointer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\prettywriter.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\rapidjson.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\reader.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\schema.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\stream.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\stringbuffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\writer.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_fileinfo.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_format.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_getline.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_log.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_os.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_pdh.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_private.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_ptql.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_util.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\async.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\async_logger.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\common.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\formatter.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\logger.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\spdlog.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\tweakme.h" />
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\async.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\dict.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\hiredis.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\net.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\sds.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\hwinfo\source\win\hw_info.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\peb.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_cache.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_fileinfo.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_format.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_getline.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_ptql.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_signal.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_util.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\win32_sigar.c" />
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\wmi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\thirdparty\common\sigar\win32\sigar.rc.in" />
+    <None Include="..\..\..\thirdparty\common\sigar\win32\sigar_version.c.in" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{D0FAE502-D650-4F3C-8C7B-691FC048CA93}</ProjectGuid>
+    <RootNamespace>common</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4133;4311;4013;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <PrecompiledHeader />
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\thirdparty\mysql\win;$(SolutionDir)..\thirdparty\mysql\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_LIB;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4133;4311;4013;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

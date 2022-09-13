@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFAtomic.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFBase64.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFBitValue.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFBuffer.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCmdLine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCommon.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConcurrentQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConsistentHash.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConsistentHash.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConsistentHashNew.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCPlusPlus14.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCpu.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCRC16.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCRC32.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDataStream.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDateTime.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDeclareProperty.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFException.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFFileCSV.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFFileUtility.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFHash.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFHmacSha.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFIniReader.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFJson.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFLexicalCast.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFLikely.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFList.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFLock.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMacros.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMagicTimeUtil.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMallocChunk.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMap.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMapEx.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMapList.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMath.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMD5.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemChunk.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemPolicy.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemVector.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMetaUtils.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMutex.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFNetBuffer.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFNonCopyable.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFPebbleSha1.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFPlatform.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFPlatformMacros.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFQueue.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFRandom.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFServerIDUtil.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFServerStatus.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFServerTime.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSHA1.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSHA2.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSha256.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFShm.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSimpleBuffer.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSingleton.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSlice.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSnprintf.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSocketLibFunction.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSpinLock.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFStat.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFStringUtility.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTea.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFThreadUtils.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTime.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTimeUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFBase64.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCommon.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCpu.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCRC16.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCRC32.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFDataStream.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFFileCSV.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFFileUtility.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFHmacSha.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFIniReader.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFJson.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMagicTimeUtil.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMallocChunk.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMD5.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMemChunk.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMemQueu.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFNetBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFPebbleSha1.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFRandom.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFServerIDUtil.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFServerTime.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFSHA1.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFSHA2.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFShm.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFSnprintf.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFStat.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFStringUtility.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTea.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTime.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTimeUtil.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{5269E592-2FF2-44DA-A18D-6BCF2194624D}</ProjectGuid>
+    <RootNamespace>NFCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;NF_NONCLIENT_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)../Build/$(Configuration)/Lib/;$(SolutionDir)../thirdparty/lib64_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;NF_NONCLIENT_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

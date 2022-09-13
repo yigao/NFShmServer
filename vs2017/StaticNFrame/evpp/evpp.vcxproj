@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\evpp\any.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\buffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\connector.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\dns_resolver.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\duration.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\duration.inl.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop_thread.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop_thread_pool.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_watcher.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\fd_channel.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\gettimeofday.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\conn.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\conn_pool.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\request.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\response.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\ssl.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\url_parser.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\context.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\http_server.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\service.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\stats.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\inner_pre.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\invoke_timer.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\libevent.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\listener.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\logging.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\memmem.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\platform_config.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\server_status.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\slice.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sockets.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sys_addrinfo.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sys_sockets.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_callbacks.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_client.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_conn.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_server.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\thread_dispatch_policy.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\timestamp.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\timestamp.inl.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\sync_udp_client.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\udp_message.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\udp_server.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\utility.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\windows_port.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\evpp\buffer.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\connector.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\dns_resolver.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\duration.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop_thread.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop_thread_pool.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_watcher.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\fd_channel.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\conn.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\conn_pool.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\request.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\response.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\ssl.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\url_parser.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\context.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\http_server.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\service.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\inner_pre.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\invoke_timer.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\libevent.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\listener.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\logging.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\sockets.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_client.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_conn.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_server.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\udp\sync_udp_client.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\udp\udp_server.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\thirdparty\evpp\CMakeLists.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{947A707C-17E1-4B3C-8A17-3D6485FCBA4B}</ProjectGuid>
+    <RootNamespace>evpp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>
+      </ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty/libevent/include;$(SolutionDir)..\thirdparty/libevent/win/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4133;4311;4013;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>
+      </ConformanceMode>
+      <DisableSpecificWarnings>4133;4311;4013;4018;4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

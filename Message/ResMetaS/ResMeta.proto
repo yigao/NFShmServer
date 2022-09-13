@@ -1,0 +1,91 @@
+package proto_ff;
+
+// 这里一定要包含自定义的协议
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+
+enum enMailID
+{
+	EN_MAIL_ID_TEST 							= 1;  //
+};
+
+
+message MailDesc
+{
+	required int32 id = 1[(yd_fieldoptions.db_field_comment) = "编号", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=1];
+	optional string title = 2 [(yd_fieldoptions.db_field_comment) = "标题", (yd_fieldoptions.field_bufsize) = 64, (yd_fieldoptions.db_field_bufsize)=64];
+	required int32 type = 3[(yd_fieldoptions.db_field_comment) = "类型"];
+	optional string content = 4 [(yd_fieldoptions.db_field_comment) = "内容", (yd_fieldoptions.field_bufsize) = 512, (yd_fieldoptions.db_field_bufsize)=512];
+	optional string send_name = 5 [(yd_fieldoptions.db_field_comment) = "发件人", (yd_fieldoptions.field_bufsize) = 32, (yd_fieldoptions.db_field_bufsize)=32];
+	optional string start_time_str   = 6[(yd_fieldoptions.db_field_comment) = "生效时间", (yd_fieldoptions.field_bufsize) = 32, (yd_fieldoptions.db_field_bufsize)=32];
+	optional string end_time_str     = 7[(yd_fieldoptions.db_field_comment) = "结束时间", (yd_fieldoptions.field_bufsize) = 32, (yd_fieldoptions.db_field_bufsize)=32];
+	optional uint64 start_time   = 8[(yd_fieldoptions.db_field_comment) = "生效时间--1970计算", (yd_fieldoptions.no_db_field) = true];
+	optional uint64 end_time     = 9[(yd_fieldoptions.db_field_comment) = "结束时间--1970计算", (yd_fieldoptions.no_db_field) = true];
+	optional int32 add_gold = 11 [(yd_fieldoptions.db_field_comment) = "赠送金币"];
+}
+
+message Sheet_MailDesc
+{
+	repeated MailDesc MailDesc_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message ConstDesc
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "编号",(yd_fieldoptions.db_field_comment) = "编号", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=1];
+	optional string value = 2[(yd_fieldoptions.field_cname) = "常量值",(yd_fieldoptions.db_field_comment) = "常量值", (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+	optional string type_name = 3[(yd_fieldoptions.field_cname) = "类型名称",(yd_fieldoptions.db_field_comment) = "类型名称", (yd_fieldoptions.no_field)=true, (yd_fieldoptions.db_field_bufsize)=128];
+}
+
+message Sheet_ConstDesc
+{
+	repeated ConstDesc ConstDesc_List = 1 [(yd_fieldoptions.field_arysize)=100];
+}
+
+message NameDesc
+{
+	optional uint64 id = 1 [(yd_fieldoptions.field_cname) = "编号",(yd_fieldoptions.db_field_comment) = "编号", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_auto_increment)=true, (yd_fieldoptions.db_field_auto_increment_value)=1];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字",(yd_fieldoptions.db_field_comment) = "名字", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64];
+}
+
+message Sheet_NameDesc
+{
+	repeated NameDesc NameDesc_List = 1 [(yd_fieldoptions.field_arysize)=100];
+}
+
+enum GameRoomStatus
+{
+	GAME_ROOM_STATUS_OPEN = 1; //开启
+	GAME_ROOM_STATUS_CLOSE_AND_EXE = 2; //关闭游戏运行
+	GAME_ROOM_STATUS_CLOSE_AND_NOT_EXE = 3; //关闭游戏也不运行
+  GAME_ROOM_STATUS_WAIT = 4; //敬请期待
+	GAME_ROOM_STATUS_NOT_SEE = 5; //不可见
+}
+
+message GameRoomDesc
+{
+	optional int32 RoomID = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "房间ID"];
+	optional int32 GameID = 2 [(yd_fieldoptions.db_field_comment) = "游戏ID"];
+	optional string GameName = 3[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "游戏名"];
+	optional int32 RoomType = 4 [(yd_fieldoptions.db_field_comment) = "房间类型"];
+	optional string RoomName = 5 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "房间名"];
+	optional int32 SiteNum = 6 [(yd_fieldoptions.db_field_comment) = "座位数"];		//
+	optional int32 DeskCount = 7 [(yd_fieldoptions.db_field_comment) = "桌子数"]; //
+	optional int32 MaxPeople = 8 [(yd_fieldoptions.db_field_comment) = "最大玩家数"];
+	optional int64 enter_min = 9 [(yd_fieldoptions.db_field_comment) = "最小筹码"];
+	optional int64 enter_max = 10 [(yd_fieldoptions.db_field_comment) = "最大筹码"];
+	optional int32 auto_chair = 11 [(yd_fieldoptions.db_field_comment) = "选位置:0=系统选,1=手动选"];	//1自己选桌子,座位，0系统帮你选
+	optional int32 is_exp_scene = 12 [(yd_fieldoptions.db_field_comment) = "体验场:0=金币场,1=体验场"]; //1体验场
+	optional int64 exp_scene_gold = 13 [(yd_fieldoptions.db_field_comment) = "体验场金币"]; //
+	optional int32 robot_num = 14 [(yd_fieldoptions.db_field_comment) = "机器人数"]; //
+	optional int32 status = 15 [(yd_fieldoptions.db_field_comment) = "游戏开关：1 开启 2 关闭游戏运行 3关闭游戏也不运行 4.敬请期待 5 不可见"]; //
+	optional int32 RoomLevel = 16 [(yd_fieldoptions.db_field_comment) = "房间等级"];
+	optional int32 Tax = 17 [(yd_fieldoptions.db_field_comment) = "抽水率"];
+	optional int32 StartTime = 18 [(yd_fieldoptions.db_field_comment) = "开启时间"];
+}
+
+message Sheet_GameRoomDesc
+{
+	repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
+}
+
+

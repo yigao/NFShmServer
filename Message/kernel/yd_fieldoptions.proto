@@ -1,0 +1,62 @@
+import "google/protobuf/descriptor.proto";
+
+package yd_fieldoptions;
+
+
+/*
+mysql数据类型      <-------------->		PROTOBUF数据类型
+UNSIGNED								u
+INT			 							int32            
+BIGINT									int64
+FLOAT									float
+DOUBLE									double
+VARCHAR									string
+BLOB									bytes
+
+这里要说明下，libzdb其实只支持从数据集中获取如下类型的数据
+ResultSet_getString
+ResultSet_getInt 
+ResultSet_getLLong 
+ResultSet_getDouble 
+ResultSet_getBlob
+
+这中间不是类型完完全全对应
+
+2014.12.3 对象field如果作为primarykey，其数据类型有限制，肯定不能使bytes，各种浮点数值，基本就是数值+字符串作为key已做查询用
+*/
+
+enum message_db_field_type {
+  E_FIELDTYPE_NORMAL 			= 1;
+  E_FIELDTYPE_PRIMARYKEY 		= 2; // 这个字段是主键，主键可以有多个列，不能为null
+  E_FIELDTYPE_INDEX           = 3; // 这个字段为索引
+  E_FIELDTYPE_UNIQUE_INDEX     = 4; // 这个字段为索引
+}
+
+// 扩展google的FieldOptions
+extend google.protobuf.FieldOptions {
+
+  // pb---->sql
+  optional message_db_field_type db_field_type		= 41000 [default = E_FIELDTYPE_NORMAL];
+  optional int32 db_field_bufsize				= 41001;					// string字段的长度 例如这个VARCHAR(32)
+  optional bool db_field_not_null				= 41002 [default = false];	// 字段是否为not null
+  optional bool db_field_auto_increment          = 40003 [default = false];  // 是否是自增字段
+  optional int32 db_field_arysize				= 41004;	// 数组长度，在string bytes repeated 类型时要填写该选项, 给mysql建表用的
+  optional int32 db_field_auto_increment_value   = 40005 [default = 0];  // 是否是自增字段
+  optional bool no_db_field = 40006 [default = false]; //不搞到DB中
+  optional string db_field_comment = 40007;
+
+  // pb-->struct
+  optional string 	field_typename 		= 42000;		// 具体的类型名字
+  optional int32    field_arysize		= 42001;		// 数组长度，在string bytes repeated 类型时要填写该选项
+  optional int32    field_bufsize       = 42002;        // buffer长度，用于字符串描述
+  optional bool     no_field = 42003 [default = false]; //不搞到struct中
+
+  // excel-->bin
+  optional string		field_cname	= 43000;				// 中文名
+  optional string	    field_select_id	= 43001;			// Union选择的id
+  optional string	    field_id	= 43002;			// Union中field对应的id
+}
+
+extend google.protobuf.EnumValueOptions {
+    optional string		field_enum_cname	= 2000;				// 枚举中文名
+}

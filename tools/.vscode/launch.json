@@ -1,0 +1,18 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: proto_2_struct/proto2struct.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/proto_2_struct/proto2struct.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--proto_ds=../src/NFComm/NFMessageDefine/ResMeta.proto.ds", "--message_fullname=proto_ff.FishConfigDesc","--table_count=1","--out_path=../Install/Config/Data/","--sheet_fullname=proto_ff.Sheet_FishConfigDesc","--bin_filename=../Install/Config/Data/FishConfigDesc.bin"
+            ],
+        }
+    ]
+}

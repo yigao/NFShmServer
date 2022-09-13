@@ -1,0 +1,23 @@
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+
+package proto_ff;
+
+// 服务器内部的消息id，是个统一的
+//
+
+//公共返回协议
+message Proto_Web_CommonRspNotify
+{
+  optional int32 result = 1;
+  optional string msg = 2;
+}
+
+message Proto_Web_KillServer
+{
+  optional uint64 request_id = 1;
+  optional string contract = 2;
+  optional string machine_addr = 3;
+  optional string ip = 4;
+  optional string bus_name = 5;
+}

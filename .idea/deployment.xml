@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="server_1" stopOnFirstError="true" createEmptyFolders="true" traceLevel="ERRORS" preserveFilePermissions="true" remoteFilesAllowedToDisappearOnAutoupload="false" compareModeInSync="TEXT">
+    <serverData>
+      <paths name="server_1">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Install" local="$PROJECT_DIR$/Install" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="sever_2">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Install" local="$PROJECT_DIR$/Install" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

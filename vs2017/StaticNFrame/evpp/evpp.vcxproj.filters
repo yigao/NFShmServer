@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\evpp\any.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\buffer.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\connector.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\dns_resolver.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\duration.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\duration.inl.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop_thread.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_loop_thread_pool.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\event_watcher.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\fd_channel.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\gettimeofday.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\inner_pre.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\invoke_timer.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\libevent.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\listener.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\logging.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\memmem.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\platform_config.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\server_status.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\slice.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sockets.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sys_addrinfo.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\sys_sockets.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_callbacks.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_client.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_conn.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\tcp_server.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\thread_dispatch_policy.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\timestamp.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\timestamp.inl.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\utility.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\windows_port.h" />
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\sync_udp_client.h">
+      <Filter>udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\udp_message.h">
+      <Filter>udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\udp\udp_server.h">
+      <Filter>udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\conn.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\conn_pool.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\request.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\response.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\ssl.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\httpc\url_parser.h">
+      <Filter>httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\context.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\http_server.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\service.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\evpp\http\stats.h">
+      <Filter>http</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\evpp\buffer.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\connector.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\dns_resolver.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\duration.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop_thread.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_loop_thread_pool.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\event_watcher.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\fd_channel.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\inner_pre.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\invoke_timer.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\libevent.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\listener.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\logging.cpp" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\sockets.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_client.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_conn.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\tcp_server.cc" />
+    <ClCompile Include="..\..\..\thirdparty\evpp\udp\sync_udp_client.cc">
+      <Filter>udp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\udp\udp_server.cc">
+      <Filter>udp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\conn.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\conn_pool.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\request.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\response.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\ssl.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\httpc\url_parser.cc">
+      <Filter>httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\context.cc">
+      <Filter>http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\http_server.cc">
+      <Filter>http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\evpp\http\service.cc">
+      <Filter>http</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\thirdparty\evpp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="udp">
+      <UniqueIdentifier>{d23a68e9-f86f-4349-a4f5-734adeb8d0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http">
+      <UniqueIdentifier>{07abbdc0-d9b9-4a39-984a-58f58a6700df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="httpc">
+      <UniqueIdentifier>{17858f3e-5cd1-456c-a406-9e7dbd038af7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

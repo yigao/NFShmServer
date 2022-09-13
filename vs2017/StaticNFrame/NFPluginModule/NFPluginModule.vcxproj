@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCheck.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCodeQueue.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCoMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFConfigDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFConfigMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCoroutineTask.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEmailSender.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFError.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventObj.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventTemplate.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIAsycModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIAsyMysqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIBusModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIConfigModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIConsoleModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFICoroutineModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIDynamicModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIEventModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIHttpHandle.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIKernelModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILogModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageDriver.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMonitorModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMysqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINamingModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINoSqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIPluginManager.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIProcessor.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITaskComponent.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITaskModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITimerModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFEncodeDecode.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFJsonToPb.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFPbToJson.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFProtobufMap.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFRapidJson.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFZeroCopyStreamReader.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFZeroCopyStreamWriter.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFLogMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMessageMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMsgPackCode.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFNaming.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFPair.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProfiler.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProtobufCommon.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFProtobufMessageCodec.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFProtoDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFXmlMessageCodec.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFServerDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTask.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCoMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFConfigMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCoroutineTask.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEmailSender.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFError.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIDynamicModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFEncodeDecode.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFJsonToPb.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFPbToJson.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFProtobufMap.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFLogMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFMessageMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFNaming.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProfiler.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProtobufCommon.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFProtobufMessageCodec.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFXmlMessageCodec.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFServerDefine.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{AEA8C25D-D39D-449E-BF4F-130DC1A85612}</ProjectGuid>
+    <RootNamespace>NFPluginModule</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
+    <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)../Build/$(Configuration)/Lib/;$(SolutionDir)../thirdparty/lib64_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <ConformanceMode>
+      </ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

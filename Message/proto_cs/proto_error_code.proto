@@ -1,0 +1,75 @@
+package proto_ff;
+
+// 错误码
+enum Proto_CS_ErrorCode {
+  ERR_CODE_SYSTEM_ERROR			                      = -1; //系统错误 服务器错误
+  ERR_CODE_OK                		                  = 0;
+  /////////////10000-10100系统方面的错误/////////////////////
+  ERR_CODE_SYSTEM_TIMEOUT                             = 10000; //内部超时 system timeout
+  ERR_CODE_SYSTEM_DATABASE_ERROR                      = 10001; //数据库错误 error
+  ERR_CODE_MSG_PARAM_ERROR                            = 10002; //客户的协议参数错误
+
+  /////////////10100-10200的登录错误/////////////////////
+  ERR_CODE_ACCOUNT_PASSWORD_ERROR                     = 10101; //您的账号不存在或者密码输入有误，请查证后再次尝试登录！
+  ERR_CODE_NEED_RELOGIN		                          = 10102; //需要重新登录
+  ERR_CODE_ACCOUNT_NOT_EXIST		                  = 10103; //账号不存在
+  ERR_CODE_PLAYER_NOT_EXIST                           = 10104; //玩家不存在
+  ERR_CODE_TOKEN_ERROR		                          = 10106; //Token错误
+  ERR_CODE_TOKEN_TIMEOUT                              = 10107; //Token超时
+  ERR_CODE_ACCOUNT_ALREADY_EXIST_NO_RESITER           = 10108; //账号已存在,不能注册!
+  ERR_CODE_BIND_PHONE_ALREADY                         = 10109; //手机号码已经存在，请换一个手机号！
+  ERR_CODE_PHONE_AUTO_CODE_ERROR                      = 10110; //验证码错误！
+  ERR_CODE_PHONE_AUTO_CODE_TIMEOUT                    = 10111; //验证码获取超时，请重新获取！
+  ERR_CODE_PHONE_SEND_TOO_MUCH                        = 10112; //发送太过频繁
+  ERR_CODE_PHONE_NOT_RIGHT                            = 10113; //手机号码不正确！
+  ERR_CODE_PHONE_ALREADY_BIND                         = 10114; //该手机号已经绑定了其他账号，无法重复绑定！
+  ERR_CODE_VISITOR_LOGIN_DEVICE_ERROR                 = 10115; //游客登陆不能更换设备，设备号不对
+  ERR_CODE_PASSWORD_NOT_CHANGE                        = 10120; //修改的新密码不能和旧密码相同！
+  ERR_CODE_OTHER_PLACE_LOGIN_ACCOUNT                  = 10121; //你的账号在别处登录,你被踢下线
+  ERR_CODE_USER_IS_BAN                                = 10122; //你的账号被封，禁止登录
+  ERR_CODE_USER_IS_NO_TRANSFER                        = 10123; //你的账号被禁止转账
+  ERR_CODE_USER_AGENT_DEAD_CYCLE                      = 10124; //玩家代理的上级中有你，代理死循环
+
+  /////////////10200-10300的世界服务器错误/////////////////////
+  ERR_CODE_PLAYER_OFFLINE                             = 10200; //玩家不在线
+  ERR_CODE_WORLD_MAX_PLAYER_COUNT                     = 10201; //今天游戏的玩家超越了最大玩家数目
+  ERR_CODE_GAME_ROOM_NOT_ONLINE                       = 10202; //维护中
+  ERR_CODE_GAME_ROOM_NOT_EXIST                        = 10203; //游戏房间错误!
+  /////////////10300-11000的逻辑服务器错误  邮箱 银行 排行榜/////////////////////
+  ERR_CODE_MAIL_CANT_DEL_NO_READ                      = 10300; //不能删除未读邮件
+  ERR_CODE_ROLE_MAIL_NOT_FIND                         = 10301; //邮件不存在
+  ERR_CODE_GET_MAIL_FAIL                              = 10304; //获取邮件失败
+  ERR_CODE_READ_MAIL_FAIL                             = 10305; //读取邮件失败
+  ERR_CODE_DEL_MAIL_FAIL                              = 10306; //删除邮件失败
+
+  ERR_CODE_BANK_PASSWORD_NOT_RIGHT                    = 10400; //银行密码错误！
+  ERR_CODE_BANK_PASSWORD_FORMAT_NOT_RIGHT             = 10401; //银行密码格式错误！
+  ERR_CODE_FACE_NOT_EXIST                             = 10402; //修改头像失败！
+  ERR_CODE_BANK_GIVE_MONEY_NOT_TO_MYSELF              = 10403; //不能给自己赠送金币
+  ERR_CODE_IN_GAMEING_NOT_BANK                        = 10404; //游戏中，不能进行此操作
+  ERR_CODE_FIRST_BIND_PHONE                           = 10405; //请先绑定手机号码
+  ERR_CODE_BANK_NOT_VIP_ZHUAN_NOT_VIP                 = 10406; //普通玩家之间不能相互联系
+  ERR_CODE_BANK_DRAW_MIN_JETTON                       = 10407; //转账金额小于最小额度
+
+  ERR_CODE_MODIFY_MONEY_LESS_ZERO                     = 10501; //扣除的金币小于等于0
+  ERR_CODE_MODIFY_MONEY_TIMEOUT                       = 10502; //修改金币超时
+  ERR_CODE_PLAYER_ALREADY_BIND_PHONE                  = 10503; //玩家已经绑定了手机号码，请勿重复绑定
+  ERR_CODE_PLAYER_DONOT_CHANGE_PHONE                  = 10504; //绑定手机号码的过程中不能更换其他手机号码，1分钟后再试
+  ERR_CODE_PLAYER_PHONE_AUTO_CODE_TOO_MUCH            = 10505; //申请太过于频繁, 一分钟只能一次
+
+  ERR_CODE_EXIT_NOT_PERMITED_WHILE_PLAYING            = 10600; //游戏中不充许退出
+
+  EOT_CODE_REDEEM_CODE_USED                           = 10700; // 点卡已经被使用
+  EOT_CODE_REDEEM_CODE_NOT_EXIST                      = 10701; // 点卡不存在
+  EOT_CODE_REDEEM_CODE_UNREG_USER                     = 10702; // 未注册用户不能使用体验卡
+  EOT_CODE_REDEEM_CODE_HAS_USED                       = 10703; // 此用户已使用过体验卡
+
+
+  /////////////11000-12000的游戏服务器错误/////////////////////
+  ERR_CODE_USER_MONEY_NOT_ENOUGH					  = 11000; //金币不够，玩法进入房间，是否立即跳转充值！
+  ERR_CODE_USER_IN_GAMEING                            = 11001; //当前游戏状态无法退出
+  ERR_CODE_CHAIR_HAS_OTHER_PLAYTER                    = 11002; //此座位已被玩家占用，请选择其他座位
+  ERR_CODE_CHAIR_NOT_RIGHT                            = 11003; //座位错误
+  ERR_CODE_USER_MONEY_TOO_MUCH              		  = 11004; //玩家等级过高,不能进入此房间
+  ERR_CODE_DESK_NOT_EXIST                   		  = 11005; //桌子错误
+}

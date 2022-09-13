@@ -1,0 +1,11 @@
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.2 --Config=../../Config --Plugin=../../Plugin2 --Param=10000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.3 --Config=../../Config --Plugin=../../Plugin2 --Param=11000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.4 --Config=../../Config --Plugin=../../Plugin2 --Param=12000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.5 --Config=../../Config --Plugin=../../Plugin2 --Param=13000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.6 --Config=../../Config --Plugin=../../Plugin2 --Param=14000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.7 --Config=../../Config --Plugin=../../Plugin2 --Param=15000,1000,47.119.126.227 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.8 --Config=../../Config --Plugin=../../Plugin2 --Param=16000,1000 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.9 --Config=../../Config --Plugin=../../Plugin2 --Param=17000,1000 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.10 --Config=../../Config --Plugin=../../Plugin2 --Param=18000,1000 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.11 --Config=../../Config --Plugin=../../Plugin2 --Param=19000,1000 --restart -d
+./NFPluginLoader --Server=RobotServer --ID=1.1.1.12 --Config=../../Config --Plugin=../../Plugin2 --Param=20000,1000 --restart -d

@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="msgpack">
+      <UniqueIdentifier>{0f279782-e854-44ba-a044-b76e43f09cb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidjson">
+      <UniqueIdentifier>{25963e14-7b8c-495e-9f5f-d2225b40fc21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rapidxml">
+      <UniqueIdentifier>{421db402-8817-453a-913e-241a5ac7b3a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sigar">
+      <UniqueIdentifier>{0c08b519-867f-4cff-bcb0-df278fe252e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog">
+      <UniqueIdentifier>{95ae0452-163f-4efa-b26b-cfc1d1dea38b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HwInfo">
+      <UniqueIdentifier>{814e920f-4e21-4c8c-b030-ed30a2328876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hiredis">
+      <UniqueIdentifier>{2c930f3c-04f7-421f-860e-de22312896d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\gcc_atomic.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_define.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_template.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\predef.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\preprocessor.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sysdep.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\type.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_define.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_template.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\util.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version_master.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\versioning.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.h">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone_decl.hpp">
+      <Filter>msgpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\async.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\async_logger.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\common.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\formatter.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\logger.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\spdlog.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\tweakme.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\spdlog\version.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_fileinfo.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_format.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_getline.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_log.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_os.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_pdh.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_private.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_ptql.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\sigar\win32\sigar_util.h">
+      <Filter>sigar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml.hpp">
+      <Filter>rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_iterators.hpp">
+      <Filter>rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_print.hpp">
+      <Filter>rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\RapidXML\rapidxml_utils.hpp">
+      <Filter>rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\allocators.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\document.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\encodedstream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\encodings.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\filereadstream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\filewritestream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\fwd.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\istreamwrapper.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\memorybuffer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\memorystream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\ostreamwrapper.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\pointer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\prettywriter.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\rapidjson.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\reader.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\schema.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\stream.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\stringbuffer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\writer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\rapidjson\optimized_writer.h">
+      <Filter>rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\async.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\dict.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\fmacros.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\hiredis.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\net.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\sds.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\peb.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_cache.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_fileinfo.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_format.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_getline.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_ptql.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_signal.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\sigar_util.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\win32_sigar.c">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\sigar\win32\wmi.cpp">
+      <Filter>sigar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hwinfo\source\win\hw_info.cpp">
+      <Filter>HwInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\async.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\dict.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\hiredis.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\net.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\sds.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\thirdparty\common\sigar\win32\sigar.rc.in">
+      <Filter>sigar</Filter>
+    </None>
+    <None Include="..\..\..\thirdparty\common\sigar\win32\sigar_version.c.in">
+      <Filter>sigar</Filter>
+    </None>
+  </ItemGroup>
+</Project>

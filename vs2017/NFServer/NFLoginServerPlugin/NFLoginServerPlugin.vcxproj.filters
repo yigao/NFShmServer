@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServer\NFLoginServer\NFLoginServerPlugin\NFLoginServerModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFLoginServer\NFLoginServerPlugin\NFLoginServerPlugin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServer\NFLoginServer\NFLoginServerPlugin\NFLoginServerModule.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFLoginServer\NFLoginServerPlugin\NFLoginServerPlugin.h" />
+  </ItemGroup>
+</Project>
