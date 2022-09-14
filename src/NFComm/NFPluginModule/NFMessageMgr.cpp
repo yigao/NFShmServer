@@ -31,10 +31,10 @@ void NFMessageMgr::UnInit()
     m_pMessageModule = NULL;
 }
 
-int64_t NFMessageMgr::BindServer(NF_SERVER_TYPES eServerType, const string &url, uint32_t netThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType)
+int64_t NFMessageMgr::BindServer(NF_SERVER_TYPES eServerType, const string &url, uint32_t netThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
     NF_ASSERT(m_pMessageModule);
-    return m_pMessageModule->BindServer(eServerType, url, netThreadNum, nMaxConnectNum, nPacketParseType);
+    return m_pMessageModule->BindServer(eServerType, url, netThreadNum, nMaxConnectNum, nPacketParseType, bSecurity);
 }
 
 int64_t NFMessageMgr::ConnectServer(NF_SERVER_TYPES eServerType, const string &url, uint32_t nPacketParseType)

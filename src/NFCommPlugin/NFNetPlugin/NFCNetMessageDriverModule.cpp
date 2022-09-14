@@ -134,7 +134,7 @@ NFINetMessage* NFCNetMessageDriverModule::GetServerByServerType(NF_SERVER_TYPES 
 	return nullptr;
 }
 
-int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType)
+int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
@@ -163,6 +163,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
+				pServer->SetSecurity(bSecurity);
 			}
 
 
@@ -196,6 +197,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 				pServer = NF_NEW NFCBusMessage(m_pPluginManager, eServerType);
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
+                pServer->SetSecurity(bSecurity);
 			}
 
 
@@ -223,7 +225,7 @@ int NFCNetMessageDriverModule::ResumeConnect(NF_SERVER_TYPES eServerType)
     return -1;
 }
 
-int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType)
+int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
@@ -255,6 +257,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 				pServer->SetEventCB(mEventCB);
 				pServer->SetHttpRecvCB(mHttpReceiveCB);
 				pServer->SetHttpFilterCB(mHttpFilter);
+				pServer->SetSecurity(bSecurity);
 			}
 
 			int64_t linkId = pServer->BindServer(flag);
@@ -290,6 +293,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
+                pServer->SetSecurity(bSecurity);
 			}
 
 			int64_t linkId = pServer->BindServer(flag);

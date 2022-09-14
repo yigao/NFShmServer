@@ -224,6 +224,16 @@ inline int64_t NFGetNanoSeccondTime()
 #define NF_FORMAT(my_fmt, ...)             fmt::format(my_fmt, ##__VA_ARGS__);
 #define NF_FORMAT_FUNCTION(my_fmt, ...)    fmt::format(std::string("[{}:{}]") + my_fmt, NF_FUNCTION_LINE, ##__VA_ARGS__);
 
+#define MMO_LOWORD(l)           ((uint16_t)(l))
+#define MMO_HIWORD(l)           ((uint16_t)(((uint32_t)(l) >> 16) & 0xFFFF))
+#define MMO_LOBYTE(w)           ((uint8_t)(w))
+#define MMO_HIBYTE(w)           ((uint8_t)(((uint16_t)(w) >> 8) & 0xFF))
+#define MMO_LOWLONG(ll)         ((uint32_t)(ll))
+#define MMO_HILONG(ll)           (uint32_t)(((uint64_t)(ll) >> 32) & 0xFFFFFFFF)
+#define MMO_MAKEWORD(a, b)      ((uint16_t)(((uint8_t)(a))  | ((uint16_t)((uint8_t)(b))) << 8))
+#define MMO_MAKELONG(a, b)      ((uint32_t)(((uint16_t)(a)) | ((uint32_t)((uint16_t)(b))) << 16))
+#define MMO_MAKELONGLONG(a, b)  ((uint64_t)(((uint32_t)(a)) | ((uint64_t)((uint32_t)(b))) << 32))
+
 #define MAKE_UINT32(low, high)	((uint32_t)(((uint16_t)((uint32_t)(low) & 0xffff)) | ((uint32_t)((uint16_t)((uint32_t)(high) & 0xffff))) << 16))
 #define HIGH_UINT16(l) ((uint16_t)((uint32_t)(l) >> 16))
 #define LOW_UINT16(l) ((uint16_t)((uint32_t)(l) & 0xffff))

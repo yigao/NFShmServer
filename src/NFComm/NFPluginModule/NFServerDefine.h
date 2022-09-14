@@ -77,6 +77,9 @@ enum {
 #define NF_SERVER_TO_SERVER_BUS_CONNECT_REQ 3 //BUS Connect 协议
 #define NF_SERVER_TO_SERVER_BUS_CONNECT_RSP 4 //BUS CONNECT RSP 协议
 
+#define NF_CLIENT_TO_SERVER_HEART_BEAT 1009
+#define NF_CLIENT_TO_SERVER_HEART_BEAT_RSP 1010
+
 const std::string gArrayServer[NF_ST_MAX] = {
 	"NoneServer",
 	"MasterServer",

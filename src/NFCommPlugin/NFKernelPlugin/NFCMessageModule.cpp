@@ -77,20 +77,20 @@ void NFCMessageModule::SetMessageDriver(NFIMessageDriver* driver)
     m_driver->SetHttpFilterCB(this, &NFCMessageModule::OnHttpFilterPack);
 }
 
-int64_t NFCMessageModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType)
+int64_t NFCMessageModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
 	if (m_driver)
 	{
-		return m_driver->BindServer(eServerType, url, nNetThreadNum, nMaxConnectNum, nPacketParseType);
+		return m_driver->BindServer(eServerType, url, nNetThreadNum, nMaxConnectNum, nPacketParseType, bSecurity);
 	}
 	return -1;
 }
 
-int64_t NFCMessageModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType)
+int64_t NFCMessageModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
 	if (m_driver)
 	{
-		return m_driver->ConnectServer(eServerType, url, nPacketParseType);
+		return m_driver->ConnectServer(eServerType, url, nPacketParseType, bSecurity);
 	}
 	return -1;
 }

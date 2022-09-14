@@ -161,7 +161,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                         NetEvppObject* pObject = evpp::any_cast<NetEvppObject*>(pMsg->mTCPConPtr->context());
                         if (pObject)
                         {
-                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, pObject->m_usLinkId, (char*)pMsg->strMsg.data(), pMsg->strMsg.length(), pMsg->nMsgId, pMsg->nSendValue, pMsg->nSendId);
+                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, pObject->m_usLinkId, (char*)pMsg->mPacket.strMsg.data(), pMsg->mPacket.strMsg.length(), pMsg->mPacket.nMsgId, pMsg->mPacket.nSendValue, pMsg->mPacket.nSendId);
                         }
                         else
                         {
@@ -215,13 +215,11 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 	{
 		while (true)
 		{
-			char* outData = nullptr;
-			uint32_t outLen = 0;
-			uint32_t allLen = 0;
-			uint32_t nMsgId = 0;
-			uint64_t nSendValue = 0;
-            uint64_t nSendId = 0;
-			int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, nMsgId, nSendValue, nSendId);
+            char* outData = nullptr;
+            uint32_t outLen = 0;
+            uint32_t allLen = 0;
+            MsgFromNetInfo msgInfo(conn, linkId);
+            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, msgInfo.mPacket);
 			if (ret < 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed!");
@@ -234,17 +232,44 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (nMsgId != 1009 && nMsgId != 1010 && nMsgId != 1 && nMsgId != 2)
+                if (!(msgInfo.mPacket.mModuleId == 0 && (msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
-                    NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} value:{} value2:{}", nMsgId, nSendValue, nSendId);
+                    NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", msgInfo.mPacket.ToString());
                 }
-				MsgFromNetInfo msgInfo(conn, linkId);
-                msgInfo.nType = eMsgType_RECIVEDATA;
-                msgInfo.strMsg = std::string(outData, outLen);
-                msgInfo.nMsgId = nMsgId;
-                msgInfo.nSendValue = nSendValue;
-                msgInfo.nSendId = nSendId;
-                while(!mMsgQueue.Enqueue(msgInfo)) {}
+
+                if (msgInfo.mPacket.bSecurity)
+                {
+                    if (!mSecurity)
+                    {
+                        NFLogWarning(NF_LOG_RECV_MSG,0,"recv msg:{}, the server no need decompress, but the packet need decompress", msgInfo.mPacket.ToString());
+                    }
+
+                    NFBuffer comBuffer;
+                    comBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
+
+                    int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)comBuffer.WriteAddr(), (int)comBuffer.WritableSize());
+                    if (decompressLen < 0)
+                    {
+                        NFLogError(NF_LOG_RECV_MSG,0,"recv msg:{}, decompress failed!", msgInfo.mPacket.ToString());
+                        msg->Skip(allLen);
+                        continue;
+                    }
+                    comBuffer.Produce(decompressLen);
+
+                    msgInfo.nType = eMsgType_RECIVEDATA;
+                    msgInfo.mPacket.strMsg = std::string(comBuffer.ReadAddr(), comBuffer.ReadableSize());
+                    while(!mMsgQueue.Enqueue(msgInfo)) {}
+                }
+                else {
+                    if (mSecurity)
+                    {
+                        NFLogWarning(NF_LOG_RECV_MSG,0,"recv msg:{}, the server need decompress, but the packet no need decompress", msgInfo.mPacket.ToString());
+                    }
+
+                    msgInfo.nType = eMsgType_RECIVEDATA;
+                    msgInfo.mPacket.strMsg = std::string(outData, outLen);
+                    while(!mMsgQueue.Enqueue(msgInfo)) {}
+                }
 
 				msg->Skip(allLen);
 				continue;

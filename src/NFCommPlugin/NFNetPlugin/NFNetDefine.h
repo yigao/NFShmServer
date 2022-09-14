@@ -47,6 +47,37 @@ typedef struct linger 		    LINGER;
 #define MAX_SEND_BUFFER_SIZE (1024 * 100)
 #define MAX_RECV_BUFFER_SIZE (1024 * 100)
 
+const uint32_t s_compressBitPos = 15;
+
+struct NFDataPackage
+{
+    NFDataPackage(): mModuleId(0), nMsgId(0), nSendValue(0), nSendId(0), nSendBusLinkId(0), bSecurity(false) {
+
+    }
+
+    NFDataPackage(const NFDataPackage& packet) {
+        mModuleId = packet.mModuleId;
+        nMsgId = packet.nMsgId;
+        nSendValue = packet.nSendValue;
+        nSendId = packet.nSendId;
+        nSendBusLinkId = packet.nSendBusLinkId;
+        bSecurity = packet.bSecurity;
+        strMsg = packet.strMsg;
+    }
+
+    std::string ToString() {
+        return NF_FORMAT("mdouleId:{} msgId:{} param1:{} param2:{} nSendBusLinkId:{} bSecurity:{}", mModuleId, nMsgId, nSendValue, nSendId, nSendBusLinkId, bSecurity);
+    }
+
+    uint32_t mModuleId;
+    uint32_t nMsgId;
+    uint64_t nSendValue;
+    uint64_t nSendId;
+    uint64_t nSendBusLinkId;
+    bool bSecurity;
+    std::string strMsg;
+};
+
 struct NFMessageFlag
 {
 	uint32_t nWorkThreadNum; //工作线程个数

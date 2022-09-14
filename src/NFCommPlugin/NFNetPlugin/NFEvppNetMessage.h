@@ -60,26 +60,17 @@ struct MsgFromNetInfo
         mTCPConPtr = NULL;
         nLinkId = 0;
         nType = eMsgType_Num;
-        nMsgId = 0;
-        nSendValue = 0;
-        nSendId = 0;
     }
 
 	MsgFromNetInfo(const evpp::TCPConnPtr TCPConPtr, uint64_t linkId) : mTCPConPtr(TCPConPtr), nLinkId(linkId)
 	{
 		nType = eMsgType_Num;
-		nMsgId = 0;
-        nSendValue = 0;
-		nSendId = 0;
 	}
 
 	eMsgType nType;
 	evpp::TCPConnPtr mTCPConPtr;
-	std::string strMsg;
-	uint32_t nMsgId;
-	uint64_t nSendValue;
-	uint64_t nSendId;
 	uint64_t nLinkId;
+	NFDataPackage mPacket;
 };
 
 class NFCNetServerModule;

@@ -79,7 +79,7 @@ bool NFCProxyClientModule::Awake()
 
         std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->mExternalServerIp, pConfig->mExternalServerPort);
         int64_t extern_unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_PROXY_SERVER_FOR_CLIENT, externUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum,
-                                                                             pConfig->mParseType);
+                                                                             pConfig->mParseType, pConfig->mSecurity);
         if (extern_unlinkId >= 0) {
             /*
             注册服务器事件

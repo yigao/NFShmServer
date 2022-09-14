@@ -33,7 +33,7 @@ InternalPacketParse::InternalPacketParse()
 {
 }
 
-int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, uint32_t& nMsgId, uint64_t& nSendValue, uint64_t& nSendId, uint64_t* nSendBusLinkId)
+int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
 {
 	if (strData == nullptr || unLen == 0) return 1;
 
@@ -63,16 +63,13 @@ int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 
 	packHead = (InternalMsg*)strData; //-V519
 
-	outData = const_cast<char*>(strData + sizeof(InternalMsg));
-	outLen = static_cast<uint32_t>(dwMsgSz) - sizeof(InternalMsg);
-	nMsgId = packHead->wCmdID;
-    nSendValue = packHead->ulSendValue;
-    nSendId = packHead->ulSendId;
-    if (nSendBusLinkId)
-    {
-        *nSendBusLinkId = packHead->ulSendBusLinkId;
-    }
-	allLen = static_cast<uint32_t>(dwMsgSz);
+    outData = const_cast<char*>(strData + sizeof(InternalMsg));
+    outLen = static_cast<uint32_t>(dwMsgSz) - sizeof(InternalMsg);
+    recvPackage.nMsgId = packHead->wCmdID;
+    recvPackage.nSendValue = packHead->ulSendValue;
+    recvPackage.nSendId = packHead->ulSendId;
+    recvPackage.nSendBusLinkId = packHead->ulSendBusLinkId;
+    allLen = static_cast<uint32_t>(dwMsgSz);
 	return 0;
 }
 

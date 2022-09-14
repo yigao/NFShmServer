@@ -20,6 +20,7 @@ AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/luafilesystem SRC)
 
 AUX_SOURCE_DIRECTORY(../../thirdparty/common/hiredis/hiredis_linux/hiredis SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/common/hwinfo/source/linux SRC)
+AUX_SOURCE_DIRECTORY(../../thirdparty/common/lzf SRC)
 
 add_definitions(
 		-DLUA_COMPAT_5_1

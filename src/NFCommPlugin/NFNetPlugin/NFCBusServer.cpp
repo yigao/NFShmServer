@@ -177,11 +177,8 @@ void NFCBusServer::ProcessMsgLogicThread()
                     char* outData = nullptr;
                     uint32_t outLen = 0;
                     uint32_t allLen = 0;
-                    uint32_t nMsgId = 0;
-                    uint64_t nSendValue = 0;
-                    uint64_t nSendId = 0;
-                    uint64_t nBusSendLinkId = 0;
-                    int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, nMsgId, nSendValue, nSendId, &nBusSendLinkId);
+                    NFDataPackage packet;
+                    int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, packet);
                     if (ret < 0)
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "nfbus parse data failed!");
@@ -196,17 +193,17 @@ void NFCBusServer::ProcessMsgLogicThread()
                     {
                         mxBuffer.Consume(allLen);
 
-                        if (nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, nBusSendLinkId, nBusSendLinkId, outData, outLen, nMsgId, nSendValue, nSendId);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
                         }
-                        else if (nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        else if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, nBusSendLinkId, nBusSendLinkId, outData, outLen, nMsgId, nSendValue, nSendId);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
                         }
                         else
                         {
-                            m_busMsgPeerCb(eMsgType_RECIVEDATA, nBusSendLinkId, nBusSendLinkId, outData, outLen, nMsgId, nSendValue, nSendId);
+                            m_busMsgPeerCb(eMsgType_RECIVEDATA, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
                         }
 
                         continue;

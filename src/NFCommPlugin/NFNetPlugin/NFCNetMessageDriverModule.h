@@ -124,7 +124,7 @@ public:
 	 * @param  nPort		服务器监听端口
 	 * @return int			返回0错误
 	 */
-	virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100, uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL) override;
+	virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100, uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) override;
 
 	/**
 	 * @brief 添加服务器
@@ -135,7 +135,7 @@ public:
 	 * @param  nPort		服务器监听端口
 	 * @return int			返回0错误
 	 */
-	virtual int64_t ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType = 0) override;
+	virtual int64_t ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType = 0, bool bSecurity = false) override;
 
     virtual int ResumeConnect(NF_SERVER_TYPES eServerType) override;
 

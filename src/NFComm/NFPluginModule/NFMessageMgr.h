@@ -32,7 +32,7 @@ public:
      * @return int			返回0错误
      */
     //virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t netThreadNum = 1, uint32_t nMaxConnectNum = 100, uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL);
-    virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t netThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType);
+    virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t netThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity = false);
 
     /**
      * @brief 添加服务器

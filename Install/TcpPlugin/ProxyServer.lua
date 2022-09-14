@@ -33,11 +33,12 @@ ProxyServer = {
         ServerIp = "127.0.0.1",
         ServerPort = 6051,
 	    ExternalServerIp = "127.0.0.1",
-	    ExternalServerPort = 7051,
+	    ExternalServerPort = 10092,
         MaxOnlinePlayerNum = 100,
         --NamingHost = "127.0.0.1:2181,127.0.0.1:2182",
         --NamingPath = "99Puke",
         MasterIp = "127.0.0.1",
         MasterPort = 6011,
+        Security = true,
 	};
 };
