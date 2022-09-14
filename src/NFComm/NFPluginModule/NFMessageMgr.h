@@ -31,7 +31,6 @@ public:
      * @param  nPort		服务器监听端口
      * @return int			返回0错误
      */
-    //virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t netThreadNum = 1, uint32_t nMaxConnectNum = 100, uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL);
     virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t netThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity = false);
 
     /**
@@ -53,170 +52,25 @@ public:
 
     virtual void CloseServer(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServer, uint32_t busId, uint64_t usLinkId);
 
-    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const std::string& strData, uint64_t nSendValue = 0, uint64_t nSendId = 0);
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nSendValue = 0, uint64_t nSendId = 0);
 
-    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue = 0, uint64_t nSendId = 0);
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue = 0, uint64_t nSendId = 0);
 
-    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nSendValue = 0, uint64_t nSendId = 0);
-
-    virtual void Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const std::string& strData, uint64_t nSendValue = 0, uint64_t nSendId = 0);
-
-    virtual void Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const char *msg, uint32_t nLen,
-                      uint64_t nSendValue = 0, uint64_t nSendId = 0);
-
-    virtual void
-    Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const google::protobuf::Message &xData,
-         uint64_t nSendValue = 0, uint64_t nSendId = 0);
-
-    virtual void
-    SendTrans(uint64_t usLinkId, uint32_t nMsgID, const google::protobuf::Message &xData, uint64_t nSendValue = 0,
-              uint64_t nSendId = 0, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual void
-    SendStore(uint64_t usLinkId, uint32_t cmd, uint32_t table_id, uint64_t sendLinkId, uint64_t destLinkId,
-              const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData, int trans_id = 0, uint32_t seq = 0,
-              uint64_t mod_key = 0, uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION, const std::string& cls_name = "");
-
-    virtual void
-    SendStore(uint64_t usLinkId, uint32_t cmd, uint32_t table_id, uint64_t sendLinkId, uint64_t destLinkId,
-              const std::string &dbname, const std::string &table_name, std::vector<storesvr_sqldata::storesvr_vk> vk_list,
-              const std::string &where_addtional_conds, int trans_id = 0, uint32_t seq = 0,
-              uint64_t mod_key = 0, uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION, const std::string& cls_name = "");
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nSendValue = 0, uint64_t nSendId = 0);
 
     virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
+    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData,
                    uint64_t valueId);
 
-    virtual int SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                               const google::protobuf::Message &xData, uint64_t valueId);
-
     virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
+    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen,
                    uint64_t valueId);
 
-    virtual int SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                               const char *msg, uint32_t nLen, uint64_t valueId);
-
-    virtual int
-    SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                   uint64_t valueId);
-
-    virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                               const google::protobuf::Message &xData, uint64_t valueId);
-
-    virtual int
-    SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                   uint64_t valueId);
-
-    virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                               const char *msg, uint32_t nLen, uint64_t valueId);
-
-    virtual int
-    SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                         uint64_t valueId);
-
-    virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                                     const google::protobuf::Message &xData, uint64_t valueId);
-
-    virtual int
-    SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                         uint64_t valueId);
-
-    virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t busId, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                                     const char *msg, uint32_t nLen, uint64_t valueId);
-
-    virtual int
-    BroadMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData,
-                          const std::map<uint32_t, std::vector<uint64_t>>& map);
-
-    virtual int BroadMsgToProxyServer(NF_SERVER_TYPES eType, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                                     const google::protobuf::Message &xData, const std::map<uint32_t, std::vector<uint64_t>>& map);
-
-    virtual int
-    BroadMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                          const std::map<uint32_t, std::vector<uint64_t>>& map);
-
-    virtual int BroadMsgToProxyServer(NF_SERVER_TYPES eType, uint16_t nMainMsgId, uint16_t nSubMsgId,
-                                     const char *msg, uint32_t nLen, const std::map<uint32_t, std::vector<uint64_t>>& map);
-
-    virtual int
-    SendMsgToWebServer(NF_SERVER_TYPES eType, uint64_t requestId, int32_t result, const std::string& err_msg = "");
-
-    virtual int
-    SendMsgToWebServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToLoginServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char* msg, int msgLen, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToSuitLogicServer(NF_SERVER_TYPES eType, uint64_t userId, uint32_t nMsgId, const google::protobuf::Message &xData, bool online = false);
-
-    virtual int
-    SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int SendTransToWebServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                     uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                       uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToLoginServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                       uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                       uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                     uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nMsgId, uint32_t gameBusId, const google::protobuf::Message &xData,
-                                      uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    virtual int SendTransToStoreServer(NF_SERVER_TYPES eType,
-                                       uint32_t cmd, uint32_t table_id,
-                                       const std::string &dbname, const std::string &table_name, const std::string &xData,
-                                       int trans_id = 0, uint32_t seq = 0,
-                                       uint64_t mod_key = 0);
-
-    virtual int SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t cmd, uint32_t table_id,
-                                       const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData,
-                                       int trans_id = 0, uint32_t seq = 0,
-                                       uint64_t mod_key = 0, const std::string& cls_name = "");
-
-    virtual int SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t cmd, uint32_t table_id,
-                                       const std::string &dbname, const std::string &table_name,
-                                       std::vector<storesvr_sqldata::storesvr_vk> vk_list,
-                                       const std::string &where_addtional_conds, int trans_id = 0, uint32_t seq = 0,
-                                       uint64_t mod_key = 0, const std::string& cls_name = "");
-
-    virtual int SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t cmd, uint32_t table_id,
-                                       const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData,
-                                       std::vector<storesvr_sqldata::storesvr_vk> vk_list,
-                                       const std::string &where_addtional_conds, int trans_id = 0, uint32_t seq = 0,
-                                       uint64_t mod_key = 0, const std::string& cls_name = "");
-
-    virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb);
-
-    virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t nMsgId,
+    virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t nModuleId, uint32_t nMsgId,
                                 const google::protobuf::Message &xData, uint64_t valueId = 0);
 
-    virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nMsgId,
+    virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
                                 const google::protobuf::Message &xData, uint64_t valueId = 0);
-
-    virtual int
-    SendMsgToMasterServer(NF_SERVER_TYPES eSendTyp, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId = 0);
 
     virtual NF_SHARE_PTR<NFServerData> GetServerByServerId(NF_SERVER_TYPES eSendType, uint32_t busId);
 

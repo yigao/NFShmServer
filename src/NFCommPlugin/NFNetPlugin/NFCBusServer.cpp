@@ -222,9 +222,16 @@ bool NFCBusServer::Send(const char *pData, uint32_t unSize)
     return false;
 }
 
-bool NFCBusServer::Send(uint32_t nMsgID, const char *msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
+bool NFCBusServer::Send(uint32_t nModuleId, uint32_t nMsgID, const char *msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., nMsgID:{} nLen:{} nParam1:{} nParam2:{}", nSendValue, nSendId);
     return false;
 }
+
+bool NFCBusServer::Send(NFDataPackage& packet)
+{
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., packet:{}", packet.ToString());
+    return false;
+}
+
 

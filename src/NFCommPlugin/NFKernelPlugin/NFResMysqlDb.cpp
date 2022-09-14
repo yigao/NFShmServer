@@ -35,7 +35,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
     {
         NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
         CHECK_NULL(pConfig);
-
+/*
         iRet = NFMessageMgr::Instance()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->mServerType, serverId, m_name, pMessage,
             [coId, pMessage](int iRet, google::protobuf::Message &message){
             if (iRet != 0) {
@@ -46,6 +46,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
                 NFCoMgr::Instance()->Resume(coId);
             }
         });
+        */
     }
 
 	CHECK_EXPR(iRet == 0, -1, "QueryDescStore Failed!");
@@ -70,8 +71,11 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    /*
     return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
                                                             proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                            */
+    return 0;
 }
 
 int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage)
@@ -81,8 +85,11 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    return 0;
+    /*
     return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
             proto_ff::E_STORESVR_C2S_DELETEOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+            */
 }
 
 int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) {
@@ -91,8 +98,11 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    return 0;
+    /*
     return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
                                                             proto_ff::E_STORESVR_C2S_MODINSOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                            */
 }
 
 NFResMysqlDB::NFResMysqlDB()

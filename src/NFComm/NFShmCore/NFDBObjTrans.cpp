@@ -50,12 +50,16 @@ int NFDBObjTrans::Insert(proto_ff::TableID eTableID, const std::string &sTableNa
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
 
     m_iDBOP = proto_ff::E_STORESVR_C2S_INSERT;
+
+    int iRetCode = 0;
+    /*
     int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_INSERT,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,
                                                                           GetGlobalID(),
                                                                           m_iObjSeqOP, iModKey);
+                                                                          */
     if (iRetCode)
     {
         SetFinished(0);
@@ -69,12 +73,15 @@ int NFDBObjTrans::Save(proto_ff::TableID eTableID, const string &sTableName, uin
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalID());
 
     m_iDBOP = proto_ff::E_STORESVR_C2S_MODIFYOBJ;
+    int iRetCode = 0;
+    /*
     int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_MODIFYOBJ,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,
                                                                           GetGlobalID(),
                                                                           m_iObjSeqOP, iModKey);
+                                                                          */
     if (iRetCode)
     {
         SetFinished(0);
@@ -88,12 +95,15 @@ int NFDBObjTrans::Load(proto_ff::TableID eTableID, const string &sTableName, uin
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
 
     m_iDBOP = proto_ff::E_STORESVR_C2S_SELECTOBJ;
+    int iRetCode = 0;
+    /*
     int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_SELECTOBJ,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,
                                                                           GetGlobalID(),
                                                                           m_iObjSeqOP, iModKey);
+                                                                          */
     if (iRetCode)
     {
         SetFinished(0);

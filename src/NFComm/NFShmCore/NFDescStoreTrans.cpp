@@ -162,10 +162,12 @@ void NFDescStoreTrans::OnTimer(int timeId, int callcount)
     {
         std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
+        /*
         NFMessageMgr::Instance()->SendTransToStoreServer(m_eType,
                                                          proto_ff::E_STORESVR_C2S_SELECT, proto_ff::E_TABLE_NONE, m_dbName,
                                                          m_tableName, vk_list, "",
                                                          GetGlobalID(), 0, 0, GetDescStoreClsName());
+                                                         */
     }
 }
 
@@ -191,10 +193,12 @@ int NFDescStoreTrans::SendGetDescStoreReq(NF_SERVER_TYPES eType, const std::stri
 
     std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
+    /*
     NFMessageMgr::Instance()->SendTransToStoreServer(eType,
                                                            proto_ff::E_STORESVR_C2S_SELECT, proto_ff::E_TABLE_NONE, m_dbName,
                                                            table_name, vk_list, "",
                                                            GetGlobalID(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
+    */
 
     return 0;
 }

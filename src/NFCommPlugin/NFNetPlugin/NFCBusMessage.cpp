@@ -149,12 +149,20 @@ bool NFCBusMessage::Send(uint64_t usLinkId, const char* pData, uint32_t unSize)
  * @param unSize	数据的大小
  * @return
  */
-bool NFCBusMessage::Send(uint64_t usLinkId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nValue, uint64_t nValue2)
+bool NFCBusMessage::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
 {
     auto pConn = m_busConnectMap.GetElement(usLinkId);
     CHECK_EXPR(pConn, false, "usLinkId:{} not find", usLinkId);
 
-    return pConn->Send(nMsgID, msg, nLen, nValue, nValue2);
+    return pConn->Send(nModuleId, nMsgID, msg, nLen, nParam1, nParam2);
+}
+
+bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& package)
+{
+    auto pConn = m_busConnectMap.GetElement(usLinkId);
+    CHECK_EXPR(pConn, false, "usLinkId:{} not find", usLinkId);
+
+    return pConn->Send(package);
 }
 
 /**

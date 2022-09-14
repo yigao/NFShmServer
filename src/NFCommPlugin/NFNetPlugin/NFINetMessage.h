@@ -152,8 +152,7 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool
-    Send(uint64_t usLinkId, uint32_t nMsgID, const char *msg, uint32_t nLen, uint64_t nSendValue = 0, uint64_t nSendId = 0) = 0;
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& package) = 0;
 
     /**
      * @brief 获得连接IP

@@ -76,43 +76,14 @@ public:
 
     virtual void OnTimer(uint32_t nTimerID) override;
 
-	virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen) override;
+	virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet) override;
 public:
 	/*
 		处理客户端链接事件和未注册消息
 	*/
 	int OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleProxyClientOtherMessage(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleProxyClientOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
 	int OnHandleClientDisconnect(uint64_t unLinkId);
-	/**
-	* @brief 处理心跳
-	*/
-	int OnHandleHeartBeat(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleAccountLoginFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleUserLoginFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleAccountRegisterFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleLoginServerPhoneAutoCodeFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleLoginServerCheckPhoneCodeFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleChangePasswordFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-
-	int OnHandleReconnectFromClient(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-
-	/**
-	 * @brief 登录服务器返回
-	 */
-	int OnHandleAccountLoginFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleAccountRegisterFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleLoginServerPhoneAutoCodeFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleLoginServerCheckPhoneCodeFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleChangePasswordFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleNotifyPhoneCheckFromLoginServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-
-    /**
-    * @brief World服务器返回
-    */
-	int OnHandleLoginRspFromWorldServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleReconnectRspFromWorldServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-	int OnHandleClientRspFromWorldServer(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
 private:
 	/*
 		对外部客户端监听唯一ID

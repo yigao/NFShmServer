@@ -66,7 +66,9 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId) override;
+    virtual bool Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId) override;
+
+    virtual bool Send(NFDataPackage& packet) override;
 private:
     evpp::EventLoopThreadPool* m_eventLoop;
 };

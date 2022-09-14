@@ -62,7 +62,8 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId) override;
+    virtual bool Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2) override;
+    virtual bool Send(NFDataPackage& packet) override;
 
     virtual bool SendToLoop(NFShmChannel *pChannel, const char* pData, uint32_t unSize);
     virtual void SendStringInLoop(NFShmChannel *pChannel, const std::string& msg);

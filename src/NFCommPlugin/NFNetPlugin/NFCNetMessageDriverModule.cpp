@@ -382,12 +382,44 @@ void NFCNetMessageDriverModule::CloseLinkId(uint64_t usLinkId)
 	NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const std::string& strData, uint64_t nSendValue, uint64_t nSendId)
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2)
 {
-    Send(usLinkId, nMsgID, strData.c_str(), strData.length(), nSendValue, nSendId);
+    NFDataPackage packet;
+    packet.mModuleId = nModuleId;
+    packet.nMsgId = nMsgID;
+    packet.mStrMsg = strData;
+    packet.nParam1 = nParam1;
+    packet.nParam2 = nParam2;
+    Send(usLinkId, packet);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
+{
+    NFDataPackage packet;
+    packet.mModuleId = nModuleId;
+    packet.nMsgId = nMsgID;
+    packet.mStrMsg = std::string(msg, nLen);
+    packet.nParam1 = nParam1;
+    packet.nParam2 = nParam2;
+    Send(usLinkId, packet);
+}
+
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2)
+{
+    NFDataPackage packet;
+    packet.mModuleId = nModuleId;
+    packet.nMsgId = nMsgID;
+    packet.nParam1 = nParam1;
+    packet.nParam2 = nParam2;
+    if (!xData.SerializeToString(&packet.mStrMsg))
+    {
+        return;
+    }
+
+    Send(usLinkId, packet);
+}
+
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage& packet)
 {
     uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
 
@@ -399,7 +431,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const c
             auto pServer = mNetServerArray[serverType];
             if (pServer)
             {
-                SendMsg(pServer, usLinkId, nMsgID, msg, nLen, nSendValue, nSendId);
+                SendMsg(pServer, usLinkId, packet);
                 return;
             }
             else
@@ -412,7 +444,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const c
             auto pServer = mBusServerArray[serverType];
             if (pServer)
             {
-                SendMsg(pServer, usLinkId, nMsgID, msg, nLen, nSendValue, nSendId);
+                SendMsg(pServer, usLinkId, packet);
                 return;
             }
             else
@@ -428,41 +460,12 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const c
     }
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nSendValue, uint64_t nSendId)
-{
-    std::string strData;
-    if (!xData.SerializeToString(&strData))
-    {
-        return;
-    }
-
-    Send(usLinkId, nMsgID, strData, nSendValue, nSendId);
-}
-
-void NFCNetMessageDriverModule::SendMsg(NFINetMessage* pServer, uint64_t usLinkId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
+void NFCNetMessageDriverModule::SendMsg(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage& packet)
 {
     if (pServer)
     {
-        pServer->Send(usLinkId, nMsgID, msg, nLen, nSendValue, nSendId);
+        pServer->Send(usLinkId, packet);
     }
-}
-
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const std::string& strData, uint64_t nSendValue, uint64_t nSendId)
-{
-    uint32_t msgId = MAKE_UINT32(nSubMsgID, nMainMsgID);
-    Send(usLinkId, msgId, strData, nSendValue, nSendId);
-}
-
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
-{
-    uint32_t msgId = MAKE_UINT32(nSubMsgID, nMainMsgID);
-    Send(usLinkId, msgId, msg, nLen, nSendValue, nSendId);
-}
-
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint16_t nMainMsgID, uint16_t nSubMsgID, const google::protobuf::Message& xData, uint64_t nSendValue, uint64_t nSendId)
-{
-    uint32_t msgId = MAKE_UINT32(nSubMsgID, nMainMsgID);
-    Send(usLinkId, msgId, xData, nSendValue, nSendId);
 }
 
 bool

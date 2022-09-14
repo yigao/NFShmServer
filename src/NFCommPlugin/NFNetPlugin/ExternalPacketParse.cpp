@@ -138,16 +138,17 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 	return 0;
 }
 
-int ExternalPacketParse::EnCodeImpl(const uint32_t unMsgID, uint64_t nSendValue, uint64_t nSendId, const char* strData, const uint32_t unDataLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
+int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
 	ExternalMsg packHead;
-	packHead.mLength = unDataLen;
-	packHead.mCmdAndFlag = unMsgID;
+	packHead.SetModule(recvPackage.mModuleId);
+	packHead.SetCmd(recvPackage.nMsgId);
+	packHead.SetLength(recvPackage.mStrMsg.length());
 
 	buffer.PushData(&packHead, sizeof(ExternalMsg));
-	buffer.PushData(strData, unDataLen);
+	buffer.PushData(recvPackage.mStrMsg.data(), recvPackage.mStrMsg.length());
 
-	return unDataLen + sizeof(ExternalMsg);
+	return recvPackage.mStrMsg.length() + sizeof(ExternalMsg);
 }
 
 // 使用 lzf 算法 压缩、解压

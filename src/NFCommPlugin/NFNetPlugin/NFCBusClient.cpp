@@ -224,7 +224,7 @@ void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, const std::string& m
     }
 }
 
-bool NFCBusClient::Send(uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
+bool NFCBusClient::Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
 {
     NFShmRecordType * pShmRecord = GetShmRecord();
     if (pShmRecord == NULL)
@@ -246,7 +246,47 @@ bool NFCBusClient::Send(uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_
     }
 
     mxBuffer.Clear();
-    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, nMsgID, nSendValue, nSendId, msg, nLen, mxBuffer, m_bindFlag.mLinkId);
+    NFDataPackage packet;
+    packet.mModuleId = nModuleId;
+    packet.nMsgId = nMsgID;
+    packet.mStrMsg = std::string(msg, nLen);
+    packet.nParam1 = nParam1;
+    packet.nParam2 = nParam2;
+    packet.nSendBusLinkId = m_bindFlag.mLinkId;
+    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, packet, mxBuffer, m_bindFlag.mLinkId);
+
+    NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
+    NFShmChannel *pChannel = &head->m_nShmChannel;
+    if (pChannel)
+    {
+        return SendToLoop(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
+    }
+    return false;
+}
+
+bool NFCBusClient::Send(NFDataPackage& packet)
+{
+    NFShmRecordType * pShmRecord = GetShmRecord();
+    if (pShmRecord == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed,");
+        return false;
+    }
+
+    if (pShmRecord->m_nOwner == true)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "bus owner can't send data, uslinkId:{} ", pShmRecord->m_nUnLinkId);
+        return false;
+    }
+
+    if (pShmRecord->m_nBuffer == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "buffer = null, uslinkId:{} ", pShmRecord->m_nUnLinkId);
+        return false;
+    }
+
+    mxBuffer.Clear();
+    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, packet, mxBuffer, m_bindFlag.mLinkId);
 
     NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
     NFShmChannel *pChannel = &head->m_nShmChannel;

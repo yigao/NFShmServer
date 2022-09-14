@@ -102,11 +102,11 @@ bool NFCMasterServerModule::Awake()
 	return true;
 }
 
-int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
 	proto_ff::ServerInfoReportList xMsg;
-	CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
+	CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
 	for (int i = 0; i < xMsg.server_list_size(); ++i)
 	{
@@ -149,11 +149,11 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, uint64_t p
 	return 0;
 }
 
-int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     for (int i = 0; i < xMsg.server_list_size(); ++i) {
         const proto_ff::ServerInfoReport &xData = xMsg.server_list(i);
@@ -178,11 +178,11 @@ int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, uint64_t pla
     return 0;
 }
 
-int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_STMasterServerDumpInfoNtf xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
@@ -212,10 +212,10 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, uint64_t p
     return 0;
 }
 
-int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, const NFDataPackage& packet)
 {
     proto_ff::Proto_KillAllServerNtf xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
     std::vector<NF_SHARE_PTR<NFServerData>> vec = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER);
 
     for(size_t i = 0; i < vec.size(); i++)
@@ -246,11 +246,11 @@ int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId
 	return 0;
 }
 
-int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
 	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_MASTER_SERVER_PLUGIN, 0, "other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
+	NFLogWarning(NF_LOG_MASTER_SERVER_PLUGIN, 0, "other message not handled:packet:{},ip:{}", packet.ToString(), ip);
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }
@@ -528,12 +528,13 @@ bool NFCMasterServerModule::HandleKillAllServer(uint32_t, const NFIHttpHandle &r
     return true;
 }
 
-int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -541,12 +542,13 @@ int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, uint64_t httpRe
     return 0;
 }
 
-int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -554,12 +556,13 @@ int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, uint64_t htt
     return 0;
 }
 
-int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -567,12 +570,13 @@ int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, uint64_t httpR
     return 0;
 }
 
-int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -580,12 +584,13 @@ int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, uint64_t ht
     return 0;
 }
 
-int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -593,12 +598,13 @@ int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, uint64_t htt
     return 0;
 }
 
-int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -606,12 +612,13 @@ int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, uint64_t 
     return 0;
 }
 
-int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -619,12 +626,13 @@ int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, uint64_t http
     return 0;
 }
 
-int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
@@ -707,11 +715,11 @@ int NFCMasterServerModule::RegisterGlobalServer()
 /*
 	处理Master服务器未注册协议
 */
-int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
     std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
-    NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "global server other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
+    NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "global server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

@@ -38,17 +38,17 @@ public:
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleMasterOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
 
 	int RegisterMasterServer();
 	int ServerReport();
-	int OnHandleMasterServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
-    int OnHandleProxyAgentServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleMasterServerReport(uint64_t unLinkId, const NFDataPackage& packet);
+    int OnHandleProxyAgentServerReport(uint64_t unLinkId, const NFDataPackage& packet);
     int OnHandleOtherReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId);
     int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId);
 
     int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleProxyServerOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleProxyServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
     int OnHandleProxyServerDisconnect(uint64_t unLinkId);
 
     int RegisterProxyAgentServer(uint64_t unLinkId);

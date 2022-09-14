@@ -24,5 +24,5 @@ public:
 
 	}
 
-	virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen) = 0;
+	virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet) = 0;
 };

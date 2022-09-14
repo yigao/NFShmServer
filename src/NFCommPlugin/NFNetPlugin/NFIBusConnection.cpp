@@ -1017,13 +1017,13 @@ void NFIBusConnection::SetMsgPeerCallback(const BusMsgPeerCallback& cb)
 
 int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
 {
-    Send(NF_SERVER_TO_SERVER_BUS_CONNECT_REQ, NULL, 0, busLength, busId);
+    Send(0, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ, NULL, 0, busLength, busId);
     return 0;
 }
 
 int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
 {
-    Send(NF_SERVER_TO_SERVER_BUS_CONNECT_RSP, NULL, 0, busLength, busId);
+    Send(0, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP, NULL, 0, busLength, busId);
     return 0;
 }
 

@@ -145,7 +145,8 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId) = 0;
+    virtual bool Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2) = 0;
+    virtual bool Send(NFDataPackage& packet) = 0;
 
 protected:
     /**
