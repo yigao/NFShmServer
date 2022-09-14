@@ -52,27 +52,16 @@
         return -1;										\
     }
 
-#define CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, nValueId, msg, nLen, xMsg)                 \
-	if (!xMsg.ParseFromArray(msg, nLen))				\
+#define CLIENT_MSG_PROCESS_WITH_PRINTF(xPacket, xMsg)                 \
+	if (!xMsg.ParseFromArray(xPacket.mStrMsg.data(), xPacket.mStrMsg.length()))				\
     {													\
-		NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, msgId:{}, nLen:{}", nMsgId, nLen); \
+		NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
         return -1;										\
     }\
-	if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, nValueId))\
+	if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1))\
 	{\
-		NFLogTrace(NF_LOG_RECV_MSG_JSON_PRINTF, nValueId, "recv msg:{}, json:{}", nMsgId, xMsg.Utf8DebugString()); \
+		NFLogTrace(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1, "recv packet:{}, json:{}", xPacket.ToString(), xMsg.Utf8DebugString()); \
 	}\
-
-#define CLIENT_MSG_PROCESS_WITH_MAIN(mainMsgId, subMsgId, nValueId, msg, nLen, xMsg)                 \
-	if (!xMsg.ParseFromArray(msg, nLen))				\
-    {													\
-		NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, mainMsgId:{}, subMsgId:{}, nLen:{}", mainMsgId, subMsgId, nLen); \
-        return -1;										\
-    }\
-	if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, nValueId))\
-	{\
-		NFLogTrace(NF_LOG_RECV_MSG_JSON_PRINTF, nValueId, "recv mainMsgId:{}, subMsgId:{}, json:{}", mainMsgId, subMsgId, xMsg.Utf8DebugString()); \
-	}                                                                                                   \
 
 #define WEB_MSG_PROCESS_WITH_PRINTF(xMsg, reqHandle) \
             \
@@ -411,18 +400,26 @@ public:
 
 public:
     template<typename BaseType>
-    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, uint64_t valueId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen))
+    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
         return AddMessageCallBack(eType, nMsgID, pBase, functor);
     }
 
-    template <typename BaseType>
-    bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, uint64_t valueId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen))
+    template<typename BaseType>
+    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
+        return AddMessageCallBack(eType, nModuleId, nMsgID, pBase, functor);
+    }
+
+    template <typename BaseType>
+    bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
+    {
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
 
         return AddOtherCallBack(eType, linkId, pBase, functor);
     }
@@ -441,6 +438,8 @@ public:
     virtual bool DelAllCallBack(NF_SERVER_TYPES eType, uint64_t unLinkId) = 0;
 
     virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb) = 0;
+
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTarget, const NET_RECEIVE_FUNCTOR & cb) = 0;
 
     virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb) = 0;
 

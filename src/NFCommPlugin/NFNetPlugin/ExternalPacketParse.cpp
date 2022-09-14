@@ -131,8 +131,8 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
     outLen = msgSize;
     recvPackage.mModuleId = moduleId;
     recvPackage.nMsgId = tmpMsgId;
-    recvPackage.nSendValue = 0;
-    recvPackage.nSendId = 0;
+    recvPackage.nParam1 = 0;
+    recvPackage.nParam2 = 0;
     recvPackage.bSecurity = isCompressed;
     allLen = sizeof(ExternalMsg) + msgSize;
 	return 0;

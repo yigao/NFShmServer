@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 
+#include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
@@ -121,9 +122,40 @@ enum eAccountEventType
 	eAccountEventType_RECONNECTED = 3,
 };
 
-typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, uint64_t nSendValue, uint64_t nSendId, uint32_t nMsgId, const char* msg, uint32_t nLen)> NET_CALLBACK_RECEIVE_FUNCTOR;
+const uint32_t s_compressBitPos = 15;
 
-typedef std::function<int(uint64_t unLinkId, uint64_t sendValueId, uint64_t otherValue, uint32_t nMsgId, const char* msg, uint32_t nLen)> NET_RECEIVE_FUNCTOR;
+struct NFDataPackage
+{
+    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSendBusLinkId(0), bSecurity(false) {
+
+    }
+
+    NFDataPackage(const NFDataPackage& packet) {
+        mModuleId = packet.mModuleId;
+        nMsgId = packet.nMsgId;
+        nParam1 = packet.nParam1;
+        nParam2 = packet.nParam2;
+        nSendBusLinkId = packet.nSendBusLinkId;
+        bSecurity = packet.bSecurity;
+        mStrMsg = packet.mStrMsg;
+    }
+
+    std::string ToString() const {
+        return NF_FORMAT("mdouleId:{} msgId:{} param1:{} param2:{} nSendBusLinkId:{} bSecurity:{}", mModuleId, nMsgId, nParam1, nParam2, nSendBusLinkId, bSecurity);
+    }
+
+    uint32_t mModuleId;
+    uint32_t nMsgId;
+    uint64_t nParam1;
+    uint64_t nParam2;
+    uint64_t nSendBusLinkId;
+    bool bSecurity;
+    std::string mStrMsg;
+};
+
+typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
+
+typedef std::function<int(uint64_t unLinkId, const NFDataPackage& packet)> NET_RECEIVE_FUNCTOR;
 
 typedef std::function<int(eMsgType nEvent, uint64_t unLinkId)> NET_EVENT_FUNCTOR;
 

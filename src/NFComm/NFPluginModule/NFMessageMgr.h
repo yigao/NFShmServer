@@ -305,18 +305,26 @@ public:
                          int timeout = 3);
 public:
     template<typename BaseType>
-    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, uint64_t valueId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen))
+    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
         return AddMessageCallBack(eType, nMsgID, pBase, functor);
     }
 
-    template <typename BaseType>
-    bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, uint64_t valueId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen))
+    template<typename BaseType>
+    bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
+        return AddMessageCallBack(eType, nModuleId, nMsgID, pBase, functor);
+    }
+
+    template <typename BaseType>
+    bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType* pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const NFDataPackage& packet))
+    {
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
 
         return AddOtherCallBack(eType, linkId, pBase, functor);
     }
@@ -333,6 +341,8 @@ public:
     virtual bool DelAllCallBack(void *pTarget);
 
     virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb);
+
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb);
 
     virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb);
 

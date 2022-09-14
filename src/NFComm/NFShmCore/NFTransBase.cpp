@@ -217,11 +217,11 @@ NFTransBase::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t
     return -1;
 }
 
-int NFTransBase::ProcessDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, uint64_t req_trans_id, uint32_t nMsgId, const char* msg, uint32_t nLen) {
+int NFTransBase::ProcessDispSvrRes(uint64_t unLinkId, const NFDataPackage& packet, const proto_ff::Proto_SvrPkg& svrPkg) {
 	int iRetCode = 0;
 	iRetCode = RunCommLogic();
 	CHECK_RET(iRetCode, "RunCommLogic Failed RunedTimes:{}", m_wRunedTimes);
-	iRetCode = HandleDispSvrRes(unLinkId, destLinkId, req_trans_id, nMsgId, msg, nLen);
+	iRetCode = HandleDispSvrRes(unLinkId, packet, svrPkg);
 
 	if (iRetCode)
 	{
@@ -234,7 +234,7 @@ int NFTransBase::ProcessDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, uint6
 	return 0;
 }
 
-int NFTransBase::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, uint64_t req_trans_id, uint32_t nMsgId, const char* msg, uint32_t nLen)
+int NFTransBase::HandleDispSvrRes(uint64_t unLinkId, const NFDataPackage& packet, const proto_ff::Proto_SvrPkg& svrPkg)
 {
 	NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Fatal Err Calling the Method");
 	NF_ASSERT(false);

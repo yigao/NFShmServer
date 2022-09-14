@@ -27,9 +27,9 @@ public:
 	 *@brief  设置接收回调.
 	 */
 	template <typename BaseType>
-	void SetRecvCB(BaseType* pBaseType, int (BaseType::*handleRecieve)(uint64_t connectionLink, uint64_t objectLinkId, uint64_t nSendValue, uint64_t nSendId, uint32_t nMsgId, const char* msg, uint32_t nLen))
+	void SetRecvCB(BaseType* pBaseType, int (BaseType::*handleRecieve)(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet))
 	{
-		NET_CALLBACK_RECEIVE_FUNCTOR func = std::bind(handleRecieve, pBaseType, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6, std::placeholders::_7);
+		NET_CALLBACK_RECEIVE_FUNCTOR func = std::bind(handleRecieve, pBaseType, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 		SetRecvCB(func);
 	}
 

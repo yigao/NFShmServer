@@ -109,7 +109,7 @@ struct NetEventFunctor
 
 struct CallBack {
     //call back
-    std::unordered_map<uint32_t, NetReceiveFunctor> mxReceiveCallBack;
+    std::unordered_map<uint32_t, std::unordered_map<uint32_t, NetReceiveFunctor>> mxReceiveCallBack;
     std::unordered_map<uint64_t, NetEventFunctor> mxEventCallBack;
     std::unordered_map<uint64_t, NetReceiveFunctor> mxCallBackList;
     std::map<NFHttpType, map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap;
@@ -560,17 +560,17 @@ public:
     virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTaraget,
                                     const NET_RECEIVE_FUNCTOR &cb) override;
 
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTarget, const NET_RECEIVE_FUNCTOR & cb) override;
+
     virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTaraget,
                                   const NET_RECEIVE_FUNCTOR &cb) override;
 
     virtual bool
     AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTaraget, const NET_EVENT_FUNCTOR &cb) override;
 
-    int OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, uint64_t nSendValue, uint64_t nOtherValue,
-                         uint32_t nMsgId, const char *msg, uint32_t nLen);
+    int OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet);
 
-	int OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, uint64_t nSendValue, uint64_t nOtherValue,
-		uint32_t nMsgId, const char *msg, uint32_t nLen);
+	int OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet);
 
     int OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink, uint64_t objectLinkId);
 

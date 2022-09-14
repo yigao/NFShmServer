@@ -580,11 +580,14 @@ bool NFCMessageModule::DelAllCallBack(NF_SERVER_TYPES eType, uint64_t unLinkId)
 
 bool NFCMessageModule::DelAllCallBack(void *pTarget) {
     for (size_t i = 0; i < mxCallBack.size(); i++) {
-        for (auto iter = mxCallBack[i].mxReceiveCallBack.begin(); iter != mxCallBack[i].mxReceiveCallBack.end();) {
-            if (iter->second.m_pTarget == pTarget) {
-                iter = mxCallBack[i].mxReceiveCallBack.erase(iter);
-            } else {
-                iter++;
+        for(auto moduleIter = mxCallBack[i].mxReceiveCallBack.begin(); moduleIter != mxCallBack[i].mxReceiveCallBack.end(); moduleIter++)
+        {
+            for (auto iter = moduleIter->second.begin(); iter != moduleIter->second.end();) {
+                if (iter->second.m_pTarget == pTarget) {
+                    iter = moduleIter->second.erase(iter);
+                } else {
+                    iter++;
+                }
             }
         }
 
@@ -618,7 +621,16 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTarget,
                                           const NET_RECEIVE_FUNCTOR &cb) {
     if (eType < mxCallBack.size()) {
-        mxCallBack[eType].mxReceiveCallBack[nMsgID] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb);
+        return true;
+    }
+    return false;
+}
+
+bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTarget, const NET_RECEIVE_FUNCTOR & cb)
+{
+    if (eType < mxCallBack.size()) {
+        mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb);
         return true;
     }
     return false;
@@ -643,18 +655,17 @@ bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
 	return false;
 }
 
-int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, uint64_t nSendValue, uint64_t nOtherValue,
-	uint32_t nMsgId, const char *msg, uint32_t nLen)
+int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet)
 {
 	uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
 	if (eServerType < mxCallBack.size()) {
 		uint64_t startTime = NFGetMicroSecondTime();
-        auto it2 = mxCallBack[eServerType].mxReceiveCallBack.find(nMsgId);
-        if (it2 != mxCallBack[eServerType].mxReceiveCallBack.end()) {
+        auto it2 = mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].find(packet.nMsgId);
+        if (it2 != mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].end()) {
             NET_RECEIVE_FUNCTOR &pFun = it2->second.m_pFunctor;
             if (pFun)
             {
-                int iRet = pFun(objectLinkId, nSendValue, nOtherValue, nMsgId, msg, nLen);
+                int iRet = pFun(objectLinkId, packet);
                 it2->second.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
                 it2->second.m_iAllUseTime += useTime;
@@ -668,13 +679,17 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 }
                 if (useTime/1000 > 33)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "nMsgId:{} use time:{} ms, too long", nMsgId, useTime/1000);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "moduleId:{}, nMsgId:{} use time:{} ms, too long", packet.mModuleId, packet.nMsgId, useTime/1000);
                 }
-                //1009 1010 heartbeat
-                if (nMsgId != 1009 && nMsgId != 1010 && nMsgId != 1 && nMsgId != 2)
-                    NFLogTrace(NF_LOG_RECV_MSG, 0, "nMsgId:{} value1:{} value2:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
-                               nMsgId, nSendValue, nOtherValue, useTime, it2->second.m_iCount, it2->second.m_iAllUseTime, it2->second.m_iAllUseTime/it2->second.m_iCount, it2->second.m_iMinTime, it2->second.m_iMaxTime);
-                CHECK_RET(iRet, "nSendValue:{} nOtherValue:{} nMsgId = {}", nSendValue, nOtherValue, nMsgId);
+
+                if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                                                         || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                {
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
+                               packet.ToString(), useTime, it2->second.m_iCount, it2->second.m_iAllUseTime, it2->second.m_iAllUseTime/it2->second.m_iCount, it2->second.m_iMinTime, it2->second.m_iMaxTime);
+                }
+
+                CHECK_RET(iRet, "packet:{}", packet.ToString());
             }
 
             return 0;
@@ -685,7 +700,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             NET_RECEIVE_FUNCTOR &pFun = iterator2->second.m_pFunctor;
             if (pFun)
             {
-                int iRet = pFun(objectLinkId, nSendValue, nOtherValue, nMsgId, msg, nLen);
+                int iRet = pFun(objectLinkId, packet);
                 iterator2->second.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
                 iterator2->second.m_iAllUseTime += useTime;
@@ -701,12 +716,15 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "connectionLink:{} use time:{} ms, too long", connectionLink, useTime/1000);
                 }
-                //1009 1010 heartbeat
-                if (nMsgId != 1009 && nMsgId != 1010 && nMsgId != 1 && nMsgId != 2)
-                    NFLogTrace(NF_LOG_RECV_MSG, 0, "connectionLink:{} value1:{} value2:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
-                               connectionLink, nSendValue, nOtherValue, useTime, iterator2->second.m_iCount, iterator2->second.m_iAllUseTime,
+                if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                                                || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                {
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "connectionLink:{} packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
+                               connectionLink, packet.ToString(), useTime, iterator2->second.m_iCount, iterator2->second.m_iAllUseTime,
                                iterator2->second.m_iAllUseTime/iterator2->second.m_iCount, iterator2->second.m_iMinTime, iterator2->second.m_iMaxTime);
-                CHECK_RET(iRet, "nSendValue:{} nOtherValue:{} nMsgId = {}", nSendValue, nOtherValue, nMsgId);
+                }
+
+                CHECK_RET(iRet, "packet:{}", packet.ToString());
             }
         }
 
@@ -715,26 +733,25 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
 	return 0;
 }
 
-int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, uint64_t nSendValue,
-                                       uint64_t nOtherValue, uint32_t nMsgId, const char *msg, uint32_t nLen) {
+int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet) {
     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
     if (eServerType < mxCallBack.size()) {
         uint64_t startTime = NFGetMicroSecondTime();
         if (eServerType != NF_ST_ROUTE_AGENT_SERVER && eServerType != NF_ST_ROUTE_SERVER && eServerType != NF_ST_PROXY_AGENT_SERVER) {
-            if (nMsgId == proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD) {
+            if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD) {
                 proto_ff::Proto_SvrPkg svrPkg;
-                CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, 0, msg, nLen, svrPkg);
+                CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
 
                 if (svrPkg.disp_info().rsp_trans_id() > 0 && NFShmMgr::Instance()->IsInited()) {
                     NFTransBase *pTrans = NFShmMgr::Instance()->GetTrans(svrPkg.disp_info().rsp_trans_id());
                     if (pTrans && !pTrans->IsFinished()) {
-                        pTrans->ProcessDispSvrRes(objectLinkId, nSendValue, svrPkg.disp_info().req_trans_id(), svrPkg.msg_id(), svrPkg.msg_data().c_str(), svrPkg.msg_data().length());
+                        pTrans->ProcessDispSvrRes(objectLinkId, packet, svrPkg);
                         uint64_t useTime = NFGetMicroSecondTime() - startTime;
                         if (useTime/1000 > 33)
                         {
                             NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long", pTrans->ClassTypeInfo(), svrPkg.msg_id(), useTime/1000);
                         }
-                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} value1:{} value2:{} use time:{} us", pTrans->ClassTypeInfo(), svrPkg.msg_id(), nSendValue, nOtherValue, useTime);
+                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} packet:{} use time:{} us", pTrans->ClassTypeInfo(), svrPkg.msg_id(), packet.ToString(), useTime);
                     } else {
                         NFLogError(NF_LOG_SYSTEMLOG, 0,
                                    "can't find trans, trans maybe timeout, msgId:{} req_transid:{} rsp_transid:{}",
@@ -744,13 +761,19 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 }
 				else
 				{
-					OnHandleReceiveNetPack(connectionLink, objectLinkId, nSendValue, svrPkg.disp_info().req_trans_id(), svrPkg.msg_id(), svrPkg.msg_data().c_str(), svrPkg.msg_data().length());
+				    NFDataPackage transPacket;
+                    transPacket.nParam1 = packet.nParam1;
+                    transPacket.nParam2 = svrPkg.disp_info().req_trans_id();
+                    transPacket.mModuleId = 0;
+                    transPacket.nMsgId = svrPkg.msg_id();
+                    transPacket.mStrMsg = svrPkg.msg_data();
+					OnHandleReceiveNetPack(connectionLink, objectLinkId, transPacket);
 				}
 
 				return 0;
-            } else if (nMsgId == proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD) {
+            } else if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD) {
                 proto_ff::Proto_SvrPkg svrPkg;
-                CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, 0, msg, nLen, svrPkg);
+                CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
 
                 if (svrPkg.store_info().cb_data().type() == proto_ff::E_DISP_TYPE_BY_TRANSACTION)
                 {
@@ -778,15 +801,21 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     }
                 }
             }
-            else if (nMsgId == proto_ff::NF_STS_BROAD_PLAYER_MSG_NOTIFY)
+            else if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_STS_BROAD_PLAYER_MSG_NOTIFY)
             {
                 proto_ff::Proto_STSBroadPlayerMsgNotify xMsg;
-                CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, 0, msg, nLen, xMsg);
+                CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
                 for(int i = 0; i < (int)xMsg.user_id_size(); i++)
                 {
                     uint64_t userId = xMsg.user_id(i);
-                    OnHandleReceiveNetPack(connectionLink, objectLinkId, userId, nOtherValue, xMsg.msg_id(), xMsg.msg_data().data(), xMsg.msg_data().length());
+                    NFDataPackage transPacket;
+                    transPacket.nParam1 = userId;
+                    transPacket.nParam2 = transPacket.nParam2;
+                    transPacket.mModuleId = 0;
+                    transPacket.nMsgId = xMsg.msg_id();
+                    transPacket.mStrMsg = xMsg.msg_data();
+                    OnHandleReceiveNetPack(connectionLink, objectLinkId, transPacket);
                 }
 
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
@@ -794,13 +823,13 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "BroadPlayerMsgNotify nMsgId:{} use time:{} ms, too long", xMsg.msg_id(), useTime/1000);
                 }
-                NFLogTrace(NF_LOG_RECV_MSG, 0, "BroadPlayerMsgNotify nMsgId:{} value1:{} value2:{} use time:{} us", xMsg.msg_id(), nSendValue, nOtherValue, useTime);
+                NFLogTrace(NF_LOG_RECV_MSG, 0, "BroadPlayerMsgNotify nMsgId:{}  use time:{} us", xMsg.msg_id(), useTime);
 
                 return 0;
             }
         }
 
-		OnHandleReceiveNetPack(connectionLink, objectLinkId, nSendValue, nOtherValue, nMsgId, msg, nLen);
+		OnHandleReceiveNetPack(connectionLink, objectLinkId, packet);
 	}
 	return 0;
 }

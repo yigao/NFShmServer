@@ -239,7 +239,7 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string& strMsg, N
     auto it = mHttpRequestMap.find(requestId);
     if (it == mHttpRequestMap.end())
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg Timeout........ requestId:{}, strMsg:{}", requestId, strMsg);
+        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg Timeout........ requestId:{}, mStrMsg:{}", requestId, strMsg);
         return false;
     }
 
@@ -248,7 +248,7 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string& strMsg, N
     bool ret = req->ResponseMsg(strMsg, code, strReason);
     if (!ret)
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg error........ requestId:{}, strMsg:{}", requestId, strMsg);
+        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg error........ requestId:{}, mStrMsg:{}", requestId, strMsg);
     }
 
     req->Reset();

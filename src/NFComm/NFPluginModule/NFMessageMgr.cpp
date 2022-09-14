@@ -534,6 +534,12 @@ bool NFMessageMgr::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, vo
     return m_pMessageModule->AddMessageCallBack(eType, nMsgID, pTaraget, cb);
 }
 
+bool NFMessageMgr::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTaraget, const NET_RECEIVE_FUNCTOR & cb)
+{
+    NF_ASSERT(m_pMessageModule);
+    return m_pMessageModule->AddMessageCallBack(eType, nModuleId, nMsgID, pTaraget, cb);
+}
+
 bool NFMessageMgr::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTaraget, const NET_RECEIVE_FUNCTOR &cb)
 {
     NF_ASSERT(m_pMessageModule);

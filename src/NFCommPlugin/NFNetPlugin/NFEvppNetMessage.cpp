@@ -80,7 +80,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                     pObject->SetConnPtr(pMsg->mTCPConPtr);
                                     pObject->SetIsServer(false);
                                     pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, nullptr, 0, 0, 0, 0);
+                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, NFDataPackage());
                                 }
                                 else
                                 {
@@ -94,7 +94,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 if (pObject)
                                 {
                                     pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, nullptr, 0, 0, 0, 0);
+                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, NFDataPackage());
                                 }
                                 else
                                 {
@@ -129,7 +129,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                             }
 
                             pObject->mConnPtr = NULL;
-                            OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pObject->m_usLinkId, nullptr, 0, 0, 0, 0);
+                            OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pObject->m_usLinkId, NFDataPackage());
                         }
 
                         pMsg->mTCPConPtr->set_context(evpp::Any());
@@ -140,11 +140,11 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                         for (size_t i = 0; i < m_connectionList.size(); i++) {
                             if (m_connectionList[i]->GetLinkId() == pMsg->nLinkId) {
                                 if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT) {
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pMsg->nLinkId, nullptr, 0, 0, 0, 0);
+                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pMsg->nLinkId, NFDataPackage());
                                 }
                                 else
                                 {
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, 0, nullptr, 0, 0, 0, 0);
+                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, 0, NFDataPackage());
                                 }
                             }
                         }
@@ -161,7 +161,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                         NetEvppObject* pObject = evpp::any_cast<NetEvppObject*>(pMsg->mTCPConPtr->context());
                         if (pObject)
                         {
-                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, pObject->m_usLinkId, (char*)pMsg->mPacket.strMsg.data(), pMsg->mPacket.strMsg.length(), pMsg->mPacket.nMsgId, pMsg->mPacket.nSendValue, pMsg->mPacket.nSendId);
+                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, pObject->m_usLinkId, pMsg->mPacket);
                         }
                         else
                         {
@@ -232,7 +232,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!(msgInfo.mPacket.mModuleId == 0 && (msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                if (!(msgInfo.mPacket.mModuleId == 0 && (msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                || msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", msgInfo.mPacket.ToString());
                 }
@@ -257,7 +258,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     comBuffer.Produce(decompressLen);
 
                     msgInfo.nType = eMsgType_RECIVEDATA;
-                    msgInfo.mPacket.strMsg = std::string(comBuffer.ReadAddr(), comBuffer.ReadableSize());
+                    msgInfo.mPacket.mStrMsg = std::string(comBuffer.ReadAddr(), comBuffer.ReadableSize());
                     while(!mMsgQueue.Enqueue(msgInfo)) {}
                 }
                 else {
@@ -267,7 +268,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
 
                     msgInfo.nType = eMsgType_RECIVEDATA;
-                    msgInfo.mPacket.strMsg = std::string(outData, outLen);
+                    msgInfo.mPacket.mStrMsg = std::string(outData, outLen);
                     while(!mMsgQueue.Enqueue(msgInfo)) {}
                 }
 
@@ -549,36 +550,39 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, uint32_t nMsgID, const char* msg,
     return false;
 }
 
-void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, char* pBuf, uint32_t sz, uint32_t nMsgId, uint64_t nSendValue, uint64_t nSendId)
+void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet)
 {
 	switch (type)
 	{
 	case eMsgType_RECIVEDATA:
 	{
-		if (nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT)
-		{
-			NetEvppObject* pObject = GetNetObject(objectLinkId);
-			if (pObject && pObject->mIsServer)
-			{
-				pObject->SetLastHeartBeatTime(NFGetTime());
-                Send(pObject->GetLinkId(), NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
-				return;
-			}
-		}
-
-		if (nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
+	    if (packet.mModuleId == 0)
         {
-            NetEvppObject* pObject = GetNetObject(objectLinkId);
-            if (pObject && pObject->mIsServer == false)
+            if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT)
             {
-                pObject->SetLastHeartBeatTime(NFGetTime());
-                return;
+                NetEvppObject* pObject = GetNetObject(objectLinkId);
+                if (pObject && pObject->mIsServer)
+                {
+                    pObject->SetLastHeartBeatTime(NFGetTime());
+                    Send(pObject->GetLinkId(), NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
+                    return;
+                }
+            }
+
+            if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
+            {
+                NetEvppObject* pObject = GetNetObject(objectLinkId);
+                if (pObject && pObject->mIsServer == false)
+                {
+                    pObject->SetLastHeartBeatTime(NFGetTime());
+                    return;
+                }
             }
         }
 
 		if (mRecvCB)
 		{
-			mRecvCB(connectionLink, objectLinkId, nSendValue, nSendId, nMsgId, pBuf, sz);
+			mRecvCB(connectionLink, objectLinkId, packet);
 		}
 	}
 	break;

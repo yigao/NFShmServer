@@ -60,7 +60,7 @@ public:
 
     virtual void OnTimer(uint32_t nTimerID);
 
-    int OnKillServerProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnKillServerProcess(uint64_t unLinkId, const NFDataPackage& packet);
 protected:
     int Next(int iNowSec);
     uint8_t UpdateCheckSeq(const std::string& szCheckSeqFile);

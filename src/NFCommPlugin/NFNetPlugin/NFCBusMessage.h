@@ -87,11 +87,11 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const char* pBuf, uint32_t sz, uint32_t nMsgId, uint64_t nSendValue, uint64_t nSendId);
+    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet);
 
 	virtual void OnHandleMsgQueue();
 
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const char* pBuf, uint32_t sz, uint32_t nMsgId, uint64_t nSendValue, uint64_t nSendId);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet);
 
     virtual int ResumeConnect() override;
 private:
