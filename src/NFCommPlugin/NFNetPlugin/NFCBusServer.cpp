@@ -193,17 +193,19 @@ void NFCBusServer::ProcessMsgLogicThread()
                     {
                         mxBuffer.Consume(allLen);
 
+                        packet.mStrMsg = std::string(outData, outLen);
+
                         if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
                         }
                         else if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
                         }
                         else
                         {
-                            m_busMsgPeerCb(eMsgType_RECIVEDATA, packet.nSendBusLinkId, packet.nSendBusLinkId, outData, outLen, packet.nMsgId, packet.nSendValue, packet.nSendId);
+                            m_busMsgPeerCb(eMsgType_RECIVEDATA, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
                         }
 
                         continue;
@@ -222,7 +224,7 @@ bool NFCBusServer::Send(const char *pData, uint32_t unSize)
 
 bool NFCBusServer::Send(uint32_t nMsgID, const char *msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., nMsgID:{} nLen:{} nSendValue:{} nSendId:{}", nSendValue, nSendId);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., nMsgID:{} nLen:{} nParam1:{} nParam2:{}", nSendValue, nSendId);
     return false;
 }
 
