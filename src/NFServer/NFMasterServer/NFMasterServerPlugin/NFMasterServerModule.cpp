@@ -68,26 +68,26 @@ bool NFCMasterServerModule::Awake()
 	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
 	if (pConfig)
 	{
-		int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+		int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
 		if (unlinkId >= 0)
 		{
 			uint64_t masterServerLinkId = (uint64_t)unlinkId;
             NFMessageMgr::Instance()->SetServerLinkId(NF_ST_MASTER_SERVER, masterServerLinkId);
 			NFMessageMgr::Instance()->AddEventCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnProxySocketEvent);
 			NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnHandleOtherMessage);
-			NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen success, serverId:{}, ip:{}, port:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
+			NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
 		}
 		else
 		{
-			NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen failed!, serverId:{}, ip:{}, port:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
+			NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen failed!, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
 			return false;
 		}
 
-        std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->mServerIp, pConfig->mHttpPort);
-        int ret = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, httpUrl,  pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+        std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->ServerIp, pConfig->HttpPort);
+        int ret = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, httpUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (ret < 0)
         {
-            NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mHttpPort);
+            NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->HttpPort);
             return false;
         }
 	}
@@ -136,7 +136,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDa
             SynServerToOthers(pServerData);
 #else
             NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
-            if (pConfig && pConfig->mNamingHost.empty())
+            if (pConfig && pConfig->NamingHost.empty())
             {
                 SynServerToOthers(pServerData);
             }
@@ -192,9 +192,9 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDa
 
     NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_name(), xMsg.dump_info());
 
-    std::string url = pConfig->mWwwUrl+"/index.php/api/emsdump/send";
+    std::string url = pConfig->WwwUrl + "/index.php/api/emsdump/send";
     proto_ff::emailSender sender;
-    sender.set_email(pConfig->mEmail);
+    sender.set_email(pConfig->Email);
     sender.set_title(pServerData->mServerInfo.server_name() + "_" + pServerData->mServerInfo.bus_name() + " 服务器崩溃信息");
     sender.set_msg(xMsg.dump_info());
     std::string json;
@@ -692,17 +692,17 @@ int NFCMasterServerModule::RegisterGlobalServer()
     {
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-        pData->set_bus_id(pConfig->mBusId);
-        pData->set_bus_name(pConfig->mBusName);
-        pData->set_server_type(pConfig->mServerType);
-        pData->set_server_name(pConfig->mServerName);
+        pData->set_bus_id(pConfig->BusId);
+        pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_type(pConfig->ServerType);
+        pData->set_server_name(pConfig->ServerName);
 
-        pData->set_bus_length(pConfig->mBusLength);
-        pData->set_link_mode(pConfig->mLinkMode);
-        pData->set_url(pConfig->mUrl);
-        pData->set_server_ip(pConfig->mServerIp);
-        pData->set_server_port(pConfig->mServerPort);
-        pData->set_route_svr(pConfig->mRouteAgent);
+        pData->set_bus_length(pConfig->BusLength);
+        pData->set_link_mode(pConfig->LinkMode);
+        pData->set_url(pConfig->Url);
+        pData->set_server_ip(pConfig->ServerIp);
+        pData->set_server_port(pConfig->ServerPort);
+        pData->set_route_svr(pConfig->RouteAgent);
         pData->set_server_state(proto_ff::EST_NARMAL);
         pData->set_machine_addr(m_pPluginManager->GetMachineAddrMD5());
 
@@ -744,18 +744,18 @@ int NFCMasterServerModule::ServerReport()
     {
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-        pData->set_bus_id(pConfig->mBusId);
-        pData->set_bus_name(pConfig->mBusName);
-        pData->set_server_type(pConfig->mServerType);
-        pData->set_server_name(pConfig->mServerName);
+        pData->set_bus_id(pConfig->BusId);
+        pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_type(pConfig->ServerType);
+        pData->set_server_name(pConfig->ServerName);
 
-        pData->set_bus_length(pConfig->mBusLength);
-        pData->set_link_mode(pConfig->mLinkMode);
-        pData->set_url(pConfig->mUrl);
-        pData->set_server_ip(pConfig->mServerIp);
-        pData->set_server_port(pConfig->mServerPort);
+        pData->set_bus_length(pConfig->BusLength);
+        pData->set_link_mode(pConfig->LinkMode);
+        pData->set_url(pConfig->Url);
+        pData->set_server_ip(pConfig->ServerIp);
+        pData->set_server_port(pConfig->ServerPort);
         pData->set_server_state(proto_ff::EST_NARMAL);
-        pData->set_route_svr(pConfig->mRouteAgent);
+        pData->set_route_svr(pConfig->RouteAgent);
         NFIMonitorModule* pMonitorModule = m_pPluginManager->FindModule<NFIMonitorModule>();
         if (pMonitorModule)
         {

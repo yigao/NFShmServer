@@ -14,6 +14,7 @@
 #include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFKernelMessage/proto_common.pb.h"
 
 NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
 {
@@ -405,172 +406,94 @@ bool NFCConfigModule::LoadServerConfig()
 	{
 	    std::string serverTypeName = vec_iter->first;
         NFLuaRef serverRef = vec_iter->second;
-        for (auto iter = serverRef.begin(); iter != serverRef.end(); ++iter)
-        {
-            NFLuaRef serverConfigRef = iter.value();
-            NFServerConfig* pConfig = NF_NEW NFServerConfig();
 
-            if (!GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SERVER_ID, pConfig->mBusName))
+        proto_ff::pbNFServerConfigList tmpConfig;
+        NFProtobufCommon::LuaToProtoMessage(serverRef, &tmpConfig);
+
+        for (int i = 0; i < tmpConfig.list_size(); i++)
+        {
+            proto_ff::pbNFServerConfig* pPbConfig = tmpConfig.mutable_list(i);
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
+
+            if (!pPbConfig->has_serverid())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "must be config the ServerId........");
                 assert(0);
             }
 
-            pConfig->mBusId = NFServerIDUtil::GetBusID(pConfig->mBusName);
-            if (pConfig->mBusId <= 0)
+            pPbConfig->set_busid(NFServerIDUtil::GetBusID(pPbConfig->serverid()));
+            if (pPbConfig->busid() <= 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "serverid can't BusAddrAton to busid:{}", pConfig->mBusName);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "serverid can't BusAddrAton to busid:{}", pPbConfig->serverid());
                 assert(0);
             }
 
-            if (!GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SERVER_TYPE, pConfig->mServerType))
+            if (pPbConfig->has_servertype())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "must be config the ServerType........");
                 assert(0);
             }
 
-            NF_ASSERT(pConfig->mServerType >= 0 && pConfig->mServerType < NF_ST_MAX);
-            NF_ASSERT(GetServerName((NF_SERVER_TYPES)pConfig->mServerType) == serverTypeName);
+            NF_ASSERT(pPbConfig->servertype() >= 0 && pPbConfig->servertype() < NF_ST_MAX);
+            NF_ASSERT(GetServerName((NF_SERVER_TYPES)pPbConfig->servertype()) == serverTypeName);
 
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SERVER_NAME, pConfig->mServerName);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SERVER_IP, pConfig->mServerIp);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SERVER_PORT, pConfig->mServerPort);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_MAX_CONNECT_NUM, pConfig->mMaxConnectNum);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_WORK_THREAD_NUM, pConfig->mWorkThreadNum);
-            GetLuaTableValue(serverConfigRef, "NetThreadNum", pConfig->mNetThreadNum);
-
-            GetLuaTableValue(serverConfigRef, "LinkMode", pConfig->mLinkMode);
-            GetLuaTableValue(serverConfigRef, "BusLength", pConfig->mBusLength);
-            if (pConfig->mBusLength == 0)
+            if (pPbConfig->buslength() == 0)
             {
-                GetLuaTableValue(serverConfigRef, "ChannelSize", pConfig->mBusLength);
-                if (pConfig->mBusLength == 0)
-                {
-                    pConfig->mBusLength = 20971520;  //20M
-                }
+                pPbConfig->set_buslength(20971520);  //20M
             }
 
-            NFStringUtility::Trim(pConfig->mLinkMode);
-            NFStringUtility::ToLower(pConfig->mLinkMode);
-            if (pConfig->mLinkMode.empty())
+            std::string linkMode = pPbConfig->linkmode();
+            NFStringUtility::Trim(linkMode);
+            NFStringUtility::ToLower(linkMode);
+            pPbConfig->set_linkmode(linkMode);
+            if (linkMode.empty())
             {
-                pConfig->mLinkMode = "tcp";
-                pConfig->mUrl = NF_FORMAT("tcp://{}:{}", pConfig->mServerIp, pConfig->mServerPort);
+                pPbConfig->set_linkmode("tcp");
+                std::string url = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+                pPbConfig->set_url(url);
             }
-            else if (pConfig->mLinkMode != "tcp" && pConfig->mLinkMode != "udp" && pConfig->mLinkMode != "http" && pConfig->mLinkMode != "bus")
+            else if (linkMode != "tcp" && linkMode != "udp" && linkMode != "http" && linkMode != "bus")
             {
-                pConfig->mLinkMode = "tcp";
-                pConfig->mUrl = NF_FORMAT("tcp://{}:{}", pConfig->mServerIp, pConfig->mServerPort);
+                pPbConfig->set_linkmode("tcp");
+                std::string url = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+                pPbConfig->set_url(url);
             }
-            else if (pConfig->mLinkMode == "bus")
+            else if (pConfig->LinkMode == "bus")
             {
-                pConfig->mUrl = NF_FORMAT("bus://{}:{}", pConfig->mBusName, pConfig->mBusLength);
+                std::string url = NF_FORMAT("bus://{}:{}", pConfig->ServerId, pConfig->BusLength);
+                pPbConfig->set_url(url);
             }
             else
             {
-                pConfig->mUrl = NF_FORMAT("{}://{}:{}", pConfig->mLinkMode, pConfig->mServerIp, pConfig->mServerPort);
+                std::string url = NF_FORMAT("{}://{}:{}", pConfig->LinkMode, pConfig->ServerIp, pConfig->ServerPort);
+                pPbConfig->set_url(url);
             }
-
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_IDLESLEEPUS, pConfig->mIdleSleepUs);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_SECURITY, pConfig->mSecurity);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_WebSocket, pConfig->mWebSocket);
-            GetLuaTableValue(serverConfigRef, DEFINE_LUA_STRING_HttpPort, pConfig->mHttpPort);
-
-            GetLuaTableValue(serverConfigRef, "MysqlIp", pConfig->mMysqlIp);
-            GetLuaTableValue(serverConfigRef, "MysqlPort", pConfig->mMysqlPort);
-            GetLuaTableValue(serverConfigRef, "MysqlDbName", pConfig->mMysqlDbName);
-			NFStringUtility::SplitString(pConfig->mMysqlDbName, ",", pConfig->mVecMysqlDbName);
-			for(int i = 0; i < (int)pConfig->mVecMysqlDbName.size(); i++)
-            {
-                NFStringUtility::Trim(pConfig->mVecMysqlDbName[i]);
-            }
-			if (pConfig->mVecMysqlDbName.size() > 0)
-			{
-				pConfig->mMysqlDbName = pConfig->mVecMysqlDbName[0];
-			}
-            GetLuaTableValue(serverConfigRef, "MysqlUser", pConfig->mMysqlUser);
-            GetLuaTableValue(serverConfigRef, "MysqlPassword", pConfig->mMysqlPassword);
-
-            GetLuaTableValue(serverConfigRef, "NosqlIp", pConfig->mNosqlIp);
-            GetLuaTableValue(serverConfigRef, "NosqlPort", pConfig->mNosqlPort);
-
-            GetLuaTableValue(serverConfigRef, "ParseType", pConfig->mParseType);
-
-            GetLuaTableValue(serverConfigRef, "MasterIp", pConfig->mMasterIp);
-            GetLuaTableValue(serverConfigRef, "MasterPort", pConfig->mMasterPort);
-
-            GetLuaTableValue(serverConfigRef, "ExternalServerIp", pConfig->mExternalServerIp);
-            GetLuaTableValue(serverConfigRef, "ExternalServerPort", pConfig->mExternalServerPort);
-
-            GetLuaTableValue(serverConfigRef, "RouteAgent", pConfig->mRouteAgent);
-            GetLuaTableValue(serverConfigRef, "DefaultDbName", pConfig->mDefaultDBName);
-            GetLuaTableValue(serverConfigRef, "RedisIp", pConfig->mRedisIp);
-            GetLuaTableValue(serverConfigRef, "RedisPort", pConfig->mRedisPort);
-            GetLuaTableValue(serverConfigRef, "RedisPass", pConfig->mRedisPass);
-            /////////////////////////////////////////////////
-            GetLuaTableValue(serverConfigRef, "GameId", pConfig->mGameId);
-            GetLuaTableValue(serverConfigRef, "GameDbName", pConfig->mGameDbName);
-            std::string roomList;
-            GetLuaTableValue(serverConfigRef, "RoomId", roomList);
-            NFStringUtility::SplitStringToVector(roomList, ",", pConfig->mRoomIdList);
-
-			GetLuaTableValue(serverConfigRef, "RobotOn", pConfig->mRobotOn);	
-			GetLuaTableValue(serverConfigRef, "RobotNumPerDesk", pConfig->mRobotNumPerDesk);
-			GetLuaTableValue(serverConfigRef, "RobotShootInterval", pConfig->mRobotShootInterval);
-			GetLuaTableValue(serverConfigRef, "IsRobotNeedRealPlayer", pConfig->mIsRobotNeedRealPlayer);
-
-            GetLuaTableValue(serverConfigRef, "MaxOnlinePlayerNum", pConfig->mMaxOnlinePlayerNum);
-            GetLuaTableValue(serverConfigRef, "NamingHost", pConfig->mNamingHost);
-            GetLuaTableValue(serverConfigRef, "NamingPath", pConfig->mNamingPath);
-            GetLuaTableValue(serverConfigRef, "WWW", pConfig->mWwwUrl);
-            GetLuaTableValue(serverConfigRef, "Email", pConfig->mEmail);
-            GetLuaTableValue(serverConfigRef, "HeartBeatTimeout", pConfig->mHeartBeatTimeout);
-            GetLuaTableValue(serverConfigRef, "ClientKeepAliveTimeout", pConfig->mClientKeepAliveTimeout);
-
-            GetLuaTableValue(serverConfigRef, "MaxDeskCount", pConfig->mMaxDeskCount);
-
-
-            NFLuaRef TableConfigRef;
-            GetLuaTableValue(serverConfigRef, "TBConfList", TableConfigRef);
-            if (TableConfigRef)
-            {
-                for(auto tb_iter = TableConfigRef.begin(); tb_iter != TableConfigRef.end(); ++tb_iter)
-                {
-                    NFLuaRef tbRef = tb_iter.value();
-                    std::string tbName = tb_iter.key().toValue<std::string>();
-                    uint32_t count = 0;
-                    GetLuaTableValue(tbRef, "Count", count);
-                    pConfig->mTBConfMap.emplace(tbName, count);
-                }
-            }
-
-            NF_ASSERT(pConfig->mServerType >= 0 && pConfig->mServerType < NF_ST_MAX);
 
             if (m_pPluginManager->IsLoadAllServer())
             {
-                if (mServerConfig[pConfig->mServerType])
+                if (mServerConfig[pConfig->ServerType])
                 {
-                    int index = NFServerIDUtil::GetInstID(mServerConfig[pConfig->mServerType]->mBusId);
-                    int curIndex = NFServerIDUtil::GetInstID(pConfig->mBusId);
+                    int index = NFServerIDUtil::GetInstID(mServerConfig[pPbConfig->servertype()]->BusId);
+                    int curIndex = NFServerIDUtil::GetInstID(pConfig->BusId);
                     if (curIndex < index)
                     {
-                        mServerConfig[pConfig->mServerType] = pConfig;
+                        mServerConfig[pPbConfig->servertype()] = pConfig;
                     }
                 }
                 else
                 {
-                    mServerConfig[pConfig->mServerType] = pConfig;
+                    mServerConfig[pPbConfig->servertype()] = pConfig;
                 }
             }
             else
             {
-                if (pConfig->mBusId == (uint32_t)m_pPluginManager->GetAppID())
+                if (pPbConfig->busid() == (uint32_t)m_pPluginManager->GetAppID())
                 {
-                    mServerConfig[pConfig->mServerType] = pConfig;
+                    mServerConfig[pPbConfig->servertype()] = pConfig;
                 }
             }
 
-            if (pConfig->mBusId == (uint32_t)m_pPluginManager->GetAppID())
+            if (pPbConfig->busid() == (uint32_t)m_pPluginManager->GetAppID())
             {
                 m_appConfig = pConfig;
             }
@@ -658,10 +581,10 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
         {
             for(int i = 0; i < (int)mServerConfig.size(); i++)
             {
-                if (mServerConfig[i] && mServerConfig[i]->mServerType != NF_ST_MASTER_SERVER
-                    && mServerConfig[i]->mServerType != NF_ST_ROUTE_AGENT_SERVER && mServerConfig[i]->mServerType != NF_ST_ROUTE_SERVER)
+                if (mServerConfig[i] && mServerConfig[i]->ServerType != NF_ST_MASTER_SERVER
+                    && mServerConfig[i]->ServerType != NF_ST_ROUTE_AGENT_SERVER && mServerConfig[i]->ServerType != NF_ST_ROUTE_SERVER)
                 {
-					const NFServerData* pServerData = NFMessageMgr::Instance()->GetRouteData((NF_SERVER_TYPES)mServerConfig[i]->mServerType);
+					const NFServerData* pServerData = NFMessageMgr::Instance()->GetRouteData((NF_SERVER_TYPES)mServerConfig[i]->ServerType);
 					if (pServerData && pServerData->mUnlinkId > 0)
 					{
 						return mServerConfig[i];
@@ -675,7 +598,7 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
     {
         if (eServerType != NF_ST_NONE)
         {
-            NF_ASSERT(m_appConfig && m_appConfig->mServerType == eServerType);
+            NF_ASSERT(m_appConfig && m_appConfig->ServerType == eServerType);
         }
         return m_appConfig;
     }
@@ -697,7 +620,7 @@ std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->mDefaultDBName;
+        return pConfig->DefaultDBName;
     }
     return std::string();
 }
@@ -707,7 +630,7 @@ std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->mRedisIp;
+        return pConfig->RedisIp;
     }
     return std::string();
 }
@@ -717,7 +640,7 @@ uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->mRedisPort;
+        return pConfig->RedisPort;
     }
     return 0;
 }
@@ -727,7 +650,7 @@ std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->mRedisPass;
+        return pConfig->RedisPass;
     }
     return std::string();
 }
@@ -757,7 +680,7 @@ bool NFCConfigModule::CheckConfig()
     if (!m_pPluginManager->IsLoadAllServer())
     {
         NF_ASSERT(m_appConfig);
-        NF_ASSERT(GetServerName((NF_SERVER_TYPES)m_appConfig->mServerType) == m_pPluginManager->GetAppName());
+        NF_ASSERT(GetServerName((NF_SERVER_TYPES)m_appConfig->ServerType) == m_pPluginManager->GetAppName());
     }
     return true;
 }

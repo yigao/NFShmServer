@@ -3,6 +3,25 @@ package proto_ff;
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 
+enum NF_SERVER_TYPE {
+	NF_ST_NONE = 0;    		// NONE
+	NF_ST_MASTER_SERVER = 1;
+	NF_ST_ROUTE_AGENT_SERVER = 2; //路由代理服务器  负责同一台机子服务器数据之间的转发
+	NF_ST_ROUTE_SERVER = 3; //路由集群服务器 负责不同机子服务器数据之间的转发
+	NF_ST_PROXY_SERVER = 4;
+	NF_ST_PROXY_SERVER_FOR_CLIENT = 5; //网关服务器对客户端的端口
+	NF_ST_PROXY_AGENT_SERVER = 6; //Proxy 路由代理服务器 负责同一台机子客户端与服务器数据之间的转发
+	NF_ST_STORE_SERVER = 7; //DB服务器
+	NF_ST_LOGIN_SERVER = 8;
+	NF_ST_WORLD_SERVER = 9;
+	NF_ST_LOGIC_SERVER = 10; //Logic服务器
+	NF_ST_GAME_SERVER = 11;
+	NF_ST_SNS_SERVER = 12; //SNS服务器
+	NF_ST_WEB_SERVER = 13; //Web服务器
+	NF_ST_MONITOR_SERVER = 14; //Monitor服务器
+	NF_ST_MAX = 20;
+}
+
 message tbServerMgr
 {
 	optional uint64 id			= 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];
@@ -15,4 +34,61 @@ message tbServerMgr
 	optional uint64 last_login_time = 8 [(yd_fieldoptions.db_field_comment) = "上一次登录时间"];
 	optional uint64 last_logout_time = 9 [(yd_fieldoptions.db_field_comment) = "上一次下线时间"];
 	optional uint64 create_time = 10 [(yd_fieldoptions.db_field_comment) = "创建时间"];
+}
+
+message pbNFServerConfig
+{
+	optional string ServerId = 1 [(yd_fieldoptions.field_bufsize)=128];
+	optional uint32 ServerType = 2; //服务器类型
+	optional string ServerName = 3 [(yd_fieldoptions.field_bufsize)=128];  //服务器唯一ID like:1.1.1.1
+	optional uint32 BusId = 4;
+	optional uint32 BusLength = 5; //NFBUS/TBUS共享内存通信大小
+	optional string BusName = 6 [(yd_fieldoptions.field_bufsize)=128];  //服务器唯一ID like:1.1.1.1
+	optional string LinkMode = 7 [(yd_fieldoptions.field_bufsize)=128];  //
+	optional string Url = 8 [(yd_fieldoptions.field_bufsize)=128];
+	optional uint32 IdleSleepUs = 9; //服务器类型
+
+////////////////////////////////////////net//////////////////////////////////////////////////////////
+	optional string ServerIp = 20 [(yd_fieldoptions.field_bufsize)=128]; //服务器监听IP
+	optional uint32 ServerPort = 21; //服务器监听端口
+	optional string ExternalServerIp = 22 [(yd_fieldoptions.field_bufsize)=128]; //服务器对外监听IP
+	optional uint32 ExternalServerPort = 23; //服务器对外监听端口
+	optional uint32 HttpPort = 24;		//服务器http监听ip
+	optional uint32 MaxConnectNum = 25;	//最大连接数目
+	optional uint32 WorkThreadNum = 26;	//work线程数目
+	optional uint32 NetThreadNum = 27;   //tcp/bus线程数目
+	optional bool Security = 28;				//0 不加密不压缩 1 压缩 2 加密 3 压缩加密
+	optional bool WebSocket = 29;				//
+	optional uint32 mParseType = 30;  //协议解析方式, 默认值0，是标准内网协议
+
+////////////////////////////////////route/////////////////////////////////////////////
+	optional string MasterIp = 50 [(yd_fieldoptions.field_bufsize)=128];
+	optional uint32 MasterPort = 51;
+	optional string NamingHost = 52 [(yd_fieldoptions.field_bufsize)=128];
+	optional string NamingPath = 53 [(yd_fieldoptions.field_bufsize)=128];
+	optional string RouteAgent = 54 [(yd_fieldoptions.field_bufsize)=128];
+
+////////////////////////////////////mysql//////////////////////////////////////
+	optional string MysqlIp = 70 [(yd_fieldoptions.field_bufsize)=128];
+	optional uint32	MysqlPort = 71;
+	optional string MysqlDbName = 72 [(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlUser = 73 [(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlPassword = 74 [(yd_fieldoptions.field_bufsize)=128];
+	/////////////////////////////////////redis//////////////////////////////////////
+	optional string RedisIp = 80 [(yd_fieldoptions.field_bufsize)=128];
+	optional uint32	RedisPort = 81;
+	optional string RedisPass = 82 [(yd_fieldoptions.field_bufsize)=128];
+
+////////////////////////////////////other//////////////////////////////////////////////
+	optional string WwwUrl = 90 [(yd_fieldoptions.field_bufsize)=128];
+	optional string Email = 91 [(yd_fieldoptions.field_bufsize)=128];
+
+///////////////////////////////////client////////////////////////////////////////////////////
+	optional uint32 MaxOnlinePlayerNum = 100;
+	optional uint32 HeartBeatTimeout = 101;
+	optional uint32 ClientKeepAliveTimeout = 102;
+}
+
+message pbNFServerConfigList {
+	repeated pbNFServerConfig list = 1;
 }

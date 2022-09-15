@@ -27,9 +27,9 @@ public:
     int ResumeInit();
 public:
     int Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP);
-    int Insert(proto_ff::TableID eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
-    int Save(proto_ff::TableID eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
-    int Load(proto_ff::TableID eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
+    int Insert(uint32_t eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
+    int Save(uint32_t eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
+    int Load(uint32_t eTableID, const std::string& sTableName, uint64_t iModKey, google::protobuf::Message* data);
 
     virtual int OnTimeOut();
     virtual int HandleTransFinished(int iRunLogicRetCode);

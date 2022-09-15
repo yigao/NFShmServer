@@ -44,7 +44,7 @@ int NFDBObjTrans::Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP) {
     return 0;
 }
 
-int NFDBObjTrans::Insert(proto_ff::TableID eTableID, const std::string &sTableName, uint64_t iModKey,
+int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint64_t iModKey,
                          google::protobuf::Message *data) {
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
@@ -67,7 +67,7 @@ int NFDBObjTrans::Insert(proto_ff::TableID eTableID, const std::string &sTableNa
     return iRetCode;
 }
 
-int NFDBObjTrans::Save(proto_ff::TableID eTableID, const string &sTableName, uint64_t iModKey,
+int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
                        google::protobuf::Message *data) {
     CHECK_NULL(data);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalID());
@@ -89,7 +89,7 @@ int NFDBObjTrans::Save(proto_ff::TableID eTableID, const string &sTableName, uin
     return iRetCode;
 }
 
-int NFDBObjTrans::Load(proto_ff::TableID eTableID, const string &sTableName, uint64_t iModKey,
+int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
                        google::protobuf::Message *data) {
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());

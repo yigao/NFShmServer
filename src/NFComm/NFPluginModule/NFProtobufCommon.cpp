@@ -849,6 +849,128 @@ bool NFProtobufCommon::JsonToProtoMessage(google::protobuf::io::ZeroCopyInputStr
     return NFJson2PB::JsonToProtoMessage(stream, message, error);
 }
 
+bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Message *pMessageObject)
+{
+    if (pMessageObject == NULL) return false;
+    if (!luaRef.isTable()) return false;
+
+    const google::protobuf::Descriptor* pMessageObjectFieldDesc = pMessageObject->GetDescriptor();
+    const google::protobuf::Reflection* pMessageObjectReflect = pMessageObject->GetReflection();
+    if (pMessageObjectFieldDesc == NULL || pMessageObjectReflect == NULL) return false;
+
+    for(int i = 0; i < pMessageObjectFieldDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor* pFieldDesc = pMessageObjectFieldDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        const google::protobuf::Reflection* pReflect = pMessageObject->GetReflection();
+        if (pReflect == nullptr || pFieldDesc == nullptr) continue;
+
+        //如果不是repeated, 只是简单信息，就直接给
+        if (pFieldDesc->is_repeated() == false)
+        {
+            std::string field = pFieldDesc->name();
+            switch (pFieldDesc->cpp_type()) {
+                case google::protobuf::FieldDescriptor::CPPTYPE_INT32: {
+                    int32_t value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetInt32(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_INT64: {
+                    int64_t value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetInt64(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_UINT32: {
+                    uint32_t value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetUInt32(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_UINT64: {
+                    uint64_t value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetUInt64(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE: {
+                    double value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetDouble(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT: {
+                    float value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetFloat(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_BOOL: {
+                    bool value = false;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetBool(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_ENUM: {
+                    int value = 0;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        const google::protobuf::EnumDescriptor *pEnumDesc = pFieldDesc->enum_type();
+                        const google::protobuf::EnumValueDescriptor *pEnumValueDesc = pEnumDesc->FindValueByNumber(
+                                value);
+                        pReflect->SetEnum(pMessageObject, pFieldDesc, pEnumValueDesc);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_STRING: {
+                    std::string value;
+                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                        pReflect->SetString(pMessageObject, pFieldDesc, value);
+                    }
+                }
+                    break;
+                case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
+                    LuaIntf::LuaRef valueRef = luaRef[field];
+                    if (valueRef.isTable())
+                    {
+                        google::protobuf::Message *pMutableMessage = pReflect->MutableMessage(pMessageObject, pFieldDesc);
+                        LuaToProtoMessage(valueRef, pMutableMessage);
+                    }
+                }
+            }
+        }
+        else {
+            if (luaRef.isTable())
+            {
+                for (auto iter = luaRef.begin(); iter != luaRef.end(); ++iter) {
+                    NFLuaRef iterRef = iter.value();
+                    if (!iterRef.isTable() && (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE))
+                    {
+                        std::string value = iterRef.toValue<std::string>();
+                        NFProtobufCommon::AddFieldsString(*pMessageObject, pFieldDesc, value);
+                    }
+                    else if (iterRef.isTable() && (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)) {
+                        const google::protobuf::Descriptor* pSubDescriptor = pFieldDesc->message_type();
+                        if (pSubDescriptor == NULL) continue;
+                        ::google::protobuf::Message* pSubMessageObject = pMessageObjectReflect->AddMessage(pMessageObject, pFieldDesc);
+                        if (pSubMessageObject == NULL) continue;
+
+                        LuaToProtoMessage(iterRef, pSubMessageObject);
+                    }
+                }
+            }
+        }
+    }
+    return true;
+}
+
 int NFProtobufCommon::IniToProtoMessage(const std::string &iniFile, google::protobuf::Message *pMessageObject)
 {
     CHECK_NULL(pMessageObject);

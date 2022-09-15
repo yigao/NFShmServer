@@ -121,24 +121,6 @@ enum PacketDispType
   E_DISP_TYPE_BY_RPC = 4;
 };
 
-enum TableID
-{
-  E_TABLE_NONE                                     = 0;
-  E_TABLE_ACCOUNT_PLAYER 			                     = 1;
-  E_TABLE_USER_MAIL                                = 2;
-  E_TABLE_MAIL_DETAIL                              = 3;
-  E_TABLE_USER_DETAIL                              = 4;
-  E_TABLE_USER_SIMPLE                              = 5;
-  E_TABLE_USER_MISC                                = 6;
-  E_TABLE_GIVE_BANK_JETTON                         = 7;
-  E_TABLE_EVENT_LOG                                = 8;
-  E_TABLE_RANK_COMMON                              = 9;
-  E_TABLE_GAME_ROBOT                               = 10;
-  E_TABLE_MONEY_DETAIL                             = 11;
-  E_TABLE_LOG_SYSTEM_DAY                           = 12;
-  E_TABLE_LOG_GAME_DAY                             = 13;
-};
-
 message Proto_DispInfo
 {
   optional uint64        user_id = 1;
@@ -150,7 +132,7 @@ message Proto_StoreInfo_CB
 {
   optional PacketDispType  type = 1;
   optional uint64 id = 2;
-  optional TableID table_id = 3;
+  optional uint32 table_id = 3;
   optional uint32 seq = 4;
 }
 
@@ -167,21 +149,6 @@ message Proto_SvrPkg
   optional bytes          msg_data = 2;
   optional Proto_DispInfo disp_info = 3;              //trans send msg id
   optional Proto_StoreInfo store_info = 4;
-}
-
-//服务器类型
-enum ServerType
-{
-  NF_ST_NONE = 0;		//
-  NF_ST_MASTER_SERVER = 1;    //Master服务器	--
-  NF_ST_LOGIN_SERVER = 2;    	//登陆服务器
-  NF_ST_WORLD_SERVER = 3;    	//大厅服务器
-  NF_ST_GAME_SERVER = 4;    	//游戏服务器
-  NF_ST_PROXY_SERVER = 5;    	//网关服务器
-  NF_ST_ROUTE_AGENT_SERVER = 6; //路由代理服务器  负责同一台机子服务器数据之间的转发
-  NF_ST_ROUTE_SERVER = 7; //路由集群服务器 负责不同机子服务器数据之间的转发
-  NF_ST_STORE_SERVER = 8; //DB服务器
-  NF_ST_MAX = 20;    	//	--
 }
 
 enum EServerState

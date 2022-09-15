@@ -77,10 +77,10 @@ proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES
         xData.set_bus_name("1.1.1.1");
         xData.set_server_name("MasterServer_1.1.1.1");
         xData.set_link_mode("tcp");
-        std::string url = NF_FORMAT("tcp://{}:{}", pConfig->mMasterIp, pConfig->mMasterPort);
+        std::string url = NF_FORMAT("tcp://{}:{}", pConfig->MasterIp, pConfig->MasterPort);
         xData.set_url(url);
-        xData.set_server_ip(pConfig->mMasterIp);
-        xData.set_server_port(pConfig->mMasterPort);
+        xData.set_server_ip(pConfig->MasterIp);
+        xData.set_server_port(pConfig->MasterPort);
         return xData;
     }
     else {
@@ -105,17 +105,17 @@ int32_t NFCNamingModule::InitAppInfo(NF_SERVER_TYPES eServerType, int time_out_m
 
     if (m_pPluginManager->IsLoadAllServer())
     {
-        ret = Init(eServerType, pConfig->mNamingHost, time_out_ms * 2);
-        CHECK_RET(ret, "Init Failed, serverType:{} namingHost:{}", eServerType, pConfig->mNamingHost);
+        ret = Init(eServerType, pConfig->NamingHost, time_out_ms * 2);
+        CHECK_RET(ret, "Init Failed, serverType:{} namingHost:{}", eServerType, pConfig->NamingHost);
     }
     else
     {
-        ret = Init(eServerType, pConfig->mNamingHost, time_out_ms);
-        CHECK_RET(ret, "Init Failed, serverType:{} namingHost:{}", eServerType, pConfig->mNamingHost);
+        ret = Init(eServerType, pConfig->NamingHost, time_out_ms);
+        CHECK_RET(ret, "Init Failed, serverType:{} namingHost:{}", eServerType, pConfig->NamingHost);
     }
 
-    ret = SetAppInfo(eServerType, pConfig->mNamingPath, pConfig->mNamingPath);
-    CHECK_RET(ret, "SetAppInfo Failed, eServerType:{} busId:{} name:{}", pConfig->mNamingPath, pConfig->mNamingPath);
+    ret = SetAppInfo(eServerType, pConfig->NamingPath, pConfig->NamingPath);
+    CHECK_RET(ret, "SetAppInfo Failed, eServerType:{} busId:{} name:{}", pConfig->NamingPath, pConfig->NamingPath);
 
     return 0;
 }
@@ -145,19 +145,19 @@ int32_t NFCNamingModule::RegisterAppInfo(NF_SERVER_TYPES eServerType)
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string busPath = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/busUrl/"+NFCommon::tostr(pConfig->mBusId);
-    std::string busUrl = NF_FORMAT("bus://{}:{}", pConfig->mBusName, pConfig->mBusLength);
-    std::string tcpPath = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/tcpUrl/"+NFCommon::tostr(pConfig->mBusId);
-    std::string tcpUrl = NF_FORMAT("tcp://{}:{}", pConfig->mServerIp, pConfig->mServerPort);
-    std::string routeAgentPath = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/routeAgent/"+NFCommon::tostr(pConfig->mBusId);
-    std::string routeAgent = pConfig->mRouteAgent;
-    std::string externServerIpPath = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/externalServerIp/"+NFCommon::tostr(pConfig->mBusId);
-    std::string externServerIp = pConfig->mExternalServerIp;
-    std::string externServerPortPath = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/externalServerPort/"+NFCommon::tostr(pConfig->mBusId);
+    std::string busPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/busUrl/" + NFCommon::tostr(pConfig->BusId);
+    std::string busUrl = NF_FORMAT("bus://{}:{}", pConfig->ServerId, pConfig->BusLength);
+    std::string tcpPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/tcpUrl/" + NFCommon::tostr(pConfig->BusId);
+    std::string tcpUrl = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+    std::string routeAgentPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/routeAgent/" + NFCommon::tostr(pConfig->BusId);
+    std::string routeAgent = pConfig->RouteAgent;
+    std::string externServerIpPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/externalServerIp/" + NFCommon::tostr(pConfig->BusId);
+    std::string externServerIp = pConfig->ExternalServerIp;
+    std::string externServerPortPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/externalServerPort/" + NFCommon::tostr(pConfig->BusId);
     std::string externServerPort = "";
-    if (pConfig->mExternalServerPort > 0)
+    if (pConfig->ExternalServerPort > 0)
     {
-        externServerPort = NFCommon::tostr(pConfig->mExternalServerPort);
+        externServerPort = NFCommon::tostr(pConfig->ExternalServerPort);
     }
 
     int count = 0;
@@ -276,7 +276,7 @@ int32_t NFCNamingModule::ClearDBInfo(NF_SERVER_TYPES eServerType)
         int count = 0;
         while(count++ <= 10)
         {
-            std::string path = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/DBNames/" +NFCommon::tostr(pConfig->mBusId) + "/" + vec[i];
+            std::string path = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/DBNames/" + NFCommon::tostr(pConfig->BusId) + "/" + vec[i];
             int ret = ForceDelete(eServerType, path, vec[i]);
             if (ret == 0 || ret == proto_ff::ERR_CODE_ZK_NONODE)
                 break;
@@ -292,7 +292,7 @@ int32_t NFCNamingModule::GetDBInfoByName(NF_SERVER_TYPES eServerType, std::vecto
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string path = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/DBNames/" +NFCommon::tostr(pConfig->mBusId);
+    std::string path = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/DBNames/" + NFCommon::tostr(pConfig->BusId);
 
     ret = GetUrlsByName(eServerType, path, &tcpUrlVec);
     CHECK_RET(ret, "GetUrlsByName Failed! eServerType:{} name:{}", eServerType, path);
@@ -306,7 +306,7 @@ int32_t NFCNamingModule::RegisterDBInfo(NF_SERVER_TYPES eServerType, const std::
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string path = pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/DBNames/" +NFCommon::tostr(pConfig->mBusId) + "/" + content + "/";
+    std::string path = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/DBNames/" + NFCommon::tostr(pConfig->BusId) + "/" + content + "/";
 
     int count = 0;
     while(count++ <= 10)
@@ -331,16 +331,16 @@ int32_t NFCNamingModule::UnInitAppInfo(NF_SERVER_TYPES eServerType)
     int32_t ret = 0;
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
-    ret = UnRegister(eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/busUrl/"+NFCommon::tostr(pConfig->mBusId));
-    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType));
-    ret = UnRegister(eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/tcpUrl/"+NFCommon::tostr(pConfig->mBusId));
-    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType));
-    ret = UnRegister(eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/routeAgent/"+NFCommon::tostr(pConfig->mBusId));
-    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType));
-    ret = UnRegister(eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/externalServerIp/"+NFCommon::tostr(pConfig->mBusId));
-    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType));
-    ret = UnRegister(eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType)+"/externalServerPort/"+NFCommon::tostr(pConfig->mBusId));
-    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->mNamingPath+"/"+GetServerName(eServerType));
+    ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/busUrl/" + NFCommon::tostr(pConfig->BusId));
+    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
+    ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/tcpUrl/" + NFCommon::tostr(pConfig->BusId));
+    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
+    ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/routeAgent/" + NFCommon::tostr(pConfig->BusId));
+    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
+    ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/externalServerIp/" + NFCommon::tostr(pConfig->BusId));
+    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
+    ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/externalServerPort/" + NFCommon::tostr(pConfig->BusId));
+    CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
     return 0;
 }
 
@@ -350,7 +350,7 @@ int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/tcpUrl/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/*";
 
     ret = GetUrlsByName(eServerType, name, &tcpUrlVec);
     CHECK_RET(ret, "GetTcpUrlsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -364,7 +364,7 @@ int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/tcpUrl/" + NFCommon::tostr(busId);
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/" + NFCommon::tostr(busId);
 
     ret = GetUrlsByName(eServerType, name, &tcpUrlVec);
     CHECK_RET(ret, "GetTcpUrlsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -378,7 +378,7 @@ int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/busUrl/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/*";
 
     ret = GetUrlsByName(eServerType, name, &busUrlVec);
     CHECK_RET(ret, "GetBusUrlsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -392,7 +392,7 @@ int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/busUrl/" + NFCommon::tostr(busId);;
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/" + NFCommon::tostr(busId);;
 
     ret = GetUrlsByName(eServerType, name, &busUrlVec);
     CHECK_RET(ret, "GetBusUrlsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -406,7 +406,7 @@ int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SE
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/routeAgent/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/routeAgent/*";
 
     ret = GetUrlsByName(eServerType, name, &routeAgent);
     CHECK_RET(ret, "GetRouteAgentsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -420,7 +420,7 @@ int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SE
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/routeAgent/" + NFCommon::tostr(busId);;
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/routeAgent/" + NFCommon::tostr(busId);;
 
     ret = GetUrlsByName(eServerType, name, &routeAgent);
     CHECK_RET(ret, "GetRouteAgentsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -434,7 +434,7 @@ int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType,
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/externalServerIp/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerIp/*";
 
     ret = GetUrlsByName(eServerType, name, &vec);
     CHECK_RET(ret, "GetExternalServerIpsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -448,7 +448,7 @@ int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType,
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/externalServerIp/" + NFCommon::tostr(busId);;
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerIp/" + NFCommon::tostr(busId);;
 
     ret = GetUrlsByName(eServerType, name, &vec);
     CHECK_RET(ret, "GetExternalServerIpsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -462,7 +462,7 @@ int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerTyp
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/externalServerPort/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerPort/*";
 
     ret = GetUrlsByName(eServerType, name, &vec);
     CHECK_RET(ret, "GetExternalServerPortsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -476,7 +476,7 @@ int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerTyp
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/externalServerPort/" + NFCommon::tostr(busId);;
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerPort/" + NFCommon::tostr(busId);;
 
     ret = GetUrlsByName(eServerType, name, &vec);
     CHECK_RET(ret, "GetExternalServerPortsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -491,7 +491,7 @@ int32_t NFCNamingModule::GetDBNameByServer(NF_SERVER_TYPES eServerType, NF_SERVE
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/DBNames/" + NFCommon::tostr(destBusId) + "/*";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/DBNames/" + NFCommon::tostr(destBusId) + "/*";
 
     ret = GetUrlsByName(eServerType, name, &dbName);
     CHECK_RET(ret, "GetUrlsByName Failed! eServerType:{} name:{}", destServerType, name);
@@ -506,9 +506,9 @@ int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    Register(eServerType, pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/tcpUrl/0", "0");
+    Register(eServerType, pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/0", "0");
 
-    std::string tcpUrl = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/tcpUrl";
+    std::string tcpUrl = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl";
     ret = WatchName(eServerType, tcpUrl, [this,eServerType, destServerType, wc](const string &name, const std::vector<std::string>& urls){
         int errCode = 0;
         if (urls.empty()) return;
@@ -608,7 +608,7 @@ int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
     });
     CHECK_RET(ret, "WatchName Failed! eServerType:{} name:{}", destServerType, tcpUrl);
 
-    tcpUrl = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/tcpUrl/*";
+    tcpUrl = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/*";
     ret = WatchName(eServerType, tcpUrl, [this,eServerType, destServerType, wc](const string &name, const std::vector<std::string>& urls){
         int errCode = 0;
         std::string busId = NFFileUtility::GetFileNameWithoutExt(name);
@@ -705,9 +705,9 @@ int32_t NFCNamingModule::WatchBusUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    Register(eServerType, pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/busUrl/0", "0");
+    Register(eServerType, pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/0", "0");
 
-    std::string name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/busUrl";
+    std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl";
     ret = WatchName(eServerType, name, [this,eServerType, destServerType, wc](const string &name, const std::vector<std::string>& urls){
         int errCode = 0;
         if (urls.empty()) return;
@@ -807,7 +807,7 @@ int32_t NFCNamingModule::WatchBusUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
     });
     CHECK_RET(ret, "WatchName Failed! eServerType:{} name:{}", destServerType, name);
 
-    name = pConfig->mNamingPath+"/"+GetServerName(destServerType)+"/busUrl/*";
+    name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/*";
     ret = WatchName(eServerType, name, [this,eServerType, destServerType, wc](const string &name, const std::vector<std::string>& urls){
         int errCode = 0;
         std::string busId = NFFileUtility::GetFileNameWithoutExt(name);

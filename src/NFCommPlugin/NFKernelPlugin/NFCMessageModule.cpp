@@ -700,7 +700,7 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
     uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId);
     uint64_t sendLinkId = srcBusId;
     if (sendLinkId == 0) {
-        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->mBusId);
+        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId);
     }
 
     Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, sendLinkId, destServerLinkId);

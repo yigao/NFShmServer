@@ -167,7 +167,7 @@ public:
 
 public:
 	template <typename KEY, typename VALUE>
-	bool GetLuaTableValue(const LuaIntf::LuaRef& table, const KEY& keyName, VALUE& value)
+	static bool GetLuaTableValue(const LuaIntf::LuaRef& table, const KEY& keyName, VALUE& value)
 	{
 		try
 		{

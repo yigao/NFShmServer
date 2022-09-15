@@ -74,7 +74,7 @@ bool NFShmPlugin::InitShmObjectRegister()
         NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);
 
-        maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;
+        maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
     }
 
     uint32_t maxShmtimer = ALL_TIMER_COUNT/10 + maxOnlinePlayerNum*10;

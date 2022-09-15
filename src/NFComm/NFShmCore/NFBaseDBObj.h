@@ -57,7 +57,7 @@ public:
     virtual int InitWithDBData(const std::string* msg) { return -1; }
     virtual int InitWithoutDBData() { return -1; }
 
-    virtual proto_ff::TableID GetTableID() { return proto_ff::E_TABLE_NONE; }
+    virtual uint32_t GetTableID() { return 0; }
     virtual const char* GetDBWrapName() { return NULL; }
     virtual google::protobuf::Message* CreateTempProtobufData() { return NULL; }
     virtual uint32_t GetSaveDis() { return 900; }

@@ -46,17 +46,17 @@ bool NFCProxyServerModule::Awake()
 
     NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig) {
-        m_pPluginManager->SetIdelSleepUs(pConfig->mIdleSleepUs);
+        m_pPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
 
         if (!m_pPluginManager->IsLoadAllServer()) {
-            if (pConfig->mServerType != NF_ST_PROXY_SERVER) {
+            if (pConfig->ServerType != NF_ST_PROXY_SERVER) {
                 NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "server config error, server id not match the server type!");
                 exit(0);
             }
         }
 
-        std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->mServerIp, pConfig->mServerPort);
-        int64_t extern_unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum,
+        std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+        int64_t extern_unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                        PACKET_PARSE_TYPE_INTERNAL);
         if (extern_unlinkId >= 0) {
             /*
@@ -68,10 +68,10 @@ bool NFCProxyServerModule::Awake()
             NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
                                                        &NFCProxyServerModule::OnHandleProxyServerOtherMessage);
             NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy server listen success, serverId:{}, ip:{}, port:{}",
-                      pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
             NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy server listen failed!, serverId:{}, ip:{}, port:{}",
-                      pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
     }
@@ -141,7 +141,7 @@ bool NFCProxyServerModule::Init()
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
-    if (pConfig && pConfig->mNamingHost.empty())
+    if (pConfig && pConfig->NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_PROXY_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
@@ -268,19 +268,19 @@ int NFCProxyServerModule::RegisterMasterServer()
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->mBusId);
-		pData->set_bus_name(pConfig->mBusName);
-		pData->set_server_type(pConfig->mServerType);
-		pData->set_server_name(pConfig->mServerName);
+		pData->set_bus_id(pConfig->BusId);
+		pData->set_bus_name(pConfig->ServerId);
+		pData->set_server_type(pConfig->ServerType);
+		pData->set_server_name(pConfig->ServerName);
 
-        pData->set_bus_length(pConfig->mBusLength);
-        pData->set_link_mode(pConfig->mLinkMode);
-        pData->set_url(pConfig->mUrl);
-		pData->set_server_ip(pConfig->mServerIp);
-		pData->set_server_port(pConfig->mServerPort);
-        pData->set_route_svr(pConfig->mRouteAgent);
-        pData->set_external_server_ip(pConfig->mExternalServerIp);
-        pData->set_external_server_port(pConfig->mExternalServerPort);
+        pData->set_bus_length(pConfig->BusLength);
+        pData->set_link_mode(pConfig->LinkMode);
+        pData->set_url(pConfig->Url);
+		pData->set_server_ip(pConfig->ServerIp);
+		pData->set_server_port(pConfig->ServerPort);
+        pData->set_route_svr(pConfig->RouteAgent);
+        pData->set_external_server_ip(pConfig->ExternalServerIp);
+        pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
         NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
@@ -309,19 +309,19 @@ int NFCProxyServerModule::ServerReport()
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->mBusId);
-		pData->set_bus_name(pConfig->mBusName);
-		pData->set_server_type(pConfig->mServerType);
-		pData->set_server_name(pConfig->mServerName);
+		pData->set_bus_id(pConfig->BusId);
+		pData->set_bus_name(pConfig->ServerId);
+		pData->set_server_type(pConfig->ServerType);
+		pData->set_server_name(pConfig->ServerName);
 
-        pData->set_bus_length(pConfig->mBusLength);
-        pData->set_link_mode(pConfig->mLinkMode);
-        pData->set_url(pConfig->mUrl);
-		pData->set_server_ip(pConfig->mServerIp);
-		pData->set_server_port(pConfig->mServerPort);
-        pData->set_route_svr(pConfig->mRouteAgent);
-        pData->set_external_server_ip(pConfig->mExternalServerIp);
-        pData->set_external_server_port(pConfig->mExternalServerPort);
+        pData->set_bus_length(pConfig->BusLength);
+        pData->set_link_mode(pConfig->LinkMode);
+        pData->set_url(pConfig->Url);
+		pData->set_server_ip(pConfig->ServerIp);
+		pData->set_server_port(pConfig->ServerPort);
+        pData->set_route_svr(pConfig->RouteAgent);
+        pData->set_external_server_ip(pConfig->ExternalServerIp);
+        pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
 		NFIMonitorModule* pMonitorModule = m_pPluginManager->FindModule<NFIMonitorModule>();
@@ -465,19 +465,19 @@ int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->mBusId);
-		pData->set_bus_name(pConfig->mBusName);
-		pData->set_server_type(pConfig->mServerType);
-		pData->set_server_name(pConfig->mServerName);
+		pData->set_bus_id(pConfig->BusId);
+		pData->set_bus_name(pConfig->ServerId);
+		pData->set_server_type(pConfig->ServerType);
+		pData->set_server_name(pConfig->ServerName);
 
-        pData->set_bus_length(pConfig->mBusLength);
-        pData->set_link_mode(pConfig->mLinkMode);
-        pData->set_url(pConfig->mUrl);
-		pData->set_server_ip(pConfig->mServerIp);
-		pData->set_server_port(pConfig->mServerPort);
-        pData->set_route_svr(pConfig->mRouteAgent);
-        pData->set_external_server_ip(pConfig->mExternalServerIp);
-        pData->set_external_server_port(pConfig->mExternalServerPort);
+        pData->set_bus_length(pConfig->BusLength);
+        pData->set_link_mode(pConfig->LinkMode);
+        pData->set_url(pConfig->Url);
+		pData->set_server_ip(pConfig->ServerIp);
+		pData->set_server_port(pConfig->ServerPort);
+        pData->set_route_svr(pConfig->RouteAgent);
+        pData->set_external_server_ip(pConfig->ExternalServerIp);
+        pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
 		NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);

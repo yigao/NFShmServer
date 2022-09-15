@@ -227,64 +227,6 @@ inline bool PacketDispType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<PacketDispType>(
     PacketDispType_descriptor(), name, value);
 }
-enum TableID {
-  E_TABLE_NONE = 0,
-  E_TABLE_ACCOUNT_PLAYER = 1,
-  E_TABLE_USER_MAIL = 2,
-  E_TABLE_MAIL_DETAIL = 3,
-  E_TABLE_USER_DETAIL = 4,
-  E_TABLE_USER_SIMPLE = 5,
-  E_TABLE_USER_MISC = 6,
-  E_TABLE_GIVE_BANK_JETTON = 7,
-  E_TABLE_EVENT_LOG = 8,
-  E_TABLE_RANK_COMMON = 9,
-  E_TABLE_GAME_ROBOT = 10,
-  E_TABLE_MONEY_DETAIL = 11,
-  E_TABLE_LOG_SYSTEM_DAY = 12,
-  E_TABLE_LOG_GAME_DAY = 13
-};
-bool TableID_IsValid(int value);
-const TableID TableID_MIN = E_TABLE_NONE;
-const TableID TableID_MAX = E_TABLE_LOG_GAME_DAY;
-const int TableID_ARRAYSIZE = TableID_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* TableID_descriptor();
-inline const ::std::string& TableID_Name(TableID value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    TableID_descriptor(), value);
-}
-inline bool TableID_Parse(
-    const ::std::string& name, TableID* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<TableID>(
-    TableID_descriptor(), name, value);
-}
-enum ServerType {
-  NF_ST_NONE = 0,
-  NF_ST_MASTER_SERVER = 1,
-  NF_ST_LOGIN_SERVER = 2,
-  NF_ST_WORLD_SERVER = 3,
-  NF_ST_GAME_SERVER = 4,
-  NF_ST_PROXY_SERVER = 5,
-  NF_ST_ROUTE_AGENT_SERVER = 6,
-  NF_ST_ROUTE_SERVER = 7,
-  NF_ST_STORE_SERVER = 8,
-  NF_ST_MAX = 20
-};
-bool ServerType_IsValid(int value);
-const ServerType ServerType_MIN = NF_ST_NONE;
-const ServerType ServerType_MAX = NF_ST_MAX;
-const int ServerType_ARRAYSIZE = ServerType_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* ServerType_descriptor();
-inline const ::std::string& ServerType_Name(ServerType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    ServerType_descriptor(), value);
-}
-inline bool ServerType_Parse(
-    const ::std::string& name, ServerType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ServerType>(
-    ServerType_descriptor(), name, value);
-}
 enum EServerState {
   EST_CRASH = 0,
   EST_NARMAL = 1,
@@ -613,12 +555,12 @@ class Proto_StoreInfo_CB : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 id() const;
   inline void set_id(::google::protobuf::uint64 value);
 
-  // optional .proto_ff.TableID table_id = 3;
+  // optional uint32 table_id = 3;
   inline bool has_table_id() const;
   inline void clear_table_id();
   static const int kTableIdFieldNumber = 3;
-  inline ::proto_ff::TableID table_id() const;
-  inline void set_table_id(::proto_ff::TableID value);
+  inline ::google::protobuf::uint32 table_id() const;
+  inline void set_table_id(::google::protobuf::uint32 value);
 
   // optional uint32 seq = 4;
   inline bool has_seq() const;
@@ -642,7 +584,7 @@ class Proto_StoreInfo_CB : public ::google::protobuf::Message {
 
   ::google::protobuf::uint64 id_;
   int type_;
-  int table_id_;
+  ::google::protobuf::uint32 table_id_;
   ::google::protobuf::uint32 seq_;
 
   mutable int _cached_size_;
@@ -2490,7 +2432,7 @@ inline void Proto_StoreInfo_CB::set_id(::google::protobuf::uint64 value) {
   id_ = value;
 }
 
-// optional .proto_ff.TableID table_id = 3;
+// optional uint32 table_id = 3;
 inline bool Proto_StoreInfo_CB::has_table_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2501,14 +2443,13 @@ inline void Proto_StoreInfo_CB::clear_has_table_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Proto_StoreInfo_CB::clear_table_id() {
-  table_id_ = 0;
+  table_id_ = 0u;
   clear_has_table_id();
 }
-inline ::proto_ff::TableID Proto_StoreInfo_CB::table_id() const {
-  return static_cast< ::proto_ff::TableID >(table_id_);
+inline ::google::protobuf::uint32 Proto_StoreInfo_CB::table_id() const {
+  return table_id_;
 }
-inline void Proto_StoreInfo_CB::set_table_id(::proto_ff::TableID value) {
-  assert(::proto_ff::TableID_IsValid(value));
+inline void Proto_StoreInfo_CB::set_table_id(::google::protobuf::uint32 value) {
   set_has_table_id();
   table_id_ = value;
 }
@@ -5356,14 +5297,6 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::STORESVR_ERRCODE>() 
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::PacketDispType>() {
   return ::proto_ff::PacketDispType_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::TableID>() {
-  return ::proto_ff::TableID_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ServerType>() {
-  return ::proto_ff::ServerType_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EServerState>() {

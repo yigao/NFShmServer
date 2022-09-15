@@ -15,6 +15,7 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFILuaModule.h"
 #include "NFIHttpHandle.h"
 
 class _NFExport NFProtobufCommon : public NFSingleton<NFProtobufCommon> {
@@ -80,6 +81,8 @@ public:
 
     static int IniToProtoMessage(const std::string &iniFile, google::protobuf::Message *pMessage,
                                   const std::string& section);
+
+    static bool LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Message *pMessageObject);
 
     // 读取算法配置文件模板函数
     template<typename Proto_S>
