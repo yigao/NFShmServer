@@ -20,7 +20,6 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
-#include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFCore/NFTime.h"
 
 

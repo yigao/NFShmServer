@@ -12,7 +12,6 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
-#include "NFComm/NFCore/NFStringUtility.h"
 #include "NFIPacketParse.h"
 #include <string.h>
 #include <sstream>

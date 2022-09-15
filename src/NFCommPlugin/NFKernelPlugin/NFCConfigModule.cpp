@@ -6,14 +6,11 @@
 //    @Desc             :
 // -------------------------------------------------------------------------
 
-#include <NFComm/NFCore/NFCommon.h>
 #include "NFCConfigModule.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 #include "NFComm/NFCore/NFStringUtility.h"
-#include "NFComm/NFCore/NFFileUtility.h"
-#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"

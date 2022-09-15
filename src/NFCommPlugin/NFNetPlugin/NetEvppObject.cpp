@@ -8,12 +8,6 @@
 
 #include "NetEvppObject.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFIPacketParse.h"
-#include "NFComm/NFCore/NFSHA2.h"
-#include "NFComm/NFCore/NFBase64.h"
-#include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFCore/NFStringUtility.h"
 
 #define MAGIC_KEY "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
 

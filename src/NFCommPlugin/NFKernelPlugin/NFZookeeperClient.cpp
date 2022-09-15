@@ -9,7 +9,6 @@
 
 #include "NFZookeeperClient.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFCore/NFSHA1.h"
 #include "NFComm/NFCore/NFPebbleSha1.h"

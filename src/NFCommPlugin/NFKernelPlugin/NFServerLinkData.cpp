@@ -8,16 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFStringUtility.h>
-#include "NFCMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
-#include "NFComm/NFShmCore/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFServerLinkData.h"
 

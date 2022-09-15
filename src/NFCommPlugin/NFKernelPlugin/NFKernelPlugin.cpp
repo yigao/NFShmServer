@@ -22,7 +22,6 @@
 #include "NFCommPlugin/NFKernelPlugin/NFCNamingModule.h"
 #include "NFComm/NFShmCore/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCNoSqlModule.h"
 
 //
 //

@@ -22,14 +22,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFBuffer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFCpu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFCpu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFHmacSha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFHmacSha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFIniReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFIniReader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMD5.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMD5.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemChunk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemChunk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemQueu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemQueue.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFRandom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFRandom.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,14 +306,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="17567000" />
-    </task>
-    <task id="LOCAL-00056" summary="frame">
-      <created>1654798209916</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1654798209916</updated>
+      <workItem from="1663202783660" duration="17972000" />
     </task>
     <task id="LOCAL-00057" summary="frame">
       <created>1654827314543</created>
@@ -656,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663221536178</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="chong gou">
+      <created>1663222223635</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1663222223635</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

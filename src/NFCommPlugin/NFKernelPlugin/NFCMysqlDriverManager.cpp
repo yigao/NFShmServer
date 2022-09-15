@@ -4,9 +4,6 @@
 #include <ws2tcpip.h>
 #else
 #include <sys/socket.h>
-#include <netdb.h>
-#include<netinet/in.h>
-#include<arpa/inet.h>
 #endif
 
 #include "NFCMysqlDriver.h"

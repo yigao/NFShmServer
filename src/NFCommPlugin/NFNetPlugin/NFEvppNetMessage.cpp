@@ -9,7 +9,6 @@
 #include "NFEvppNetMessage.h"
 
 #include <stddef.h>
-#include <sys/types.h>
 #include <cstdint>
 #include <list>
 #include <string>

@@ -8,8 +8,6 @@
 
 #include "NFCBusMessage.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFStringUtility.h"
-#include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
@@ -18,7 +16,6 @@
 #include "NFCBusClient.h"
 #include <string.h>
 #include <sstream>
-#include <iomanip>
 
 NFCBusMessage::NFCBusMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType):NFINetMessage(p, serverType)
 {

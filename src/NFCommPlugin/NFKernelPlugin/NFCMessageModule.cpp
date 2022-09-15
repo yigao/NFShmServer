@@ -16,8 +16,6 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
-#include "NFComm/NFShmCore/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {

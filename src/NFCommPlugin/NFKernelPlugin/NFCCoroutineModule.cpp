@@ -14,7 +14,6 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFCoMgr.h"
 #include "NFSchedule.h"
-#include "NFCoroutineSchedule.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 
 void DoTask(NFSchedule *, void *ud) {

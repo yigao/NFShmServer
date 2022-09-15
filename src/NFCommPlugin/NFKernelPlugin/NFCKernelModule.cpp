@@ -14,7 +14,6 @@
 #include "NFComm/NFCore/NFCRC32.h"
 #include "NFComm/NFCore/NFCRC16.h"
 #include "NFComm/NFCore/NFBase64.h"
-#include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFPluginModule/NFEventMgr.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 

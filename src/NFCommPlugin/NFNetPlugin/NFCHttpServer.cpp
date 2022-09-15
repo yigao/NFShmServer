@@ -10,7 +10,6 @@
 
 #include "NFCHttpServer.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "evpp/http/context.h"
 #include "evpp/libevent.h"
