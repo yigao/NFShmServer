@@ -3,6 +3,7 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="ShmNFrame" targetName="evpp" />
+      <config projectName="ShmNFrame" targetName="NFServerMessage" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="NFServerCore" />
@@ -19,13 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFMessageDefine/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.h" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_common.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_error.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/protoc.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_common.pb.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_common.pb.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_error.pb.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_error.pb.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/protoc_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFMessageDefine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,17 +93,17 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFServerComm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFServerComm/Message" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFServerComm/Message" />
       <recent name="$PROJECT_DIR$/src/NFServerComm" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCore" />
       <recent name="$PROJECT_DIR$/thirdparty/common" />
       <recent name="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer" />
-      <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/NFServerComm" />
@@ -152,6 +160,11 @@
       </method>
     </configuration>
     <configuration name="NFServerCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerCore" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFServerMessage" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerMessage" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -223,6 +236,7 @@
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
       <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFServerCore" />
+      <item itemvalue="CMake 应用程序.NFServerMessage" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFRobotPlugin" />
@@ -295,21 +309,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="14120000" />
-    </task>
-    <task id="LOCAL-00052" summary="frame">
-      <created>1654754621770</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1654754621772</updated>
-    </task>
-    <task id="LOCAL-00053" summary="frame">
-      <created>1654757617308</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1654757617308</updated>
+      <workItem from="1663202783660" duration="15956000" />
     </task>
     <task id="LOCAL-00054" summary="frame">
       <created>1654757626317</created>
@@ -640,7 +640,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663216123768</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="chong gou">
+      <created>1663217101098</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1663217101098</updated>
+    </task>
+    <task id="LOCAL-00102" summary="chong gou">
+      <created>1663220280212</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1663220280212</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
