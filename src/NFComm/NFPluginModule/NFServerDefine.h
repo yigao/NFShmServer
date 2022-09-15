@@ -14,6 +14,8 @@
 #include <vector>
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFCore/NFSlice.hpp"
+#include "NFComm/NFCore/NFSimpleBuffer.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
@@ -126,7 +128,7 @@ const uint32_t s_compressBitPos = 15;
 
 struct NFDataPackage
 {
-    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSendBusLinkId(0), bSecurity(false) {
+    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bSecurity(false) {
 
     }
 
@@ -135,19 +137,23 @@ struct NFDataPackage
         nMsgId = packet.nMsgId;
         nParam1 = packet.nParam1;
         nParam2 = packet.nParam2;
+        nSrcId = packet.nSrcId;
+        nDstId = packet.nDstId;
         nSendBusLinkId = packet.nSendBusLinkId;
         bSecurity = packet.bSecurity;
         mStrMsg = packet.mStrMsg;
     }
 
     std::string ToString() const {
-        return NF_FORMAT("mdouleId:{} msgId:{} param1:{} param2:{} nSendBusLinkId:{} bSecurity:{}", mModuleId, nMsgId, nParam1, nParam2, nSendBusLinkId, bSecurity);
+        return NF_FORMAT("mdouleId:{} msgId:{} param1:{} param2:{} bSecurity:{}", mModuleId, nMsgId, nParam1, nParam2, bSecurity);
     }
 
     uint32_t mModuleId;
     uint32_t nMsgId;
     uint64_t nParam1;
     uint64_t nParam2;
+    uint64_t nSrcId;
+    uint64_t nDstId;
     uint64_t nSendBusLinkId;
     bool bSecurity;
     std::string mStrMsg;

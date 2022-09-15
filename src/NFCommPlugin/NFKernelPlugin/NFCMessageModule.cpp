@@ -153,6 +153,30 @@ void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsg
     }
 }
 
+void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+{
+    if (m_driver)
+    {
+        m_driver->SendServer(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, nSrcID, nDstId);
+    }
+}
+
+void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+{
+    if (m_driver)
+    {
+        m_driver->SendServer(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, nSrcID, nDstId);
+    }
+}
+
+void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+{
+    if (m_driver)
+    {
+        m_driver->SendServer(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, nSrcID, nDstId);
+    }
+}
+
 std::string storesvr_selectbycond(const std::string &dbname, const std::string &tbname,
                                   uint64_t mod_key, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                                   const std::string &additional_conds = "", const std::string& cls_name = "") {
@@ -647,29 +671,41 @@ int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink,
 int NFCMessageModule::SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
                                      const google::protobuf::Message &xData, uint64_t param1, uint64_t param2) {
     CHECK_EXPR(eType < mServerLinkData.size(), -1, "eType error:{}", (int) eType);
-    mServerLinkData[eType].SendMsgByBusId(this, busId, nModuleId, nMsgId, xData, param1, param2);
+
+    NF_SHARE_PTR<NFServerData> pServerData = mServerLinkData[eType].GetServerByServerId(busId);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
+
+    Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2);
     return 0;
 }
 
 int
 NFCMessageModule::SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t param1, uint64_t param2) {
     CHECK_EXPR(eType < mServerLinkData.size(), -1, "eType error:{}", (int) eType);
-    mServerLinkData[eType].SendMsgByBusId(this, busId, nModuleId, nMsgId, msg, nLen, param1, param2);
-    return 0;
-}
 
-int NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t nModuleId, uint32_t nMsgId,
-                                      const google::protobuf::Message &xData, uint64_t param1) {
-    CHECK_EXPR(eSendType < mServerLinkData.size(), -1, "eType error:{}", (int) eSendType);
-    mServerLinkData[eSendType].SendMsgToServer(this, recvType, nModuleId, nMsgId, xData, param1);
+    NF_SHARE_PTR<NFServerData> pServerData = mServerLinkData[eType].GetServerByServerId(busId);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
+
+    Send(pServerData->mUnlinkId, nModuleId, nMsgId, msg, nLen, param1, param2);
     return 0;
 }
 
 int
-NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                                  const google::protobuf::Message &xData, uint64_t param1) {
+NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
+                                  const google::protobuf::Message &xData, uint64_t param1, uint64_t param2) {
     CHECK_EXPR(eSendType < mServerLinkData.size(), -1, "eType error:{}", (int) eSendType);
-    mServerLinkData[eSendType].SendMsgToServer(this, recvType, busId, nModuleId, nMsgId, xData, param1);
+    ServerLinkData& linkData = mServerLinkData[eSendType];
+
+    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(eSendType);
+    CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eSendType));
+
+    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId);
+    uint64_t sendLinkId = srcBusId;
+    if (sendLinkId == 0) {
+        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->mBusId);
+    }
+
+    Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, sendLinkId, destServerLinkId);
     return 0;
 }
 

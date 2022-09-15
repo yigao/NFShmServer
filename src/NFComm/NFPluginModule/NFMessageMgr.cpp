@@ -97,16 +97,11 @@ int NFMessageMgr::SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t
     return m_pMessageModule->SendMsgByBusId(eType, busId, nModuleId, nMsgId, msg, nLen, valueId);
 }
 
-int NFMessageMgr::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId)
+int NFMessageMgr::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
+                                  const google::protobuf::Message &xData, uint64_t param1, uint64_t param2)
 {
     NF_ASSERT(m_pMessageModule);
-    return m_pMessageModule->SendMsgToServer(eSendType, recvType, nModuleId, nMsgId, xData, valueId);
-}
-
-int NFMessageMgr::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t valueId)
-{
-    NF_ASSERT(m_pMessageModule);
-    return m_pMessageModule->SendMsgToServer(eSendType, recvType, busId, nModuleId, nMsgId, xData, valueId);
+    return m_pMessageModule->SendMsgToServer(eSendType, recvType, srcBusId, dstBusId, nModuleId, nMsgId, xData, param1, param2);
 }
 
 NFServerData *NFMessageMgr::GetRouteData(NF_SERVER_TYPES eSendType)

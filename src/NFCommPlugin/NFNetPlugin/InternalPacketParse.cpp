@@ -18,7 +18,7 @@
 struct InternalMsg
 {
 public:
-	InternalMsg() : mCmdAndFlag(0), mLength(0), nParam1(0), nParam2(0), ulSendBusLinkId(0)
+	InternalMsg() : mCmdAndFlag(0), mLength(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), ulSendBusLinkId(0)
 	{
 	}
 
@@ -79,6 +79,8 @@ public:
     uint32_t mLength;
 	uint64_t nParam1;
 	uint64_t nParam2;
+	uint64_t nSrcId;
+	uint64_t nDstId;
 	uint64_t ulSendBusLinkId; //bus message need
 };
 
@@ -121,6 +123,8 @@ int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
     recvPackage.nMsgId = tmpMsgId;
     recvPackage.nParam1 = packHead->nParam1;
     recvPackage.nParam2 = packHead->nParam2;
+    recvPackage.nSrcId = packHead->nSrcId;
+    recvPackage.nDstId = packHead->nDstId;
     recvPackage.nSendBusLinkId = packHead->ulSendBusLinkId;
     allLen = sizeof(InternalMsg) + msgSize;
 	return 0;
@@ -134,6 +138,8 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
     packHead.SetLength(recvPackage.mStrMsg.length());
 	packHead.nParam1 = recvPackage.nParam1;
 	packHead.nParam2 = recvPackage.nParam2;
+	packHead.nSrcId = recvPackage.nSrcId;
+	packHead.nDstId = recvPackage.nDstId;
 	packHead.ulSendBusLinkId = nSendBusLinkId;
 
 	buffer.PushData(&packHead, sizeof(InternalMsg));

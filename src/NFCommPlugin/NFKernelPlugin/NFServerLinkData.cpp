@@ -21,38 +21,6 @@
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFServerLinkData.h"
 
-int ServerLinkData::SendMsgToServer(NFIMessageModule *pMessageModule, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nModuleId,
-                                    uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t param1) {
-    CHECK_EXPR(pMessageModule, -1, "pMessageModule == NULL");
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(mServerType);
-    CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(mServerType));
-
-    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, busId);
-    uint64_t sendLinkId = param1;
-    if (sendLinkId == 0) {
-        sendLinkId = GetUnLinkId(NF_IS_NONE, mServerType, pConfig->mBusId);
-    }
-
-    pMessageModule->Send(m_routeData.mUnlinkId, nModuleId, nMsgId, xData, sendLinkId, destServerLinkId);
-    return 0;
-}
-
-int ServerLinkData::SendMsgToServer(NFIMessageModule *pMessageModule, NF_SERVER_TYPES recvType, uint32_t nModuleId, uint32_t nMsgId,
-                                    const google::protobuf::Message &xData, uint64_t param1) {
-    CHECK_EXPR(pMessageModule, -1, "pMessageModule == NULL");
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(mServerType);
-    CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(mServerType));
-
-    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, 0);
-    uint64_t sendLinkId = param1;
-    if (sendLinkId == 0) {
-        sendLinkId = GetUnLinkId(NF_IS_NONE, mServerType, pConfig->mBusId);
-    }
-
-    pMessageModule->Send(m_routeData.mUnlinkId, nModuleId, nMsgId, xData, sendLinkId, destServerLinkId);
-    return 0;
-}
-
 void ServerLinkData::CloseAllLink(NFIMessageModule *pMessageModule) {
     if (pMessageModule == NULL) return;
 
@@ -248,24 +216,3 @@ std::vector<std::string> ServerLinkData::GetDBNames()
 
     return vec;
 }
-
-int ServerLinkData::SendMsgByBusId(NFIMessageModule *pMessageModule, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg,
-                                   uint32_t nLen, uint64_t param1, uint64_t param2) {
-    CHECK_EXPR(pMessageModule, -1, "pMessageModule == NULL");
-    NF_SHARE_PTR<NFServerData> pServerData = GetServerByServerId(busId);
-    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
-
-    pMessageModule->Send(pServerData->mUnlinkId, nModuleId, nMsgId, msg, nLen, param1, param2);
-    return 0;
-}
-
-int ServerLinkData::SendMsgByBusId(NFIMessageModule *pMessageModule, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                                   const google::protobuf::Message &xData, uint64_t param1, uint64_t param2) {
-    CHECK_EXPR(pMessageModule, -1, "pMessageModule == NULL");
-    NF_SHARE_PTR<NFServerData> pServerData = GetServerByServerId(busId);
-    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
-
-    pMessageModule->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2);
-    return 0;
-}
-

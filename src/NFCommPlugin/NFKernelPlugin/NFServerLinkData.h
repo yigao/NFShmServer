@@ -159,19 +159,6 @@ struct ServerLinkData {
 
     const NFServerData *GetMasterData() const { return &m_masterServerData; }
 
-    virtual int SendMsgByBusId(NFIMessageModule *pMessageModule, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                               const google::protobuf::Message &xData, uint64_t param1, uint64_t param2);
-
-    virtual int SendMsgByBusId(NFIMessageModule *pMessageModule, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                               const char *msg, uint32_t nLen, uint64_t param1, uint64_t param2);
-
-    virtual int SendMsgToServer(NFIMessageModule *pMessageModule, NF_SERVER_TYPES recvType, uint32_t nModuleId, uint32_t nMsgId,
-                                const google::protobuf::Message &xData, uint64_t param1);
-
-    virtual int
-    SendMsgToServer(NFIMessageModule *pMessageModule, NF_SERVER_TYPES recvType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                    const google::protobuf::Message &xData, uint64_t param1);
-
     void CloseAllLink(NFIMessageModule *pMessageModule);
 
     virtual int
