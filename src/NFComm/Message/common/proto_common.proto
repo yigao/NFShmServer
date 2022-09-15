@@ -38,20 +38,20 @@ message tbServerMgr
 
 message pbNFServerConfig
 {
-	optional string ServerId = 1 [(yd_fieldoptions.field_bufsize)=128];
+	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true];
 	optional uint32 ServerType = 2; //服务器类型
-	optional string ServerName = 3 [(yd_fieldoptions.field_bufsize)=128];  //服务器唯一ID like:1.1.1.1
+	optional string ServerName = 3;  //服务器唯一ID like:1.1.1.1
 	optional uint32 BusId = 4;
 	optional uint32 BusLength = 5; //NFBUS/TBUS共享内存通信大小
-	optional string BusName = 6 [(yd_fieldoptions.field_bufsize)=128];  //服务器唯一ID like:1.1.1.1
-	optional string LinkMode = 7 [(yd_fieldoptions.field_bufsize)=128];  //
-	optional string Url = 8 [(yd_fieldoptions.field_bufsize)=128];
+	optional string BusName = 6;  //服务器唯一ID like:1.1.1.1
+	optional string LinkMode = 7;  //
+	optional string Url = 8;
 	optional uint32 IdleSleepUs = 9; //服务器类型
 
 ////////////////////////////////////////net//////////////////////////////////////////////////////////
-	optional string ServerIp = 20 [(yd_fieldoptions.field_bufsize)=128]; //服务器监听IP
+	optional string ServerIp = 20; //服务器监听IP
 	optional uint32 ServerPort = 21; //服务器监听端口
-	optional string ExternalServerIp = 22 [(yd_fieldoptions.field_bufsize)=128]; //服务器对外监听IP
+	optional string ExternalServerIp = 22; //服务器对外监听IP
 	optional uint32 ExternalServerPort = 23; //服务器对外监听端口
 	optional uint32 HttpPort = 24;		//服务器http监听ip
 	optional uint32 MaxConnectNum = 25;	//最大连接数目
@@ -62,26 +62,26 @@ message pbNFServerConfig
 	optional uint32 mParseType = 30;  //协议解析方式, 默认值0，是标准内网协议
 
 ////////////////////////////////////route/////////////////////////////////////////////
-	optional string MasterIp = 50 [(yd_fieldoptions.field_bufsize)=128];
+	optional string MasterIp = 50;
 	optional uint32 MasterPort = 51;
-	optional string NamingHost = 52 [(yd_fieldoptions.field_bufsize)=128];
-	optional string NamingPath = 53 [(yd_fieldoptions.field_bufsize)=128];
-	optional string RouteAgent = 54 [(yd_fieldoptions.field_bufsize)=128];
+	optional string NamingHost = 52;
+	optional string NamingPath = 53;
+	optional string RouteAgent = 54;
 
 ////////////////////////////////////mysql//////////////////////////////////////
-	optional string MysqlIp = 70 [(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlIp = 70;
 	optional uint32	MysqlPort = 71;
-	optional string MysqlDbName = 72 [(yd_fieldoptions.field_bufsize)=128];
-	optional string MysqlUser = 73 [(yd_fieldoptions.field_bufsize)=128];
-	optional string MysqlPassword = 74 [(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlDbName = 72;
+	optional string MysqlUser = 73;
+	optional string MysqlPassword = 74;
 	/////////////////////////////////////redis//////////////////////////////////////
-	optional string RedisIp = 80 [(yd_fieldoptions.field_bufsize)=128];
+	optional string RedisIp = 80;
 	optional uint32	RedisPort = 81;
-	optional string RedisPass = 82 [(yd_fieldoptions.field_bufsize)=128];
+	optional string RedisPass = 82;
 
 ////////////////////////////////////other//////////////////////////////////////////////
-	optional string WwwUrl = 90 [(yd_fieldoptions.field_bufsize)=128];
-	optional string Email = 91 [(yd_fieldoptions.field_bufsize)=128];
+	optional string WwwUrl = 90;
+	optional string Email = 91;
 
 ///////////////////////////////////client////////////////////////////////////////////////////
 	optional uint32 MaxOnlinePlayerNum = 100;

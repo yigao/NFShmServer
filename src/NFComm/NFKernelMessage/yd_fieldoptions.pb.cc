@@ -84,12 +84,14 @@ void protobuf_AddDesc_yd_5ffieldoptions_2eproto() {
     "\221\310\002 \001(\005:6\n\rfield_bufsize\022\035.google.protob"
     "uf.FieldOptions\030\222\310\002 \001(\005:8\n\010no_field\022\035.go"
     "ogle.protobuf.FieldOptions\030\223\310\002 \001(\010:\005fals"
-    "e:4\n\013field_cname\022\035.google.protobuf.Field"
-    "Options\030\370\317\002 \001(\t:8\n\017field_select_id\022\035.goo"
-    "gle.protobuf.FieldOptions\030\371\317\002 \001(\t:1\n\010fie"
-    "ld_id\022\035.google.protobuf.FieldOptions\030\372\317\002"
-    " \001(\t:<\n\020field_enum_cname\022!.google.protob"
-    "uf.EnumValueOptions\030\320\017 \001(\t", 1226);
+    "e:=\n\rfield_use_stl\022\035.google.protobuf.Fie"
+    "ldOptions\030\224\310\002 \001(\010:\005false:4\n\013field_cname\022"
+    "\035.google.protobuf.FieldOptions\030\370\317\002 \001(\t:8"
+    "\n\017field_select_id\022\035.google.protobuf.Fiel"
+    "dOptions\030\371\317\002 \001(\t:1\n\010field_id\022\035.google.pr"
+    "otobuf.FieldOptions\030\372\317\002 \001(\t:<\n\020field_enu"
+    "m_cname\022!.google.protobuf.EnumValueOptio"
+    "ns\030\320\017 \001(\t", 1289);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "yd_fieldoptions.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::ExtensionSet::RegisterEnumExtension(
@@ -129,6 +131,9 @@ void protobuf_AddDesc_yd_5ffieldoptions_2eproto() {
   ::google::protobuf::internal::ExtensionSet::RegisterExtension(
     &::google::protobuf::FieldOptions::default_instance(),
     42003, 8, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::FieldOptions::default_instance(),
+    42004, 8, false, false);
   ::google::protobuf::internal::ExtensionSet::RegisterExtension(
     &::google::protobuf::FieldOptions::default_instance(),
     43000, 9, false, false);
@@ -204,6 +209,9 @@ const ::std::string field_typename_default("");
 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::google::protobuf::internal::PrimitiveTypeTraits< bool >, 8, false >
   no_field(kNoFieldFieldNumber, false);
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::PrimitiveTypeTraits< bool >, 8, false >
+  field_use_stl(kFieldUseStlFieldNumber, false);
 const ::std::string field_cname_default("");
 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::google::protobuf::internal::StringTypeTraits, 9, false >

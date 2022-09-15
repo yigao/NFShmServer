@@ -50,6 +50,7 @@ extend google.protobuf.FieldOptions {
   optional int32    field_arysize		= 42001;		// 数组长度，在string bytes repeated 类型时要填写该选项
   optional int32    field_bufsize       = 42002;        // buffer长度，用于字符串描述
   optional bool     no_field = 42003 [default = false]; //不搞到struct中
+  optional bool     field_use_stl	= 42004 [default = false];		// 不解析成共享内存类，使用stl普通类
 
   // excel-->bin
   optional string		field_cname	= 43000;				// 中文名

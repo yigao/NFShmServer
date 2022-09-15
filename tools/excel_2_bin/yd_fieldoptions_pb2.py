@@ -15,7 +15,7 @@ import google.protobuf.descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='yd_fieldoptions.proto',
   package='yd_fieldoptions',
-  serialized_pb='\n\x15yd_fieldoptions.proto\x12\x0fyd_fieldoptions\x1a google/protobuf/descriptor.proto*\x80\x01\n\x15message_db_field_type\x12\x16\n\x12\x45_FIELDTYPE_NORMAL\x10\x01\x12\x1a\n\x16\x45_FIELDTYPE_PRIMARYKEY\x10\x02\x12\x15\n\x11\x45_FIELDTYPE_INDEX\x10\x03\x12\x1c\n\x18\x45_FIELDTYPE_UNIQUE_INDEX\x10\x04:r\n\rdb_field_type\x12\x1d.google.protobuf.FieldOptions\x18\xa8\xc0\x02 \x01(\x0e\x32&.yd_fieldoptions.message_db_field_type:\x12\x45_FIELDTYPE_NORMAL:9\n\x10\x64\x62_field_bufsize\x12\x1d.google.protobuf.FieldOptions\x18\xa9\xc0\x02 \x01(\x05:A\n\x11\x64\x62_field_not_null\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xc0\x02 \x01(\x08:\x05\x66\x61lse:G\n\x17\x64\x62_field_auto_increment\x12\x1d.google.protobuf.FieldOptions\x18\xc3\xb8\x02 \x01(\x08:\x05\x66\x61lse:9\n\x10\x64\x62_field_arysize\x12\x1d.google.protobuf.FieldOptions\x18\xac\xc0\x02 \x01(\x05:I\n\x1d\x64\x62_field_auto_increment_value\x12\x1d.google.protobuf.FieldOptions\x18\xc5\xb8\x02 \x01(\x05:\x01\x30:;\n\x0bno_db_field\x12\x1d.google.protobuf.FieldOptions\x18\xc6\xb8\x02 \x01(\x08:\x05\x66\x61lse:9\n\x10\x64\x62_field_comment\x12\x1d.google.protobuf.FieldOptions\x18\xc7\xb8\x02 \x01(\t:7\n\x0e\x66ield_typename\x12\x1d.google.protobuf.FieldOptions\x18\x90\xc8\x02 \x01(\t:6\n\rfield_arysize\x12\x1d.google.protobuf.FieldOptions\x18\x91\xc8\x02 \x01(\x05:6\n\rfield_bufsize\x12\x1d.google.protobuf.FieldOptions\x18\x92\xc8\x02 \x01(\x05:8\n\x08no_field\x12\x1d.google.protobuf.FieldOptions\x18\x93\xc8\x02 \x01(\x08:\x05\x66\x61lse:4\n\x0b\x66ield_cname\x12\x1d.google.protobuf.FieldOptions\x18\xf8\xcf\x02 \x01(\t:8\n\x0f\x66ield_select_id\x12\x1d.google.protobuf.FieldOptions\x18\xf9\xcf\x02 \x01(\t:1\n\x08\x66ield_id\x12\x1d.google.protobuf.FieldOptions\x18\xfa\xcf\x02 \x01(\t:<\n\x10\x66ield_enum_cname\x12!.google.protobuf.EnumValueOptions\x18\xd0\x0f \x01(\t')
+  serialized_pb='\n\x15yd_fieldoptions.proto\x12\x0fyd_fieldoptions\x1a google/protobuf/descriptor.proto*\x80\x01\n\x15message_db_field_type\x12\x16\n\x12\x45_FIELDTYPE_NORMAL\x10\x01\x12\x1a\n\x16\x45_FIELDTYPE_PRIMARYKEY\x10\x02\x12\x15\n\x11\x45_FIELDTYPE_INDEX\x10\x03\x12\x1c\n\x18\x45_FIELDTYPE_UNIQUE_INDEX\x10\x04:r\n\rdb_field_type\x12\x1d.google.protobuf.FieldOptions\x18\xa8\xc0\x02 \x01(\x0e\x32&.yd_fieldoptions.message_db_field_type:\x12\x45_FIELDTYPE_NORMAL:9\n\x10\x64\x62_field_bufsize\x12\x1d.google.protobuf.FieldOptions\x18\xa9\xc0\x02 \x01(\x05:A\n\x11\x64\x62_field_not_null\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xc0\x02 \x01(\x08:\x05\x66\x61lse:G\n\x17\x64\x62_field_auto_increment\x12\x1d.google.protobuf.FieldOptions\x18\xc3\xb8\x02 \x01(\x08:\x05\x66\x61lse:9\n\x10\x64\x62_field_arysize\x12\x1d.google.protobuf.FieldOptions\x18\xac\xc0\x02 \x01(\x05:I\n\x1d\x64\x62_field_auto_increment_value\x12\x1d.google.protobuf.FieldOptions\x18\xc5\xb8\x02 \x01(\x05:\x01\x30:;\n\x0bno_db_field\x12\x1d.google.protobuf.FieldOptions\x18\xc6\xb8\x02 \x01(\x08:\x05\x66\x61lse:9\n\x10\x64\x62_field_comment\x12\x1d.google.protobuf.FieldOptions\x18\xc7\xb8\x02 \x01(\t:7\n\x0e\x66ield_typename\x12\x1d.google.protobuf.FieldOptions\x18\x90\xc8\x02 \x01(\t:6\n\rfield_arysize\x12\x1d.google.protobuf.FieldOptions\x18\x91\xc8\x02 \x01(\x05:6\n\rfield_bufsize\x12\x1d.google.protobuf.FieldOptions\x18\x92\xc8\x02 \x01(\x05:8\n\x08no_field\x12\x1d.google.protobuf.FieldOptions\x18\x93\xc8\x02 \x01(\x08:\x05\x66\x61lse:=\n\rfield_use_stl\x12\x1d.google.protobuf.FieldOptions\x18\x94\xc8\x02 \x01(\x08:\x05\x66\x61lse:4\n\x0b\x66ield_cname\x12\x1d.google.protobuf.FieldOptions\x18\xf8\xcf\x02 \x01(\t:8\n\x0f\x66ield_select_id\x12\x1d.google.protobuf.FieldOptions\x18\xf9\xcf\x02 \x01(\t:1\n\x08\x66ield_id\x12\x1d.google.protobuf.FieldOptions\x18\xfa\xcf\x02 \x01(\t:<\n\x10\x66ield_enum_cname\x12!.google.protobuf.EnumValueOptions\x18\xd0\x0f \x01(\t')
 
 _MESSAGE_DB_FIELD_TYPE = _descriptor.EnumDescriptor(
   name='message_db_field_type',
@@ -148,9 +148,17 @@ no_field = _descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
+FIELD_USE_STL_FIELD_NUMBER = 42004
+field_use_stl = _descriptor.FieldDescriptor(
+  name='field_use_stl', full_name='yd_fieldoptions.field_use_stl', index=12,
+  number=42004, type=8, cpp_type=7, label=1,
+  has_default_value=True, default_value=False,
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  options=None)
 FIELD_CNAME_FIELD_NUMBER = 43000
 field_cname = _descriptor.FieldDescriptor(
-  name='field_cname', full_name='yd_fieldoptions.field_cname', index=12,
+  name='field_cname', full_name='yd_fieldoptions.field_cname', index=13,
   number=43000, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=unicode("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
@@ -158,7 +166,7 @@ field_cname = _descriptor.FieldDescriptor(
   options=None)
 FIELD_SELECT_ID_FIELD_NUMBER = 43001
 field_select_id = _descriptor.FieldDescriptor(
-  name='field_select_id', full_name='yd_fieldoptions.field_select_id', index=13,
+  name='field_select_id', full_name='yd_fieldoptions.field_select_id', index=14,
   number=43001, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=unicode("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
@@ -166,7 +174,7 @@ field_select_id = _descriptor.FieldDescriptor(
   options=None)
 FIELD_ID_FIELD_NUMBER = 43002
 field_id = _descriptor.FieldDescriptor(
-  name='field_id', full_name='yd_fieldoptions.field_id', index=14,
+  name='field_id', full_name='yd_fieldoptions.field_id', index=15,
   number=43002, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=unicode("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
@@ -174,7 +182,7 @@ field_id = _descriptor.FieldDescriptor(
   options=None)
 FIELD_ENUM_CNAME_FIELD_NUMBER = 2000
 field_enum_cname = _descriptor.FieldDescriptor(
-  name='field_enum_cname', full_name='yd_fieldoptions.field_enum_cname', index=15,
+  name='field_enum_cname', full_name='yd_fieldoptions.field_enum_cname', index=16,
   number=2000, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=unicode("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
@@ -195,6 +203,7 @@ google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_typename)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_arysize)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_bufsize)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(no_field)
+google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_use_stl)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_cname)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_select_id)
 google.protobuf.descriptor_pb2.FieldOptions.RegisterExtension(field_id)
