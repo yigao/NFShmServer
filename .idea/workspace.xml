@@ -7,6 +7,8 @@
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="NFServerCore" />
+      <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
@@ -20,20 +22,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_common.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_error.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/Message/protoc.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_common.pb.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_common.pb.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_error.pb.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_error.pb.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/protoc_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFMessageDefine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_dynamic_debug.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build_dynamic_debug.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_dynamic_release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build_dynamic_release.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make.sh" beforeDir="false" afterPath="$PROJECT_DIR$/make.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,11 +101,11 @@
       <recent name="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr" />
       <recent name="$PROJECT_DIR$/src/NFServerComm" />
       <recent name="$PROJECT_DIR$/src/NFComm" />
       <recent name="$PROJECT_DIR$/doc" />
       <recent name="$PROJECT_DIR$/src/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFServerLogic/NFLogicServer/NFLogicServerUserPlugin" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -150,6 +145,11 @@
       </method>
     </configuration>
     <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFProxyServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFProxyServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -235,6 +235,7 @@
       <item itemvalue="CMake 应用程序.mysqlpp" />
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
       <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
       <item itemvalue="CMake 应用程序.NFServerCore" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
@@ -309,14 +310,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="15956000" />
-    </task>
-    <task id="LOCAL-00054" summary="frame">
-      <created>1654757626317</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1654757626317</updated>
+      <workItem from="1663202783660" duration="17039000" />
     </task>
     <task id="LOCAL-00055" summary="frame">
       <created>1654769031106</created>
@@ -654,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663220280212</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="chong gou">
+      <created>1663220640121</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1663220640121</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

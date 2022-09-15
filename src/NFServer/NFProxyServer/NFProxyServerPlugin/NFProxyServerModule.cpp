@@ -10,16 +10,15 @@
 #include "NFProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include <NFComm/NFPluginModule/NFConfigMgr.h>
-#include <NFComm/NFPluginModule/NFEventDefine.h>
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServer/NFCommHead/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
-#include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
+#include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
+#include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
 
 #define PROXY_SERVER_CONNECT_MASTER_SERVER "ProxyServer Connect MasterServer"
 

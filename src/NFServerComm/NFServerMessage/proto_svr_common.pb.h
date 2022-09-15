@@ -23,10 +23,8 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
-#include "proto_common.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {
@@ -36,48 +34,18 @@ void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
 void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
 void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
 
-class CommonMsgRsp;
-class Proto_STMasterServerDumpInfoNtf;
-class Proto_MasterTMonitorReloadReq;
-class Proto_MasterTMonitorRestartReq;
-class Proto_MasterTMonitorStartReq;
-class Proto_MasterTMonitorStopReq;
-class Proto_MonitorTMasterReloadRsp;
-class Proto_MonitorTMasterRestartRsp;
-class Proto_MonitorTMasterStartRsp;
-class Proto_MonitorTMasterStopRsp;
-class Proto_STStoreCheckReq;
-class Proto_StoreTSCheckRsp;
+class emailSender;
 
-enum Proto_SvrMsgID {
-  NF_STSTORE_CHECK_STORE_SERVER_REQ = 40,
-  NF_STORETS_CHECK_STORE_SERVER_RSP = 41
-};
-bool Proto_SvrMsgID_IsValid(int value);
-const Proto_SvrMsgID Proto_SvrMsgID_MIN = NF_STSTORE_CHECK_STORE_SERVER_REQ;
-const Proto_SvrMsgID Proto_SvrMsgID_MAX = NF_STORETS_CHECK_STORE_SERVER_RSP;
-const int Proto_SvrMsgID_ARRAYSIZE = Proto_SvrMsgID_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* Proto_SvrMsgID_descriptor();
-inline const ::std::string& Proto_SvrMsgID_Name(Proto_SvrMsgID value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    Proto_SvrMsgID_descriptor(), value);
-}
-inline bool Proto_SvrMsgID_Parse(
-    const ::std::string& name, Proto_SvrMsgID* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Proto_SvrMsgID>(
-    Proto_SvrMsgID_descriptor(), name, value);
-}
 // ===================================================================
 
-class CommonMsgRsp : public ::google::protobuf::Message {
+class emailSender : public ::google::protobuf::Message {
  public:
-  CommonMsgRsp();
-  virtual ~CommonMsgRsp();
+  emailSender();
+  virtual ~emailSender();
 
-  CommonMsgRsp(const CommonMsgRsp& from);
+  emailSender(const emailSender& from);
 
-  inline CommonMsgRsp& operator=(const CommonMsgRsp& from) {
+  inline emailSender& operator=(const emailSender& from) {
     CopyFrom(from);
     return *this;
   }
@@ -91,17 +59,17 @@ class CommonMsgRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const CommonMsgRsp& default_instance();
+  static const emailSender& default_instance();
 
-  void Swap(CommonMsgRsp* other);
+  void Swap(emailSender* other);
 
   // implements Message ----------------------------------------------
 
-  CommonMsgRsp* New() const;
+  emailSender* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const CommonMsgRsp& from);
-  void MergeFrom(const CommonMsgRsp& from);
+  void CopyFrom(const emailSender& from);
+  void MergeFrom(const emailSender& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -124,638 +92,56 @@ class CommonMsgRsp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
+  // optional string email = 1;
+  inline bool has_email() const;
+  inline void clear_email();
+  static const int kEmailFieldNumber = 1;
+  inline const ::std::string& email() const;
+  inline void set_email(const ::std::string& value);
+  inline void set_email(const char* value);
+  inline void set_email(const char* value, size_t size);
+  inline ::std::string* mutable_email();
+  inline ::std::string* release_email();
+  inline void set_allocated_email(::std::string* email);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.CommonMsgRsp)
+  // optional string title = 2;
+  inline bool has_title() const;
+  inline void clear_title();
+  static const int kTitleFieldNumber = 2;
+  inline const ::std::string& title() const;
+  inline void set_title(const ::std::string& value);
+  inline void set_title(const char* value);
+  inline void set_title(const char* value, size_t size);
+  inline ::std::string* mutable_title();
+  inline ::std::string* release_title();
+  inline void set_allocated_title(::std::string* title);
+
+  // optional string msg = 3;
+  inline bool has_msg() const;
+  inline void clear_msg();
+  static const int kMsgFieldNumber = 3;
+  inline const ::std::string& msg() const;
+  inline void set_msg(const ::std::string& value);
+  inline void set_msg(const char* value);
+  inline void set_msg(const char* value, size_t size);
+  inline ::std::string* mutable_msg();
+  inline ::std::string* release_msg();
+  inline void set_allocated_msg(::std::string* msg);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.emailSender)
  private:
-  inline void set_has_result();
-  inline void clear_has_result();
+  inline void set_has_email();
+  inline void clear_has_email();
+  inline void set_has_title();
+  inline void clear_has_title();
+  inline void set_has_msg();
+  inline void clear_has_msg();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 result_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static CommonMsgRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_STMasterServerDumpInfoNtf : public ::google::protobuf::Message {
- public:
-  Proto_STMasterServerDumpInfoNtf();
-  virtual ~Proto_STMasterServerDumpInfoNtf();
-
-  Proto_STMasterServerDumpInfoNtf(const Proto_STMasterServerDumpInfoNtf& from);
-
-  inline Proto_STMasterServerDumpInfoNtf& operator=(const Proto_STMasterServerDumpInfoNtf& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_STMasterServerDumpInfoNtf& default_instance();
-
-  void Swap(Proto_STMasterServerDumpInfoNtf* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_STMasterServerDumpInfoNtf* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_STMasterServerDumpInfoNtf& from);
-  void MergeFrom(const Proto_STMasterServerDumpInfoNtf& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string dump_info = 1;
-  inline bool has_dump_info() const;
-  inline void clear_dump_info();
-  static const int kDumpInfoFieldNumber = 1;
-  inline const ::std::string& dump_info() const;
-  inline void set_dump_info(const ::std::string& value);
-  inline void set_dump_info(const char* value);
-  inline void set_dump_info(const char* value, size_t size);
-  inline ::std::string* mutable_dump_info();
-  inline ::std::string* release_dump_info();
-  inline void set_allocated_dump_info(::std::string* dump_info);
-
-  // optional uint32 bus_id = 2;
-  inline bool has_bus_id() const;
-  inline void clear_bus_id();
-  static const int kBusIdFieldNumber = 2;
-  inline ::google::protobuf::uint32 bus_id() const;
-  inline void set_bus_id(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_STMasterServerDumpInfoNtf)
- private:
-  inline void set_has_dump_info();
-  inline void clear_has_dump_info();
-  inline void set_has_bus_id();
-  inline void clear_has_bus_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* dump_info_;
-  ::google::protobuf::uint32 bus_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_STMasterServerDumpInfoNtf* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MasterTMonitorReloadReq : public ::google::protobuf::Message {
- public:
-  Proto_MasterTMonitorReloadReq();
-  virtual ~Proto_MasterTMonitorReloadReq();
-
-  Proto_MasterTMonitorReloadReq(const Proto_MasterTMonitorReloadReq& from);
-
-  inline Proto_MasterTMonitorReloadReq& operator=(const Proto_MasterTMonitorReloadReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MasterTMonitorReloadReq& default_instance();
-
-  void Swap(Proto_MasterTMonitorReloadReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MasterTMonitorReloadReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MasterTMonitorReloadReq& from);
-  void MergeFrom(const Proto_MasterTMonitorReloadReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string server_name = 1;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 1;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 2;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 2;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MasterTMonitorReloadReq)
- private:
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MasterTMonitorReloadReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MasterTMonitorRestartReq : public ::google::protobuf::Message {
- public:
-  Proto_MasterTMonitorRestartReq();
-  virtual ~Proto_MasterTMonitorRestartReq();
-
-  Proto_MasterTMonitorRestartReq(const Proto_MasterTMonitorRestartReq& from);
-
-  inline Proto_MasterTMonitorRestartReq& operator=(const Proto_MasterTMonitorRestartReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MasterTMonitorRestartReq& default_instance();
-
-  void Swap(Proto_MasterTMonitorRestartReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MasterTMonitorRestartReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MasterTMonitorRestartReq& from);
-  void MergeFrom(const Proto_MasterTMonitorRestartReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string server_name = 1;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 1;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 2;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 2;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MasterTMonitorRestartReq)
- private:
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MasterTMonitorRestartReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MasterTMonitorStartReq : public ::google::protobuf::Message {
- public:
-  Proto_MasterTMonitorStartReq();
-  virtual ~Proto_MasterTMonitorStartReq();
-
-  Proto_MasterTMonitorStartReq(const Proto_MasterTMonitorStartReq& from);
-
-  inline Proto_MasterTMonitorStartReq& operator=(const Proto_MasterTMonitorStartReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MasterTMonitorStartReq& default_instance();
-
-  void Swap(Proto_MasterTMonitorStartReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MasterTMonitorStartReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MasterTMonitorStartReq& from);
-  void MergeFrom(const Proto_MasterTMonitorStartReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string server_name = 1;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 1;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 2;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 2;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MasterTMonitorStartReq)
- private:
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MasterTMonitorStartReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MasterTMonitorStopReq : public ::google::protobuf::Message {
- public:
-  Proto_MasterTMonitorStopReq();
-  virtual ~Proto_MasterTMonitorStopReq();
-
-  Proto_MasterTMonitorStopReq(const Proto_MasterTMonitorStopReq& from);
-
-  inline Proto_MasterTMonitorStopReq& operator=(const Proto_MasterTMonitorStopReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MasterTMonitorStopReq& default_instance();
-
-  void Swap(Proto_MasterTMonitorStopReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MasterTMonitorStopReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MasterTMonitorStopReq& from);
-  void MergeFrom(const Proto_MasterTMonitorStopReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string server_name = 1;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 1;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 2;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 2;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MasterTMonitorStopReq)
- private:
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MasterTMonitorStopReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MonitorTMasterReloadRsp : public ::google::protobuf::Message {
- public:
-  Proto_MonitorTMasterReloadRsp();
-  virtual ~Proto_MonitorTMasterReloadRsp();
-
-  Proto_MonitorTMasterReloadRsp(const Proto_MonitorTMasterReloadRsp& from);
-
-  inline Proto_MonitorTMasterReloadRsp& operator=(const Proto_MonitorTMasterReloadRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MonitorTMasterReloadRsp& default_instance();
-
-  void Swap(Proto_MonitorTMasterReloadRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MonitorTMasterReloadRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MonitorTMasterReloadRsp& from);
-  void MergeFrom(const Proto_MonitorTMasterReloadRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
-
-  // optional string server_name = 2;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 2;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 3;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MonitorTMasterReloadRsp)
- private:
-  inline void set_has_result();
-  inline void clear_has_result();
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-  ::google::protobuf::int32 result_;
+  ::std::string* email_;
+  ::std::string* title_;
+  ::std::string* msg_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -765,1860 +151,224 @@ class Proto_MonitorTMasterReloadRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
 
   void InitAsDefaultInstance();
-  static Proto_MonitorTMasterReloadRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MonitorTMasterRestartRsp : public ::google::protobuf::Message {
- public:
-  Proto_MonitorTMasterRestartRsp();
-  virtual ~Proto_MonitorTMasterRestartRsp();
-
-  Proto_MonitorTMasterRestartRsp(const Proto_MonitorTMasterRestartRsp& from);
-
-  inline Proto_MonitorTMasterRestartRsp& operator=(const Proto_MonitorTMasterRestartRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MonitorTMasterRestartRsp& default_instance();
-
-  void Swap(Proto_MonitorTMasterRestartRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MonitorTMasterRestartRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MonitorTMasterRestartRsp& from);
-  void MergeFrom(const Proto_MonitorTMasterRestartRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
-
-  // optional string server_name = 2;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 2;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 3;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MonitorTMasterRestartRsp)
- private:
-  inline void set_has_result();
-  inline void clear_has_result();
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-  ::google::protobuf::int32 result_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MonitorTMasterRestartRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MonitorTMasterStartRsp : public ::google::protobuf::Message {
- public:
-  Proto_MonitorTMasterStartRsp();
-  virtual ~Proto_MonitorTMasterStartRsp();
-
-  Proto_MonitorTMasterStartRsp(const Proto_MonitorTMasterStartRsp& from);
-
-  inline Proto_MonitorTMasterStartRsp& operator=(const Proto_MonitorTMasterStartRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MonitorTMasterStartRsp& default_instance();
-
-  void Swap(Proto_MonitorTMasterStartRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MonitorTMasterStartRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MonitorTMasterStartRsp& from);
-  void MergeFrom(const Proto_MonitorTMasterStartRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
-
-  // optional string server_name = 2;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 2;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 3;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MonitorTMasterStartRsp)
- private:
-  inline void set_has_result();
-  inline void clear_has_result();
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-  ::google::protobuf::int32 result_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MonitorTMasterStartRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_MonitorTMasterStopRsp : public ::google::protobuf::Message {
- public:
-  Proto_MonitorTMasterStopRsp();
-  virtual ~Proto_MonitorTMasterStopRsp();
-
-  Proto_MonitorTMasterStopRsp(const Proto_MonitorTMasterStopRsp& from);
-
-  inline Proto_MonitorTMasterStopRsp& operator=(const Proto_MonitorTMasterStopRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_MonitorTMasterStopRsp& default_instance();
-
-  void Swap(Proto_MonitorTMasterStopRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_MonitorTMasterStopRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_MonitorTMasterStopRsp& from);
-  void MergeFrom(const Proto_MonitorTMasterStopRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
-
-  // optional string server_name = 2;
-  inline bool has_server_name() const;
-  inline void clear_server_name();
-  static const int kServerNameFieldNumber = 2;
-  inline const ::std::string& server_name() const;
-  inline void set_server_name(const ::std::string& value);
-  inline void set_server_name(const char* value);
-  inline void set_server_name(const char* value, size_t size);
-  inline ::std::string* mutable_server_name();
-  inline ::std::string* release_server_name();
-  inline void set_allocated_server_name(::std::string* server_name);
-
-  // optional string server_id = 3;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
-  inline const ::std::string& server_id() const;
-  inline void set_server_id(const ::std::string& value);
-  inline void set_server_id(const char* value);
-  inline void set_server_id(const char* value, size_t size);
-  inline ::std::string* mutable_server_id();
-  inline ::std::string* release_server_id();
-  inline void set_allocated_server_id(::std::string* server_id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_MonitorTMasterStopRsp)
- private:
-  inline void set_has_result();
-  inline void clear_has_result();
-  inline void set_has_server_name();
-  inline void clear_has_server_name();
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* server_name_;
-  ::std::string* server_id_;
-  ::google::protobuf::int32 result_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_MonitorTMasterStopRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_STStoreCheckReq : public ::google::protobuf::Message {
- public:
-  Proto_STStoreCheckReq();
-  virtual ~Proto_STStoreCheckReq();
-
-  Proto_STStoreCheckReq(const Proto_STStoreCheckReq& from);
-
-  inline Proto_STStoreCheckReq& operator=(const Proto_STStoreCheckReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_STStoreCheckReq& default_instance();
-
-  void Swap(Proto_STStoreCheckReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_STStoreCheckReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_STStoreCheckReq& from);
-  void MergeFrom(const Proto_STStoreCheckReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_STStoreCheckReq)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[1];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_STStoreCheckReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Proto_StoreTSCheckRsp : public ::google::protobuf::Message {
- public:
-  Proto_StoreTSCheckRsp();
-  virtual ~Proto_StoreTSCheckRsp();
-
-  Proto_StoreTSCheckRsp(const Proto_StoreTSCheckRsp& from);
-
-  inline Proto_StoreTSCheckRsp& operator=(const Proto_StoreTSCheckRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_StoreTSCheckRsp& default_instance();
-
-  void Swap(Proto_StoreTSCheckRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Proto_StoreTSCheckRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_StoreTSCheckRsp& from);
-  void MergeFrom(const Proto_StoreTSCheckRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_StoreTSCheckRsp)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[1];
-
-  friend void  protobuf_AddDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_AssignDesc_proto_5fsvr_5fcommon_2eproto();
-  friend void protobuf_ShutdownFile_proto_5fsvr_5fcommon_2eproto();
-
-  void InitAsDefaultInstance();
-  static Proto_StoreTSCheckRsp* default_instance_;
+  static emailSender* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// CommonMsgRsp
+// emailSender
 
-// optional int32 result = 1;
-inline bool CommonMsgRsp::has_result() const {
+// optional string email = 1;
+inline bool emailSender::has_email() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void CommonMsgRsp::set_has_result() {
+inline void emailSender::set_has_email() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void CommonMsgRsp::clear_has_result() {
+inline void emailSender::clear_has_email() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void CommonMsgRsp::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 CommonMsgRsp::result() const {
-  return result_;
-}
-inline void CommonMsgRsp::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Proto_STMasterServerDumpInfoNtf
-
-// optional string dump_info = 1;
-inline bool Proto_STMasterServerDumpInfoNtf::has_dump_info() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_STMasterServerDumpInfoNtf::set_has_dump_info() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_STMasterServerDumpInfoNtf::clear_has_dump_info() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_STMasterServerDumpInfoNtf::clear_dump_info() {
-  if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
-    dump_info_->clear();
+inline void emailSender::clear_email() {
+  if (email_ != &::google::protobuf::internal::kEmptyString) {
+    email_->clear();
   }
-  clear_has_dump_info();
+  clear_has_email();
 }
-inline const ::std::string& Proto_STMasterServerDumpInfoNtf::dump_info() const {
-  return *dump_info_;
+inline const ::std::string& emailSender::email() const {
+  return *email_;
 }
-inline void Proto_STMasterServerDumpInfoNtf::set_dump_info(const ::std::string& value) {
-  set_has_dump_info();
-  if (dump_info_ == &::google::protobuf::internal::kEmptyString) {
-    dump_info_ = new ::std::string;
+inline void emailSender::set_email(const ::std::string& value) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
   }
-  dump_info_->assign(value);
+  email_->assign(value);
 }
-inline void Proto_STMasterServerDumpInfoNtf::set_dump_info(const char* value) {
-  set_has_dump_info();
-  if (dump_info_ == &::google::protobuf::internal::kEmptyString) {
-    dump_info_ = new ::std::string;
+inline void emailSender::set_email(const char* value) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
   }
-  dump_info_->assign(value);
+  email_->assign(value);
 }
-inline void Proto_STMasterServerDumpInfoNtf::set_dump_info(const char* value, size_t size) {
-  set_has_dump_info();
-  if (dump_info_ == &::google::protobuf::internal::kEmptyString) {
-    dump_info_ = new ::std::string;
+inline void emailSender::set_email(const char* value, size_t size) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
   }
-  dump_info_->assign(reinterpret_cast<const char*>(value), size);
+  email_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* Proto_STMasterServerDumpInfoNtf::mutable_dump_info() {
-  set_has_dump_info();
-  if (dump_info_ == &::google::protobuf::internal::kEmptyString) {
-    dump_info_ = new ::std::string;
+inline ::std::string* emailSender::mutable_email() {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
   }
-  return dump_info_;
+  return email_;
 }
-inline ::std::string* Proto_STMasterServerDumpInfoNtf::release_dump_info() {
-  clear_has_dump_info();
-  if (dump_info_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* emailSender::release_email() {
+  clear_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = dump_info_;
-    dump_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = email_;
+    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void Proto_STMasterServerDumpInfoNtf::set_allocated_dump_info(::std::string* dump_info) {
-  if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
-    delete dump_info_;
+inline void emailSender::set_allocated_email(::std::string* email) {
+  if (email_ != &::google::protobuf::internal::kEmptyString) {
+    delete email_;
   }
-  if (dump_info) {
-    set_has_dump_info();
-    dump_info_ = dump_info;
+  if (email) {
+    set_has_email();
+    email_ = email;
   } else {
-    clear_has_dump_info();
-    dump_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_email();
+    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional uint32 bus_id = 2;
-inline bool Proto_STMasterServerDumpInfoNtf::has_bus_id() const {
+// optional string title = 2;
+inline bool emailSender::has_title() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Proto_STMasterServerDumpInfoNtf::set_has_bus_id() {
+inline void emailSender::set_has_title() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void Proto_STMasterServerDumpInfoNtf::clear_has_bus_id() {
+inline void emailSender::clear_has_title() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void Proto_STMasterServerDumpInfoNtf::clear_bus_id() {
-  bus_id_ = 0u;
-  clear_has_bus_id();
-}
-inline ::google::protobuf::uint32 Proto_STMasterServerDumpInfoNtf::bus_id() const {
-  return bus_id_;
-}
-inline void Proto_STMasterServerDumpInfoNtf::set_bus_id(::google::protobuf::uint32 value) {
-  set_has_bus_id();
-  bus_id_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MasterTMonitorReloadReq
-
-// optional string server_name = 1;
-inline bool Proto_MasterTMonitorReloadReq::has_server_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MasterTMonitorReloadReq::set_has_server_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MasterTMonitorReloadReq::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MasterTMonitorReloadReq::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
+inline void emailSender::clear_title() {
+  if (title_ != &::google::protobuf::internal::kEmptyString) {
+    title_->clear();
   }
-  clear_has_server_name();
+  clear_has_title();
 }
-inline const ::std::string& Proto_MasterTMonitorReloadReq::server_name() const {
-  return *server_name_;
+inline const ::std::string& emailSender::title() const {
+  return *title_;
 }
-inline void Proto_MasterTMonitorReloadReq::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
+inline void emailSender::set_title(const ::std::string& value) {
+  set_has_title();
+  if (title_ == &::google::protobuf::internal::kEmptyString) {
+    title_ = new ::std::string;
   }
-  server_name_->assign(value);
+  title_->assign(value);
 }
-inline void Proto_MasterTMonitorReloadReq::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
+inline void emailSender::set_title(const char* value) {
+  set_has_title();
+  if (title_ == &::google::protobuf::internal::kEmptyString) {
+    title_ = new ::std::string;
   }
-  server_name_->assign(value);
+  title_->assign(value);
 }
-inline void Proto_MasterTMonitorReloadReq::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
+inline void emailSender::set_title(const char* value, size_t size) {
+  set_has_title();
+  if (title_ == &::google::protobuf::internal::kEmptyString) {
+    title_ = new ::std::string;
   }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
+  title_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* Proto_MasterTMonitorReloadReq::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
+inline ::std::string* emailSender::mutable_title() {
+  set_has_title();
+  if (title_ == &::google::protobuf::internal::kEmptyString) {
+    title_ = new ::std::string;
   }
-  return server_name_;
+  return title_;
 }
-inline ::std::string* Proto_MasterTMonitorReloadReq::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* emailSender::release_title() {
+  clear_has_title();
+  if (title_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = title_;
+    title_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void Proto_MasterTMonitorReloadReq::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
+inline void emailSender::set_allocated_title(::std::string* title) {
+  if (title_ != &::google::protobuf::internal::kEmptyString) {
+    delete title_;
   }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
+  if (title) {
+    set_has_title();
+    title_ = title;
   } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_title();
+    title_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string server_id = 2;
-inline bool Proto_MasterTMonitorReloadReq::has_server_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MasterTMonitorReloadReq::set_has_server_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MasterTMonitorReloadReq::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MasterTMonitorReloadReq::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MasterTMonitorReloadReq::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MasterTMonitorReloadReq::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorReloadReq::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorReloadReq::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorReloadReq::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MasterTMonitorReloadReq::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorReloadReq::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MasterTMonitorRestartReq
-
-// optional string server_name = 1;
-inline bool Proto_MasterTMonitorRestartReq::has_server_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MasterTMonitorRestartReq::set_has_server_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MasterTMonitorRestartReq::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MasterTMonitorRestartReq::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MasterTMonitorRestartReq::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorRestartReq::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MasterTMonitorRestartReq::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorRestartReq::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 2;
-inline bool Proto_MasterTMonitorRestartReq::has_server_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MasterTMonitorRestartReq::set_has_server_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MasterTMonitorRestartReq::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MasterTMonitorRestartReq::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MasterTMonitorRestartReq::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorRestartReq::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorRestartReq::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MasterTMonitorRestartReq::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorRestartReq::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MasterTMonitorStartReq
-
-// optional string server_name = 1;
-inline bool Proto_MasterTMonitorStartReq::has_server_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MasterTMonitorStartReq::set_has_server_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MasterTMonitorStartReq::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MasterTMonitorStartReq::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MasterTMonitorStartReq::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MasterTMonitorStartReq::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorStartReq::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorStartReq::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorStartReq::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MasterTMonitorStartReq::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorStartReq::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 2;
-inline bool Proto_MasterTMonitorStartReq::has_server_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MasterTMonitorStartReq::set_has_server_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MasterTMonitorStartReq::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MasterTMonitorStartReq::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MasterTMonitorStartReq::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MasterTMonitorStartReq::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorStartReq::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorStartReq::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorStartReq::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MasterTMonitorStartReq::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorStartReq::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MasterTMonitorStopReq
-
-// optional string server_name = 1;
-inline bool Proto_MasterTMonitorStopReq::has_server_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MasterTMonitorStopReq::set_has_server_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MasterTMonitorStopReq::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MasterTMonitorStopReq::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MasterTMonitorStopReq::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MasterTMonitorStopReq::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorStopReq::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MasterTMonitorStopReq::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorStopReq::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MasterTMonitorStopReq::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorStopReq::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 2;
-inline bool Proto_MasterTMonitorStopReq::has_server_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MasterTMonitorStopReq::set_has_server_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MasterTMonitorStopReq::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MasterTMonitorStopReq::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MasterTMonitorStopReq::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MasterTMonitorStopReq::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorStopReq::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MasterTMonitorStopReq::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MasterTMonitorStopReq::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MasterTMonitorStopReq::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MasterTMonitorStopReq::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MonitorTMasterReloadRsp
-
-// optional int32 result = 1;
-inline bool Proto_MonitorTMasterReloadRsp::has_result() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MonitorTMasterReloadRsp::set_has_result() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MonitorTMasterReloadRsp::clear_has_result() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MonitorTMasterReloadRsp::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 Proto_MonitorTMasterReloadRsp::result() const {
-  return result_;
-}
-inline void Proto_MonitorTMasterReloadRsp::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// optional string server_name = 2;
-inline bool Proto_MonitorTMasterReloadRsp::has_server_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MonitorTMasterReloadRsp::set_has_server_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MonitorTMasterReloadRsp::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MonitorTMasterReloadRsp::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MonitorTMasterReloadRsp::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MonitorTMasterReloadRsp::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterReloadRsp::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterReloadRsp::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterReloadRsp::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MonitorTMasterReloadRsp::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterReloadRsp::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 3;
-inline bool Proto_MonitorTMasterReloadRsp::has_server_id() const {
+// optional string msg = 3;
+inline bool emailSender::has_msg() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Proto_MonitorTMasterReloadRsp::set_has_server_id() {
+inline void emailSender::set_has_msg() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Proto_MonitorTMasterReloadRsp::clear_has_server_id() {
+inline void emailSender::clear_has_msg() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Proto_MonitorTMasterReloadRsp::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
+inline void emailSender::clear_msg() {
+  if (msg_ != &::google::protobuf::internal::kEmptyString) {
+    msg_->clear();
   }
-  clear_has_server_id();
+  clear_has_msg();
 }
-inline const ::std::string& Proto_MonitorTMasterReloadRsp::server_id() const {
-  return *server_id_;
+inline const ::std::string& emailSender::msg() const {
+  return *msg_;
 }
-inline void Proto_MonitorTMasterReloadRsp::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
+inline void emailSender::set_msg(const ::std::string& value) {
+  set_has_msg();
+  if (msg_ == &::google::protobuf::internal::kEmptyString) {
+    msg_ = new ::std::string;
   }
-  server_id_->assign(value);
+  msg_->assign(value);
 }
-inline void Proto_MonitorTMasterReloadRsp::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
+inline void emailSender::set_msg(const char* value) {
+  set_has_msg();
+  if (msg_ == &::google::protobuf::internal::kEmptyString) {
+    msg_ = new ::std::string;
   }
-  server_id_->assign(value);
+  msg_->assign(value);
 }
-inline void Proto_MonitorTMasterReloadRsp::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
+inline void emailSender::set_msg(const char* value, size_t size) {
+  set_has_msg();
+  if (msg_ == &::google::protobuf::internal::kEmptyString) {
+    msg_ = new ::std::string;
   }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
+  msg_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* Proto_MonitorTMasterReloadRsp::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
+inline ::std::string* emailSender::mutable_msg() {
+  set_has_msg();
+  if (msg_ == &::google::protobuf::internal::kEmptyString) {
+    msg_ = new ::std::string;
   }
-  return server_id_;
+  return msg_;
 }
-inline ::std::string* Proto_MonitorTMasterReloadRsp::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* emailSender::release_msg() {
+  clear_has_msg();
+  if (msg_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = msg_;
+    msg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void Proto_MonitorTMasterReloadRsp::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
+inline void emailSender::set_allocated_msg(::std::string* msg) {
+  if (msg_ != &::google::protobuf::internal::kEmptyString) {
+    delete msg_;
   }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
+  if (msg) {
+    set_has_msg();
+    msg_ = msg;
   } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_msg();
+    msg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
-
-// -------------------------------------------------------------------
-
-// Proto_MonitorTMasterRestartRsp
-
-// optional int32 result = 1;
-inline bool Proto_MonitorTMasterRestartRsp::has_result() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_has_result() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_has_result() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 Proto_MonitorTMasterRestartRsp::result() const {
-  return result_;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// optional string server_name = 2;
-inline bool Proto_MonitorTMasterRestartRsp::has_server_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_has_server_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MonitorTMasterRestartRsp::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterRestartRsp::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MonitorTMasterRestartRsp::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterRestartRsp::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 3;
-inline bool Proto_MonitorTMasterRestartRsp::has_server_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_has_server_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Proto_MonitorTMasterRestartRsp::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MonitorTMasterRestartRsp::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterRestartRsp::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterRestartRsp::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MonitorTMasterRestartRsp::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterRestartRsp::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MonitorTMasterStartRsp
-
-// optional int32 result = 1;
-inline bool Proto_MonitorTMasterStartRsp::has_result() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MonitorTMasterStartRsp::set_has_result() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_has_result() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 Proto_MonitorTMasterStartRsp::result() const {
-  return result_;
-}
-inline void Proto_MonitorTMasterStartRsp::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// optional string server_name = 2;
-inline bool Proto_MonitorTMasterStartRsp::has_server_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MonitorTMasterStartRsp::set_has_server_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MonitorTMasterStartRsp::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterStartRsp::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MonitorTMasterStartRsp::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterStartRsp::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 3;
-inline bool Proto_MonitorTMasterStartRsp::has_server_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Proto_MonitorTMasterStartRsp::set_has_server_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Proto_MonitorTMasterStartRsp::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MonitorTMasterStartRsp::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterStartRsp::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterStartRsp::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MonitorTMasterStartRsp::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterStartRsp::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_MonitorTMasterStopRsp
-
-// optional int32 result = 1;
-inline bool Proto_MonitorTMasterStopRsp::has_result() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Proto_MonitorTMasterStopRsp::set_has_result() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_has_result() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 Proto_MonitorTMasterStopRsp::result() const {
-  return result_;
-}
-inline void Proto_MonitorTMasterStopRsp::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// optional string server_name = 2;
-inline bool Proto_MonitorTMasterStopRsp::has_server_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Proto_MonitorTMasterStopRsp::set_has_server_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_has_server_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_server_name() {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    server_name_->clear();
-  }
-  clear_has_server_name();
-}
-inline const ::std::string& Proto_MonitorTMasterStopRsp::server_name() const {
-  return *server_name_;
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_name(const ::std::string& value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_name(const char* value) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(value);
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_name(const char* value, size_t size) {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  server_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterStopRsp::mutable_server_name() {
-  set_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    server_name_ = new ::std::string;
-  }
-  return server_name_;
-}
-inline ::std::string* Proto_MonitorTMasterStopRsp::release_server_name() {
-  clear_has_server_name();
-  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_name_;
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterStopRsp::set_allocated_server_name(::std::string* server_name) {
-  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_name_;
-  }
-  if (server_name) {
-    set_has_server_name();
-    server_name_ = server_name;
-  } else {
-    clear_has_server_name();
-    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string server_id = 3;
-inline bool Proto_MonitorTMasterStopRsp::has_server_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Proto_MonitorTMasterStopRsp::set_has_server_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_has_server_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Proto_MonitorTMasterStopRsp::clear_server_id() {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    server_id_->clear();
-  }
-  clear_has_server_id();
-}
-inline const ::std::string& Proto_MonitorTMasterStopRsp::server_id() const {
-  return *server_id_;
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_id(const ::std::string& value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_id(const char* value) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(value);
-}
-inline void Proto_MonitorTMasterStopRsp::set_server_id(const char* value, size_t size) {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  server_id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* Proto_MonitorTMasterStopRsp::mutable_server_id() {
-  set_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    server_id_ = new ::std::string;
-  }
-  return server_id_;
-}
-inline ::std::string* Proto_MonitorTMasterStopRsp::release_server_id() {
-  clear_has_server_id();
-  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = server_id_;
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void Proto_MonitorTMasterStopRsp::set_allocated_server_id(::std::string* server_id) {
-  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_id_;
-  }
-  if (server_id) {
-    set_has_server_id();
-    server_id_ = server_id;
-  } else {
-    clear_has_server_id();
-    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// Proto_STStoreCheckReq
-
-// -------------------------------------------------------------------
-
-// Proto_StoreTSCheckRsp
 
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2629,10 +379,6 @@ inline void Proto_MonitorTMasterStopRsp::set_allocated_server_id(::std::string* 
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_SvrMsgID>() {
-  return ::proto_ff::Proto_SvrMsgID_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf

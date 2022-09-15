@@ -14,14 +14,14 @@
 
 #include <NFComm/NFPluginModule/NFConfigMgr.h>
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
+#include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
+#include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
 
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA 0
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA_TIME 30000
