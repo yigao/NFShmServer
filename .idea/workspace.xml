@@ -20,72 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change afterPath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/All_MakeProto - fishconfig.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/All_MakeProto - 副本.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/All_MakeProto.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/ResMetaS/ResMeta.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/ccmd.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/common/proto_common.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/common/proto_event.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/kernel/proto_kernel.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/kernel/proto_kernel.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/kernel/yd_fieldoptions.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/kernel/yd_fieldoptions.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_cs/proto_cs.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_cs/proto_cs_login.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_cs/proto_error_code.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_svr/proto_svr_behavior.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_svr/proto_svr_common.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_svr/proto_svr_error.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_svr/proto_svr_login.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/proto_svr/proto_svr_web.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/protoc.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/protoc.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Message/storesvr/storesvr_sqldata.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefiles/excel_gen.makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/protoc_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefiles/sql_gen.makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/NFGameConfig.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/NFGameConfig.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/NFMsgDefine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/ResMeta.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/ResMeta.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/ResMeta_s.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/ResMeta_s.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_cs.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_cs.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_cs_login.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_cs_login.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_error_code.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_error_code.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_event.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_event.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_behavior.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_behavior.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_common.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_common.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_error.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_error.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_login.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_login.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_web.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_svr_web.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFMessageMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFMessageMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFMessageMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFMessageMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/protoc" beforeDir="false" afterPath="$PROJECT_DIR$/tools/protoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,14 +290,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="12854000" />
-    </task>
-    <task id="LOCAL-00050" summary="frame">
-      <created>1654706470217</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1654706470218</updated>
+      <workItem from="1663202783660" duration="13183000" />
     </task>
     <task id="LOCAL-00051" summary="frame">
       <created>1654750192877</created>
@@ -699,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663206007173</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="chong gou">
+      <created>1663215901726</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1663215901726</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

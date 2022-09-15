@@ -18,4 +18,3 @@
 *.log
 /Install/zookeeper/
 /.idea/gameframe_dianwan.iml
-/Install/makefile
