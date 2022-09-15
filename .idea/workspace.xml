@@ -7,7 +7,6 @@
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="NFServerCore" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMessageDefine" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
     </generated>
@@ -20,8 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFMessageDefine/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common.pb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFMessageDefine/proto_common_s.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +98,7 @@
       <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFServerComm" />
       <recent name="$PROJECT_DIR$/src/NFComm" />
       <recent name="$PROJECT_DIR$/doc" />
       <recent name="$PROJECT_DIR$/src/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin" />
@@ -290,14 +295,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="13183000" />
-    </task>
-    <task id="LOCAL-00051" summary="frame">
-      <created>1654750192877</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1654750192878</updated>
+      <workItem from="1663202783660" duration="14120000" />
     </task>
     <task id="LOCAL-00052" summary="frame">
       <created>1654754621770</created>
@@ -635,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663215901726</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="chong gou">
+      <created>1663216123768</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1663216123768</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
