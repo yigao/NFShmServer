@@ -8,7 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFMD5.h"
-#include <fstream>
 #include <iostream>
 #include <string.h>
 

@@ -7,16 +7,13 @@
 //
 // -------------------------------------------------------------------------
 
-#include <errno.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/types.h>
 
 #include "NFPlatform.h"
 
 #if NF_PLATFORM == NF_PLATFORM_LINUX
-#include <linux/limits.h>
 #include <unistd.h>
 #endif
 

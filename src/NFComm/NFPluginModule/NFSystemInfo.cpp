@@ -8,7 +8,6 @@
 
 #include "NFSystemInfo.h"
 #include <iostream>
-#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFMD5.h"
 
 #ifdef __cplusplus

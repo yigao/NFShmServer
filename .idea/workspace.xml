@@ -22,13 +22,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_dynamic_debug.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build_dynamic_debug.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_dynamic_release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build_dynamic_release.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/make.sh" beforeDir="false" afterPath="$PROJECT_DIR$/make.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFBuffer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFCpu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFCpu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFHmacSha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFHmacSha.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFIniReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFIniReader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMD5.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMD5.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemChunk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemChunk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemQueu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFMemQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFRandom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFRandom.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,14 +311,7 @@
       <workItem from="1658384883124" duration="731000" />
       <workItem from="1663051250691" duration="7194000" />
       <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="17039000" />
-    </task>
-    <task id="LOCAL-00055" summary="frame">
-      <created>1654769031106</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1654769031106</updated>
+      <workItem from="1663202783660" duration="17567000" />
     </task>
     <task id="LOCAL-00056" summary="frame">
       <created>1654798209916</created>
@@ -655,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663220640121</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="chong gou">
+      <created>1663221536178</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1663221536178</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

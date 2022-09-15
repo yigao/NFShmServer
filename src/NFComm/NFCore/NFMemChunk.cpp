@@ -11,10 +11,8 @@
 
 #include <cassert>
 #include <algorithm>
-#include <sstream>
 #include <iostream>
 #include <string.h>
-#include <iterator>
 
 NFMemChunk::NFMemChunk()
 	: _pHead(NULL)

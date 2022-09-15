@@ -8,8 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFTea.h"
-#include <iostream>
-#include <sstream>
 #include <stdlib.h>
 
 #if NF_PLATFORM != NF_PLATFORM_WIN

@@ -13,7 +13,6 @@
 #include <cassert>
 #include <limits>
 #include <string>
-#include <iostream>
 
 NFMemQueue::NFMemQueue()
 	:_pctrlBlock(NULL)

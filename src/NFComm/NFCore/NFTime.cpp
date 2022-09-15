@@ -10,7 +10,6 @@
 #include "NFTime.h"
 #include "NFDateTime.hpp"
 
-#include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include <errno.h>

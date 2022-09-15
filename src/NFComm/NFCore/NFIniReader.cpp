@@ -11,8 +11,6 @@
 #include <cctype>
 #include <cstdlib>
 #include <cstring>
-#include <errno.h>
-#include <utility>
 
 #include "NFIniReader.h"
 #include "NFStringUtility.h"

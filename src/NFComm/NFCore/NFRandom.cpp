@@ -9,7 +9,6 @@
 
 #include "NFRandom.hpp"
 #include "NFTime.h"
-#include <vector>
 
 static uint32_t g_seed = 0;
 static const uint32_t g_nNull = 0;

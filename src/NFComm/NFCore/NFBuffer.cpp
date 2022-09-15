@@ -9,7 +9,6 @@
 
 #include "NFBuffer.h"
 #include <iostream>
-#include <algorithm>
 #include <limits>
 #include <cassert>
 
