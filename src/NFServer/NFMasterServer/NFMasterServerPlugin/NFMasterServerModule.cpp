@@ -17,11 +17,11 @@
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
-#include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
+#include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
 
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA 0
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA_TIME 30000
@@ -223,7 +223,7 @@ int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, const
         NF_SHARE_PTR<NFServerData> pCurServer = vec[i];
         if (pCurServer)
         {
-            NFMessageMgr::Instance()->Send(pCurServer->mUnlinkId, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg, 0);
+            NFMessageMgr::Instance()->Send(pCurServer->mUnlinkId, NF_MODULE_NONE, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg);
         }
     }
     return 0;
@@ -706,7 +706,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
         pData->set_server_state(proto_ff::EST_NARMAL);
         pData->set_machine_addr(m_pPluginManager->GetMachineAddrMD5());
 
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -778,7 +778,7 @@ int NFCMasterServerModule::ServerReport()
 
         if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
         {
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+            NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
         }
     }
     return 0;

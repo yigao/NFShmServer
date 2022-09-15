@@ -14,12 +14,12 @@
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
-#include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServer/NFCommHead/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
 
 #define PROXY_SERVER_CONNECT_MASTER_SERVER "ProxyServer Connect MasterServer"
 
@@ -284,7 +284,7 @@ int NFCProxyServerModule::RegisterMasterServer()
         pData->set_external_server_port(pConfig->mExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-		NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -346,7 +346,7 @@ int NFCProxyServerModule::ServerReport()
 
 		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
 		{
-			NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+            NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
 		}
 	}
 	return 0;

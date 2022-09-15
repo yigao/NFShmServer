@@ -1,0 +1,18 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+
+message tbServerMgr
+{
+	optional uint64 id			= 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "ID"];
+	optional string contract = 2 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "合同号"];
+	optional string machine_addr = 3 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "机器码"];
+	optional string ip = 4 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "IP地址"];
+	optional string bus_name = 5 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "服务器ID"];
+	optional string server_desc = 6 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "描述信息"];
+	optional uint32 cur_count = 7 [(yd_fieldoptions.db_field_comment) = "当前服务器数"];
+	optional uint64 last_login_time = 8 [(yd_fieldoptions.db_field_comment) = "上一次登录时间"];
+	optional uint64 last_logout_time = 9 [(yd_fieldoptions.db_field_comment) = "上一次下线时间"];
+	optional uint64 create_time = 10 [(yd_fieldoptions.db_field_comment) = "创建时间"];
+}

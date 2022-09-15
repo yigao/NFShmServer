@@ -41,6 +41,10 @@ enum NF_SERVER_TYPES
 	NF_ST_MAX = 20, //
 };
 
+enum NF_MODULE_TYPE {
+    NF_MODULE_NONE = 0,
+};
+
 enum PacketParseType
 {
 	PACKET_PARSE_TYPE_INTERNAL = 0,		//内网协议
