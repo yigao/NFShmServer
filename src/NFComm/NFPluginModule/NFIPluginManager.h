@@ -173,7 +173,7 @@ public:
 
 	virtual NFIPlugin* FindPlugin(const std::string& strPluginName) = 0;
 
-	virtual void AddModule(const std::string& strModuleName, NFIModule* pModule) = 0;
+	virtual void AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) = 0;
 
 	virtual void RemoveModule(const std::string& strModuleName) = 0;
 

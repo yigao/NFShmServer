@@ -58,20 +58,20 @@ bool NFKernelPlugin::IsDynamicLoad()
 
 void NFKernelPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFILogModule, NFCLogModule);
-	REGISTER_MODULE(m_pPluginManager, NFIConfigModule, NFCConfigModule);
-	REGISTER_MODULE(m_pPluginManager, NFITimerModule, NFCTimerModule);
-	REGISTER_MODULE(m_pPluginManager, NFIEventModule, NFCEventModule);
-	REGISTER_MODULE(m_pPluginManager, NFIKernelModule, NFCKernelModule);
-	REGISTER_MODULE(m_pPluginManager, NFIMonitorModule, NFCMonitorModule);
-	REGISTER_MODULE(m_pPluginManager, NFIConsoleModule, NFCConsoleModule);
-	REGISTER_MODULE(m_pPluginManager, NFIMessageModule, NFCMessageModule);
-    REGISTER_MODULE(m_pPluginManager, NFICoroutineModule, NFCCoroutineModule);
-    REGISTER_MODULE(m_pPluginManager, NFIMysqlModule, NFCMysqlModule);
-	REGISTER_MODULE(m_pPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
-    //REGISTER_MODULE(m_pPluginManager, NFINoSqlModule, NFCNoSqlModule);
-	REGISTER_MODULE(m_pPluginManager, NFITaskModule, NFCTaskModule);
-    REGISTER_MODULE(m_pPluginManager, NFINamingModule, NFCNamingModule);
+	REGISTER_MODULE(m_pPluginManager, NF_LOG_MODULE_ID, NFILogModule, NFCLogModule);
+	REGISTER_MODULE(m_pPluginManager, NF_CONFIG_MODULE_ID, NFIConfigModule, NFCConfigModule);
+	REGISTER_MODULE(m_pPluginManager, NF_TIMER_MODULE_ID, NFITimerModule, NFCTimerModule);
+	REGISTER_MODULE(m_pPluginManager, NF_EVENT_MODULE_ID, NFIEventModule, NFCEventModule);
+	REGISTER_MODULE(m_pPluginManager, NF_KERNEL_MODULE_ID, NFIKernelModule, NFCKernelModule);
+	REGISTER_MODULE(m_pPluginManager, NF_MONITOR_MODULE_ID, NFIMonitorModule, NFCMonitorModule);
+	REGISTER_MODULE(m_pPluginManager, NF_CONSULE_MODULE_ID, NFIConsoleModule, NFCConsoleModule);
+	REGISTER_MODULE(m_pPluginManager, NF_MESSAGE_MODULE_ID, NFIMessageModule, NFCMessageModule);
+    REGISTER_MODULE(m_pPluginManager, NF_COROUTINE_MODULE_ID, NFICoroutineModule, NFCCoroutineModule);
+    REGISTER_MODULE(m_pPluginManager, NF_MYSQL_MODULE_ID, NFIMysqlModule, NFCMysqlModule);
+	REGISTER_MODULE(m_pPluginManager, NF_CONSULE_MODULE_ID, NFIAsyMysqlModule, NFCAsyMysqlModule);
+    //REGISTER_MODULE(m_pPluginManager, NF_NOSQL_MODULE_ID, NFINoSqlModule, NFCNoSqlModule);
+	REGISTER_MODULE(m_pPluginManager, NF_TASK_MODULE_ID, NFITaskModule, NFCTaskModule);
+    REGISTER_MODULE(m_pPluginManager, NF_NAMING_MODULE_ID, NFINamingModule, NFCNamingModule);
 }
 
 void NFKernelPlugin::Uninstall()

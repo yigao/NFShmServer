@@ -21,6 +21,7 @@
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFCore/NFMD5.h"
+#include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "hwinfo/hw_info.h"
 
 #include <csignal>
@@ -87,6 +88,8 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager()
     m_isAllServer = false;
 
     m_idleSleepUs = 1000;
+
+    m_nModuleListMap.resize(NF_PLUGIN_MDOULE_MAX);
 
 	g_GetGlobalServerTime()->Init(m_nFrame);
 
@@ -515,9 +518,11 @@ void NFCPluginManager::SetLogPath(const std::string& strName)
 	m_strLogPath = strName;
 }
 
-void NFCPluginManager::AddModule(const std::string& strModuleName, NFIModule* pModule)
+void NFCPluginManager::AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule)
 {
+    CHECK_EXPR_NOT_RET(moduleId < NF_PLUGIN_MDOULE_MAX, "moduleId:{} < NF_PLUGIN_MDOULE_MAX", moduleId);
 	m_nModuleInstanceMap.insert(ModuleInstanceMap::value_type(strModuleName, pModule));
+	m_nModuleListMap[moduleId] = pModule;
 }
 
 void NFCPluginManager::RemoveModule(const std::string& strModuleName)
