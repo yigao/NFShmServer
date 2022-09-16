@@ -613,7 +613,7 @@ bool NFCPluginManager::ReadyExecute()
 			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Task, App Inited Success..............");
 
 			proto_ff::NFEventNoneData event;
-			NFEventMgr::Instance()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
 			break;
 		}
 

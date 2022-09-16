@@ -177,6 +177,28 @@ public:
     virtual std::list<NFIPlugin*> GetListPlugin() override;
 
     virtual std::string GetMachineAddrMD5() override;
+
+    template <typename T>
+    T* FindModule()
+    {
+        NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
+        if (pLogicModule)
+        {
+            if (!TIsDerived<T, NFIModule>::Result)
+            {
+                return nullptr;
+            }
+
+            //TODO OSX上dynamic_cast返回了NULL
+#if NF_PLATFORM == NF_PLATFORM_APPLE
+            T* pT = (T*)pLogicModule;
+#else
+            T* pT = dynamic_cast<T*>(pLogicModule);
+#endif
+            return pT;
+        }
+        return nullptr;
+    }
 protected:
 
 	bool LoadStaticPlugin(const std::string& strPluginDLLName);

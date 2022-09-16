@@ -192,6 +192,6 @@ void NFCKernelModule::OnTimer(uint32_t nTimerID)
 int NFCKernelModule::OnKillServerProcess(uint64_t unLinkId, const NFDataPackage& packet)
 {
     proto_ff::NFEventNoneData xMsg;
-    NFEventMgr::Instance()->FireExecute(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, xMsg);
+    FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, xMsg);
     return 0;
 }
