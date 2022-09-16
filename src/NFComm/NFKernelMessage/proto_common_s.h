@@ -64,22 +64,45 @@ namespace proto_ff_s {
 	};
 	typedef struct pbRedisConfig_s pbRedisConfig_t;
 
-	struct tempServerConfig_s {
-		tempServerConfig_s();
+	struct pbRouteConfig_s {
+		pbRouteConfig_s();
 		int CreateInit();
 		int ResumeInit();
-		uint32_t server_id;
-		std::string server_type;
-		std::vector<std::string> server_list;
-		struct pbMysqlConfig_s mysql;
-		std::vector<struct pbRedisConfig_s> redis;
+		std::string MasterIp;
+		uint32_t MasterPort;
+		std::string NamingHost;
+		std::string NamingPath;
+		std::string RouteAgent;
 
-		void write_to_pbmsg(::proto_ff::tempServerConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::tempServerConfig & msg);
-		static ::proto_ff::tempServerConfig* new_pbmsg(){ return new ::proto_ff::tempServerConfig(); }
-		static ::proto_ff::tempServerConfig make_pbmsg(){ return ::proto_ff::tempServerConfig(); }
+		void write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const;
+		void read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg);
+		static ::proto_ff::pbRouteConfig* new_pbmsg(){ return new ::proto_ff::pbRouteConfig(); }
+		static ::proto_ff::pbRouteConfig make_pbmsg(){ return ::proto_ff::pbRouteConfig(); }
 	};
-	typedef struct tempServerConfig_s tempServerConfig_t;
+	typedef struct pbRouteConfig_s pbRouteConfig_t;
+
+	struct pbNetConfig_s {
+		pbNetConfig_s();
+		int CreateInit();
+		int ResumeInit();
+		std::string ServerIp;
+		uint32_t ServerPort;
+		std::string ExternalServerIp;
+		uint32_t ExternalServerPort;
+		uint32_t HttpPort;
+		uint32_t MaxConnectNum;
+		uint32_t WorkThreadNum;
+		uint32_t NetThreadNum;
+		bool Security;
+		bool WebSocket;
+		uint32_t mParseType;
+
+		void write_to_pbmsg(::proto_ff::pbNetConfig & msg) const;
+		void read_from_pbmsg(const ::proto_ff::pbNetConfig & msg);
+		static ::proto_ff::pbNetConfig* new_pbmsg(){ return new ::proto_ff::pbNetConfig(); }
+		static ::proto_ff::pbNetConfig make_pbmsg(){ return ::proto_ff::pbNetConfig(); }
+	};
+	typedef struct pbNetConfig_s pbNetConfig_t;
 
 	struct pbNFServerConfig_s {
 		pbNFServerConfig_s();

@@ -38,34 +38,49 @@ message tbServerMgr
 
 message pbMysqlConfig
 {
-	optional string MysqlIp = 70[(yd_fieldoptions.field_bufsize)=128];
-	optional uint32	MysqlPort = 71[(yd_fieldoptions.field_use_stl)=true];
-	optional string MysqlDbName = 72[(yd_fieldoptions.field_bufsize)=128];
-	optional string MysqlUser = 73[(yd_fieldoptions.field_bufsize)=128];
-	optional string MysqlPassword = 74[(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlIp = 1[(yd_fieldoptions.field_use_stl)=true];
+	optional uint32	MysqlPort = 2;
+	optional string MysqlDbName = 3;
+	optional string MysqlUser = 4;
+	optional string MysqlPassword = 5;
 }
 
 message pbRedisConfig
 {
-	optional string RedisIp = 80[(yd_fieldoptions.field_bufsize)=128];
-	optional uint32	RedisPort = 81[(yd_fieldoptions.field_use_stl)=true];
-	optional string RedisPass = 82[(yd_fieldoptions.field_bufsize)=128];
+	optional string RedisIp = 1[(yd_fieldoptions.field_use_stl)=true];
+	optional uint32	RedisPort = 2;
+	optional string RedisPass = 3;
 }
 
-message tempServerConfig
+message pbRouteConfig
 {
-	optional uint32 server_id = 1[(yd_fieldoptions.field_use_stl)=true];
-	optional string server_type = 2[(yd_fieldoptions.field_bufsize)=128];
-	repeated string server_list = 3 [(yd_fieldoptions.field_arysize)=3, (yd_fieldoptions.field_bufsize)=128];
-	optional pbMysqlConfig mysql = 4;
-	repeated pbRedisConfig redis = 5[(yd_fieldoptions.field_arysize)=3];
+	optional string MasterIp = 1[(yd_fieldoptions.field_use_stl)=true];
+	optional uint32 MasterPort = 2;
+	optional string NamingHost = 3;
+	optional string NamingPath = 4;
+	optional string RouteAgent = 5;
+}
+
+message pbNetConfig
+{
+	optional string ServerIp = 1[(yd_fieldoptions.field_use_stl)=true]; //服务器监听IP
+	optional uint32 ServerPort = 2; //服务器监听端口
+	optional string ExternalServerIp = 3; //服务器对外监听IP
+	optional uint32 ExternalServerPort = 4; //服务器对外监听端口
+	optional uint32 HttpPort = 5;		//服务器http监听ip
+	optional uint32 MaxConnectNum = 6;	//最大连接数目
+	optional uint32 WorkThreadNum = 7;	//work线程数目
+	optional uint32 NetThreadNum = 8;   //tcp/bus线程数目
+	optional bool Security = 9;				//0 不加密不压缩 1 压缩 2 加密 3 压缩加密
+	optional bool WebSocket = 10;				//
+	optional uint32 mParseType = 11;  //协议解析方式, 默认值0，是标准内网协议
 }
 
 message pbNFServerConfig
 {
-	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true];
+	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true]; //服务器唯一ID like:1.1.1.1
 	optional uint32 ServerType = 2; //服务器类型
-	optional string ServerName = 3;  //服务器唯一ID like:1.1.1.1
+	optional string ServerName = 3;
 	optional uint32 BusId = 4;
 	optional uint32 BusLength = 5; //NFBUS/TBUS共享内存通信大小
 	optional string BusName = 6;  //服务器唯一ID like:1.1.1.1

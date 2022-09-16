@@ -106,48 +106,84 @@ void pbRedisConfig_s::read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg) {
 	RedisPass = msg.redispass();
 }
 
-tempServerConfig_s::tempServerConfig_s() {
+pbRouteConfig_s::pbRouteConfig_s() {
 	CreateInit();
 }
 
-int tempServerConfig_s::CreateInit() {
-	server_id = (uint32_t)0;
+int pbRouteConfig_s::CreateInit() {
+	MasterPort = (uint32_t)0;
 	return 0;
 }
 
-int tempServerConfig_s::ResumeInit() {
+int pbRouteConfig_s::ResumeInit() {
 	return 0;
 }
 
-void tempServerConfig_s::write_to_pbmsg(::proto_ff::tempServerConfig & msg) const {
-	msg.set_server_id((uint32_t)server_id);
-	msg.set_server_type(server_type);
-	for(int32_t i = 0; i < (int32_t)server_list.size(); ++i) {
-		msg.add_server_list(server_list[i]);
-	}
-	::proto_ff::pbMysqlConfig* temp_mysql = msg.mutable_mysql();
-	mysql.write_to_pbmsg(*temp_mysql);
-	for(int32_t i = 0; i < (int32_t)redis.size(); ++i) {
-		::proto_ff::pbRedisConfig* temp_redis = msg.add_redis();
-		redis[i].write_to_pbmsg(*temp_redis);
-	}
+void pbRouteConfig_s::write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const {
+	msg.set_masterip(MasterIp);
+	msg.set_masterport((uint32_t)MasterPort);
+	msg.set_naminghost(NamingHost);
+	msg.set_namingpath(NamingPath);
+	msg.set_routeagent(RouteAgent);
 }
 
-void tempServerConfig_s::read_from_pbmsg(const ::proto_ff::tempServerConfig & msg) {
-	memset(this, 0, sizeof(struct tempServerConfig_s));
-	server_id = msg.server_id();
-	server_type = msg.server_type();
-	server_list.resize(msg.server_list_size());
-	for(int32_t i = 0; i < (int32_t)server_list.size(); ++i) {
-		server_list[i] = msg.server_list(i);
-	}
-	const ::proto_ff::pbMysqlConfig & temp_mysql = msg.mysql();
-	mysql.read_from_pbmsg(temp_mysql);
-	redis.resize(msg.redis_size());
-	for(int32_t i = 0; i < (int32_t)redis.size(); ++i) {
-		const ::proto_ff::pbRedisConfig & temp_redis = msg.redis(i);
-		redis[i].read_from_pbmsg(temp_redis);
-	}
+void pbRouteConfig_s::read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg) {
+	memset(this, 0, sizeof(struct pbRouteConfig_s));
+	MasterIp = msg.masterip();
+	MasterPort = msg.masterport();
+	NamingHost = msg.naminghost();
+	NamingPath = msg.namingpath();
+	RouteAgent = msg.routeagent();
+}
+
+pbNetConfig_s::pbNetConfig_s() {
+	CreateInit();
+}
+
+int pbNetConfig_s::CreateInit() {
+	ServerPort = (uint32_t)0;
+	ExternalServerPort = (uint32_t)0;
+	HttpPort = (uint32_t)0;
+	MaxConnectNum = (uint32_t)0;
+	WorkThreadNum = (uint32_t)0;
+	NetThreadNum = (uint32_t)0;
+	Security = (bool)0;
+	WebSocket = (bool)0;
+	mParseType = (uint32_t)0;
+	return 0;
+}
+
+int pbNetConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbNetConfig_s::write_to_pbmsg(::proto_ff::pbNetConfig & msg) const {
+	msg.set_serverip(ServerIp);
+	msg.set_serverport((uint32_t)ServerPort);
+	msg.set_externalserverip(ExternalServerIp);
+	msg.set_externalserverport((uint32_t)ExternalServerPort);
+	msg.set_httpport((uint32_t)HttpPort);
+	msg.set_maxconnectnum((uint32_t)MaxConnectNum);
+	msg.set_workthreadnum((uint32_t)WorkThreadNum);
+	msg.set_netthreadnum((uint32_t)NetThreadNum);
+	msg.set_security((bool)Security);
+	msg.set_websocket((bool)WebSocket);
+	msg.set_mparsetype((uint32_t)mParseType);
+}
+
+void pbNetConfig_s::read_from_pbmsg(const ::proto_ff::pbNetConfig & msg) {
+	memset(this, 0, sizeof(struct pbNetConfig_s));
+	ServerIp = msg.serverip();
+	ServerPort = msg.serverport();
+	ExternalServerIp = msg.externalserverip();
+	ExternalServerPort = msg.externalserverport();
+	HttpPort = msg.httpport();
+	MaxConnectNum = msg.maxconnectnum();
+	WorkThreadNum = msg.workthreadnum();
+	NetThreadNum = msg.netthreadnum();
+	Security = msg.security();
+	WebSocket = msg.websocket();
+	mParseType = msg.mparsetype();
 }
 
 pbNFServerConfig_s::pbNFServerConfig_s() {

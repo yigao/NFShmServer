@@ -38,7 +38,8 @@ void protobuf_ShutdownFile_proto_5fcommon_2eproto();
 class tbServerMgr;
 class pbMysqlConfig;
 class pbRedisConfig;
-class tempServerConfig;
+class pbRouteConfig;
+class pbNetConfig;
 class pbNFServerConfig;
 class pbNFServerConfigList;
 
@@ -328,10 +329,10 @@ class pbMysqlConfig : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string MysqlIp = 70;
+  // optional string MysqlIp = 1;
   inline bool has_mysqlip() const;
   inline void clear_mysqlip();
-  static const int kMysqlIpFieldNumber = 70;
+  static const int kMysqlIpFieldNumber = 1;
   inline const ::std::string& mysqlip() const;
   inline void set_mysqlip(const ::std::string& value);
   inline void set_mysqlip(const char* value);
@@ -340,17 +341,17 @@ class pbMysqlConfig : public ::google::protobuf::Message {
   inline ::std::string* release_mysqlip();
   inline void set_allocated_mysqlip(::std::string* mysqlip);
 
-  // optional uint32 MysqlPort = 71;
+  // optional uint32 MysqlPort = 2;
   inline bool has_mysqlport() const;
   inline void clear_mysqlport();
-  static const int kMysqlPortFieldNumber = 71;
+  static const int kMysqlPortFieldNumber = 2;
   inline ::google::protobuf::uint32 mysqlport() const;
   inline void set_mysqlport(::google::protobuf::uint32 value);
 
-  // optional string MysqlDbName = 72;
+  // optional string MysqlDbName = 3;
   inline bool has_mysqldbname() const;
   inline void clear_mysqldbname();
-  static const int kMysqlDbNameFieldNumber = 72;
+  static const int kMysqlDbNameFieldNumber = 3;
   inline const ::std::string& mysqldbname() const;
   inline void set_mysqldbname(const ::std::string& value);
   inline void set_mysqldbname(const char* value);
@@ -359,10 +360,10 @@ class pbMysqlConfig : public ::google::protobuf::Message {
   inline ::std::string* release_mysqldbname();
   inline void set_allocated_mysqldbname(::std::string* mysqldbname);
 
-  // optional string MysqlUser = 73;
+  // optional string MysqlUser = 4;
   inline bool has_mysqluser() const;
   inline void clear_mysqluser();
-  static const int kMysqlUserFieldNumber = 73;
+  static const int kMysqlUserFieldNumber = 4;
   inline const ::std::string& mysqluser() const;
   inline void set_mysqluser(const ::std::string& value);
   inline void set_mysqluser(const char* value);
@@ -371,10 +372,10 @@ class pbMysqlConfig : public ::google::protobuf::Message {
   inline ::std::string* release_mysqluser();
   inline void set_allocated_mysqluser(::std::string* mysqluser);
 
-  // optional string MysqlPassword = 74;
+  // optional string MysqlPassword = 5;
   inline bool has_mysqlpassword() const;
   inline void clear_mysqlpassword();
-  static const int kMysqlPasswordFieldNumber = 74;
+  static const int kMysqlPasswordFieldNumber = 5;
   inline const ::std::string& mysqlpassword() const;
   inline void set_mysqlpassword(const ::std::string& value);
   inline void set_mysqlpassword(const char* value);
@@ -470,10 +471,10 @@ class pbRedisConfig : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string RedisIp = 80;
+  // optional string RedisIp = 1;
   inline bool has_redisip() const;
   inline void clear_redisip();
-  static const int kRedisIpFieldNumber = 80;
+  static const int kRedisIpFieldNumber = 1;
   inline const ::std::string& redisip() const;
   inline void set_redisip(const ::std::string& value);
   inline void set_redisip(const char* value);
@@ -482,17 +483,17 @@ class pbRedisConfig : public ::google::protobuf::Message {
   inline ::std::string* release_redisip();
   inline void set_allocated_redisip(::std::string* redisip);
 
-  // optional uint32 RedisPort = 81;
+  // optional uint32 RedisPort = 2;
   inline bool has_redisport() const;
   inline void clear_redisport();
-  static const int kRedisPortFieldNumber = 81;
+  static const int kRedisPortFieldNumber = 2;
   inline ::google::protobuf::uint32 redisport() const;
   inline void set_redisport(::google::protobuf::uint32 value);
 
-  // optional string RedisPass = 82;
+  // optional string RedisPass = 3;
   inline bool has_redispass() const;
   inline void clear_redispass();
-  static const int kRedisPassFieldNumber = 82;
+  static const int kRedisPassFieldNumber = 3;
   inline const ::std::string& redispass() const;
   inline void set_redispass(const ::std::string& value);
   inline void set_redispass(const char* value);
@@ -528,14 +529,14 @@ class pbRedisConfig : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class tempServerConfig : public ::google::protobuf::Message {
+class pbRouteConfig : public ::google::protobuf::Message {
  public:
-  tempServerConfig();
-  virtual ~tempServerConfig();
+  pbRouteConfig();
+  virtual ~pbRouteConfig();
 
-  tempServerConfig(const tempServerConfig& from);
+  pbRouteConfig(const pbRouteConfig& from);
 
-  inline tempServerConfig& operator=(const tempServerConfig& from) {
+  inline pbRouteConfig& operator=(const pbRouteConfig& from) {
     CopyFrom(from);
     return *this;
   }
@@ -549,17 +550,17 @@ class tempServerConfig : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const tempServerConfig& default_instance();
+  static const pbRouteConfig& default_instance();
 
-  void Swap(tempServerConfig* other);
+  void Swap(pbRouteConfig* other);
 
   // implements Message ----------------------------------------------
 
-  tempServerConfig* New() const;
+  pbRouteConfig* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const tempServerConfig& from);
-  void MergeFrom(const tempServerConfig& from);
+  void CopyFrom(const pbRouteConfig& from);
+  void MergeFrom(const pbRouteConfig& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -582,78 +583,81 @@ class tempServerConfig : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint32 server_id = 1;
-  inline bool has_server_id() const;
-  inline void clear_server_id();
-  static const int kServerIdFieldNumber = 1;
-  inline ::google::protobuf::uint32 server_id() const;
-  inline void set_server_id(::google::protobuf::uint32 value);
+  // optional string MasterIp = 1;
+  inline bool has_masterip() const;
+  inline void clear_masterip();
+  static const int kMasterIpFieldNumber = 1;
+  inline const ::std::string& masterip() const;
+  inline void set_masterip(const ::std::string& value);
+  inline void set_masterip(const char* value);
+  inline void set_masterip(const char* value, size_t size);
+  inline ::std::string* mutable_masterip();
+  inline ::std::string* release_masterip();
+  inline void set_allocated_masterip(::std::string* masterip);
 
-  // optional string server_type = 2;
-  inline bool has_server_type() const;
-  inline void clear_server_type();
-  static const int kServerTypeFieldNumber = 2;
-  inline const ::std::string& server_type() const;
-  inline void set_server_type(const ::std::string& value);
-  inline void set_server_type(const char* value);
-  inline void set_server_type(const char* value, size_t size);
-  inline ::std::string* mutable_server_type();
-  inline ::std::string* release_server_type();
-  inline void set_allocated_server_type(::std::string* server_type);
+  // optional uint32 MasterPort = 2;
+  inline bool has_masterport() const;
+  inline void clear_masterport();
+  static const int kMasterPortFieldNumber = 2;
+  inline ::google::protobuf::uint32 masterport() const;
+  inline void set_masterport(::google::protobuf::uint32 value);
 
-  // repeated string server_list = 3;
-  inline int server_list_size() const;
-  inline void clear_server_list();
-  static const int kServerListFieldNumber = 3;
-  inline const ::std::string& server_list(int index) const;
-  inline ::std::string* mutable_server_list(int index);
-  inline void set_server_list(int index, const ::std::string& value);
-  inline void set_server_list(int index, const char* value);
-  inline void set_server_list(int index, const char* value, size_t size);
-  inline ::std::string* add_server_list();
-  inline void add_server_list(const ::std::string& value);
-  inline void add_server_list(const char* value);
-  inline void add_server_list(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& server_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_server_list();
+  // optional string NamingHost = 3;
+  inline bool has_naminghost() const;
+  inline void clear_naminghost();
+  static const int kNamingHostFieldNumber = 3;
+  inline const ::std::string& naminghost() const;
+  inline void set_naminghost(const ::std::string& value);
+  inline void set_naminghost(const char* value);
+  inline void set_naminghost(const char* value, size_t size);
+  inline ::std::string* mutable_naminghost();
+  inline ::std::string* release_naminghost();
+  inline void set_allocated_naminghost(::std::string* naminghost);
 
-  // optional .proto_ff.pbMysqlConfig mysql = 4;
-  inline bool has_mysql() const;
-  inline void clear_mysql();
-  static const int kMysqlFieldNumber = 4;
-  inline const ::proto_ff::pbMysqlConfig& mysql() const;
-  inline ::proto_ff::pbMysqlConfig* mutable_mysql();
-  inline ::proto_ff::pbMysqlConfig* release_mysql();
-  inline void set_allocated_mysql(::proto_ff::pbMysqlConfig* mysql);
+  // optional string NamingPath = 4;
+  inline bool has_namingpath() const;
+  inline void clear_namingpath();
+  static const int kNamingPathFieldNumber = 4;
+  inline const ::std::string& namingpath() const;
+  inline void set_namingpath(const ::std::string& value);
+  inline void set_namingpath(const char* value);
+  inline void set_namingpath(const char* value, size_t size);
+  inline ::std::string* mutable_namingpath();
+  inline ::std::string* release_namingpath();
+  inline void set_allocated_namingpath(::std::string* namingpath);
 
-  // repeated .proto_ff.pbRedisConfig redis = 5;
-  inline int redis_size() const;
-  inline void clear_redis();
-  static const int kRedisFieldNumber = 5;
-  inline const ::proto_ff::pbRedisConfig& redis(int index) const;
-  inline ::proto_ff::pbRedisConfig* mutable_redis(int index);
-  inline ::proto_ff::pbRedisConfig* add_redis();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >&
-      redis() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >*
-      mutable_redis();
+  // optional string RouteAgent = 5;
+  inline bool has_routeagent() const;
+  inline void clear_routeagent();
+  static const int kRouteAgentFieldNumber = 5;
+  inline const ::std::string& routeagent() const;
+  inline void set_routeagent(const ::std::string& value);
+  inline void set_routeagent(const char* value);
+  inline void set_routeagent(const char* value, size_t size);
+  inline ::std::string* mutable_routeagent();
+  inline ::std::string* release_routeagent();
+  inline void set_allocated_routeagent(::std::string* routeagent);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.tempServerConfig)
+  // @@protoc_insertion_point(class_scope:proto_ff.pbRouteConfig)
  private:
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
-  inline void set_has_server_type();
-  inline void clear_has_server_type();
-  inline void set_has_mysql();
-  inline void clear_has_mysql();
+  inline void set_has_masterip();
+  inline void clear_has_masterip();
+  inline void set_has_masterport();
+  inline void clear_has_masterport();
+  inline void set_has_naminghost();
+  inline void clear_has_naminghost();
+  inline void set_has_namingpath();
+  inline void clear_has_namingpath();
+  inline void set_has_routeagent();
+  inline void clear_has_routeagent();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* server_type_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> server_list_;
-  ::proto_ff::pbMysqlConfig* mysql_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig > redis_;
-  ::google::protobuf::uint32 server_id_;
+  ::std::string* masterip_;
+  ::std::string* naminghost_;
+  ::std::string* namingpath_;
+  ::std::string* routeagent_;
+  ::google::protobuf::uint32 masterport_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -663,7 +667,199 @@ class tempServerConfig : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
 
   void InitAsDefaultInstance();
-  static tempServerConfig* default_instance_;
+  static pbRouteConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbNetConfig : public ::google::protobuf::Message {
+ public:
+  pbNetConfig();
+  virtual ~pbNetConfig();
+
+  pbNetConfig(const pbNetConfig& from);
+
+  inline pbNetConfig& operator=(const pbNetConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbNetConfig& default_instance();
+
+  void Swap(pbNetConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  pbNetConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbNetConfig& from);
+  void MergeFrom(const pbNetConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string ServerIp = 1;
+  inline bool has_serverip() const;
+  inline void clear_serverip();
+  static const int kServerIpFieldNumber = 1;
+  inline const ::std::string& serverip() const;
+  inline void set_serverip(const ::std::string& value);
+  inline void set_serverip(const char* value);
+  inline void set_serverip(const char* value, size_t size);
+  inline ::std::string* mutable_serverip();
+  inline ::std::string* release_serverip();
+  inline void set_allocated_serverip(::std::string* serverip);
+
+  // optional uint32 ServerPort = 2;
+  inline bool has_serverport() const;
+  inline void clear_serverport();
+  static const int kServerPortFieldNumber = 2;
+  inline ::google::protobuf::uint32 serverport() const;
+  inline void set_serverport(::google::protobuf::uint32 value);
+
+  // optional string ExternalServerIp = 3;
+  inline bool has_externalserverip() const;
+  inline void clear_externalserverip();
+  static const int kExternalServerIpFieldNumber = 3;
+  inline const ::std::string& externalserverip() const;
+  inline void set_externalserverip(const ::std::string& value);
+  inline void set_externalserverip(const char* value);
+  inline void set_externalserverip(const char* value, size_t size);
+  inline ::std::string* mutable_externalserverip();
+  inline ::std::string* release_externalserverip();
+  inline void set_allocated_externalserverip(::std::string* externalserverip);
+
+  // optional uint32 ExternalServerPort = 4;
+  inline bool has_externalserverport() const;
+  inline void clear_externalserverport();
+  static const int kExternalServerPortFieldNumber = 4;
+  inline ::google::protobuf::uint32 externalserverport() const;
+  inline void set_externalserverport(::google::protobuf::uint32 value);
+
+  // optional uint32 HttpPort = 5;
+  inline bool has_httpport() const;
+  inline void clear_httpport();
+  static const int kHttpPortFieldNumber = 5;
+  inline ::google::protobuf::uint32 httpport() const;
+  inline void set_httpport(::google::protobuf::uint32 value);
+
+  // optional uint32 MaxConnectNum = 6;
+  inline bool has_maxconnectnum() const;
+  inline void clear_maxconnectnum();
+  static const int kMaxConnectNumFieldNumber = 6;
+  inline ::google::protobuf::uint32 maxconnectnum() const;
+  inline void set_maxconnectnum(::google::protobuf::uint32 value);
+
+  // optional uint32 WorkThreadNum = 7;
+  inline bool has_workthreadnum() const;
+  inline void clear_workthreadnum();
+  static const int kWorkThreadNumFieldNumber = 7;
+  inline ::google::protobuf::uint32 workthreadnum() const;
+  inline void set_workthreadnum(::google::protobuf::uint32 value);
+
+  // optional uint32 NetThreadNum = 8;
+  inline bool has_netthreadnum() const;
+  inline void clear_netthreadnum();
+  static const int kNetThreadNumFieldNumber = 8;
+  inline ::google::protobuf::uint32 netthreadnum() const;
+  inline void set_netthreadnum(::google::protobuf::uint32 value);
+
+  // optional bool Security = 9;
+  inline bool has_security() const;
+  inline void clear_security();
+  static const int kSecurityFieldNumber = 9;
+  inline bool security() const;
+  inline void set_security(bool value);
+
+  // optional bool WebSocket = 10;
+  inline bool has_websocket() const;
+  inline void clear_websocket();
+  static const int kWebSocketFieldNumber = 10;
+  inline bool websocket() const;
+  inline void set_websocket(bool value);
+
+  // optional uint32 mParseType = 11;
+  inline bool has_mparsetype() const;
+  inline void clear_mparsetype();
+  static const int kMParseTypeFieldNumber = 11;
+  inline ::google::protobuf::uint32 mparsetype() const;
+  inline void set_mparsetype(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbNetConfig)
+ private:
+  inline void set_has_serverip();
+  inline void clear_has_serverip();
+  inline void set_has_serverport();
+  inline void clear_has_serverport();
+  inline void set_has_externalserverip();
+  inline void clear_has_externalserverip();
+  inline void set_has_externalserverport();
+  inline void clear_has_externalserverport();
+  inline void set_has_httpport();
+  inline void clear_has_httpport();
+  inline void set_has_maxconnectnum();
+  inline void clear_has_maxconnectnum();
+  inline void set_has_workthreadnum();
+  inline void clear_has_workthreadnum();
+  inline void set_has_netthreadnum();
+  inline void clear_has_netthreadnum();
+  inline void set_has_security();
+  inline void clear_has_security();
+  inline void set_has_websocket();
+  inline void clear_has_websocket();
+  inline void set_has_mparsetype();
+  inline void clear_has_mparsetype();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* serverip_;
+  ::std::string* externalserverip_;
+  ::google::protobuf::uint32 serverport_;
+  ::google::protobuf::uint32 externalserverport_;
+  ::google::protobuf::uint32 httpport_;
+  ::google::protobuf::uint32 maxconnectnum_;
+  ::google::protobuf::uint32 workthreadnum_;
+  ::google::protobuf::uint32 netthreadnum_;
+  bool security_;
+  bool websocket_;
+  ::google::protobuf::uint32 mparsetype_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbNetConfig* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1768,7 +1964,7 @@ inline void tbServerMgr::set_create_time(::google::protobuf::uint64 value) {
 
 // pbMysqlConfig
 
-// optional string MysqlIp = 70;
+// optional string MysqlIp = 1;
 inline bool pbMysqlConfig::has_mysqlip() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1838,7 +2034,7 @@ inline void pbMysqlConfig::set_allocated_mysqlip(::std::string* mysqlip) {
   }
 }
 
-// optional uint32 MysqlPort = 71;
+// optional uint32 MysqlPort = 2;
 inline bool pbMysqlConfig::has_mysqlport() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1860,7 +2056,7 @@ inline void pbMysqlConfig::set_mysqlport(::google::protobuf::uint32 value) {
   mysqlport_ = value;
 }
 
-// optional string MysqlDbName = 72;
+// optional string MysqlDbName = 3;
 inline bool pbMysqlConfig::has_mysqldbname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1930,7 +2126,7 @@ inline void pbMysqlConfig::set_allocated_mysqldbname(::std::string* mysqldbname)
   }
 }
 
-// optional string MysqlUser = 73;
+// optional string MysqlUser = 4;
 inline bool pbMysqlConfig::has_mysqluser() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2000,7 +2196,7 @@ inline void pbMysqlConfig::set_allocated_mysqluser(::std::string* mysqluser) {
   }
 }
 
-// optional string MysqlPassword = 74;
+// optional string MysqlPassword = 5;
 inline bool pbMysqlConfig::has_mysqlpassword() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2074,7 +2270,7 @@ inline void pbMysqlConfig::set_allocated_mysqlpassword(::std::string* mysqlpassw
 
 // pbRedisConfig
 
-// optional string RedisIp = 80;
+// optional string RedisIp = 1;
 inline bool pbRedisConfig::has_redisip() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2144,7 +2340,7 @@ inline void pbRedisConfig::set_allocated_redisip(::std::string* redisip) {
   }
 }
 
-// optional uint32 RedisPort = 81;
+// optional uint32 RedisPort = 2;
 inline bool pbRedisConfig::has_redisport() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2166,7 +2362,7 @@ inline void pbRedisConfig::set_redisport(::google::protobuf::uint32 value) {
   redisport_ = value;
 }
 
-// optional string RedisPass = 82;
+// optional string RedisPass = 3;
 inline bool pbRedisConfig::has_redispass() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2238,205 +2434,650 @@ inline void pbRedisConfig::set_allocated_redispass(::std::string* redispass) {
 
 // -------------------------------------------------------------------
 
-// tempServerConfig
+// pbRouteConfig
 
-// optional uint32 server_id = 1;
-inline bool tempServerConfig::has_server_id() const {
+// optional string MasterIp = 1;
+inline bool pbRouteConfig::has_masterip() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void tempServerConfig::set_has_server_id() {
+inline void pbRouteConfig::set_has_masterip() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void tempServerConfig::clear_has_server_id() {
+inline void pbRouteConfig::clear_has_masterip() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void tempServerConfig::clear_server_id() {
-  server_id_ = 0u;
-  clear_has_server_id();
-}
-inline ::google::protobuf::uint32 tempServerConfig::server_id() const {
-  return server_id_;
-}
-inline void tempServerConfig::set_server_id(::google::protobuf::uint32 value) {
-  set_has_server_id();
-  server_id_ = value;
-}
-
-// optional string server_type = 2;
-inline bool tempServerConfig::has_server_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void tempServerConfig::set_has_server_type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void tempServerConfig::clear_has_server_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void tempServerConfig::clear_server_type() {
-  if (server_type_ != &::google::protobuf::internal::kEmptyString) {
-    server_type_->clear();
+inline void pbRouteConfig::clear_masterip() {
+  if (masterip_ != &::google::protobuf::internal::kEmptyString) {
+    masterip_->clear();
   }
-  clear_has_server_type();
+  clear_has_masterip();
 }
-inline const ::std::string& tempServerConfig::server_type() const {
-  return *server_type_;
+inline const ::std::string& pbRouteConfig::masterip() const {
+  return *masterip_;
 }
-inline void tempServerConfig::set_server_type(const ::std::string& value) {
-  set_has_server_type();
-  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
-    server_type_ = new ::std::string;
+inline void pbRouteConfig::set_masterip(const ::std::string& value) {
+  set_has_masterip();
+  if (masterip_ == &::google::protobuf::internal::kEmptyString) {
+    masterip_ = new ::std::string;
   }
-  server_type_->assign(value);
+  masterip_->assign(value);
 }
-inline void tempServerConfig::set_server_type(const char* value) {
-  set_has_server_type();
-  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
-    server_type_ = new ::std::string;
+inline void pbRouteConfig::set_masterip(const char* value) {
+  set_has_masterip();
+  if (masterip_ == &::google::protobuf::internal::kEmptyString) {
+    masterip_ = new ::std::string;
   }
-  server_type_->assign(value);
+  masterip_->assign(value);
 }
-inline void tempServerConfig::set_server_type(const char* value, size_t size) {
-  set_has_server_type();
-  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
-    server_type_ = new ::std::string;
+inline void pbRouteConfig::set_masterip(const char* value, size_t size) {
+  set_has_masterip();
+  if (masterip_ == &::google::protobuf::internal::kEmptyString) {
+    masterip_ = new ::std::string;
   }
-  server_type_->assign(reinterpret_cast<const char*>(value), size);
+  masterip_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tempServerConfig::mutable_server_type() {
-  set_has_server_type();
-  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
-    server_type_ = new ::std::string;
+inline ::std::string* pbRouteConfig::mutable_masterip() {
+  set_has_masterip();
+  if (masterip_ == &::google::protobuf::internal::kEmptyString) {
+    masterip_ = new ::std::string;
   }
-  return server_type_;
+  return masterip_;
 }
-inline ::std::string* tempServerConfig::release_server_type() {
-  clear_has_server_type();
-  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* pbRouteConfig::release_masterip() {
+  clear_has_masterip();
+  if (masterip_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = server_type_;
-    server_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = masterip_;
+    masterip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tempServerConfig::set_allocated_server_type(::std::string* server_type) {
-  if (server_type_ != &::google::protobuf::internal::kEmptyString) {
-    delete server_type_;
+inline void pbRouteConfig::set_allocated_masterip(::std::string* masterip) {
+  if (masterip_ != &::google::protobuf::internal::kEmptyString) {
+    delete masterip_;
   }
-  if (server_type) {
-    set_has_server_type();
-    server_type_ = server_type;
+  if (masterip) {
+    set_has_masterip();
+    masterip_ = masterip;
   } else {
-    clear_has_server_type();
-    server_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_masterip();
+    masterip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// repeated string server_list = 3;
-inline int tempServerConfig::server_list_size() const {
-  return server_list_.size();
+// optional uint32 MasterPort = 2;
+inline bool pbRouteConfig::has_masterport() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void tempServerConfig::clear_server_list() {
-  server_list_.Clear();
+inline void pbRouteConfig::set_has_masterport() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline const ::std::string& tempServerConfig::server_list(int index) const {
-  return server_list_.Get(index);
+inline void pbRouteConfig::clear_has_masterport() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline ::std::string* tempServerConfig::mutable_server_list(int index) {
-  return server_list_.Mutable(index);
+inline void pbRouteConfig::clear_masterport() {
+  masterport_ = 0u;
+  clear_has_masterport();
 }
-inline void tempServerConfig::set_server_list(int index, const ::std::string& value) {
-  server_list_.Mutable(index)->assign(value);
+inline ::google::protobuf::uint32 pbRouteConfig::masterport() const {
+  return masterport_;
 }
-inline void tempServerConfig::set_server_list(int index, const char* value) {
-  server_list_.Mutable(index)->assign(value);
-}
-inline void tempServerConfig::set_server_list(int index, const char* value, size_t size) {
-  server_list_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* tempServerConfig::add_server_list() {
-  return server_list_.Add();
-}
-inline void tempServerConfig::add_server_list(const ::std::string& value) {
-  server_list_.Add()->assign(value);
-}
-inline void tempServerConfig::add_server_list(const char* value) {
-  server_list_.Add()->assign(value);
-}
-inline void tempServerConfig::add_server_list(const char* value, size_t size) {
-  server_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-tempServerConfig::server_list() const {
-  return server_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-tempServerConfig::mutable_server_list() {
-  return &server_list_;
+inline void pbRouteConfig::set_masterport(::google::protobuf::uint32 value) {
+  set_has_masterport();
+  masterport_ = value;
 }
 
-// optional .proto_ff.pbMysqlConfig mysql = 4;
-inline bool tempServerConfig::has_mysql() const {
+// optional string NamingHost = 3;
+inline bool pbRouteConfig::has_naminghost() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbRouteConfig::set_has_naminghost() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbRouteConfig::clear_has_naminghost() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbRouteConfig::clear_naminghost() {
+  if (naminghost_ != &::google::protobuf::internal::kEmptyString) {
+    naminghost_->clear();
+  }
+  clear_has_naminghost();
+}
+inline const ::std::string& pbRouteConfig::naminghost() const {
+  return *naminghost_;
+}
+inline void pbRouteConfig::set_naminghost(const ::std::string& value) {
+  set_has_naminghost();
+  if (naminghost_ == &::google::protobuf::internal::kEmptyString) {
+    naminghost_ = new ::std::string;
+  }
+  naminghost_->assign(value);
+}
+inline void pbRouteConfig::set_naminghost(const char* value) {
+  set_has_naminghost();
+  if (naminghost_ == &::google::protobuf::internal::kEmptyString) {
+    naminghost_ = new ::std::string;
+  }
+  naminghost_->assign(value);
+}
+inline void pbRouteConfig::set_naminghost(const char* value, size_t size) {
+  set_has_naminghost();
+  if (naminghost_ == &::google::protobuf::internal::kEmptyString) {
+    naminghost_ = new ::std::string;
+  }
+  naminghost_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbRouteConfig::mutable_naminghost() {
+  set_has_naminghost();
+  if (naminghost_ == &::google::protobuf::internal::kEmptyString) {
+    naminghost_ = new ::std::string;
+  }
+  return naminghost_;
+}
+inline ::std::string* pbRouteConfig::release_naminghost() {
+  clear_has_naminghost();
+  if (naminghost_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = naminghost_;
+    naminghost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbRouteConfig::set_allocated_naminghost(::std::string* naminghost) {
+  if (naminghost_ != &::google::protobuf::internal::kEmptyString) {
+    delete naminghost_;
+  }
+  if (naminghost) {
+    set_has_naminghost();
+    naminghost_ = naminghost;
+  } else {
+    clear_has_naminghost();
+    naminghost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string NamingPath = 4;
+inline bool pbRouteConfig::has_namingpath() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void tempServerConfig::set_has_mysql() {
+inline void pbRouteConfig::set_has_namingpath() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void tempServerConfig::clear_has_mysql() {
+inline void pbRouteConfig::clear_has_namingpath() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void tempServerConfig::clear_mysql() {
-  if (mysql_ != NULL) mysql_->::proto_ff::pbMysqlConfig::Clear();
-  clear_has_mysql();
+inline void pbRouteConfig::clear_namingpath() {
+  if (namingpath_ != &::google::protobuf::internal::kEmptyString) {
+    namingpath_->clear();
+  }
+  clear_has_namingpath();
 }
-inline const ::proto_ff::pbMysqlConfig& tempServerConfig::mysql() const {
-  return mysql_ != NULL ? *mysql_ : *default_instance_->mysql_;
+inline const ::std::string& pbRouteConfig::namingpath() const {
+  return *namingpath_;
 }
-inline ::proto_ff::pbMysqlConfig* tempServerConfig::mutable_mysql() {
-  set_has_mysql();
-  if (mysql_ == NULL) mysql_ = new ::proto_ff::pbMysqlConfig;
-  return mysql_;
+inline void pbRouteConfig::set_namingpath(const ::std::string& value) {
+  set_has_namingpath();
+  if (namingpath_ == &::google::protobuf::internal::kEmptyString) {
+    namingpath_ = new ::std::string;
+  }
+  namingpath_->assign(value);
 }
-inline ::proto_ff::pbMysqlConfig* tempServerConfig::release_mysql() {
-  clear_has_mysql();
-  ::proto_ff::pbMysqlConfig* temp = mysql_;
-  mysql_ = NULL;
-  return temp;
+inline void pbRouteConfig::set_namingpath(const char* value) {
+  set_has_namingpath();
+  if (namingpath_ == &::google::protobuf::internal::kEmptyString) {
+    namingpath_ = new ::std::string;
+  }
+  namingpath_->assign(value);
 }
-inline void tempServerConfig::set_allocated_mysql(::proto_ff::pbMysqlConfig* mysql) {
-  delete mysql_;
-  mysql_ = mysql;
-  if (mysql) {
-    set_has_mysql();
+inline void pbRouteConfig::set_namingpath(const char* value, size_t size) {
+  set_has_namingpath();
+  if (namingpath_ == &::google::protobuf::internal::kEmptyString) {
+    namingpath_ = new ::std::string;
+  }
+  namingpath_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbRouteConfig::mutable_namingpath() {
+  set_has_namingpath();
+  if (namingpath_ == &::google::protobuf::internal::kEmptyString) {
+    namingpath_ = new ::std::string;
+  }
+  return namingpath_;
+}
+inline ::std::string* pbRouteConfig::release_namingpath() {
+  clear_has_namingpath();
+  if (namingpath_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
   } else {
-    clear_has_mysql();
+    ::std::string* temp = namingpath_;
+    namingpath_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbRouteConfig::set_allocated_namingpath(::std::string* namingpath) {
+  if (namingpath_ != &::google::protobuf::internal::kEmptyString) {
+    delete namingpath_;
+  }
+  if (namingpath) {
+    set_has_namingpath();
+    namingpath_ = namingpath;
+  } else {
+    clear_has_namingpath();
+    namingpath_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// repeated .proto_ff.pbRedisConfig redis = 5;
-inline int tempServerConfig::redis_size() const {
-  return redis_.size();
+// optional string RouteAgent = 5;
+inline bool pbRouteConfig::has_routeagent() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void tempServerConfig::clear_redis() {
-  redis_.Clear();
+inline void pbRouteConfig::set_has_routeagent() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline const ::proto_ff::pbRedisConfig& tempServerConfig::redis(int index) const {
-  return redis_.Get(index);
+inline void pbRouteConfig::clear_has_routeagent() {
+  _has_bits_[0] &= ~0x00000010u;
 }
-inline ::proto_ff::pbRedisConfig* tempServerConfig::mutable_redis(int index) {
-  return redis_.Mutable(index);
+inline void pbRouteConfig::clear_routeagent() {
+  if (routeagent_ != &::google::protobuf::internal::kEmptyString) {
+    routeagent_->clear();
+  }
+  clear_has_routeagent();
 }
-inline ::proto_ff::pbRedisConfig* tempServerConfig::add_redis() {
-  return redis_.Add();
+inline const ::std::string& pbRouteConfig::routeagent() const {
+  return *routeagent_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >&
-tempServerConfig::redis() const {
-  return redis_;
+inline void pbRouteConfig::set_routeagent(const ::std::string& value) {
+  set_has_routeagent();
+  if (routeagent_ == &::google::protobuf::internal::kEmptyString) {
+    routeagent_ = new ::std::string;
+  }
+  routeagent_->assign(value);
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >*
-tempServerConfig::mutable_redis() {
-  return &redis_;
+inline void pbRouteConfig::set_routeagent(const char* value) {
+  set_has_routeagent();
+  if (routeagent_ == &::google::protobuf::internal::kEmptyString) {
+    routeagent_ = new ::std::string;
+  }
+  routeagent_->assign(value);
+}
+inline void pbRouteConfig::set_routeagent(const char* value, size_t size) {
+  set_has_routeagent();
+  if (routeagent_ == &::google::protobuf::internal::kEmptyString) {
+    routeagent_ = new ::std::string;
+  }
+  routeagent_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbRouteConfig::mutable_routeagent() {
+  set_has_routeagent();
+  if (routeagent_ == &::google::protobuf::internal::kEmptyString) {
+    routeagent_ = new ::std::string;
+  }
+  return routeagent_;
+}
+inline ::std::string* pbRouteConfig::release_routeagent() {
+  clear_has_routeagent();
+  if (routeagent_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = routeagent_;
+    routeagent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbRouteConfig::set_allocated_routeagent(::std::string* routeagent) {
+  if (routeagent_ != &::google::protobuf::internal::kEmptyString) {
+    delete routeagent_;
+  }
+  if (routeagent) {
+    set_has_routeagent();
+    routeagent_ = routeagent;
+  } else {
+    clear_has_routeagent();
+    routeagent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// pbNetConfig
+
+// optional string ServerIp = 1;
+inline bool pbNetConfig::has_serverip() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbNetConfig::set_has_serverip() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbNetConfig::clear_has_serverip() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbNetConfig::clear_serverip() {
+  if (serverip_ != &::google::protobuf::internal::kEmptyString) {
+    serverip_->clear();
+  }
+  clear_has_serverip();
+}
+inline const ::std::string& pbNetConfig::serverip() const {
+  return *serverip_;
+}
+inline void pbNetConfig::set_serverip(const ::std::string& value) {
+  set_has_serverip();
+  if (serverip_ == &::google::protobuf::internal::kEmptyString) {
+    serverip_ = new ::std::string;
+  }
+  serverip_->assign(value);
+}
+inline void pbNetConfig::set_serverip(const char* value) {
+  set_has_serverip();
+  if (serverip_ == &::google::protobuf::internal::kEmptyString) {
+    serverip_ = new ::std::string;
+  }
+  serverip_->assign(value);
+}
+inline void pbNetConfig::set_serverip(const char* value, size_t size) {
+  set_has_serverip();
+  if (serverip_ == &::google::protobuf::internal::kEmptyString) {
+    serverip_ = new ::std::string;
+  }
+  serverip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNetConfig::mutable_serverip() {
+  set_has_serverip();
+  if (serverip_ == &::google::protobuf::internal::kEmptyString) {
+    serverip_ = new ::std::string;
+  }
+  return serverip_;
+}
+inline ::std::string* pbNetConfig::release_serverip() {
+  clear_has_serverip();
+  if (serverip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = serverip_;
+    serverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNetConfig::set_allocated_serverip(::std::string* serverip) {
+  if (serverip_ != &::google::protobuf::internal::kEmptyString) {
+    delete serverip_;
+  }
+  if (serverip) {
+    set_has_serverip();
+    serverip_ = serverip;
+  } else {
+    clear_has_serverip();
+    serverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 ServerPort = 2;
+inline bool pbNetConfig::has_serverport() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbNetConfig::set_has_serverport() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbNetConfig::clear_has_serverport() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbNetConfig::clear_serverport() {
+  serverport_ = 0u;
+  clear_has_serverport();
+}
+inline ::google::protobuf::uint32 pbNetConfig::serverport() const {
+  return serverport_;
+}
+inline void pbNetConfig::set_serverport(::google::protobuf::uint32 value) {
+  set_has_serverport();
+  serverport_ = value;
+}
+
+// optional string ExternalServerIp = 3;
+inline bool pbNetConfig::has_externalserverip() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbNetConfig::set_has_externalserverip() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbNetConfig::clear_has_externalserverip() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbNetConfig::clear_externalserverip() {
+  if (externalserverip_ != &::google::protobuf::internal::kEmptyString) {
+    externalserverip_->clear();
+  }
+  clear_has_externalserverip();
+}
+inline const ::std::string& pbNetConfig::externalserverip() const {
+  return *externalserverip_;
+}
+inline void pbNetConfig::set_externalserverip(const ::std::string& value) {
+  set_has_externalserverip();
+  if (externalserverip_ == &::google::protobuf::internal::kEmptyString) {
+    externalserverip_ = new ::std::string;
+  }
+  externalserverip_->assign(value);
+}
+inline void pbNetConfig::set_externalserverip(const char* value) {
+  set_has_externalserverip();
+  if (externalserverip_ == &::google::protobuf::internal::kEmptyString) {
+    externalserverip_ = new ::std::string;
+  }
+  externalserverip_->assign(value);
+}
+inline void pbNetConfig::set_externalserverip(const char* value, size_t size) {
+  set_has_externalserverip();
+  if (externalserverip_ == &::google::protobuf::internal::kEmptyString) {
+    externalserverip_ = new ::std::string;
+  }
+  externalserverip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNetConfig::mutable_externalserverip() {
+  set_has_externalserverip();
+  if (externalserverip_ == &::google::protobuf::internal::kEmptyString) {
+    externalserverip_ = new ::std::string;
+  }
+  return externalserverip_;
+}
+inline ::std::string* pbNetConfig::release_externalserverip() {
+  clear_has_externalserverip();
+  if (externalserverip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = externalserverip_;
+    externalserverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNetConfig::set_allocated_externalserverip(::std::string* externalserverip) {
+  if (externalserverip_ != &::google::protobuf::internal::kEmptyString) {
+    delete externalserverip_;
+  }
+  if (externalserverip) {
+    set_has_externalserverip();
+    externalserverip_ = externalserverip;
+  } else {
+    clear_has_externalserverip();
+    externalserverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 ExternalServerPort = 4;
+inline bool pbNetConfig::has_externalserverport() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbNetConfig::set_has_externalserverport() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbNetConfig::clear_has_externalserverport() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbNetConfig::clear_externalserverport() {
+  externalserverport_ = 0u;
+  clear_has_externalserverport();
+}
+inline ::google::protobuf::uint32 pbNetConfig::externalserverport() const {
+  return externalserverport_;
+}
+inline void pbNetConfig::set_externalserverport(::google::protobuf::uint32 value) {
+  set_has_externalserverport();
+  externalserverport_ = value;
+}
+
+// optional uint32 HttpPort = 5;
+inline bool pbNetConfig::has_httpport() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void pbNetConfig::set_has_httpport() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void pbNetConfig::clear_has_httpport() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void pbNetConfig::clear_httpport() {
+  httpport_ = 0u;
+  clear_has_httpport();
+}
+inline ::google::protobuf::uint32 pbNetConfig::httpport() const {
+  return httpport_;
+}
+inline void pbNetConfig::set_httpport(::google::protobuf::uint32 value) {
+  set_has_httpport();
+  httpport_ = value;
+}
+
+// optional uint32 MaxConnectNum = 6;
+inline bool pbNetConfig::has_maxconnectnum() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbNetConfig::set_has_maxconnectnum() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbNetConfig::clear_has_maxconnectnum() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbNetConfig::clear_maxconnectnum() {
+  maxconnectnum_ = 0u;
+  clear_has_maxconnectnum();
+}
+inline ::google::protobuf::uint32 pbNetConfig::maxconnectnum() const {
+  return maxconnectnum_;
+}
+inline void pbNetConfig::set_maxconnectnum(::google::protobuf::uint32 value) {
+  set_has_maxconnectnum();
+  maxconnectnum_ = value;
+}
+
+// optional uint32 WorkThreadNum = 7;
+inline bool pbNetConfig::has_workthreadnum() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void pbNetConfig::set_has_workthreadnum() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void pbNetConfig::clear_has_workthreadnum() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void pbNetConfig::clear_workthreadnum() {
+  workthreadnum_ = 0u;
+  clear_has_workthreadnum();
+}
+inline ::google::protobuf::uint32 pbNetConfig::workthreadnum() const {
+  return workthreadnum_;
+}
+inline void pbNetConfig::set_workthreadnum(::google::protobuf::uint32 value) {
+  set_has_workthreadnum();
+  workthreadnum_ = value;
+}
+
+// optional uint32 NetThreadNum = 8;
+inline bool pbNetConfig::has_netthreadnum() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void pbNetConfig::set_has_netthreadnum() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void pbNetConfig::clear_has_netthreadnum() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void pbNetConfig::clear_netthreadnum() {
+  netthreadnum_ = 0u;
+  clear_has_netthreadnum();
+}
+inline ::google::protobuf::uint32 pbNetConfig::netthreadnum() const {
+  return netthreadnum_;
+}
+inline void pbNetConfig::set_netthreadnum(::google::protobuf::uint32 value) {
+  set_has_netthreadnum();
+  netthreadnum_ = value;
+}
+
+// optional bool Security = 9;
+inline bool pbNetConfig::has_security() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void pbNetConfig::set_has_security() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void pbNetConfig::clear_has_security() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void pbNetConfig::clear_security() {
+  security_ = false;
+  clear_has_security();
+}
+inline bool pbNetConfig::security() const {
+  return security_;
+}
+inline void pbNetConfig::set_security(bool value) {
+  set_has_security();
+  security_ = value;
+}
+
+// optional bool WebSocket = 10;
+inline bool pbNetConfig::has_websocket() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void pbNetConfig::set_has_websocket() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void pbNetConfig::clear_has_websocket() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void pbNetConfig::clear_websocket() {
+  websocket_ = false;
+  clear_has_websocket();
+}
+inline bool pbNetConfig::websocket() const {
+  return websocket_;
+}
+inline void pbNetConfig::set_websocket(bool value) {
+  set_has_websocket();
+  websocket_ = value;
+}
+
+// optional uint32 mParseType = 11;
+inline bool pbNetConfig::has_mparsetype() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void pbNetConfig::set_has_mparsetype() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void pbNetConfig::clear_has_mparsetype() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void pbNetConfig::clear_mparsetype() {
+  mparsetype_ = 0u;
+  clear_has_mparsetype();
+}
+inline ::google::protobuf::uint32 pbNetConfig::mparsetype() const {
+  return mparsetype_;
+}
+inline void pbNetConfig::set_mparsetype(::google::protobuf::uint32 value) {
+  set_has_mparsetype();
+  mparsetype_ = value;
 }
 
 // -------------------------------------------------------------------
