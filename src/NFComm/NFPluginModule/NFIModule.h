@@ -10,6 +10,9 @@
 
 #include <string>
 #include "NFIPluginManager.h"
+#include "NFServerDefine.h"
+
+#define NF_MODULE_STATIC_CONST_MODULE_ID(MODULE_ID) public: static const int m_staticModuleId = MODULE_ID;
 
 class NFIModule
 {
@@ -24,15 +27,15 @@ public:
 	{
 	}
 
-	template <typename T>
-	T* FindModule() const
-	{
-		if (m_pPluginManager)
-		{
-			return m_pPluginManager->FindModule<T>();
-		}
-		return nullptr;
-	}
+    template <typename T>
+    T* FindModule() const
+    {
+        if (m_pPluginManager)
+        {
+            return m_pPluginManager->FindModule<T>();
+        }
+        return nullptr;
+    }
 
 	virtual bool AfterLoadAllPlugin()
     {
@@ -94,7 +97,7 @@ public:
 		return m_pPluginManager;
 	}
 
-	std::string strName;
+	std::string m_strName;
 protected:
 	NFIPluginManager* m_pPluginManager = NULL;
 };

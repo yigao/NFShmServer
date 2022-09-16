@@ -19,7 +19,7 @@ bool NFIPlugin::AfterLoadAllPlugin()
             bool bRet = pModule->AfterLoadAllPlugin();
             if (!bRet)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterLoadAllPlugin failed!", pModule->strName);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterLoadAllPlugin failed!", pModule->m_strName);
                 assert(0);
             }
         }
@@ -37,7 +37,7 @@ bool NFIPlugin::Awake()
 			bool bRet = pModule->Awake();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Awake failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Awake failed!", pModule->m_strName);
 				assert(0);
 			}
 		}
@@ -55,7 +55,7 @@ bool NFIPlugin::Init()
 			bool bRet = pModule->Init();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Init failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Init failed!", pModule->m_strName);
 				assert(0);
 			}
 		}
@@ -73,7 +73,7 @@ bool NFIPlugin::CheckConfig()
 			bool bRet = pModule->CheckConfig();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} CheckConfig failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} CheckConfig failed!", pModule->m_strName);
 				assert(0);
 			}
 		}
@@ -92,7 +92,7 @@ bool NFIPlugin::ReadyExecute()
 			bool bRet = pModule->ReadyExecute();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} ReadyExecute failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} ReadyExecute failed!", pModule->m_strName);
 				assert(0);
 			}
 		}
@@ -111,7 +111,7 @@ bool NFIPlugin::Execute()
 			bool bRet = pModule->Execute();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Execute failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Execute failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -126,11 +126,11 @@ bool NFIPlugin::BeforeShut()
 		NFIModule* pModule = m_vecModule[i];
 		if (pModule)
 		{
-			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} BeforeShut................", pModule->strName);
+			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} BeforeShut................", pModule->m_strName);
 			bool bRet = pModule->BeforeShut();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} BeforeShut failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} BeforeShut failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -144,11 +144,11 @@ bool NFIPlugin::Shut()
 		NFIModule* pModule = m_vecModule[i];
 		if (pModule)
 		{
-			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} Shut................", pModule->strName);
+			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} Shut................", pModule->m_strName);
 			bool bRet = pModule->Shut();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Shut failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Shut failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -163,11 +163,11 @@ bool NFIPlugin::Finalize()
 		NFIModule* pModule = m_vecModule[i];
 		if (pModule)
 		{
-			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} Finalize................", pModule->strName);
+			NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "{} Finalize................", pModule->m_strName);
 			bool bRet = pModule->Finalize();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Finalize failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Finalize failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -185,7 +185,7 @@ bool NFIPlugin::OnReloadPlugin()
 			bool bRet = pModule->OnReloadPlugin();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnReloadPlugin failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnReloadPlugin failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -242,7 +242,7 @@ bool NFIPlugin::OnDynamicPlugin()
 			bool bRet = pModule->OnDynamicPlugin();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnDynamicPlugin failed!", pModule->strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnDynamicPlugin failed!", pModule->m_strName);
 			}
 		}
 	}

@@ -56,8 +56,8 @@ bool NFShmPlugin::IsDynamicLoad()
 
 void NFShmPlugin::Install()
 {
-    REGISTER_MODULE(m_pPluginManager, NF_SHM_MODULE_ID, NFISharedMemModule, NFCSharedMemModule);
-    REGISTER_MODULE(m_pPluginManager, NF_DESC_STORE_ID, NFIDescStoreModule, NFCDescStoreModule);
+    REGISTER_MODULE(m_pPluginManager, NFISharedMemModule, NFCSharedMemModule);
+    REGISTER_MODULE(m_pPluginManager, NFIDescStoreModule, NFCDescStoreModule);
 }
 
 void NFShmPlugin::Uninstall()

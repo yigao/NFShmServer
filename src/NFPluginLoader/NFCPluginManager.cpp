@@ -518,11 +518,15 @@ void NFCPluginManager::SetLogPath(const std::string& strName)
 	m_strLogPath = strName;
 }
 
-void NFCPluginManager::AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule)
+int NFCPluginManager::AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule)
 {
-    CHECK_EXPR_NOT_RET(moduleId < NF_PLUGIN_MDOULE_MAX, "moduleId:{} < NF_PLUGIN_MDOULE_MAX", moduleId);
+    CHECK_EXPR_ASSERT(moduleId < NF_PLUGIN_MDOULE_MAX, -1, "moduleId:{} < NF_PLUGIN_MDOULE_MAX, name:{}", moduleId, strModuleName);
+    CHECK_EXPR_ASSERT(pModule != NULL, -1, "pModule != NULL moduleId:{}, name:{}", moduleId, strModuleName);
+    CHECK_EXPR_ASSERT(m_nModuleListMap[moduleId] == NULL, -1, "m_nModuleListMap[moduleId] == NULL! module exist!  moduleId:{}, name:{}", moduleId, strModuleName);
+
 	m_nModuleInstanceMap.insert(ModuleInstanceMap::value_type(strModuleName, pModule));
 	m_nModuleListMap[moduleId] = pModule;
+	return 0;
 }
 
 void NFCPluginManager::RemoveModule(const std::string& strModuleName)
@@ -532,6 +536,14 @@ void NFCPluginManager::RemoveModule(const std::string& strModuleName)
 	{
 		m_nModuleInstanceMap.erase(it);
 	}
+}
+
+NFIModule* NFCPluginManager::FindModule(uint32_t moduleId)
+{
+    CHECK_EXPR(moduleId < NF_PLUGIN_MDOULE_MAX, NULL, "moduleId:{} < NF_PLUGIN_MDOULE_MAX", moduleId);
+    NFIModule* pModule = m_nModuleListMap[moduleId];
+    CHECK_EXPR(pModule != NULL, NULL, "pModule != NULL, moduleId:{} not exist", moduleId);
+    return pModule;
 }
 
 NFIModule* NFCPluginManager::FindModule(const std::string& strModuleName)

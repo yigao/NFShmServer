@@ -17,6 +17,7 @@
 class NFIMysqlModule
 	: public NFIModule
 {
+NF_MODULE_STATIC_CONST_MODULE_ID(NF_MYSQL_MODULE_ID)
 public:
 	NFIMysqlModule(NFIPluginManager* p) :NFIModule(p)
 	{

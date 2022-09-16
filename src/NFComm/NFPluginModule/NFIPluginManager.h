@@ -143,13 +143,14 @@ public:
 	template <typename T>
 	T* FindModule()
 	{
-		NFIModule* pLogicModule = FindModule(typeid(T).name());
+		NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
 		if (pLogicModule)
 		{
 			if (!TIsDerived<T, NFIModule>::Result)
 			{
 				return nullptr;
 			}
+
 			//TODO OSX上dynamic_cast返回了NULL
 #if NF_PLATFORM == NF_PLATFORM_APPLE
 			T* pT = (T*)pLogicModule;
@@ -173,11 +174,13 @@ public:
 
 	virtual NFIPlugin* FindPlugin(const std::string& strPluginName) = 0;
 
-	virtual void AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) = 0;
+	virtual int AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) = 0;
 
 	virtual void RemoveModule(const std::string& strModuleName) = 0;
 
 	virtual NFIModule* FindModule(const std::string& strModuleName) = 0;
+
+	virtual NFIModule* FindModule(uint32_t moduleId) = 0;
 
 	virtual bool LoadAllPlugin() = 0;
 

@@ -75,11 +75,13 @@ public:
 
 	virtual NFIPlugin* FindPlugin(const std::string& strPluginName) override;
 
-	virtual void AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) override;
+	virtual int AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) override;
 
 	virtual void RemoveModule(const std::string& strModuleName) override;
 
 	virtual NFIModule* FindModule(const std::string& strModuleName) override;
+
+    virtual NFIModule* FindModule(uint32_t moduleId) override;
 
 	virtual bool LoadAllPlugin() override;
 	virtual bool LoadPluginLibrary(const std::string& strPluginDLLName) override;

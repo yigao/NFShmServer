@@ -21,6 +21,7 @@ class NFIObject;
 class NFIKernelModule
 	: public NFIDynamicModule
 {
+NF_MODULE_STATIC_CONST_MODULE_ID(NF_KERNEL_MODULE_ID)
 public:
 	NFIKernelModule(NFIPluginManager* p) :NFIDynamicModule(p)
 	{

@@ -17,6 +17,7 @@
 class NFIEventModule
 	: public NFIModule
 {
+NF_MODULE_STATIC_CONST_MODULE_ID(NF_EVENT_MODULE_ID)
 public:
 	NFIEventModule(NFIPluginManager* p) :NFIModule(p)
 	{

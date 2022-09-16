@@ -19,12 +19,12 @@
 
 
 //为什么要在这里加上pManager->InitSingleton()呢， 主要是为了在动态加载的情况下，在每个DLL中，都初始化一次单件系统
-#define REGISTER_MODULE(pManager, classId, classBaseName, className)  \
+#define REGISTER_MODULE(pManager, classBaseName, className)  \
     assert((TIsDerived<classBaseName, NFIModule>::Result)); \
     assert((TIsDerived<className, classBaseName>::Result)); \
     NFIModule* pRegisterModule##className= new className(pManager); \
-    pRegisterModule##className->strName = (#className); \
-    pManager->AddModule( classId, #classBaseName, pRegisterModule##className );AddModule( #classBaseName, pRegisterModule##className );
+    pRegisterModule##className->m_strName = (#className);             \
+    pManager->AddModule( classBaseName::m_staticModuleId, #classBaseName, pRegisterModule##className );AddModule( #classBaseName, pRegisterModule##className );
 
 #define UNREGISTER_MODULE(pManager, classBaseName, className) \
    NFIModule* pUnRegisterModule##className =  dynamic_cast<NFIModule*>( pManager->FindModule( typeid(classBaseName).name() )); \

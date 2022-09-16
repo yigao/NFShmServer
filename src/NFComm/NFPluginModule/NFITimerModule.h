@@ -13,6 +13,7 @@
 
 class NFITimerModule : public NFIModule
 {
+NF_MODULE_STATIC_CONST_MODULE_ID(NF_TIMER_MODULE_ID)
 public:
 	NFITimerModule(NFIPluginManager* p) :NFIModule(p)
 	{

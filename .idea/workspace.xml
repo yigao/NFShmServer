@@ -23,31 +23,31 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/GameServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/LogicServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/LoginServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/MasterServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/MasterServer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/MonitorServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/ProxyAgentServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/ProxyServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/ProxyServer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/RouteAgentServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/RouteServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/SnsServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/StoreServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/WebServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/WorldServer.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFConfigDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFConfigDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIAsyMysqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIAsyMysqlModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIConfigModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIConfigModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIConsoleModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIConsoleModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFICoroutineModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFICoroutineModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIEventModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIEventModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIKernelModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIKernelModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILogModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILogModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMonitorModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMonitorModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMysqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMysqlModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINamingModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINamingModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPluginManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFITaskModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFITaskModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFITimerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFITimerModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFNetPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFNetPlugin.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/proto_2_struct/proto2struct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/proto_2_struct/proto2struct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFCommHead/NFIMasterServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFCommHead/NFIMasterServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFCommHead/NFIProxyServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFCommHead/NFIProxyServerModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +193,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -201,11 +206,6 @@
     <configuration name="mysqlpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="mysqlpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="excel2bin_new" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -326,21 +326,8 @@
       <workItem from="1663115791352" duration="37094000" />
       <workItem from="1663202783660" duration="30103000" />
       <workItem from="1663235833757" duration="8850000" />
-      <workItem from="1663289012502" duration="13221000" />
-    </task>
-    <task id="LOCAL-00063" summary="frame">
-      <created>1654853601995</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1654853601995</updated>
-    </task>
-    <task id="LOCAL-00064" summary="frame">
-      <created>1654855187212</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1654855187212</updated>
+      <workItem from="1663289012502" duration="17739000" />
+      <workItem from="1663320007549" duration="4531000" />
     </task>
     <task id="LOCAL-00065" summary="frame">
       <created>1654855196969</created>
@@ -671,7 +658,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663294258242</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="chong gou">
+      <created>1663302579653</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1663302579653</updated>
+    </task>
+    <task id="LOCAL-00113" summary="chong gou">
+      <created>1663306201350</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1663306201350</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,6 +788,11 @@
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
           <line>69</line>
           <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFNetPlugin.cpp</url>
+          <line>16</line>
+          <option name="timeStamp" value="266" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py</url>
