@@ -39,13 +39,10 @@ public:
 public:
     virtual NFServerConfig* GetServerConfig(NF_SERVER_TYPES eServerType) override;
     virtual NFServerConfig* GetAppConfig(NF_SERVER_TYPES eServerType) override;
-    virtual std::string GetGameDbName(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetDefaultDBName(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetRedisIp(NF_SERVER_TYPES nfServerTypes) override;
     virtual uint32_t GetRedisPort(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetRedisPass(NF_SERVER_TYPES nfServerTypes) override;
-	virtual uint32_t GetGameId(NF_SERVER_TYPES nfServerTypes) override;
-	virtual std::vector<uint32_t> GetRoomIdList(NF_SERVER_TYPES nfServerTypes) override;
 protected:
 	std::unordered_map<std::string, NFPluginConfig*> mPluginConfig; //pluginName--key
 	std::vector<NFServerConfig*> mServerConfig; //serverid--key

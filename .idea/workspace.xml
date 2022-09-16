@@ -23,15 +23,59 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/GameServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/LogConfig.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/LogicServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/LoginServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/MasterServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/MonitorServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/ProxyAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/ProxyServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/RouteAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/RouteServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/SnsServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/StoreServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/WebServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/WorldServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/GameServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/LogConfig.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/LogicServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/LoginServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/MasterServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/MonitorServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/Plugin.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/ProxyAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/ProxyServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/RouteAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/RouteServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/SnsServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/StoreServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/WebServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin_Zookpeer/WorldServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/GlobalPlugin/LogConfig.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/GlobalPlugin/MasterServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/GlobalPlugin/Plugin.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/GameServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/LogConfig.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/LogicServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/LoginServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/MasterServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/MonitorServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/Plugin.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/ProxyAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/ProxyServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/RouteAgentServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/RouteServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/SnsServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/StoreServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/WebServer.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer/WorldServer.lua" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/proto_2_struct/proto2struct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/proto_2_struct/proto2struct.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,14 +354,7 @@
       <workItem from="1663115791352" duration="37094000" />
       <workItem from="1663202783660" duration="30103000" />
       <workItem from="1663235833757" duration="8850000" />
-      <workItem from="1663289012502" duration="3850000" />
-    </task>
-    <task id="LOCAL-00061" summary="frame">
-      <created>1654829813559</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1654829813559</updated>
+      <workItem from="1663289012502" duration="4274000" />
     </task>
     <task id="LOCAL-00062" summary="frame">
       <created>1654847625171</created>
@@ -655,7 +692,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663292900563</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="chong gou">
+      <created>1663293325650</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1663293325650</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

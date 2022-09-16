@@ -401,7 +401,6 @@ bool NFCConfigModule::LoadServerConfig()
         }
     }
 
-
 	for (auto vec_iter = vecLuaRef.begin(); vec_iter != vecLuaRef.end(); vec_iter++)
 	{
 	    std::string serverTypeName = vec_iter->first;
@@ -413,7 +412,6 @@ bool NFCConfigModule::LoadServerConfig()
         for (int i = 0; i < tmpConfig.list_size(); i++)
         {
             proto_ff::pbNFServerConfig* pPbConfig = tmpConfig.mutable_list(i);
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
 
             if (!pPbConfig->has_serverid())
             {
@@ -468,6 +466,10 @@ bool NFCConfigModule::LoadServerConfig()
                 std::string url = NF_FORMAT("{}://{}:{}", pPbConfig->linkmode(), pPbConfig->serverip(), pPbConfig->serverport());
                 pPbConfig->set_url(url);
             }
+
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
+            NFServerConfig* pConfig = new NFServerConfig();
+            pConfig->read_from_pbmsg(*pPbConfig);
 
             if (m_pPluginManager->IsLoadAllServer())
             {
@@ -605,22 +607,12 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
     return NULL;
 }
 
-std::string NFCConfigModule::GetGameDbName(NF_SERVER_TYPES nfServerTypes)
-{
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
-    if (pConfig)
-    {
-		return pConfig->mGameDbName;
-    }
-    return std::string();
-}
-
 std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 {
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->DefaultDBName;
+        return pConfig->MysqlDbName;
     }
     return std::string();
 }
@@ -653,26 +645,6 @@ std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
         return pConfig->RedisPass;
     }
     return std::string();
-}
-
-uint32_t NFCConfigModule::GetGameId(NF_SERVER_TYPES nfServerTypes)
-{
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
-	if (pConfig)
-	{
-		return pConfig->mGameId;
-	}
-	return 0;
-}
-
-std::vector<uint32_t> NFCConfigModule::GetRoomIdList(NF_SERVER_TYPES nfServerTypes)
-{
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
-	if (pConfig)
-	{
-		return pConfig->mRoomIdList;
-	}
-	return std::vector<uint32_t>();
 }
 
 bool NFCConfigModule::CheckConfig()

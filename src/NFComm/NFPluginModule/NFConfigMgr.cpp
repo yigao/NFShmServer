@@ -40,13 +40,6 @@ NFServerConfig *NFConfigMgr::GetAppConfig(NF_SERVER_TYPES eServerType) {
     return nullptr;
 }
 
-std::string NFConfigMgr::GetGameDbName(NF_SERVER_TYPES eServerType) {
-    if (m_pConfigModule) {
-        return m_pConfigModule->GetGameDbName(eServerType);
-    }
-    return std::string();
-}
-
 std::string NFConfigMgr::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 {
     if (m_pConfigModule) {
@@ -78,19 +71,3 @@ std::string NFConfigMgr::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
     }
     return std::string();
 }
-
-uint32_t NFConfigMgr::GetGameId(NF_SERVER_TYPES eServerType) {
-	if (m_pConfigModule) {
-		return m_pConfigModule->GetGameId(eServerType);
-	}
-	return 0;
-}
-
-std::vector<uint32_t> NFConfigMgr::GetRoomIdList(NF_SERVER_TYPES eServerType) {
-	if (m_pConfigModule) {
-		return m_pConfigModule->GetRoomIdList(eServerType);
-	}
-	return std::vector<uint32_t>();
-}
-
-
