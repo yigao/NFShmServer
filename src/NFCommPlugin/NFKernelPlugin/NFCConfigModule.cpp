@@ -143,35 +143,29 @@ bool NFCConfigModule::LoadPluginConfig()
 	{
 		std::string serverPluginName = it.key<std::string>();
 		NFLuaRef serverPluginRef = it.value();
-		NFLuaRef serverPluginListRef;
-		if (!GetLuaTableValue(serverPluginRef, DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginListRef))
+
+        proto_ff::pbPluginConfig pbPluginConfig;
+        NFProtobufCommon::LuaToProtoMessage(serverPluginRef, &pbPluginConfig);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} plugin config:\n{}", serverPluginName, pbPluginConfig.DebugString());
+
+		if (pbPluginConfig.serverplugins_size() <= 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
 			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
 			assert(0);
 		}
+
+        if (!pbPluginConfig.has_servertype())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
+                       DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
+            assert(0);
+        }
 
 		NFPluginConfig* pConfig = NF_NEW NFPluginConfig();
-		if (serverPluginListRef.isTable())
-		{
-			for (int i = 1; i <= serverPluginListRef.len(); i++)
-			{
-				std::string plugin;
-				if (GetLuaTableValue(serverPluginListRef, i, plugin))
-				{
-					pConfig->mVecPlugins.push_back(plugin);
-				}
-			}
-		}
+		pConfig->read_from_pbmsg(pbPluginConfig);
 
-		if (!GetLuaTableValue(serverPluginRef, DEFINE_LUA_STRING_SERVER_TYPE, pConfig->mServerType))
-		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
-			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
-			assert(0);
-		}
-
-		if (pConfig->mServerType >= NF_ST_MAX)
+		if (pConfig->ServerType >= NF_ST_MAX)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
 			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
@@ -189,215 +183,25 @@ bool NFCConfigModule::LoadServerConfig()
 
 	if (m_pPluginManager->IsLoadAllServer())
     {
+        NFPluginConfig* pAllServer = GetPluginConfig(ALL_SERVER);
+        if (pAllServer)
         {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_MASTER_SERVER);
-            if (serverRef.isValid())
+            for(int i = 0; i < (int)pAllServer->ServerList.size(); i++)
             {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_MASTER_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_LOGIN_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_LOGIN_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_GAME_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_GAME_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_PROXY_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_PROXY_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_WORLD_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_WORLD_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_ROUTE_AGENT_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_ROUTE_AGENT_SERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_ROUTESERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_ROUTESERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_STOREERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_STOREERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_SNSSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_SNSSERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_LOGICSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_LOGICSERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_WEBSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_WEBSERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_MONITORSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_MONITORSERVER, serverRef);
-            }
-        }
-
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_PROXYAGENTSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_PROXYAGENTSERVER, serverRef);
+                NFLuaRef serverRef = GetGlobal(pAllServer->ServerList[i]);
+                if (serverRef.isValid() && serverRef.isTable())
+                {
+                    vecLuaRef.emplace(pAllServer->ServerList[i], serverRef);
+                }
             }
         }
     }
 	else
     {
-	    if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_MASTER_SERVER)
+        NFLuaRef serverRef = GetGlobal(m_pPluginManager->GetAppName());
+        if (serverRef.isValid() && serverRef.isTable())
         {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_MASTER_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_MASTER_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_LOGIN_SERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_LOGIN_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_LOGIN_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_GAME_SERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_GAME_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_GAME_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_PROXY_SERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_PROXY_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_PROXY_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_WORLD_SERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_WORLD_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_WORLD_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_ROUTE_AGENT_SERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_ROUTE_AGENT_SERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_ROUTE_AGENT_SERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_ROUTESERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_ROUTESERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_ROUTESERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_STOREERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_STOREERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_STOREERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_SNSSERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_SNSSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_SNSSERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_LOGICSERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_LOGICSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_LOGICSERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_WEBSERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_WEBSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_WEBSERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_MONITORSERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_MONITORSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_MONITORSERVER, serverRef);
-            }
-        }
-        else if (m_pPluginManager->GetAppName() == DEFINE_LUA_STRING_PROXYAGENTSERVER)
-        {
-            NFLuaRef serverRef = GetGlobal(DEFINE_LUA_STRING_PROXYAGENTSERVER);
-            if (serverRef.isValid())
-            {
-                vecLuaRef.emplace(DEFINE_LUA_STRING_PROXYAGENTSERVER, serverRef);
-            }
+            vecLuaRef.emplace(m_pPluginManager->GetAppName(), serverRef);
         }
     }
 
@@ -405,13 +209,18 @@ bool NFCConfigModule::LoadServerConfig()
 	{
 	    std::string serverTypeName = vec_iter->first;
         NFLuaRef serverRef = vec_iter->second;
+        if (!serverRef.isValid() || !serverRef.isTable()) continue;
 
-        proto_ff::pbNFServerConfigList tmpConfig;
-        NFProtobufCommon::LuaToProtoMessage(serverRef, &tmpConfig);
-
-        for (int i = 0; i < tmpConfig.list_size(); i++)
+        for (auto iter = serverRef.begin(); iter != serverRef.end(); ++iter)
         {
-            proto_ff::pbNFServerConfig* pPbConfig = tmpConfig.mutable_list(i);
+            std::string serverName = iter.key<std::string>();
+            NFLuaRef serverConfigRef = iter.value();
+
+            proto_ff::pbNFServerConfig tmpConfig;
+            NFProtobufCommon::LuaToProtoMessage(serverConfigRef, &tmpConfig);
+
+            proto_ff::pbNFServerConfig* pPbConfig = &tmpConfig;
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} config:\n{}", serverName, pPbConfig->DebugString());
 
             if (!pPbConfig->has_serverid())
             {
@@ -426,7 +235,7 @@ bool NFCConfigModule::LoadServerConfig()
                 assert(0);
             }
 
-            if (pPbConfig->has_servertype())
+            if (!pPbConfig->has_servertype())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "must be config the ServerType........");
                 assert(0);

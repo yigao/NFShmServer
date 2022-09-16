@@ -233,9 +233,9 @@ bool NFCPluginManager::LoadPluginConfig()
 		return false;
 	}
 
-	for (size_t i = 0; i < pConfig->mVecPlugins.size(); i++)
+	for (size_t i = 0; i < pConfig->ServerPlugins.size(); i++)
 	{
-		std::string strPluginName = pConfig->mVecPlugins[i];
+		std::string strPluginName = pConfig->ServerPlugins[i];
 		m_nPluginNameVec.push_back(strPluginName);
 	}
 

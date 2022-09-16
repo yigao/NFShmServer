@@ -35,12 +35,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* pbNetConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNetConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbPluginConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  pbPluginConfig_reflection_ = NULL;
 const ::google::protobuf::Descriptor* pbNFServerConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNFServerConfig_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pbNFServerConfigList_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  pbNFServerConfigList_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* NF_SERVER_TYPE_descriptor_ = NULL;
 
 }  // namespace
@@ -156,8 +156,25 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbNetConfig));
-  pbNFServerConfig_descriptor_ = file->message_type(5);
-  static const int pbNFServerConfig_offsets_[38] = {
+  pbPluginConfig_descriptor_ = file->message_type(5);
+  static const int pbPluginConfig_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, servertype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, serverplugins_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, serverlist_),
+  };
+  pbPluginConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      pbPluginConfig_descriptor_,
+      pbPluginConfig::default_instance_,
+      pbPluginConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(pbPluginConfig));
+  pbNFServerConfig_descriptor_ = file->message_type(6);
+  static const int pbNFServerConfig_offsets_[39] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -188,6 +205,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqldbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqluser_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqlpassword_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, defaultdbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redispass_),
@@ -208,21 +226,6 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbNFServerConfig));
-  pbNFServerConfigList_descriptor_ = file->message_type(6);
-  static const int pbNFServerConfigList_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfigList, list_),
-  };
-  pbNFServerConfigList_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      pbNFServerConfigList_descriptor_,
-      pbNFServerConfigList::default_instance_,
-      pbNFServerConfigList_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfigList, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfigList, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pbNFServerConfigList));
   NF_SERVER_TYPE_descriptor_ = file->enum_type(0);
 }
 
@@ -247,9 +250,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNetConfig_descriptor_, &pbNetConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
+    pbPluginConfig_descriptor_, &pbPluginConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pbNFServerConfigList_descriptor_, &pbNFServerConfigList::default_instance());
+    pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
 }
 
 }  // namespace
@@ -265,10 +268,10 @@ void protobuf_ShutdownFile_proto_5fcommon_2eproto() {
   delete pbRouteConfig_reflection_;
   delete pbNetConfig::default_instance_;
   delete pbNetConfig_reflection_;
+  delete pbPluginConfig::default_instance_;
+  delete pbPluginConfig_reflection_;
   delete pbNFServerConfig::default_instance_;
   delete pbNFServerConfig_reflection_;
-  delete pbNFServerConfigList::default_instance_;
-  delete pbNFServerConfigList_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fcommon_2eproto() {
@@ -306,39 +309,40 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "ort\030\005 \001(\r\022\025\n\rMaxConnectNum\030\006 \001(\r\022\025\n\rWork"
     "ThreadNum\030\007 \001(\r\022\024\n\014NetThreadNum\030\010 \001(\r\022\020\n"
     "\010Security\030\t \001(\010\022\021\n\tWebSocket\030\n \001(\010\022\022\n\nmP"
-    "arseType\030\013 \001(\r\"\225\006\n\020pbNFServerConfig\022\026\n\010S"
-    "erverId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType\030\002 \001(\r\022"
-    "\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\tBu"
-    "sLength\030\005 \001(\r\022\017\n\007BusName\030\006 \001(\t\022\020\n\010LinkMo"
-    "de\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUs\030\t \001"
-    "(\r\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001(\r"
-    "\022\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022ExternalSe"
-    "rverPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxC"
-    "onnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r\022\024"
-    "\n\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010\022\021"
-    "\n\tWebSocket\030\035 \001(\010\022\022\n\nmParseType\030\036 \001(\r\022\020\n"
-    "\010MasterIp\0302 \001(\t\022\022\n\nMasterPort\0303 \001(\r\022\022\n\nN"
-    "amingHost\0304 \001(\t\022\022\n\nNamingPath\0305 \001(\t\022\022\n\nR"
-    "outeAgent\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022\021\n\tMysq"
-    "lPort\030G \001(\r\022\023\n\013MysqlDbName\030H \001(\t\022\021\n\tMysq"
-    "lUser\030I \001(\t\022\025\n\rMysqlPassword\030J \001(\t\022\017\n\007Re"
-    "disIp\030P \001(\t\022\021\n\tRedisPort\030Q \001(\r\022\021\n\tRedisP"
-    "ass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022\r\n\005Email\030[ \001(\t"
-    "\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020HeartBea"
-    "tTimeout\030e \001(\r\022\036\n\026ClientKeepAliveTimeout"
-    "\030f \001(\r\"F\n\024pbNFServerConfigList\022.\n\004list\030\001"
-    " \003(\0132\032.proto_ff.pbNFServerConfigB\004\240\301\024\001*\224"
-    "\003\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_"
-    "ST_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_"
-    "SERVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_S"
-    "T_PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_F"
-    "OR_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020"
-    "\006\022\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN"
-    "_SERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_"
-    "ST_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013"
-    "\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERV"
-    "ER\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_"
-    "MAX\020\024", 2365);
+    "arseType\030\013 \001(\r\"U\n\016pbPluginConfig\022\030\n\nServ"
+    "erType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003("
+    "\t\022\022\n\nServerList\030\003 \003(\t\"\254\006\n\020pbNFServerConf"
+    "ig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType"
+    "\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001("
+    "\r\022\021\n\tBusLength\030\005 \001(\r\022\017\n\007BusName\030\006 \001(\t\022\020\n"
+    "\010LinkMode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSlee"
+    "pUs\030\t \001(\r\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPor"
+    "t\030\025 \001(\r\022\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022Ext"
+    "ernalServerPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022"
+    "\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030"
+    "\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030"
+    "\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\022\n\nmParseType\030\036"
+    " \001(\r\022\020\n\010MasterIp\0302 \001(\t\022\022\n\nMasterPort\0303 \001"
+    "(\r\022\022\n\nNamingHost\0304 \001(\t\022\022\n\nNamingPath\0305 \001"
+    "(\t\022\022\n\nRouteAgent\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022"
+    "\021\n\tMysqlPort\030G \001(\r\022\023\n\013MysqlDbName\030H \001(\t\022"
+    "\021\n\tMysqlUser\030I \001(\t\022\025\n\rMysqlPassword\030J \001("
+    "\t\022\025\n\rDefaultDBName\030K \001(\t\022\017\n\007RedisIp\030P \001("
+    "\t\022\021\n\tRedisPort\030Q \001(\r\022\021\n\tRedisPass\030R \001(\t\022"
+    "\016\n\006WwwUrl\030Z \001(\t\022\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnl"
+    "inePlayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e"
+    " \001(\r\022\036\n\026ClientKeepAliveTimeout\030f \001(\r*\224\003\n"
+    "\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST"
+    "_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_SE"
+    "RVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_ST_"
+    "PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_FOR"
+    "_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\006\022"
+    "\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN_S"
+    "ERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_ST"
+    "_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013\022\024"
+    "\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERVER"
+    "\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_MA"
+    "X\020\024", 2403);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -346,15 +350,15 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbRedisConfig::default_instance_ = new pbRedisConfig();
   pbRouteConfig::default_instance_ = new pbRouteConfig();
   pbNetConfig::default_instance_ = new pbNetConfig();
+  pbPluginConfig::default_instance_ = new pbPluginConfig();
   pbNFServerConfig::default_instance_ = new pbNFServerConfig();
-  pbNFServerConfigList::default_instance_ = new pbNFServerConfigList();
   tbServerMgr::default_instance_->InitAsDefaultInstance();
   pbMysqlConfig::default_instance_->InitAsDefaultInstance();
   pbRedisConfig::default_instance_->InitAsDefaultInstance();
   pbRouteConfig::default_instance_->InitAsDefaultInstance();
   pbNetConfig::default_instance_->InitAsDefaultInstance();
+  pbPluginConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfig::default_instance_->InitAsDefaultInstance();
-  pbNFServerConfigList::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fcommon_2eproto);
 }
 
@@ -2893,6 +2897,310 @@ void pbNetConfig::Swap(pbNetConfig* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int pbPluginConfig::kServerTypeFieldNumber;
+const int pbPluginConfig::kServerPluginsFieldNumber;
+const int pbPluginConfig::kServerListFieldNumber;
+#endif  // !_MSC_VER
+
+pbPluginConfig::pbPluginConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void pbPluginConfig::InitAsDefaultInstance() {
+}
+
+pbPluginConfig::pbPluginConfig(const pbPluginConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void pbPluginConfig::SharedCtor() {
+  _cached_size_ = 0;
+  servertype_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+pbPluginConfig::~pbPluginConfig() {
+  SharedDtor();
+}
+
+void pbPluginConfig::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void pbPluginConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* pbPluginConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return pbPluginConfig_descriptor_;
+}
+
+const pbPluginConfig& pbPluginConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+pbPluginConfig* pbPluginConfig::default_instance_ = NULL;
+
+pbPluginConfig* pbPluginConfig::New() const {
+  return new pbPluginConfig;
+}
+
+void pbPluginConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    servertype_ = 0u;
+  }
+  serverplugins_.Clear();
+  serverlist_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool pbPluginConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 ServerType = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &servertype_)));
+          set_has_servertype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_ServerPlugins;
+        break;
+      }
+
+      // repeated string ServerPlugins = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ServerPlugins:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_serverplugins()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->serverplugins(this->serverplugins_size() - 1).data(),
+            this->serverplugins(this->serverplugins_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_ServerPlugins;
+        if (input->ExpectTag(26)) goto parse_ServerList;
+        break;
+      }
+
+      // repeated string ServerList = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ServerList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_serverlist()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->serverlist(this->serverlist_size() - 1).data(),
+            this->serverlist(this->serverlist_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_ServerList;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void pbPluginConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 ServerType = 1;
+  if (has_servertype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->servertype(), output);
+  }
+
+  // repeated string ServerPlugins = 2;
+  for (int i = 0; i < this->serverplugins_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->serverplugins(i).data(), this->serverplugins(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->serverplugins(i), output);
+  }
+
+  // repeated string ServerList = 3;
+  for (int i = 0; i < this->serverlist_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->serverlist(i).data(), this->serverlist(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->serverlist(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* pbPluginConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 ServerType = 1;
+  if (has_servertype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->servertype(), target);
+  }
+
+  // repeated string ServerPlugins = 2;
+  for (int i = 0; i < this->serverplugins_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->serverplugins(i).data(), this->serverplugins(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->serverplugins(i), target);
+  }
+
+  // repeated string ServerList = 3;
+  for (int i = 0; i < this->serverlist_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->serverlist(i).data(), this->serverlist(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->serverlist(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int pbPluginConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 ServerType = 1;
+    if (has_servertype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->servertype());
+    }
+
+  }
+  // repeated string ServerPlugins = 2;
+  total_size += 1 * this->serverplugins_size();
+  for (int i = 0; i < this->serverplugins_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->serverplugins(i));
+  }
+
+  // repeated string ServerList = 3;
+  total_size += 1 * this->serverlist_size();
+  for (int i = 0; i < this->serverlist_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->serverlist(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void pbPluginConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const pbPluginConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbPluginConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void pbPluginConfig::MergeFrom(const pbPluginConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  serverplugins_.MergeFrom(from.serverplugins_);
+  serverlist_.MergeFrom(from.serverlist_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_servertype()) {
+      set_servertype(from.servertype());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void pbPluginConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void pbPluginConfig::CopyFrom(const pbPluginConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool pbPluginConfig::IsInitialized() const {
+
+  return true;
+}
+
+void pbPluginConfig::Swap(pbPluginConfig* other) {
+  if (other != this) {
+    std::swap(servertype_, other->servertype_);
+    serverplugins_.Swap(&other->serverplugins_);
+    serverlist_.Swap(&other->serverlist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata pbPluginConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = pbPluginConfig_descriptor_;
+  metadata.reflection = pbPluginConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int pbNFServerConfig::kServerIdFieldNumber;
 const int pbNFServerConfig::kServerTypeFieldNumber;
 const int pbNFServerConfig::kServerNameFieldNumber;
@@ -2923,6 +3231,7 @@ const int pbNFServerConfig::kMysqlPortFieldNumber;
 const int pbNFServerConfig::kMysqlDbNameFieldNumber;
 const int pbNFServerConfig::kMysqlUserFieldNumber;
 const int pbNFServerConfig::kMysqlPasswordFieldNumber;
+const int pbNFServerConfig::kDefaultDBNameFieldNumber;
 const int pbNFServerConfig::kRedisIpFieldNumber;
 const int pbNFServerConfig::kRedisPortFieldNumber;
 const int pbNFServerConfig::kRedisPassFieldNumber;
@@ -2979,6 +3288,7 @@ void pbNFServerConfig::SharedCtor() {
   mysqldbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   mysqluser_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  defaultdbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   redisport_ = 0u;
   redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -3039,6 +3349,9 @@ void pbNFServerConfig::SharedDtor() {
   }
   if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
     delete mysqlpassword_;
+  }
+  if (defaultdbname_ != &::google::protobuf::internal::kEmptyString) {
+    delete defaultdbname_;
   }
   if (redisip_ != &::google::protobuf::internal::kEmptyString) {
     delete redisip_;
@@ -3175,14 +3488,19 @@ void pbNFServerConfig::Clear() {
         mysqlpassword_->clear();
       }
     }
+    if (has_defaultdbname()) {
+      if (defaultdbname_ != &::google::protobuf::internal::kEmptyString) {
+        defaultdbname_->clear();
+      }
+    }
     if (has_redisip()) {
       if (redisip_ != &::google::protobuf::internal::kEmptyString) {
         redisip_->clear();
       }
     }
-    redisport_ = 0u;
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    redisport_ = 0u;
     if (has_redispass()) {
       if (redispass_ != &::google::protobuf::internal::kEmptyString) {
         redispass_->clear();
@@ -3702,6 +4020,23 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(602)) goto parse_DefaultDBName;
+        break;
+      }
+
+      // optional string DefaultDBName = 75;
+      case 75: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_DefaultDBName:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_defaultdbname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->defaultdbname().data(), this->defaultdbname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectTag(642)) goto parse_RedisIp;
         break;
       }
@@ -4066,6 +4401,15 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       74, this->mysqlpassword(), output);
   }
 
+  // optional string DefaultDBName = 75;
+  if (has_defaultdbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->defaultdbname().data(), this->defaultdbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      75, this->defaultdbname(), output);
+  }
+
   // optional string RedisIp = 80;
   if (has_redisip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4355,6 +4699,16 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         74, this->mysqlpassword(), target);
   }
 
+  // optional string DefaultDBName = 75;
+  if (has_defaultdbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->defaultdbname().data(), this->defaultdbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        75, this->defaultdbname(), target);
+  }
+
   // optional string RedisIp = 80;
   if (has_redisip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4638,6 +4992,13 @@ int pbNFServerConfig::ByteSize() const {
           this->mysqlpassword());
     }
 
+    // optional string DefaultDBName = 75;
+    if (has_defaultdbname()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->defaultdbname());
+    }
+
     // optional string RedisIp = 80;
     if (has_redisip()) {
       total_size += 2 +
@@ -4645,6 +5006,8 @@ int pbNFServerConfig::ByteSize() const {
           this->redisip());
     }
 
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional uint32 RedisPort = 81;
     if (has_redisport()) {
       total_size += 2 +
@@ -4652,8 +5015,6 @@ int pbNFServerConfig::ByteSize() const {
           this->redisport());
     }
 
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional string RedisPass = 82;
     if (has_redispass()) {
       total_size += 2 +
@@ -4819,14 +5180,17 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_mysqlpassword()) {
       set_mysqlpassword(from.mysqlpassword());
     }
+    if (from.has_defaultdbname()) {
+      set_defaultdbname(from.defaultdbname());
+    }
     if (from.has_redisip()) {
       set_redisip(from.redisip());
     }
+  }
+  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_redisport()) {
       set_redisport(from.redisport());
     }
-  }
-  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_redispass()) {
       set_redispass(from.redispass());
     }
@@ -4898,6 +5262,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(mysqldbname_, other->mysqldbname_);
     std::swap(mysqluser_, other->mysqluser_);
     std::swap(mysqlpassword_, other->mysqlpassword_);
+    std::swap(defaultdbname_, other->defaultdbname_);
     std::swap(redisip_, other->redisip_);
     std::swap(redisport_, other->redisport_);
     std::swap(redispass_, other->redispass_);
@@ -4918,209 +5283,6 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = pbNFServerConfig_descriptor_;
   metadata.reflection = pbNFServerConfig_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int pbNFServerConfigList::kListFieldNumber;
-#endif  // !_MSC_VER
-
-pbNFServerConfigList::pbNFServerConfigList()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void pbNFServerConfigList::InitAsDefaultInstance() {
-}
-
-pbNFServerConfigList::pbNFServerConfigList(const pbNFServerConfigList& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void pbNFServerConfigList::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-pbNFServerConfigList::~pbNFServerConfigList() {
-  SharedDtor();
-}
-
-void pbNFServerConfigList::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void pbNFServerConfigList::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* pbNFServerConfigList::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return pbNFServerConfigList_descriptor_;
-}
-
-const pbNFServerConfigList& pbNFServerConfigList::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
-  return *default_instance_;
-}
-
-pbNFServerConfigList* pbNFServerConfigList::default_instance_ = NULL;
-
-pbNFServerConfigList* pbNFServerConfigList::New() const {
-  return new pbNFServerConfigList;
-}
-
-void pbNFServerConfigList::Clear() {
-  list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool pbNFServerConfigList::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.pbNFServerConfig list = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_list:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_list;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void pbNFServerConfigList::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.pbNFServerConfig list = 1;
-  for (int i = 0; i < this->list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* pbNFServerConfigList::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.pbNFServerConfig list = 1;
-  for (int i = 0; i < this->list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int pbNFServerConfigList::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.pbNFServerConfig list = 1;
-  total_size += 1 * this->list_size();
-  for (int i = 0; i < this->list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void pbNFServerConfigList::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const pbNFServerConfigList* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pbNFServerConfigList*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void pbNFServerConfigList::MergeFrom(const pbNFServerConfigList& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  list_.MergeFrom(from.list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void pbNFServerConfigList::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void pbNFServerConfigList::CopyFrom(const pbNFServerConfigList& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool pbNFServerConfigList::IsInitialized() const {
-
-  return true;
-}
-
-void pbNFServerConfigList::Swap(pbNFServerConfigList* other) {
-  if (other != this) {
-    list_.Swap(&other->list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata pbNFServerConfigList::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pbNFServerConfigList_descriptor_;
-  metadata.reflection = pbNFServerConfigList_reflection_;
   return metadata;
 }
 

@@ -72,7 +72,6 @@ void pbMysqlConfig_s::write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const {
 }
 
 void pbMysqlConfig_s::read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg) {
-	memset(this, 0, sizeof(struct pbMysqlConfig_s));
 	MysqlIp = msg.mysqlip();
 	MysqlPort = msg.mysqlport();
 	MysqlDbName = msg.mysqldbname();
@@ -100,7 +99,6 @@ void pbRedisConfig_s::write_to_pbmsg(::proto_ff::pbRedisConfig & msg) const {
 }
 
 void pbRedisConfig_s::read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg) {
-	memset(this, 0, sizeof(struct pbRedisConfig_s));
 	RedisIp = msg.redisip();
 	RedisPort = msg.redisport();
 	RedisPass = msg.redispass();
@@ -128,7 +126,6 @@ void pbRouteConfig_s::write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const {
 }
 
 void pbRouteConfig_s::read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg) {
-	memset(this, 0, sizeof(struct pbRouteConfig_s));
 	MasterIp = msg.masterip();
 	MasterPort = msg.masterport();
 	NamingHost = msg.naminghost();
@@ -172,7 +169,6 @@ void pbNetConfig_s::write_to_pbmsg(::proto_ff::pbNetConfig & msg) const {
 }
 
 void pbNetConfig_s::read_from_pbmsg(const ::proto_ff::pbNetConfig & msg) {
-	memset(this, 0, sizeof(struct pbNetConfig_s));
 	ServerIp = msg.serverip();
 	ServerPort = msg.serverport();
 	ExternalServerIp = msg.externalserverip();
@@ -184,6 +180,41 @@ void pbNetConfig_s::read_from_pbmsg(const ::proto_ff::pbNetConfig & msg) {
 	Security = msg.security();
 	WebSocket = msg.websocket();
 	mParseType = msg.mparsetype();
+}
+
+pbPluginConfig_s::pbPluginConfig_s() {
+	CreateInit();
+}
+
+int pbPluginConfig_s::CreateInit() {
+	ServerType = (uint32_t)0;
+	return 0;
+}
+
+int pbPluginConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbPluginConfig_s::write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const {
+	msg.set_servertype((uint32_t)ServerType);
+	for(int32_t i = 0; i < (int32_t)ServerPlugins.size(); ++i) {
+		msg.add_serverplugins(ServerPlugins[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
+		msg.add_serverlist(ServerList[i]);
+	}
+}
+
+void pbPluginConfig_s::read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg) {
+	ServerType = msg.servertype();
+	ServerPlugins.resize(msg.serverplugins_size());
+	for(int32_t i = 0; i < (int32_t)ServerPlugins.size(); ++i) {
+		ServerPlugins[i] = msg.serverplugins(i);
+	}
+	ServerList.resize(msg.serverlist_size());
+	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
+		ServerList[i] = msg.serverlist(i);
+	}
 }
 
 pbNFServerConfig_s::pbNFServerConfig_s() {
@@ -248,6 +279,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_mysqldbname(MysqlDbName);
 	msg.set_mysqluser(MysqlUser);
 	msg.set_mysqlpassword(MysqlPassword);
+	msg.set_defaultdbname(DefaultDBName);
 	msg.set_redisip(RedisIp);
 	msg.set_redisport((uint32_t)RedisPort);
 	msg.set_redispass(RedisPass);
@@ -259,7 +291,6 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 }
 
 void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg) {
-	memset(this, 0, sizeof(struct pbNFServerConfig_s));
 	ServerId = msg.serverid();
 	ServerType = msg.servertype();
 	ServerName = msg.servername();
@@ -290,6 +321,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	MysqlDbName = msg.mysqldbname();
 	MysqlUser = msg.mysqluser();
 	MysqlPassword = msg.mysqlpassword();
+	DefaultDBName = msg.defaultdbname();
 	RedisIp = msg.redisip();
 	RedisPort = msg.redisport();
 	RedisPass = msg.redispass();
@@ -298,34 +330,6 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	MaxOnlinePlayerNum = msg.maxonlineplayernum();
 	HeartBeatTimeout = msg.heartbeattimeout();
 	ClientKeepAliveTimeout = msg.clientkeepalivetimeout();
-}
-
-pbNFServerConfigList_s::pbNFServerConfigList_s() {
-	CreateInit();
-}
-
-int pbNFServerConfigList_s::CreateInit() {
-	return 0;
-}
-
-int pbNFServerConfigList_s::ResumeInit() {
-	return 0;
-}
-
-void pbNFServerConfigList_s::write_to_pbmsg(::proto_ff::pbNFServerConfigList & msg) const {
-	for(int32_t i = 0; i < (int32_t)list.size(); ++i) {
-		::proto_ff::pbNFServerConfig* temp_list = msg.add_list();
-		list[i].write_to_pbmsg(*temp_list);
-	}
-}
-
-void pbNFServerConfigList_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfigList & msg) {
-	memset(this, 0, sizeof(struct pbNFServerConfigList_s));
-	list.resize(msg.list_size());
-	for(int32_t i = 0; i < (int32_t)list.size(); ++i) {
-		const ::proto_ff::pbNFServerConfig & temp_list = msg.list(i);
-		list[i].read_from_pbmsg(temp_list);
-	}
 }
 
 }

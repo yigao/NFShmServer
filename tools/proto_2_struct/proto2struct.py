@@ -349,7 +349,8 @@ def write_cppfile():
 		"""--------------------------------------------------------------------"""
 		#read_from_pbmsg
 		cpp_file.write("void %s_s::%s {\n" % (message_desc.name, message_desc.func_read_from_pbmsg))
-		cpp_file.write("\tmemset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
+		if message_desc.use_stl == False:
+			cpp_file.write("\tmemset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
 		for msg_field in message_desc.field_lst:
 			if msg_field.no_field == True:
 				continue

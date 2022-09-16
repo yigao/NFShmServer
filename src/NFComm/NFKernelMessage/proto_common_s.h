@@ -104,6 +104,21 @@ namespace proto_ff_s {
 	};
 	typedef struct pbNetConfig_s pbNetConfig_t;
 
+	struct pbPluginConfig_s {
+		pbPluginConfig_s();
+		int CreateInit();
+		int ResumeInit();
+		uint32_t ServerType;
+		std::vector<std::string> ServerPlugins;
+		std::vector<std::string> ServerList;
+
+		void write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const;
+		void read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg);
+		static ::proto_ff::pbPluginConfig* new_pbmsg(){ return new ::proto_ff::pbPluginConfig(); }
+		static ::proto_ff::pbPluginConfig make_pbmsg(){ return ::proto_ff::pbPluginConfig(); }
+	};
+	typedef struct pbPluginConfig_s pbPluginConfig_t;
+
 	struct pbNFServerConfig_s {
 		pbNFServerConfig_s();
 		int CreateInit();
@@ -138,6 +153,7 @@ namespace proto_ff_s {
 		std::string MysqlDbName;
 		std::string MysqlUser;
 		std::string MysqlPassword;
+		std::string DefaultDBName;
 		std::string RedisIp;
 		uint32_t RedisPort;
 		std::string RedisPass;
@@ -153,19 +169,6 @@ namespace proto_ff_s {
 		static ::proto_ff::pbNFServerConfig make_pbmsg(){ return ::proto_ff::pbNFServerConfig(); }
 	};
 	typedef struct pbNFServerConfig_s pbNFServerConfig_t;
-
-	struct pbNFServerConfigList_s {
-		pbNFServerConfigList_s();
-		int CreateInit();
-		int ResumeInit();
-		std::vector<struct pbNFServerConfig_s> list;
-
-		void write_to_pbmsg(::proto_ff::pbNFServerConfigList & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbNFServerConfigList & msg);
-		static ::proto_ff::pbNFServerConfigList* new_pbmsg(){ return new ::proto_ff::pbNFServerConfigList(); }
-		static ::proto_ff::pbNFServerConfigList make_pbmsg(){ return ::proto_ff::pbNFServerConfigList(); }
-	};
-	typedef struct pbNFServerConfigList_s pbNFServerConfigList_t;
 
 }
 

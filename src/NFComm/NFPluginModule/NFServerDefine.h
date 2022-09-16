@@ -23,22 +23,22 @@
 
 enum NF_SERVER_TYPES
 {
-	NF_ST_NONE = 0, // NONE
-	NF_ST_MASTER_SERVER = 1, //
-	NF_ST_LOGIN_SERVER = 2, //
-	NF_ST_WORLD_SERVER = 3, //
-	NF_ST_GAME_SERVER = 4, //
-	NF_ST_PROXY_SERVER = 5, //
-	NF_ST_ROUTE_AGENT_SERVER = 6, //路由代理服务器  负责同一台机子服务器数据之间的转发
-	NF_ST_ROUTE_SERVER = 7, //路由集群服务器 负责不同机子服务器数据之间的转发
-	NF_ST_STORE_SERVER = 8, //DB服务器
-	NF_ST_SNS_SERVER = 9, //SNS服务器
-	NF_ST_LOGIC_SERVER = 10, //Logic服务器
-	NF_ST_WEB_SERVER = 11, //Web服务器
-	NF_ST_MONITOR_SERVER = 12, //Monitor服务器
-    NF_ST_PROXY_AGENT_SERVER = 13, //Proxy 路由代理服务器 负责同一台机子客户端与服务器数据之间的转发
-    NF_ST_PROXY_SERVER_FOR_CLIENT = 14, //网关服务器对客户端的端口
-	NF_ST_MAX = 20, //
+    NF_ST_NONE = 0,    		// NONE
+    NF_ST_MASTER_SERVER = 1,
+    NF_ST_ROUTE_AGENT_SERVER = 2, //路由代理服务器  负责同一台机子服务器数据之间的转发
+    NF_ST_ROUTE_SERVER = 3, //路由集群服务器 负责不同机子服务器数据之间的转发
+    NF_ST_PROXY_SERVER = 4,
+    NF_ST_PROXY_SERVER_FOR_CLIENT = 5, //网关服务器对客户端的端口
+    NF_ST_PROXY_AGENT_SERVER = 6, //Proxy 路由代理服务器 负责同一台机子客户端与服务器数据之间的转发
+    NF_ST_STORE_SERVER = 7, //DB服务器
+    NF_ST_LOGIN_SERVER = 8,
+    NF_ST_WORLD_SERVER = 9,
+    NF_ST_LOGIC_SERVER = 10, //Logic服务器
+    NF_ST_GAME_SERVER = 11,
+    NF_ST_SNS_SERVER = 12, //SNS服务器
+    NF_ST_WEB_SERVER = 13, //Web服务器
+    NF_ST_MONITOR_SERVER = 14, //Monitor服务器
+    NF_ST_MAX = 20,
 };
 
 enum NF_MODULE_TYPE {
@@ -88,26 +88,26 @@ enum {
 #define NF_CLIENT_TO_SERVER_HEART_BEAT_RSP 1010
 
 const std::string gArrayServer[NF_ST_MAX] = {
-	"NoneServer",
-	"MasterServer",
-	"LoginServer",
-	"WorldServer",
-	"GameServer",
-	"ProxyServer",
-	"RouteAgentServer",
-	"RouteServer",
-	"StoreServer",
-	"SnsServer",
-	"LogicServer",
-	"WebServer",
-	"MonitorServer",
-	"ProxyAgentServer",
-	"NoneServer",
-	"NoneServer",
-	"NoneServer",
-	"NoneServer",
-	"NoneServer",
-	"NoneServer",
+        "NoneServer",
+        "MasterServer", //1
+        "RouteAgentServer", //2
+        "RouteServer", //3
+        "ProxyServer", //4
+        "ProxyServerForClient", //5
+        "ProxyAgentServer", //6
+        "StoreServer", //7
+        "LoginServer", //8
+        "WorldServer", //9
+        "LogicServer", //10
+        "GameServer", //11
+        "SnsServer", //12
+        "WebServer", //13
+        "MonitorServer", //14
+        "NoneServer",
+        "NoneServer",
+        "NoneServer",
+        "NoneServer",
+        "NoneServer",
 };
 
 std::string GetServerName(NF_SERVER_TYPES serverId);

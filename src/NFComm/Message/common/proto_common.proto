@@ -76,6 +76,13 @@ message pbNetConfig
 	optional uint32 mParseType = 11;  //协议解析方式, 默认值0，是标准内网协议
 }
 
+message pbPluginConfig
+{
+	optional uint32 ServerType = 1[(yd_fieldoptions.field_use_stl)=true];
+	repeated string ServerPlugins = 2;
+	repeated string ServerList = 3;
+}
+
 message pbNFServerConfig
 {
 	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true]; //服务器唯一ID like:1.1.1.1
@@ -128,8 +135,4 @@ message pbNFServerConfig
 	optional uint32 MaxOnlinePlayerNum = 100;
 	optional uint32 HeartBeatTimeout = 101;
 	optional uint32 ClientKeepAliveTimeout = 102;
-}
-
-message pbNFServerConfigList {
-	repeated pbNFServerConfig list = 1[(yd_fieldoptions.field_use_stl)=true];
 }

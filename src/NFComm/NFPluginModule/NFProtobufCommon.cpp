@@ -949,20 +949,101 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
         else {
             if (luaRef.isTable())
             {
-                for (auto iter = luaRef.begin(); iter != luaRef.end(); ++iter) {
-                    NFLuaRef iterRef = iter.value();
-                    if (!iterRef.isTable() && (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE))
-                    {
-                        std::string value = iterRef.toValue<std::string>();
-                        NFProtobufCommon::AddFieldsString(*pMessageObject, pFieldDesc, value);
-                    }
-                    else if (iterRef.isTable() && (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)) {
-                        const google::protobuf::Descriptor* pSubDescriptor = pFieldDesc->message_type();
-                        if (pSubDescriptor == NULL) continue;
-                        ::google::protobuf::Message* pSubMessageObject = pMessageObjectReflect->AddMessage(pMessageObject, pFieldDesc);
-                        if (pSubMessageObject == NULL) continue;
+                std::string field = pFieldDesc->name();
+                NFLuaRef listRef;
+                if (!NFILuaModule::GetLuaTableValue(luaRef, field, listRef))
+                {
+                    continue;
+                }
 
-                        LuaToProtoMessage(iterRef, pSubMessageObject);
+                for (int j = 1; j <= listRef.len(); j++) {
+                    switch (pFieldDesc->cpp_type())
+                    {
+                        case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+                        {
+                            int32_t value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddInt32(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+                        {
+                            int64_t value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddInt64(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+                        {
+                            uint32_t value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddUInt32(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+                        {
+                            uint64_t value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddUInt64(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+                        {
+                            double value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddDouble(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+                        {
+                            float value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddFloat(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+                        {
+                            bool value = false;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddBool(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+                        {
+                            int value = 0;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                const google::protobuf::EnumDescriptor* pEnumDesc = pFieldDesc->enum_type();
+                                const google::protobuf::EnumValueDescriptor* pEnumValueDesc = pEnumDesc->FindValueByNumber(value);
+                                pReflect->AddEnum(pMessageObject, pFieldDesc, pEnumValueDesc);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+                        {
+                            std::string value;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                pReflect->AddString(pMessageObject, pFieldDesc, value);
+                            }
+                        }
+                        break;
+                        case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
+                        {
+                            NFLuaRef value;
+                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                                google::protobuf::Message* pSubMessage = pReflect->AddMessage(pMessageObject, pFieldDesc);
+                                LuaToProtoMessage(value, pSubMessage);
+                            }
+                        }
+                        break;
+                        default:
+                            break;
                     }
                 }
             }
