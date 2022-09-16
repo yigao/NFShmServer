@@ -183,13 +183,11 @@ public:
 
 	virtual NFIPlugin* FindPlugin(const std::string& strPluginName) = 0;
 
-	virtual int AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) = 0;
+	virtual int AddModule(const std::string& strModuleName, NFIModule* pModule) = 0;
 
 	virtual void RemoveModule(const std::string& strModuleName) = 0;
 
 	virtual NFIModule* FindModule(const std::string& strModuleName) = 0;
-
-	virtual NFIModule* FindModule(uint32_t moduleId) = 0;
 
 	virtual bool LoadAllPlugin() = 0;
 

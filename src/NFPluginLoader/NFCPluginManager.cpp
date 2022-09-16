@@ -89,8 +89,6 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager()
 
     m_idleSleepUs = 1000;
 
-    m_nModuleListMap.resize(NF_PLUGIN_MDOULE_MAX);
-
 	g_GetGlobalServerTime()->Init(m_nFrame);
 
 	NFRandomSeed();
@@ -534,14 +532,6 @@ void NFCPluginManager::RemoveModule(const std::string& strModuleName)
 	{
 		m_nModuleInstanceMap.erase(it);
 	}
-}
-
-NFIModule* NFCPluginManager::FindModule(uint32_t moduleId)
-{
-    CHECK_EXPR(moduleId < NF_PLUGIN_MDOULE_MAX, NULL, "moduleId:{} < NF_PLUGIN_MDOULE_MAX", moduleId);
-    NFIModule* pModule = m_nModuleListMap[moduleId];
-    CHECK_EXPR(pModule != NULL, NULL, "pModule != NULL, moduleId:{} not exist", moduleId);
-    return pModule;
 }
 
 NFIModule* NFCPluginManager::FindModule(const std::string& strModuleName)

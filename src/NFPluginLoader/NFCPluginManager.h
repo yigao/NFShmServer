@@ -81,8 +81,6 @@ public:
 
 	virtual NFIModule* FindModule(const std::string& strModuleName) override;
 
-    virtual NFIModule* FindModule(uint32_t moduleId) override;
-
 	virtual bool LoadAllPlugin() override;
 	virtual bool LoadPluginLibrary(const std::string& strPluginDLLName) override;
 	virtual bool UnLoadPluginLibrary(const std::string& strPluginDLLName) override;
@@ -226,7 +224,6 @@ private:
 	typedef std::map<std::string, NFIPlugin*> PluginInstanceMap;
 	typedef std::list<NFIPlugin*> PluginInstanceList;
 	typedef std::map<std::string, NFIModule*> ModuleInstanceMap;
-    typedef std::vector<NFIModule*> ModuleListMap;
 	typedef std::map<std::string, CREATE_PLUGIN_FUNCTION> PluginFuncMap; //静态加载Plugin, 先注册创建函数
 
 	typedef void (*DLL_START_PLUGIN_FUNC)(NFIPluginManager* pm);
@@ -237,7 +234,6 @@ private:
 	PluginInstanceMap m_nPluginInstanceMap;
 	PluginInstanceList m_nPluginInstanceList;
 	ModuleInstanceMap m_nModuleInstanceMap;
-    ModuleListMap m_nModuleListMap;
 	PluginFuncMap m_nPluginFuncMap; ////静态加载Plugin, 先注册创建和销毁函数
 
 	NFProfiler m_profilerMgr;
