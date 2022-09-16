@@ -181,23 +181,32 @@ public:
     template <typename T>
     T* FindModule()
     {
-        NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
-        if (pLogicModule)
+        static T* pStaticModule = NULL;
+        if (pStaticModule == NULL)
         {
-            if (!TIsDerived<T, NFIModule>::Result)
+            NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
+            if (pLogicModule)
             {
-                return nullptr;
-            }
+                if (!TIsDerived<T, NFIModule>::Result)
+                {
+                    return nullptr;
+                }
 
-            //TODO OSX上dynamic_cast返回了NULL
+                //TODO OSX上dynamic_cast返回了NULL
 #if NF_PLATFORM == NF_PLATFORM_APPLE
-            T* pT = (T*)pLogicModule;
+                T* pT = (T*)pLogicModule;
 #else
-            T* pT = dynamic_cast<T*>(pLogicModule);
+                T* pT = dynamic_cast<T*>(pLogicModule);
 #endif
-            return pT;
+
+                pStaticModule = pT;
+                return pT;
+            }
+            return nullptr;
         }
-        return nullptr;
+        else {
+            return pStaticModule;
+        }
     }
 protected:
 

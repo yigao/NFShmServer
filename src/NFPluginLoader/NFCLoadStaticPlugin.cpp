@@ -90,29 +90,29 @@ bool NFCPluginManager::LoadKernelPlugin()
 	/*
 		log 系统第一个启动，然后是配置
 	*/
-	((NFIPluginManager*)this)->FindModule<NFILogModule>()->InitLogSystem();
+	FindModule<NFILogModule>()->InitLogSystem();
 	/*
 		加载服务器配置
 	*/
-	((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->LoadConfig();
+	FindModule<NFIConfigModule>()->LoadConfig();
 	/*
 		log 加载配置
 	*/
-	((NFIPluginManager*)this)->FindModule<NFILogModule>()->SetDefaultLogConfig();
+	FindModule<NFILogModule>()->SetDefaultLogConfig();
 
     /*
         启动多线程任务系统
     */
     if (IsLoadAllServer())
     {
-        ((NFIPluginManager*)this)->FindModule<NFITaskModule>()->InitActorThread(1);
+        FindModule<NFITaskModule>()->InitActorThread(1);
     }
     else
     {
-        NFServerConfig* pConfig = ((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);
 
-        ((NFIPluginManager*)this)->FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
+        FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
     }
 	return true;
 }
