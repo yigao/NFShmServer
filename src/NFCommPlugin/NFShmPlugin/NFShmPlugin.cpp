@@ -69,7 +69,7 @@ void NFShmPlugin::Uninstall()
 bool NFShmPlugin::InitShmObjectRegister()
 {
     uint32_t maxOnlinePlayerNum = 100;
-    if (!NFIPluginManager::Instance()->IsLoadAllServer())
+    if (!m_pPluginManager->IsLoadAllServer())
     {
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);

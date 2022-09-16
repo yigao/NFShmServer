@@ -76,7 +76,7 @@ bool NFCDescStoreModule::OnReloadPlugin() {
 
 int NFCDescStoreModule::InitDestStoreDB(const std::string &serverId, const std::string &hostip, int port, const std::string &dbname, const std::string &user,
                                         const std::string &pass) {
-	NFIAsyMysqlModule *pAsyMysqlModule = NFIPluginManager::Instance()->FindModule<NFIAsyMysqlModule>();
+	NFIAsyMysqlModule *pAsyMysqlModule = FindModule<NFIAsyMysqlModule>();
 	CHECK_EXPR(pAsyMysqlModule, -1, "NFIPluginManager::Instance()->FindModule<NFIAsyMysqlModule>() == NULL");
 	
 	int iRet = pAsyMysqlModule->AddMysqlServer(serverId, hostip, port, dbname, user, pass);
