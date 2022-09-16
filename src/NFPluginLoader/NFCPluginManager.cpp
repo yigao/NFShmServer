@@ -539,12 +539,15 @@ NFIModule* NFCPluginManager::FindModule(const std::string& strModuleName)
 	std::string strSubModuleName = strModuleName;
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
+	/*
 	std::size_t position = strSubModuleName.find(' ');
 	if (string::npos != position)
 	{
 		strSubModuleName = strSubModuleName.substr(position + 1, strSubModuleName.length());
 	}
+	*/
 #else
+	/*
 	for (int i = 0; i < (int)strSubModuleName.length(); i++)
 	{
 		std::string s = strSubModuleName.substr(0, i + 1);
@@ -555,6 +558,7 @@ NFIModule* NFCPluginManager::FindModule(const std::string& strModuleName)
 			break;
 		}
 	}
+	*/
 #endif
 
 	ModuleInstanceMap::iterator it = m_nModuleInstanceMap.find(strSubModuleName);

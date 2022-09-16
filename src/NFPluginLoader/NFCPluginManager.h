@@ -219,12 +219,12 @@ private:
 	std::string m_strParam;
 	std::string m_iMachineAddrMD5;
 
-	typedef std::map<std::string, NFCDynLib*> PluginLibMap;
+	typedef std::unordered_map<std::string, NFCDynLib*> PluginLibMap;
 	typedef std::vector<std::string> PluginNameVec;
-	typedef std::map<std::string, NFIPlugin*> PluginInstanceMap;
+	typedef std::unordered_map<std::string, NFIPlugin*> PluginInstanceMap;
 	typedef std::list<NFIPlugin*> PluginInstanceList;
-	typedef std::map<std::string, NFIModule*> ModuleInstanceMap;
-	typedef std::map<std::string, CREATE_PLUGIN_FUNCTION> PluginFuncMap; //静态加载Plugin, 先注册创建函数
+	typedef std::unordered_map<std::string, NFIModule*> ModuleInstanceMap;
+	typedef std::unordered_map<std::string, CREATE_PLUGIN_FUNCTION> PluginFuncMap; //静态加载Plugin, 先注册创建函数
 
 	typedef void (*DLL_START_PLUGIN_FUNC)(NFIPluginManager* pm);
 	typedef void (*DLL_STOP_PLUGIN_FUNC)(NFIPluginManager* pm);
