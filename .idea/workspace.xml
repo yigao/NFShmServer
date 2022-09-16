@@ -21,7 +21,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -306,28 +310,7 @@
       <workItem from="1663235833757" duration="8850000" />
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
-      <workItem from="1663338610780" duration="1298000" />
-    </task>
-    <task id="LOCAL-00068" summary="frame">
-      <created>1654874708814</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874708814</updated>
-    </task>
-    <task id="LOCAL-00069" summary="frame">
-      <created>1654877392390</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1654877392390</updated>
-    </task>
-    <task id="LOCAL-00070" summary="frame">
-      <created>1654940727501</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1654940727502</updated>
+      <workItem from="1663338610780" duration="2740000" />
     </task>
     <task id="LOCAL-00071" summary="frame">
       <created>1654943826294</created>
@@ -651,7 +634,28 @@
       <option name="project" value="LOCAL" />
       <updated>1663339919936</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="chong gou">
+      <created>1663340783298</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1663340783298</updated>
+    </task>
+    <task id="LOCAL-00118" summary="chong gou">
+      <created>1663340992248</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1663340992248</updated>
+    </task>
+    <task id="LOCAL-00119" summary="chong gou">
+      <created>1663341375029</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1663341375029</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -767,16 +771,6 @@
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
           <line>69</line>
           <option name="timeStamp" value="248" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h</url>
-          <line>189</line>
-          <option name="timeStamp" value="255" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h</url>
-          <line>198</line>
-          <option name="timeStamp" value="256" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py</url>

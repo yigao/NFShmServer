@@ -144,7 +144,7 @@ public:
     T* FindModule()
     {
         static T* pStaticModule = NULL;
-        if (pStaticModule == NULL)
+        if (IsLoadAllServer())
         {
             NFIModule* pLogicModule = FindModule(typeid(T).name());
             if (pLogicModule)
@@ -167,7 +167,31 @@ public:
             return nullptr;
         }
         else {
-            return pStaticModule;
+            if (pStaticModule == NULL)
+            {
+                NFIModule* pLogicModule = FindModule(typeid(T).name());
+                if (pLogicModule)
+                {
+                    if (!TIsDerived<T, NFIModule>::Result)
+                    {
+                        return nullptr;
+                    }
+
+                    //TODO OSX上dynamic_cast返回了NULL
+#if NF_PLATFORM == NF_PLATFORM_APPLE
+                    T* pT = (T*)pLogicModule;
+#else
+                    T* pT = dynamic_cast<T*>(pLogicModule);
+#endif
+
+                    pStaticModule = pT;
+                    return pT;
+                }
+                return nullptr;
+            }
+            else {
+                return pStaticModule;
+            }
         }
     }
 
