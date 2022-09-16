@@ -418,7 +418,7 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
 
 std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
+    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->MysqlDbName;
@@ -428,7 +428,7 @@ std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 
 std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
+    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisIp;
@@ -438,7 +438,7 @@ std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
 
 uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
+    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisPort;
@@ -448,7 +448,7 @@ uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
 
 std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(nfServerTypes);
+    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisPass;

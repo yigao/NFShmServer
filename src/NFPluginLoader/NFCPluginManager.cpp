@@ -229,7 +229,7 @@ inline bool NFCPluginManager::Init()
 
 bool NFCPluginManager::LoadPluginConfig()
 {
-	NFPluginConfig* pConfig = NFConfigMgr::Instance()->GetPluginConfig(m_strAppName);
+	NFPluginConfig* pConfig = ((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->GetPluginConfig(m_strAppName);
 	if (pConfig == nullptr)
 	{
 		NF_ASSERT_MSG(0, "There are no plugin:" + m_strAppName);
@@ -1205,7 +1205,7 @@ int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
 {
     if (IsLoadAllServer()) return 0;
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+    NFServerConfig* pConfig = ((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
 //    proto_ff::Proto_STMasterServerDumpInfoNtf ntf;

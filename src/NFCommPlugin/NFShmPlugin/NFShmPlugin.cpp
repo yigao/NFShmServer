@@ -71,7 +71,7 @@ bool NFShmPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = 100;
     if (!NFIPluginManager::Instance()->IsLoadAllServer())
     {
-        NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);
 
         maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;

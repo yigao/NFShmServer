@@ -694,7 +694,7 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
     CHECK_EXPR(eSendType < mServerLinkData.size(), -1, "eType error:{}", (int) eSendType);
     ServerLinkData& linkData = mServerLinkData[eSendType];
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(eSendType);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eSendType);
     CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eSendType));
 
     uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId);

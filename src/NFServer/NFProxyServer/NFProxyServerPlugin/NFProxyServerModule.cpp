@@ -44,7 +44,7 @@ bool NFCProxyServerModule::Awake()
     //注册要完成的服务器启动任务
     m_pPluginManager->RegisterAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER, PROXY_SERVER_CONNECT_MASTER_SERVER);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig) {
         m_pPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
 
@@ -111,7 +111,7 @@ void NFCProxyServerModule::OnTimer(uint32_t nTimerID)
 
 int NFCProxyServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig)
     {
         auto pMsterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_PROXY_SERVER);
@@ -140,7 +140,7 @@ bool NFCProxyServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig && pConfig->NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_PROXY_SERVER);
@@ -263,7 +263,7 @@ int NFCProxyServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, const NF
 int NFCProxyServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -304,7 +304,7 @@ int NFCProxyServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -385,7 +385,7 @@ int NFCProxyServerModule::OnHandleProxyAgentServerReport(uint64_t unLinkId, cons
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_NULL(pConfig);
 
     for (int i = 0; i < xMsg.server_list_size(); ++i)
@@ -460,7 +460,7 @@ int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, con
 int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;

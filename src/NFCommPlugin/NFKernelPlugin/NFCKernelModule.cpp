@@ -84,7 +84,7 @@ bool NFCKernelModule::Init()
 {
     if (!m_pPluginManager->IsLoadAllServer())
     {
-        NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         if (pConfig)
         {
             NFMessageMgr::Instance()->AddMessageCallBack((NF_SERVER_TYPES)pConfig->ServerType, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, this, &NFCKernelModule::OnKillServerProcess);

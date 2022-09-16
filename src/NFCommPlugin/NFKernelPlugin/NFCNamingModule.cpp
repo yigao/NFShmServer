@@ -68,7 +68,7 @@ bool NFCNamingModule::OnReloadPlugin()
 
 proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES eServerType)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     if (pConfig)
     {
         proto_ff::ServerInfoReport xData;
@@ -100,7 +100,7 @@ proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES
 int32_t NFCNamingModule::InitAppInfo(NF_SERVER_TYPES eServerType, int time_out_ms)
 {
     int32_t ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     if (m_pPluginManager->IsLoadAllServer())
@@ -142,7 +142,7 @@ int32_t NFCNamingModule::RegisterAppInfo(NF_SERVER_TYPES eServerType)
     }
 
     int32_t ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string busPath = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/busUrl/" + NFCommon::tostr(pConfig->BusId);
@@ -266,7 +266,7 @@ int32_t NFCNamingModule::RegisterAppInfo(NF_SERVER_TYPES eServerType)
 
 int32_t NFCNamingModule::ClearDBInfo(NF_SERVER_TYPES eServerType)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::vector<std::string> vec;
@@ -289,7 +289,7 @@ int32_t NFCNamingModule::ClearDBInfo(NF_SERVER_TYPES eServerType)
 int32_t NFCNamingModule::GetDBInfoByName(NF_SERVER_TYPES eServerType, std::vector<std::string>& tcpUrlVec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string path = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/DBNames/" + NFCommon::tostr(pConfig->BusId);
@@ -303,7 +303,7 @@ int32_t NFCNamingModule::GetDBInfoByName(NF_SERVER_TYPES eServerType, std::vecto
 int32_t NFCNamingModule::RegisterDBInfo(NF_SERVER_TYPES eServerType, const std::string& content)
 {
     int32_t ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string path = pConfig->NamingPath + "/" + GetServerName(eServerType) + "/DBNames/" + NFCommon::tostr(pConfig->BusId) + "/" + content + "/";
@@ -329,7 +329,7 @@ int32_t NFCNamingModule::RegisterDBInfo(NF_SERVER_TYPES eServerType, const std::
 int32_t NFCNamingModule::UnInitAppInfo(NF_SERVER_TYPES eServerType)
 {
     int32_t ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
     ret = UnRegister(eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType) + "/busUrl/" + NFCommon::tostr(pConfig->BusId));
     CHECK_RET(ret, "UnRegister Failed, eServerType:{} name:{}", eServerType, pConfig->NamingPath + "/" + GetServerName(eServerType));
@@ -347,7 +347,7 @@ int32_t NFCNamingModule::UnInitAppInfo(NF_SERVER_TYPES eServerType)
 int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, std::vector<std::string>& tcpUrlVec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/*";
@@ -361,7 +361,7 @@ int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
 int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t busId, std::vector<std::string>& tcpUrlVec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/" + NFCommon::tostr(busId);
@@ -375,7 +375,7 @@ int32_t NFCNamingModule::GetTcpUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
 int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, std::vector<std::string>& busUrlVec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/*";
@@ -389,7 +389,7 @@ int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
 int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t busId, std::vector<std::string>& busUrlVec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/" + NFCommon::tostr(busId);;
@@ -403,7 +403,7 @@ int32_t NFCNamingModule::GetBusUrlsByName(NF_SERVER_TYPES eServerType, NF_SERVER
 int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, std::vector<std::string>& routeAgent)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/routeAgent/*";
@@ -417,7 +417,7 @@ int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SE
 int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t busId, std::vector<std::string>& routeAgent)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/routeAgent/" + NFCommon::tostr(busId);;
@@ -431,7 +431,7 @@ int32_t NFCNamingModule::GetRouteAgentsByName(NF_SERVER_TYPES eServerType, NF_SE
 int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, std::vector<std::string>& vec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerIp/*";
@@ -445,7 +445,7 @@ int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType,
 int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t busId, std::vector<std::string>& vec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerIp/" + NFCommon::tostr(busId);;
@@ -459,7 +459,7 @@ int32_t NFCNamingModule::GetExternalServerIpsByName(NF_SERVER_TYPES eServerType,
 int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, std::vector<std::string>& vec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerPort/*";
@@ -473,7 +473,7 @@ int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerTyp
 int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t busId, std::vector<std::string>& vec)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/externalServerPort/" + NFCommon::tostr(busId);;
@@ -488,7 +488,7 @@ int32_t NFCNamingModule::GetExternalServerPortsByName(NF_SERVER_TYPES eServerTyp
 int32_t NFCNamingModule::GetDBNameByServer(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, uint32_t destBusId, std::vector<std::string>& dbName)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     std::string name = pConfig->NamingPath + "/" + GetServerName(destServerType) + "/DBNames/" + NFCommon::tostr(destBusId) + "/*";
@@ -503,7 +503,7 @@ int32_t NFCNamingModule::GetDBNameByServer(NF_SERVER_TYPES eServerType, NF_SERVE
 int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, const NFNamingServerWatchFunc& wc)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     Register(eServerType, pConfig->NamingPath + "/" + GetServerName(destServerType) + "/tcpUrl/0", "0");
@@ -702,7 +702,7 @@ int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
 int32_t NFCNamingModule::WatchBusUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServerType, const NFNamingServerWatchFunc& wc)
 {
     int ret = 0;
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(eServerType);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
     Register(eServerType, pConfig->NamingPath + "/" + GetServerName(destServerType) + "/busUrl/0", "0");

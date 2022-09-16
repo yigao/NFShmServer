@@ -109,7 +109,7 @@ bool NFCPluginManager::LoadKernelPlugin()
     }
     else
     {
-        NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+        NFServerConfig* pConfig = ((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);
 
         ((NFIPluginManager*)this)->FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);

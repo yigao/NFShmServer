@@ -65,7 +65,7 @@ bool NFCMasterServerModule::Awake()
     NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleStartAllSeverRsp);
     NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleReloadAllSeverRsp);
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
 	if (pConfig)
 	{
 		int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -135,7 +135,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDa
 #if NF_PLATFORM == NF_PLATFORM_WIN
             SynServerToOthers(pServerData);
 #else
-            NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+            NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
             if (pConfig && pConfig->NamingHost.empty())
             {
                 SynServerToOthers(pServerData);
@@ -184,7 +184,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDa
     proto_ff::Proto_STMasterServerDumpInfoNtf xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
 
     NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_MASTER_SERVER, xMsg.bus_id());
@@ -645,7 +645,7 @@ bool NFCMasterServerModule::Init() {
 }
 
 int NFCMasterServerModule::ConnectGlobalServer() {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_MASTER_SERVER);
@@ -687,7 +687,7 @@ int NFCMasterServerModule::OnGlobalSocketEvent(eMsgType nEvent, uint64_t unLinkI
 int NFCMasterServerModule::RegisterGlobalServer()
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;
@@ -739,7 +739,7 @@ int NFCMasterServerModule::ServerReport()
 
     mLastReportTime = m_pPluginManager->GetNowTime();
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;

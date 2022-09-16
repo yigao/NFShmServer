@@ -179,7 +179,7 @@ void NFCLogModule::SetDefaultFlush(NF_LOG_LEVEL log_level)
 */
 void NFCLogModule::SetDefaultLogConfig()
 {
-	NFLogConfig* pLogConfig = NFConfigMgr::Instance()->GetLogConfig();
+	NFLogConfig* pLogConfig = FindModule<NFIConfigModule>()->GetLogConfig();
 
 	SetDefaultLevel((NF_LOG_LEVEL)pLogConfig->mLogLevel);
 	SetDefaultFlush((NF_LOG_LEVEL)pLogConfig->mLogFlushLevel);
