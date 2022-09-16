@@ -36,6 +36,9 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto();
 void protobuf_ShutdownFile_proto_5fcommon_2eproto();
 
 class tbServerMgr;
+class pbMysqlConfig;
+class pbRedisConfig;
+class tempServerConfig;
 class pbNFServerConfig;
 class pbNFServerConfigList;
 
@@ -268,6 +271,399 @@ class tbServerMgr : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static tbServerMgr* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbMysqlConfig : public ::google::protobuf::Message {
+ public:
+  pbMysqlConfig();
+  virtual ~pbMysqlConfig();
+
+  pbMysqlConfig(const pbMysqlConfig& from);
+
+  inline pbMysqlConfig& operator=(const pbMysqlConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbMysqlConfig& default_instance();
+
+  void Swap(pbMysqlConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  pbMysqlConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbMysqlConfig& from);
+  void MergeFrom(const pbMysqlConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string MysqlIp = 70;
+  inline bool has_mysqlip() const;
+  inline void clear_mysqlip();
+  static const int kMysqlIpFieldNumber = 70;
+  inline const ::std::string& mysqlip() const;
+  inline void set_mysqlip(const ::std::string& value);
+  inline void set_mysqlip(const char* value);
+  inline void set_mysqlip(const char* value, size_t size);
+  inline ::std::string* mutable_mysqlip();
+  inline ::std::string* release_mysqlip();
+  inline void set_allocated_mysqlip(::std::string* mysqlip);
+
+  // optional uint32 MysqlPort = 71;
+  inline bool has_mysqlport() const;
+  inline void clear_mysqlport();
+  static const int kMysqlPortFieldNumber = 71;
+  inline ::google::protobuf::uint32 mysqlport() const;
+  inline void set_mysqlport(::google::protobuf::uint32 value);
+
+  // optional string MysqlDbName = 72;
+  inline bool has_mysqldbname() const;
+  inline void clear_mysqldbname();
+  static const int kMysqlDbNameFieldNumber = 72;
+  inline const ::std::string& mysqldbname() const;
+  inline void set_mysqldbname(const ::std::string& value);
+  inline void set_mysqldbname(const char* value);
+  inline void set_mysqldbname(const char* value, size_t size);
+  inline ::std::string* mutable_mysqldbname();
+  inline ::std::string* release_mysqldbname();
+  inline void set_allocated_mysqldbname(::std::string* mysqldbname);
+
+  // optional string MysqlUser = 73;
+  inline bool has_mysqluser() const;
+  inline void clear_mysqluser();
+  static const int kMysqlUserFieldNumber = 73;
+  inline const ::std::string& mysqluser() const;
+  inline void set_mysqluser(const ::std::string& value);
+  inline void set_mysqluser(const char* value);
+  inline void set_mysqluser(const char* value, size_t size);
+  inline ::std::string* mutable_mysqluser();
+  inline ::std::string* release_mysqluser();
+  inline void set_allocated_mysqluser(::std::string* mysqluser);
+
+  // optional string MysqlPassword = 74;
+  inline bool has_mysqlpassword() const;
+  inline void clear_mysqlpassword();
+  static const int kMysqlPasswordFieldNumber = 74;
+  inline const ::std::string& mysqlpassword() const;
+  inline void set_mysqlpassword(const ::std::string& value);
+  inline void set_mysqlpassword(const char* value);
+  inline void set_mysqlpassword(const char* value, size_t size);
+  inline ::std::string* mutable_mysqlpassword();
+  inline ::std::string* release_mysqlpassword();
+  inline void set_allocated_mysqlpassword(::std::string* mysqlpassword);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbMysqlConfig)
+ private:
+  inline void set_has_mysqlip();
+  inline void clear_has_mysqlip();
+  inline void set_has_mysqlport();
+  inline void clear_has_mysqlport();
+  inline void set_has_mysqldbname();
+  inline void clear_has_mysqldbname();
+  inline void set_has_mysqluser();
+  inline void clear_has_mysqluser();
+  inline void set_has_mysqlpassword();
+  inline void clear_has_mysqlpassword();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* mysqlip_;
+  ::std::string* mysqldbname_;
+  ::std::string* mysqluser_;
+  ::std::string* mysqlpassword_;
+  ::google::protobuf::uint32 mysqlport_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbMysqlConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbRedisConfig : public ::google::protobuf::Message {
+ public:
+  pbRedisConfig();
+  virtual ~pbRedisConfig();
+
+  pbRedisConfig(const pbRedisConfig& from);
+
+  inline pbRedisConfig& operator=(const pbRedisConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbRedisConfig& default_instance();
+
+  void Swap(pbRedisConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  pbRedisConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbRedisConfig& from);
+  void MergeFrom(const pbRedisConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string RedisIp = 80;
+  inline bool has_redisip() const;
+  inline void clear_redisip();
+  static const int kRedisIpFieldNumber = 80;
+  inline const ::std::string& redisip() const;
+  inline void set_redisip(const ::std::string& value);
+  inline void set_redisip(const char* value);
+  inline void set_redisip(const char* value, size_t size);
+  inline ::std::string* mutable_redisip();
+  inline ::std::string* release_redisip();
+  inline void set_allocated_redisip(::std::string* redisip);
+
+  // optional uint32 RedisPort = 81;
+  inline bool has_redisport() const;
+  inline void clear_redisport();
+  static const int kRedisPortFieldNumber = 81;
+  inline ::google::protobuf::uint32 redisport() const;
+  inline void set_redisport(::google::protobuf::uint32 value);
+
+  // optional string RedisPass = 82;
+  inline bool has_redispass() const;
+  inline void clear_redispass();
+  static const int kRedisPassFieldNumber = 82;
+  inline const ::std::string& redispass() const;
+  inline void set_redispass(const ::std::string& value);
+  inline void set_redispass(const char* value);
+  inline void set_redispass(const char* value, size_t size);
+  inline ::std::string* mutable_redispass();
+  inline ::std::string* release_redispass();
+  inline void set_allocated_redispass(::std::string* redispass);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbRedisConfig)
+ private:
+  inline void set_has_redisip();
+  inline void clear_has_redisip();
+  inline void set_has_redisport();
+  inline void clear_has_redisport();
+  inline void set_has_redispass();
+  inline void clear_has_redispass();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* redisip_;
+  ::std::string* redispass_;
+  ::google::protobuf::uint32 redisport_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbRedisConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tempServerConfig : public ::google::protobuf::Message {
+ public:
+  tempServerConfig();
+  virtual ~tempServerConfig();
+
+  tempServerConfig(const tempServerConfig& from);
+
+  inline tempServerConfig& operator=(const tempServerConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tempServerConfig& default_instance();
+
+  void Swap(tempServerConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  tempServerConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tempServerConfig& from);
+  void MergeFrom(const tempServerConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 server_id = 1;
+  inline bool has_server_id() const;
+  inline void clear_server_id();
+  static const int kServerIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 server_id() const;
+  inline void set_server_id(::google::protobuf::uint32 value);
+
+  // optional string server_type = 2;
+  inline bool has_server_type() const;
+  inline void clear_server_type();
+  static const int kServerTypeFieldNumber = 2;
+  inline const ::std::string& server_type() const;
+  inline void set_server_type(const ::std::string& value);
+  inline void set_server_type(const char* value);
+  inline void set_server_type(const char* value, size_t size);
+  inline ::std::string* mutable_server_type();
+  inline ::std::string* release_server_type();
+  inline void set_allocated_server_type(::std::string* server_type);
+
+  // repeated string server_list = 3;
+  inline int server_list_size() const;
+  inline void clear_server_list();
+  static const int kServerListFieldNumber = 3;
+  inline const ::std::string& server_list(int index) const;
+  inline ::std::string* mutable_server_list(int index);
+  inline void set_server_list(int index, const ::std::string& value);
+  inline void set_server_list(int index, const char* value);
+  inline void set_server_list(int index, const char* value, size_t size);
+  inline ::std::string* add_server_list();
+  inline void add_server_list(const ::std::string& value);
+  inline void add_server_list(const char* value);
+  inline void add_server_list(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& server_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_server_list();
+
+  // optional .proto_ff.pbMysqlConfig mysql = 4;
+  inline bool has_mysql() const;
+  inline void clear_mysql();
+  static const int kMysqlFieldNumber = 4;
+  inline const ::proto_ff::pbMysqlConfig& mysql() const;
+  inline ::proto_ff::pbMysqlConfig* mutable_mysql();
+  inline ::proto_ff::pbMysqlConfig* release_mysql();
+  inline void set_allocated_mysql(::proto_ff::pbMysqlConfig* mysql);
+
+  // repeated .proto_ff.pbRedisConfig redis = 5;
+  inline int redis_size() const;
+  inline void clear_redis();
+  static const int kRedisFieldNumber = 5;
+  inline const ::proto_ff::pbRedisConfig& redis(int index) const;
+  inline ::proto_ff::pbRedisConfig* mutable_redis(int index);
+  inline ::proto_ff::pbRedisConfig* add_redis();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >&
+      redis() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >*
+      mutable_redis();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.tempServerConfig)
+ private:
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
+  inline void set_has_server_type();
+  inline void clear_has_server_type();
+  inline void set_has_mysql();
+  inline void clear_has_mysql();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* server_type_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> server_list_;
+  ::proto_ff::pbMysqlConfig* mysql_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig > redis_;
+  ::google::protobuf::uint32 server_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static tempServerConfig* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1366,6 +1762,681 @@ inline ::google::protobuf::uint64 tbServerMgr::create_time() const {
 inline void tbServerMgr::set_create_time(::google::protobuf::uint64 value) {
   set_has_create_time();
   create_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pbMysqlConfig
+
+// optional string MysqlIp = 70;
+inline bool pbMysqlConfig::has_mysqlip() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbMysqlConfig::set_has_mysqlip() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbMysqlConfig::clear_has_mysqlip() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbMysqlConfig::clear_mysqlip() {
+  if (mysqlip_ != &::google::protobuf::internal::kEmptyString) {
+    mysqlip_->clear();
+  }
+  clear_has_mysqlip();
+}
+inline const ::std::string& pbMysqlConfig::mysqlip() const {
+  return *mysqlip_;
+}
+inline void pbMysqlConfig::set_mysqlip(const ::std::string& value) {
+  set_has_mysqlip();
+  if (mysqlip_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlip_ = new ::std::string;
+  }
+  mysqlip_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqlip(const char* value) {
+  set_has_mysqlip();
+  if (mysqlip_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlip_ = new ::std::string;
+  }
+  mysqlip_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqlip(const char* value, size_t size) {
+  set_has_mysqlip();
+  if (mysqlip_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlip_ = new ::std::string;
+  }
+  mysqlip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbMysqlConfig::mutable_mysqlip() {
+  set_has_mysqlip();
+  if (mysqlip_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlip_ = new ::std::string;
+  }
+  return mysqlip_;
+}
+inline ::std::string* pbMysqlConfig::release_mysqlip() {
+  clear_has_mysqlip();
+  if (mysqlip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mysqlip_;
+    mysqlip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbMysqlConfig::set_allocated_mysqlip(::std::string* mysqlip) {
+  if (mysqlip_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqlip_;
+  }
+  if (mysqlip) {
+    set_has_mysqlip();
+    mysqlip_ = mysqlip;
+  } else {
+    clear_has_mysqlip();
+    mysqlip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 MysqlPort = 71;
+inline bool pbMysqlConfig::has_mysqlport() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbMysqlConfig::set_has_mysqlport() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbMysqlConfig::clear_has_mysqlport() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbMysqlConfig::clear_mysqlport() {
+  mysqlport_ = 0u;
+  clear_has_mysqlport();
+}
+inline ::google::protobuf::uint32 pbMysqlConfig::mysqlport() const {
+  return mysqlport_;
+}
+inline void pbMysqlConfig::set_mysqlport(::google::protobuf::uint32 value) {
+  set_has_mysqlport();
+  mysqlport_ = value;
+}
+
+// optional string MysqlDbName = 72;
+inline bool pbMysqlConfig::has_mysqldbname() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbMysqlConfig::set_has_mysqldbname() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbMysqlConfig::clear_has_mysqldbname() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbMysqlConfig::clear_mysqldbname() {
+  if (mysqldbname_ != &::google::protobuf::internal::kEmptyString) {
+    mysqldbname_->clear();
+  }
+  clear_has_mysqldbname();
+}
+inline const ::std::string& pbMysqlConfig::mysqldbname() const {
+  return *mysqldbname_;
+}
+inline void pbMysqlConfig::set_mysqldbname(const ::std::string& value) {
+  set_has_mysqldbname();
+  if (mysqldbname_ == &::google::protobuf::internal::kEmptyString) {
+    mysqldbname_ = new ::std::string;
+  }
+  mysqldbname_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqldbname(const char* value) {
+  set_has_mysqldbname();
+  if (mysqldbname_ == &::google::protobuf::internal::kEmptyString) {
+    mysqldbname_ = new ::std::string;
+  }
+  mysqldbname_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqldbname(const char* value, size_t size) {
+  set_has_mysqldbname();
+  if (mysqldbname_ == &::google::protobuf::internal::kEmptyString) {
+    mysqldbname_ = new ::std::string;
+  }
+  mysqldbname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbMysqlConfig::mutable_mysqldbname() {
+  set_has_mysqldbname();
+  if (mysqldbname_ == &::google::protobuf::internal::kEmptyString) {
+    mysqldbname_ = new ::std::string;
+  }
+  return mysqldbname_;
+}
+inline ::std::string* pbMysqlConfig::release_mysqldbname() {
+  clear_has_mysqldbname();
+  if (mysqldbname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mysqldbname_;
+    mysqldbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbMysqlConfig::set_allocated_mysqldbname(::std::string* mysqldbname) {
+  if (mysqldbname_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqldbname_;
+  }
+  if (mysqldbname) {
+    set_has_mysqldbname();
+    mysqldbname_ = mysqldbname;
+  } else {
+    clear_has_mysqldbname();
+    mysqldbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string MysqlUser = 73;
+inline bool pbMysqlConfig::has_mysqluser() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbMysqlConfig::set_has_mysqluser() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbMysqlConfig::clear_has_mysqluser() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbMysqlConfig::clear_mysqluser() {
+  if (mysqluser_ != &::google::protobuf::internal::kEmptyString) {
+    mysqluser_->clear();
+  }
+  clear_has_mysqluser();
+}
+inline const ::std::string& pbMysqlConfig::mysqluser() const {
+  return *mysqluser_;
+}
+inline void pbMysqlConfig::set_mysqluser(const ::std::string& value) {
+  set_has_mysqluser();
+  if (mysqluser_ == &::google::protobuf::internal::kEmptyString) {
+    mysqluser_ = new ::std::string;
+  }
+  mysqluser_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqluser(const char* value) {
+  set_has_mysqluser();
+  if (mysqluser_ == &::google::protobuf::internal::kEmptyString) {
+    mysqluser_ = new ::std::string;
+  }
+  mysqluser_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqluser(const char* value, size_t size) {
+  set_has_mysqluser();
+  if (mysqluser_ == &::google::protobuf::internal::kEmptyString) {
+    mysqluser_ = new ::std::string;
+  }
+  mysqluser_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbMysqlConfig::mutable_mysqluser() {
+  set_has_mysqluser();
+  if (mysqluser_ == &::google::protobuf::internal::kEmptyString) {
+    mysqluser_ = new ::std::string;
+  }
+  return mysqluser_;
+}
+inline ::std::string* pbMysqlConfig::release_mysqluser() {
+  clear_has_mysqluser();
+  if (mysqluser_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mysqluser_;
+    mysqluser_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbMysqlConfig::set_allocated_mysqluser(::std::string* mysqluser) {
+  if (mysqluser_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqluser_;
+  }
+  if (mysqluser) {
+    set_has_mysqluser();
+    mysqluser_ = mysqluser;
+  } else {
+    clear_has_mysqluser();
+    mysqluser_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string MysqlPassword = 74;
+inline bool pbMysqlConfig::has_mysqlpassword() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void pbMysqlConfig::set_has_mysqlpassword() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void pbMysqlConfig::clear_has_mysqlpassword() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void pbMysqlConfig::clear_mysqlpassword() {
+  if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
+    mysqlpassword_->clear();
+  }
+  clear_has_mysqlpassword();
+}
+inline const ::std::string& pbMysqlConfig::mysqlpassword() const {
+  return *mysqlpassword_;
+}
+inline void pbMysqlConfig::set_mysqlpassword(const ::std::string& value) {
+  set_has_mysqlpassword();
+  if (mysqlpassword_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlpassword_ = new ::std::string;
+  }
+  mysqlpassword_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqlpassword(const char* value) {
+  set_has_mysqlpassword();
+  if (mysqlpassword_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlpassword_ = new ::std::string;
+  }
+  mysqlpassword_->assign(value);
+}
+inline void pbMysqlConfig::set_mysqlpassword(const char* value, size_t size) {
+  set_has_mysqlpassword();
+  if (mysqlpassword_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlpassword_ = new ::std::string;
+  }
+  mysqlpassword_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbMysqlConfig::mutable_mysqlpassword() {
+  set_has_mysqlpassword();
+  if (mysqlpassword_ == &::google::protobuf::internal::kEmptyString) {
+    mysqlpassword_ = new ::std::string;
+  }
+  return mysqlpassword_;
+}
+inline ::std::string* pbMysqlConfig::release_mysqlpassword() {
+  clear_has_mysqlpassword();
+  if (mysqlpassword_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mysqlpassword_;
+    mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbMysqlConfig::set_allocated_mysqlpassword(::std::string* mysqlpassword) {
+  if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqlpassword_;
+  }
+  if (mysqlpassword) {
+    set_has_mysqlpassword();
+    mysqlpassword_ = mysqlpassword;
+  } else {
+    clear_has_mysqlpassword();
+    mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// pbRedisConfig
+
+// optional string RedisIp = 80;
+inline bool pbRedisConfig::has_redisip() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbRedisConfig::set_has_redisip() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbRedisConfig::clear_has_redisip() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbRedisConfig::clear_redisip() {
+  if (redisip_ != &::google::protobuf::internal::kEmptyString) {
+    redisip_->clear();
+  }
+  clear_has_redisip();
+}
+inline const ::std::string& pbRedisConfig::redisip() const {
+  return *redisip_;
+}
+inline void pbRedisConfig::set_redisip(const ::std::string& value) {
+  set_has_redisip();
+  if (redisip_ == &::google::protobuf::internal::kEmptyString) {
+    redisip_ = new ::std::string;
+  }
+  redisip_->assign(value);
+}
+inline void pbRedisConfig::set_redisip(const char* value) {
+  set_has_redisip();
+  if (redisip_ == &::google::protobuf::internal::kEmptyString) {
+    redisip_ = new ::std::string;
+  }
+  redisip_->assign(value);
+}
+inline void pbRedisConfig::set_redisip(const char* value, size_t size) {
+  set_has_redisip();
+  if (redisip_ == &::google::protobuf::internal::kEmptyString) {
+    redisip_ = new ::std::string;
+  }
+  redisip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbRedisConfig::mutable_redisip() {
+  set_has_redisip();
+  if (redisip_ == &::google::protobuf::internal::kEmptyString) {
+    redisip_ = new ::std::string;
+  }
+  return redisip_;
+}
+inline ::std::string* pbRedisConfig::release_redisip() {
+  clear_has_redisip();
+  if (redisip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = redisip_;
+    redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbRedisConfig::set_allocated_redisip(::std::string* redisip) {
+  if (redisip_ != &::google::protobuf::internal::kEmptyString) {
+    delete redisip_;
+  }
+  if (redisip) {
+    set_has_redisip();
+    redisip_ = redisip;
+  } else {
+    clear_has_redisip();
+    redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 RedisPort = 81;
+inline bool pbRedisConfig::has_redisport() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbRedisConfig::set_has_redisport() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbRedisConfig::clear_has_redisport() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbRedisConfig::clear_redisport() {
+  redisport_ = 0u;
+  clear_has_redisport();
+}
+inline ::google::protobuf::uint32 pbRedisConfig::redisport() const {
+  return redisport_;
+}
+inline void pbRedisConfig::set_redisport(::google::protobuf::uint32 value) {
+  set_has_redisport();
+  redisport_ = value;
+}
+
+// optional string RedisPass = 82;
+inline bool pbRedisConfig::has_redispass() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbRedisConfig::set_has_redispass() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbRedisConfig::clear_has_redispass() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbRedisConfig::clear_redispass() {
+  if (redispass_ != &::google::protobuf::internal::kEmptyString) {
+    redispass_->clear();
+  }
+  clear_has_redispass();
+}
+inline const ::std::string& pbRedisConfig::redispass() const {
+  return *redispass_;
+}
+inline void pbRedisConfig::set_redispass(const ::std::string& value) {
+  set_has_redispass();
+  if (redispass_ == &::google::protobuf::internal::kEmptyString) {
+    redispass_ = new ::std::string;
+  }
+  redispass_->assign(value);
+}
+inline void pbRedisConfig::set_redispass(const char* value) {
+  set_has_redispass();
+  if (redispass_ == &::google::protobuf::internal::kEmptyString) {
+    redispass_ = new ::std::string;
+  }
+  redispass_->assign(value);
+}
+inline void pbRedisConfig::set_redispass(const char* value, size_t size) {
+  set_has_redispass();
+  if (redispass_ == &::google::protobuf::internal::kEmptyString) {
+    redispass_ = new ::std::string;
+  }
+  redispass_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbRedisConfig::mutable_redispass() {
+  set_has_redispass();
+  if (redispass_ == &::google::protobuf::internal::kEmptyString) {
+    redispass_ = new ::std::string;
+  }
+  return redispass_;
+}
+inline ::std::string* pbRedisConfig::release_redispass() {
+  clear_has_redispass();
+  if (redispass_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = redispass_;
+    redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbRedisConfig::set_allocated_redispass(::std::string* redispass) {
+  if (redispass_ != &::google::protobuf::internal::kEmptyString) {
+    delete redispass_;
+  }
+  if (redispass) {
+    set_has_redispass();
+    redispass_ = redispass;
+  } else {
+    clear_has_redispass();
+    redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// tempServerConfig
+
+// optional uint32 server_id = 1;
+inline bool tempServerConfig::has_server_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tempServerConfig::set_has_server_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tempServerConfig::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tempServerConfig::clear_server_id() {
+  server_id_ = 0u;
+  clear_has_server_id();
+}
+inline ::google::protobuf::uint32 tempServerConfig::server_id() const {
+  return server_id_;
+}
+inline void tempServerConfig::set_server_id(::google::protobuf::uint32 value) {
+  set_has_server_id();
+  server_id_ = value;
+}
+
+// optional string server_type = 2;
+inline bool tempServerConfig::has_server_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tempServerConfig::set_has_server_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tempServerConfig::clear_has_server_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tempServerConfig::clear_server_type() {
+  if (server_type_ != &::google::protobuf::internal::kEmptyString) {
+    server_type_->clear();
+  }
+  clear_has_server_type();
+}
+inline const ::std::string& tempServerConfig::server_type() const {
+  return *server_type_;
+}
+inline void tempServerConfig::set_server_type(const ::std::string& value) {
+  set_has_server_type();
+  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+    server_type_ = new ::std::string;
+  }
+  server_type_->assign(value);
+}
+inline void tempServerConfig::set_server_type(const char* value) {
+  set_has_server_type();
+  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+    server_type_ = new ::std::string;
+  }
+  server_type_->assign(value);
+}
+inline void tempServerConfig::set_server_type(const char* value, size_t size) {
+  set_has_server_type();
+  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+    server_type_ = new ::std::string;
+  }
+  server_type_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tempServerConfig::mutable_server_type() {
+  set_has_server_type();
+  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+    server_type_ = new ::std::string;
+  }
+  return server_type_;
+}
+inline ::std::string* tempServerConfig::release_server_type() {
+  clear_has_server_type();
+  if (server_type_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_type_;
+    server_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tempServerConfig::set_allocated_server_type(::std::string* server_type) {
+  if (server_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_type_;
+  }
+  if (server_type) {
+    set_has_server_type();
+    server_type_ = server_type;
+  } else {
+    clear_has_server_type();
+    server_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated string server_list = 3;
+inline int tempServerConfig::server_list_size() const {
+  return server_list_.size();
+}
+inline void tempServerConfig::clear_server_list() {
+  server_list_.Clear();
+}
+inline const ::std::string& tempServerConfig::server_list(int index) const {
+  return server_list_.Get(index);
+}
+inline ::std::string* tempServerConfig::mutable_server_list(int index) {
+  return server_list_.Mutable(index);
+}
+inline void tempServerConfig::set_server_list(int index, const ::std::string& value) {
+  server_list_.Mutable(index)->assign(value);
+}
+inline void tempServerConfig::set_server_list(int index, const char* value) {
+  server_list_.Mutable(index)->assign(value);
+}
+inline void tempServerConfig::set_server_list(int index, const char* value, size_t size) {
+  server_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tempServerConfig::add_server_list() {
+  return server_list_.Add();
+}
+inline void tempServerConfig::add_server_list(const ::std::string& value) {
+  server_list_.Add()->assign(value);
+}
+inline void tempServerConfig::add_server_list(const char* value) {
+  server_list_.Add()->assign(value);
+}
+inline void tempServerConfig::add_server_list(const char* value, size_t size) {
+  server_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+tempServerConfig::server_list() const {
+  return server_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+tempServerConfig::mutable_server_list() {
+  return &server_list_;
+}
+
+// optional .proto_ff.pbMysqlConfig mysql = 4;
+inline bool tempServerConfig::has_mysql() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void tempServerConfig::set_has_mysql() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void tempServerConfig::clear_has_mysql() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void tempServerConfig::clear_mysql() {
+  if (mysql_ != NULL) mysql_->::proto_ff::pbMysqlConfig::Clear();
+  clear_has_mysql();
+}
+inline const ::proto_ff::pbMysqlConfig& tempServerConfig::mysql() const {
+  return mysql_ != NULL ? *mysql_ : *default_instance_->mysql_;
+}
+inline ::proto_ff::pbMysqlConfig* tempServerConfig::mutable_mysql() {
+  set_has_mysql();
+  if (mysql_ == NULL) mysql_ = new ::proto_ff::pbMysqlConfig;
+  return mysql_;
+}
+inline ::proto_ff::pbMysqlConfig* tempServerConfig::release_mysql() {
+  clear_has_mysql();
+  ::proto_ff::pbMysqlConfig* temp = mysql_;
+  mysql_ = NULL;
+  return temp;
+}
+inline void tempServerConfig::set_allocated_mysql(::proto_ff::pbMysqlConfig* mysql) {
+  delete mysql_;
+  mysql_ = mysql;
+  if (mysql) {
+    set_has_mysql();
+  } else {
+    clear_has_mysql();
+  }
+}
+
+// repeated .proto_ff.pbRedisConfig redis = 5;
+inline int tempServerConfig::redis_size() const {
+  return redis_.size();
+}
+inline void tempServerConfig::clear_redis() {
+  redis_.Clear();
+}
+inline const ::proto_ff::pbRedisConfig& tempServerConfig::redis(int index) const {
+  return redis_.Get(index);
+}
+inline ::proto_ff::pbRedisConfig* tempServerConfig::mutable_redis(int index) {
+  return redis_.Mutable(index);
+}
+inline ::proto_ff::pbRedisConfig* tempServerConfig::add_redis() {
+  return redis_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >&
+tempServerConfig::redis() const {
+  return redis_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbRedisConfig >*
+tempServerConfig::mutable_redis() {
+  return &redis_;
 }
 
 // -------------------------------------------------------------------

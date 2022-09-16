@@ -36,6 +36,31 @@ message tbServerMgr
 	optional uint64 create_time = 10 [(yd_fieldoptions.db_field_comment) = "创建时间"];
 }
 
+message pbMysqlConfig
+{
+	optional string MysqlIp = 70[(yd_fieldoptions.field_bufsize)=128];
+	optional uint32	MysqlPort = 71[(yd_fieldoptions.field_use_stl)=true];
+	optional string MysqlDbName = 72[(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlUser = 73[(yd_fieldoptions.field_bufsize)=128];
+	optional string MysqlPassword = 74[(yd_fieldoptions.field_bufsize)=128];
+}
+
+message pbRedisConfig
+{
+	optional string RedisIp = 80[(yd_fieldoptions.field_bufsize)=128];
+	optional uint32	RedisPort = 81[(yd_fieldoptions.field_use_stl)=true];
+	optional string RedisPass = 82[(yd_fieldoptions.field_bufsize)=128];
+}
+
+message tempServerConfig
+{
+	optional uint32 server_id = 1[(yd_fieldoptions.field_use_stl)=true];
+	optional string server_type = 2[(yd_fieldoptions.field_bufsize)=128];
+	repeated string server_list = 3 [(yd_fieldoptions.field_arysize)=3, (yd_fieldoptions.field_bufsize)=128];
+	optional pbMysqlConfig mysql = 4;
+	repeated pbRedisConfig redis = 5[(yd_fieldoptions.field_arysize)=3];
+}
+
 message pbNFServerConfig
 {
 	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true];
@@ -90,5 +115,5 @@ message pbNFServerConfig
 }
 
 message pbNFServerConfigList {
-	repeated pbNFServerConfig list = 1;
+	repeated pbNFServerConfig list = 1[(yd_fieldoptions.field_use_stl)=true];
 }

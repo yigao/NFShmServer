@@ -23,31 +23,131 @@ int tbServerMgr_s::ResumeInit() {
 	return 0;
 }
 
-void tbServerMgr_s::write_to_pbmsg(const struct tbServerMgr_s & obj, ::proto_ff::tbServerMgr & msg) {
-	msg.set_id((uint64_t)obj.id);
-	msg.set_contract((const char*)obj.contract.Get());
-	msg.set_machine_addr((const char*)obj.machine_addr.Get());
-	msg.set_ip((const char*)obj.ip.Get());
-	msg.set_bus_name((const char*)obj.bus_name.Get());
-	msg.set_server_desc((const char*)obj.server_desc.Get());
-	msg.set_cur_count((uint32_t)obj.cur_count);
-	msg.set_last_login_time((uint64_t)obj.last_login_time);
-	msg.set_last_logout_time((uint64_t)obj.last_logout_time);
-	msg.set_create_time((uint64_t)obj.create_time);
+void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
+	msg.set_id((uint64_t)id);
+	msg.set_contract((const char*)contract.Get());
+	msg.set_machine_addr((const char*)machine_addr.Get());
+	msg.set_ip((const char*)ip.Get());
+	msg.set_bus_name((const char*)bus_name.Get());
+	msg.set_server_desc((const char*)server_desc.Get());
+	msg.set_cur_count((uint32_t)cur_count);
+	msg.set_last_login_time((uint64_t)last_login_time);
+	msg.set_last_logout_time((uint64_t)last_logout_time);
+	msg.set_create_time((uint64_t)create_time);
 }
 
-void tbServerMgr_s::read_from_pbmsg(const ::proto_ff::tbServerMgr & msg, struct tbServerMgr_s & obj) {
-	memset(&obj, 0, sizeof(struct tbServerMgr_s));
-	obj.id = msg.id();
-	obj.contract.Copy(msg.contract());
-	obj.machine_addr.Copy(msg.machine_addr());
-	obj.ip.Copy(msg.ip());
-	obj.bus_name.Copy(msg.bus_name());
-	obj.server_desc.Copy(msg.server_desc());
-	obj.cur_count = msg.cur_count();
-	obj.last_login_time = msg.last_login_time();
-	obj.last_logout_time = msg.last_logout_time();
-	obj.create_time = msg.create_time();
+void tbServerMgr_s::read_from_pbmsg(const ::proto_ff::tbServerMgr & msg) {
+	memset(this, 0, sizeof(struct tbServerMgr_s));
+	id = msg.id();
+	contract.Copy(msg.contract());
+	machine_addr.Copy(msg.machine_addr());
+	ip.Copy(msg.ip());
+	bus_name.Copy(msg.bus_name());
+	server_desc.Copy(msg.server_desc());
+	cur_count = msg.cur_count();
+	last_login_time = msg.last_login_time();
+	last_logout_time = msg.last_logout_time();
+	create_time = msg.create_time();
+}
+
+pbMysqlConfig_s::pbMysqlConfig_s() {
+	CreateInit();
+}
+
+int pbMysqlConfig_s::CreateInit() {
+	MysqlPort = (uint32_t)0;
+	return 0;
+}
+
+int pbMysqlConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbMysqlConfig_s::write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const {
+	msg.set_mysqlip(MysqlIp);
+	msg.set_mysqlport((uint32_t)MysqlPort);
+	msg.set_mysqldbname(MysqlDbName);
+	msg.set_mysqluser(MysqlUser);
+	msg.set_mysqlpassword(MysqlPassword);
+}
+
+void pbMysqlConfig_s::read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg) {
+	memset(this, 0, sizeof(struct pbMysqlConfig_s));
+	MysqlIp = msg.mysqlip();
+	MysqlPort = msg.mysqlport();
+	MysqlDbName = msg.mysqldbname();
+	MysqlUser = msg.mysqluser();
+	MysqlPassword = msg.mysqlpassword();
+}
+
+pbRedisConfig_s::pbRedisConfig_s() {
+	CreateInit();
+}
+
+int pbRedisConfig_s::CreateInit() {
+	RedisPort = (uint32_t)0;
+	return 0;
+}
+
+int pbRedisConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbRedisConfig_s::write_to_pbmsg(::proto_ff::pbRedisConfig & msg) const {
+	msg.set_redisip(RedisIp);
+	msg.set_redisport((uint32_t)RedisPort);
+	msg.set_redispass(RedisPass);
+}
+
+void pbRedisConfig_s::read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg) {
+	memset(this, 0, sizeof(struct pbRedisConfig_s));
+	RedisIp = msg.redisip();
+	RedisPort = msg.redisport();
+	RedisPass = msg.redispass();
+}
+
+tempServerConfig_s::tempServerConfig_s() {
+	CreateInit();
+}
+
+int tempServerConfig_s::CreateInit() {
+	server_id = (uint32_t)0;
+	return 0;
+}
+
+int tempServerConfig_s::ResumeInit() {
+	return 0;
+}
+
+void tempServerConfig_s::write_to_pbmsg(::proto_ff::tempServerConfig & msg) const {
+	msg.set_server_id((uint32_t)server_id);
+	msg.set_server_type(server_type);
+	for(int32_t i = 0; i < (int32_t)server_list.size(); ++i) {
+		msg.add_server_list(server_list[i]);
+	}
+	::proto_ff::pbMysqlConfig* temp_mysql = msg.mutable_mysql();
+	mysql.write_to_pbmsg(*temp_mysql);
+	for(int32_t i = 0; i < (int32_t)redis.size(); ++i) {
+		::proto_ff::pbRedisConfig* temp_redis = msg.add_redis();
+		redis[i].write_to_pbmsg(*temp_redis);
+	}
+}
+
+void tempServerConfig_s::read_from_pbmsg(const ::proto_ff::tempServerConfig & msg) {
+	memset(this, 0, sizeof(struct tempServerConfig_s));
+	server_id = msg.server_id();
+	server_type = msg.server_type();
+	server_list.resize(msg.server_list_size());
+	for(int32_t i = 0; i < (int32_t)server_list.size(); ++i) {
+		server_list[i] = msg.server_list(i);
+	}
+	const ::proto_ff::pbMysqlConfig & temp_mysql = msg.mysql();
+	mysql.read_from_pbmsg(temp_mysql);
+	redis.resize(msg.redis_size());
+	for(int32_t i = 0; i < (int32_t)redis.size(); ++i) {
+		const ::proto_ff::pbRedisConfig & temp_redis = msg.redis(i);
+		redis[i].read_from_pbmsg(temp_redis);
+	}
 }
 
 pbNFServerConfig_s::pbNFServerConfig_s() {
@@ -81,95 +181,91 @@ int pbNFServerConfig_s::ResumeInit() {
 	return 0;
 }
 
-void pbNFServerConfig_s::write_to_pbmsg(const struct pbNFServerConfig_s & obj, ::proto_ff::pbNFServerConfig & msg) {
-	msg.set_serverid(obj.ServerId);
-	msg.set_servertype((uint32_t)obj.ServerType);
-	msg.set_servername(obj.ServerName);
-	msg.set_busid((uint32_t)obj.BusId);
-	msg.set_buslength((uint32_t)obj.BusLength);
-	msg.set_busname(obj.BusName);
-	msg.set_linkmode(obj.LinkMode);
-	msg.set_url(obj.Url);
-	msg.set_idlesleepus((uint32_t)obj.IdleSleepUs);
-	msg.set_serverip(obj.ServerIp);
-	msg.set_serverport((uint32_t)obj.ServerPort);
-	msg.set_externalserverip(obj.ExternalServerIp);
-	msg.set_externalserverport((uint32_t)obj.ExternalServerPort);
-	msg.set_httpport((uint32_t)obj.HttpPort);
-	msg.set_maxconnectnum((uint32_t)obj.MaxConnectNum);
-	msg.set_workthreadnum((uint32_t)obj.WorkThreadNum);
-	msg.set_netthreadnum((uint32_t)obj.NetThreadNum);
-	msg.set_security((bool)obj.Security);
-	msg.set_websocket((bool)obj.WebSocket);
-	msg.set_mparsetype((uint32_t)obj.mParseType);
-	msg.set_masterip(obj.MasterIp);
-	msg.set_masterport((uint32_t)obj.MasterPort);
-	msg.set_naminghost(obj.NamingHost);
-	msg.set_namingpath(obj.NamingPath);
-	msg.set_routeagent(obj.RouteAgent);
-	msg.set_mysqlip(obj.MysqlIp);
-	msg.set_mysqlport((uint32_t)obj.MysqlPort);
-	msg.set_mysqldbname(obj.MysqlDbName);
-	msg.set_mysqluser(obj.MysqlUser);
-	msg.set_mysqlpassword(obj.MysqlPassword);
-	msg.set_redisip(obj.RedisIp);
-	msg.set_redisport((uint32_t)obj.RedisPort);
-	msg.set_redispass(obj.RedisPass);
-	msg.set_wwwurl(obj.WwwUrl);
-	msg.set_email(obj.Email);
-	msg.set_maxonlineplayernum((uint32_t)obj.MaxOnlinePlayerNum);
-	msg.set_heartbeattimeout((uint32_t)obj.HeartBeatTimeout);
-	msg.set_clientkeepalivetimeout((uint32_t)obj.ClientKeepAliveTimeout);
+void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) const {
+	msg.set_serverid(ServerId);
+	msg.set_servertype((uint32_t)ServerType);
+	msg.set_servername(ServerName);
+	msg.set_busid((uint32_t)BusId);
+	msg.set_buslength((uint32_t)BusLength);
+	msg.set_busname(BusName);
+	msg.set_linkmode(LinkMode);
+	msg.set_url(Url);
+	msg.set_idlesleepus((uint32_t)IdleSleepUs);
+	msg.set_serverip(ServerIp);
+	msg.set_serverport((uint32_t)ServerPort);
+	msg.set_externalserverip(ExternalServerIp);
+	msg.set_externalserverport((uint32_t)ExternalServerPort);
+	msg.set_httpport((uint32_t)HttpPort);
+	msg.set_maxconnectnum((uint32_t)MaxConnectNum);
+	msg.set_workthreadnum((uint32_t)WorkThreadNum);
+	msg.set_netthreadnum((uint32_t)NetThreadNum);
+	msg.set_security((bool)Security);
+	msg.set_websocket((bool)WebSocket);
+	msg.set_mparsetype((uint32_t)mParseType);
+	msg.set_masterip(MasterIp);
+	msg.set_masterport((uint32_t)MasterPort);
+	msg.set_naminghost(NamingHost);
+	msg.set_namingpath(NamingPath);
+	msg.set_routeagent(RouteAgent);
+	msg.set_mysqlip(MysqlIp);
+	msg.set_mysqlport((uint32_t)MysqlPort);
+	msg.set_mysqldbname(MysqlDbName);
+	msg.set_mysqluser(MysqlUser);
+	msg.set_mysqlpassword(MysqlPassword);
+	msg.set_redisip(RedisIp);
+	msg.set_redisport((uint32_t)RedisPort);
+	msg.set_redispass(RedisPass);
+	msg.set_wwwurl(WwwUrl);
+	msg.set_email(Email);
+	msg.set_maxonlineplayernum((uint32_t)MaxOnlinePlayerNum);
+	msg.set_heartbeattimeout((uint32_t)HeartBeatTimeout);
+	msg.set_clientkeepalivetimeout((uint32_t)ClientKeepAliveTimeout);
 }
 
-void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg, struct pbNFServerConfig_s & obj) {
-	memset(&obj, 0, sizeof(struct pbNFServerConfig_s));
-	obj.ServerId = msg.serverid();
-	obj.ServerType = msg.servertype();
-	obj.ServerName = msg.servername();
-	obj.BusId = msg.busid();
-	obj.BusLength = msg.buslength();
-	obj.BusName = msg.busname();
-	obj.LinkMode = msg.linkmode();
-	obj.Url = msg.url();
-	obj.IdleSleepUs = msg.idlesleepus();
-	obj.ServerIp = msg.serverip();
-	obj.ServerPort = msg.serverport();
-	obj.ExternalServerIp = msg.externalserverip();
-	obj.ExternalServerPort = msg.externalserverport();
-	obj.HttpPort = msg.httpport();
-	obj.MaxConnectNum = msg.maxconnectnum();
-	obj.WorkThreadNum = msg.workthreadnum();
-	obj.NetThreadNum = msg.netthreadnum();
-	obj.Security = msg.security();
-	obj.WebSocket = msg.websocket();
-	obj.mParseType = msg.mparsetype();
-	obj.MasterIp = msg.masterip();
-	obj.MasterPort = msg.masterport();
-	obj.NamingHost = msg.naminghost();
-	obj.NamingPath = msg.namingpath();
-	obj.RouteAgent = msg.routeagent();
-	obj.MysqlIp = msg.mysqlip();
-	obj.MysqlPort = msg.mysqlport();
-	obj.MysqlDbName = msg.mysqldbname();
-	obj.MysqlUser = msg.mysqluser();
-	obj.MysqlPassword = msg.mysqlpassword();
-	obj.RedisIp = msg.redisip();
-	obj.RedisPort = msg.redisport();
-	obj.RedisPass = msg.redispass();
-	obj.WwwUrl = msg.wwwurl();
-	obj.Email = msg.email();
-	obj.MaxOnlinePlayerNum = msg.maxonlineplayernum();
-	obj.HeartBeatTimeout = msg.heartbeattimeout();
-	obj.ClientKeepAliveTimeout = msg.clientkeepalivetimeout();
+void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg) {
+	memset(this, 0, sizeof(struct pbNFServerConfig_s));
+	ServerId = msg.serverid();
+	ServerType = msg.servertype();
+	ServerName = msg.servername();
+	BusId = msg.busid();
+	BusLength = msg.buslength();
+	BusName = msg.busname();
+	LinkMode = msg.linkmode();
+	Url = msg.url();
+	IdleSleepUs = msg.idlesleepus();
+	ServerIp = msg.serverip();
+	ServerPort = msg.serverport();
+	ExternalServerIp = msg.externalserverip();
+	ExternalServerPort = msg.externalserverport();
+	HttpPort = msg.httpport();
+	MaxConnectNum = msg.maxconnectnum();
+	WorkThreadNum = msg.workthreadnum();
+	NetThreadNum = msg.netthreadnum();
+	Security = msg.security();
+	WebSocket = msg.websocket();
+	mParseType = msg.mparsetype();
+	MasterIp = msg.masterip();
+	MasterPort = msg.masterport();
+	NamingHost = msg.naminghost();
+	NamingPath = msg.namingpath();
+	RouteAgent = msg.routeagent();
+	MysqlIp = msg.mysqlip();
+	MysqlPort = msg.mysqlport();
+	MysqlDbName = msg.mysqldbname();
+	MysqlUser = msg.mysqluser();
+	MysqlPassword = msg.mysqlpassword();
+	RedisIp = msg.redisip();
+	RedisPort = msg.redisport();
+	RedisPass = msg.redispass();
+	WwwUrl = msg.wwwurl();
+	Email = msg.email();
+	MaxOnlinePlayerNum = msg.maxonlineplayernum();
+	HeartBeatTimeout = msg.heartbeattimeout();
+	ClientKeepAliveTimeout = msg.clientkeepalivetimeout();
 }
 
 pbNFServerConfigList_s::pbNFServerConfigList_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
+	CreateInit();
 }
 
 int pbNFServerConfigList_s::CreateInit() {
@@ -180,16 +276,19 @@ int pbNFServerConfigList_s::ResumeInit() {
 	return 0;
 }
 
-void pbNFServerConfigList_s::write_to_pbmsg(const struct pbNFServerConfigList_s & obj, ::proto_ff::pbNFServerConfigList & msg) {
+void pbNFServerConfigList_s::write_to_pbmsg(::proto_ff::pbNFServerConfigList & msg) const {
+	for(int32_t i = 0; i < (int32_t)list.size(); ++i) {
 		::proto_ff::pbNFServerConfig* temp_list = msg.add_list();
-		pbNFServerConfig_s::write_to_pbmsg(obj.list[i], *temp_list);
+		list[i].write_to_pbmsg(*temp_list);
 	}
 }
 
-void pbNFServerConfigList_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfigList & msg, struct pbNFServerConfigList_s & obj) {
-	memset(&obj, 0, sizeof(struct pbNFServerConfigList_s));
+void pbNFServerConfigList_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfigList & msg) {
+	memset(this, 0, sizeof(struct pbNFServerConfigList_s));
+	list.resize(msg.list_size());
+	for(int32_t i = 0; i < (int32_t)list.size(); ++i) {
 		const ::proto_ff::pbNFServerConfig & temp_list = msg.list(i);
-		pbNFServerConfig_s::read_from_pbmsg(temp_list, obj.list[i]);
+		list[i].read_from_pbmsg(temp_list);
 	}
 }
 

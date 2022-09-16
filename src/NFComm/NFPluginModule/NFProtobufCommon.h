@@ -77,42 +77,7 @@ public:
                                    google::protobuf::Message *message,
                                    std::string *error = NULL);
 
-    static int IniToProtoMessage(const std::string &iniFile, google::protobuf::Message *pMessage);
-
-    static int IniToProtoMessage(const std::string &iniFile, google::protobuf::Message *pMessage,
-                                  const std::string& section);
-
     static bool LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Message *pMessageObject);
-
-    // 读取算法配置文件模板函数
-    template<typename Proto_S>
-    static int IniToProtoSturct(Proto_S &proto_s, const std::string &szFilePathName, bool moreSection = false) {
-        auto proto_msg = Proto_S::make_pbmsg();
-
-        if (NFFileUtility::IsFileExist(szFilePathName) == false) {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "file:{} not exist", szFilePathName);
-            return -1;
-        }
-
-        if (moreSection)
-        {
-            if (NFProtobufCommon::IniToProtoMessage(szFilePathName, &proto_msg) != 0) {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Ini To Message Failed!, file:{}", szFilePathName);
-                return -1;
-            }
-        }
-        else
-        {
-            if (NFProtobufCommon::IniToProtoMessage(szFilePathName, &proto_msg, "") != 0) {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Ini To Message Failed!, file:{}", szFilePathName);
-                return -1;
-            }
-        }
-
-        Proto_S::read_from_pbmsg(proto_msg, proto_s);
-
-        return 0;
-    }
 
     static int CopyMessageByFields(google::protobuf::Message *pSrcMessage, const google::protobuf::Message *pDescMessage);
 

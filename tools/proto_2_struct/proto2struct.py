@@ -142,21 +142,33 @@ def write_hfile():
 			if 	msg_field.is_array == True or msg_field.is_buffer == True:
 				if msg_field.is_array == True and  msg_field.is_buffer == False:
 					if int(msg_field.array_size) > 0:
-						line += "\t\tNFArray<%s, %d> %s" % (msg_field.c_type,  msg_field.array_size,  msg_field.name)
-						line += ";\n"
+						if message_desc.use_stl == True:
+							line += "\t\tstd::vector<%s> %s" % (msg_field.c_type,  msg_field.name)
+							line += ";\n"
+						else:
+							line += "\t\tNFArray<%s, %d> %s" % (msg_field.c_type,  msg_field.array_size,  msg_field.name)
+							line += ";\n"
 					else:
 						if message_desc.use_stl == True:
-							line += "\t\tstd::vecotr<%s> %s" % (msg_field.c_type,  msg_field.name)
+							line += "\t\tstd::vector<%s> %s" % (msg_field.c_type,  msg_field.name)
 							line += ";\n"
 
 				elif msg_field.is_array == False and msg_field.is_buffer == True:
 					if int(msg_field.buffer_size) > 0:
 						if 'bytes' == msg_field.pb_type:
-							line += "\t\tNFSizeBuffer<%d> %s" % (msg_field.buffer_size, msg_field.name)
-							line += ";\n"
+							if message_desc.use_stl == True:
+								line += "\t\tstd::string %s" % (msg_field.name)
+								line += ";\n"
+							else:
+								line += "\t\tNFSizeBuffer<%d> %s" % (msg_field.buffer_size, msg_field.name)
+								line += ";\n"
 						else:
-							line += "\t\tNFSizeString<%d> %s" % (msg_field.buffer_size, msg_field.name)
-							line += ";\n"
+							if message_desc.use_stl == True:
+								line += "\t\tstd::string %s" % (msg_field.name)
+								line += ";\n"
+							else:
+								line += "\t\tNFSizeString<%d> %s" % (msg_field.buffer_size, msg_field.name)
+								line += ";\n"
 					else:
 						if 'bytes' == msg_field.pb_type:
 							if message_desc.use_stl == True:
@@ -171,12 +183,20 @@ def write_hfile():
 					if int(msg_field.array_size) > 0 and int(msg_field.buffer_size) > 0:
 						if 'bytes' == msg_field.pb_type:
 							#数组有效长度
-							line += "\t\tNFArray<NFSizeBuffer<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
-							line += ";\n"
+							if message_desc.use_stl == True:
+								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
+								line += ";\n"
+							else:
+								line += "\t\tNFArray<NFSizeBuffer<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
+								line += ";\n"
 						else:
 							#数组有效长度
-							line += "\t\tNFArray<NFSizeString<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
-							line += ";\n"
+							if message_desc.use_stl == True:
+								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
+								line += ";\n"
+							else:
+								line += "\t\tNFArray<NFSizeString<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
+								line += ";\n"
 					else:
 						if 'bytes' == msg_field.pb_type:
 							#数组有效长度
@@ -197,13 +217,13 @@ def write_hfile():
 
 		#写入转换函数
 		h_file.write("\n")
-		message_desc.func_write_to_pbmsg = "write_to_pbmsg(const struct %s_s & obj, %s & msg)" % (message_desc.name, message_desc.pb_msgname)
-		message_desc.func_read_from_pbmsg = "read_from_pbmsg(const %s & msg, struct %s_s & obj)" % (message_desc.pb_msgname, message_desc.name)
+		message_desc.func_write_to_pbmsg = "write_to_pbmsg(%s & msg) const" % (message_desc.pb_msgname)
+		message_desc.func_read_from_pbmsg = "read_from_pbmsg(const %s & msg)" % (message_desc.pb_msgname)
 		message_desc.func_new_proto = "new_pbmsg()"
 		message_desc.func_make_proto = "make_pbmsg()"
 
-		h_file.write("\t\tstatic void %s;\n" % (message_desc.func_write_to_pbmsg))
-		h_file.write("\t\tstatic void %s;\n" % (message_desc.func_read_from_pbmsg))
+		h_file.write("\t\tvoid %s;\n" % (message_desc.func_write_to_pbmsg))
+		h_file.write("\t\tvoid %s;\n" % (message_desc.func_read_from_pbmsg))
 		h_file.write("\t\tstatic %s* %s{ return new %s(); }\n" % (message_desc.pb_msgname, message_desc.func_new_proto, message_desc.pb_msgname))
 		h_file.write("\t\tstatic %s %s{ return %s(); }\n" % (message_desc.pb_msgname, message_desc.func_make_proto, message_desc.pb_msgname))
 		h_file.write("\t};\n")
@@ -264,52 +284,64 @@ def write_cppfile():
 			if True == msg_field.is_array:
 				if  int(msg_field.array_size) > 0:
 						#如果是数组成员
-						cpp_file.write("\tfor(int32_t i = 0; i < obj.%s.GetSize() && i < obj.%s.GetMaxSize(); ++i) {\n" % (msg_field.name,  msg_field.name))
+						if message_desc.use_stl == True:
+							cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % (msg_field.name))
+						else:
+							cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.GetSize() && i < %s.GetMaxSize(); ++i) {\n" % (msg_field.name,  msg_field.name))
+
 						if True == msg_field.is_string:
-							cpp_file.write("\t\tmsg.add_%s((%s)obj.%s[i].Get());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
+							else:
+								cpp_file.write("\t\tmsg.add_%s((%s)%s[i].Get());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 						elif 'bytes' == msg_field.pb_type and  int(msg_field.buffer_size) > 0:
-							cpp_file.write("\t\tmsg.add_%s((%s)obj.%s[i].Get(), obj.%s[i].Size());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name, msg_field.name))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
+							else:
+								cpp_file.write("\t\tmsg.add_%s((%s)%s[i].Get(), %s[i].Size());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name, msg_field.name))
 						elif False == msg_field.is_message:
-							cpp_file.write("\t\tmsg.add_%s((%s)obj.%s[i]);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+							cpp_file.write("\t\tmsg.add_%s((%s)%s[i]);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 						else:
 							cpp_file.write("\t\t%s* temp_%s = msg.add_%s();\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-							cpp_file.write("\t\t%s_s::write_to_pbmsg(obj.%s[i], *temp_%s);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name, msg_field.name.lower()))
+							cpp_file.write("\t\t%s[i].write_to_pbmsg(*temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 						cpp_file.write("\t}\n")
 				else:
 					#如果是数组成员
 					if message_desc.use_stl == True:
-						cpp_file.write("\tfor(int32_t i = 0; i < obj.%s.size(); ++i) {\n" % (msg_field.name))
+						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % (msg_field.name))
 					if True == msg_field.is_string:
 						if message_desc.use_stl == True:
-							cpp_file.write("\t\tmsg.add_%s(obj.%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
-
+							cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
 					elif 'bytes' == msg_field.pb_type and  int(msg_field.buffer_size) > 0:
 						if message_desc.use_stl == True:
-							cpp_file.write("\t\tmsg.add_%s(obj.%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
+							cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
 					elif False == msg_field.is_message:
-						cpp_file.write("\t\tmsg.add_%s((%s)obj.%s[i]);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+						cpp_file.write("\t\tmsg.add_%s((%s)%s[i]);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 					else:
 						cpp_file.write("\t\t%s* temp_%s = msg.add_%s();\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-						cpp_file.write("\t\t%s_s::write_to_pbmsg(obj.%s[i], *temp_%s);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\t\t%s[i].write_to_pbmsg(*temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 					cpp_file.write("\t}\n")
 			else:
 				#普通成员
 				if 'bytes' == msg_field.pb_type:
 					if int(msg_field.buffer_size) > 0:
-						cpp_file.write("\tmsg.set_%s((%s)obj.%s.Get(), obj.%s.Size());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name, msg_field.name))
+						if message_desc.use_stl == True:
+							cpp_file.write("\tmsg.set_%s(%s);\n" % (msg_field.name.lower(), msg_field.name))
+						else:
+							cpp_file.write("\tmsg.set_%s((%s)%s.Get(), %s.Size());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name, msg_field.name))
 					else:
 						if message_desc.use_stl == True:
-							cpp_file.write("\tmsg.set_%s(obj.%s);\n" % (msg_field.name.lower(), msg_field.name))
+							cpp_file.write("\tmsg.set_%s(%s);\n" % (msg_field.name.lower(), msg_field.name))
 				elif True == msg_field.is_string:
 					if message_desc.use_stl == True:
-						cpp_file.write("\tmsg.set_%s(obj.%s);\n" % (msg_field.name.lower(), msg_field.name))
+						cpp_file.write("\tmsg.set_%s(%s);\n" % (msg_field.name.lower(), msg_field.name))
 					else:
-						cpp_file.write("\tmsg.set_%s((%s)obj.%s.Get());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+						cpp_file.write("\tmsg.set_%s((%s)%s.Get());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 				elif False == msg_field.is_message:
-					cpp_file.write("\tmsg.set_%s((%s)obj.%s);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+					cpp_file.write("\tmsg.set_%s((%s)%s);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 				else:
 					cpp_file.write("\t%s* temp_%s = msg.mutable_%s();\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-					cpp_file.write("\t%s_s::write_to_pbmsg(obj.%s, *temp_%s);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name, msg_field.name.lower()))
+					cpp_file.write("\t%s.write_to_pbmsg(*temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 			x_postfix = x_postfix - 1
 
 		cpp_file.write("}\n\n")
@@ -317,83 +349,90 @@ def write_cppfile():
 		"""--------------------------------------------------------------------"""
 		#read_from_pbmsg
 		cpp_file.write("void %s_s::%s {\n" % (message_desc.name, message_desc.func_read_from_pbmsg))
-		cpp_file.write("\tmemset(&obj, 0, sizeof(struct %s_s));\n" % message_desc.name)
+		cpp_file.write("\tmemset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
 		for msg_field in message_desc.field_lst:
 			if msg_field.no_field == True:
 				continue
 			if True == msg_field.is_array:
 				if int(msg_field.array_size) > 0:
-					cpp_file.write("\tobj.%s.SetSize(msg.%s_size() > obj.%s.GetMaxSize() ? obj.%s.GetMaxSize() : msg.%s_size());\n" % (msg_field.name, msg_field.name.lower(), msg_field.name,  msg_field.name, msg_field.name.lower()))
-					cpp_file.write("\tfor(int32_t i = 0; i < obj.%s.GetSize(); ++i) {\n" % msg_field.name)
+					if message_desc.use_stl == True:
+						cpp_file.write("\t%s.resize(msg.%s_size());\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % msg_field.name)
+					else:
+						cpp_file.write("\t%s.SetSize(msg.%s_size() > %s.GetMaxSize() ? %s.GetMaxSize() : msg.%s_size());\n" % (msg_field.name, msg_field.name.lower(), msg_field.name,  msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.GetSize(); ++i) {\n" % msg_field.name)
 					if True == msg_field.is_string:
-						cpp_file.write("\t\tobj.%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
-						#cpp_file.write("\t\tstrncpy(obj.%s[i], msg.%s(i).c_str(), %d-1);\n" % (msg_field.name, msg_field.name.lower(), msg_field.buffer_size))
+						if message_desc.use_stl == True:
+							cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+						else:
+							cpp_file.write("\t\t%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
 					elif True == msg_field.is_buffer and int(msg_field.buffer_size) > 0:
 						if 'bytes' != msg_field.pb_type:
-							cpp_file.write("\t\tobj.%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
-							#cpp_file.write("\t\tmemcpy(obj.%s[i].Get(), msg.%s(i).c_str(), msg.%s().size());\n" % (msg_field.name, msg_field.name.lower(), msg_field.name.lower()))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+							else:
+								cpp_file.write("\t\t%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
 						else:
-							cpp_file.write("\t\tobj.%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
-							#cpp_file.write("\t\tobj.%s_bytes_size = msg.%s().size() > %d ? %d : msg.%s().size();\n" % (msg_field.name, msg_field.name.lower(), msg_field.buffer_size,  msg_field.buffer_size, msg_field.name.lower()))
-							#cpp_file.write("\t\tmemcpy(obj.%s[i].Get(), msg.%s(i).c_str(), obj.%s[i].GetMaxSize());\n" % (msg_field.name, msg_field.name.lower(), msg_field.buffer_size))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+							else:
+								cpp_file.write("\t\t%s[i].Copy(msg.%s(i));\n" % (msg_field.name, msg_field.name.lower()))
 					elif True == msg_field.is_message:
-						#cpp_file.write("#ifdef _DEBUG_\n")
-						#cpp_file.write("assert(i < (int)ARRAYSIZE(obj.%s));\n" % msg_field.name)
-						#cpp_file.write("#endif\n")
-						#cpp_file.write("\t\tif (i >= (int)ARRAYSIZE(obj.%s))\n\t\t\tbreak;\n" % msg_field.name)
 						cpp_file.write("\t\tconst %s & temp_%s = msg.%s(i);\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-						cpp_file.write("\t\t%s_s::read_from_pbmsg(temp_%s, obj.%s[i]);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name.lower(), msg_field.name))
+						cpp_file.write("\t\t%s[i].read_from_pbmsg(temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 					else:
-						#cpp_file.write("#ifdef _DEBUG_\n")
-						#cpp_file.write("assert(i < (int)ARRAYSIZE(obj.%s));\n" % msg_field.name)
-						#cpp_file.write("#endif\n")
-						#cpp_file.write("\t\tif (i >= (int)ARRAYSIZE(obj.%s))\n\t\t\tbreak;\n" % msg_field.name )
-						cpp_file.write("\t\tobj.%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					cpp_file.write("\t}\n")
 				else:
 					if message_desc.use_stl == True:
-						cpp_file.write("\tobj.%s.resize(msg.%s_size());\n" % (msg_field.name, msg_field.name.lower()))
-						cpp_file.write("\tfor(int32_t i = 0; i < obj.%s.size(); ++i) {\n" % msg_field.name)
+						cpp_file.write("\t%s.resize(msg.%s_size());\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % msg_field.name)
 					if True == msg_field.is_string:
 						if message_desc.use_stl == True:
-							cpp_file.write("\t\tobj.%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+							cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					elif True == msg_field.is_buffer and int(msg_field.buffer_size) > 0:
 						if 'bytes' != msg_field.pb_type:
 							if message_desc.use_stl == True:
-								cpp_file.write("\t\tobj.%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+								cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 						else:
 							if message_desc.use_stl == True:
-								cpp_file.write("\t\tobj.%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+								cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					elif True == msg_field.is_message:
 						cpp_file.write("\t\tconst %s & temp_%s = msg.%s(i);\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-						cpp_file.write("\t\t%s_s::read_from_pbmsg(temp_%s, obj.%s[i]);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name.lower(), msg_field.name))
+						cpp_file.write("\t\t%s[i].read_from_pbmsg(temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 					else:
-						cpp_file.write("\t\tobj.%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					cpp_file.write("\t}\n")
 			else:
 				if True == msg_field.is_string:
 					if message_desc.use_stl == True:
-						cpp_file.write("\tobj.%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
 					else:
-						cpp_file.write("\tobj.%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
+						cpp_file.write("\t%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
 				elif True == msg_field.is_buffer:
 					if int(msg_field.buffer_size) > 0:
 						if 'bytes' != msg_field.pb_type:
-							cpp_file.write("\tobj.%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+							else:
+								cpp_file.write("\t%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
 						else:
-							cpp_file.write("\tobj.%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
+							if message_desc.use_stl == True:
+								cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+							else:
+								cpp_file.write("\t%s.Copy(msg.%s());\n" % (msg_field.name, msg_field.name.lower()))
 					else:
 						if 'bytes' != msg_field.pb_type:
 							if message_desc.use_stl == True:
-								cpp_file.write("\tobj.%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+								cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
 						else:
 							if message_desc.use_stl == True:
-								cpp_file.write("\tobj.%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+								cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
 				elif True == msg_field.is_message:
 					cpp_file.write("\tconst %s & temp_%s = msg.%s();\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
-					cpp_file.write("\t%s_s::read_from_pbmsg(temp_%s, obj.%s);\n" % (msg_field.pb_type.split("::")[-1], msg_field.name.lower(), msg_field.name))
+					cpp_file.write("\t%s.read_from_pbmsg(temp_%s);\n" % (msg_field.name, msg_field.name.lower()))
 				else:
-					cpp_file.write("\tobj.%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
+					cpp_file.write("\t%s = msg.%s();\n" % (msg_field.name, msg_field.name.lower()))
 
 			x_postfix = x_postfix - 1
 		cpp_file.write("}\n\n")

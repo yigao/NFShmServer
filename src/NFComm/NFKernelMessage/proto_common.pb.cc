@@ -23,6 +23,15 @@ namespace {
 const ::google::protobuf::Descriptor* tbServerMgr_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tbServerMgr_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbMysqlConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  pbMysqlConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbRedisConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  pbRedisConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* tempServerConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  tempServerConfig_reflection_ = NULL;
 const ::google::protobuf::Descriptor* pbNFServerConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNFServerConfig_reflection_ = NULL;
@@ -64,7 +73,62 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbServerMgr));
-  pbNFServerConfig_descriptor_ = file->message_type(1);
+  pbMysqlConfig_descriptor_ = file->message_type(1);
+  static const int pbMysqlConfig_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlport_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqldbname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqluser_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlpassword_),
+  };
+  pbMysqlConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      pbMysqlConfig_descriptor_,
+      pbMysqlConfig::default_instance_,
+      pbMysqlConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(pbMysqlConfig));
+  pbRedisConfig_descriptor_ = file->message_type(2);
+  static const int pbRedisConfig_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbRedisConfig, redisip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbRedisConfig, redisport_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbRedisConfig, redispass_),
+  };
+  pbRedisConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      pbRedisConfig_descriptor_,
+      pbRedisConfig::default_instance_,
+      pbRedisConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbRedisConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbRedisConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(pbRedisConfig));
+  tempServerConfig_descriptor_ = file->message_type(3);
+  static const int tempServerConfig_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, server_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, server_list_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, mysql_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, redis_),
+  };
+  tempServerConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      tempServerConfig_descriptor_,
+      tempServerConfig::default_instance_,
+      tempServerConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tempServerConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(tempServerConfig));
+  pbNFServerConfig_descriptor_ = file->message_type(4);
   static const int pbNFServerConfig_offsets_[38] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
@@ -116,7 +180,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbNFServerConfig));
-  pbNFServerConfigList_descriptor_ = file->message_type(2);
+  pbNFServerConfigList_descriptor_ = file->message_type(5);
   static const int pbNFServerConfigList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfigList, list_),
   };
@@ -147,6 +211,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     tbServerMgr_descriptor_, &tbServerMgr::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    pbMysqlConfig_descriptor_, &pbMysqlConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    pbRedisConfig_descriptor_, &pbRedisConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    tempServerConfig_descriptor_, &tempServerConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNFServerConfigList_descriptor_, &pbNFServerConfigList::default_instance());
@@ -157,6 +227,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_proto_5fcommon_2eproto() {
   delete tbServerMgr::default_instance_;
   delete tbServerMgr_reflection_;
+  delete pbMysqlConfig::default_instance_;
+  delete pbMysqlConfig_reflection_;
+  delete pbRedisConfig::default_instance_;
+  delete pbRedisConfig_reflection_;
+  delete tempServerConfig::default_instance_;
+  delete tempServerConfig_reflection_;
   delete pbNFServerConfig::default_instance_;
   delete pbNFServerConfig_reflection_;
   delete pbNFServerConfigList::default_instance_;
@@ -183,45 +259,62 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\346\234\215\345\212\241\345\231\250\346\225\260\0222\n\017last_login_time\030\010 \001(\004B\031\272"
     "\304\023\025\344\270\212\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0223\n\020last_logout_"
     "time\030\t \001(\004B\031\272\304\023\025\344\270\212\344\270\200\346\254\241\344\270\213\347\272\277\346\227\266\351\227\264\022%\n"
-    "\013create_time\030\n \001(\004B\020\272\304\023\014\345\210\233\345\273\272\346\227\266\351\227\264\"\225\006\n"
-    "\020pbNFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024"
-    "\001\022\022\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001("
-    "\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\017\n\007B"
-    "usName\030\006 \001(\t\022\020\n\010LinkMode\030\007 \001(\t\022\013\n\003Url\030\010 "
-    "\001(\t\022\023\n\013IdleSleepUs\030\t \001(\r\022\020\n\010ServerIp\030\024 \001"
-    "(\t\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServer"
-    "Ip\030\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020\n\010"
-    "HttpPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n"
-    "\rWorkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001"
-    "(\r\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022"
-    "\022\n\nmParseType\030\036 \001(\r\022\020\n\010MasterIp\0302 \001(\t\022\022\n"
-    "\nMasterPort\0303 \001(\r\022\022\n\nNamingHost\0304 \001(\t\022\022\n"
-    "\nNamingPath\0305 \001(\t\022\022\n\nRouteAgent\0306 \001(\t\022\017\n"
-    "\007MysqlIp\030F \001(\t\022\021\n\tMysqlPort\030G \001(\r\022\023\n\013Mys"
-    "qlDbName\030H \001(\t\022\021\n\tMysqlUser\030I \001(\t\022\025\n\rMys"
-    "qlPassword\030J \001(\t\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRed"
-    "isPort\030Q \001(\r\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUr"
-    "l\030Z \001(\t\022\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnlinePlaye"
-    "rNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026"
-    "ClientKeepAliveTimeout\030f \001(\r\"@\n\024pbNFServ"
-    "erConfigList\022(\n\004list\030\001 \003(\0132\032.proto_ff.pb"
-    "NFServerConfig*\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF_"
-    "ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022\034\n\030NF"
-    "_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_ROUTE_"
-    "SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!\n\035NF_S"
-    "T_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_ST_PRO"
-    "XY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_SERVER\020"
-    "\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST_WORLD"
-    "_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022\025\n\021NF_"
-    "ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024"
-    "\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONITOR_SE"
-    "RVER\020\016\022\r\n\tNF_ST_MAX\020\024", 1781);
+    "\013create_time\030\n \001(\004B\020\272\304\023\014\345\210\233\345\273\272\346\227\266\351\227\264\"\224\001\n"
+    "\rpbMysqlConfig\022\026\n\007MysqlIp\030F \001(\tB\005\220\301\024\200\001\022\027"
+    "\n\tMysqlPort\030G \001(\rB\004\240\301\024\001\022\032\n\013MysqlDbName\030H"
+    " \001(\tB\005\220\301\024\200\001\022\030\n\tMysqlUser\030I \001(\tB\005\220\301\024\200\001\022\034\n"
+    "\rMysqlPassword\030J \001(\tB\005\220\301\024\200\001\"Z\n\rpbRedisCo"
+    "nfig\022\026\n\007RedisIp\030P \001(\tB\005\220\301\024\200\001\022\027\n\tRedisPor"
+    "t\030Q \001(\rB\004\240\301\024\001\022\030\n\tRedisPass\030R \001(\tB\005\220\301\024\200\001\""
+    "\275\001\n\020tempServerConfig\022\027\n\tserver_id\030\001 \001(\rB"
+    "\004\240\301\024\001\022\032\n\013server_type\030\002 \001(\tB\005\220\301\024\200\001\022\036\n\013ser"
+    "ver_list\030\003 \003(\tB\t\210\301\024\003\220\301\024\200\001\022&\n\005mysql\030\004 \001(\013"
+    "2\027.proto_ff.pbMysqlConfig\022,\n\005redis\030\005 \003(\013"
+    "2\027.proto_ff.pbRedisConfigB\004\210\301\024\003\"\225\006\n\020pbNF"
+    "ServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\n"
+    "ServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005"
+    "BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\017\n\007BusNam"
+    "e\030\006 \001(\t\022\020\n\010LinkMode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023"
+    "\n\013IdleSleepUs\030\t \001(\r\022\020\n\010ServerIp\030\024 \001(\t\022\022\n"
+    "\nServerPort\030\025 \001(\r\022\030\n\020ExternalServerIp\030\026 "
+    "\001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020\n\010HttpP"
+    "ort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rWork"
+    "ThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r\022\020\n"
+    "\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\022\n\nmP"
+    "arseType\030\036 \001(\r\022\020\n\010MasterIp\0302 \001(\t\022\022\n\nMast"
+    "erPort\0303 \001(\r\022\022\n\nNamingHost\0304 \001(\t\022\022\n\nNami"
+    "ngPath\0305 \001(\t\022\022\n\nRouteAgent\0306 \001(\t\022\017\n\007Mysq"
+    "lIp\030F \001(\t\022\021\n\tMysqlPort\030G \001(\r\022\023\n\013MysqlDbN"
+    "ame\030H \001(\t\022\021\n\tMysqlUser\030I \001(\t\022\025\n\rMysqlPas"
+    "sword\030J \001(\t\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPor"
+    "t\030Q \001(\r\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001"
+    "(\t\022\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030"
+    "d \001(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026Clien"
+    "tKeepAliveTimeout\030f \001(\r\"F\n\024pbNFServerCon"
+    "figList\022.\n\004list\030\001 \003(\0132\032.proto_ff.pbNFSer"
+    "verConfigB\004\240\301\024\001*\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF"
+    "_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022\034\n\030N"
+    "F_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_ROUTE"
+    "_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!\n\035NF_"
+    "ST_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_ST_PR"
+    "OXY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_SERVER"
+    "\020\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST_WORL"
+    "D_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022\025\n\021NF"
+    "_ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022"
+    "\024\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONITOR_S"
+    "ERVER\020\016\022\r\n\tNF_ST_MAX\020\024", 2222);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
+  pbMysqlConfig::default_instance_ = new pbMysqlConfig();
+  pbRedisConfig::default_instance_ = new pbRedisConfig();
+  tempServerConfig::default_instance_ = new tempServerConfig();
   pbNFServerConfig::default_instance_ = new pbNFServerConfig();
   pbNFServerConfigList::default_instance_ = new pbNFServerConfigList();
   tbServerMgr::default_instance_->InitAsDefaultInstance();
+  pbMysqlConfig::default_instance_->InitAsDefaultInstance();
+  pbRedisConfig::default_instance_->InitAsDefaultInstance();
+  tempServerConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfigList::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fcommon_2eproto);
@@ -917,6 +1010,1162 @@ void tbServerMgr::Swap(tbServerMgr* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = tbServerMgr_descriptor_;
   metadata.reflection = tbServerMgr_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int pbMysqlConfig::kMysqlIpFieldNumber;
+const int pbMysqlConfig::kMysqlPortFieldNumber;
+const int pbMysqlConfig::kMysqlDbNameFieldNumber;
+const int pbMysqlConfig::kMysqlUserFieldNumber;
+const int pbMysqlConfig::kMysqlPasswordFieldNumber;
+#endif  // !_MSC_VER
+
+pbMysqlConfig::pbMysqlConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void pbMysqlConfig::InitAsDefaultInstance() {
+}
+
+pbMysqlConfig::pbMysqlConfig(const pbMysqlConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void pbMysqlConfig::SharedCtor() {
+  _cached_size_ = 0;
+  mysqlip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mysqlport_ = 0u;
+  mysqldbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mysqluser_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+pbMysqlConfig::~pbMysqlConfig() {
+  SharedDtor();
+}
+
+void pbMysqlConfig::SharedDtor() {
+  if (mysqlip_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqlip_;
+  }
+  if (mysqldbname_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqldbname_;
+  }
+  if (mysqluser_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqluser_;
+  }
+  if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
+    delete mysqlpassword_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void pbMysqlConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* pbMysqlConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return pbMysqlConfig_descriptor_;
+}
+
+const pbMysqlConfig& pbMysqlConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+pbMysqlConfig* pbMysqlConfig::default_instance_ = NULL;
+
+pbMysqlConfig* pbMysqlConfig::New() const {
+  return new pbMysqlConfig;
+}
+
+void pbMysqlConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_mysqlip()) {
+      if (mysqlip_ != &::google::protobuf::internal::kEmptyString) {
+        mysqlip_->clear();
+      }
+    }
+    mysqlport_ = 0u;
+    if (has_mysqldbname()) {
+      if (mysqldbname_ != &::google::protobuf::internal::kEmptyString) {
+        mysqldbname_->clear();
+      }
+    }
+    if (has_mysqluser()) {
+      if (mysqluser_ != &::google::protobuf::internal::kEmptyString) {
+        mysqluser_->clear();
+      }
+    }
+    if (has_mysqlpassword()) {
+      if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
+        mysqlpassword_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool pbMysqlConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string MysqlIp = 70;
+      case 70: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mysqlip()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mysqlip().data(), this->mysqlip().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(568)) goto parse_MysqlPort;
+        break;
+      }
+
+      // optional uint32 MysqlPort = 71;
+      case 71: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_MysqlPort:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &mysqlport_)));
+          set_has_mysqlport();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(578)) goto parse_MysqlDbName;
+        break;
+      }
+
+      // optional string MysqlDbName = 72;
+      case 72: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_MysqlDbName:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mysqldbname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mysqldbname().data(), this->mysqldbname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(586)) goto parse_MysqlUser;
+        break;
+      }
+
+      // optional string MysqlUser = 73;
+      case 73: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_MysqlUser:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mysqluser()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mysqluser().data(), this->mysqluser().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(594)) goto parse_MysqlPassword;
+        break;
+      }
+
+      // optional string MysqlPassword = 74;
+      case 74: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_MysqlPassword:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_mysqlpassword()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mysqlpassword().data(), this->mysqlpassword().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void pbMysqlConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string MysqlIp = 70;
+  if (has_mysqlip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqlip().data(), this->mysqlip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      70, this->mysqlip(), output);
+  }
+
+  // optional uint32 MysqlPort = 71;
+  if (has_mysqlport()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(71, this->mysqlport(), output);
+  }
+
+  // optional string MysqlDbName = 72;
+  if (has_mysqldbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqldbname().data(), this->mysqldbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      72, this->mysqldbname(), output);
+  }
+
+  // optional string MysqlUser = 73;
+  if (has_mysqluser()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqluser().data(), this->mysqluser().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      73, this->mysqluser(), output);
+  }
+
+  // optional string MysqlPassword = 74;
+  if (has_mysqlpassword()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqlpassword().data(), this->mysqlpassword().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      74, this->mysqlpassword(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* pbMysqlConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string MysqlIp = 70;
+  if (has_mysqlip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqlip().data(), this->mysqlip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        70, this->mysqlip(), target);
+  }
+
+  // optional uint32 MysqlPort = 71;
+  if (has_mysqlport()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(71, this->mysqlport(), target);
+  }
+
+  // optional string MysqlDbName = 72;
+  if (has_mysqldbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqldbname().data(), this->mysqldbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        72, this->mysqldbname(), target);
+  }
+
+  // optional string MysqlUser = 73;
+  if (has_mysqluser()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqluser().data(), this->mysqluser().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        73, this->mysqluser(), target);
+  }
+
+  // optional string MysqlPassword = 74;
+  if (has_mysqlpassword()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mysqlpassword().data(), this->mysqlpassword().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        74, this->mysqlpassword(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int pbMysqlConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string MysqlIp = 70;
+    if (has_mysqlip()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mysqlip());
+    }
+
+    // optional uint32 MysqlPort = 71;
+    if (has_mysqlport()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->mysqlport());
+    }
+
+    // optional string MysqlDbName = 72;
+    if (has_mysqldbname()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mysqldbname());
+    }
+
+    // optional string MysqlUser = 73;
+    if (has_mysqluser()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mysqluser());
+    }
+
+    // optional string MysqlPassword = 74;
+    if (has_mysqlpassword()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->mysqlpassword());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void pbMysqlConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const pbMysqlConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbMysqlConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void pbMysqlConfig::MergeFrom(const pbMysqlConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mysqlip()) {
+      set_mysqlip(from.mysqlip());
+    }
+    if (from.has_mysqlport()) {
+      set_mysqlport(from.mysqlport());
+    }
+    if (from.has_mysqldbname()) {
+      set_mysqldbname(from.mysqldbname());
+    }
+    if (from.has_mysqluser()) {
+      set_mysqluser(from.mysqluser());
+    }
+    if (from.has_mysqlpassword()) {
+      set_mysqlpassword(from.mysqlpassword());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void pbMysqlConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void pbMysqlConfig::CopyFrom(const pbMysqlConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool pbMysqlConfig::IsInitialized() const {
+
+  return true;
+}
+
+void pbMysqlConfig::Swap(pbMysqlConfig* other) {
+  if (other != this) {
+    std::swap(mysqlip_, other->mysqlip_);
+    std::swap(mysqlport_, other->mysqlport_);
+    std::swap(mysqldbname_, other->mysqldbname_);
+    std::swap(mysqluser_, other->mysqluser_);
+    std::swap(mysqlpassword_, other->mysqlpassword_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata pbMysqlConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = pbMysqlConfig_descriptor_;
+  metadata.reflection = pbMysqlConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int pbRedisConfig::kRedisIpFieldNumber;
+const int pbRedisConfig::kRedisPortFieldNumber;
+const int pbRedisConfig::kRedisPassFieldNumber;
+#endif  // !_MSC_VER
+
+pbRedisConfig::pbRedisConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void pbRedisConfig::InitAsDefaultInstance() {
+}
+
+pbRedisConfig::pbRedisConfig(const pbRedisConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void pbRedisConfig::SharedCtor() {
+  _cached_size_ = 0;
+  redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  redisport_ = 0u;
+  redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+pbRedisConfig::~pbRedisConfig() {
+  SharedDtor();
+}
+
+void pbRedisConfig::SharedDtor() {
+  if (redisip_ != &::google::protobuf::internal::kEmptyString) {
+    delete redisip_;
+  }
+  if (redispass_ != &::google::protobuf::internal::kEmptyString) {
+    delete redispass_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void pbRedisConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* pbRedisConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return pbRedisConfig_descriptor_;
+}
+
+const pbRedisConfig& pbRedisConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+pbRedisConfig* pbRedisConfig::default_instance_ = NULL;
+
+pbRedisConfig* pbRedisConfig::New() const {
+  return new pbRedisConfig;
+}
+
+void pbRedisConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_redisip()) {
+      if (redisip_ != &::google::protobuf::internal::kEmptyString) {
+        redisip_->clear();
+      }
+    }
+    redisport_ = 0u;
+    if (has_redispass()) {
+      if (redispass_ != &::google::protobuf::internal::kEmptyString) {
+        redispass_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool pbRedisConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string RedisIp = 80;
+      case 80: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_redisip()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->redisip().data(), this->redisip().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(648)) goto parse_RedisPort;
+        break;
+      }
+
+      // optional uint32 RedisPort = 81;
+      case 81: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_RedisPort:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &redisport_)));
+          set_has_redisport();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(658)) goto parse_RedisPass;
+        break;
+      }
+
+      // optional string RedisPass = 82;
+      case 82: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_RedisPass:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_redispass()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->redispass().data(), this->redispass().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void pbRedisConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string RedisIp = 80;
+  if (has_redisip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->redisip().data(), this->redisip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      80, this->redisip(), output);
+  }
+
+  // optional uint32 RedisPort = 81;
+  if (has_redisport()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(81, this->redisport(), output);
+  }
+
+  // optional string RedisPass = 82;
+  if (has_redispass()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->redispass().data(), this->redispass().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      82, this->redispass(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* pbRedisConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string RedisIp = 80;
+  if (has_redisip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->redisip().data(), this->redisip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        80, this->redisip(), target);
+  }
+
+  // optional uint32 RedisPort = 81;
+  if (has_redisport()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(81, this->redisport(), target);
+  }
+
+  // optional string RedisPass = 82;
+  if (has_redispass()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->redispass().data(), this->redispass().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        82, this->redispass(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int pbRedisConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string RedisIp = 80;
+    if (has_redisip()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->redisip());
+    }
+
+    // optional uint32 RedisPort = 81;
+    if (has_redisport()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->redisport());
+    }
+
+    // optional string RedisPass = 82;
+    if (has_redispass()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->redispass());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void pbRedisConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const pbRedisConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbRedisConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void pbRedisConfig::MergeFrom(const pbRedisConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_redisip()) {
+      set_redisip(from.redisip());
+    }
+    if (from.has_redisport()) {
+      set_redisport(from.redisport());
+    }
+    if (from.has_redispass()) {
+      set_redispass(from.redispass());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void pbRedisConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void pbRedisConfig::CopyFrom(const pbRedisConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool pbRedisConfig::IsInitialized() const {
+
+  return true;
+}
+
+void pbRedisConfig::Swap(pbRedisConfig* other) {
+  if (other != this) {
+    std::swap(redisip_, other->redisip_);
+    std::swap(redisport_, other->redisport_);
+    std::swap(redispass_, other->redispass_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata pbRedisConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = pbRedisConfig_descriptor_;
+  metadata.reflection = pbRedisConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int tempServerConfig::kServerIdFieldNumber;
+const int tempServerConfig::kServerTypeFieldNumber;
+const int tempServerConfig::kServerListFieldNumber;
+const int tempServerConfig::kMysqlFieldNumber;
+const int tempServerConfig::kRedisFieldNumber;
+#endif  // !_MSC_VER
+
+tempServerConfig::tempServerConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void tempServerConfig::InitAsDefaultInstance() {
+  mysql_ = const_cast< ::proto_ff::pbMysqlConfig*>(&::proto_ff::pbMysqlConfig::default_instance());
+}
+
+tempServerConfig::tempServerConfig(const tempServerConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void tempServerConfig::SharedCtor() {
+  _cached_size_ = 0;
+  server_id_ = 0u;
+  server_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  mysql_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+tempServerConfig::~tempServerConfig() {
+  SharedDtor();
+}
+
+void tempServerConfig::SharedDtor() {
+  if (server_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_type_;
+  }
+  if (this != default_instance_) {
+    delete mysql_;
+  }
+}
+
+void tempServerConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* tempServerConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return tempServerConfig_descriptor_;
+}
+
+const tempServerConfig& tempServerConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+tempServerConfig* tempServerConfig::default_instance_ = NULL;
+
+tempServerConfig* tempServerConfig::New() const {
+  return new tempServerConfig;
+}
+
+void tempServerConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    server_id_ = 0u;
+    if (has_server_type()) {
+      if (server_type_ != &::google::protobuf::internal::kEmptyString) {
+        server_type_->clear();
+      }
+    }
+    if (has_mysql()) {
+      if (mysql_ != NULL) mysql_->::proto_ff::pbMysqlConfig::Clear();
+    }
+  }
+  server_list_.Clear();
+  redis_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool tempServerConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 server_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &server_id_)));
+          set_has_server_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_server_type;
+        break;
+      }
+
+      // optional string server_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_server_type:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_type()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_type().data(), this->server_type().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_server_list;
+        break;
+      }
+
+      // repeated string server_list = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_server_list:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_server_list()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_list(this->server_list_size() - 1).data(),
+            this->server_list(this->server_list_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_server_list;
+        if (input->ExpectTag(34)) goto parse_mysql;
+        break;
+      }
+
+      // optional .proto_ff.pbMysqlConfig mysql = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mysql:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_mysql()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_redis;
+        break;
+      }
+
+      // repeated .proto_ff.pbRedisConfig redis = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_redis:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_redis()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_redis;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void tempServerConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 server_id = 1;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->server_id(), output);
+  }
+
+  // optional string server_type = 2;
+  if (has_server_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_type().data(), this->server_type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->server_type(), output);
+  }
+
+  // repeated string server_list = 3;
+  for (int i = 0; i < this->server_list_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->server_list(i).data(), this->server_list(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->server_list(i), output);
+  }
+
+  // optional .proto_ff.pbMysqlConfig mysql = 4;
+  if (has_mysql()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->mysql(), output);
+  }
+
+  // repeated .proto_ff.pbRedisConfig redis = 5;
+  for (int i = 0; i < this->redis_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->redis(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* tempServerConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 server_id = 1;
+  if (has_server_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->server_id(), target);
+  }
+
+  // optional string server_type = 2;
+  if (has_server_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_type().data(), this->server_type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->server_type(), target);
+  }
+
+  // repeated string server_list = 3;
+  for (int i = 0; i < this->server_list_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_list(i).data(), this->server_list(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->server_list(i), target);
+  }
+
+  // optional .proto_ff.pbMysqlConfig mysql = 4;
+  if (has_mysql()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->mysql(), target);
+  }
+
+  // repeated .proto_ff.pbRedisConfig redis = 5;
+  for (int i = 0; i < this->redis_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->redis(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int tempServerConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 server_id = 1;
+    if (has_server_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->server_id());
+    }
+
+    // optional string server_type = 2;
+    if (has_server_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server_type());
+    }
+
+    // optional .proto_ff.pbMysqlConfig mysql = 4;
+    if (has_mysql()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->mysql());
+    }
+
+  }
+  // repeated string server_list = 3;
+  total_size += 1 * this->server_list_size();
+  for (int i = 0; i < this->server_list_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->server_list(i));
+  }
+
+  // repeated .proto_ff.pbRedisConfig redis = 5;
+  total_size += 1 * this->redis_size();
+  for (int i = 0; i < this->redis_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->redis(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void tempServerConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const tempServerConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tempServerConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void tempServerConfig::MergeFrom(const tempServerConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  server_list_.MergeFrom(from.server_list_);
+  redis_.MergeFrom(from.redis_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_server_id()) {
+      set_server_id(from.server_id());
+    }
+    if (from.has_server_type()) {
+      set_server_type(from.server_type());
+    }
+    if (from.has_mysql()) {
+      mutable_mysql()->::proto_ff::pbMysqlConfig::MergeFrom(from.mysql());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void tempServerConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void tempServerConfig::CopyFrom(const tempServerConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool tempServerConfig::IsInitialized() const {
+
+  return true;
+}
+
+void tempServerConfig::Swap(tempServerConfig* other) {
+  if (other != this) {
+    std::swap(server_id_, other->server_id_);
+    std::swap(server_type_, other->server_type_);
+    server_list_.Swap(&other->server_list_);
+    std::swap(mysql_, other->mysql_);
+    redis_.Swap(&other->redis_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata tempServerConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = tempServerConfig_descriptor_;
+  metadata.reflection = tempServerConfig_reflection_;
   return metadata;
 }
 

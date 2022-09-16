@@ -449,32 +449,32 @@ bool NFCConfigModule::LoadServerConfig()
             if (linkMode.empty())
             {
                 pPbConfig->set_linkmode("tcp");
-                std::string url = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+                std::string url = NF_FORMAT("tcp://{}:{}", pPbConfig->serverip(), pPbConfig->serverport());
                 pPbConfig->set_url(url);
             }
             else if (linkMode != "tcp" && linkMode != "udp" && linkMode != "http" && linkMode != "bus")
             {
                 pPbConfig->set_linkmode("tcp");
-                std::string url = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
+                std::string url = NF_FORMAT("tcp://{}:{}", pPbConfig->serverip(), pPbConfig->serverport());
                 pPbConfig->set_url(url);
             }
-            else if (pConfig->LinkMode == "bus")
+            else if (linkMode == "bus")
             {
-                std::string url = NF_FORMAT("bus://{}:{}", pConfig->ServerId, pConfig->BusLength);
+                std::string url = NF_FORMAT("bus://{}:{}", pPbConfig->serverid(), pPbConfig->buslength());
                 pPbConfig->set_url(url);
             }
             else
             {
-                std::string url = NF_FORMAT("{}://{}:{}", pConfig->LinkMode, pConfig->ServerIp, pConfig->ServerPort);
+                std::string url = NF_FORMAT("{}://{}:{}", pPbConfig->linkmode(), pPbConfig->serverip(), pPbConfig->serverport());
                 pPbConfig->set_url(url);
             }
 
             if (m_pPluginManager->IsLoadAllServer())
             {
-                if (mServerConfig[pConfig->ServerType])
+                if (mServerConfig[pPbConfig->servertype()])
                 {
                     int index = NFServerIDUtil::GetInstID(mServerConfig[pPbConfig->servertype()]->BusId);
-                    int curIndex = NFServerIDUtil::GetInstID(pConfig->BusId);
+                    int curIndex = NFServerIDUtil::GetInstID(pPbConfig->busid());
                     if (curIndex < index)
                     {
                         mServerConfig[pPbConfig->servertype()] = pConfig;
