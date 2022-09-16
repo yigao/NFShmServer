@@ -15,7 +15,6 @@
 
 class NFIMonitorModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_MONITOR_MODULE_ID)
 public:
 	NFIMonitorModule(NFIPluginManager* p) :NFIModule(p)
 	{

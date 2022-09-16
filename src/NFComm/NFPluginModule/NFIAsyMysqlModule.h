@@ -39,7 +39,6 @@ using Execute_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execu
 class NFIAsyMysqlModule
 	: public NFIAsycModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_ASY_MYSQL_MODULE_ID)
 public:
 	NFIAsyMysqlModule(NFIPluginManager* p) :NFIAsycModule(p)
 	{

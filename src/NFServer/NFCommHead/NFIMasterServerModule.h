@@ -15,7 +15,6 @@
 
 class NFIMasterServerModule : public NFIDynamicModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_MASTER_SERVER_MODULE_ID);
 public:
 	NFIMasterServerModule(NFIPluginManager* p) :NFIDynamicModule(p)
 	{

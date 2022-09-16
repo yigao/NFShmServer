@@ -75,7 +75,7 @@ public:
 
 	virtual NFIPlugin* FindPlugin(const std::string& strPluginName) override;
 
-	virtual int AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule) override;
+	virtual int AddModule(const std::string& strModuleName, NFIModule* pModule) override;
 
 	virtual void RemoveModule(const std::string& strModuleName) override;
 
@@ -181,32 +181,7 @@ public:
     template <typename T>
     T* FindModule()
     {
-        static T* pStaticModule = NULL;
-        if (pStaticModule == NULL)
-        {
-            NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
-            if (pLogicModule)
-            {
-                if (!TIsDerived<T, NFIModule>::Result)
-                {
-                    return nullptr;
-                }
-
-                //TODO OSX上dynamic_cast返回了NULL
-#if NF_PLATFORM == NF_PLATFORM_APPLE
-                T* pT = (T*)pLogicModule;
-#else
-                T* pT = dynamic_cast<T*>(pLogicModule);
-#endif
-
-                pStaticModule = pT;
-                return pT;
-            }
-            return nullptr;
-        }
-        else {
-            return pStaticModule;
-        }
+        return ((NFIPluginManager*)this)->FindModule<T>();
     }
 protected:
 

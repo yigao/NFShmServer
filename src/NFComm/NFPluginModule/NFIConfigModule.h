@@ -22,7 +22,6 @@
 
 class NFIConfigModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_CONFIG_MODULE_ID)
 public:
 	NFIConfigModule(NFIPluginManager* p) :NFIModule(p)
 	{

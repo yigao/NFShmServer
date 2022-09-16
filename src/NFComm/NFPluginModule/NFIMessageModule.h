@@ -99,7 +99,6 @@
 /// @brief 基于消息的通讯接口类
 class NFIMessageModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_MESSAGE_MODULE_ID)
 public:
 	NFIMessageModule(NFIPluginManager* p) :NFIModule(p)
 	{

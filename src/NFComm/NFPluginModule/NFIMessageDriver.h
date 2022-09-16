@@ -19,7 +19,6 @@
 /// @brief 网络驱动接口
 class NFIMessageDriver : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_NET_MODULE_ID)
 public:
 	NFIMessageDriver(NFIPluginManager* p):NFIModule(p) {}
 	virtual ~NFIMessageDriver() {}

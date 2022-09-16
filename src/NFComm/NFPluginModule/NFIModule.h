@@ -12,8 +12,6 @@
 #include "NFIPluginManager.h"
 #include "NFServerDefine.h"
 
-#define NF_MODULE_STATIC_CONST_MODULE_ID(MODULE_ID) public: static const int m_staticModuleId = MODULE_ID;
-
 class NFIModule
 {
 public:

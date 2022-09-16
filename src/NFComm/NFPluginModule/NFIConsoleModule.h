@@ -12,7 +12,6 @@
 
 class NFIConsoleModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_CONSOLE_MODULE_ID)
 public:
 	NFIConsoleModule(NFIPluginManager* p) :NFIModule(p)
 	{

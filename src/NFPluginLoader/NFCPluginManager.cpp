@@ -518,14 +518,12 @@ void NFCPluginManager::SetLogPath(const std::string& strName)
 	m_strLogPath = strName;
 }
 
-int NFCPluginManager::AddModule(uint32_t moduleId, const std::string& strModuleName, NFIModule* pModule)
+int NFCPluginManager::AddModule(const std::string& strModuleName, NFIModule* pModule)
 {
-    CHECK_EXPR_ASSERT(moduleId < NF_PLUGIN_MDOULE_MAX, -1, "moduleId:{} < NF_PLUGIN_MDOULE_MAX, name:{}", moduleId, strModuleName);
-    CHECK_EXPR_ASSERT(pModule != NULL, -1, "pModule != NULL moduleId:{}, name:{}", moduleId, strModuleName);
-    CHECK_EXPR_ASSERT(m_nModuleListMap[moduleId] == NULL, -1, "m_nModuleListMap[moduleId] == NULL! module exist!  moduleId:{}, name:{}", moduleId, strModuleName);
+    CHECK_EXPR_ASSERT(pModule != NULL, -1, "pModule != NULL name:{}", strModuleName);
+    CHECK_EXPR_ASSERT(m_nModuleInstanceMap.find(strModuleName) == m_nModuleInstanceMap.end(), -1, "module exist name:{} --- {}", strModuleName, pModule->m_strName);
 
 	m_nModuleInstanceMap.insert(ModuleInstanceMap::value_type(strModuleName, pModule));
-	m_nModuleListMap[moduleId] = pModule;
 	return 0;
 }
 

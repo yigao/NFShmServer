@@ -146,7 +146,7 @@ public:
         static T* pStaticModule = NULL;
         if (pStaticModule == NULL)
         {
-            NFIModule* pLogicModule = FindModule(T::m_staticModuleId);
+            NFIModule* pLogicModule = FindModule(typeid(T).name());
             if (pLogicModule)
             {
                 if (!TIsDerived<T, NFIModule>::Result)

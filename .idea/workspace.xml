@@ -306,14 +306,7 @@
       <workItem from="1663235833757" duration="8850000" />
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
-      <workItem from="1663338610780" duration="62000" />
-    </task>
-    <task id="LOCAL-00067" summary="frame">
-      <created>1654859638832</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1654859638832</updated>
+      <workItem from="1663338610780" duration="1298000" />
     </task>
     <task id="LOCAL-00068" summary="frame">
       <created>1654874708814</created>
@@ -651,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663325732493</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="chong gou">
+      <created>1663339919935</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1663339919936</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -767,6 +767,16 @@
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
           <line>69</line>
           <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h</url>
+          <line>189</line>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h</url>
+          <line>198</line>
+          <option name="timeStamp" value="256" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py</url>

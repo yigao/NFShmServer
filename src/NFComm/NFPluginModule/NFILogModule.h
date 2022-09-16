@@ -111,7 +111,6 @@ enum NF_LOG_ID
 class NFILogModule
 	: public NFIModule
 {
-    NF_MODULE_STATIC_CONST_MODULE_ID(NF_LOG_MODULE_ID)
 public:
 	NFILogModule(NFIPluginManager* p) :NFIModule(p)
 	{

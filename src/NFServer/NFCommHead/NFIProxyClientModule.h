@@ -15,7 +15,6 @@
 
 class NFIProxyClientModule : public NFIDynamicModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_PROXY_CLIENT_MODULE_ID)
 public:
 	NFIProxyClientModule(NFIPluginManager* p) :NFIDynamicModule(p)
 	{

@@ -18,7 +18,6 @@ class NFCoroutineTask;
 #endif
 
 class NFICoroutineModule : public NFIModule {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_COROUTINE_MODULE_ID)
 public:
     NFICoroutineModule(NFIPluginManager *p) : NFIModule(p) {
 

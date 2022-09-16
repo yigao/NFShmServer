@@ -23,7 +23,6 @@ enum TaskModule_YieldStrategy
 
 class NFITaskModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_TASK_MODULE_ID)
 public:
 	NFITaskModule(NFIPluginManager* p) :NFIModule(p)
 	{

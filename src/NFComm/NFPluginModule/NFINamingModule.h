@@ -22,7 +22,6 @@ typedef std::function<void(const string &name, const proto_ff::ServerInfoReport&
 
 class NFINamingModule : public NFIModule
 {
-NF_MODULE_STATIC_CONST_MODULE_ID(NF_NAMING_MODULE_ID)
 public:
     NFINamingModule(NFIPluginManager* p) :NFIModule(p)
     {

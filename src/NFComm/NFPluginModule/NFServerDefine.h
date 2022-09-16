@@ -41,34 +41,6 @@ enum NF_SERVER_TYPES
     NF_ST_MAX = 20,
 };
 
-//定义引擎Module类最大个数
-#define NF_PLUGIN_MDOULE_MAX 1000
-
-//定义系统引擎模块数
-enum NF_PLUGIN_SYSTEM_MODULE_TYPE {
-	/////////////NFKernelPlugin////////////////
-    NF_LOG_MODULE_ID = 0,
-    NF_CONFIG_MODULE_ID = 1,
-    NF_TIMER_MODULE_ID = 2,
-    NF_EVENT_MODULE_ID = 3,
-    NF_KERNEL_MODULE_ID = 4,
-    NF_MONITOR_MODULE_ID = 5,
-    NF_CONSOLE_MODULE_ID = 6,
-    NF_MESSAGE_MODULE_ID = 7,
-    NF_COROUTINE_MODULE_ID = 8,
-    NF_MYSQL_MODULE_ID = 9,
-    NF_ASY_MYSQL_MODULE_ID = 10,
-    NF_NOSQL_MDOULE_ID = 11,
-    NF_TASK_MODULE_ID = 12,
-    NF_NAMING_MODULE_ID = 13,
-    //////////////////NFNetPlugin//////////////////
-    NF_NET_MODULE_ID = 20,
-	//////////////////NFShmPlugin//////////////////
-	NF_SHM_MODULE_ID = 30,
-	NF_DESC_STORE_MODULE_ID = 31,
-	NF_PLUGIN_SYSTEM_MDOULE_MAX = 100,
-};
-
 enum NF_MODULE_TYPE {
     NF_MODULE_NONE = 0,
 };
