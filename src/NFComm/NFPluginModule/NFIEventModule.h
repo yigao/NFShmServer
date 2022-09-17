@@ -12,7 +12,7 @@
 #include <iostream>
 #include "NFIModule.h"
 
-#include "NFComm/NFPluginModule/NFEventObj.h"
+class NFEventObj;
 
 class NFIEventModule
 	: public NFIModule

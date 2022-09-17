@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFIDescStoreModule.h"
 #include "NFComm/NFShmCore/NFIDescStore.h"
-#include "NFComm/NFPluginModule/NFEventMgr.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
 #include <unordered_map>
 
 class NFCDescStoreModule : public NFIDescStoreModule, public NFEventObj

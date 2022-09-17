@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFSystemInfo.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
-#include "NFComm/NFPluginModule/NFEventMgr.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
 
 /**
 * @brief 服务器监控模块

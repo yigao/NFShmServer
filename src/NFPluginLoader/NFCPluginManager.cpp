@@ -16,7 +16,7 @@
 #include "NFPrintfLogo.h"
 #include "NFComm/NFCore/NFServerTime.h"
 #include "NFComm/NFPluginModule/NFIConsoleModule.h"
-#include "NFComm/NFPluginModule/NFEventMgr.h"
+#include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
@@ -63,7 +63,7 @@ NFIPluginManager* NFIPluginManager::GetSingletonPtr()
     return m_pInstance;
 }
 
-NFCPluginManager::NFCPluginManager() : NFIPluginManager()
+NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 {
 	m_nCurFrameCount = 0;
 	m_nAppID = 0;

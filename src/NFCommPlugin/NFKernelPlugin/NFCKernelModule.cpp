@@ -14,7 +14,8 @@
 #include "NFComm/NFCore/NFCRC32.h"
 #include "NFComm/NFCore/NFCRC16.h"
 #include "NFComm/NFCore/NFBase64.h"
-#include "NFComm/NFPluginModule/NFEventMgr.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
+#include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 #define NF_GUID_POWER 100000

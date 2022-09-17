@@ -9,16 +9,12 @@
 
 #include "NFCEventModule.h"
 
-#include "NFComm/NFPluginModule/NFEventMgr.h"
-
 NFCEventModule::NFCEventModule(NFIPluginManager* p):NFIEventModule(p)
 {
-	NFEventMgr::Instance()->Init(this);
 }
 
 NFCEventModule::~NFCEventModule()
 {
-	NFEventMgr::Instance()->UnInit();
 }
 
 bool NFCEventModule::BeforeShut()

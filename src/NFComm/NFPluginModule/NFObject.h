@@ -10,14 +10,14 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFIPluginManager"
+#include "NFIPluginManager.h"
 #include <stddef.h>
 #include <string.h>
 
 class NFObject
 {
 public:
-    NFObject(NFIPluginManager *p):m_pPluginManager(p)
+    NFObject(NFIPluginManager *p): m_pObjPluginManager(p)
     {
 
     }
@@ -30,17 +30,12 @@ public:
     template <typename T>
     T* FindModule() const
     {
-        if (m_pPluginManager)
+        if (m_pObjPluginManager)
         {
-            return m_pPluginManager->FindModule<T>();
+            return m_pObjPluginManager->FindModule<T>();
         }
         return nullptr;
     }
-
-    virtual NFIPluginManager* GetPluginManager() const
-    {
-        return m_pPluginManager;
-    }
-protected:
-    NFIPluginManager* m_pPluginManager;
+public:
+    NFIPluginManager* m_pObjPluginManager;
 };

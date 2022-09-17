@@ -9,8 +9,8 @@
 #include <stdint.h>
 
 #include "NFEventObj.h"
-#include "NFEventMgr.h"
 #include "NFIPluginManager.h"
+#include "NFIEventModule.h"
 
 
 NFEventObj::NFEventObj(NFIPluginManager* pPluginManager):m_pEventPluginManager(pPluginManager)

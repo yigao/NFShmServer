@@ -10,7 +10,7 @@
 #include "NFCAppInited.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFEventMgr.h"
+#include "NFComm/NFPluginModule/NFIEventModule.h"
 
 int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string& desc, uint32_t initStatus)
 {
@@ -139,7 +139,7 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Connect Task..............");
 
             proto_ff::NFEventNoneData event;
-            NFEventMgr::Instance()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
         }
 	}
 	else
@@ -172,7 +172,7 @@ int NFCAppInited::CheckTaskFinished()
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Desc Store Load Task..............");
 
                 proto_ff::NFEventNoneData event;
-                NFEventMgr::Instance()->FireExecute(proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+                FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
             }
         }
         else
@@ -205,7 +205,7 @@ int NFCAppInited::CheckTaskFinished()
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Obj Load From DB Task..............");
 
                     proto_ff::NFEventNoneData event;
-                    NFEventMgr::Instance()->FireExecute(proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+                    FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
                 }
             }
         }

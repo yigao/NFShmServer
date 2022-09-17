@@ -11,6 +11,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include <unordered_map>
 #include "NFComm/NFPluginModule/NFServerDefine.h"
+#include "NFComm/NFPluginModule/NFObject.h"
 
 class NFCAppInitTask
 {
@@ -24,10 +25,10 @@ public:
     std::string m_desc;
 };
 
-class NFCAppInited
+class NFCAppInited : public NFObject
 {
 public:
-	NFCAppInited(): m_initServerConnectTasks(false), m_initDestStoreTasks(false), m_initOBjLoadForomDBTasks(false)
+	NFCAppInited(NFIPluginManager* pPluginManager): NFObject(pPluginManager), m_initServerConnectTasks(false), m_initDestStoreTasks(false), m_initOBjLoadForomDBTasks(false)
 	{
         m_serverConnectTasks.resize(NF_ST_MAX);
         m_serverLoadDestStore.resize(NF_ST_MAX);
