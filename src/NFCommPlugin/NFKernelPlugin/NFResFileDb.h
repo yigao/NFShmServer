@@ -19,7 +19,7 @@ class NFFileResDB;
 class NFFileResTable : public NFResTable
 {
 public:
-	NFFileResTable(NFFileResDB* pFileResDB, const std::string& name);
+	NFFileResTable(NFIPluginManager* p, NFFileResDB* pFileResDB, const std::string& name);
 	const std::string& GetName() { return m_name; }
     virtual int FindAllRecord(const std::string &serverId, google::protobuf::Message *pMessage) override;
     virtual int SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) override;
@@ -34,7 +34,7 @@ private:
 class NFFileResDB : public NFResDB
 {
 public:
-	NFFileResDB(const std::string& szResFilePath);
+	NFFileResDB(NFIPluginManager* p, const std::string& szResFilePath);
 	virtual NFResTable *GetTable(const std::string& name);
 	const std::string& GetPath() { return m_szResFilePath; }
 private:

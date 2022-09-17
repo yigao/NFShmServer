@@ -23,7 +23,7 @@ class NFZookeeperCache;
 class NFZookeeperNaming : public NFNaming
 {
 public:
-    NFZookeeperNaming();
+    NFZookeeperNaming(NFIPluginManager* p);
 
     virtual ~NFZookeeperNaming();
 

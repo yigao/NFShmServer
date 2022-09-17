@@ -9,13 +9,13 @@
 
 #include "NFTransMng.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransMng, EOT_TRANS_MNG, NFShmObj)
 
 
-NFTransMng::NFTransMng() {
+NFTransMng::NFTransMng(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();
     } else {

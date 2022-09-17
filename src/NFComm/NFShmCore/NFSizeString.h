@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFSnprintf.h"
 #include "NFComm/NFCore/NFStringUtility.h"
-#include "NFShmMgr.h"
+#include "NFShmDefine.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>

@@ -12,7 +12,7 @@
 
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFSchedule.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 
@@ -26,7 +26,6 @@ void DoTask(NFSchedule *, void *ud) {
 NFCCoroutineModule::NFCCoroutineModule(NFIPluginManager *p) : NFICoroutineModule(p) {
     m_pCorSched = NF_NEW NFCoroutineSchedule(p);
     m_pCorSched->Init();
-    NFCoMgr::Instance()->Init(this);
 }
 
 NFCCoroutineModule::~NFCCoroutineModule() {
@@ -122,5 +121,18 @@ int NFCCoroutineModule::Status(int64_t id)
 {
     CHECK_EXPR(m_pCorSched, -1, "m_pCorSched == NULL");
     return m_pCorSched->Status(id);
+}
+
+int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
+{
+    NFCommonCoroutineTask *pTask = NewTask<NFCommonCoroutineTask>();
+    if (pTask == NULL) {
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "new co task failed!");
+    return -1;
+    }
+
+    pTask->Init(func);
+    int64_t coid = pTask->Start(true);
+    return coid < 0 ? -1 : 0;
 }
 

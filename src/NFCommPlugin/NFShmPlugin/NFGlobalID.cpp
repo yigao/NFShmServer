@@ -15,9 +15,10 @@
 #include "NFShmObjSeg.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-NFGlobalID::NFGlobalID()
-	: m_iThisRoundCountMax(0)
+NFGlobalID::NFGlobalID(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
+	, m_iThisRoundCountMax(0)
 	, m_iThisRoundCount(0)
 	, m_iGlobalIDAppendNum(0)
 {
@@ -184,33 +185,44 @@ NFShmObj *NFGlobalID::GetObj(int iID)
 	return NULL;
 }
 
-void *NFGlobalID::operator new(size_t nSize) throw()
-{
-	return NFShmMgr::Instance()->AllocMemForObject(EOT_GLOBAL_ID);
-}
-NFShmObj *NFGlobalID::ResumeObject(void *pBuffer)
+NFShmObj *NFGlobalID::ResumeObject(NFIPluginManager* pPluginManager, void *pBuffer)
 {
 	NFShmObj *pTmp = NULL;
-	pTmp = new(pBuffer) NFGlobalID;
+	pTmp = new(pBuffer) NFGlobalID(pPluginManager);
 	return pTmp;
 }
+
+NFShmObj* NFGlobalID::CreateObject(NFIPluginManager* pPluginManager)
+{
+    NFGlobalID *pTmp = NULL;
+    void* pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(EOT_GLOBAL_ID);
+	if(!pVoid)
+	{
+	    return NULL;
+	}
+    pTmp = new (pVoid) NFGlobalID(pPluginManager);
+	return pTmp;
+}
+
+void NFGlobalID::DestroyObject(NFIPluginManager* pPluginManager, NFShmObj *pObj)
+{
+    NFGlobalID *pTmp = NULL;
+	pTmp= (NFGlobalID*)pObj;
+    pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(EOT_GLOBAL_ID, pTmp);
+	return;
+}
+
 void *NFGlobalID::operator new(size_t nSize, void *pBuffer) throw()
 {
 	return  pBuffer;
 }
-void NFGlobalID::operator delete(void *pMem, void *pBuffer)
+
+int  NFGlobalID::SetObjSeg(NFIPluginManager* pPluginManager, EN_SHMOBJ_TYPE bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoEras, int externalDataSize, bool singleton)
 {
-}
-void  NFGlobalID::operator delete(void *pMem)
-{
-    NFShmMgr::Instance()->FreeMemForObject(EOT_GLOBAL_ID, pMem);
-	return;
-}
-int  NFGlobalID::SetObjSeg(EN_SHMOBJ_TYPE bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoEras, int externalDataSize, bool singleton)
-{
-	NFShmMgr::Instance()->SetObjSegParam(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject, NFGlobalID::CreateObject, NFGlobalID::DestroyObject, -1, className, useHash, hashAutoEras, externalDataSize, singleton);
+    pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject, NFGlobalID::CreateObject, NFGlobalID::DestroyObject, -1, className, useHash, hashAutoEras, externalDataSize, singleton);
 	return 0;
 }
+
 NFShmObj *NFGlobalID::GetObjByIndex(int iIndex)
 {
 	return NFShmMgr::Instance()->GetObj(EOT_GLOBAL_ID, iIndex);

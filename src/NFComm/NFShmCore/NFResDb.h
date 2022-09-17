@@ -12,6 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFShmCore/NFArray.h"
+#include "NFComm/NFPluginModule/NFObject.h"
 
 //proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
 #define IMPL_RES_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
@@ -110,9 +111,12 @@ enum
 	DESC_CHECK_FATAL = -1000,
 };
 
-class NFResTable
+class NFResTable : public NFObject
 {
 public:
+    NFResTable(NFIPluginManager* p):NFObject(p) {}
+    virtual ~NFResTable() {}
+
 	virtual int FindAllRecord(const std::string &serverId, google::protobuf::Message *pMessage) = 0;
     virtual int FindOneRecord(const std::string &serverId, google::protobuf::Message *pMessage) = 0;
     virtual int SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) = 0;
@@ -120,9 +124,10 @@ public:
     virtual int DeleteOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) = 0;
 };
 
-class NFResDB
+class NFResDB : public NFObject
 {
 public:
+    NFResDB(NFIPluginManager* p):NFObject(p) {}
 	virtual ~NFResDB() {}
 
 	/**从数据库里取得一个资源表

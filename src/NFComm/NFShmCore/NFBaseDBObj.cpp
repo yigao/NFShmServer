@@ -9,10 +9,11 @@
 
 #include "NFBaseDBObj.h"
 #include "NFServerFrameTypeDefines.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBaseDBObj, EOT_BASE_DB_OBJ, NFShmObj)
 
-NFBaseDBObj::NFBaseDBObj()
+NFBaseDBObj::NFBaseDBObj(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();

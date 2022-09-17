@@ -18,7 +18,7 @@ class NFDBObjTrans;
 class NFDBObjMgr : public NFShmObj
 {
 public:
-    NFDBObjMgr();
+    NFDBObjMgr(NFIPluginManager* pPluginManager);
     virtual ~NFDBObjMgr();
 
     //非继承函数, 不要加virtual

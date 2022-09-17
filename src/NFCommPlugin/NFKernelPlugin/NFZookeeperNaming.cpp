@@ -11,8 +11,9 @@
 #include "NFZookeeperClient.h"
 #include "NFZookeeperCache.h"
 #include "NFNamingHandle.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFObject.h"
 
 extern int32_t IsPathMatched(const std::string& match_name, const std::string& name_expanded);
 
@@ -51,9 +52,9 @@ int32_t FormatName(const std::string& src_name, std::string* dst_name) {
     return pos > 1 ? 0 : -1;
 }
 
-struct SyncWaitAdaptor
+struct SyncWaitAdaptor : public NFObject
 {
-    SyncWaitAdaptor() : _rc(999) {}
+    SyncWaitAdaptor(NFIPluginManager* p) :NFObject(p), _rc(999) {}
     virtual ~SyncWaitAdaptor() {}
 
     int32_t _rc;
@@ -63,11 +64,11 @@ struct SyncWaitAdaptor
 
 struct BlockWaitAdaptor : public SyncWaitAdaptor
 {
-    explicit BlockWaitAdaptor(NFZookeeperClient* zk_client)
-            : SyncWaitAdaptor(), _zk_client(zk_client), _urls(NULL) {}
+    explicit BlockWaitAdaptor(NFIPluginManager* p,NFZookeeperClient* zk_client)
+            : SyncWaitAdaptor(p), _zk_client(zk_client), _urls(NULL) {}
 
-    BlockWaitAdaptor(NFZookeeperClient* zk_client, std::vector<std::string>* urls)
-            : SyncWaitAdaptor(), _zk_client(zk_client), _urls(urls) {}
+    BlockWaitAdaptor(NFIPluginManager* p, NFZookeeperClient* zk_client, std::vector<std::string>* urls)
+            : SyncWaitAdaptor(p), _zk_client(zk_client), _urls(urls) {}
 
     virtual ~BlockWaitAdaptor() {}
 
@@ -96,11 +97,11 @@ struct BlockWaitAdaptor : public SyncWaitAdaptor
 
 struct CoroutineWaitAdaptor : public SyncWaitAdaptor
 {
-    explicit CoroutineWaitAdaptor()
-            : SyncWaitAdaptor(), _cor_id(-1), _urls(NULL) {}
+    explicit CoroutineWaitAdaptor(NFIPluginManager* p)
+            : SyncWaitAdaptor(p), _cor_id(-1), _urls(NULL) {}
 
-    CoroutineWaitAdaptor(std::vector<std::string>* urls)
-            : SyncWaitAdaptor(), _cor_id(-1), _urls(urls) {}
+    CoroutineWaitAdaptor(NFIPluginManager* p, std::vector<std::string>* urls)
+            : SyncWaitAdaptor(p), _cor_id(-1), _urls(urls) {}
 
     virtual ~CoroutineWaitAdaptor() {}
 
@@ -109,26 +110,26 @@ struct CoroutineWaitAdaptor : public SyncWaitAdaptor
 
     virtual void WaitRsp()
     {
-        _cor_id = NFCoMgr::Instance()->CurrentTaskId();
-        NFCoMgr::Instance()->Yield();
+        _cor_id = FindModule<NFICoroutineModule>()->CurrentTaskId();
+        FindModule<NFICoroutineModule>()->Yield();
     }
 
     void OnCodeRsp(int32_t rc)
     {
         _rc = rc;
-        NFCoMgr::Instance()->Resume(_cor_id);
+        FindModule<NFICoroutineModule>()->Resume(_cor_id);
     }
 
     void OnRsp(int32_t rc, const std::vector<std::string>& urls)
     {
         _rc = rc;
         *_urls = urls;
-        NFCoMgr::Instance()->Resume(_cor_id);
+        FindModule<NFICoroutineModule>()->Resume(_cor_id);
     }
 };
 
 
-NFZookeeperNaming::NFZookeeperNaming() {
+NFZookeeperNaming::NFZookeeperNaming(NFIPluginManager* p):NFNaming(p) {
     m_zk_path = "/";
     m_use_cache = true;
     m_zk_client = NF_NEW NFZookeeperClient();
@@ -199,15 +200,15 @@ int32_t NFZookeeperNaming::Register(const string &name, const string &url, int64
 int32_t NFZookeeperNaming::Register(const string &name, const vector<std::string> &urls, int64_t instance_id) {
     SyncWaitAdaptor *sync_adaptor = NULL;
     NFNamingCbReturnCode cb;
-    if (NFCoMgr::Instance()->CurrentTaskId() >= 0)
+    if (FindModule<NFICoroutineModule>()->CurrentTaskId() >= 0)
     {
-        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor();
+        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(m_pObjPluginManager);
         cb = std::bind(&CoroutineWaitAdaptor::OnCodeRsp, coroutine_adaptor, std::placeholders::_1);
         sync_adaptor = coroutine_adaptor;
     }
     else
     {
-        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_zk_client);
+        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_pObjPluginManager, m_zk_client);
         cb = std::bind(&BlockWaitAdaptor::OnCodeRsp, block_adaptor, std::placeholders::_1);
         sync_adaptor = block_adaptor;
     }
@@ -267,15 +268,15 @@ NFZookeeperNaming::RegisterAsync(const string &name, const vector<std::string> &
 int32_t NFZookeeperNaming::UnRegister(const string &name, int64_t instance_id) {
     SyncWaitAdaptor *sync_adaptor = NULL;
     NFNamingCbReturnCode cb = NULL;
-    if (NFCoMgr::Instance()->CurrentTaskId() >= 0)
+    if (FindModule<NFICoroutineModule>()->CurrentTaskId() >= 0)
     {
-        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor();
+        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(m_pObjPluginManager);
         cb = std::bind(&CoroutineWaitAdaptor::OnCodeRsp, coroutine_adaptor, std::placeholders::_1);
         sync_adaptor = coroutine_adaptor;
     }
     else
     {
-        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_zk_client);
+        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_pObjPluginManager, m_zk_client);
         cb = std::bind(&BlockWaitAdaptor::OnCodeRsp, block_adaptor, std::placeholders::_1);
         sync_adaptor = block_adaptor;
     }
@@ -292,15 +293,15 @@ int32_t NFZookeeperNaming::ForceDelete(const std::string& name, const std::strin
 {
     SyncWaitAdaptor *sync_adaptor = NULL;
     NFNamingCbReturnCode cb = NULL;
-    if (NFCoMgr::Instance()->CurrentTaskId() >= 0)
+    if (FindModule<NFICoroutineModule>()->CurrentTaskId() >= 0)
     {
-        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor();
+        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(m_pObjPluginManager);
         cb = std::bind(&CoroutineWaitAdaptor::OnCodeRsp, coroutine_adaptor, std::placeholders::_1);
         sync_adaptor = coroutine_adaptor;
     }
     else
     {
-        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_zk_client);
+        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_pObjPluginManager, m_zk_client);
         cb = std::bind(&BlockWaitAdaptor::OnCodeRsp, block_adaptor, std::placeholders::_1);
         sync_adaptor = block_adaptor;
     }
@@ -405,12 +406,12 @@ int32_t NFZookeeperNaming::GetUrlsByName(const string &name, std::vector<std::st
 
     SyncWaitAdaptor *sync_adaptor = NULL;
     NFNamingCbReturnValue ret_cob = NULL;
-    if (NFCoMgr::Instance()->CurrentTaskId() >= 0) {
-        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(urls);
+    if (FindModule<NFICoroutineModule>()->CurrentTaskId() >= 0) {
+        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(m_pObjPluginManager,urls);
         ret_cob = std::bind(&CoroutineWaitAdaptor::OnRsp, coroutine_adaptor, std::placeholders::_1, std::placeholders::_2);
         sync_adaptor = coroutine_adaptor;
     } else {
-        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_zk_client, urls);
+        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_pObjPluginManager,m_zk_client, urls);
         ret_cob = std::bind(&BlockWaitAdaptor::OnRsp, block_adaptor, std::placeholders::_1, std::placeholders::_2);
         sync_adaptor = block_adaptor;
     }
@@ -451,12 +452,12 @@ int32_t NFZookeeperNaming::GetUrlsByNameAsync(const string &name, const NFNaming
 int32_t NFZookeeperNaming::WatchName(const string &name, const NFNamingWatchFunc &wc) {
     SyncWaitAdaptor *sync_adaptor = NULL;
     NFNamingCbReturnCode ret_cob = NULL;
-    if (NFCoMgr::Instance()->CurrentTaskId() >= 0) {
-        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor();
+    if (FindModule<NFICoroutineModule>()->CurrentTaskId() >= 0) {
+        CoroutineWaitAdaptor *coroutine_adaptor = new CoroutineWaitAdaptor(m_pObjPluginManager);
         ret_cob = std::bind(&CoroutineWaitAdaptor::OnCodeRsp, coroutine_adaptor, std::placeholders::_1);
         sync_adaptor = coroutine_adaptor;
     } else {
-        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_zk_client);
+        BlockWaitAdaptor *block_adaptor = new BlockWaitAdaptor(m_pObjPluginManager, m_zk_client);
         ret_cob = std::bind(&BlockWaitAdaptor::OnCodeRsp, block_adaptor, std::placeholders::_1);
         sync_adaptor = block_adaptor;
     }

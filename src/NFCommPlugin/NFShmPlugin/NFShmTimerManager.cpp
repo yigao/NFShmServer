@@ -12,6 +12,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFMagicTimeUtil.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 int Slot::CreateInit() {
     m_headData.nextIndex = -1;
@@ -220,7 +221,7 @@ bool Slot::DeleteTimer(NFShmTimer *timer, STimerIDData *allIDData) {
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimerManager, EOT_TYPE_TIMER_MNG, NFShmObj)
 
-NFShmTimerManager::NFShmTimerManager() {
+NFShmTimerManager::NFShmTimerManager(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {

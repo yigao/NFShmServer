@@ -15,7 +15,7 @@
 class NFBusppNaming : public NFNaming
 {
 public:
-	NFBusppNaming() { }
+	NFBusppNaming(NFIPluginManager* p):NFNaming(p) { }
 	virtual ~NFBusppNaming() { }
 
 	/// @brief 初始化zookeeper连接

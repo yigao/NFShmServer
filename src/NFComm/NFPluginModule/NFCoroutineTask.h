@@ -9,6 +9,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFObject.h"
 #include <functional>
 
 #ifdef Yield
@@ -16,10 +17,10 @@
 #endif
 
 /// 用户使用协程时继承该类, 实现Run方法完成协程的使用
-class NFCoroutineTask {
+class NFCoroutineTask : public NFObject {
 public:
     /// @brief 构造函数
-    NFCoroutineTask();
+    NFCoroutineTask(NFIPluginManager *pPluginManager);
 
     /// @brief 析构函数
     virtual ~NFCoroutineTask();
@@ -51,8 +52,8 @@ public:
 /// @brief 基于function的通用的协程任务实现
 class NFCommonCoroutineTask : public NFCoroutineTask {
 public:
-	NFCommonCoroutineTask() {}
-	NFCommonCoroutineTask(const std::function<void(void)>& run):m_run(run) {}
+	NFCommonCoroutineTask(NFIPluginManager *pPluginManager):NFCoroutineTask(pPluginManager) {}
+	NFCommonCoroutineTask(NFIPluginManager *pPluginManager, const std::function<void(void)>& run):NFCoroutineTask(pPluginManager),m_run(run) {}
 
     virtual ~NFCommonCoroutineTask() {}
 

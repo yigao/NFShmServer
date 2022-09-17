@@ -25,7 +25,7 @@ typedef struct tagIDIndex
 class NFGlobalID :public NFShmObj
 {
 public:
-	NFGlobalID();
+	NFGlobalID(NFIPluginManager* pPluginManager);
 	virtual ~NFGlobalID();
 
 	int CreateInit();
@@ -34,12 +34,11 @@ public:
 	int GetGlobalID(int iType, int iIndex, NFShmObj *pObj);
 	int ReleaseID(int iID);
 	NFShmObj  *GetObj(int iID);
-	static int SetObjSeg(EN_SHMOBJ_TYPE bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoErase, int externalDataSize, bool singleton);
-	static void *operator new(size_t nSize) throw();
+	static int SetObjSeg(NFIPluginManager* pPluginManager, EN_SHMOBJ_TYPE bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoErase, int externalDataSize, bool singleton);
 	static void *operator new(size_t nSize, void *pBuffer) throw();
-	static void  operator delete(void *pMem);
-	static void  operator delete(void *pMem, void *pBuffer);
-	static NFShmObj *ResumeObject(void *pBuffer);
+	static NFShmObj *ResumeObject(NFIPluginManager* pPluginManager, void *pBuffer);
+    static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);
+    static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);
 	static NFShmObj *GetObjByIndex(int iIndex);
 
 	int AddSecond(int iSecond) { m_iSecOffSet += iSecond; return 0; }

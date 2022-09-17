@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFBusppNaming.h"
@@ -909,10 +909,10 @@ int32_t NFCNamingModule::Init(NF_SERVER_TYPES eServerType, const string &host, i
 #else
         if (host.empty())
         {
-            m_namingList[eServerType] = NF_NEW NFBusppNaming();
+            m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pPluginManager);
         }
         else {
-            m_namingList[eServerType] = NF_NEW NFZookeeperNaming();
+            m_namingList[eServerType] = NF_NEW NFZookeeperNaming(m_pPluginManager);
         }
 #endif
     }

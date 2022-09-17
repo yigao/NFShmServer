@@ -10,12 +10,12 @@
 #include "NFResMysqlDb.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 #include <fstream>
 
-NFMysqlResTable::NFMysqlResTable(NFResMysqlDB* pFileResDB, const std::string& name)
+NFMysqlResTable::NFMysqlResTable(NFIPluginManager* p, NFResMysqlDB* pFileResDB, const std::string& name):NFResTable(p)
 {
     m_name = name;
     m_pMysqlResDB = pFileResDB;
@@ -30,7 +30,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
 {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    int64_t coId = NFCoMgr::Instance()->CurrentTaskId();
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = 0;
     {
         NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
@@ -51,7 +51,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
 
 	CHECK_EXPR(iRet == 0, -1, "QueryDescStore Failed!");
 
-	iRet = NFCoMgr::Instance()->Yield();
+	iRet = FindModule<NFICoroutineModule>()->Yield();
 
 	CHECK_EXPR(iRet == 0, -1, "parse error:{} {}", pMessage->InitializationErrorString(), pMessage->DebugString());
 
@@ -105,7 +105,7 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
                                                             */
 }
 
-NFResMysqlDB::NFResMysqlDB()
+NFResMysqlDB::NFResMysqlDB(NFIPluginManager* p):NFResDB(p)
 {
 }
 
@@ -127,7 +127,7 @@ NFResTable *NFResMysqlDB::GetTable(const std::string &name) {
         return iter->second;
     }
 
-    NFMysqlResTable *pTable = new NFMysqlResTable(this, name);
+    NFMysqlResTable *pTable = new NFMysqlResTable(m_pObjPluginManager, this, name);
     m_tablesMap.emplace(name, pTable);
     return pTable;
 }

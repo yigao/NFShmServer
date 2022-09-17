@@ -17,7 +17,7 @@ class NFResMysqlDB;
 class NFMysqlResTable : public NFResTable
 {
 public:
-    NFMysqlResTable(NFResMysqlDB* pFileResDB, const std::string& name);
+    NFMysqlResTable(NFIPluginManager* p, NFResMysqlDB* pFileResDB, const std::string& name);
     virtual ~NFMysqlResTable();
     const std::string& GetName() { return m_name; }
     virtual int FindAllRecord(const std::string &serverId, google::protobuf::Message *pMessage) override;
@@ -33,7 +33,7 @@ private:
 class NFResMysqlDB : public NFResDB
 {
 public:
-    NFResMysqlDB();
+    NFResMysqlDB(NFIPluginManager* p);
     virtual ~NFResMysqlDB();
     virtual NFResTable *GetTable(const std::string& name);
 private:

@@ -23,11 +23,11 @@ void NFShmObjSeg::operator delete(void *pMem)
 {
 	return;
 }
-NFShmObjSeg::NFShmObjSeg()
+NFShmObjSeg::NFShmObjSeg(NFIPluginManager* p):NFObject(p)
 {
 }
 
-int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfCreateObj)(void *), bool iUseHash, int externalDataSize, int externalItemCount)
+int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfCreateObj)(NFIPluginManager*,void *), bool iUseHash, int externalDataSize, int externalItemCount)
 {
 	if (!NFShmMgr::Instance()->GetShmModule())
 	{
@@ -177,7 +177,7 @@ int NFShmObjSeg::FormatObj()
 	{
 		if (m_pIdxs[i].IsUsed())
 		{
-			m_pFn(((char *)m_pObjs + m_nObjSize * i));
+			m_pFn(m_pObjPluginManager, ((char *)m_pObjs + m_nObjSize * i));
 		}
 		m_pIdxs[i].SetObjBuf(((char *)m_pObjs + m_nObjSize * i));
 	}
@@ -410,7 +410,7 @@ int  NFShmObjSeg::CreateObject()
 		return iTempIdx;
 	}
 
-	m_pFn(pBuff);
+	m_pFn(m_pObjPluginManager, pBuff);
 	iTempIdx = GetObjId(pBuff);
 	return iTempIdx;
 }

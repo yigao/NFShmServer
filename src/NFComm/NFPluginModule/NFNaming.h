@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFError.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
+#include "NFObject.h"
 
 typedef std::function<void(const string &name, const std::vector<std::string>& urls)> NFNamingWatchFunc;
 /// @brief 异步注册接口的执行结果回调
@@ -23,10 +24,10 @@ typedef std::function<void(int rc)> NFNamingCbReturnCode;
 /// @param values 查询结果(url列表)
 typedef std::function<void(int rc, const std::vector<std::string>& urls)> NFNamingCbReturnValue;
 
-class NFNaming
+class NFNaming : public NFObject
 {
 public:
-    NFNaming() { }
+    NFNaming(NFIPluginManager* p):NFObject(p) { }
     virtual ~NFNaming() { }
 
 	/// @brief 初始化zookeeper连接

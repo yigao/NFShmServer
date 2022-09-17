@@ -10,10 +10,11 @@
 #include "NFShmTimer.h"
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFComm/NFCore/NFSnprintf.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)
 
-NFShmTimer::NFShmTimer() {
+NFShmTimer::NFShmTimer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {

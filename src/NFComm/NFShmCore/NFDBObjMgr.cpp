@@ -9,6 +9,7 @@
 
 #include "NFDBObjMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFBaseDBObj.h"
 #include "NFDBObjTrans.h"
 #include "NFShmMgr.h"
@@ -16,7 +17,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, NFShmObj)
 
-NFDBObjMgr::NFDBObjMgr() {
+NFDBObjMgr::NFDBObjMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {

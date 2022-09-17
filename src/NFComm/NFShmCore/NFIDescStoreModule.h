@@ -10,7 +10,6 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFShmMgr.h"
 #include "google/protobuf/message.h"
 
 class NFIDescStore;
