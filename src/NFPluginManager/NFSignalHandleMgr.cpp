@@ -2,7 +2,7 @@
 //    @FileName         :    NFSignalHandleMgr.cpp
 //    @Author           :    Yi.Gao
 //    @Date             :   xxxx-xx-xx
-//    @Module           :    NFPluginLoader
+//    @Module           :    NFPluginManager
 //
 // -------------------------------------------------------------------------
 

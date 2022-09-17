@@ -24,7 +24,7 @@ NFProcMonitor::NFProcMonitor()
     sigar_open(&m_sigar);
     m_procCheckIndex = 1;
 
-    m_exeFileName = "./NFPluginLoader";
+    m_exeFileName = "./NFPluginManager";
 }
 
 NFProcMonitor::~NFProcMonitor()

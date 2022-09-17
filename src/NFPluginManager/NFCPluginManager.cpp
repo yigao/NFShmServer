@@ -159,7 +159,7 @@ bool NFCPluginManager::LoadAllPlugin()
 	//打印LOG
 	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", PrintfLogo());
 
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader Awake................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Awake................");
 
 	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "LoadPlugin:NFKernelPlugin");
 	//加载引擎配置plugin.xml, 创建引擎，生成module
@@ -175,7 +175,7 @@ bool NFCPluginManager::LoadAllPlugin()
 	//打印LOG
 	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", PrintfLogo());
 
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader Awake................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Awake................");
 	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "LoadPlugin:NFKernelPlugin");
 	//加载引擎配置plugin.xml, 创建引擎，生成module
 	LoadPluginConfig();
@@ -216,7 +216,7 @@ bool NFCPluginManager::End()
 
 inline bool NFCPluginManager::Init()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader Init................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Init................");
 	for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
 	{
 		(*iter)->Init();
@@ -572,7 +572,7 @@ NFIModule* NFCPluginManager::FindModule(const std::string& strModuleName)
 
 bool NFCPluginManager::CheckConfig()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader CheckConfig................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager CheckConfig................");
 	
 	for (PluginInstanceMap::iterator itCheckInstance = m_nPluginInstanceMap.begin(); itCheckInstance != m_nPluginInstanceMap.end(); ++itCheckInstance)
 	{
@@ -583,7 +583,7 @@ bool NFCPluginManager::CheckConfig()
 
 bool NFCPluginManager::ReadyExecute()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader ReadyExecute................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager ReadyExecute................");
 
 	if (!m_bFixedFrame) {
 	    m_profilerMgr.SetOpenProfiler(false);
@@ -631,7 +631,7 @@ bool NFCPluginManager::ReadyExecute()
 
 bool NFCPluginManager::BeforeShut()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader BeforeShut................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager BeforeShut................");
 	
 	for (PluginInstanceMap::iterator itBeforeInstance = m_nPluginInstanceMap.begin(); itBeforeInstance != m_nPluginInstanceMap.end(); ++itBeforeInstance)
 	{
@@ -643,7 +643,7 @@ bool NFCPluginManager::BeforeShut()
 
 bool NFCPluginManager::Shut()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader Shut................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Shut................");
 	
 	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
 	{
@@ -655,7 +655,7 @@ bool NFCPluginManager::Shut()
 
 bool NFCPluginManager::OnReloadPlugin()
 {
-	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginLoader OnReloadPlugin................");
+	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager OnReloadPlugin................");
 
 	/*
 	加载服务器配置
@@ -685,7 +685,7 @@ bool NFCPluginManager::OnReloadPlugin()
 
 bool NFCPluginManager::InitShmObject()
 {
-//	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginLoader InitShmObjectRegister................");
+//	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager InitShmObjectRegister................");
 //
 //	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
 //	{
@@ -714,7 +714,7 @@ bool NFCPluginManager::InitShmObject()
 
 bool NFCPluginManager::Finalize()
 {
-	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginLoader Finalize................");
+	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Finalize................");
 	
 	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
 	{
@@ -1221,4 +1221,44 @@ std::list<NFIPlugin*> NFCPluginManager::GetListPlugin()
 std::string NFCPluginManager::GetMachineAddrMD5()
 {
     return m_iMachineAddrMD5;
+}
+
+bool NFCPluginManager::LoadKernelPlugin()
+{
+#ifndef NF_DYNAMIC_PLUGIN
+    m_nPluginNameVec.push_back("NFKernelPlugin");
+	LoadStaticPlugin("NFKernelPlugin");
+#else
+    m_nPluginNameVec.push_back("NFKernelPlugin");
+    LoadPluginLibrary("NFKernelPlugin");
+#endif
+
+    /*
+        log 系统第一个启动，然后是配置
+    */
+    FindModule<NFILogModule>()->InitLogSystem();
+    /*
+        加载服务器配置
+    */
+    FindModule<NFIConfigModule>()->LoadConfig();
+    /*
+        log 加载配置
+    */
+    FindModule<NFILogModule>()->SetDefaultLogConfig();
+
+    /*
+        启动多线程任务系统
+    */
+    if (IsLoadAllServer())
+    {
+        FindModule<NFITaskModule>()->InitActorThread(1);
+    }
+    else
+    {
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+        NF_ASSERT(pConfig);
+
+        FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
+    }
+    return true;
 }
