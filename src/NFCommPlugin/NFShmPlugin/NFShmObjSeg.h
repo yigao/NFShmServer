@@ -61,8 +61,6 @@ public:
 
 	int CreateObject();
 
-	static int GetRunMode();
-
 	static int GetHashSize(int objCount);
 protected:
 	int CreateIdx();

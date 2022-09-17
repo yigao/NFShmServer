@@ -79,7 +79,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 
 	m_pFn = pfCreateObj;
 
-	if (NFShmMgr::Instance()->GetInitMode() == EN_OBJ_MODE_INIT)
+	if (m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
 	{
 		NFShmMgr::Instance()->SetCreateMode(EN_OBJ_MODE_INIT);
 		Initialize();
@@ -241,15 +241,6 @@ void NFShmObjSeg::FreeMemForObject(void *pMem)
 	{
 		DestroyIdx(iIdx);
 	}
-}
-
-int NFShmObjSeg::GetRunMode()
-{
-#ifdef MAKE_FOR_DB_CHECK_CGI
-	return EN_OBJ_MODE_INIT;
-#else
-	return NFShmMgr::Instance()->GetInitMode();
-#endif
 }
 
 int NFShmObjSeg::GetHashSize(int objCount)

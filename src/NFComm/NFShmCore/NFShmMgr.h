@@ -25,20 +25,6 @@ public:
 	NFShmMgr();
 	virtual ~NFShmMgr();
 public:
-    bool IsInited() const { return m_inited; }
-	bool Init(NFISharedMemModule* pShmModule = nullptr);
-	void UnInit();
-public:
-	/**
-	* 共享内存模式
-	*/
-	virtual EN_OBJ_MODE	GetInitMode();
-
-	/**
-	* 共享内存模式
-	*/
-	virtual void SetInitMode(EN_OBJ_MODE mode);
-
 	/**
 	* 共享内存创建对象模式
 	*/
@@ -48,9 +34,7 @@ public:
 	* 共享内存创建对象模式
 	*/
 	virtual void	SetCreateMode(EN_OBJ_MODE mode);
-
-protected:
-	NFISharedMemModule* m_pShmModule;
-	bool m_inited;
+public:
+    EN_OBJ_MODE m_objMode;
 };
 

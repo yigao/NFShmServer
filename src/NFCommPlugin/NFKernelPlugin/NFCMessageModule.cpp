@@ -559,7 +559,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 proto_ff::Proto_SvrPkg svrPkg;
                 CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
 
-                if (svrPkg.disp_info().rsp_trans_id() > 0 && NFShmMgr::Instance()->IsInited()) {
+                if (svrPkg.disp_info().rsp_trans_id() > 0) {
                     NFTransBase *pTrans = FindModule<NFISharedMemModule>()->GetTrans(svrPkg.disp_info().rsp_trans_id());
                     if (pTrans && !pTrans->IsFinished()) {
                         pTrans->ProcessDispSvrRes(objectLinkId, packet, svrPkg);
@@ -594,7 +594,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                 if (svrPkg.store_info().cb_data().type() == proto_ff::E_DISP_TYPE_BY_TRANSACTION)
                 {
-                    if (svrPkg.store_info().cb_data().id() > 0 && NFShmMgr::Instance()->IsInited()) {
+                    if (svrPkg.store_info().cb_data().id() > 0) {
                         NFTransBase *pTrans = FindModule<NFISharedMemModule>()->GetTrans(svrPkg.store_info().cb_data().id());
                         if (pTrans && !pTrans->IsFinished()) {
                             pTrans->ProcessDBMsgRes(svrPkg);

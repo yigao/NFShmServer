@@ -98,7 +98,7 @@ int NFCDescStoreModule::LoadDestSotre() {
     if (m_bStartInit) return 0;
 
     int iRet = -1;
-    if (NFShmMgr::Instance()->GetInitMode() == EN_OBJ_MODE_INIT) {
+    if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT) {
         int iRet = Load();
         NF_ASSERT_MSG(iRet == 0, "Load Desc Store Failed!");
     } else {
@@ -145,7 +145,7 @@ int NFCDescStoreModule::InitDescStore(const std::string& descClass, NFIDescStore
 	pDescStore->SetValid();
 	AddDescStore(descClass, pDescStore);
 
-	if (NFShmMgr::Instance()->GetInitMode() == EN_OBJ_MODE_INIT)
+	if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
 	{
 		int iRet = pDescStore->Initialize();
 		assert(iRet == 0);

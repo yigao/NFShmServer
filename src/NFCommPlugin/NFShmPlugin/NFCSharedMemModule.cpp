@@ -41,13 +41,10 @@ NFCSharedMemModule::NFCSharedMemModule(NFIPluginManager* p):NFISharedMemModule(p
 	m_iTotalObjCount = 0;
 	m_nObjSegSwapCounter.resize(EOT_MAX_TYPE);
 	m_pGlobalID = NULL;
-
-	NFShmMgr::Instance()->Init(this);
 }
 
 NFCSharedMemModule::~NFCSharedMemModule()
 {
-	NFShmMgr::Instance()->UnInit();
 }
 
 bool NFCSharedMemModule::AfterLoadAllPlugin()

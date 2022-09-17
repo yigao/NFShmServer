@@ -13,45 +13,11 @@
 
 NFShmMgr::NFShmMgr()
 {
-	m_pShmModule = nullptr;
-    m_inited = false;
+    m_objMode = EN_OBJ_MODE_RECOVER;
 }
 
 NFShmMgr::~NFShmMgr()
 {
-}
-
-bool NFShmMgr::Init(NFISharedMemModule* pShmModule)
-{
-    m_inited = true;
-	m_pShmModule = pShmModule;
-	return true;
-}
-
-void NFShmMgr::UnInit()
-{
-}
-
-/**
-* 共享内存模式
-*/
-EN_OBJ_MODE	NFShmMgr::GetInitMode()
-{
-	if (m_pShmModule)
-	{
-		return m_pShmModule->GetInitMode();
-	}
-	NF_ASSERT_MSG(m_pShmModule, "m_pShmModule == NULL, Not Init Shm Mgr");
-	return EN_OBJ_MODE_INIT;
-}
-
-void NFShmMgr::SetInitMode(EN_OBJ_MODE mode)
-{
-	if (m_pShmModule)
-	{
-		return m_pShmModule->SetInitMode(mode);
-	}
-	NF_ASSERT_MSG(m_pShmModule, "m_pShmModule == NULL, Not Init Shm Mgr");
 }
 
 /**
@@ -59,12 +25,7 @@ void NFShmMgr::SetInitMode(EN_OBJ_MODE mode)
 */
 EN_OBJ_MODE	NFShmMgr::GetCreateMode()
 {
-	if (m_pShmModule)
-	{
-		return m_pShmModule->GetCreateMode();
-	}
-	NF_ASSERT_MSG(m_pShmModule, "m_pShmModule == NULL, Not Init Shm Mgr");
-	return EN_OBJ_MODE_RECOVER;
+    return m_objMode;
 }
 
 /**
@@ -72,9 +33,5 @@ EN_OBJ_MODE	NFShmMgr::GetCreateMode()
 */
 void NFShmMgr::SetCreateMode(EN_OBJ_MODE mode)
 {
-	if (m_pShmModule)
-	{
-		m_pShmModule->SetCreateMode(mode);
-	}
-	NF_ASSERT_MSG(m_pShmModule, "m_pShmModule == NULL, Not Init Shm Mgr");
+    m_objMode = mode;
 }
