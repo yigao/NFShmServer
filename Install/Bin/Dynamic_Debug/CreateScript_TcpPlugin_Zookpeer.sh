@@ -6,8 +6,8 @@ log_str=""
 do_work()
 {
 	echo $1 $2 $3 $4
-	ln -sdf $BASEPATH/NFPluginManager $BASEPATH/$1_$2_bin
-	#$cp NFPluginManager $1 -rf
+	ln -sdf $BASEPATH/NFPluginLoader $BASEPATH/$1_$2_bin
+	#$cp NFPluginLoader $1 -rf
 	#chmod a+x $1
 	cp AllServer.sh $1_$2_run.sh -rf
 	chmod a+x $1_$2_run.sh 
