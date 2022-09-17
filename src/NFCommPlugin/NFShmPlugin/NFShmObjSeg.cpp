@@ -82,6 +82,8 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 	if (m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
 	{
 		NFShmMgr::Instance()->SetCreateMode(EN_OBJ_MODE_INIT);
+        m_pObjPluginManager->FindModule<NFISharedMemModule>()->SetCreateMode(EN_OBJ_MODE_INIT);
+        NFShmMgr::Instance()->SetAddrOffset(m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetAddrOffset());
 		Initialize();
 
 		if (m_iUseHash)
@@ -96,6 +98,8 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 	else
 	{
 		NFShmMgr::Instance()->SetCreateMode(EN_OBJ_MODE_RECOVER);
+        m_pObjPluginManager->FindModule<NFISharedMemModule>()->SetCreateMode(EN_OBJ_MODE_INIT);
+        NFShmMgr::Instance()->SetAddrOffset(m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetAddrOffset());
 		RecoverIdx();
 		FormatObj();
 

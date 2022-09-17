@@ -289,7 +289,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 		siTempShmSize = (siTempShmSize / sPageSize + 1) * sPageSize;
 	}
 
-	NFLogDebug(NF_LOG_SYSTEMLOG, 0, "--begin-- key:{},  size:{}M, pagesize:{}, mode:{} ", iKey, siTempShmSize/1024.0/1024.0, sPageSize, enInitFlag);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "--begin-- key:{},  size:{}M, pagesize:{}, mode:{} ", iKey, siTempShmSize/1024.0/1024.0, sPageSize, enInitFlag);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	std::string shmFileName = NF_FORMAT("{}_shm_key_{}.bus", m_pPluginManager->GetAppName(), iKey);
@@ -342,7 +342,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 	//试图创建
 	if ((hShmID = shmget(iKey, siTempShmSize, IPC_CREAT | IPC_EXCL | 0666)) < 0)
 	{
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}", errno, strerror(errno));
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}, server will try to attach it", errno, strerror(errno));
         //no space left
         if (errno == 28) {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}", errno, strerror(errno));
@@ -351,7 +351,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
         }
 
 		//有可能是已经存在同样的key_shm,则试图连接
-		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "same shm  exist, now try to attach it ... ");
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "same shm  exist, now try to attach it ... ");
 		if ((hShmID = shmget(iKey, siTempShmSize, 0666)) < 0)
 		{
             NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}", errno, strerror(errno));
@@ -363,7 +363,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 			}
 			else
 			{
-				NFLogDebug(NF_LOG_SYSTEMLOG, 0, "rm the exsit shm ...");
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "rm the exsit shm ...");
 				if (EN_OBJ_MODE_INIT == enInitFlag)
 				{
 					if (shmctl(hShmID, IPC_RMID, NULL))
@@ -390,7 +390,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 		}
 		else
 		{
-			NFLogDebug(NF_LOG_SYSTEMLOG, 0, "attach succ ");
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "attach succ ");
 		}
 	}
 	else
@@ -414,7 +414,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 		return NULL;
 	}
 
-	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CSharedMem ReqShmSize:{} ActShmSize:{} ShmID:{} ShmKey:{}", siTempShmSize, stDs.shm_segsz, hShmID, iKey);
+	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CSharedMem ReqShmSize:{}M ActShmSize:{}M ShmID:{} ShmKey:{}", siTempShmSize/1024.0/1024.0, stDs.shm_segsz/1024.0/1024.0, hShmID, iKey);
 	//try to access shm
 	if ((pAddr = shmat(hShmID, NULL, 0)) == (char *)-1)
 	{
@@ -439,7 +439,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
 	}
 #endif
 
-	NFLogDebug(NF_LOG_SYSTEMLOG, 0, " --end-- pShm:{}", (void*)pShm);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, " --end-- pShm:{}", (void*)pShm);
 
 	return pShm;
 }
@@ -600,7 +600,7 @@ void NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCou
     }
 	m_iObjSegSizeTotal += siThisObjSegTotal;
 	m_iTotalObjCount += pCounter->m_iItemCount;
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {}byte count {} tablesize {}M total obj count {}", pszClassName,
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
               pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal/1024.0/1024.0, m_iTotalObjCount);
 
     CHECK_EXPR_NOT_RET(m_iTotalObjCount < MAX_GLOBALID_NUM*0.8, "the shm obj too much, m_iTotalObjCount:{} < MAX_GLOBALID_NUM:{}*0.8", m_iTotalObjCount, MAX_GLOBALID_NUM);
@@ -624,6 +624,7 @@ int NFCSharedMemModule::InitializeAllObj()
 
 	//对象内存分配完毕后，统一把创建方式改为Init.
 	NFShmMgr::Instance()->SetCreateMode(EN_OBJ_MODE_INIT);
+	SetCreateMode(EN_OBJ_MODE_INIT);
 	return 0;
 }
 

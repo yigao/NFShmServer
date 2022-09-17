@@ -115,7 +115,7 @@ uint32_t NFServerIDUtil::GetShmObjKey(const std::string& busname)
         inst = vec[3];
     }
 
-    return zone*100000+servertype*1000+inst;
+    return world*1000000+zone*10000+servertype*100+inst;
 }
 
 std::string NFServerIDUtil::GetBusNameFromBusID(uint32_t busId)

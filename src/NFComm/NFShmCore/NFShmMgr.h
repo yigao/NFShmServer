@@ -34,7 +34,18 @@ public:
 	* 共享内存创建对象模式
 	*/
 	virtual void	SetCreateMode(EN_OBJ_MODE mode);
+
+    /**
+    * @brief  获得偏移地址
+    */
+    virtual size_t   GetAddrOffset();
+
+    virtual void SetAddrOffset(size_t offset);
 public:
     EN_OBJ_MODE m_objMode;
+    /**
+    * 相对于上次共享内存地址recover之后的偏移量,用来恢复指针对象
+    */
+    size_t  m_siAddrOffset;
 };
 
