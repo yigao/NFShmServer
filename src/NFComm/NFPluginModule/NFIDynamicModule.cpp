@@ -11,7 +11,7 @@
 #include "NFIDynamicModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 
-NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p)
+NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p),NFTimerObj(p),NFEventObj(p)
 {
 
 }

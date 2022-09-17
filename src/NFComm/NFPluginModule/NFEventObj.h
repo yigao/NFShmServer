@@ -14,6 +14,8 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
 
+class NFIPluginManager;
+
 /* 事件使用注意事项
  取消订阅事件的时传入的参数一定要和订阅事件时传入的参数一致，
  事件内部是以订阅事件传入的参数（包括回调指针）组合为事件key的，
@@ -31,7 +33,7 @@ public:
 	/**
 	 *@brief 构造函数
 	 */
-	NFEventObj();
+	NFEventObj(NFIPluginManager* pPluginManager);
 
 	/**
 	 *@brief 析构函数
@@ -103,5 +105,7 @@ public:
 	* @return			取消订阅事件是否成功
 	*/
 	bool UnSubscribeAll();
+protected:
+    NFIPluginManager* m_pEventPluginManager;
 };
 

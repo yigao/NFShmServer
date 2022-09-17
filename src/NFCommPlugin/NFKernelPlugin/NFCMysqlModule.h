@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 #include "NFCMysqlDriverManager.h"
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 
 class NFCMysqlModule
         : public NFIMysqlModule, public NFTimerObj {

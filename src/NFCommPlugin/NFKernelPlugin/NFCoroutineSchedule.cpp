@@ -15,7 +15,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
-NFCoroutineTaskTimer::NFCoroutineTaskTimer(NFCoroutineSchedule* pCoSche, int64_t taskId):m_pCoSche(pCoSche), m_taskId(taskId)
+NFCoroutineTaskTimer::NFCoroutineTaskTimer(NFCoroutineSchedule* pCoSche, int64_t taskId):NFTimerObj(pCoSche->m_pTimerPluginManager), m_pCoSche(pCoSche), m_taskId(taskId)
 {
     m_delete = false;
 }
@@ -48,7 +48,7 @@ void NFCoroutineTaskTimer::SetDelete()
     m_delete = true;
 }
 
-NFCoroutineSchedule::NFCoroutineSchedule() : schedule_(NULL), task_map_(), pre_start_task_() {
+NFCoroutineSchedule::NFCoroutineSchedule(NFIPluginManager* pPluginManager) : NFTimerObj(pPluginManager), schedule_(NULL), task_map_(), pre_start_task_() {
 	SetTimer(1, 1000);
 }
 

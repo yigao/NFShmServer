@@ -21,7 +21,7 @@
 #include "NFIPacketParse.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 
-NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType)
+NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p)
 {
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
 	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
@@ -460,7 +460,7 @@ uint64_t NFEvppNetMessage::GetFreeUnLinkId()
 	int count = 10000;
 	while(--count >= 0)
     {
-        if (mNetObjectMaxIndex < 0 || mNetObjectMaxIndex >= MAX_CLIENT_INDEX-10)
+        if (mNetObjectMaxIndex >= MAX_CLIENT_INDEX-10)
         {
             mNetObjectMaxIndex = 0;
         }

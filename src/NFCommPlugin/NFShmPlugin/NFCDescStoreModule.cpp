@@ -21,7 +21,7 @@
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 
-NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p) {
+NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p),NFEventObj(p) {
     m_pResFileDB = NULL;
     m_pResSqlDB = NULL;
     m_bStartInit = false;

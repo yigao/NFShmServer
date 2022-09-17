@@ -7,15 +7,16 @@
 //
 // -------------------------------------------------------------------------
 #include "NFTimerObj.h"
-#include "NFTimerMgr.h"
+#include "NFIPluginManager.h"
+#include "NFITimerModule.h"
 
-NFTimerObj::NFTimerObj() : m_pTimerInfoPtr(nullptr), m_pFixTimerInfoPtr(nullptr)
+NFTimerObj::NFTimerObj(NFIPluginManager* pPluginManager) : m_pTimerPluginManager(pPluginManager), m_pTimerInfoPtr(nullptr), m_pFixTimerInfoPtr(nullptr)
 {
 }
 
 NFTimerObj::~NFTimerObj()
 {
-	NFTimerMgr::Instance()->KillAllTimer(this);
+	m_pTimerPluginManager->FindModule<NFITimerModule>()->KillAllTimer(this);
 	m_pTimerInfoPtr = nullptr;
 	m_pFixTimerInfoPtr = nullptr;
 }
@@ -23,24 +24,24 @@ NFTimerObj::~NFTimerObj()
 //设置定时器
 bool NFTimerObj::SetTimer(uint32_t nTimerID, uint64_t nInterVal, uint32_t nCallCount)
 {
-	return NFTimerMgr::Instance()->SetTimer(nTimerID, nInterVal, this, nCallCount);
+	return m_pTimerPluginManager->FindModule<NFITimerModule>()->SetTimer(nTimerID, nInterVal, this, nCallCount);
 }
 
 //关闭定时器
 bool NFTimerObj::KillTimer(uint32_t nTimerID)
 {
-	return NFTimerMgr::Instance()->KillTimer(nTimerID, this);
+	return m_pTimerPluginManager->FindModule<NFITimerModule>()->KillTimer(nTimerID, this);
 }
 
 //关闭所有定时器
 bool NFTimerObj::KillAllTimer()
 {
-	return NFTimerMgr::Instance()->KillAllTimer(this);
+	return m_pTimerPluginManager->FindModule<NFITimerModule>()->KillAllTimer(this);
 }
 
 //设置固定时间的定时器
 bool NFTimerObj::SetFixTimer(uint32_t nTimerID, uint64_t nStartTime, uint32_t nInterSec, uint32_t nCallCount)
 {
-	return NFTimerMgr::Instance()->SetFixTimer(nTimerID, nStartTime, nInterSec, this, nCallCount);
+	return m_pTimerPluginManager->FindModule<NFITimerModule>()->SetClocker(nTimerID, nStartTime, nInterSec, this, nCallCount);
 }
 

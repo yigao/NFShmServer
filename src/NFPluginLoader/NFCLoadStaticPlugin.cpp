@@ -16,7 +16,7 @@
 #include "NFComm/NFPluginModule/NFITaskModule.h"
 
 #include "NFComm/NFPluginModule/NFEventMgr.h"
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 

@@ -15,6 +15,7 @@
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFCore/NFTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDescStoreTrans, EOT_RPC_TRANS_ID, NFTransBase)
 

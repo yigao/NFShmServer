@@ -11,18 +11,9 @@
 #include <vector>
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFTimerObj.h"
 #include "NFComm/NFCore/NFTime.h"
 
-//时间轴检查频率 ms
-#define TIMER_AXIS_CHECK_FREQUENCE 32
-//时间轴刻度
-#define TIME_GRID 64
-//时间轴长度
-#define TIME_AXIS_LENGTH			120000		// 毫秒为单位的
-#define TIME_AXIS_SECLENGTH			108000		// 秒为单位的支持到30个小时
-#define INVALID_TIMER				0xffffffff  // 无效定时器
-#define INFINITY_CALL				0xffffffff	// 调用无限次
+class NFTimerObj;
 
 //时间轴
 class _NFExport NFTimerAxis

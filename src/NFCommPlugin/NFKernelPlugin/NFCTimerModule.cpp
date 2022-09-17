@@ -9,18 +9,15 @@
 
 #include "NFCTimerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
 
 NFCTimerModule::NFCTimerModule(NFIPluginManager* p):NFITimerModule(p)
 {
 	m_pPluginManager = p;
 	mTimerAxis.Init();
-	NFTimerMgr::Instance()->Init(this);
 }
 
 NFCTimerModule::~NFCTimerModule()
 {
-	NFTimerMgr::Instance()->UnInit();
 }
 
 bool NFCTimerModule::Init()

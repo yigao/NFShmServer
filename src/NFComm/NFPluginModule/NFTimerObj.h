@@ -10,10 +10,11 @@
 #include <stdint.h>
 #include "NFComm/NFCore/NFPlatform.h"
 
+class NFIPluginManager;
 struct NFTimerObj
 {
 public:
-	NFTimerObj();
+	NFTimerObj(NFIPluginManager* pPluginManager);
 	virtual ~NFTimerObj();
 public:
 	virtual void OnTimer(uint32_t nTimerID) = 0;
@@ -36,6 +37,8 @@ public:
 		return &m_pFixTimerInfoPtr;
 	}
 
+public:
+    NFIPluginManager* m_pTimerPluginManager;
 private:
 	void* m_pTimerInfoPtr;
 	void* m_pFixTimerInfoPtr;

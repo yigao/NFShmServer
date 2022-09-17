@@ -12,12 +12,12 @@
 #include <string>
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFMD5.h"
 
-NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p):NFIConsoleModule(p)
+NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p):NFIConsoleModule(p),NFTimerObj(p)
 {
 	m_pPluginManager = p;
 }

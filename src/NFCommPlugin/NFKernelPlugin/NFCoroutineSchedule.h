@@ -57,7 +57,7 @@ class NFCoroutineSchedule : public NFTimerObj {
 
 public:
     /// @brief 构造函数
-    explicit NFCoroutineSchedule();
+    explicit NFCoroutineSchedule(NFIPluginManager* pPluginManager);
 
     /// @brief 析构函数
     virtual ~NFCoroutineSchedule();

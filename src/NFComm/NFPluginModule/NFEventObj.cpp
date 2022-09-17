@@ -10,8 +10,10 @@
 
 #include "NFEventObj.h"
 #include "NFEventMgr.h"
+#include "NFIPluginManager.h"
 
-NFEventObj::NFEventObj()
+
+NFEventObj::NFEventObj(NFIPluginManager* pPluginManager):m_pEventPluginManager(pPluginManager)
 {
 }
 
@@ -23,24 +25,24 @@ NFEventObj::~NFEventObj()
 //发送执行事件
 void NFEventObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
-	NFEventMgr::Instance()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    m_pEventPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
 }
 
 //订阅执行事件
 bool NFEventObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
 {
-	return NFEventMgr::Instance()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
+	return m_pEventPluginManager->FindModule<NFIEventModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
 }
 
 //取消订阅执行事件
 bool NFEventObj::UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
 {
-	return NFEventMgr::Instance()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
+	return m_pEventPluginManager->FindModule<NFIEventModule>()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
 }
 
 //取消所有执行事件的订阅
 bool NFEventObj::UnSubscribeAll()
 {
-	return NFEventMgr::Instance()->UnSubscribeAll(this);
+	return m_pEventPluginManager->FindModule<NFIEventModule>()->UnSubscribeAll(this);
 }
 

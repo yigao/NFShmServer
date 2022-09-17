@@ -24,7 +24,7 @@ void DoTask(NFSchedule *, void *ud) {
 }
 
 NFCCoroutineModule::NFCCoroutineModule(NFIPluginManager *p) : NFICoroutineModule(p) {
-    m_pCorSched = NF_NEW NFCoroutineSchedule();
+    m_pCorSched = NF_NEW NFCoroutineSchedule(p);
     m_pCorSched->Init();
     NFCoMgr::Instance()->Init(this);
 }
