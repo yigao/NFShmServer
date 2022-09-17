@@ -217,7 +217,7 @@ void *NFGlobalID::operator new(size_t nSize, void *pBuffer) throw()
 	return  pBuffer;
 }
 
-int  NFGlobalID::SetObjSeg(NFIPluginManager* pPluginManager, EN_SHMOBJ_TYPE bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoEras, int externalDataSize, bool singleton)
+int  NFGlobalID::SetObjSeg(NFIPluginManager* pPluginManager, int bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool hashAutoEras, int externalDataSize, bool singleton)
 {
     pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject, NFGlobalID::CreateObject, NFGlobalID::DestroyObject, -1, className, useHash, hashAutoEras, externalDataSize, singleton);
 	return 0;
