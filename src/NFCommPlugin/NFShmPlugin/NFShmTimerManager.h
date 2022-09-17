@@ -27,6 +27,7 @@ struct STimerIDData {
     bool isValid;        // 是否非法，做简单判断用
 };
 
+class NFShmTimerManager;
 class Slot {
 public:
     int CreateInit();
@@ -37,11 +38,11 @@ public:
 
     int AddTimer(NFShmTimer *timer, STimerIDData *idData, STimerIDData *allIDData);
 
-    bool OnTick(int64_t tick, std::list<NFShmTimer *> &timeoutList, uint32_t seq, STimerIDData *allIDData);
+    bool OnTick(NFShmTimerManager* pTimerManager, int64_t tick, std::list<NFShmTimer *> &timeoutList, uint32_t seq, STimerIDData *allIDData);
 
-    bool DeleteTimer(NFShmTimer *timer, STimerIDData *allIDData);
+    bool DeleteTimer(NFShmTimerManager* pTimerManager, NFShmTimer *timer, STimerIDData *allIDData);
 
-    STimerIDData *UnBindListTimer(NFShmTimer *timer, STimerIDData *tmpData, STimerIDData *allIDData);
+    STimerIDData *UnBindListTimer(NFShmTimerManager* pTimerManager, NFShmTimer *timer, STimerIDData *tmpData, STimerIDData *allIDData);
 
     void ClearRunStatus(uint32_t seq);
 
@@ -73,9 +74,7 @@ public:
     // 删除此定时器
     int Delete(int global_id);
 
-    static NFShmTimer *GetTimer(int global_id);
-
-    static NFShmTimerManager *GetTimerManager();
+    NFShmTimer *GetTimer(int global_id);
 
     void ReleaseTimerIDData(int index);
 

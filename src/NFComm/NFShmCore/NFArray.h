@@ -14,8 +14,8 @@
 #include <stddef.h>
 #include <string.h>
 #include "NFComm/NFPluginModule/NFPair.h"
+#include "NFShmMgr.h"
 #include "NFComm/NFCore/NFRandom.hpp"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 /**
 * 静态数组
@@ -24,9 +24,9 @@ template<typename ELEMENT, int MAX_SIZE>
 class NFArray
 {
 public:
-	NFArray(NFIPluginManager* pPluginManager)
+	NFArray()
 	{
-        if (EN_OBJ_MODE_INIT == pPluginManager->FindModule<NFISharedMemModule>()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }

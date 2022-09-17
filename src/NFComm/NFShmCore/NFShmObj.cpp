@@ -9,14 +9,15 @@
 
 #include "NFDynamicHead.h"
 #include "NFShmObj.h"
+#include "NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
-NFShmObj::NFShmObj(NFIPluginManager* pPluginManager):m_pShmObjPluginManager(pPluginManager)
+NFShmObj::NFShmObj(NFIPluginManager* pPluginManager):NFShmTimerObj(pPluginManager)
 {
-	if (FindModule<NFISharedMemModule>()->GetCreateMode() == EN_OBJ_MODE_INIT)
+	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
 	{
 		CreateInit();
 	}
@@ -40,7 +41,7 @@ NFShmObj::~NFShmObj()
 	if (m_iGlobalID != INVALID_ID)
 	{
 		//有globalid的对象删除没有使用CIDRuntimeClass::DestroyObj会发生这种问题，这是不允许的
-		NFShmObj *pObj = NFShmMgr::Instance()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
+		NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
 		assert(pObj == NULL);
 	}
 
@@ -56,7 +57,7 @@ int NFShmObj::CreateInit()
 	m_iGlobalID = INVALID_ID;
 	m_iObjectID = INVALID_ID;
     m_iHashID = INVALID_ID;
-	m_iObjSeq = NFShmMgr::Instance()->IncreaseObjSeqNum();
+	m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
 
 	m_bIsInRecycle = false;
 

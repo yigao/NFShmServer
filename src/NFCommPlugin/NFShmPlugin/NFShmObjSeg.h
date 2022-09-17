@@ -10,18 +10,18 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmHashObjectMgr.h"
+#include "NFComm/NFPluginModule/NFObject.h"
 
 class NFShmObj;
 class NFShmIdx;
 
-class NFShmObjSeg
+class NFShmObjSeg : public NFObject
 {
 	friend class NFCSharedMemModule;
 public:
-
-	void* operator new(size_t nSize) throw();
-	void  operator delete(void *pSeg);
-
+    static void *operator new(size_t nSize, void *pBuffer) throw();
+    static NFShmObjSeg* CreateObject(NFIPluginManager* pPluginManager);
+	static void  operator delete(void *pSeg);
 
 
 	int		Initialize();
@@ -70,10 +70,10 @@ protected:
 
 private:
 
-	NFShmObjSeg();
+	NFShmObjSeg(NFIPluginManager* p);
 	~NFShmObjSeg();
 
-	int SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj* (*pfCreateObj)(void *), bool iUseHash = false, int externalDataSize = 0, int externalItemCount = 0);
+	int SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj* (*pfCreateObj)(NFIPluginManager*, void *), bool iUseHash = false, int externalDataSize = 0, int externalItemCount = 0);
 
 	short		m_nIsFormated;
 	size_t		m_nObjSize;
@@ -90,7 +90,7 @@ private:
 	int     m_iExternalItemCount;
 	char*   m_iExternalBuffer;
 
-	NFShmObj* (*m_pFn)(void *);
+	NFShmObj* (*m_pFn)(NFIPluginManager*,void *);
 };
 
 

@@ -18,7 +18,7 @@
 class NFDBObjTrans : public NFTransBase
 {
 public:
-    NFDBObjTrans();
+    NFDBObjTrans(NFIPluginManager* pPluginManager);
     virtual ~NFDBObjTrans();
 
     //非继承函数, 不要加virtual

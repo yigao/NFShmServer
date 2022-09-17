@@ -15,6 +15,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFIDRuntimeClass.h"
+#include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 
 class NFTransBase;
@@ -35,7 +36,7 @@ public:
 private:
 	size_t	m_nObjSize;
 	int		m_iItemCount;
-	NFShmObj* (*m_pFn)(void *);
+	NFShmObj* (*m_pFn)(NFIPluginManager*, void *);
 	std::string m_szClassName;
 
 	int  m_iObjType;
@@ -222,8 +223,8 @@ public:
 
 	int InitAllObjSeg();
 
-	virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(void *)
-		, NFShmObj *(*pCreatefn)(), void(*pDestroy)(NFShmObj *), int parentType, const std::string& pszClassName, bool useHash = false, int exterDataSize = 0, int externalItemCount = 0, bool singleton = false) override;
+	virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(NFIPluginManager* pPluginManager, void *)
+		, NFShmObj *(*pCreatefn)(NFIPluginManager* pPluginManager), void(*pDestroy)(NFIPluginManager* pPluginManager, NFShmObj *), int parentType, const std::string& pszClassName, bool useHash = false, int exterDataSize = 0, int externalItemCount = 0, bool singleton = false) override;
 
 	virtual size_t GetAllObjSize() override;
 

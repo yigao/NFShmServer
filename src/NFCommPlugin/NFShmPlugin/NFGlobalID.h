@@ -39,7 +39,6 @@ public:
 	static NFShmObj *ResumeObject(NFIPluginManager* pPluginManager, void *pBuffer);
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);
-	static NFShmObj *GetObjByIndex(int iIndex);
 
 	int AddSecond(int iSecond) { m_iSecOffSet += iSecond; return 0; }
 	int GetSecOffset() { return m_iSecOffSet; }

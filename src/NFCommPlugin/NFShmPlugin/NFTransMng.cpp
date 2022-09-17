@@ -10,6 +10,7 @@
 #include "NFTransMng.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransMng, EOT_TRANS_MNG, NFShmObj)
@@ -60,11 +61,11 @@ NFTransBase *NFTransMng::CreateTrans(uint32_t bTransObjType) {
 NFTransBase *NFTransMng::GetTransBase(uint64_t ullTransID) {
     CHECK_EXPR(ullTransID < INT_MAX, NULL, "TrandID Max:{} IntMax:{}", ullTransID, INT_MAX);
 
-    return dynamic_cast<NFTransBase *>(NFShmMgr::Instance()->GetObjFromGlobalID(ullTransID, EOT_TRANS_BASE, 0));
+    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(ullTransID, EOT_TRANS_BASE, 0));
 }
 
 NFTransBase *NFTransMng::CreateTrans_i(uint32_t bTransObjType) {
-    return dynamic_cast<NFTransBase *>(NFShmMgr::Instance()->CreateObj((int) bTransObjType));
+    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->CreateObj((int) bTransObjType));
 }
 
 int NFTransMng::CheckAllTransFinished(bool &bAllTransFinished) {
@@ -149,7 +150,7 @@ int NFTransMng::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll) {
                                pTransBase->GetClassType(),
                                pTransBase->GetGlobalID(),
                                (void *) pTransBase);
-                    NFShmMgr::Instance()->DestroyObj(pTransBase);
+                    FindModule<NFISharedMemModule>()->DestroyObj(pTransBase);
                     //mark dirty
                     m_aiTransObjIDList[m_iLastTickIndex] = 0;
                     m_apTransObjList[m_iLastTickIndex] = NULL;

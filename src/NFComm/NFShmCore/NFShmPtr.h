@@ -9,6 +9,8 @@
 #pragma once
 
 #include "NFShmObj.h"
+#include "NFShmMgr.h"
+#include "NFISharedMemModule.h"
 /*
 共享内存对象指针，指向CObj类
 在recover的时候会自动适应
@@ -26,7 +28,7 @@ public:
 	//构造函数需要对共享内存操作
 	explicit NFShmPtr(NFIPluginManager* pPluginManager):m_pShmPtrPluginManager(pPluginManager)
 	{
-		if (m_pShmPtrPluginManager->FindModule<NFISharedMemModule>()->GetCreateMode() == EN_OBJ_MODE_INIT )
+		if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
 		{
 			CreateInit();
 		}
@@ -55,7 +57,7 @@ public:
 		if (m_pObj)
 		{
 			char *m_pChar = (char *)m_pObj;
-			m_pChar += NFShmMgr::Instance()->GetAddrOffset();
+			m_pChar += m_pShmPtrPluginManager->FindModule<NFISharedMemModule>()->GetAddrOffset();
 			m_pObj = (ObjType *)m_pChar;
 		}
 	}
@@ -215,8 +217,7 @@ template<class ObjType>
 class NFRawShmPtr
 {
 public:
-	explicit NFRawShmPtr(ObjType *pObj)
-		: m_pObj(pObj)
+	explicit NFRawShmPtr(NFIPluginManager* p, ObjType *pObj):m_pShmPtrPluginManager(p), m_pObj(pObj)
 	{
 	}
 	//构造函数需要对共享内存操作
@@ -247,7 +248,7 @@ public:
 		if (m_pObj)
 		{
 			char *m_pChar = (char *)m_pObj;
-			m_pChar += NFShmMgr::Instance()->GetAddrOffset();
+			m_pChar += m_pShmPtrPluginManager->FindModule<NFISharedMemModule>()->GetAddrOffset();
 			m_pObj = (ObjType *)m_pChar;
 		}
 	}
@@ -332,6 +333,7 @@ public:
 	{
 		return m_pObj;
 	}
+    NFIPluginManager* m_pShmPtrPluginManager;
 private:
 	ObjType *m_pObj;
 };

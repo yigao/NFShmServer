@@ -19,6 +19,7 @@
 #include "NFCommPlugin/NFKernelPlugin/NFResMysqlDb.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 
 NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p),NFEventObj(p) {
@@ -113,7 +114,7 @@ void NFCDescStoreModule::InitAllDescStore()
 	NFLogTrace(NF_LOG_KERNEL_PLUGIN, 0, "-- begin --");
 	for (auto iter = mDescStoreRegister.begin(); iter != mDescStoreRegister.end(); iter++)
 	{
-		NFIDescStore* pDescStore = dynamic_cast<NFIDescStore*>(NFShmMgr::Instance()->GetHeadObj(iter->second));
+		NFIDescStore* pDescStore = dynamic_cast<NFIDescStore*>(FindModule<NFISharedMemModule>()->GetHeadObj(iter->second));
 		CHECK_EXPR_CONTINUE(pDescStore, "can' get NFIDescStore:{} ptr from shm", iter->first);
 
 		int iRet = InitDescStore(iter->first, pDescStore);

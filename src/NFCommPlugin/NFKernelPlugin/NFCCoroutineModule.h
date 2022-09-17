@@ -63,6 +63,22 @@ public:
     /// @return 协程状态
     virtual int Status(int64_t id) override;
 
+    /// @brief 模版方法, 新建一个协程任务
+    /// @note 使用此种方法生成的task对象指针会在协程结束后自动delete掉
+    template<typename TASK>
+    TASK *NewTask() {
+        if (CurrentTaskId() != -1) {
+            return NULL;
+        }
+        TASK *task = new TASK(m_pPluginManager);
+        if (AddTask(task)) {
+            delete task;
+            task = NULL;
+        }
+        return task;
+    }
+
+    virtual int MakeCoroutine(const std::function<void()> &func) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
 };

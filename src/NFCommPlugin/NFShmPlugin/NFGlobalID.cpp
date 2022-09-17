@@ -22,7 +22,7 @@ NFGlobalID::NFGlobalID(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager
 	, m_iThisRoundCount(0)
 	, m_iGlobalIDAppendNum(0)
 {
-	snprintf(m_szFileName, sizeof(m_szFileName), "%s_globalid", NFServerIDUtil::GetBusNameFromBusID(NFShmMgr::Instance()->GetRunTimeFileId()).c_str());
+	snprintf(m_szFileName, sizeof(m_szFileName), "%s_globalid", NFServerIDUtil::GetBusNameFromBusID(FindModule<NFISharedMemModule>()->GetRunTimeFileId()).c_str());
 	//strcpy(m_szFileName,"round_time");
 	//校验
 	COMPILE_TIME_ASSERT((int64_t)MAX_GLOBALID_NUM * GLOBALID_LOOP_BACK < INT_MAX);
@@ -162,7 +162,7 @@ NFShmObj *NFGlobalID::GetObj(int iID)
 			NFShmObj *pObj = m_stIDTable[inID].pObjPtr;
 
 #if defined(_DEBUG) | defined(_DEBUG_)
-			NFShmObj *pObjGetObjFromTypeIndex = NFIDRuntimeClass::GetObj(m_stIDTable[inID].iType, m_stIDTable[inID].iIndex);
+			NFShmObj *pObjGetObjFromTypeIndex = FindModule<NFISharedMemModule>()->GetObj(m_stIDTable[inID].iType, m_stIDTable[inID].iIndex);
 			assert(pObjGetObjFromTypeIndex == pObj);
 #endif
 			//理论上还是存在这种可能性，只要服务器运行时间足够久
@@ -223,10 +223,6 @@ int  NFGlobalID::SetObjSeg(NFIPluginManager* pPluginManager, EN_SHMOBJ_TYPE bTyp
 	return 0;
 }
 
-NFShmObj *NFGlobalID::GetObjByIndex(int iIndex)
-{
-	return NFShmMgr::Instance()->GetObj(EOT_GLOBAL_ID, iIndex);
-}
 int NFGlobalID::ResumeFileUpdateData()
 {
 	//该程序的作用是如果Round_time存在，读取其中的数字，如果不存在，则创建之

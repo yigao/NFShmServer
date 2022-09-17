@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFSnprintf.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFShmDefine.h"
+#include "NFShmMgr.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -24,9 +25,9 @@ template<int SIZE = 1024>
 class NFSizeString //-V690
 {
 public:
-	NFSizeString(NFIPluginManager* pPluginManager)
+	NFSizeString()
 	{
-        if (EN_OBJ_MODE_INIT == pPluginManager->FindModule<NFISharedMemModule>()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }

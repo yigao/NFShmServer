@@ -32,12 +32,12 @@ typedef enum
 	EOT_MAX_TYPE = 500,
 } EN_SHMOBJ_TYPE;
 
-#define REGISTER_SHM_OBJ( ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
+#define REGISTER_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
+        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
     }while(0)
 
-#define REGISTER_SINGLETON_SHM_OBJ( ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0, true);\
+#define REGISTER_SINGLETON_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
+        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0, true);\
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ClassType, ObjNum ) do{\

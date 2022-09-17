@@ -14,12 +14,13 @@
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFCore/NFTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDescStoreTrans, EOT_RPC_TRANS_ID, NFTransBase)
 
-NFDescStoreTrans::NFDescStoreTrans() {
+NFDescStoreTrans::NFDescStoreTrans(NFIPluginManager* pPluginManager):NFTransBase(pPluginManager) {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();
     } else {
@@ -178,7 +179,7 @@ int NFDescStoreTrans::OnTransFinished(int iRunLogicRetCode)
     {
         if (m_coId > 0)
         {
-            NFCoMgr::Instance()->Resume(m_coId, iRunLogicRetCode);
+            FindModule<NFICoroutineModule>()->Resume(m_coId, iRunLogicRetCode);
         }
     }
 

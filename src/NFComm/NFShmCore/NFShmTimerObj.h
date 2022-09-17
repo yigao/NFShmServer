@@ -29,7 +29,7 @@ public:
 	}
 
     template <typename T>
-    T* FindModule()
+    T* FindModule() const
     {
         return m_pShmObjPluginManager->FindModule<T>();
     }

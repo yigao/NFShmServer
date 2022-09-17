@@ -87,7 +87,7 @@ bool NFCSharedMemModule::ReadyExecute()
     /*
     初始化完毕
     */
-    NFShmMgr::Instance()->SetShmInitSuccessFlag();
+    SetShmInitSuccessFlag();
     return true;
 }
 
@@ -521,7 +521,7 @@ int NFCSharedMemModule::InitAllObjSeg()
         m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_iSelfType = i;
 		if (m_nObjSegSwapCounter[i].m_nObjSize > 0 && m_nObjSegSwapCounter[i].m_iItemCount > 0)
 		{
-			NFShmObjSeg *pObjSeg = new NFShmObjSeg();
+			NFShmObjSeg *pObjSeg = NFShmObjSeg::CreateObject(m_pPluginManager);
 			NFShmObjSegSwapCounter *pObjSegSwapCounter = &m_nObjSegSwapCounter[i];
 			pObjSegSwapCounter->SetObjSeg(pObjSeg);
 			iRet = pObjSeg->SetAndInitObj(pObjSegSwapCounter->m_nObjSize,
@@ -553,8 +553,8 @@ int NFCSharedMemModule::InitAllObjSeg()
 	return 0;
 }
 
-void NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(void *)
-		, NFShmObj *(*pCreatefn)(), void(*pDestroy)(NFShmObj *), int parentType, const std::string& pszClassName, bool useHash, int exterDataSize, int externalItemCount, bool singleton)
+void NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(NFIPluginManager* pPluginManager, void *)
+		, NFShmObj *(*pCreatefn)(NFIPluginManager* pPluginManager), void(*pDestroy)(NFIPluginManager* pPluginManager, NFShmObj *), int parentType, const std::string& pszClassName, bool useHash, int exterDataSize, int externalItemCount, bool singleton)
 {
 	NFShmObjSegSwapCounter* pCounter = CreateCounterObj(bType);
 	pCounter->m_nObjSize = nObjSize;
@@ -641,11 +641,11 @@ int NFCSharedMemModule::InitShmObjectGlobal()
 
 	if (GetInitMode() == EN_OBJ_MODE_RECOVER)
 	{
-		m_pGlobalID = (NFGlobalID *)NFGlobalID::GetObjByIndex(0);
+		m_pGlobalID = (NFGlobalID *)FindModule<NFISharedMemModule>()->GetObj(EOT_GLOBAL_ID, 0);
 	}
 	else
 	{
-		m_pGlobalID = new NFGlobalID;
+		m_pGlobalID = (NFGlobalID *)NFGlobalID::CreateObject(m_pPluginManager);
 		//CreateObj(EOT_TYPE_TIMER_MNG);
 		for (int i = EOT_GLOBAL_ID+1; i < (int)m_nObjSegSwapCounter.size(); i++)
 		{
@@ -889,7 +889,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
         return NULL;
     }
 
-    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn();
+    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pPluginManager);
     if (pObj)
     {
         int iID = -1;
@@ -905,7 +905,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
                 if (iHashID < 0)
                 {
                     assert(false);
-                    m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(pObj);
+                    m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
                     pObj = NULL;
                 }
                 else
@@ -926,7 +926,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
         else
         {
             assert(false);
-            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(pObj);
+            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
             pObj = NULL;
         }
     }
@@ -945,7 +945,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
         return NULL;
     }
 
-	pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn();
+	pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pPluginManager);
 	if (pObj)
 	{
 		int iID = -1;
@@ -961,7 +961,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 		else
 		{
 			assert(false);
-			m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(pObj);
+			m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
 			pObj = NULL;
 		}
 
@@ -1348,7 +1348,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
 #endif
 #endif
 		m_pGlobalID->ReleaseID(iID);
-		m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(pObj);
+		m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
         //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObj Data, globalId:{} type:{} index:{}", iID, iType, iIndex);
 	}
 

@@ -15,7 +15,7 @@
 #include <fstream>
 #include "NFComm/NFCore/NFCommon.h"
 
-NFFileResTable::NFFileResTable(NFFileResDB* pFileResDB, const std::string& name)
+NFFileResTable::NFFileResTable(NFIPluginManager* p, NFFileResDB* pFileResDB, const std::string& name):NFResTable(p)
 {
     m_name = name;
 	m_pFileResDB = pFileResDB;
@@ -56,7 +56,7 @@ int NFFileResTable::DeleteOneRecord(const std::string &serverId, const google::p
     return 0;
 }
 
-NFFileResDB::NFFileResDB(const std::string &szResFilePath)
+NFFileResDB::NFFileResDB(NFIPluginManager* p, const std::string &szResFilePath):NFResDB(p)
 {
     m_szResFilePath = szResFilePath;
 }
@@ -67,11 +67,7 @@ NFResTable *NFFileResDB::GetTable(const std::string &name) {
         return iter->second;
     }
 
-    NFFileResTable *pTable = new NFFileResTable(this, name);
+    NFFileResTable *pTable = new NFFileResTable(m_pObjPluginManager, this, name);
     m_tablesMap.emplace(name, pTable);
     return pTable;
-}
-
-NFResDB *CreateResDBFromFiles(const std::string& dir) {
-    return new NFFileResDB(dir);
 }

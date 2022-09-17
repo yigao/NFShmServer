@@ -14,10 +14,12 @@
 #include "NFComm/NFCore/NFTimeUtil.h"
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransBase, EOT_TRANS_BASE, NFShmObj)
 
-NFTransBase::NFTransBase() {
+NFTransBase::NFTransBase(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();
     } else {
@@ -258,7 +260,7 @@ std::string NFTransBase::GetDebugInfo() const {
 
 bool NFTransBase::IsTimeOut() {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT) {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(), GetClassType(), GetDebugInfo());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pShmObjPluginManager), GetClassType(), GetDebugInfo());
         OnTimeOut();
         return true;
     }

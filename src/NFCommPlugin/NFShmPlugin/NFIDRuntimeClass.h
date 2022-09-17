@@ -23,21 +23,6 @@ public:
 	NFIDRuntimeClass();
 	~NFIDRuntimeClass() {}
 
-	static NFShmObj   *GetObj(int iType, int iIndex);
-
-	static NFShmObj   *CreateObj(int iType);
-	static NFShmObj   *GetHeadObj(int iType);
-	static NFShmObj   *GetNextObj(int iType, NFShmObj *pObj);
-	static void     DestroyObj(NFShmObj *pObj);
-	static NFShmObj   *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1);
-	// 根据混合ID获得对象
-	// iType不为-1表示校验对象类型
-	static NFShmObj *GetObjFromMiscID(int iMiscID, int iType = -1);
-
-	static bool   IsEnd(int iType, int iIndex);
-
-	static bool IsTypeValid(int iType);
-
 	std::string m_pszName;
 	NFShmObj *(*m_pCreatefn)(NFIPluginManager* pPluginManager);
 	void(*m_pDestroyFn)(NFIPluginManager* pPluginManager, NFShmObj *);

@@ -66,7 +66,7 @@ void Slot::ClearRunStatus(uint32_t seq) {
     m_slotSeq = seq;
 }
 
-bool Slot::OnTick(int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, STimerIDData *allIDData) {
+bool Slot::OnTick(NFShmTimerManager* pTimerManager, int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, STimerIDData *allIDData) {
     if (seq == m_slotSeq) {
         // 表示已经遍历完了
         return true;
@@ -114,7 +114,7 @@ bool Slot::OnTick(int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, S
             }
 
             m_curRunIndex = tmpData->curIndex;
-            NFShmTimer *pTimer = NFShmTimerManager::GetTimer(tmpData->objID);
+            NFShmTimer *pTimer = pTimerManager->GetTimer(tmpData->objID);
             if (pTimer && !pTimer->IsDelete()) {
                 if (pTimer->GetListIndex() != tmpData->curIndex) {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "time list index not equal to cur index: {} {}", tmpData->curIndex,
@@ -124,7 +124,7 @@ bool Slot::OnTick(int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, S
                 if (pTimer->IsTimeOut(tick)) {
                     ++curCount;
                     // 这个会自动返回一个tmpData
-                    tmpData = UnBindListTimer(pTimer, tmpData, allIDData);
+                    tmpData = UnBindListTimer(pTimerManager, pTimer, tmpData, allIDData);
                     //超时的定时器
                     timeoutList.push_back(pTimer);
                 }
@@ -135,7 +135,7 @@ bool Slot::OnTick(int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, S
                 }
 
                 ++curCount;
-                tmpData = UnBindListTimer(pTimer, tmpData, allIDData);
+                tmpData = UnBindListTimer(pTimerManager, pTimer, tmpData, allIDData);
             }
 
             if (!tmpData) {
@@ -154,7 +154,7 @@ bool Slot::OnTick(int64_t tick, list<NFShmTimer *> &timeoutList, uint32_t seq, S
     return false;
 }
 
-STimerIDData *Slot::UnBindListTimer(NFShmTimer *timer, STimerIDData *tmpData, STimerIDData *allIDData) {
+STimerIDData *Slot::UnBindListTimer(NFShmTimerManager* pTimerManager, NFShmTimer *timer, STimerIDData *tmpData, STimerIDData *allIDData) {
     if (!tmpData || !allIDData)
         return 0;
 
@@ -183,15 +183,14 @@ STimerIDData *Slot::UnBindListTimer(NFShmTimer *timer, STimerIDData *tmpData, ST
     if (timer)
         timer->SetListIndex(-1);
 
-    NFShmTimerManager *timeMgr = NFShmTimerManager::GetTimerManager();
-    if (timeMgr) {
-        timeMgr->ReleaseTimerIDData(tmpData->curIndex);
+    if (pTimerManager) {
+        pTimerManager->ReleaseTimerIDData(tmpData->curIndex);
     }
 
     return prefData;
 }
 
-bool Slot::DeleteTimer(NFShmTimer *timer, STimerIDData *allIDData) {
+bool Slot::DeleteTimer(NFShmTimerManager* pTimerManager, NFShmTimer *timer, STimerIDData *allIDData) {
     if (!allIDData || !timer || timer->IsDelete() || timer->IsWaitDelete()) {
         return false;
     }
@@ -214,7 +213,7 @@ bool Slot::DeleteTimer(NFShmTimer *timer, STimerIDData *allIDData) {
     }
 
 //	LOGSVR_TRACE("slot delete timer : " << m_index << " " << m_count << timer->GetDetailStructMsg());
-    UnBindListTimer(timer, tmpData, allIDData);
+    UnBindListTimer(pTimerManager, timer, tmpData, allIDData);
 
     return true;
 }
@@ -263,7 +262,7 @@ int NFShmTimerManager::CreateInit() {
 }
 
 int NFShmTimerManager::ResumeInit() {
-    NFShmTimer* pTimer = dynamic_cast<NFShmTimer*>(NFShmMgr::Instance()->GetHeadObj(EOT_TYPE_TIMER_OBJ));
+    NFShmTimer* pTimer = dynamic_cast<NFShmTimer*>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_TYPE_TIMER_OBJ));
     while(pTimer)
     {
         if(pTimer->IsDelete() || pTimer->IsWaitDelete())
@@ -282,17 +281,13 @@ int NFShmTimerManager::ResumeInit() {
             }
         }
 
-        pTimer = dynamic_cast<NFShmTimer*>(NFShmMgr::Instance()->GetNextObj(EOT_TYPE_TIMER_OBJ, pTimer));
+        pTimer = dynamic_cast<NFShmTimer*>(FindModule<NFISharedMemModule>()->GetNextObj(EOT_TYPE_TIMER_OBJ, pTimer));
     }
     return 0;
 }
 
 NFShmTimer *NFShmTimerManager::GetTimer(int global_id) {
-    return (NFShmTimer *) NFShmTimer::GetObjectByID(global_id);
-}
-
-NFShmTimerManager *NFShmTimerManager::GetTimerManager() {
-    return (NFShmTimerManager *) NFShmMgr::Instance()->GetHeadObj(EOT_TYPE_TIMER_MNG);
+    return (NFShmTimer*)FindModule<NFISharedMemModule>()->GetObj(EOT_TYPE_TIMER_OBJ, global_id);\
 }
 
 int NFShmTimerManager::Delete(int global_id) {
@@ -316,7 +311,7 @@ int NFShmTimerManager::Delete(int global_id) {
 
     int index = timer->GetSlotIndex();
     if (index >= 0 && index < SLOT_COUNT) {
-        if (!m_slots[index].DeleteTimer(timer, m_timerIDData)) {
+        if (!m_slots[index].DeleteTimer(this, timer, m_timerIDData)) {
             // 删除时找不到，只可能在OnTick的临时list中
             // 将它置成可删除状态
             timer->SetWaitDelete();
@@ -331,7 +326,7 @@ int NFShmTimerManager::Delete(int global_id) {
 
     if (!timer->IsDelete()) {
         timer->SetDelete();
-        NFShmTimer::DestroyObject(timer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, timer);
     } else {
         timer->PrintfDebug();
         NFLogError(NF_LOG_SYSTEMLOG, 0, "delete timer status error:{}", timer->GetDetailStructMsg());
@@ -352,7 +347,7 @@ void NFShmTimerManager::OnTick(int64_t tick) {
         list<NFShmTimer *> lRetsetTimer;
 
         // m_currSlot的里面，是时间在m_beforeTick ~ （m_beforeTick + SLOT_TICK_TIME）区间的timer
-        bool isNext = m_slots[m_currSlot].OnTick(m_beforeTick + SLOT_TICK_TIME, lRetsetTimer, m_timerSeq,
+        bool isNext = m_slots[m_currSlot].OnTick(this, m_beforeTick + SLOT_TICK_TIME, lRetsetTimer, m_timerSeq,
                                                  m_timerIDData);
 
         list<NFShmTimer *>::iterator it;
@@ -377,7 +372,7 @@ void NFShmTimerManager::OnTick(int64_t tick) {
             if (isDel && !(*it)->IsDelete()) {
 //				LOGSVR_TRACE("--delete timer tick : "<< tick << (*it)->GetDetailStructMsg());
                 (*it)->SetDelete();
-                NFShmTimer::DestroyObject(*it);
+                NFShmTimer::DestroyObject(m_pShmObjPluginManager, *it);
             }
         }
 
@@ -701,7 +696,7 @@ bool NFShmTimerManager::SetMonthTime(NFShmTimer *stime, int day, int hour, int m
 
 int
 NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         //S_STATIC_MANAGER->AddTimerMngStat(strErr.c_str(), EN_TIMER_STATISTIC_COUNT_CREATE);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
@@ -714,7 +709,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int seco
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -725,7 +720,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int seco
 int NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp) {
     CHECK_EXPR(timestamp > (uint64_t) NFTime::Now().UnixSec(), INVALID_ID, "Create timer timestamp err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -737,7 +732,7 @@ int NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp) {
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -751,7 +746,7 @@ NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int s
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -763,7 +758,7 @@ NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int s
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -778,7 +773,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
         interval = SLOT_TICK_TIME;
     }
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -794,7 +789,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -804,7 +799,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
 
 int NFShmTimerManager::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec
 ) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -820,7 +815,7 @@ int NFShmTimerManager::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, 
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -833,7 +828,7 @@ int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int ho
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -849,7 +844,7 @@ int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int ho
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -858,7 +853,7 @@ int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int ho
 }
 
 int NFShmTimerManager::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -873,7 +868,7 @@ int NFShmTimerManager::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour,
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -887,7 +882,7 @@ int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int w
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -903,7 +898,7 @@ int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int w
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -912,7 +907,7 @@ int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int w
 }
 
 int NFShmTimerManager::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -927,7 +922,7 @@ int NFShmTimerManager::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }
@@ -941,7 +936,7 @@ int NFShmTimerManager::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int 
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject();
+    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pShmObjPluginManager);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -957,7 +952,7 @@ int NFShmTimerManager::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int 
         //S_STATIC_MANAGER->AddTimerMngStat(newTimer->GetDetailMsg(), EN_TIMER_STATISTIC_COUNT_ADD);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create time error :{}", newTimer->GetObjectID());
         newTimer->SetDelete();
-        NFShmTimer::DestroyObject(newTimer);
+        NFShmTimer::DestroyObject(m_pShmObjPluginManager, newTimer);
 
         return INVALID_ID;
     }

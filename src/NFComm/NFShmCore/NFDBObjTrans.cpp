@@ -9,11 +9,13 @@
 
 #include "NFDBObjTrans.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFDBObjMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjTrans, EOT_TRANS_DB_OBJ, NFTransBase)
 
-NFDBObjTrans::NFDBObjTrans() {
+NFDBObjTrans::NFDBObjTrans(NFIPluginManager* pPluginManager):NFTransBase(pPluginManager) {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {
@@ -115,17 +117,17 @@ int NFDBObjTrans::OnTimeOut() {
     switch (m_iDBOP) {
         case proto_ff::E_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance()->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_BUSY, NULL);
+            return NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_BUSY, NULL);
         }
         case proto_ff::E_STORESVR_C2S_INSERT:
         {
-            NFDBObjMgr::Instance()->OnDataInserted(this, false);
+            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
             break;
         }
         case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
         {
-            NFDBObjMgr::Instance()->OnDataSaved(this, false);
+            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
             break;
         }
@@ -148,11 +150,11 @@ int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
     {
         case proto_ff::E_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance()->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_UNKNOWN, NULL);
+            return NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_UNKNOWN, NULL);
         }
         case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
         {
-            NFDBObjMgr::Instance()->OnDataSaved(this, false);
+            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj failed:{} err:{}", m_iLinkedObjID, m_iRunLogicRetCode);
             break;
         }
@@ -176,13 +178,13 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (!pSSMsgRes)
             {
-                iRet  = NFDBObjMgr::Instance()->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
+                iRet  = NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
             }
             else
             {
                 const storesvr_sqldata::storesvr_selobj_res* pRes = dynamic_cast<const storesvr_sqldata::storesvr_selobj_res*>(pSSMsgRes);
                 CHECK_NULL(pRes);
-                iRet  = NFDBObjMgr::Instance()->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->sel_record());
+                iRet  = NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->sel_record());
             }
             break;
         }
@@ -190,11 +192,11 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
             {
-                NFDBObjMgr::Instance()->OnDataInserted(this, true);
+                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, true);
             }
             else
             {
-                NFDBObjMgr::Instance()->OnDataInserted(this, false);
+                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, false);
             }
             break;
         }
@@ -202,11 +204,11 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
             {
-                NFDBObjMgr::Instance()->OnDataSaved(this, true);
+                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, true);
             }
             else
             {
-                NFDBObjMgr::Instance()->OnDataSaved(this, false);
+                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
             }
             break;
         }

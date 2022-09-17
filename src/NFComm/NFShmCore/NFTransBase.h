@@ -22,7 +22,7 @@ enum
 
 class NFTransBase : public NFShmObj {
 public:
-    NFTransBase();
+    NFTransBase(NFIPluginManager* pPluginManager);
     virtual ~NFTransBase();
 
     //非继承函数, 不要加virtual

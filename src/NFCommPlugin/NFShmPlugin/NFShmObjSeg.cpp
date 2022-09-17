@@ -12,28 +12,30 @@
 #include "NFShmIdx.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-void *NFShmObjSeg::operator new(size_t nSize) throw()
-{
-	char *pTemp = (char *)(NFShmMgr::Instance()->CreateSegment(nSize));
-	return (void *)pTemp;
+void *NFShmObjSeg::operator new(size_t nSize, void *pBuffer) throw() {
+    return pBuffer;
 }
 
 void NFShmObjSeg::operator delete(void *pMem)
 {
 	return;
 }
+
+NFShmObjSeg* NFShmObjSeg::CreateObject(NFIPluginManager* pPluginManager)
+{
+    void *pVoid = (void *)(pPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(sizeof(NFShmObjSeg)));
+    NFShmObjSeg* pTmp = new (pVoid) NFShmObjSeg(pPluginManager);
+    return pTmp;
+}
+
 NFShmObjSeg::NFShmObjSeg(NFIPluginManager* p):NFObject(p)
 {
 }
 
 int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfCreateObj)(NFIPluginManager*,void *), bool iUseHash, int externalDataSize, int externalItemCount)
 {
-	if (!NFShmMgr::Instance()->GetShmModule())
-	{
-		return -1;
-	}
-
 	m_nObjSize = nObjSize;
 	m_iItemCount = iItemCount;
 	m_iUseHash = iUseHash;
@@ -42,8 +44,8 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 	m_iExternalBuffer = NULL;
 	//TLib_Log_LogMsg("CObjSeg::%s objsize %d, count %d\n", __FUNCTION__, nObjSize, iItemCount);
 	//printf("In CObjSeg::CObjSeg, ObjSize: %d nItemCount: %d\n", nObjSize, iItemCount);
-	m_pIdxs = (NFShmIdx *)(NFShmMgr::Instance()->CreateSegment(m_iItemCount * sizeof(NFShmIdx)));
-	m_pObjs = (NFShmObj *)(NFShmMgr::Instance()->CreateSegment(m_iItemCount * m_nObjSize));
+	m_pIdxs = (NFShmIdx *)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iItemCount * sizeof(NFShmIdx)));
+	m_pObjs = (NFShmObj *)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iItemCount * m_nObjSize));
 
 	if (!m_pIdxs || !m_pObjs)
 	{
@@ -55,7 +57,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 
     if (m_iUseHash)
     {
-        m_iHashBuffer = (char*)(NFShmMgr::Instance()->CreateSegment(m_hashMgr.CountSize(m_iItemCount)));
+        m_iHashBuffer = (char*)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_hashMgr.CountSize(m_iItemCount)));
         if (!m_iHashBuffer)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Allocated share mem not enough Program exit(1)\n");
@@ -66,7 +68,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
 
     if (m_iExternalDataSize > 0)
     {
-        m_iExternalBuffer = (char*)(NFShmMgr::Instance()->CreateSegment(m_iExternalDataSize));
+        m_iExternalBuffer = (char*)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iExternalDataSize));
         if (!m_iExternalBuffer)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Allocated share mem not enough Program exit(1)\n");
@@ -202,7 +204,7 @@ NFShmObj* NFShmObjSeg::HashFind(uint64_t key, int iType)
     if (index >= 0)
     {
         int globalId = m_hashMgr[index];
-        return NFShmMgr::Instance()->GetObjFromGlobalID(globalId, iType, 1);
+        return m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetObjFromGlobalID(globalId, iType, 1);
     }
     return NULL;
 }
