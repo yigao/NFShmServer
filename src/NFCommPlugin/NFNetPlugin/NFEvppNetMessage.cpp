@@ -291,7 +291,7 @@ int64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
     }
     else
     {
-        NFEvppServer* pServer = NF_NEW NFEvppServer(m_pPluginManager, mServerType, flag);
+        NFEvppServer* pServer = NF_NEW NFEvppServer(m_pObjPluginManager, mServerType, flag);
 
         uint64_t unLinkId = GetFreeUnLinkId();
         pServer->SetLinkId(unLinkId);
@@ -328,7 +328,7 @@ int64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThrea
 * @return 是否成功
 */
 int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
-    NFEvppClient *pClient = NF_NEW NFEvppClient(m_pPluginManager, mServerType, flag);
+    NFEvppClient *pClient = NF_NEW NFEvppClient(m_pObjPluginManager, mServerType, flag);
 
 	if (pClient)
 	{

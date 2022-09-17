@@ -70,7 +70,7 @@ public:
         if (CurrentTaskId() != -1) {
             return NULL;
         }
-        TASK *task = new TASK(m_pPluginManager);
+        TASK *task = new TASK(m_pObjPluginManager);
         if (AddTask(task)) {
             delete task;
             task = NULL;

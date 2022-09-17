@@ -11,29 +11,19 @@
 #include <string>
 #include "NFIPluginManager.h"
 #include "NFServerDefine.h"
+#include "NFObject.h"
 
-class NFIModule
+class NFIModule : public NFObject
 {
 public:
-	NFIModule(NFIPluginManager* p)
+	NFIModule(NFIPluginManager* p):NFObject(p)
 	{
-		m_pPluginManager = p;
-		NF_ASSERT_MSG(m_pPluginManager != NULL, "m_pPluginManager == nullptr")
+
 	}
 
 	virtual ~NFIModule()
 	{
 	}
-
-    template <typename T>
-    T* FindModule() const
-    {
-        if (m_pPluginManager)
-        {
-            return m_pPluginManager->FindModule<T>();
-        }
-        return nullptr;
-    }
 
 	virtual bool AfterLoadAllPlugin()
     {
@@ -90,13 +80,6 @@ public:
 		return true;
 	}
 
-	virtual NFIPluginManager* GetPluginManager() const
-	{
-		return m_pPluginManager;
-	}
-
 	std::string m_strName;
-protected:
-	NFIPluginManager* m_pPluginManager = NULL;
 };
 

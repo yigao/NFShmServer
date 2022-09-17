@@ -14,7 +14,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
-class NFShmTimerObj
+class NFShmTimerObj : public NFObject
 {
 public:
 	NFShmTimerObj(NFIPluginManager* pPluginManager);
@@ -28,12 +28,6 @@ public:
 	{
 		return 0;
 	}
-
-    template <typename T>
-    T* FindModule() const
-    {
-        return m_pObjPluginManager->FindModule<T>();
-    }
 
 	//must be virtual
 	virtual void OnTimer(int timeId, int callcount) = 0;
@@ -74,6 +68,4 @@ protected:
 #ifdef NF_DEBUG_MODE
     uint32_t m_shmTimerCount;
 #endif
-public:
-    NFIPluginManager* m_pObjPluginManager;
 };

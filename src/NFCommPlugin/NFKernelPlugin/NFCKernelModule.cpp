@@ -31,9 +31,9 @@
 
 NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p) {
     mLastGuidTimeStamp = 0;
-    szUniqIDFile = m_pPluginManager->GetAppName() + "_" + m_pPluginManager->GetBusName() + ".uid";
+    szUniqIDFile = m_pObjPluginManager->GetAppName() + "_" + m_pObjPluginManager->GetBusName() + ".uid";
     uint64_t bWorldType = 0;
-    uint32_t busId = m_pPluginManager->GetAppID();
+    uint32_t busId = m_pObjPluginManager->GetAppID();
     //uint64_t bInstID = NFServerIDUtil::GetInstID(busId);
 	uint64_t worldID = NFServerIDUtil::GetWorldID(busId);
     m_iZoneId = NFServerIDUtil::GetZoneID(busId);
@@ -83,7 +83,7 @@ bool NFCKernelModule::BeforeShut()
 
 bool NFCKernelModule::Init()
 {
-    if (!m_pPluginManager->IsLoadAllServer())
+    if (!m_pObjPluginManager->IsLoadAllServer())
     {
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         if (pConfig)

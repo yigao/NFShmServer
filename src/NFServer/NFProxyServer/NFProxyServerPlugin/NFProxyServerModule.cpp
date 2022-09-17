@@ -34,7 +34,7 @@ NFCProxyServerModule::~NFCProxyServerModule()
 bool NFCProxyServerModule::Awake()
 {
     //不需要固定帧，需要尽可能跑得快
-    m_pPluginManager->SetFixedFrame(false);
+    m_pObjPluginManager->SetFixedFrame(false);
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_PROXY_SERVER);
 	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                  &NFCProxyServerModule::OnHandleMasterServerReport);
@@ -42,13 +42,13 @@ bool NFCProxyServerModule::Awake()
                                                  &NFCProxyServerModule::OnHandleProxyAgentServerReport);
 
     //注册要完成的服务器启动任务
-    m_pPluginManager->RegisterAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER, PROXY_SERVER_CONNECT_MASTER_SERVER);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER, PROXY_SERVER_CONNECT_MASTER_SERVER);
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig) {
-        m_pPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
+        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
 
-        if (!m_pPluginManager->IsLoadAllServer()) {
+        if (!m_pObjPluginManager->IsLoadAllServer()) {
             if (pConfig->ServerType != NF_ST_PROXY_SERVER) {
                 NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "server config error, server id not match the server type!");
                 exit(0);
@@ -233,9 +233,9 @@ int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 		RegisterMasterServer();
 
         //完成服务器启动任务
-        if (!m_pPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited())
         {
-            m_pPluginManager->FinishAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER);
+            m_pObjPluginManager->FinishAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER);
         }
 
         FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_PROXY_SERVER);
@@ -291,18 +291,18 @@ int NFCProxyServerModule::RegisterMasterServer()
 
 int NFCProxyServerModule::ServerReport()
 {
-	if (m_pPluginManager->IsLoadAllServer())
+	if (m_pObjPluginManager->IsLoadAllServer())
 	{
 		return 0;
 	}
 
-	static uint64_t mLastReportTime = m_pPluginManager->GetNowTime();
-	if (mLastReportTime + 100000 > m_pPluginManager->GetNowTime())
+	static uint64_t mLastReportTime = m_pObjPluginManager->GetNowTime();
+	if (mLastReportTime + 100000 > m_pObjPluginManager->GetNowTime())
 	{
 		return 0;
 	}
 
-	mLastReportTime = m_pPluginManager->GetNowTime();
+	mLastReportTime = m_pObjPluginManager->GetNowTime();
 
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
@@ -324,7 +324,7 @@ int NFCProxyServerModule::ServerReport()
         pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-		NFIMonitorModule* pMonitorModule = m_pPluginManager->FindModule<NFIMonitorModule>();
+		NFIMonitorModule* pMonitorModule = m_pObjPluginManager->FindModule<NFIMonitorModule>();
 		if (pMonitorModule)
 		{
 			const NFSystemInfo& systemInfo = pMonitorModule->GetSystemInfo();

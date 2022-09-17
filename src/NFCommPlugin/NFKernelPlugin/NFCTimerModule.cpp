@@ -12,7 +12,7 @@
 
 NFCTimerModule::NFCTimerModule(NFIPluginManager* p):NFITimerModule(p)
 {
-	m_pPluginManager = p;
+    m_pObjPluginManager = p;
 	mTimerAxis.Init();
 }
 

@@ -155,7 +155,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 			if (!pServer)
 			{
 #ifdef USE_NET_EVPP
-				pServer = NF_NEW NFEvppNetMessage(m_pPluginManager, eServerType);
+				pServer = NF_NEW NFEvppNetMessage(m_pObjPluginManager, eServerType);
 #else
 
 #endif
@@ -193,7 +193,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 			NFINetMessage* pServer = mBusServerArray[eServerType];
 			if (!pServer)
 			{
-				pServer = NF_NEW NFCBusMessage(m_pPluginManager, eServerType);
+				pServer = NF_NEW NFCBusMessage(m_pObjPluginManager, eServerType);
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
                 pServer->SetSecurity(bSecurity);
@@ -251,7 +251,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 			NFINetMessage* pServer = mNetServerArray[eServerType];
 			if (!pServer)
 			{
-				pServer = NF_NEW NFEvppNetMessage(m_pPluginManager, eServerType);
+				pServer = NF_NEW NFEvppNetMessage(m_pObjPluginManager, eServerType);
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
 				pServer->SetHttpRecvCB(mHttpReceiveCB);
@@ -288,7 +288,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 			NFINetMessage* pServer = mBusServerArray[eServerType];
 			if (!pServer)
 			{
-				pServer = NF_NEW NFCBusMessage(m_pPluginManager, eServerType);
+				pServer = NF_NEW NFCBusMessage(m_pObjPluginManager, eServerType);
 
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);

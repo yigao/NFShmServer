@@ -21,7 +21,7 @@
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
     NFMessageMgr::Instance()->Init(this);
-    m_pPluginManager = p;
+    m_pObjPluginManager = p;
     m_driver = NULL;
     mxCallBack.resize(NF_ST_MAX);
     mServerLinkData.resize(NF_ST_MAX);

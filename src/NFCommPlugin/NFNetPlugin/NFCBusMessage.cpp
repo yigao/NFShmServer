@@ -75,7 +75,7 @@ bool NFCBusMessage::ReadyExecute()
 int64_t NFCBusMessage::BindServer(const NFMessageFlag& flag)
 {
     CHECK_EXPR(m_bindConnect == NULL, -1, "BindServer Failed!");
-    NF_SHARE_PTR<NFCBusServer> pServer = NF_SHARE_PTR<NFCBusServer>(NF_NEW NFCBusServer(m_pPluginManager, mServerType, flag));
+    NF_SHARE_PTR<NFCBusServer> pServer = NF_SHARE_PTR<NFCBusServer>(NF_NEW NFCBusServer(m_pObjPluginManager, mServerType, flag));
     NF_ASSERT(pServer);
 
     if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
@@ -108,7 +108,7 @@ int64_t NFCBusMessage::ConnectServer(const NFMessageFlag& flag)
 {
     CHECK_EXPR(m_bindConnect, -1, "ConnectServer Failed, muset bindserver");
 
-    NF_SHARE_PTR<NFCBusClient> pConn = NF_SHARE_PTR<NFCBusClient>(NF_NEW NFCBusClient(m_pPluginManager, mServerType, flag, m_bindConnect->GetBindFlag()));
+    NF_SHARE_PTR<NFCBusClient> pConn = NF_SHARE_PTR<NFCBusClient>(NF_NEW NFCBusClient(m_pObjPluginManager, mServerType, flag, m_bindConnect->GetBindFlag()));
     NF_ASSERT(pConn);
 
     if (pConn->Init())

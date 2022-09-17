@@ -704,7 +704,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
         pData->set_server_port(pConfig->ServerPort);
         pData->set_route_svr(pConfig->RouteAgent);
         pData->set_server_state(proto_ff::EST_NARMAL);
-        pData->set_machine_addr(m_pPluginManager->GetMachineAddrMD5());
+        pData->set_machine_addr(m_pObjPluginManager->GetMachineAddrMD5());
 
         NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
@@ -726,18 +726,18 @@ int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, const N
 
 int NFCMasterServerModule::ServerReport()
 {
-    if (m_pPluginManager->IsLoadAllServer())
+    if (m_pObjPluginManager->IsLoadAllServer())
     {
         return 0;
     }
 
-    static uint64_t mLastReportTime = m_pPluginManager->GetNowTime();
-    if (mLastReportTime + 100000 > m_pPluginManager->GetNowTime())
+    static uint64_t mLastReportTime = m_pObjPluginManager->GetNowTime();
+    if (mLastReportTime + 100000 > m_pObjPluginManager->GetNowTime())
     {
         return 0;
     }
 
-    mLastReportTime = m_pPluginManager->GetNowTime();
+    mLastReportTime = m_pObjPluginManager->GetNowTime();
 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
@@ -756,7 +756,7 @@ int NFCMasterServerModule::ServerReport()
         pData->set_server_port(pConfig->ServerPort);
         pData->set_server_state(proto_ff::EST_NARMAL);
         pData->set_route_svr(pConfig->RouteAgent);
-        NFIMonitorModule* pMonitorModule = m_pPluginManager->FindModule<NFIMonitorModule>();
+        NFIMonitorModule* pMonitorModule = m_pObjPluginManager->FindModule<NFIMonitorModule>();
         if (pMonitorModule)
         {
             const NFSystemInfo& systemInfo = pMonitorModule->GetSystemInfo();
@@ -773,7 +773,7 @@ int NFCMasterServerModule::ServerReport()
             pData->set_proc_cwd(systemInfo.GetProcessInfo().mCwd);
             pData->set_proc_pid(systemInfo.GetProcessInfo().mPid);
             pData->set_server_cur_online(systemInfo.GetUserCount());
-            pData->set_machine_addr(m_pPluginManager->GetMachineAddrMD5());
+            pData->set_machine_addr(m_pObjPluginManager->GetMachineAddrMD5());
         }
 
         if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)

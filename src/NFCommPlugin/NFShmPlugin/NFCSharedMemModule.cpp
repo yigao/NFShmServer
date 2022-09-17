@@ -30,7 +30,7 @@
 
 NFCSharedMemModule::NFCSharedMemModule(NFIPluginManager* p):NFISharedMemModule(p)
 {
-	m_pPluginManager = p;
+    m_pObjPluginManager = p;
 	m_pSharedMemMgr = NULL;
 	m_enRunMode = EN_OBJ_MODE_RECOVER;
 	m_enCreateMode = EN_OBJ_MODE_RECOVER;
@@ -49,7 +49,7 @@ NFCSharedMemModule::~NFCSharedMemModule()
 
 bool NFCSharedMemModule::AfterLoadAllPlugin()
 {
-    std::list<NFIPlugin*> listPlugin = m_pPluginManager->GetListPlugin();
+    std::list<NFIPlugin*> listPlugin = m_pObjPluginManager->GetListPlugin();
 
     for (auto iter = listPlugin.begin(); iter != listPlugin.end(); ++iter)
     {
@@ -98,7 +98,7 @@ bool NFCSharedMemModule::Execute()
     NFTransMng *pTransManager = (NFTransMng*)GetHeadObj(EOT_TRANS_MNG);
     if (pTransManager)
     {
-        pTransManager->TickNow(m_pPluginManager->GetCurFrameCount());
+        pTransManager->TickNow(m_pObjPluginManager->GetCurFrameCount());
     }
     return true;
 }
@@ -116,7 +116,7 @@ bool NFCSharedMemModule::OnReloadPlugin()
 
 int	NFCSharedMemModule::ReadRunMode()
 {
-	if (m_pPluginManager->IsInitShm())
+	if (m_pObjPluginManager->IsInitShm())
 	{
 		m_enRunMode = EN_OBJ_MODE_INIT;
 	}
@@ -132,7 +132,7 @@ int	NFCSharedMemModule::ReadRunMode()
 */
 int NFCSharedMemModule::AllocShm()
 {
-	return AllocShm(NFServerIDUtil::GetShmObjKey(m_pPluginManager->GetBusName()), GetAllObjSize());
+	return AllocShm(NFServerIDUtil::GetShmObjKey(m_pObjPluginManager->GetBusName()), GetAllObjSize());
 }
 
 int NFCSharedMemModule::AllocShm(int iKey, size_t siShmSize)
@@ -292,7 +292,7 @@ NFCSharedMem*	NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "--begin-- key:{},  size:{}M, pagesize:{}, mode:{} ", iKey, siTempShmSize/1024.0/1024.0, sPageSize, enInitFlag);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
-	std::string shmFileName = NF_FORMAT("{}_shm_key_{}.bus", m_pPluginManager->GetAppName(), iKey);
+	std::string shmFileName = NF_FORMAT("{}_shm_key_{}.bus", m_pObjPluginManager->GetAppName(), iKey);
 	//std::wstring wShmFileName = NFStringUtility::s2ws(shmFileName);
 	hShmID = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, shmFileName.c_str());
 
@@ -518,7 +518,7 @@ int NFCSharedMemModule::InitAllObjSeg()
         m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_iSelfType = i;
 		if (m_nObjSegSwapCounter[i].m_nObjSize > 0 && m_nObjSegSwapCounter[i].m_iItemCount > 0)
 		{
-			NFShmObjSeg *pObjSeg = NFShmObjSeg::CreateObject(m_pPluginManager);
+			NFShmObjSeg *pObjSeg = NFShmObjSeg::CreateObject(m_pObjPluginManager);
 			NFShmObjSegSwapCounter *pObjSegSwapCounter = &m_nObjSegSwapCounter[i];
 			pObjSegSwapCounter->SetObjSeg(pObjSeg);
 			iRet = pObjSeg->SetAndInitObj(pObjSegSwapCounter->m_nObjSize,
@@ -643,7 +643,7 @@ int NFCSharedMemModule::InitShmObjectGlobal()
 	}
 	else
 	{
-		m_pGlobalID = (NFGlobalID *)NFGlobalID::CreateObject(m_pPluginManager);
+		m_pGlobalID = (NFGlobalID *)NFGlobalID::CreateObject(m_pObjPluginManager);
 		//CreateObj(EOT_TYPE_TIMER_MNG);
 		for (int i = EOT_GLOBAL_ID+1; i < (int)m_nObjSegSwapCounter.size(); i++)
 		{
@@ -887,7 +887,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
         return NULL;
     }
 
-    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pPluginManager);
+    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
     if (pObj)
     {
         int iID = -1;
@@ -903,7 +903,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
                 if (iHashID < 0)
                 {
                     assert(false);
-                    m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
+                    m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
                     pObj = NULL;
                 }
                 else
@@ -924,7 +924,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
         else
         {
             assert(false);
-            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
+            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
             pObj = NULL;
         }
     }
@@ -943,7 +943,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
         return NULL;
     }
 
-	pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pPluginManager);
+	pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
 	if (pObj)
 	{
 		int iID = -1;
@@ -959,7 +959,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 		else
 		{
 			assert(false);
-			m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
+			m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
 			pObj = NULL;
 		}
 
@@ -1346,7 +1346,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
 #endif
 #endif
 		m_pGlobalID->ReleaseID(iID);
-		m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pPluginManager, pObj);
+		m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
         //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObj Data, globalId:{} type:{} index:{}", iID, iType, iIndex);
 	}
 

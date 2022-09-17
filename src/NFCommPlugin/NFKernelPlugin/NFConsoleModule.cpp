@@ -19,7 +19,7 @@
 
 NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p):NFIConsoleModule(p),NFTimerObj(p)
 {
-	m_pPluginManager = p;
+    m_pObjPluginManager = p;
 }
 
 NFCConsoleModule::~NFCConsoleModule()
@@ -42,7 +42,7 @@ bool NFCConsoleModule::Shut()
 
 bool NFCConsoleModule::Awake()
 {
-	if (m_pPluginManager->IsDaemon() == false)
+	if (m_pObjPluginManager->IsDaemon() == false)
 	{
 		try
 		{
@@ -91,7 +91,7 @@ void NFCConsoleModule::CheckPluginThread()
 void NFCConsoleModule::CheckPluginThreadLoop()
 {
 	uint32_t count = 0;
-	while (!m_pPluginManager->GetExitApp())
+	while (!m_pObjPluginManager->GetExitApp())
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
@@ -115,7 +115,7 @@ bool  NFCConsoleModule::OnReloadPlugin()
 
 void NFCConsoleModule::BackThreadLoop()
 {
-	while (!m_pPluginManager->GetExitApp())
+	while (!m_pObjPluginManager->GetExitApp())
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
@@ -127,7 +127,7 @@ void NFCConsoleModule::BackThreadLoop()
 			continue;
 		}
 
-		std::string cmd = m_pPluginManager->GetAppName() + " " + s;
+		std::string cmd = m_pObjPluginManager->GetAppName() + " " + s;
 		try
 		{
 			mCmdParser.ClearParse();
@@ -263,15 +263,15 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 
 		if (msg.mMsgType == NFConsoleMsg_Exit)
 		{
-			m_pPluginManager->SetExitApp(true);
+			m_pObjPluginManager->SetExitApp(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Profiler)
 		{
-			m_pPluginManager->SetChangeProfileApp(true);
+			m_pObjPluginManager->SetChangeProfileApp(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Reload)
 		{
-			m_pPluginManager->SetReloadApp(true);
+			m_pObjPluginManager->SetReloadApp(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_HotfixAllLua)
 		{
@@ -283,7 +283,7 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Dynamic)
 		{
-			m_pPluginManager->DynamicLoadPluginLibrary(msg.mParam1);
+			m_pObjPluginManager->DynamicLoadPluginLibrary(msg.mParam1);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_ProductFile)
 		{

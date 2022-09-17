@@ -21,7 +21,7 @@ enum MonitorTimerEnum
 
 NFCMonitorModule::NFCMonitorModule(NFIPluginManager* p):NFIMonitorModule(p),NFTimerObj(p),NFEventObj(p)
 {
-	m_pPluginManager = p;
+    m_pObjPluginManager = p;
 }
 
 NFCMonitorModule::~NFCMonitorModule()

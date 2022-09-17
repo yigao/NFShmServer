@@ -34,11 +34,11 @@ NFCConfigModule::~NFCConfigModule()
 
 bool NFCConfigModule::LoadConfig()
 {
-	TryAddPackagePath(m_pPluginManager->GetPluginPath()); //Add Search Path to Lua
+	TryAddPackagePath(m_pObjPluginManager->GetPluginPath()); //Add Search Path to Lua
 
     {
         std::list<std::string> fileList;
-        NFFileUtility::GetFiles(m_pPluginManager->GetPluginPath(), fileList, true, "*.lua");
+        NFFileUtility::GetFiles(m_pObjPluginManager->GetPluginPath(), fileList, true, "*.lua");
 
         for (auto it = fileList.begin(); it != fileList.end(); ++it) {
             if (TryLoadScriptFile(*it) == false) {
@@ -181,7 +181,7 @@ bool NFCConfigModule::LoadServerConfig()
 {
 	std::map<std::string, NFLuaRef> vecLuaRef;
 
-	if (m_pPluginManager->IsLoadAllServer())
+	if (m_pObjPluginManager->IsLoadAllServer())
     {
         NFPluginConfig* pAllServer = GetPluginConfig(ALL_SERVER);
         if (pAllServer)
@@ -198,10 +198,10 @@ bool NFCConfigModule::LoadServerConfig()
     }
 	else
     {
-        NFLuaRef serverRef = GetGlobal(m_pPluginManager->GetAppName());
+        NFLuaRef serverRef = GetGlobal(m_pObjPluginManager->GetAppName());
         if (serverRef.isValid() && serverRef.isTable())
         {
-            vecLuaRef.emplace(m_pPluginManager->GetAppName(), serverRef);
+            vecLuaRef.emplace(m_pObjPluginManager->GetAppName(), serverRef);
         }
     }
 
@@ -280,7 +280,7 @@ bool NFCConfigModule::LoadServerConfig()
             NFServerConfig* pConfig = new NFServerConfig();
             pConfig->read_from_pbmsg(*pPbConfig);
 
-            if (m_pPluginManager->IsLoadAllServer())
+            if (m_pObjPluginManager->IsLoadAllServer())
             {
                 if (mServerConfig[pPbConfig->servertype()])
                 {
@@ -298,20 +298,20 @@ bool NFCConfigModule::LoadServerConfig()
             }
             else
             {
-                if (pPbConfig->busid() == (uint32_t)m_pPluginManager->GetAppID())
+                if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
                 }
             }
 
-            if (pPbConfig->busid() == (uint32_t)m_pPluginManager->GetAppID())
+            if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
             {
                 m_appConfig = pConfig;
             }
         }
 	}
 
-    if (!m_pPluginManager->IsLoadAllServer())
+    if (!m_pObjPluginManager->IsLoadAllServer())
     {
         NF_ASSERT(m_appConfig);
     }
@@ -386,7 +386,7 @@ NFServerConfig* NFCConfigModule::GetServerConfig(NF_SERVER_TYPES eServerType)
 
 NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
 {
-    if (m_pPluginManager->IsLoadAllServer())
+    if (m_pObjPluginManager->IsLoadAllServer())
     {
         if (eServerType == NF_ST_NONE)
         {
@@ -458,10 +458,10 @@ std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
 
 bool NFCConfigModule::CheckConfig()
 {
-    if (!m_pPluginManager->IsLoadAllServer())
+    if (!m_pObjPluginManager->IsLoadAllServer())
     {
         NF_ASSERT(m_appConfig);
-        NF_ASSERT(GetServerName((NF_SERVER_TYPES)m_appConfig->ServerType) == m_pPluginManager->GetAppName());
+        NF_ASSERT(GetServerName((NF_SERVER_TYPES)m_appConfig->ServerType) == m_pObjPluginManager->GetAppName());
     }
     return true;
 }

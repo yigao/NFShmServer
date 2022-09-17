@@ -43,10 +43,10 @@ bool NFNetPlugin::IsDynamicLoad()
 
 void NFNetPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
 }
 
 void NFNetPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
 }

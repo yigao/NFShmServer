@@ -56,20 +56,20 @@ bool NFShmPlugin::IsDynamicLoad()
 
 void NFShmPlugin::Install()
 {
-    REGISTER_MODULE(m_pPluginManager, NFISharedMemModule, NFCSharedMemModule);
-    REGISTER_MODULE(m_pPluginManager, NFIDescStoreModule, NFCDescStoreModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFIDescStoreModule, NFCDescStoreModule);
 }
 
 void NFShmPlugin::Uninstall()
 {
-    UNREGISTER_MODULE(m_pPluginManager, NFISharedMemModule, NFCSharedMemModule);
-    UNREGISTER_MODULE(m_pPluginManager, NFIDescStoreModule, NFCDescStoreModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIDescStoreModule, NFCDescStoreModule);
 }
 
 bool NFShmPlugin::InitShmObjectRegister()
 {
     uint32_t maxOnlinePlayerNum = 100;
-    if (!m_pPluginManager->IsLoadAllServer())
+    if (!m_pObjPluginManager->IsLoadAllServer())
     {
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         NF_ASSERT(pConfig);

@@ -103,7 +103,7 @@ int32_t NFCNamingModule::InitAppInfo(NF_SERVER_TYPES eServerType, int time_out_m
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eServerType);
     CHECK_EXPR(pConfig, -1, "pConfig null, eServerType:{}", eServerType);
 
-    if (m_pPluginManager->IsLoadAllServer())
+    if (m_pObjPluginManager->IsLoadAllServer())
     {
         ret = Init(eServerType, pConfig->NamingHost, time_out_ms * 2);
         CHECK_RET(ret, "Init Failed, serverType:{} namingHost:{}", eServerType, pConfig->NamingHost);
@@ -909,10 +909,10 @@ int32_t NFCNamingModule::Init(NF_SERVER_TYPES eServerType, const string &host, i
 #else
         if (host.empty())
         {
-            m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pPluginManager);
+            m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pObjPluginManager);
         }
         else {
-            m_namingList[eServerType] = NF_NEW NFZookeeperNaming(m_pPluginManager);
+            m_namingList[eServerType] = NF_NEW NFZookeeperNaming(m_pObjPluginManager);
         }
 #endif
     }

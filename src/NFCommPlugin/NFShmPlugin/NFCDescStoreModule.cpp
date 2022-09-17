@@ -39,7 +39,7 @@ NFCDescStoreModule::~NFCDescStoreModule() {
 }
 
 bool NFCDescStoreModule::Awake() {
-    m_pPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
     Subscribe(proto_ff::NF_EVENT_SERVER_APP_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     return true;
 }
@@ -61,7 +61,7 @@ bool NFCDescStoreModule::Execute() {
     {
         if (IsAllDescStoreLoad())
         {
-            m_pPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
+            m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
 
             m_bFinishAllLoaded = true;
         }
@@ -86,7 +86,7 @@ int NFCDescStoreModule::InitDestStoreDB(const std::string &serverId, const std::
 }
 
 int NFCDescStoreModule::Initialize() {
-    m_pResFileDB = CreateResDBFromFiles(m_pPluginManager->GetConfigPath() + "/Data");
+    m_pResFileDB = CreateResDBFromFiles(m_pObjPluginManager->GetConfigPath() + "/Data");
     m_pResSqlDB = CreateResDBFromRealDB();
 
     InitAllDescStore();
@@ -177,7 +177,7 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 	std::string filePathName = pDescStore->GetFilePathName();
 	if (filePathName.empty())
 	{
-		filePathName = m_pPluginManager->GetConfigPath() + "/Data/" + pDescStore->GetFileName() + ".bin";
+		filePathName = m_pObjPluginManager->GetConfigPath() + "/Data/" + pDescStore->GetFileName() + ".bin";
 		pDescStore->SetFilePathName(filePathName);
 	}
 
@@ -460,11 +460,11 @@ NFIDescStore* NFCDescStoreModule::FindDescStore(const std::string& strDescName)
 
 NFResDB *
 NFCDescStoreModule::CreateResDBFromRealDB() {
-    return new NFResMysqlDB(m_pPluginManager);
+    return new NFResMysqlDB(m_pObjPluginManager);
 }
 
 NFResDB *NFCDescStoreModule::CreateResDBFromFiles(const std::string &dir) {
-    return new NFFileResDB(m_pPluginManager, dir);
+    return new NFFileResDB(m_pObjPluginManager, dir);
 }
 
 

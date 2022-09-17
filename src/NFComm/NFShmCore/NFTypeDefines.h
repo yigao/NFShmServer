@@ -30,18 +30,18 @@ typedef enum
 } EN_FRAME_SHMOBJ_TYPE;
 
 #define REGISTER_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
     }while(0)
 
 #define REGISTER_SINGLETON_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0, true);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0, true);\
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_EXTERNAL_DATA( ClassName, ClassType, ObjNum, externalObjNum ) do{\
-        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, ClassName::GetExternalDataSize(externalObjNum), externalObjNum, true);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, ClassName::GetExternalDataSize(externalObjNum), externalObjNum, true);\
     }while(0)
 
