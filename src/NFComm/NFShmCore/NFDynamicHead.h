@@ -179,7 +179,7 @@
 	_IMPLEMENT_PREALLOCATED_(class_name, type)\
 	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton)\
 	{\
-		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam((EN_SHMOBJ_TYPE)bType, siObjSize,iObjCount, class_name::ResumeObject,\
+		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
 													   class_name::CreateObject,class_name::DestroyObject, -1,\
 													   className, useHash, externalDataSize, externalItemCount, singleton);\
 		return 0;\
