@@ -24,9 +24,9 @@ template<int SIZE = 1024>
 class NFSizeString //-V690
 {
 public:
-	NFSizeString()
+	NFSizeString(NFIPluginManager* pPluginManager)
 	{
-        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == pPluginManager->FindModule<NFISharedMemModule>()->GetCreateMode())
         {
             CreateInit();
         }

@@ -11,13 +11,12 @@
 #include "NFShmDefine.h"
 #include "NFDynamicHead.h"
 #include "NFTypeDefines.h"
-#include "NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 class NFShmTimerObj
 {
 public:
-	NFShmTimerObj();
+	NFShmTimerObj(NFIPluginManager* pPluginManager);
 	virtual ~NFShmTimerObj();
 
 	//非继承函数, 不要加virtual
@@ -28,6 +27,12 @@ public:
 	{
 		return 0;
 	}
+
+    template <typename T>
+    T* FindModule()
+    {
+        return m_pShmObjPluginManager->FindModule<T>();
+    }
 
 	//must be virtual
 	virtual void OnTimer(int timeId, int callcount) = 0;
@@ -68,4 +73,6 @@ protected:
 #ifdef NF_DEBUG_MODE
     uint32_t m_shmTimerCount;
 #endif
+public:
+    NFIPluginManager* m_pShmObjPluginManager;
 };

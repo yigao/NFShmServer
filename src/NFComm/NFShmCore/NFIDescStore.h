@@ -26,7 +26,7 @@
 class NFIDescStore : public NFShmObj
 {
 public:
-	NFIDescStore()
+	NFIDescStore(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
 	{
 		if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 			CreateInit();

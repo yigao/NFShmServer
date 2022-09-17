@@ -9,14 +9,14 @@
 
 #include "NFDynamicHead.h"
 #include "NFShmObj.h"
-#include "NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
-NFShmObj::NFShmObj()
+NFShmObj::NFShmObj(NFIPluginManager* pPluginManager):m_pShmObjPluginManager(pPluginManager)
 {
-	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
+	if (FindModule<NFISharedMemModule>()->GetCreateMode() == EN_OBJ_MODE_INIT)
 	{
 		CreateInit();
 	}

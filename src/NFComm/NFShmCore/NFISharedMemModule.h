@@ -64,11 +64,11 @@ public:
     virtual void* AllocMemForObject(int iType) = 0;
     virtual void FreeMemForObject(int iType, void * pMem) = 0;
 
-	virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(void *)
-			, NFShmObj *(*pCreatefn)(), void(*pDestroy)(NFShmObj *), int parentType,
-			const std::string& pszClassName, bool useHash = false, int exterDataSize = 0, int exterItemCount = 0, bool singleton = false) = 0;
+    virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj* (*pfResumeObj)(NFIPluginManager* pPluginManager, void *)
+            , NFShmObj *(*pCreatefn)(NFIPluginManager* pPluginManager), void(*pDestroy)(NFIPluginManager* pPluginManager, NFShmObj *), int parentType,
+            const std::string& pszClassName, bool useHash = false, int exterDataSize = 0, int externalItemCount = 0, bool singleton = false) = 0;
 
-	virtual size_t GetAllObjSize() = 0;
+    virtual size_t GetAllObjSize() = 0;
 
 	virtual int InitializeAllObj() = 0;
 

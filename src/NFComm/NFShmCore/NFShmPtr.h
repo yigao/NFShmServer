@@ -9,7 +9,6 @@
 #pragma once
 
 #include "NFShmObj.h"
-#include "NFShmMgr.h"
 /*
 共享内存对象指针，指向CObj类
 在recover的时候会自动适应
@@ -19,15 +18,15 @@ template<class ObjType>
 class NFShmPtr
 {
 public:
-	explicit NFShmPtr(ObjType *pObj)
-		: m_pObj(pObj),
+	explicit NFShmPtr(NFIPluginManager* pPluginManager, ObjType *pObj):m_pShmPtrPluginManager(pPluginManager)
+		,m_pObj(pObj),
 		m_iObjSeq(pObj ? pObj->m_iObjSeq : INVALID_ID)
 	{
 	}
 	//构造函数需要对共享内存操作
-	explicit NFShmPtr()
+	explicit NFShmPtr(NFIPluginManager* pPluginManager):m_pShmPtrPluginManager(pPluginManager)
 	{
-		if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT )
+		if (m_pShmPtrPluginManager->FindModule<NFISharedMemModule>()->GetCreateMode() == EN_OBJ_MODE_INIT )
 		{
 			CreateInit();
 		}
@@ -205,6 +204,7 @@ public:
 	ObjType *m_pObj;
 	/*对象序列号，如果这个不相等说明指针无效了*/
 	int m_iObjSeq;
+	NFIPluginManager* m_pShmPtrPluginManager;
 };
 
 /*

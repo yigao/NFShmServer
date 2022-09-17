@@ -15,6 +15,7 @@
 class NFIDRuntimeClass;
 class NFShmObj;
 class NFShmObjSeg;
+class NFIPluginManager;
 
 class NFIDRuntimeClass
 {
@@ -38,8 +39,8 @@ public:
 	static bool IsTypeValid(int iType);
 
 	std::string m_pszName;
-	NFShmObj *(*m_pCreatefn)();
-	void(*m_pDestroyFn)(NFShmObj *);
+	NFShmObj *(*m_pCreatefn)(NFIPluginManager* pPluginManager);
+	void(*m_pDestroyFn)(NFIPluginManager* pPluginManager, NFShmObj *);
 	NFIDRuntimeClass *m_pParent;
 	int m_iSelfType;
 	NFShmObjSeg *m_pObjSeg;

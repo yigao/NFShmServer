@@ -11,14 +11,13 @@
 #include "NFShmDefine.h"
 #include "NFDynamicHead.h"
 #include "NFTypeDefines.h"
-#include "NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmTimerObj.h"
 
 class NFShmObj : public NFShmTimerObj
 {
 public:
-	NFShmObj();
+	NFShmObj(NFIPluginManager* pPluginManager);
 	virtual ~NFShmObj();
 
     //非继承函数, 不要加virtual
@@ -35,12 +34,6 @@ public:
     {
 
     }
-
-	template <typename T>
-	T* FindModule()
-	{
-		return NFIPluginManager::Instance()->FindModule<T>();
-	}
 
 #if defined(_DEBUG) | defined(_DEBUG_)
 	void CheckMemMagicNum()

@@ -17,7 +17,7 @@
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 #include "NFCommPlugin/NFKernelPlugin/NFResMysqlDb.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 
@@ -223,7 +223,7 @@ int NFCDescStoreModule::Load() {
         assert(pDescStore);
         NFLogInfo(NF_LOG_KERNEL_PLUGIN, 0, "Desc Store Begin Load:{}", pDescStore->GetFileName());
 
-		NFCoMgr::Instance()->MakeCoroutine([pDescStore, this] {
+		FindModule<NFICoroutineModule>()->MakeCoroutine([pDescStore, this] {
 			int ret = LoadDescStore(pDescStore);
 			NF_ASSERT_MSG(ret == 0, "Load Desc Store:" + pDescStore->GetFileName() + " Failed!");
             NFLogInfo(NF_LOG_KERNEL_PLUGIN, 0, "Desc Store Load:{} Sucess", pDescStore->GetFileName());
@@ -282,7 +282,7 @@ int NFCDescStoreModule::Reload() {
         NFIDescStore *pDescStore = iter->second;
         assert(pDescStore);
 
-		NFCoMgr::Instance()->MakeCoroutine([pDescStore, this] {
+        FindModule<NFICoroutineModule>()->MakeCoroutine([pDescStore, this] {
 			int ret = ReLoadDescStore(pDescStore);
 			NF_ASSERT_MSG(ret == 0, "ReLoad Desc Store Failed!");
 		});
@@ -459,11 +459,11 @@ NFIDescStore* NFCDescStoreModule::FindDescStore(const std::string& strDescName)
 
 NFResDB *
 NFCDescStoreModule::CreateResDBFromRealDB() {
-    return new NFResMysqlDB();
+    return new NFResMysqlDB(m_pPluginManager);
 }
 
 NFResDB *NFCDescStoreModule::CreateResDBFromFiles(const std::string &dir) {
-    return new NFFileResDB(dir);
+    return new NFFileResDB(m_pPluginManager, dir);
 }
 
 

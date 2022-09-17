@@ -8,11 +8,11 @@
 // -------------------------------------------------------------------------
 
 #include "NFShmTimerObj.h"
-#include "NFShmMgr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-NFShmTimerObj::NFShmTimerObj()
+NFShmTimerObj::NFShmTimerObj(NFIPluginManager* pPluginManager):m_pShmObjPluginManager(pPluginManager)
 {
-	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
+	if (FindModule<NFISharedMemModule>()->GetCreateMode() == EN_OBJ_MODE_INIT)
 	{
 		CreateInit();
 	}
