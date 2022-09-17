@@ -287,6 +287,7 @@ int NFShmTimerManager::ResumeInit() {
 }
 
 NFShmTimer *NFShmTimerManager::GetTimer(int global_id) {
+    return (NFShmTimer *) NFShmTimer::GetObjectByID(m_pShmObjPluginManager, global_id);
     return (NFShmTimer*)FindModule<NFISharedMemModule>()->GetObj(EOT_TYPE_TIMER_OBJ, global_id);\
 }
 

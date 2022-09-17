@@ -26,11 +26,8 @@ typedef enum
 	EOT_SERVER_FRAME_BEGIN_ID = 100,//100-199的是服务器架构共享内存ID
 	EOT_SERVER_FRAME_END_ID = 299,
 
-	EOT_SUB_GAME_BEGIN_ID = 300, //200-499的是子游戏共享内存ID
-	EOT_SUB_GAME_END_ID = 499,
-
 	EOT_MAX_TYPE = 500,
-} EN_SHMOBJ_TYPE;
+} EN_FRAME_SHMOBJ_TYPE;
 
 #define REGISTER_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
         ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
@@ -41,10 +38,10 @@ typedef enum
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
+        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_EXTERNAL_DATA( ClassName, ClassType, ObjNum, externalObjNum ) do{\
-        ClassName::SetObjSeg(ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, ClassName::GetExternalDataSize(externalObjNum), externalObjNum, true);\
+        ClassName::SetObjSeg(m_pPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, ClassName::GetExternalDataSize(externalObjNum), externalObjNum, true);\
     }while(0)
 

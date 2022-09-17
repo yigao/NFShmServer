@@ -17,7 +17,13 @@
     static int   GetExternalDataSize(NFIPluginManager* pPluginManager);\
     static int   GetExternalItemCount(NFIPluginManager* pPluginManager);  \
     static char* GetExternalBuffer(NFIPluginManager* pPluginManager);\
-    static std::string GetClassName(NFIPluginManager* pPluginManager);    \
+    static std::string GetClassName(NFIPluginManager* pPluginManager);                                                                                                                                                    \
+    static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
+    static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
+    static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
+    static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum);\
+	static class_name* Instance(NFIPluginManager* pPluginManager);\
+	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
     static int GetStaticClassType();\
     virtual int GetClassType() const;\
     virtual int GetObjectID();\
@@ -28,12 +34,7 @@
                                           #class_name,class_name::GetClassType(),GetObjectID(),GetGlobalID());}                                                                         \
     virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}",\
                                           #class_name,class_name::GetClassType());}\
-    static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
-    static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
-    static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
-    static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum);\
-	static class_name* Instance(NFIPluginManager* pPluginManager);\
-	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
+
 
 
 #define _IMPLEMENT_PREALLOCATED_(class_name, type) \

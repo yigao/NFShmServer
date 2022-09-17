@@ -21,7 +21,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFCPluginManager.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,9 +84,9 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFServerComm/Message" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -306,27 +310,7 @@
       <workItem from="1663235833757" duration="8850000" />
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
-    </task>
-    <task id="LOCAL-00068" summary="frame">
-      <created>1654874708814</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874708814</updated>
-    </task>
-    <task id="LOCAL-00069" summary="frame">
-      <created>1654877392390</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1654877392390</updated>
-    </task>
-    <task id="LOCAL-00070" summary="frame">
-      <created>1654940727501</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1654940727502</updated>
+      <workItem from="1663338610780" duration="2740000" />
     </task>
     <task id="LOCAL-00071" summary="frame">
       <created>1654943826294</created>
@@ -644,13 +628,34 @@
       <updated>1663325732493</updated>
     </task>
     <task id="LOCAL-00116" summary="chong gou">
-      <created>1663378374143</created>
+      <created>1663339919935</created>
       <option name="number" value="00116" />
       <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1663378374144</updated>
+      <updated>1663339919936</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="chong gou">
+      <created>1663340783298</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1663340783298</updated>
+    </task>
+    <task id="LOCAL-00118" summary="chong gou">
+      <created>1663340992248</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1663340992248</updated>
+    </task>
+    <task id="LOCAL-00119" summary="chong gou">
+      <created>1663341375029</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1663341375029</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,37 +704,11 @@
             </State>
           </value>
         </entry>
-        <entry key="f2a4c08a-33de-4c18-b80e-5b6ea7c9ed02">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/src" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="OPEN_GENERIC_TABS">
       <map>
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e" value="TOOL_WINDOW" />
-        <entry key="f2a4c08a-33de-4c18-b80e-5b6ea7c9ed02" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
