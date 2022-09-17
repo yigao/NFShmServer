@@ -9,7 +9,6 @@
 #include "NFCDynLib.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFMD5.h"
-#include "NFCDynLibMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFCore/NFTea.h"
