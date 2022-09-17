@@ -12,6 +12,7 @@
 #include "NFDynamicHead.h"
 #include "NFTypeDefines.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFObject.h"
 
 class NFShmTimerObj
 {
@@ -31,7 +32,7 @@ public:
     template <typename T>
     T* FindModule() const
     {
-        return m_pShmObjPluginManager->FindModule<T>();
+        return m_pObjPluginManager->FindModule<T>();
     }
 
 	//must be virtual
@@ -74,5 +75,5 @@ protected:
     uint32_t m_shmTimerCount;
 #endif
 public:
-    NFIPluginManager* m_pShmObjPluginManager;
+    NFIPluginManager* m_pObjPluginManager;
 };

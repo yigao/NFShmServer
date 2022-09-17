@@ -260,7 +260,7 @@ std::string NFTransBase::GetDebugInfo() const {
 
 bool NFTransBase::IsTimeOut() {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT) {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pShmObjPluginManager), GetClassType(), GetDebugInfo());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pObjPluginManager), GetClassType(), GetDebugInfo());
         OnTimeOut();
         return true;
     }

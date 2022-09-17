@@ -117,17 +117,17 @@ int NFDBObjTrans::OnTimeOut() {
     switch (m_iDBOP) {
         case proto_ff::E_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_BUSY, NULL);
+            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_BUSY, NULL);
         }
         case proto_ff::E_STORESVR_C2S_INSERT:
         {
-            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, false);
+            NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
             break;
         }
         case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
         {
-            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
+            NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
             break;
         }
@@ -150,11 +150,11 @@ int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
     {
         case proto_ff::E_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_UNKNOWN, NULL);
+            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_UNKNOWN, NULL);
         }
         case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
         {
-            NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
+            NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj failed:{} err:{}", m_iLinkedObjID, m_iRunLogicRetCode);
             break;
         }
@@ -178,13 +178,13 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (!pSSMsgRes)
             {
-                iRet  = NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
+                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
             }
             else
             {
                 const storesvr_sqldata::storesvr_selobj_res* pRes = dynamic_cast<const storesvr_sqldata::storesvr_selobj_res*>(pSSMsgRes);
                 CHECK_NULL(pRes);
-                iRet  = NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->sel_record());
+                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->sel_record());
             }
             break;
         }
@@ -192,11 +192,11 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
             {
-                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, true);
+                NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, true);
             }
             else
             {
-                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataInserted(this, false);
+                NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, false);
             }
             break;
         }
@@ -204,11 +204,11 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
         {
             if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
             {
-                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, true);
+                NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, true);
             }
             else
             {
-                NFDBObjMgr::Instance(m_pShmObjPluginManager)->OnDataSaved(this, false);
+                NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             }
             break;
         }

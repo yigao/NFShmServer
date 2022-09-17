@@ -11,7 +11,7 @@
 #include "NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-NFShmTimerObj::NFShmTimerObj(NFIPluginManager* pPluginManager):m_pShmObjPluginManager(pPluginManager)
+NFShmTimerObj::NFShmTimerObj(NFIPluginManager* pPluginManager): m_pObjPluginManager(pPluginManager)
 {
 	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
 	{
