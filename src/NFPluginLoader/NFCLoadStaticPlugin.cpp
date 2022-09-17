@@ -3,10 +3,10 @@
 //    @Author           :    xxxxx
 //    @Date             :   xxxx-xx-xx
 //    @Email			:    xxxxxxxxx@xxx.xxx
-//    @Module           :    NFPluginLoader
+//    @Module           :    NFPluginManager
 //
 // -------------------------------------------------------------------------
-#include "NFCPluginManager.h"
+#include "NFPluginManager/NFCPluginManager.h"
 #include "NFComm/NFCore/NFPlatform.h"
 
 #include "NFComm/NFPluginModule/NFIEventModule.h"
@@ -77,45 +77,7 @@
 //////////////////////////////WebServer Plugin/////////////////////////////////
 #endif
 
-bool NFCPluginManager::LoadKernelPlugin()
-{
-#ifndef NF_DYNAMIC_PLUGIN
-	m_nPluginNameVec.push_back("NFKernelPlugin");
-	LoadStaticPlugin("NFKernelPlugin");
-#else
-	m_nPluginNameVec.push_back("NFKernelPlugin");
-	LoadPluginLibrary("NFKernelPlugin");
-#endif
 
-	/*
-		log 系统第一个启动，然后是配置
-	*/
-	FindModule<NFILogModule>()->InitLogSystem();
-	/*
-		加载服务器配置
-	*/
-	FindModule<NFIConfigModule>()->LoadConfig();
-	/*
-		log 加载配置
-	*/
-	FindModule<NFILogModule>()->SetDefaultLogConfig();
-
-    /*
-        启动多线程任务系统
-    */
-    if (IsLoadAllServer())
-    {
-        FindModule<NFITaskModule>()->InitActorThread(1);
-    }
-    else
-    {
-        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
-        NF_ASSERT(pConfig);
-
-        FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
-    }
-	return true;
-}
 
 bool NFCPluginManager::RegisterStaticPlugin()
 {

@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFPluginLoader.cpp
+//    @FileName         :    NFPluginManager.cpp
 //    @Author           :    LvSheng.Huang
 //    @Date             :   xxxx-xx-xx
-//    @Module           :    NFPluginLoader
+//    @Module           :    NFPluginManager
 //
 // -------------------------------------------------------------------------
 
@@ -17,14 +17,14 @@
 #include <functional>
 #include <atomic>
 
-#include "NFCPluginManager.h"
+#include "NFPluginManager/NFCPluginManager.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFCmdLine.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 
-#include "NFCrashHandlerMgr.h"
-#include "NFProcessParameter.h"
+#include "NFPluginManager/NFCrashHandlerMgr.h"
+#include "NFPluginManager/NFProcessParameter.h"
 
 int main(int argc, char* argv[])
 {
