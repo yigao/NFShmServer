@@ -32,6 +32,8 @@ LoadPlugin =
 			--"NFRobotPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+
+			"NFServerCommonPlugin",
 			--"NFCommLogicPlugin",
 
 			"NFMasterServerPlugin",
@@ -85,8 +87,8 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			--"NFTestPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 			"NFMasterServerPlugin",
 		};
 		ServerType = NF_ST_MASTER_SERVER;
@@ -98,6 +100,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFProxyServerPlugin",
 			"NFProxyClientPlugin",
@@ -111,6 +114,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFProxyAgentServerPlugin",
 		};
@@ -124,10 +128,9 @@ LoadPlugin =
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+			"NFServerCommonPlugin",
 
 			"NFGameServerPlugin",
-			"NFGameFishPlugin",
-			"NFFishAlgoPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
@@ -139,6 +142,7 @@ LoadPlugin =
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+			"NFServerCommonPlugin",
 
 			"NFLoginServerPlugin",
 			"NFLoginServerPlayerPlugin",
@@ -153,6 +157,7 @@ LoadPlugin =
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+			"NFServerCommonPlugin",
 
 			"NFWorldServerPlugin",
 			"NFWorldServerPlayerPlugin",
@@ -166,6 +171,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFStoreServerPlugin",
 		};
@@ -179,6 +185,7 @@ LoadPlugin =
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+			"NFServerCommonPlugin",
 			"NFCommLogicPlugin",
 
 			"NFLogicServerPlugin",
@@ -194,6 +201,7 @@ LoadPlugin =
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+			"NFServerCommonPlugin",
 
 			"NFSnsServerPlugin",
 			"NFSnsServerPlayerPlugin",
@@ -207,6 +215,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFWebServerPlugin",
 			"NFWebServerLogicPlugin",
@@ -219,8 +228,8 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			--"NFTestPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFRouteAgentServerPlugin",
 		};
@@ -232,8 +241,8 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			--"NFTestPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 
 			"NFRouteServerPlugin",
 		};
@@ -246,6 +255,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFServerCommonPlugin",
 			"NFMonitorServerPlugin",
 		};
 		ServerType = NF_ST_MONITOR_SERVER;
