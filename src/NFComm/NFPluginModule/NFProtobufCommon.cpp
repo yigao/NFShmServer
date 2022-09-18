@@ -13,9 +13,7 @@
 #include "NFComm/NFKernelMessage/yd_fieldoptions.pb.h"
 #include "NFComm/NFPluginModule/NFJson2PB/NFPbToJson.h"
 #include "NFComm/NFPluginModule/NFJson2PB/NFJsonToPb.h"
-#include "NFComm/NFCore/NFIniReader.h"
 #include "NFComm/NFCore/NFStringUtility.h"
-#include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFProto/NFXmlMessageCodec.h"
 #include "NFComm/NFCore/NFCommon.h"
 

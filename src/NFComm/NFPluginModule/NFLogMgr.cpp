@@ -7,9 +7,6 @@
 //
 // -------------------------------------------------------------------------
 #include "NFLogMgr.h"
-
-#include <sstream>
-
 #include "NFILogModule.h"
 
 NFLogMgr::NFLogMgr()

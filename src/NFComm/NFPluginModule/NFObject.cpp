@@ -9,8 +9,6 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFObject.h"
-#include <stddef.h>
-#include <string.h>
 
 
 
