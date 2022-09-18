@@ -11,6 +11,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFIPacketParse.h"
 #include "NFCBusServer.h"
 #include "NFCBusClient.h"

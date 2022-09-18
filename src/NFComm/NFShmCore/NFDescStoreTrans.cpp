@@ -17,6 +17,7 @@
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDescStoreTrans, EOT_RPC_TRANS_ID, NFTransBase)
 

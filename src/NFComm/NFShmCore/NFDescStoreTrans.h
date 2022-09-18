@@ -10,7 +10,6 @@
 #pragma once
 
 #include "NFTransBase.h"
-#include "NFSizeString.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 

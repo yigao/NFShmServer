@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 
 #define _DECLARE_PREALLOCATED_(class_name)\
     public:\

@@ -10,8 +10,6 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "google/protobuf/message.h"
-#include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 enum
 {

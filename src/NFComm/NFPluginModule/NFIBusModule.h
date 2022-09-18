@@ -11,7 +11,6 @@
 #include "NFIModule.h"
 #include <vector>
 #include <string>
-#include "NFSystemInfo.h"
 
 class NFIBusModule : public NFIModule
 {

@@ -20,6 +20,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFITaskModule.h"
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "hwinfo/hw_info.h"

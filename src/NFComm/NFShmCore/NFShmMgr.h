@@ -10,9 +10,7 @@
 
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFTypeDefines.h"
 #include "NFShmDefine.h"
-#include "NFTypeDefines.h"
 
 class NFShmObj;
 class NFISharedMemModule;

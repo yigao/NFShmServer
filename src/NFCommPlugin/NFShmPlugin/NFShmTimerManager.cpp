@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFMagicTimeUtil.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 int Slot::CreateInit() {
     m_headData.nextIndex = -1;

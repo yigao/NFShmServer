@@ -7,8 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#ifndef NF_PROFILER_H
-#define NF_PROFILER_H
+#pragma once
 
 #include <time.h>
 #include <string.h>
@@ -140,6 +139,5 @@ private:
 	std::map<std::string, PROFILE_TIMER*> m_funcNameProfiler;
 };
 
-#endif // NF_PROFILER_H
 
 

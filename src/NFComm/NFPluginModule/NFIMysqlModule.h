@@ -10,7 +10,6 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 

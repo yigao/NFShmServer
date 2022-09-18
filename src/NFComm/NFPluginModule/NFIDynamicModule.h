@@ -10,10 +10,9 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
+
 
 /**
 * @brief 用来实现动态加载的模块，所有可以动态加载的引擎的module都需要继承这个类

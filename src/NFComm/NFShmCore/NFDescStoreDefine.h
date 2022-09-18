@@ -10,7 +10,6 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFResDb.h"
 
 const int MAX_ITEM_HASH_NUM = 8887;
 

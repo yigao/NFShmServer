@@ -9,8 +9,8 @@
 
 #include "NFShmTimer.h"
 #include "NFComm/NFShmCore/NFTypeDefines.h"
-#include "NFComm/NFCore/NFSnprintf.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)
 

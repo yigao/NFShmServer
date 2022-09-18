@@ -10,10 +10,6 @@
 #pragma once
 
 #include "NFTransBase.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "google/protobuf/message.h"
-#include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 class NFDBObjTrans : public NFTransBase
 {

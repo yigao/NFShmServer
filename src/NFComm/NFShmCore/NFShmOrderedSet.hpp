@@ -13,9 +13,7 @@
 #include "src/NFComm/NFPluginModule/NFLogMgr.h"
 #include <stddef.h>
 #include <string.h>
-#include "src/NFComm/NFPluginModule/NFPair.h"
 #include "NFShmMgr.h"
-#include "NFComm/NFCore/NFRandom.hpp"
 
 template<typename T, size_t MAX_SIZE>
 class NFShmOrderedSet

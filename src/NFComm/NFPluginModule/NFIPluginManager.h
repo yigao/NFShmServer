@@ -6,15 +6,13 @@
 //
 // -------------------------------------------------------------------------
 
-#ifndef NFI_PLUGIN_MANAGER_H
-#define NFI_PLUGIN_MANAGER_H
+#pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFPluginModule/NFGlobalSystem.h"
 #include "NFSystemInfo.h"
 #include <functional>
-#include <assert.h>
 #include <list>
 
 #define ALL_SERVER ("AllServer")
@@ -294,5 +292,4 @@ public:
     virtual std::string GetMachineAddrMD5() = 0;
 };
 
-#endif
 

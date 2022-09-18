@@ -10,7 +10,7 @@
 
 #define LUAINTF_LINK_LUA_COMPILED_IN_CXX 0
 #include "LuaBind/luaintf/LuaIntf.h"
-
+#include "NFComm/NFCore/NFPlatform.h"
 #include <iostream>
 #include <vector>
 #include <map>

@@ -19,9 +19,11 @@
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 #include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
+
 
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA 0
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA_TIME 30000

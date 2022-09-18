@@ -10,7 +10,6 @@
 
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
-#include "NFProtobufCommon.h"
 #include "NFILuaModule.h"
 #include <vector>
 

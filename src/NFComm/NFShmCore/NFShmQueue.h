@@ -12,9 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include <stddef.h>
 #include <string.h>
-#include "NFComm/NFPluginModule/NFPair.h"
 #include "NFShmMgr.h"
-#include "NFComm/NFCore/NFRandom.hpp"
 
 template<typename DataType, int MAX_ELEMENT_NUM>
 class NFShmQueue

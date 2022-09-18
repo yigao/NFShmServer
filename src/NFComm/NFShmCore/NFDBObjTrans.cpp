@@ -11,6 +11,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFDBObjMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjTrans, EOT_TRANS_DB_OBJ, NFTransBase)

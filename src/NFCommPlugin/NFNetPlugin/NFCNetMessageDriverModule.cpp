@@ -13,6 +13,8 @@
 #include "NFCBusMessage.h"
 #include "NFComm/NFCore/NFSocketLibFunction.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 
 NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMessageDriver(p)
@@ -167,13 +169,8 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 
 
 			uint64_t linkId = pServer->ConnectServer(flag);
-			if (linkId >= 0)
-			{
-				mNetServerArray[eServerType] = pServer;
-				return (int64_t)linkId;
-			}
-
-			NFLogError(NF_LOG_NET_PLUGIN, 0, "Add Server Failed!");
+			mNetServerArray[eServerType] = pServer;
+			return (int64_t)linkId;
 		}
 		else if (addr.mScheme == "bus")
 		{
@@ -201,13 +198,8 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 
 
 			uint64_t linkId = pServer->ConnectServer(flag);
-			if (linkId >= 0)
-			{
-				mBusServerArray[eServerType] = pServer;
-				return (int64_t)linkId;
-			}
-
-			NFLogError(NF_LOG_NET_PLUGIN, 0, "Add Server Failed!");
+			mBusServerArray[eServerType] = pServer;
+			return (int64_t)linkId;
 		}
 
 	}

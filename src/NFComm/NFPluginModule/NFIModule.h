@@ -9,8 +9,6 @@
 #pragma once
 
 #include <string>
-#include "NFIPluginManager.h"
-#include "NFServerDefine.h"
 #include "NFObject.h"
 
 class NFIModule : public NFObject

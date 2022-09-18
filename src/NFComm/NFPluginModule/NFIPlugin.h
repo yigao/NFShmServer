@@ -6,16 +6,14 @@
 //
 // -------------------------------------------------------------------------
 
-#ifndef NFI_PLUGIN_H
-#define NFI_PLUGIN_H
+#pragma once
+
 
 #include <iostream>
-#include <assert.h>
 #include <map>
 #include <vector>
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFIModule.h"
-#include "NFIPluginManager.h"
 
 
 //为什么要在这里加上pManager->InitSingleton()呢， 主要是为了在动态加载的情况下，在每个DLL中，都初始化一次单件系统
@@ -88,5 +86,4 @@ protected:
 };
 
 
-#endif
 

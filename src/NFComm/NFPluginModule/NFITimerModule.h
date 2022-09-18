@@ -9,8 +9,8 @@
 #pragma once
 
 #include "NFIModule.h"
-#include "NFComm/NFPluginModule/NFTimerAxis.h"
 
+class NFTimerObj;
 class NFITimerModule : public NFIModule
 {
 public:

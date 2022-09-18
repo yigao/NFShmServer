@@ -6,8 +6,7 @@
 //
 // -------------------------------------------------------------------------
 
-#ifndef NFI_EVENT_MODULE_H
-#define NFI_EVENT_MODULE_H
+#pragma once
 
 #include <iostream>
 #include "NFIModule.h"
@@ -68,5 +67,4 @@ public:
 	virtual bool UnSubscribeAll(NFEventObj* pSink) = 0;
 };
 
-#endif
 

@@ -10,11 +10,11 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include <stdint.h>
 #include "NFIModule.h"
-#include "NFServerDefine.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
+
+#include <stdint.h>
 
 /// @brief 网络驱动接口
 class NFIMessageDriver : public NFIModule

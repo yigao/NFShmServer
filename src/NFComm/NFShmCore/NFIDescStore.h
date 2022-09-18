@@ -11,9 +11,8 @@
 
 #include "NFDescStoreDefine.h"
 #include "NFShmObj.h"
-#include "NFShmMgr.h"
-#include "NFIDescStoreModule.h"
 #include "NFSizeString.h"
+#include "NFResDb.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -26,38 +25,11 @@
 class NFIDescStore : public NFShmObj
 {
 public:
-	NFIDescStore(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
-	{
-		if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-			CreateInit();
-		}
-		else {
-			ResumeInit();
-		}
-	}
+	NFIDescStore(NFIPluginManager* pPluginManager);
+	virtual ~NFIDescStore();
 
-	virtual ~NFIDescStore()
-	{
-	    if (m_bSaveTimer != INVALID_ID)
-        {
-            DeleteTimer(m_bSaveTimer);
-            m_bSaveTimer = INVALID_ID;
-        }
-	}
-
-	int CreateInit()
-	{
-		m_bValid = false;
-		m_bIsLoaded = false;
-		m_bIsChecked = false;
-        m_bSaveTimer = INVALID_ID;
-		return 0;
-	}
-
-	int ResumeInit()
-	{
-		return 0;
-	}
+	int CreateInit();
+	int ResumeInit();
 
 	virtual int Load(NFResDB *pDB) = 0;
 	virtual int Reload(NFResDB *pDB) = 0;
@@ -68,48 +40,12 @@ public:
 	virtual int GetResNum() const = 0;
 	virtual int SaveDescStore() = 0;
 
-    virtual int SaveDescStoreToDB(const google::protobuf::Message *pMessage)
-    {
-        if (!IsFileLoad())
-        {
-            return FindModule<NFIDescStoreModule>()->SaveDescStoreByFileName(GetDBName(), GetFileName(), pMessage);
-        }
-        return 0;
-    }
-
-    virtual int InsertDescStoreToDB(const google::protobuf::Message *pMessage)
-    {
-        if (!IsFileLoad())
-        {
-            return FindModule<NFIDescStoreModule>()->InsertDescStoreByFileName(GetDBName(), GetFileName(), pMessage);
-        }
-        return 0;
-    }
-
-    virtual int DeleteDescStoreToDB(const google::protobuf::Message *pMessage)
-    {
-        if (!IsFileLoad())
-        {
-            return FindModule<NFIDescStoreModule>()->DeleteDescStoreByFileName(GetDBName(), GetFileName(), pMessage);
-        }
-        return 0;
-    }
-
-    virtual int StartSaveTimer()
-    {
-        int rand = NFRandInt(1000, 10000);
-        m_bSaveTimer = SetTimer(1*1000, 0, 0, 0, 0, rand);
-        return 0;
-    }
-
+    virtual int SaveDescStoreToDB(const google::protobuf::Message *pMessage);
+    virtual int InsertDescStoreToDB(const google::protobuf::Message *pMessage);
+    virtual int DeleteDescStoreToDB(const google::protobuf::Message *pMessage);
+    virtual int StartSaveTimer();
     //must be virtual
-    virtual void OnTimer(int timeId, int callcount)
-    {
-        if (m_bSaveTimer == timeId)
-        {
-            SaveDescStore();
-        }
-    }
+    virtual void OnTimer(int timeId, int callcount);
 
 	virtual int PrepareReload()
 	{

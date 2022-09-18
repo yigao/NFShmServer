@@ -10,11 +10,11 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFError.h"
-
-#include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFServerDefine.h"
+#include "NFComm/NFPluginModule/NFIHttpHandle.h"
+#include "google/protobuf/message.h"
+#include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+#include "NFIDynamicModule.h"
 
 #include <map>
 #include <unordered_map>
@@ -22,13 +22,7 @@
 #include <string>
 #include <map>
 #include <functional>
-#include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFProtobufCommon.h"
-#include "google/protobuf/message.h"
-#include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFIDynamicModule.h"
-#include "NFComm/NFPluginModule/NFIHttpHandle.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+
 
 
 #define MAX_CLIENT_INDEX 1000000					//客户端掩码 一百万

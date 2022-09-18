@@ -5,6 +5,7 @@
 #include "NFGlobalSystem.h"
 #include "NFIPluginManager.h"
 #include "NFComm/NFCore/NFFileUtility.h"
+#include "NFProtobufCommon.h"
 
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false) {
 

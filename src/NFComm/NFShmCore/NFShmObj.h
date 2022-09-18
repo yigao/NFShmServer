@@ -10,8 +10,6 @@
 
 #include "NFShmDefine.h"
 #include "NFDynamicHead.h"
-#include "NFTypeDefines.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmTimerObj.h"
 
 class NFShmObj : public NFShmTimerObj

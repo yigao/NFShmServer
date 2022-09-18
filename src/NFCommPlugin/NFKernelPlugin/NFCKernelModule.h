@@ -9,18 +9,14 @@
 #ifndef NFC_KERNEL_MODULE_H
 #define NFC_KERNEL_MODULE_H
 
+#include "NFComm/NFPluginModule/NFIKernelModule.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <random>
 #include <chrono>
-
-#include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include <unordered_map>
-#include "NFComm/NFPluginModule/NFTimerObj.h"
-
-class NFIObject;
-class NFITimerModule;
 
 enum
 {

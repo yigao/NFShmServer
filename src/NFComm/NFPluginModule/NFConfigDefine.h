@@ -10,7 +10,6 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFServerDefine.h"
 #include <unordered_map>
 #include "NFComm/NFKernelMessage/proto_common_s.h"
 
@@ -50,18 +49,6 @@ struct NFLogConfig
 	uint32_t mLogLevel;
 	uint32_t mLogFlushLevel;
 	std::vector<LogInfoConfig> mLineConfigList;
-};
-
-struct NFServerRoomConfig
-{
-public:
-    NFServerRoomConfig():mGameKind(0),mGameId(0),mRoomId(0)
-    {
-
-    }
-    int mGameKind;
-    int mGameId;
-    int mRoomId;
 };
 
 typedef proto_ff_s::pbNFServerConfig_s NFServerConfig;

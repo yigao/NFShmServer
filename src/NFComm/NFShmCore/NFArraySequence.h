@@ -10,11 +10,8 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include <stddef.h>
 #include <string.h>
-#include "NFComm/NFPluginModule/NFPair.h"
-#include "NFShmDefine.h"
 #include "NFShmMgr.h"
 
 /**

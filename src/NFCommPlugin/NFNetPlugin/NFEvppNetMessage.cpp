@@ -14,8 +14,8 @@
 #include <string>
 #include <vector>
 
-#include "../../NFComm/NFPluginModule/NFILogModule.h"
-#include "../../NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFEvppClient.h"
 #include "NFEvppServer.h"
 #include "NFIPacketParse.h"

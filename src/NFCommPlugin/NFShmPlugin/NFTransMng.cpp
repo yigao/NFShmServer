@@ -12,6 +12,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransMng, EOT_TRANS_MNG, NFShmObj)
 

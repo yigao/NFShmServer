@@ -10,6 +10,7 @@
 #include "NFShmTimerObj.h"
 #include "NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 
 NFShmTimerObj::NFShmTimerObj(NFIPluginManager* pPluginManager): NFObject(pPluginManager)
 {

@@ -15,6 +15,8 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
 #include "NFComm/NFKernelMessage/proto_common_s.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 #include <set>
 #include <map>
@@ -250,7 +252,7 @@ bool NFCConfigModule::LoadServerConfig()
                 assert(0);
             }
 
-            NF_ASSERT(pPbConfig->servertype() >= 0 && pPbConfig->servertype() < NF_ST_MAX);
+            NF_ASSERT(pPbConfig->servertype() < NF_ST_MAX);
             NF_ASSERT(GetServerName((NF_SERVER_TYPES)pPbConfig->servertype()) == serverTypeName);
 
             if (pPbConfig->buslength() == 0)

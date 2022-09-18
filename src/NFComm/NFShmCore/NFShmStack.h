@@ -12,9 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include <stddef.h>
 #include <string.h>
-#include "NFComm/NFPluginModule/NFPair.h"
 #include "NFShmMgr.h"
-#include "NFComm/NFCore/NFRandom.hpp"
 
 template <class TYPE, int iSize>
 class NFShmStack

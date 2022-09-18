@@ -11,7 +11,6 @@
 
 #include <functional>
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFError.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFObject.h"
 

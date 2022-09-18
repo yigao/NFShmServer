@@ -1,6 +1,5 @@
 ﻿
-#ifndef NFI_NOSQL_MODULE_H
-#define NFI_NOSQL_MODULE_H
+#pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
 
@@ -804,5 +803,3 @@ public:
 	//virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriverBySuit(const int nHash) = 0;
 	virtual bool RemoveConnectSql(const std::string& strID) = 0;
 };
-
-#endif

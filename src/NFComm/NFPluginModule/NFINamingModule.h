@@ -13,8 +13,6 @@
 #include <vector>
 #include <string>
 #include "NFNaming.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 #define STORE_SERVER_DB_TITLE "DB"
 

@@ -13,7 +13,6 @@
 #include "common/spdlog/fmt/fmt.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
 
 // Get the basename of __FILE__ (at compile time if possible)
 #if FMT_HAS_FEATURE(__builtin_strrchr)

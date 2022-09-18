@@ -6,17 +6,13 @@
 //
 // -------------------------------------------------------------------------
 
-#ifndef NFI_KERNEL_MODULE_H
-#define NFI_KERNEL_MODULE_H
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <functional>
 #include <unordered_map>
-#include "NFIModule.h"
 #include "NFIDynamicModule.h"
-
-class NFIObject;
 
 class NFIKernelModule
 	: public NFIDynamicModule
@@ -42,5 +38,4 @@ public:
 	virtual std::string Base64Decode(const std::string& s) = 0;
 };
 
-#endif
 

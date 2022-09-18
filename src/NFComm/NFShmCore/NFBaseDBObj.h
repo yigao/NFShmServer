@@ -10,11 +10,7 @@
 #pragma once
 
 #include "NFShmObj.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFSeqOP.h"
-#include "google/protobuf/message.h"
-#include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
 
 #define MAX_FAIL_RETRY_TIMES 100
 #define MAX_SAVED_OBJ_PRE_SEC 100
