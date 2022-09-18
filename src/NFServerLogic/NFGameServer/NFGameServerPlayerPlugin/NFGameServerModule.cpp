@@ -12,7 +12,7 @@
 
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFEventMgr.h"
@@ -38,11 +38,11 @@ bool NFCGameServerModule::Awake()
 {
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_GAME_SERVER, 10000);
     //////////////////////master msg//////////////////////////
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCGameServerModule::OnServerRegisterProcess);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this, &NFCGameServerModule::OnHandleServerReport);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCGameServerModule::OnServerRegisterProcess);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this, &NFCGameServerModule::OnHandleServerReport);
 
     /////////////////route agent msg///////////////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCGameServerModule::OnRegisterRouteAgentRspProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCGameServerModule::OnRegisterRouteAgentRspProcess);
 	
 	//注册要完成的服务器启动任务
 	m_pPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_MASTER, GAME_SERVER_CONNECT_MASTER_SERVER);
@@ -52,16 +52,16 @@ bool NFCGameServerModule::Awake()
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
 	{
-		int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_GAME_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+		int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_GAME_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
 		if (unlinkId >= 0)
 		{
 			/*
 				注册客户端事件
 			*/
 			uint64_t gameServerLinkId = (uint64_t)unlinkId;
-			NFMessageMgr::Instance()->SetServerLinkId(NF_ST_GAME_SERVER, gameServerLinkId);
-			NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this, &NFCGameServerModule::OnGameSocketEvent);
-			NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this, &NFCGameServerModule::OnHandleOtherMessage);
+			FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_GAME_SERVER, gameServerLinkId);
+			FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this, &NFCGameServerModule::OnGameSocketEvent);
+			FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this, &NFCGameServerModule::OnHandleOtherMessage);
 			NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "game server listen success, serverId:{}, ip:{}, port:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
 		}
 		else
@@ -71,19 +71,19 @@ bool NFCGameServerModule::Awake()
 		}
 
         if (pConfig->mLinkMode == "bus") {
-            int iRet = NFMessageMgr::Instance()->ResumeConnect(NF_ST_GAME_SERVER);
+            int iRet = FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_GAME_SERVER);
             if (iRet == 0) {
-                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(
+                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(
                         NF_ST_GAME_SERVER);
                 for (int i = 0; i < (int) vecServer.size(); i++) {
                     NF_SHARE_PTR<NFServerData> pServerData = vecServer[i];
                     if (pServerData && pServerData->mUnlinkId > 0) {
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER) {
-                            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
+                            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
                                                                              &NFCGameServerModule::OnRouteAgentServerSocketEvent);
-                            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
+                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
                                                                              &NFCGameServerModule::OnHandleRouteAgentOtherMessage);
-                            auto pRouteServer = NFMessageMgr::Instance()->GetRouteData(NF_ST_GAME_SERVER);
+                            auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_GAME_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
                             pRouteServer->mServerInfo = pServerData->mServerInfo;
                         }
@@ -130,12 +130,12 @@ int NFCGameServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& x
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
-        auto pMasterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_GAME_SERVER);
+        auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_GAME_SERVER);
         if (pMasterServerData->mUnlinkId <= 0)
         {
-            pMasterServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_GAME_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, pMasterServerData->mUnlinkId, this, &NFCGameServerModule::OnMasterSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, pMasterServerData->mUnlinkId, this, &NFCGameServerModule::OnHandleMasterOtherMessage);
+            pMasterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pMasterServerData->mUnlinkId, this, &NFCGameServerModule::OnMasterSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pMasterServerData->mUnlinkId, this, &NFCGameServerModule::OnHandleMasterOtherMessage);
         }
 
         pMasterServerData->mServerInfo = xData;
@@ -204,10 +204,10 @@ bool NFCGameServerModule::Init()
 		if (errCode != 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "GameServer Watch, StoreServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-			auto pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
+			auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
 			if (pServerData)
 			{
-				NFMessageMgr::Instance()->CloseServer(NF_ST_GAME_SERVER, NF_ST_STORE_SERVER, xData.bus_id(), 0);
+				FindModule<NFIMessageModule>()->CloseServer(NF_ST_GAME_SERVER, NF_ST_STORE_SERVER, xData.bus_id(), 0);
 			}
 			return;
 		}
@@ -221,7 +221,7 @@ bool NFCGameServerModule::Init()
 
 int NFCGameServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoReport& xData)
 {
-    NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_STORE_SERVER, xData);
+    FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_STORE_SERVER, xData);
 
 	m_pPluginManager->FinishAppTask(NF_ST_GAME_SERVER, APP_INIT_NEED_STORE_SERVER);
 
@@ -236,7 +236,7 @@ bool NFCGameServerModule::Execute()
 
 bool NFCGameServerModule::OnDynamicPlugin()
 {
-    NFMessageMgr::Instance()->CloseAllLink(NF_ST_GAME_SERVER);
+    FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_GAME_SERVER);
 	return true;
 }
 
@@ -266,7 +266,7 @@ int NFCGameServerModule::OnHandleOtherMessage(uint64_t unLinkId, uint64_t player
 int NFCGameServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
-	NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_GAME_SERVER, unLinkId);
+	NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_GAME_SERVER, unLinkId);
 	if (pServerData)
 	{
 		pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
@@ -276,7 +276,7 @@ int NFCGameServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
 			, pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
 	}
 
-    NFMessageMgr::Instance()->DelServerLink(NF_ST_GAME_SERVER, unLinkId);
+    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_GAME_SERVER, unLinkId);
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }
@@ -315,7 +315,7 @@ int NFCGameServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t 
 {
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
 
-	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_GAME_SERVER_PLUGIN, 0, "master server other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
 
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
@@ -343,7 +343,7 @@ int NFCGameServerModule::RegisterMasterServer()
 
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-		NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+		FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
 	return 0;
 }
@@ -402,7 +402,7 @@ int NFCGameServerModule::ServerReport()
 
 		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
 		{
-			NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+			FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
 		}
 	}
 	return 0;
@@ -473,10 +473,10 @@ int NFCGameServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport&
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_PROXY_SERVER, -1, "xData.server_type() == NF_ST_PROXY_SERVER");
 
-	NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
+	NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
 	if (!pServerData)
 	{
-        pServerData = NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_PROXY_SERVER, xData);
+        pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_PROXY_SERVER, xData);
 	}
 
 	pServerData->mUnlinkId = unlinkId;
@@ -492,16 +492,16 @@ int NFCGameServerModule::OnHandleProxyAgentRegister(const proto_ff::ServerInfoRe
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
 
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_GAME_SERVER, xData.bus_id());
     if (!pServerData)
     {
-        pServerData = NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_PROXY_AGENT_SERVER, xData);
+        pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_GAME_SERVER, xData.bus_id(), NF_ST_PROXY_AGENT_SERVER, xData);
     }
 
     pServerData->mUnlinkId = unlinkId;
     pServerData->mServerInfo = xData;
 
-    NFMessageMgr::Instance()->CreateLinkToServer(NF_ST_GAME_SERVER, xData.bus_id(), pServerData->mUnlinkId);
+    FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_GAME_SERVER, xData.bus_id(), pServerData->mUnlinkId);
 
     NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "Proxy Agent Server Register Game Server Success, serverName:{}, busname:{}, ip:{}, port:{}", xData.server_name(), xData.bus_name(), xData.server_ip(), xData.server_port());
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
@@ -523,15 +523,15 @@ int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepo
         }
     }
 
-    auto pRouteAgentServerData = NFMessageMgr::Instance()->GetRouteData(NF_ST_GAME_SERVER);
+    auto pRouteAgentServerData = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_GAME_SERVER);
 
     if (pRouteAgentServerData->mUnlinkId == 0) {
-        pRouteAgentServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_GAME_SERVER, xData.url(),
+        pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, xData.url(),
                                                                                          PACKET_PARSE_TYPE_INTERNAL);
 
-        NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
+        FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
                                                          &NFCGameServerModule::OnRouteAgentServerSocketEvent);
-        NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
+        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
                                                          &NFCGameServerModule::OnHandleRouteAgentOtherMessage);
     }
 
@@ -587,7 +587,7 @@ int NFCGameServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 
         pData->set_server_state(proto_ff::EST_NARMAL);
 
-        NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
     }
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
 	return 0;

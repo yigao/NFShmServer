@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
 #include "NFSnsUserSimple.h"
@@ -89,7 +89,7 @@ int NFTransGetSnsUserSimple::QueryUser(uint64_t userId) {
     m_userId = userId;
     userSimple.set_userid(userId);
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_USER_SIMPLE, NF_DEFAULT_MYSQL_DB_NAME, "tbUserSimpleData", userSimple,
                                                            GetGlobalID(), 0, userId);
     NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");

@@ -17,10 +17,9 @@
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
-    NFMessageMgr::Instance()->Init(this);
     m_pObjPluginManager = p;
     m_driver = NULL;
     mxCallBack.resize(NF_ST_MAX);
@@ -33,7 +32,6 @@ NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
 NFCMessageModule::~NFCMessageModule()
 {
 	mxCallBack.clear();
-	NFMessageMgr::Instance()->UnInit();
 }
 
 bool NFCMessageModule::Awake()

@@ -10,7 +10,7 @@
 #include "NFCBusClient.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFIPacketParse.h"
 #include <string.h>
 #include <sstream>

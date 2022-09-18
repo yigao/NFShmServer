@@ -11,13 +11,13 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "common/spdlog/fmt/fmt.h"
-#include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-class NFServerMessageMgr : public NFSingleton<NFServerMessageMgr>
+class NFServerMessageModule : public NFIServerMessageModule
 {
 public:
-    NFServerMessageMgr();
-    virtual ~NFServerMessageMgr();
+    NFServerMessageModule(NFIPluginManager* pPluginManager);
+    virtual ~NFServerMessageModule();
 public:
     virtual int SendMsgToMasterServer(NF_SERVER_TYPES eSendTyp, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0);
 };

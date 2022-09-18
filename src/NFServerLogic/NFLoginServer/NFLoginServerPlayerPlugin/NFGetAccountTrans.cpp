@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_login.pb.h"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
@@ -87,7 +87,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
             accountInfo.set_account(pLogin->mAccount.GetString());
             accountInfo.set_device_id(mDeviecId.GetString());
 
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                              proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                              0, 0, NFHash::hash<std::string>()(pLogin->mAccount.GetString()));
 
@@ -95,7 +95,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
             deviceNotify.set_user_id(pLogin->mPlayerId);
             deviceNotify.set_device_id(mDeviecId.GetString());
 
-            NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, deviceNotify);
+            FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, deviceNotify);
         }
     }
 
@@ -107,7 +107,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
             accountInfo.set_account(pLogin->mAccount.GetString());
             accountInfo.set_device_id(mDeviecId.GetString());
 
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                              proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                              0, 0, NFHash::hash<std::string>()(pLogin->mAccount.GetString()));
 
@@ -117,7 +117,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
             deviceNotify.set_user_id(pLogin->mPlayerId);
             deviceNotify.set_device_id(mDeviecId.GetString());
 
-            NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, deviceNotify);
+            FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, deviceNotify);
         }
         else
         {
@@ -126,7 +126,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
                 proto_login::Proto_SC_LoginServer_NotifyPhoneCheck gcMsg;
                 gcMsg.set_result(0);
                 gcMsg.set_phone_num(pLogin->mPhoneNum);
-                NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+                FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                proto_login::NF_SC_MSG_LoginServer_NotifyPhoneCheck,
                                                                gcMsg,
                                                                mClientLinkId);
@@ -150,7 +150,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
     gcMsg.set_login_time(pLogin->mLastLoginTime);
     gcMsg.set_token(NFCommLogic::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, LOGIN_TOKEN));
 
-    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = NFMessageMgr::Instance()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
     for(int i = 0; i < (int)pServerList.size(); i++)
     {
         NF_SHARE_PTR<NFServerData> pServer = pServerList[i];
@@ -162,7 +162,7 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
         }
     }
 
-    NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+    FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                          proto_login::NF_SC_MSG_AccountLoginRsp,
                                                          gcMsg,
                                                          mClientLinkId);
@@ -189,7 +189,7 @@ int NFGetAccountTrans::ProChangePasswordRes()
     accountInfo.set_account(pLogin->mAccount.GetString());
     accountInfo.set_password(mPassword.GetString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                      proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                      GetGlobalID(), 0, NFHash::hash<std::string>()(pLogin->mAccount.GetString()));
 
@@ -258,7 +258,7 @@ int NFGetAccountTrans::ProGetBaseInfoReq()
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(mAccount.GetString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID(), 0, NFHash::hash<std::string>()(mAccount.GetString()));
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
@@ -352,7 +352,7 @@ int NFGetAccountTrans::CreateAccountReq() {
 
 		NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Ready Create Account InTo Mysql:{}", accountInfo.DebugString());
 
-		NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+		FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
 			proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
 			GetGlobalID(), 0, NFHash::hash<std::string>()(mAccount.GetString()));
 
@@ -411,7 +411,7 @@ int NFGetAccountTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj
         }
 
         req.mutable_ext_data()->set_device_id(mDeviecId.GetString());
-        NFMessageMgr::Instance()->SendTransToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTW_REGISTER_USER_TO_WORLD_REQ, req, GetGlobalID());
+        FindModule<NFIMessageModule>()->SendTransToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTW_REGISTER_USER_TO_WORLD_REQ, req, GetGlobalID());
     }
     else {
         int iRetCode = HandleGetBaseInfoRes(pLogin);
@@ -459,7 +459,7 @@ int NFGetAccountTrans::ProBaseChangePassowrdRes(const storesvr_sqldata::storesvr
 
     proto_login::Proto_SC_ChangePasswordRsp rspMsg;
     rspMsg.set_result(0);
-    NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+    FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                          proto_login::NF_SC_MSG_CHANGE_PASSWORD_RESP,
                                                          rspMsg,
                                                          mClientLinkId);
@@ -477,7 +477,7 @@ int NFGetAccountTrans::ProBaseChangePassowrdRes(const storesvr_sqldata::storesvr
     accountInfo.set_account(pLogin->mAccount.GetString());
     accountInfo.set_device_id(mDeviecId.GetString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                      proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                      0, 0, NFHash::hash<std::string>()(pLogin->mAccount.GetString()));
 
@@ -563,7 +563,7 @@ int NFGetAccountTrans::OnTransFinished(int iRunLogicRetCode) {
             proto_login::Proto_SCAccountLoginRsp gcMsg;
             gcMsg.set_result(iRunLogicRetCode);
 
-            NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+            FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                  proto_login::NF_SC_MSG_AccountLoginRsp,
                                                                  gcMsg,
                                                                  mClientLinkId);
@@ -573,7 +573,7 @@ int NFGetAccountTrans::OnTransFinished(int iRunLogicRetCode) {
             proto_login::Proto_SC_ChangePasswordRsp gcMsg;
             gcMsg.set_result(iRunLogicRetCode);
 
-            NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+            FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                  proto_login::NF_SC_MSG_CHANGE_PASSWORD_RESP,
                                                                  gcMsg,
                                                                  mClientLinkId);

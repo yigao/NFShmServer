@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFGameWebHandleModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
 #include "NFComm/NFMessageDefine/proto_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -26,10 +26,10 @@ NFCGameWebHandleModule::~NFCGameWebHandleModule() {
 }
 
 bool NFCGameWebHandleModule::Awake() {
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WebToWorld_ClearJiangChi_Req, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WebToWorld_ClearJiangChi_Req, this,
                                                  &NFCGameWebHandleModule::OnHandleClearJiangChi);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WebToWorld_SetJiangChi_Req, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WebToWorld_SetJiangChi_Req, this,
                                                  &NFCGameWebHandleModule::OnHandleSetJiangChi);
     return true;
 }
@@ -47,13 +47,13 @@ int NFCGameWebHandleModule::OnHandleClearJiangChi(uint64_t unLinkId, uint64_t va
         if (iRet == 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameID:{} RoomID:{} ClearJiangChi Success..........", xMsg.game_id(), xMsg.room_id());
-            NFMessageMgr::Instance()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), 0);
+            FindModule<NFIMessageModule>()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), 0);
             return 0;
         }
     }
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameID:{} RoomID:{} ClearJiangChi Failed..........", xMsg.game_id(), xMsg.room_id());
-    NFMessageMgr::Instance()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), -1);
+    FindModule<NFIMessageModule>()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), -1);
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -70,13 +70,13 @@ int NFCGameWebHandleModule::OnHandleSetJiangChi(uint64_t unLinkId, uint64_t valu
         if (iRet == 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameID:{} RoomID:{} SetJiangChi Success..........", xMsg.game_id(), xMsg.room_id());
-            NFMessageMgr::Instance()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), 0);
+            FindModule<NFIMessageModule>()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), 0);
             return 0;
         }
     }
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameID:{} RoomID:{} SetJiangChi Failed..........", xMsg.game_id(), xMsg.room_id());
-    NFMessageMgr::Instance()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), -1);
+    FindModule<NFIMessageModule>()->SendMsgToWebServer(NF_ST_GAME_SERVER, xMsg.request_id(), -1);
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

@@ -9,7 +9,7 @@
 
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFTransSnsSendEventLog.h"
 #include "NFOnlineUser/NFOnlineUserMgr.h"
@@ -82,7 +82,7 @@ int NFTransSnsSendEventLog::SendEventLog(const proto_ff::tbEventLog& eventLog) {
     m_ullTargetUserID = eventLog.user_id();
     m_ullEventLogID = eventLog.event_id();
 
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                                           proto_ff::E_STORESVR_C2S_INSERT,
                                                                           proto_ff::E_TABLE_EVENT_LOG,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, "tbEventLog", eventLog,

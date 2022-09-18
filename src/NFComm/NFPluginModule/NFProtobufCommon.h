@@ -18,7 +18,7 @@
 #include "NFComm/NFPluginModule/NFILuaModule.h"
 #include "NFIHttpHandle.h"
 
-class _NFExport NFProtobufCommon : public NFSingleton<NFProtobufCommon> {
+class _NFExport NFProtobufCommon {
 public:
     static std::string
     GetFieldsString(const google::protobuf::Message &message, const google::protobuf::FieldDescriptor *pFieldDesc);

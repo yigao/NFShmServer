@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
 #include "NFAccountLoginMgr.h"
@@ -62,7 +62,7 @@ int NFBindPhoneTrans::OnTransFinished(int iRunLogicRetCode)
                 rspMsg.set_result(iRunLogicRetCode);
                 rspMsg.set_phone_num(m_phoneNum);
 
-                NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+                FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                proto_login::NF_SC_MSG_LoginServer_PhoneAutoCodeRsp,
                                                                rspMsg,
                                                                mClientLinkId);
@@ -74,7 +74,7 @@ int NFBindPhoneTrans::OnTransFinished(int iRunLogicRetCode)
                 rspMsg.set_result(iRunLogicRetCode);
                 rspMsg.set_phone_num(m_phoneNum);
 
-                NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+                FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                proto_login::NF_SC_MSG_LoginServer_CheckPhoneCodeRsp,
                                                                rspMsg,
                                                                mClientLinkId);
@@ -133,7 +133,7 @@ int NFBindPhoneTrans::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, u
         rspMsg.set_phone_num(xMsg.phone_num());
         rspMsg.set_code_type(pLogin->m_codeType);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                              proto_login::NF_SC_MSG_LoginServer_PhoneAutoCodeRsp,
                                                              rspMsg,
                                                              mClientLinkId);
@@ -164,7 +164,7 @@ int NFBindPhoneTrans::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, u
             rspMsg.set_phone_num(xMsg.phone_num());
             rspMsg.set_code_type(pLogin->m_codeType);
 
-            NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+            FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                            proto_login::NF_SC_MSG_LoginServer_CheckPhoneCodeRsp,
                                                            rspMsg,
                                                            mClientLinkId);
@@ -175,7 +175,7 @@ int NFBindPhoneTrans::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, u
             rspMsg.set_result(proto_ff::ERR_CODE_PHONE_AUTO_CODE_TIMEOUT);
             rspMsg.set_phone_num(xMsg.phone_num());
 
-            NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+            FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                            proto_login::NF_SC_MSG_LoginServer_CheckPhoneCodeRsp,
                                                            rspMsg,
                                                            mClientLinkId);
@@ -271,7 +271,7 @@ int NFBindPhoneTrans::ProGetBaseInfoReq()
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(NFCommon::tostr(m_phoneNum));
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID(), 0, m_phoneNum);
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
@@ -325,7 +325,7 @@ int NFBindPhoneTrans::ProPhoneCheckCodeInfoReq(const proto_login::Proto_CS_Login
     reqMsg.set_code(pCSMsgReq->auth_code());
     reqMsg.set_code_type(pLogin->m_codeType);
 
-    NFMessageMgr::Instance()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_CHECK_CODE_REQ, reqMsg, GetGlobalID());
+    FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_CHECK_CODE_REQ, reqMsg, GetGlobalID());
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -385,7 +385,7 @@ int NFBindPhoneTrans::ProPhoneAutoCodeRes()
     reqMsg.set_phone_num(m_phoneNum);
     reqMsg.set_code_type(pLogin->m_codeType);
 
-    NFMessageMgr::Instance()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_AUTH_CODE_REQ, reqMsg, GetGlobalID());
+    FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_AUTH_CODE_REQ, reqMsg, GetGlobalID());
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
     return 0;

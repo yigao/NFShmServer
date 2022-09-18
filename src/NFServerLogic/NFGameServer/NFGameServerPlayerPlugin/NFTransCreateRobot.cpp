@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_game.pb.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
@@ -226,7 +226,7 @@ int NFTransCreateRobot::CreateRobotDetail()
 
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "Ready Create Robot Deail InTo Mysql:{}", userDetail.DebugString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                      proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", userDetail,
                                                      GetGlobalID(), 0, m_userId);
 
@@ -244,7 +244,7 @@ int NFTransCreateRobot::CreateRobotSimpleDetail(const proto_ff::tbUserDetailData
     userData.set_gender(userDetail.gender());
     userData.set_is_robot(true);
 
-    return NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    return FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                             proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_USER_SIMPLE, NF_DEFAULT_MYSQL_DB_NAME, "tbUserSimpleData", userData,
                                                             GetGlobalID(), 0, userDetail.userid());
     return 0;
@@ -273,7 +273,7 @@ int NFTransCreateRobot::ProGetAccountInfoReq()
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(mAccount.GetString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                      proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                      GetGlobalID());
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
@@ -287,7 +287,7 @@ int NFTransCreateRobot::ProGetDetailInfoReq()
     proto_ff::tbUserDetailData userDetail;
     userDetail.set_userid(m_userId);
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                      proto_ff::E_STORESVR_C2S_SELECTOBJ,
                                                      proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData",
                                                      userDetail,
@@ -303,7 +303,7 @@ int NFTransCreateRobot::ProGetSimpleInfoReq()
     proto_ff::tbUserSimpleData userSimple;
     userSimple.set_userid(m_userId);
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                      proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_USER_SIMPLE, NF_DEFAULT_MYSQL_DB_NAME, "tbUserSimpleData", userSimple,
                                                      GetGlobalID(), 0, m_userId);
 
@@ -323,7 +323,7 @@ int NFTransCreateRobot::CreateRobotAccount() {
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Ready Create Robot Account InTo Mysql:{}", accountInfo.DebugString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                      proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                      GetGlobalID());
     return 0;

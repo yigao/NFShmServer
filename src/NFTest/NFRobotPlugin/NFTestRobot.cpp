@@ -1,5 +1,5 @@
 ﻿#include "NFTestRobot.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFCore/NFMD5.h"
@@ -23,12 +23,12 @@ int NFTestRobot::ConnectServer(const std::string& url)
 {
 	NFLogTrace(NF_LOG_TEST_PLUGIN, 0, "-- begin --");
 	mStatus = NF_TEST_ROBOT_START_CONNECT;
-    m_proxyLinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
+    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
 	CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectServer url:{} failed!", url);
     m_loginLinkId = m_proxyLinkId;
 
-	NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnProxyServerSocketEvent);
-	NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
+	FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnProxyServerSocketEvent);
+	FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
 
 	NFLogTrace(NF_LOG_TEST_PLUGIN, 0, "-- end --");
     mStatus = NF_TEST_ROBOT_CONNECT_SUCCESS;
@@ -39,7 +39,7 @@ int NFTestRobot::ConnectServer(const std::string& url)
 
 int NFTestRobot::CloseGameServer()
 {
-    NFMessageMgr::Instance()->CloseLinkId(m_proxyLinkId);
+    FindModule<NFIMessageModule>()->CloseLinkId(m_proxyLinkId);
     m_proxyLinkId = 0;
     return 0;
 }
@@ -47,11 +47,11 @@ int NFTestRobot::CloseGameServer()
 int NFTestRobot::ReconnectGameServer()
 {
     std::string url = NF_FORMAT("tcp://{}:{}", m_proxyIp, m_port);
-    m_proxyLinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
+    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
     CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectServer url:{} failed!", url);
 
-    NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnGameServerSocketEvent);
-    NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
+    FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnGameServerSocketEvent);
+    FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
     return 0;
 }
 
@@ -69,13 +69,13 @@ int NFTestRobot::ConnectGameServer(const std::string& ip, int port)
 {
     mStatus = NF_TEST_ROBOT_START_GAME_CONNECT;
     std::string url = NF_FORMAT("tcp://{}:{}", ip, port);
-    m_proxyLinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
+    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
     CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectServer url:{} failed!", url);
     m_proxyIp = ip;
     m_port = port;
 
-    NFMessageMgr::Instance()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnGameServerSocketEvent);
-    NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
+    FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnGameServerSocketEvent);
+    FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleProxyOtherMessage);
     return 0;
 }
 
@@ -294,9 +294,9 @@ int NFTestRobot::OnHandleAccountLogin(uint64_t unLinkId, uint64_t value, uint64_
 int NFTestRobot::SendBeatHeart()
 {
     proto_login::Proto_CSHeartBeatReq cgMsg;
-    NFMessageMgr::Instance()->Send(m_proxyLinkId, proto_login::NF_CS_Msg_HeartBeat_REQ, cgMsg, 0);
+    FindModule<NFIMessageModule>()->Send(m_proxyLinkId, proto_login::NF_CS_Msg_HeartBeat_REQ, cgMsg, 0);
 
-    NFMessageMgr::Instance()->Send(m_loginLinkId, proto_login::NF_CS_Msg_HeartBeat_REQ, cgMsg, 0);
+    FindModule<NFIMessageModule>()->Send(m_loginLinkId, proto_login::NF_CS_Msg_HeartBeat_REQ, cgMsg, 0);
 
     return 0;
 }
@@ -465,13 +465,13 @@ int NFTestRobot::UserLoginServer()
 
 int NFTestRobot::SendMsgToServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    NFMessageMgr::Instance()->Send(m_proxyLinkId, nMsgId, xData);
+    FindModule<NFIMessageModule>()->Send(m_proxyLinkId, nMsgId, xData);
     return 0;
 }
 
 int NFTestRobot::SendMsgToServer(uint16_t nMainMsgId, uint16_t nSubMsgId, const google::protobuf::Message &xData)
 {
-    NFMessageMgr::Instance()->Send(m_proxyLinkId, nMainMsgId, nSubMsgId, xData);
+    FindModule<NFIMessageModule>()->Send(m_proxyLinkId, nMainMsgId, nSubMsgId, xData);
     return 0;
 }
 

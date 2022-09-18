@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFOnlineUser.h"
 #include "NFOnlineUserMgr.h"
 #include "NFUserSimple/NFSnsUserSimple.h"
@@ -146,7 +146,7 @@ int  NFTransSnsUserOnline::OnUserLogin(int iRunLogicRetCode)
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, m_userId, "user:{} login err:{}", m_userId, iRunLogicRetCode);
 		rsp.set_result(-1);
-		NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
+		FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
 		return 0;
 	}
 
@@ -160,7 +160,7 @@ int  NFTransSnsUserOnline::OnUserLogin(int iRunLogicRetCode)
 	{
 	    NFLogError(NF_LOG_SYSTEMLOG, m_userId, "NFOnlineUserMgr::GetInstance()->IsFull()");
 		rsp.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
+        FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
 		return 0;
 	}
 	else
@@ -182,7 +182,7 @@ int  NFTransSnsUserOnline::OnUserLogin(int iRunLogicRetCode)
         FindModule<NFCOnlineModule>()->OnNewPlayer(pUserSimple, pUser);
     }
 
-    NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
+    FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicServerId, proto_ff::NF_STL_PLAYER_LOGIN_RSP, rsp);
 
 	return 0;
 }
@@ -237,7 +237,7 @@ int NFTransSnsUserOnline::HandleGetRoleRes(int iRunLogicRetCode, uint64_t userId
         proto_ff_s::tbUserSimpleData_s::write_to_pbmsg(userData_s, userData);
 		userData.set_userid(userId);
 		
-		return NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+		return FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
 			proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_USER_SIMPLE, NF_DEFAULT_MYSQL_DB_NAME, "tbUserSimpleData", userData,
 			GetGlobalID(), 0, userId);
 	}

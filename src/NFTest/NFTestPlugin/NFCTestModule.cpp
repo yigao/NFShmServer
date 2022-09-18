@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIBusModule.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"

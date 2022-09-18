@@ -208,7 +208,7 @@ int NFGameRoom::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Me
     NFGameRobot* pRobot = NFGameRobotMgr::Instance()->GetRobot(playerId);
     if (!pRobot)
     {
-        return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+        return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                               nMsgId, xData, playerId);
     }
 
@@ -217,7 +217,7 @@ int NFGameRoom::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Me
 
 int NFGameRoom::SendMsgToLogicServer(uint32_t nMsgId, uint32_t busId, const google::protobuf::Message &xData)
 {
-	return NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_GAME_SERVER, busId,
+	return FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, busId,
 						nMsgId, xData);
 }
 
@@ -226,7 +226,7 @@ int NFGameRoom::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Mess
     NFGameRobot* pRobot = NFGameRobotMgr::Instance()->GetRobot(playerId);
     if (!pRobot)
     {
-        return NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER,
+        return FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER,
                                                             nMsgId, xData, playerId);
     }
 
@@ -381,7 +381,7 @@ int NFGameRoom::OnHandleEnterGameMsg(NFGameSession *pPlayer, int deskId, int cha
         rspMsg.set_player_id(pPlayer->m_playerId);
         if (!pPlayer->m_isRobot)
         {
-            return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+            return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                                   proto_game::NF_SC_MSG_EnterGameRsp, rspMsg, pPlayer->m_playerId);
         }
         CHECK_EXPR(pDesk, 0, "deskId:{} not exist", deskId);
@@ -923,7 +923,7 @@ int NFGameRoom::SendGameRoomStatInfo()
     req.set_is_exe_scene(roomConfig->is_exp_scene > 0 ? true:false);
     proto_ff_s::GameRoomStat_s::write_to_pbmsg(m_roomStatInfo, *req.mutable_stat_info());
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_GAME_ROOM_STAT_INFO_SEND, req);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_GAME_ROOM_STAT_INFO_SEND, req);
     return 0;
 }
 

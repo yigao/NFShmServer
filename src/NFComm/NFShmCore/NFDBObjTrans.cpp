@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFDBObjTrans.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFDBObjMgr.h"
@@ -55,7 +55,7 @@ int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint6
 
     int iRetCode = 0;
     /*
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_INSERT,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,
@@ -77,7 +77,7 @@ int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iMo
     m_iDBOP = proto_ff::E_STORESVR_C2S_MODIFYOBJ;
     int iRetCode = 0;
     /*
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_MODIFYOBJ,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,
@@ -99,7 +99,7 @@ int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iMo
     m_iDBOP = proto_ff::E_STORESVR_C2S_SELECTOBJ;
     int iRetCode = 0;
     /*
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(m_iServerType,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
                                                                           proto_ff::E_STORESVR_C2S_SELECTOBJ,
                                                                           eTableID,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, sTableName, *data,

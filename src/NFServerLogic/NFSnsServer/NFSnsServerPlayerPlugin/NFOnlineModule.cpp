@@ -11,7 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -35,20 +35,20 @@ NFCOnlineModule::~NFCOnlineModule()
 
 bool NFCOnlineModule::Awake()
 {
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_LOGIN_REQ, this, &NFCOnlineModule::OnHandlePlayerLogin);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_LOGOUT_REQ, this, &NFCOnlineModule::OnHandlePlayerLogout);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, this, &NFCOnlineModule::OnHandlePlayerDisConnect);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_RECONNECT_MSG, this, &NFCOnlineModule::OnHandlePlayerReconnect);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_LOGIN_REQ, this, &NFCOnlineModule::OnHandlePlayerLogin);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_LOGOUT_REQ, this, &NFCOnlineModule::OnHandlePlayerLogout);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, this, &NFCOnlineModule::OnHandlePlayerDisConnect);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_RECONNECT_MSG, this, &NFCOnlineModule::OnHandlePlayerReconnect);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_QUERY_USER_REQ, this, &NFCOnlineModule::OnHandleQueryUser);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_QUERY_USER_REQ, this, &NFCOnlineModule::OnHandleQueryUser);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC, this, &NFCOnlineModule::OnHandleRouteToSuitLogicServer);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC, this, &NFCOnlineModule::OnHandleRouteToSuitLogicServer);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_FACE_NOTIFY, this, &NFCOnlineModule::OnHandleChangeFace);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_NICKNAME_NOTIFY, this, &NFCOnlineModule::OnHandleChangeNickName);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_VIPLVEL_CHANGE_NOTIFY, this, &NFCOnlineModule::OnHandleChangeVipLevel);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_FACE_NOTIFY, this, &NFCOnlineModule::OnHandleChangeFace);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_NICKNAME_NOTIFY, this, &NFCOnlineModule::OnHandleChangeNickName);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTS_PLAYER_VIPLVEL_CHANGE_NOTIFY, this, &NFCOnlineModule::OnHandleChangeVipLevel);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_USERID_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_SNS_SERVER, proto_ff::NF_LTSns_CHANGE_USERID_NOTIFY, this,
                                                  &NFCOnlineModule::OnHandleChangeUserId);
 
 
@@ -144,7 +144,7 @@ int NFCOnlineModule::OnHandlePlayerLogout(uint64_t unLinkId, uint64_t value, uin
 	{
         OnPlayerLogout(pUser, pOnline);
 
-        NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_PLAYER_LOGOUT_RSP, rspMsg);
+        FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_PLAYER_LOGOUT_RSP, rspMsg);
 
 		NFOnlineUserMgr::GetInstance()->Delete(xMsg.player_id());
 	}
@@ -265,7 +265,7 @@ int NFCOnlineModule::OnHandleRouteToSuitLogicServer(uint64_t unLinkId, uint64_t 
     NFOnlineUser* pUser = NFOnlineUserMgr::GetInstance()->Find(xMsg.mutable_disp_info()->user_id());
     if (pUser)
     {
-        NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pUser->GetLogicId(), xMsg.msg_id(), xMsg.msg_data().data(), xMsg.msg_data().length());
+        FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pUser->GetLogicId(), xMsg.msg_id(), xMsg.msg_data().data(), xMsg.msg_data().length());
     }
 
     NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");

@@ -9,7 +9,7 @@
 
 #include "NFUserDetailMgr.h"
 #include "NFUserDetail.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 #include "NFTransGetEventLog.h"
@@ -235,7 +235,7 @@ int NFUserDetailMgr::OnUserLogin(NFUserDetail *pPlayer, bool isLoadDB)
     pSimpleData->set_gender(pPlayer->GetGender());
     pSimpleData->set_age(pPlayer->GetAge());
     pSimpleData->set_show_userid(pPlayer->GetShowUserId());
-	NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_LOGIN_REQ, reqMsg);
+	FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_LOGIN_REQ, reqMsg);
 	return 0;
 }
 
@@ -273,7 +273,7 @@ int NFUserDetailMgr::OnUserDisConnect(NFUserDetail *pPlayer)
     proto_ff::NotifyPlayerDisconnect xMsg;
     xMsg.set_player_id(pPlayer->m_userData.userid);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, xMsg);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, xMsg);
     return 0;
 }
 
@@ -308,7 +308,7 @@ int NFUserDetailMgr::OnUserReconnect(NFUserDetail *pPlayer)
     pSimpleData->set_age(pPlayer->GetAge());
     pSimpleData->set_show_userid(pPlayer->GetShowUserId());
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_RECONNECT_MSG, xMsg);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_RECONNECT_MSG, xMsg);
 
     return 0;
 }
@@ -331,11 +331,11 @@ int NFUserDetailMgr::OnUserLogout(NFUserDetail *pPlayer)
 	proto_ff::Proto_LogicToSnsLogoutReq reqMsg;
 	reqMsg.set_player_id(pPlayer->GetUserId());
 
-	NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_LOGOUT_REQ, reqMsg);
+	FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_LOGOUT_REQ, reqMsg);
 
 	proto_ff::Proto_LogicToWorldLogoutReq wReqMsg;
 	wReqMsg.set_player_id(pPlayer->GetUserId());
-	NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_REQ, wReqMsg);
+	FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_REQ, wReqMsg);
 
 	return 0;
 }
@@ -360,7 +360,7 @@ int NFUserDetailMgr::HandleAddJetton(NFUserDetail *pPlayer, uint32_t gameId, uin
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 
@@ -384,7 +384,7 @@ int NFUserDetailMgr::HandleDeduceJetton(NFUserDetail *pPlayer, uint32_t gameId, 
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 
@@ -432,7 +432,7 @@ int NFUserDetailMgr::HandleAddJetton(NFUserDetail *pPlayer, uint64_t moneyChange
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 
@@ -465,7 +465,7 @@ int NFUserDetailMgr::HandleDeduceJetton(NFUserDetail *pPlayer, uint64_t moneyCha
             statReq.set_opt_reason(opt_reason);
             statReq.set_money_change((int64_t)moneyChange * -1);
 
-            NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+            FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
             pPlayer->NotifyGameMoneyChange();
 
             return 0;
@@ -481,7 +481,7 @@ int NFUserDetailMgr::HandleDeduceJetton(NFUserDetail *pPlayer, uint64_t moneyCha
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 
@@ -504,7 +504,7 @@ int NFUserDetailMgr::HandleAddBankJetton(NFUserDetail *pPlayer, uint64_t moneyCh
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 
@@ -532,7 +532,7 @@ int NFUserDetailMgr::HandleDeduceBankJetton(NFUserDetail *pPlayer, uint64_t mone
     statReq.set_opt_reason(opt_reason);
     statReq.set_money_change(moneyChange);
 
-    NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
+    FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_STSNS_PlayerJettonChangeStatReq, statReq);
     return 0;
 }
 

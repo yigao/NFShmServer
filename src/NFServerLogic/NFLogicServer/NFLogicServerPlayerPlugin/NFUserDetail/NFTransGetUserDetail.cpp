@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
 #include "NFUserDetail.h"
@@ -112,7 +112,7 @@ int NFTransGetUserDetail::ProGetUserDetailReq() {
     proto_ff::tbUserDetailData userDetail;
     userDetail.set_userid(m_userId);
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ,
                                                            proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData",
                                                            userDetail,
@@ -316,7 +316,7 @@ int NFTransGetUserDetail::HandleTransFinished(int iRunLogicRetCode) {
 			proto_ff::Proto_LogicToWorldLoginRsp rspMsg;
 			rspMsg.set_user_id(m_userId);
 			rspMsg.set_result(iRunLogicRetCode);
-			NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
+			FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
         }
         else if (m_cmd == proto_ff::NF_WTL_REGISTER_USER_TO_LOGIC_REQ)
         {
@@ -324,7 +324,7 @@ int NFTransGetUserDetail::HandleTransFinished(int iRunLogicRetCode) {
             rspMsg.set_result(iRunLogicRetCode);
             rspMsg.set_user_id(m_userId);
 
-            NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_LOGIC_SERVER, m_loginBusId, proto_ff::NF_LTL_REGISTER_USER_TO_LOGIN_RSP, rspMsg, 0, m_loginReqTransId);
+            FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_LOGIC_SERVER, m_loginBusId, proto_ff::NF_LTL_REGISTER_USER_TO_LOGIN_RSP, rspMsg, 0, m_loginReqTransId);
         }
 
         return -1;
@@ -349,7 +349,7 @@ int NFTransGetUserDetail::HandleTransFinished(int iRunLogicRetCode) {
             rspMsg.set_result(0);
             rspMsg.set_user_id(m_userId);
 
-            NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_LOGIC_SERVER, m_loginBusId, proto_ff::NF_LTL_REGISTER_USER_TO_LOGIN_RSP, rspMsg, 0, m_loginReqTransId);
+            FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_LOGIC_SERVER, m_loginBusId, proto_ff::NF_LTL_REGISTER_USER_TO_LOGIN_RSP, rspMsg, 0, m_loginReqTransId);
         }
     }
     else if (m_cmd == proto_ff::NF_WTL_PLAYER_LOGIN_REQ) {
@@ -379,7 +379,7 @@ int NFTransGetUserDetail::HandleTransFinished(int iRunLogicRetCode) {
             if (pUserDetail->m_userData.is_ban > 0)
             {
                 rspMsg.set_result(proto_ff::ERR_CODE_USER_IS_BAN);
-                NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
+                FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
             }
             else
             {
@@ -396,7 +396,7 @@ int NFTransGetUserDetail::HandleTransFinished(int iRunLogicRetCode) {
                 pDetailData->set_referrer_id(pUserDetail->GetRefererId());
                 pDetailData->set_first_recharge(pUserDetail->IsFirstRecharge());
                 pDetailData->set_show_userid(pUserDetail->GetShowUserId());
-                NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
+                FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGIN_RSP, rspMsg);
 
                 NFUserDetailMgr::GetInstance()->UserLogin(pUserDetail, m_isLoadDB);
             }

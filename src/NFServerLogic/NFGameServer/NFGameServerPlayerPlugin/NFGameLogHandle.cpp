@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 #include "NFGameLogHandle.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 NFGameLogHandle::NFGameLogHandle() {
@@ -40,7 +40,7 @@ int NFGameLogHandle::GameLogCallBack(uint64_t userId, const google::protobuf::Me
     const proto_ff::LogGameDetail* pDetail = dynamic_cast<const proto_ff::LogGameDetail*>(message);
     if (pDetail)
     {
-        NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_GAME_SERVER,
+        FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_GAME_SERVER,
                                                          proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, NF_DEFAULT_MYSQL_DB_NAME, "LogGameDetail", *pDetail,
                                                          0, 0, userId);
     }

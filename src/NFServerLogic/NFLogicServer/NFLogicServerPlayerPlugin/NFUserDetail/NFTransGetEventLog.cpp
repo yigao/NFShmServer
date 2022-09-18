@@ -9,7 +9,7 @@
 
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFTransGetEventLog.h"
 #include "NFUserDetail.h"
@@ -70,7 +70,7 @@ int NFTransGetEventLog::GetEventLog(uint64_t userId, uint64_t eventId) {
     tbEventLog.set_user_id(userId);
     tbEventLog.set_event_id(eventId);
 
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                                           proto_ff::E_STORESVR_C2S_SELECTOBJ,
                                                                           proto_ff::E_TABLE_EVENT_LOG,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, "tbEventLog", tbEventLog,
@@ -102,7 +102,7 @@ int NFTransGetEventLog::GetAllEventLog(uint64_t userId) {
 
         vk_list[vk_list.size() - 1].set_logic_operator(storesvr_sqldata::E_LOGICOP_NONE);
 
-        iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+        iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                                           proto_ff::E_STORESVR_C2S_SELECT,
                                                                           proto_ff::E_TABLE_EVENT_LOG,
                                                                           NF_DEFAULT_MYSQL_DB_NAME,

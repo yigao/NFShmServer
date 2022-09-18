@@ -14,7 +14,7 @@
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFServer/NFCommHead/NFIWebServerModule.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_login.pb.h"
 
 class NFCWebMessageModule : public NFIDynamicModule

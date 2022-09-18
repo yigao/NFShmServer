@@ -10,7 +10,7 @@
 #include "NFResFileDb.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include <fstream>
 #include "NFComm/NFCore/NFCommon.h"
 

@@ -11,7 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "NFServerComm/NFServerCore/NFServerCommonDefine.h"
+#include "NFServerComm/NFServerCommon/NFServerCommonDefine.h"
 
 class NFIMasterServerModule : public NFIDynamicModule
 {

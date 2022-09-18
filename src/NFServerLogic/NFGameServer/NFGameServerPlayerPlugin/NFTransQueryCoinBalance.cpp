@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_game.pb.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
@@ -185,7 +185,7 @@ int NFTransQueryCoinBalance::HandleTransFinished(int iRunLogicRetCode)
         NFGameRobot* pRobot = NFGameRobotMgr::Instance()->GetRobot(m_playerId);
         if (!pRobot)
         {
-            return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+            return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                                   proto_game::NF_SC_MSG_EnterGameRsp, rspMsg, m_playerId);
         }
     }

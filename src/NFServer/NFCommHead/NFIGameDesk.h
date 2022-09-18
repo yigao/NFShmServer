@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFServer/NFCommHead/NFIGameDeskHandle.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFShmCore/NFArray.h"
 
 #include "NFComm/NFMessageDefine/proto_common_s.h"

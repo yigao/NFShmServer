@@ -11,7 +11,7 @@
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFUserSimple/NFSnsUserSimpleUtil.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFOnlineUser, EOT_SNS_ONLINE_USER_ID, NFShmObj)
@@ -78,7 +78,7 @@ int NFOnlineUser::SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode 
     rspMsg.set_req_msg_id(nMsgId);
     rspMsg.set_error(errCode);
 
-    NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicSvrId, proto_ff::E_CS_ERROR, rspMsg);
+    FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicSvrId, proto_ff::E_CS_ERROR, rspMsg);
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -86,7 +86,7 @@ int NFOnlineUser::SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode 
 int NFOnlineUser::SendMsgToLogicServer(uint32_t nMMsgId, const google::protobuf::Message &xData)
 {
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
-    NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicSvrId, nMMsgId, xData);
+    FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicSvrId, nMMsgId, xData);
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

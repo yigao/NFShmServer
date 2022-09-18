@@ -12,7 +12,7 @@
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFServer/NFCommHead/NFIGameServerModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/ResMeta.pb.h"
 #include "NFComm/NFMessageDefine/ResMeta_s.h"
 #include "NFComm/NFMessageDefine/proto_svr_game.pb.h"
@@ -49,7 +49,7 @@ void NFCGameConfigModule::UnRegisterRoomInfo()
         }
 
 
-		NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UNREGISTER_REQ, xMsg);
+		FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UNREGISTER_REQ, xMsg);
     }
 }
 
@@ -71,7 +71,7 @@ void NFCGameConfigModule::UpdateRoomInfo(uint32_t onlinecount)
             NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "Game Server Update Room Info To World Server, gameId:{}, roomId:{}", pRoomInfo->game_id(), pRoomInfo->room_id());
         }
 
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UPDATE_ONLINE_COUNT_REQ, xMsg);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UPDATE_ONLINE_COUNT_REQ, xMsg);
     }
 }
 

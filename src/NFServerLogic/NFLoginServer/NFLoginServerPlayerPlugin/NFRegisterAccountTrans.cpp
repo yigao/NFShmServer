@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
 #include "NFAccountLoginMgr.h"
@@ -169,7 +169,7 @@ int NFRegisterAccountTrans::ProRegisterAccountRes()
         req.set_phone_num(NFCommon::strto<uint64_t>(mAccount.GetString()));
     }
     proto_ff_s::LoginCommonData_s::write_to_pbmsg(m_data, *req.mutable_ext_data());
-    NFMessageMgr::Instance()->SendTransToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTW_REGISTER_USER_TO_WORLD_REQ, req, GetGlobalID());
+    FindModule<NFIMessageModule>()->SendTransToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTW_REGISTER_USER_TO_WORLD_REQ, req, GetGlobalID());
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -203,7 +203,7 @@ int NFRegisterAccountTrans::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLin
             }
         }
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                              proto_login::NF_SC_MSG_RegisterAccountRsp,
                                                              gcMsg,
                                                              mClientLinkId);
@@ -225,7 +225,7 @@ int NFRegisterAccountTrans::OnTransFinished(int iRunLogicRetCode)
             proto_login::Proto_SCRegisterAccountRsp gcMsg;
             gcMsg.set_result(iRunLogicRetCode);
 
-            NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
+            FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, mProxyBusId,
                                                                  proto_login::NF_SC_MSG_RegisterAccountRsp,
                                                                  gcMsg,
                                                                  mClientLinkId);
@@ -309,7 +309,7 @@ int NFRegisterAccountTrans::CreateAccountReq() {
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Ready Create Account InTo Mysql:{}", accountInfo.DebugString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                            proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID(), 0, NFHash::hash<std::string>()(mAccount.GetString()));
 

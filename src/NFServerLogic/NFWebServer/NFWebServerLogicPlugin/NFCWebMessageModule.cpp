@@ -10,7 +10,7 @@
 #include "NFCWebMessageModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -34,19 +34,19 @@ NFCWebMessageModule::~NFCWebMessageModule()
 
 bool NFCWebMessageModule::Awake() {
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PHONE_AUTH_CODE_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PHONE_AUTH_CODE_REQ, this,
                                                        &NFCWebMessageModule::OnHandleRegisterAccountPhoneAutoCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PHONE_CHECK_CODE_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PHONE_CHECK_CODE_REQ, this,
                                                  &NFCWebMessageModule::OnHandleAccountPhoneCheckCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ, this,
                                                  &NFCWebMessageModule::OnHandlePlayerPhoneAutoCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ, this,
                                                  &NFCWebMessageModule::OnHandlePlayerPhoneCheckCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY, this,
                                                  &NFCWebMessageModule::OnHandleWebServerRspNotify);
     return true;
 }
@@ -116,7 +116,7 @@ int NFCWebMessageModule::OnHandleRegisterAccountPhoneAutoCodeReq(uint64_t unLink
 
         rspMsg.set_result(ret);
         rspMsg.set_phone_num(xMsg.phone_num());
-        NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_WEB_SERVER, loginBusId, proto_ff::NF_WebTL_PHONE_AUTH_CODE_RSP, rspMsg, 0, reqBusId);
+        FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_WEB_SERVER, loginBusId, proto_ff::NF_WebTL_PHONE_AUTH_CODE_RSP, rspMsg, 0, reqBusId);
     });
     return 0;
 }
@@ -185,7 +185,7 @@ int NFCWebMessageModule::OnHandleAccountPhoneCheckCodeReq(uint64_t unLinkId, uin
 
         rspMsg.set_result(ret);
         rspMsg.set_phone_num(xMsg.phone_num());
-        NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_WEB_SERVER, loginBusId, proto_ff::NF_WebTL_PHONE_CHECK_CODE_RSP, rspMsg, 0, reqBusId);
+        FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_WEB_SERVER, loginBusId, proto_ff::NF_WebTL_PHONE_CHECK_CODE_RSP, rspMsg, 0, reqBusId);
     });
     return 0;
 }
@@ -264,7 +264,7 @@ int NFCWebMessageModule::OnHandlePlayerPhoneAutoCodeReq(uint64_t unLinkId, uint6
 
         rspMsg.set_result(ret);
         rspMsg.set_phone_num(xMsg.phone_num());
-        NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_WEB_SERVER, logicBusId, proto_ff::NF_WebTL_PLAYER_PHONE_AUTH_CODE_RSP, rspMsg, 0, reqBusId);
+        FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_WEB_SERVER, logicBusId, proto_ff::NF_WebTL_PLAYER_PHONE_AUTH_CODE_RSP, rspMsg, 0, reqBusId);
     });
     return 0;
 }
@@ -329,7 +329,7 @@ int NFCWebMessageModule::OnHandlePlayerPhoneCheckCodeReq(uint64_t unLinkId, uint
 
         rspMsg.set_result(ret);
         rspMsg.set_phone_num(xMsg.phone_num());
-        NFMessageMgr::Instance()->SendTransToLoginServer(NF_ST_WEB_SERVER, logicBusId, proto_ff::NF_WebTL_PLAYER_PHONE_CHECK_CODE_RSP, rspMsg, 0, reqBusId);
+        FindModule<NFIMessageModule>()->SendTransToLoginServer(NF_ST_WEB_SERVER, logicBusId, proto_ff::NF_WebTL_PLAYER_PHONE_CHECK_CODE_RSP, rspMsg, 0, reqBusId);
     });
     return 0;
 }
@@ -346,6 +346,6 @@ int NFCWebMessageModule::OnHandleWebServerRspNotify(uint64_t unLinkId, uint64_t 
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(rspNotify, &json);
 
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_WEB_SERVER, xMsg.request_id(), json, NFWebStatus::WEB_OK);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_WEB_SERVER, xMsg.request_id(), json, NFWebStatus::WEB_OK);
     return 0;
 }

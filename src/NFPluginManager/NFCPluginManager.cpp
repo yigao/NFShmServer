@@ -19,7 +19,7 @@
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "hwinfo/hw_info.h"
@@ -1204,7 +1204,7 @@ int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
 //    ntf.set_dump_info(dumpInfo);
 //    ntf.set_bus_id(pConfig->mBusId);
 
-//    NFMessageMgr::Instance()->SendMsgToMasterServer((NF_SERVER_TYPES)pConfig->mServerType, proto_ff::NF_STMaster_SEND_DUMP_INFO_NTF, ntf);
+//    FindModule<NFIMessageModule>()->SendMsgToMasterServer((NF_SERVER_TYPES)pConfig->mServerType, proto_ff::NF_STMaster_SEND_DUMP_INFO_NTF, ntf);
     return 0;
 }
 

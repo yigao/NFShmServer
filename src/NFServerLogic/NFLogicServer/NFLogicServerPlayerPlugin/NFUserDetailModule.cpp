@@ -10,7 +10,7 @@
 #include "NFUserDetail/NFTransGetUserDetail.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
@@ -30,47 +30,47 @@ NFCUserDetailModule::~NFCUserDetailModule() {
 }
 
 bool NFCUserDetailModule::Awake() {
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_LOGIN_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_LOGIN_REQ, this,
                                                        &NFCUserDetailModule::OnHandlePlayerLogin);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_RECONNECT_MSG, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_RECONNECT_MSG, this,
                                                        &NFCUserDetailModule::OnHandlePlayerReconnect);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG, this,
                                                        &NFCUserDetailModule::OnHandlePlayerDisConnect);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::E_CS_ERROR, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::E_CS_ERROR, this,
                                                        &NFCUserDetailModule::OnHandlePlayerError);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_ChangeFaceReq, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_ChangeFaceReq, this,
                                                        &NFCUserDetailModule::OnHandlePlayerChangeFace);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_REGISTER_USER_TO_LOGIC_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_REGISTER_USER_TO_LOGIC_REQ, this,
                                                        &NFCUserDetailModule::OnHandleRegisterUser);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_LTL_PLAYER_DEVICE_CHANGE_NOTIFY, this,
                                                  &NFCUserDetailModule::OnHandlePlayerChangeDevice);
 
 	//sns server
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_STL_PLAYER_LOGIN_RSP, this,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_STL_PLAYER_LOGIN_RSP, this,
 		&NFCUserDetailModule::OnHandleSnsLoginRsp);
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_STL_PLAYER_LOGOUT_RSP, this,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_STL_PLAYER_LOGOUT_RSP, this,
 		&NFCUserDetailModule::OnHandleSnsLogoutRsp);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_UNICASTMSG_EVENTLOG_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_UNICASTMSG_EVENTLOG_NOTIFY, this,
                                                        &NFCUserDetailModule::OnHandleEventLogNotify);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PlayerPhoneAutoCodeReq, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PlayerPhoneAutoCodeReq, this,
                                                  &NFCUserDetailModule::OnHandlePlayerPhoneAutoCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PlayerCheckPhoneCodeReq, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PlayerCheckPhoneCodeReq, this,
                                                  &NFCUserDetailModule::OnHandlePlayerCheckPhoneCodeReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_BIND_PHONE_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_BIND_PHONE_REQ, this,
                                                  &NFCUserDetailModule::OnHandlePlayerBindPhoneReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_login::NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_REQ, this,
                                                  &NFCUserDetailModule::OnHandlePlayerPhoneChangeBandPasswordReq);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_SNSTLOGIC_CHANGE_AGENT_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_SNSTLOGIC_CHANGE_AGENT_NOTIFY, this,
                                                  &NFCUserDetailModule::OnHandlePlayerChangeAgentNotify);
 
     return true;
@@ -155,14 +155,14 @@ int NFCUserDetailModule::OnHandlePlayerReconnect(uint64_t unLinkId, uint64_t val
         proto_ff::LTWNotifyPlayerReconnectRsp rspMsg;
         rspMsg.set_player_id(pUserDetail->GetUserId());
         rspMsg.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_RECONNECT_MSG_RSP, rspMsg);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_RECONNECT_MSG_RSP, rspMsg);
 	}
 	else
     {
         proto_ff::LTWNotifyPlayerReconnectRsp rspMsg;
         rspMsg.set_player_id(xMsg.player_id());
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_RECONNECT_MSG_RSP, rspMsg);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_RECONNECT_MSG_RSP, rspMsg);
     }
 
 	NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");
@@ -184,7 +184,7 @@ int NFCUserDetailModule::OnHandlePlayerDisConnect(uint64_t unLinkId, uint64_t va
 	}
 	else
     {
-        NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, xMsg);
+        FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTS_PLAYER_DISCONNECT_MSG, xMsg);
     }
 
 	NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");

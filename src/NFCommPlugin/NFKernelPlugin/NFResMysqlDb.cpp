@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include <fstream>
 
@@ -36,7 +36,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         CHECK_NULL(pConfig);
 /*
-        iRet = NFMessageMgr::Instance()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->mServerType, serverId, m_name, pMessage,
+        iRet = FindModule<NFIMessageModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->mServerType, serverId, m_name, pMessage,
             [coId, pMessage](int iRet, google::protobuf::Message &message){
             if (iRet != 0) {
                 NFCoMgr::Instance()->Resume(coId, iRet);
@@ -72,7 +72,7 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
     CHECK_NULL(pConfig);
 
     /*
-    return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
+    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
                                                             proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
                                                             */
     return 0;
@@ -87,7 +87,7 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
 
     return 0;
     /*
-    return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
+    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
             proto_ff::E_STORESVR_C2S_DELETEOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
             */
 }
@@ -100,7 +100,7 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
 
     return 0;
     /*
-    return NFMessageMgr::Instance()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
+    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
                                                             proto_ff::E_STORESVR_C2S_MODINSOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
                                                             */
 }

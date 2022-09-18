@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFServer/NFCommHead/NFIGameDeskHandle.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFShmCore/NFArray.h"
 #include "NFServer/NFCommHead/NFIGameDesk.h"
 #include "NFComm/NFMessageDefine/proto_common_s.h"
@@ -95,7 +95,7 @@ public:
                 req.mutable_ach_data()->set_cur_fee(m_achievementData.cur_fee);
                 req.mutable_ach_data()->set_cur_ach(m_achievementData.cur_ach);
 
-                NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_GAME_PLAYER_ACH_INFO_SEND, req);
+                FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_GAME_PLAYER_ACH_INFO_SEND, req);
 
                 m_achievementData.ResetCurSeq();
                 m_achievementData.cur_ach = 0;
@@ -164,7 +164,7 @@ public:
 
                 proto_ff::Proto_GameTSns_WriteBackUserManagerInfo msg;
                 proto_ff_s::tbGameUserManagerData_s::write_to_pbmsg(m_userManagerData, *msg.mutable_user_manager_data());
-                NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_WRITE_BACK_USER_MANAGER_IFNO, msg);
+                FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_WRITE_BACK_USER_MANAGER_IFNO, msg);
 
                 proto_ff::tbGameUserManagerData userData;
                 proto_ff_s::tbGameUserManagerData_s::write_to_pbmsg(m_userManagerData, userData);
@@ -316,7 +316,7 @@ public:
 
             proto_ff::Proto_GameTSns_FinishGMCtrlGiveData msg;
             proto_ff_s::tbGmCtrlGiveCtrlData_s::write_to_pbmsg(m_gmCtrlGiveData, *msg.mutable_gm_ctrl_data());
-            NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_FINISH_GM_CTRL_GIVE_DATA, msg);
+            FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, proto_ff::E_GameTSns_FINISH_GM_CTRL_GIVE_DATA, msg);
             return 0;
         }
         return -1;

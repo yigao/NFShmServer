@@ -9,7 +9,7 @@
 
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFTransSendEventLog.h"
 #include "NFUserDetail.h"
@@ -84,7 +84,7 @@ int NFTransSendEventLog::SendEventLog(const proto_ff::tbEventLog& eventLog) {
     m_ullTargetUserID = eventLog.user_id();
     m_ullEventLogID = eventLog.event_id();
 
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                                           proto_ff::E_STORESVR_C2S_INSERT,
                                                                           proto_ff::E_TABLE_EVENT_LOG,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, "tbEventLog", eventLog,
@@ -104,6 +104,6 @@ int NFTransSendEventLog::NotifyOnlinePlayer() {
     req.set_user_id(m_ullTargetUserID);
     req.set_eventlog_id(m_ullEventLogID);
 
-    NFMessageMgr::Instance()->SendMsgToSuitLogicServer(NF_ST_LOGIC_SERVER, m_ullTargetUserID, proto_ff::NF_UNICASTMSG_EVENTLOG_NOTIFY, req, true);
+    FindModule<NFIMessageModule>()->SendMsgToSuitLogicServer(NF_ST_LOGIC_SERVER, m_ullTargetUserID, proto_ff::NF_UNICASTMSG_EVENTLOG_NOTIFY, req, true);
     return 0;
 }

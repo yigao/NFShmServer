@@ -11,7 +11,7 @@
 
 #include "NFServer/NFCommHead/NFIGameRoomModule.h"
 #include "NFGameRoomMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFGameSessionMgr.h"
 #include "NFComm/NFMessageDefine/NFGameConfig.h"
 #include <unordered_map>

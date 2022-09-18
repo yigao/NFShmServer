@@ -10,7 +10,7 @@
 #include "NFCStoreServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -35,17 +35,17 @@ bool NFCStoreServerModule::Awake() {
 
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_STORE_SERVER,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER,
                                                        proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                        &NFCStoreServerModule::OnHandleServerReport);
 
     //////other server///////////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD,
                                                        this,
                                                        &NFCStoreServerModule::OnHandleStoreReq);
 
     /////////////////route agent msg///////////////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCStoreServerModule::OnRegisterRouteAgentRspProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCStoreServerModule::OnRegisterRouteAgentRspProcess);
 
 
     //注册要完成的服务器启动任务
@@ -70,16 +70,16 @@ bool NFCStoreServerModule::Awake() {
             FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->mVecMysqlDbName[i]);
 		}
 
-        int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_STORE_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+        int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_STORE_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (unlinkId >= 0)
         {
             /*
                 注册客户端事件
             */
             uint64_t loginServerLinkId = (uint64_t) unlinkId;
-            NFMessageMgr::Instance()->SetServerLinkId(NF_ST_STORE_SERVER, loginServerLinkId);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnStoreSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnHandleOtherMessage);
+            FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_STORE_SERVER, loginServerLinkId);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnStoreSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnHandleOtherMessage);
             NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
         }
         else
@@ -90,10 +90,10 @@ bool NFCStoreServerModule::Awake() {
 
         if (pConfig->mLinkMode == "bus")
         {
-            int iRet = NFMessageMgr::Instance()->ResumeConnect(NF_ST_STORE_SERVER);
+            int iRet = FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_STORE_SERVER);
             if (iRet == 0)
             {
-                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(
+                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(
                         NF_ST_STORE_SERVER);
                 for (int i = 0; i < (int) vecServer.size(); i++)
                 {
@@ -102,10 +102,10 @@ bool NFCStoreServerModule::Awake() {
                     {
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER)
                         {
-                            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-                            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
+                            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
+                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
 
-                            auto pRouteServer = NFMessageMgr::Instance()->GetRouteData(NF_ST_STORE_SERVER);
+                            auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_STORE_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
                             pRouteServer->mServerInfo = pServerData->mServerInfo;
                         }
@@ -151,13 +151,13 @@ int NFCStoreServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
     if (pConfig)
     {
-        auto pMasterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_STORE_SERVER);
+        auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_STORE_SERVER);
         if (pMasterServerData->mUnlinkId <= 0)
         {
-            pMasterServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
+            pMasterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
                                                        &NFCStoreServerModule::OnMasterSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
                                                        &NFCStoreServerModule::OnHandleMasterOtherMessage);
         }
 
@@ -241,7 +241,7 @@ bool NFCStoreServerModule::Execute()
 
 bool NFCStoreServerModule::OnDynamicPlugin()
 {
-	NFMessageMgr::Instance()->CloseAllLink(NF_ST_STORE_SERVER);
+	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_STORE_SERVER);
 	return true;
 }
 
@@ -290,7 +290,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -326,7 +326,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -358,7 +358,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -390,7 +390,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -422,7 +422,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -452,7 +452,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                if (retMsg.store_info().cb_data().id() > 0)
-                   NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                   FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
            });
         }
         break;
@@ -482,7 +482,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -512,7 +512,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                        if (retMsg.store_info().cb_data().id() > 0)
-                           NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                           FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
                    });
         }
         break;
@@ -542,7 +542,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
             });
         }
             break;
@@ -562,7 +562,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
 
                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                    if (retMsg.store_info().cb_data().id() > 0)
-                       NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                       FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
                });
         }
             break;
@@ -585,7 +585,7 @@ int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogDebug(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server connect master success!");
 		RegisterMasterServer();
 
@@ -597,7 +597,7 @@ int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server disconnect master success");
 	}
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
@@ -610,7 +610,7 @@ int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 int NFCStoreServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_STORE_SERVER_PLUGIN, 0, "master server other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -642,7 +642,7 @@ int NFCStoreServerModule::RegisterMasterServer()
             pData->add_db_name_list(pConfig->mVecMysqlDbName[i]);
         }
 
-		NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+		FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -707,7 +707,7 @@ int NFCStoreServerModule::ServerReport()
 
 		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
 		{
-			NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+			FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
 		}
 	}
 	return 0;
@@ -754,27 +754,27 @@ int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
         }
     }
 
-    auto pRouteAgentServerData = NFMessageMgr::Instance()->GetRouteData(NF_ST_STORE_SERVER);
+    auto pRouteAgentServerData = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_STORE_SERVER);
     CHECK_NULL(pRouteAgentServerData);
 
     if (pRouteAgentServerData->mUnlinkId == 0)
     {
-        pRouteAgentServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+        pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
-        NFMessageMgr::Instance()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-        NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
+        FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
+        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
     }
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
             NFLogWarning(NF_LOG_SYSTEMLOG, 0, "the server:{} old url:{} changed, new url:{}",
                          pRouteAgentServerData->mServerInfo.server_name(), pRouteAgentServerData->mServerInfo.url(),
                          xData.url());
-            NFMessageMgr::Instance()->CloseLinkId(pRouteAgentServerData->mUnlinkId);
+            FindModule<NFIMessageModule>()->CloseLinkId(pRouteAgentServerData->mUnlinkId);
 
-            pRouteAgentServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
         }
     }
 
@@ -829,7 +829,7 @@ int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
         pData->set_route_svr(pConfig->mRouteAgent);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-		NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
+		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -861,7 +861,7 @@ int NFCStoreServerModule::OnHandleOtherMessage(uint64_t unLinkId, uint64_t playe
 int NFCStoreServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_STORE_SERVER, unLinkId);
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_STORE_SERVER, unLinkId);
     if (pServerData)
     {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
@@ -871,7 +871,7 @@ int NFCStoreServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
         , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
-    NFMessageMgr::Instance()->DelServerLink(NF_ST_STORE_SERVER, unLinkId);
+    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_STORE_SERVER, unLinkId);
     NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

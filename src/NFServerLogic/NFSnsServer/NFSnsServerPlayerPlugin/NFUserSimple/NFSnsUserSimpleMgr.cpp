@@ -10,7 +10,7 @@
 #include "NFSnsUserSimpleMgr.h"
 #include "NFSnsUserSimple.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFSnsUserSimpleMgr, EOT_SNS_USER_SIMPLE_HASH_TABLE_ID, NFShmObj)
 
@@ -172,7 +172,7 @@ int NFSnsUserSimpleMgr::ReleaseCount(int num)
 int NFSnsUserSimpleMgr::DayTick() {
     std::string sql = "update tbUserDetailData set today_win = 0, today_give = 0, today_recharge = 0, today_draw = 0;";
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                      proto_ff::E_STORESVR_C2S_EXECUTE, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", sql,
                                                      0, 0, 0);
     return 0;
@@ -181,7 +181,7 @@ int NFSnsUserSimpleMgr::DayTick() {
 int NFSnsUserSimpleMgr::WeekTick() {
     std::string sql = "update tbUserDetailData set week_win = 0, week_give = 0, week_recharge = 0, week_draw = 0;";
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                      proto_ff::E_STORESVR_C2S_EXECUTE, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", sql,
                                                      0, 0, 0);
     return 0;
@@ -190,7 +190,7 @@ int NFSnsUserSimpleMgr::WeekTick() {
 int NFSnsUserSimpleMgr::MonthTick() {
     std::string sql = "update tbUserDetailData set month_win = 0, month_give = 0, month_recharge = 0, month_draw = 0;";
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                      proto_ff::E_STORESVR_C2S_EXECUTE, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", sql,
                                                      0, 0, 0);
     return 0;

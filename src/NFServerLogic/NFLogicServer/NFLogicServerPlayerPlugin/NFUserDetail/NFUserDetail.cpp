@@ -12,7 +12,7 @@
 #include "NFTransSaveMoney.h"
 #include "NFTransSaveDB.h"
 #include "NFUserDetailMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFMoneyLogHandle.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFUserDetail, EOT_USER_DETAIL_ID, NFShmObj)
@@ -105,7 +105,7 @@ int NFUserDetail::SaveGameRoomToDB()
     userDetail.set_game_id(m_userData.game_id);
     userDetail.set_room_id(m_userData.room_id);
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                      proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_USER_DETAIL,
                                                      NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", userDetail,
                                                      0, 0, GetUserId());
@@ -593,22 +593,22 @@ int NFUserDetail::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Messa
 {
     if (m_proxyBusId > 0)
     {
-        return NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyBusId, nMsgId, xData, m_userData.userid);
+        return FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyBusId, nMsgId, xData, m_userData.userid);
     }
     NFLogDebug(NF_LOG_SYSTEMLOG, m_userData.userid, "proxy bus id error, busId:{} nMsgId:{} data:{}", m_proxyBusId, nMsgId, xData.DebugString());
     return -1;
 }
 
 int NFUserDetail::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
-    return NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
+    return FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
 }
 
 int NFUserDetail::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
-    return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
+    return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
 }
 
 int NFUserDetail::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
-    return NFMessageMgr::Instance()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, m_gameBusId, nMsgId, xData);
+    return FindModule<NFIMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, m_gameBusId, nMsgId, xData);
 }
 
 int NFUserDetail::ChangeBankPassword(const std::string& newPass)

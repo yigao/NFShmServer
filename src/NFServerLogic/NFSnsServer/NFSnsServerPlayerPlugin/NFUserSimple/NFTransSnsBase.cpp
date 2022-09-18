@@ -16,7 +16,7 @@
 #include "NFOnlineUser/NFOnlineUser.h"
 #include "NFOnlineUser/NFOnlineUserMgr.h"
 #include "NFSnsUserSimple.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransSnsBase, EOT_TRANS_SNS_BASE, NFTransBase)
 
@@ -123,11 +123,11 @@ int NFTransSnsBase::QueryRole_CallBack(tagQueryRole &query) {
 
     if (m_reqTrans <= 0)
     {
-        NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_QUERY_USER_RSP, rsp);
+        FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_QUERY_USER_RSP, rsp);
     }
     else
     {
-        NFMessageMgr::Instance()->SendTransToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_QUERY_USER_RSP, rsp, 0, m_reqTrans);
+        FindModule<NFIMessageModule>()->SendTransToLogicServer(NF_ST_SNS_SERVER, pOnline->GetLogicId(), proto_ff::NF_STL_QUERY_USER_RSP, rsp, 0, m_reqTrans);
     }
 
     return 0;

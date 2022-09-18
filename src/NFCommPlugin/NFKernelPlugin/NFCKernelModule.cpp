@@ -24,7 +24,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFIniReader.h"
 #include "NFComm/NFCore/NFStringUtility.h"
@@ -88,7 +88,7 @@ bool NFCKernelModule::Init()
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         if (pConfig)
         {
-            NFMessageMgr::Instance()->AddMessageCallBack((NF_SERVER_TYPES)pConfig->ServerType, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, this, &NFCKernelModule::OnKillServerProcess);
+            FindModule<NFIMessageModule>()->AddMessageCallBack((NF_SERVER_TYPES)pConfig->ServerType, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, this, &NFCKernelModule::OnKillServerProcess);
         }
     }
 

@@ -11,7 +11,7 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFCmdLine.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFCDynLibMgr.h"
 #include "NFComm/NFCore/NFMD5.h"
@@ -730,7 +730,7 @@ int NFProcStartCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -747,7 +747,7 @@ int NFProcStartCheck::HandleProcCheck()
             rspMsg.set_result(-1);
             rspMsg.set_server_name(m_pInfo->m_serverName);
             rspMsg.set_server_id(m_pInfo->m_busName);
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
             StopCheck();
             return -1;
         }
@@ -761,7 +761,7 @@ int NFProcStartCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -809,7 +809,7 @@ int NFProcStartCheck::HandleProcCheck()
             rspMsg.set_result(0);
             rspMsg.set_server_name(m_pInfo->m_serverName);
             rspMsg.set_server_id(m_pInfo->m_busName);
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, m_httpReqId);
             StopCheck();
             return 0;
         }
@@ -826,7 +826,7 @@ int NFProcStopCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, rspMsg, m_httpReqId);
 
         NFLogError(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "stop server, waiting to nong..........");
         StopCheck();
@@ -842,7 +842,7 @@ int NFProcStopCheck::HandleProcCheck()
         rspMsg.set_result(0);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return 0;
     }
@@ -876,7 +876,7 @@ int NFProcRestartCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -893,7 +893,7 @@ int NFProcRestartCheck::HandleProcCheck()
             rspMsg.set_result(-1);
             rspMsg.set_server_name(m_pInfo->m_serverName);
             rspMsg.set_server_id(m_pInfo->m_busName);
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
             StopCheck();
             return -1;
         }
@@ -907,7 +907,7 @@ int NFProcRestartCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -955,7 +955,7 @@ int NFProcRestartCheck::HandleProcCheck()
             rspMsg.set_result(0);
             rspMsg.set_server_name(m_pInfo->m_serverName);
             rspMsg.set_server_id(m_pInfo->m_busName);
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, m_httpReqId);
             StopCheck();
             return 0;
         }
@@ -973,7 +973,7 @@ int NFProcReloadCheck::HandleProcCheck()
         rspMsg.set_result(0);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, rspMsg, m_httpReqId);
 
         StopCheck();
         return 0;
@@ -988,7 +988,7 @@ int NFProcReloadCheck::HandleProcCheck()
         rspMsg.set_result(-1);
         rspMsg.set_server_name(m_pInfo->m_serverName);
         rspMsg.set_server_id(m_pInfo->m_busName);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return 0;
     }
@@ -1003,7 +1003,7 @@ int NFProcRestartAllCheck::HandleProcCheck()
         NFLogError(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "can not find new proc...........");
         proto_ff::Proto_MonitorTMasterRestartRsp rspMsg;
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -1020,7 +1020,7 @@ int NFProcRestartAllCheck::HandleProcCheck()
             {
                 proto_ff::Proto_MonitorTMasterRestartRsp rspMsg;
                 rspMsg.set_result(-1);
-                NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
+                FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
                 StopCheck();
                 return -1;
             }
@@ -1042,7 +1042,7 @@ int NFProcRestartAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterRestartRsp rspMsg;
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -1098,7 +1098,7 @@ int NFProcRestartAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterRestartRsp rspMsg;
         rspMsg.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return 0;
     }
@@ -1113,7 +1113,7 @@ int NFProcReloadAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterReloadRsp rspMsg;
         rspMsg.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, rspMsg, m_httpReqId);
 
         StopCheck();
         return 0;
@@ -1128,7 +1128,7 @@ int NFProcReloadAllCheck::HandleProcCheck()
         {
             proto_ff::Proto_MonitorTMasterReloadRsp rspMsg;
             rspMsg.set_result(-1);
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, rspMsg, m_httpReqId);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, rspMsg, m_httpReqId);
             StopCheck();
             return 0;
         }
@@ -1144,7 +1144,7 @@ int NFProcStartAllCheck::HandleProcCheck()
         NFLogError(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "can not find new proc...........");
         proto_ff::Proto_MonitorTMasterStartRsp rspMsg;
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -1161,7 +1161,7 @@ int NFProcStartAllCheck::HandleProcCheck()
             {
                 proto_ff::Proto_MonitorTMasterStartRsp rspMsg;
                 rspMsg.set_result(-1);
-                NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
+                FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
                 StopCheck();
                 return -1;
             }
@@ -1183,7 +1183,7 @@ int NFProcStartAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterStartRsp rspMsg;
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return -1;
     }
@@ -1239,7 +1239,7 @@ int NFProcStartAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterStartRsp rspMsg;
         rspMsg.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return 0;
     }
@@ -1253,7 +1253,7 @@ int NFProcStopAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterStopRsp rspMsg;
         rspMsg.set_result(-1);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, rspMsg, m_httpReqId);
 
         NFLogError(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "stop server, waiting to nong..........");
         StopCheck();
@@ -1277,7 +1277,7 @@ int NFProcStopAllCheck::HandleProcCheck()
     {
         proto_ff::Proto_MonitorTMasterStopRsp rspMsg;
         rspMsg.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, rspMsg, m_httpReqId);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, rspMsg, m_httpReqId);
         StopCheck();
         return 0;
     }

@@ -10,13 +10,13 @@
 #include "NFProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServer/NFCommHead/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
-#include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 #include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
 
@@ -36,9 +36,9 @@ bool NFCProxyServerModule::Awake()
     //不需要固定帧，需要尽可能跑得快
     m_pObjPluginManager->SetFixedFrame(false);
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_PROXY_SERVER);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                  &NFCProxyServerModule::OnHandleMasterServerReport);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
                                                  &NFCProxyServerModule::OnHandleProxyAgentServerReport);
 
     //注册要完成的服务器启动任务
@@ -56,16 +56,16 @@ bool NFCProxyServerModule::Awake()
         }
 
         std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
-        int64_t extern_unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum,
+        int64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                        PACKET_PARSE_TYPE_INTERNAL);
         if (extern_unlinkId >= 0) {
             /*
             注册服务器事件
             */
             m_proxyServerLinkId = (uint64_t) extern_unlinkId;
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
                                                        &NFCProxyServerModule::OnProxyServerSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
                                                        &NFCProxyServerModule::OnHandleProxyServerOtherMessage);
             NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
@@ -114,12 +114,12 @@ int NFCProxyServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig)
     {
-        auto pMsterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_PROXY_SERVER);
+        auto pMsterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_PROXY_SERVER);
         if (pMsterServerData->mUnlinkId <= 0)
         {
-            pMsterServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_PROXY_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_PROXY_SERVER, pMsterServerData->mUnlinkId, this, &NFCProxyServerModule::OnMasterSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_PROXY_SERVER, pMsterServerData->mUnlinkId, this, &NFCProxyServerModule::OnHandleMasterOtherMessage);
+            pMsterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_PROXY_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, pMsterServerData->mUnlinkId, this, &NFCProxyServerModule::OnMasterSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, pMsterServerData->mUnlinkId, this, &NFCProxyServerModule::OnHandleMasterOtherMessage);
         }
 
         pMsterServerData->mServerInfo = xData;
@@ -169,13 +169,13 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
 {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() > NF_ST_NONE && xData.server_type() <= NF_ST_MAX, -1, "xData.server_type() > NF_ST_NONE && xData.server_type() <= NF_ST_MAX");
-    auto pProxyAgentServer = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
+    auto pProxyAgentServer = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
     CHECK_EXPR(pProxyAgentServer && pProxyAgentServer->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "Not From NF_ST_PROXY_AGENT_SERVER");
 
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id());
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id());
     if (pServerData == nullptr)
     {
-        pServerData = NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id(), (NF_SERVER_TYPES)xData.server_type(), xData);
+        pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id(), (NF_SERVER_TYPES)xData.server_type(), xData);
     }
 
     pServerData->mUnlinkId = unLinkId;
@@ -191,15 +191,15 @@ int NFCProxyServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
 
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id());
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id());
     if (pServerData == nullptr)
     {
-        pServerData = NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id(), NF_ST_PROXY_AGENT_SERVER, xData);
+        pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id(), NF_ST_PROXY_AGENT_SERVER, xData);
     }
 
     pServerData->mUnlinkId = unLinkId;
     pServerData->mServerInfo = xData;
-    NFMessageMgr::Instance()->CreateLinkToServer(NF_ST_PROXY_SERVER, xData.bus_id(), pServerData->mUnlinkId);
+    FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_PROXY_SERVER, xData.bus_id(), pServerData->mUnlinkId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Agent Server:{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(), xData.bus_name());
 
     RegisterProxyAgentServer(unLinkId);
@@ -215,7 +215,7 @@ bool NFCProxyServerModule::Execute()
 
 bool NFCProxyServerModule::OnDynamicPlugin()
 {
-	NFMessageMgr::Instance()->CloseAllLink(NF_ST_PROXY_SERVER);
+	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_PROXY_SERVER);
 
 	return true;
 }
@@ -254,7 +254,7 @@ int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 int NFCProxyServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_PROXY_SERVER_PLUGIN, 0, "master server other message not handled, packet:{},ip:{}", packet.ToString(), ip);
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -283,7 +283,7 @@ int NFCProxyServerModule::RegisterMasterServer()
         pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-        NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -345,7 +345,7 @@ int NFCProxyServerModule::ServerReport()
 
 		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
 		{
-            NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+            FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
 		}
 	}
 	return 0;
@@ -424,7 +424,7 @@ int NFCProxyServerModule::OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unL
 
 int NFCProxyServerModule::OnHandleProxyServerDisconnect(uint64_t unLinkId) {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
     if (pServerData)
     {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
@@ -434,7 +434,7 @@ int NFCProxyServerModule::OnHandleProxyServerDisconnect(uint64_t unLinkId) {
         , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
-    NFMessageMgr::Instance()->DelServerLink(NF_ST_PROXY_SERVER, unLinkId);
+    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_PROXY_SERVER, unLinkId);
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -443,7 +443,7 @@ int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, con
 {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
     uint32_t busId = packet.nParam2;
-    auto pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_PROXY_SERVER, busId);
+    auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, busId);
     if (pServerData && FindModule<NFIProxyClientModule>())
     {
         FindModule<NFIProxyClientModule>()->OnHandleOtherServerOtherMessage(unLinkId, packet);
@@ -480,7 +480,7 @@ int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
         pData->set_external_server_port(pConfig->ExternalServerPort);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
-		NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
+		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
 	return 0;

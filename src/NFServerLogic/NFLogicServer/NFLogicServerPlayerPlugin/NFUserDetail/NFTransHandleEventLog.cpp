@@ -9,7 +9,7 @@
 
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFTransHandleEventLog.h"
 #include "NFUserDetail.h"
@@ -98,7 +98,7 @@ int NFTransHandleEventLog::HandleEventLog(proto_ff_s::tbEventLog_s *pstEventLog)
     tbEventLog.set_user_id(pstEventLog->user_id);
     tbEventLog.set_event_id(m_ullEventLogUid);
 
-    int iRetCode = NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                                           proto_ff::E_STORESVR_C2S_DELETEOBJ,
                                                                           proto_ff::E_TABLE_EVENT_LOG,
                                                                           NF_DEFAULT_MYSQL_DB_NAME, "tbEventLog", tbEventLog,

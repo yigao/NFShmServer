@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
 #include "NFComm/NFCore/NFMD5.h"
@@ -274,7 +274,7 @@ int NFPlayerBindPhoneTrans::ProGetBaseInfoReq()
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(NFCommon::tostr(m_phoneNum));
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID());
     NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");
@@ -340,7 +340,7 @@ int NFPlayerBindPhoneTrans::ProPhoneCheckCodeInfoReq(const proto_login::Proto_CS
     reqMsg.set_code(pCSMsgReq->auth_code());
     reqMsg.set_code_type(pUserDetail->GetMiscData()->tmp_code_type);
 
-    NFMessageMgr::Instance()->SendTransToWebServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ, reqMsg, GetGlobalID());
+    FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_CHECK_CODE_REQ, reqMsg, GetGlobalID());
 
     NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -381,7 +381,7 @@ int NFPlayerBindPhoneTrans::ProBindPhoneReq(const proto_login::Proto_CS_Player_B
         accountInfo.set_account_type(proto_ff::E_PHONE);
         accountInfo.set_real_player_id(pUserDetail->GetUserId());
 
-        NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+        FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                          proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                          GetGlobalID());
 
@@ -466,7 +466,7 @@ int NFPlayerBindPhoneTrans::ProPhoneAutoCodeRes()
     reqMsg.set_phone_num(m_phoneNum);
     reqMsg.set_code_type(m_codeType);
 
-    NFMessageMgr::Instance()->SendTransToWebServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ, reqMsg, GetGlobalID());
+    FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTWeb_PLAYER_PHONE_AUTH_CODE_REQ, reqMsg, GetGlobalID());
 
     NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");
     return 0;

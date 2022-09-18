@@ -9,7 +9,7 @@
 #include "NFCBusMessage.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFIPacketParse.h"
 #include "NFCBusServer.h"
@@ -313,7 +313,7 @@ int NFCBusMessage::ResumeConnect()
             flag.bActivityConnect = !bActivityConnect;
             uint32_t serverType = GetServerTypeFromUnlinkId(linkId);
 
-            NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId((NF_SERVER_TYPES)mServerType, flag.mBusId);
+            NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId((NF_SERVER_TYPES)mServerType, flag.mBusId);
             if (!pServerData) {
                 proto_ff::ServerInfoReport xData;
                 xData.set_bus_id(flag.mBusId);
@@ -323,10 +323,10 @@ int NFCBusMessage::ResumeConnect()
                 std::string busName = NFServerIDUtil::GetBusNameFromBusID(flag.mBusId);
                 std::string url = NF_FORMAT("bus://{}:{}", busName, flag.mBusLength);
                 xData.set_url(url);
-                pServerData = NFMessageMgr::Instance()->CreateServerByServerId((NF_SERVER_TYPES)mServerType, flag.mBusId, (NF_SERVER_TYPES)serverType, xData);
+                pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId((NF_SERVER_TYPES)mServerType, flag.mBusId, (NF_SERVER_TYPES)serverType, xData);
 
                 pServerData->mUnlinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId);
-                NFMessageMgr::Instance()->CreateLinkToServer((NF_SERVER_TYPES)mServerType, flag.mBusId, pServerData->mUnlinkId);
+                FindModule<NFIMessageModule>()->CreateLinkToServer((NF_SERVER_TYPES)mServerType, flag.mBusId, pServerData->mUnlinkId);
                 if (bActivityConnect)
                 {
                     NFDataPackage tmpPacket;

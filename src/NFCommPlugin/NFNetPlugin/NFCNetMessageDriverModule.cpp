@@ -12,7 +12,7 @@
 #include "NFEvppNetMessage.h"
 #include "NFCBusMessage.h"
 #include "NFComm/NFCore/NFSocketLibFunction.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 
 NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMessageDriver(p)

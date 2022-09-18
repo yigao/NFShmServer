@@ -203,6 +203,21 @@ public:
 
     virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
 
+    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0)
+    {
+        Send(usLinkId, NF_MODULE_NONE, nMsgID, strData, param1, param2);
+    }
+
+    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t param1 = 0, uint64_t param2 = 0)
+    {
+        Send(usLinkId, NF_MODULE_NONE, nMsgID, msg, nLen, param1, param2);
+    }
+
+    virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1 = 0, uint64_t param2 = 0)
+    {
+        Send(usLinkId, NF_MODULE_NONE, nMsgID, xData, param1, param2);
+    }
+
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
@@ -219,6 +234,26 @@ public:
 
     virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
                                 const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
+
+    virtual int
+    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
+                   uint64_t param1, uint64_t param2 = 0)
+    {
+        return SendMsgByBusId(eType, NF_MODULE_NONE, busId, nMsgId, xData, param1, param2);
+    }
+
+    virtual int
+    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
+                   uint64_t param1, uint64_t param2 = 0)
+    {
+        return SendMsgByBusId(eType, NF_MODULE_NONE, busId, nMsgId, msg, nLen, param1, param2);
+    }
+
+    virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgId,
+                                const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0)
+    {
+        return SendMsgToServer(eSendType, recvType, srcBusId, dstBusId, NF_MODULE_NONE, nMsgId, xData, param1, param2);
+    }
 
     virtual NF_SHARE_PTR<NFServerData> GetServerByServerId(NF_SERVER_TYPES eSendType, uint32_t busId) = 0;
 

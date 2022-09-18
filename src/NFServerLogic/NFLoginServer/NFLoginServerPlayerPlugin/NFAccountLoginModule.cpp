@@ -9,7 +9,7 @@
 
 #include "NFAccountLoginModule.h"
 
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
@@ -34,19 +34,19 @@ NFCAccountLoginModule::~NFCAccountLoginModule() {
 bool NFCAccountLoginModule::Awake()
 {
 	///////////////////////////客户端协议//////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_AccountLoginReq, this, &NFCAccountLoginModule::OnHandleAccountLoginFromClient);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_AccountLoginReq, this, &NFCAccountLoginModule::OnHandleAccountLoginFromClient);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_RegisterAccountReq, this, &NFCAccountLoginModule::OnHandleAccountRegisterFromClient);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_RegisterAccountReq, this, &NFCAccountLoginModule::OnHandleAccountRegisterFromClient);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_ff::NF_WTL_LOAD_SERVER_TO_LOGIN_RSP, this, &NFCAccountLoginModule::OnHandleLoadServerFromWorldServer);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_ff::NF_WTL_LOAD_SERVER_TO_LOGIN_RSP, this, &NFCAccountLoginModule::OnHandleLoadServerFromWorldServer);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_LoginServer_PhoneAutoCodeReq, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_LoginServer_PhoneAutoCodeReq, this,
                                                        &NFCAccountLoginModule::OnHandlePhoneAutoCodeFromClient);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_LoginServer_CheckPhoneCodeReq, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_LoginServer_CheckPhoneCodeReq, this,
                                                        &NFCAccountLoginModule::OnHandleCheckPhoneCodeFromClient);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_CHANGE_PASSWORD_REQ, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_login::NF_CS_MSG_CHANGE_PASSWORD_REQ, this,
                                                        &NFCAccountLoginModule::OnHandleChangePasswordFromClient);
 
 	return true;
@@ -100,7 +100,7 @@ int NFCAccountLoginModule::OnHandleCheckPhoneCodeFromClient(uint64_t unLinkId, u
         proto_login::Proto_SC_LoginServer_CheckPhoneCodeRsp rspMsg;
         rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
                                                        proto_login::NF_SC_MSG_LoginServer_CheckPhoneCodeRsp,
                                                        rspMsg,
                                                        clientLinkId);
@@ -128,7 +128,7 @@ int NFCAccountLoginModule::OnHandlePhoneAutoCodeFromClient(uint64_t unLinkId, ui
         proto_login::Proto_SC_LoginServer_PhoneAutoCodeRsp rspMsg;
         rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
                                                        proto_login::NF_SC_MSG_LoginServer_PhoneAutoCodeRsp,
                                                        rspMsg,
                                                        clientLinkId);
@@ -156,7 +156,7 @@ int NFCAccountLoginModule::OnHandleAccountRegisterFromClient(uint64_t unLinkId, 
         proto_login::Proto_SCRegisterAccountRsp gcMsg;
         gcMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
                                                        proto_login::NF_SC_MSG_RegisterAccountRsp,
                                                        gcMsg,
                                                        clientLinkId);
@@ -183,7 +183,7 @@ int NFCAccountLoginModule::OnHandleChangePasswordFromClient(uint64_t unLinkId, u
         proto_login::Proto_SC_ChangePasswordRsp gcMsg;
         gcMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
                                                        proto_login::NF_SC_MSG_CHANGE_PASSWORD_RESP,
                                                        gcMsg,
                                                        clientLinkId);
@@ -211,7 +211,7 @@ int NFCAccountLoginModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, uin
         proto_login::Proto_SCAccountLoginRsp gcMsg;
         gcMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
 
-        NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
+        FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIN_SERVER, proxyBusId,
                                                        proto_login::NF_SC_MSG_AccountLoginRsp,
                                                        gcMsg,
                                                        clientLinkId);

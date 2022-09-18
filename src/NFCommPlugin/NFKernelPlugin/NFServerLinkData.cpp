@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServerLinkData.h"
 
 void ServerLinkData::CloseAllLink(NFIMessageModule *pMessageModule) {

@@ -9,7 +9,7 @@
 #include "NFMoneyLogHandle.h"
 #include "NFUserDetail.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 NFMoneyLogHandle::NFMoneyLogHandle() {
     NFLogMgr::Instance()->AddLogBehaviorCB(NF_ST_LOGIC_SERVER, this, &NFMoneyLogHandle::MoneyLogCallBack);
@@ -85,7 +85,7 @@ int NFMoneyLogHandle::MoneyLogCallBack(uint64_t userId, const google::protobuf::
         const proto_ff::LogMoneyDetail* pLogMoneyDetail = dynamic_cast<const proto_ff::LogMoneyDetail*>(message);
         if (pLogMoneyDetail)
         {
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                              proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, NF_DEFAULT_MYSQL_DB_NAME, "LogMoneyDetail", *pLogMoneyDetail,
                                                              0, 0, userId);
 
@@ -97,7 +97,7 @@ int NFMoneyLogHandle::MoneyLogCallBack(uint64_t userId, const google::protobuf::
         const proto_ff::LogZhuangRecord* pLogZhuangRecord = dynamic_cast<const proto_ff::LogZhuangRecord*>(message);
         if (pLogZhuangRecord)
         {
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                              proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, NF_DEFAULT_MYSQL_DB_NAME, "LogZhuangRecord", *pLogZhuangRecord,
                                                              0, 0, userId);
 
@@ -109,7 +109,7 @@ int NFMoneyLogHandle::MoneyLogCallBack(uint64_t userId, const google::protobuf::
         const proto_ff::LogGiveMoneyRecord* pLogGiveMoneyRecord = dynamic_cast<const proto_ff::LogGiveMoneyRecord*>(message);
         if (pLogGiveMoneyRecord)
         {
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                              proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, NF_DEFAULT_MYSQL_DB_NAME, "LogGiveMoneyRecord", *pLogGiveMoneyRecord,
                                                              0, 0, userId);
 
@@ -121,7 +121,7 @@ int NFMoneyLogHandle::MoneyLogCallBack(uint64_t userId, const google::protobuf::
         const proto_ff::LogRedeemCodeRechargeRecord* pLogRedeemRecord = dynamic_cast<const proto_ff::LogRedeemCodeRechargeRecord*>(message);
         if (pLogRedeemRecord)
         {
-            NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+            FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                              proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, NF_DEFAULT_MYSQL_DB_NAME, "LogRedeemCodeRechargeRecord", *pLogRedeemRecord,
                                                              0, 0, userId);
 

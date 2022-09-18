@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
 #include "NFSnsUserSimple.h"
@@ -79,7 +79,7 @@ int NFTransSaveSimpleDB::ProHandleSaveDB()
 	pUser->MakeUserDataCS(userSimple);
 
 
-	NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_SNS_SERVER,
+	FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_SNS_SERVER,
                                                      proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_USER_SIMPLE, NF_DEFAULT_MYSQL_DB_NAME, "tbUserSimpleData", userSimple,
                                                      GetGlobalID(), pUser->GetCurSeq(), m_userId);
 	return 0;

@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFTransGetUserDetail.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
@@ -108,7 +108,7 @@ int NFTransCreateUserDetail::CreateUserDetail() {
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Ready Create Account InTo Mysql:{}", userDetail.DebugString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                            proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", userDetail,
                                                            GetGlobalID(), 0, m_userId);
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
@@ -191,7 +191,7 @@ int NFTransCreateUserDetail::CreateUserDetail(const std::string& nickName, uint6
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Ready Create Account InTo Mysql:{}", userDetail.DebugString());
 
-    NFMessageMgr::Instance()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
+    FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER,
                                                      proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_USER_DETAIL, NF_DEFAULT_MYSQL_DB_NAME, "tbUserDetailData", userDetail,
                                                      GetGlobalID(), 0, m_userId);
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");

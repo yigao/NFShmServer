@@ -12,7 +12,7 @@
 #include "NFGameDesk.h"
 #include "NFGameRoomMgr.h"
 #include "NFComm/NFShmCore/NFSubGameTypeDefines.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFServer/NFCommHead/NFIGameServerModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -38,54 +38,54 @@ NFCGameRoomModule::~NFCGameRoomModule() {
 bool NFCGameRoomModule::Awake()
 {
 
-    //NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_CS_MSG_EnterGame_AUTO_JOIN_Req,
+    //FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_CS_MSG_EnterGame_AUTO_JOIN_Req,
     //                                                   this,
     //                                                   &NFCGameRoomModule::OnHandleEnterGameAutoJoin);
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_DeskListReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_DeskListReq,
                                                        this,
                                                        &NFCGameRoomModule::OnHandleReqDeskListFromClient);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ChairCheckReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ChairCheckReq,
                                                        this,
                                                        &NFCGameRoomModule::OnHandleReqChairCheckFromClient);
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_EnterGameReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_EnterGameReq,
 														this,
 														&NFCGameRoomModule::OnHandleEnterGameReqFromClient);
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_UserRecomeReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_UserRecomeReq,
 														this,
 														&NFCGameRoomModule::OnHandleReComeReqFromClient);
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ExitRoomReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ExitRoomReq,
                                                        this,
                                                        &NFCGameRoomModule::OnHandleExitRoomReqFromClient);
 
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ExitGameReq,
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_game::NF_CS_MSG_ExitGameReq,
                                                        this,
                                                        &NFCGameRoomModule::OnHandleExitGameReqFromClient);
 
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_RECONNECT_MSG, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_RECONNECT_MSG, this,
                                                        &NFCGameRoomModule::OnHandleReconnectFromClient);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG, this,
                                                        &NFCGameRoomModule::OnHandlePlayerDisConnect);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_STS_CLEAR_ALL_GAME_PLAYER_NOTIFY, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_STS_CLEAR_ALL_GAME_PLAYER_NOTIFY, this,
                                                  &NFCGameRoomModule::OnHandleClearAllGamePlayerNotify);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_SnsTGame_SET_USER_MANAGER_INFO, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_SnsTGame_SET_USER_MANAGER_INFO, this,
                                              &NFCGameRoomModule::OnHandleSetUserManagerInfo);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_SnsTGame_SET_GM_CTRL_GIVE_DATA, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_SnsTGame_SET_GM_CTRL_GIVE_DATA, this,
                                                  &NFCGameRoomModule::OnHandleSetGmCtrlGiveData);
 
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_LogicTGame_UPDATE_PLAYER_COINBALANCE, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::E_LogicTGame_UPDATE_PLAYER_COINBALANCE, this,
                                                  &NFCGameRoomModule::OnHandleUpdateUserInfo);
 
     /////////////////world server msg///////////////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_REGISTER_RSP, this, &NFCGameRoomModule::OnHandleRegisterResp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_REGISTER_RSP, this, &NFCGameRoomModule::OnHandleRegisterResp);
 
 	Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
@@ -246,7 +246,7 @@ int NFCGameRoomModule::RegisterGameRoom()
                 }
 
 
-                NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_REGISTER_REQ, xMsg);
+                FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_REGISTER_REQ, xMsg);
             }
         }
     }
@@ -275,7 +275,7 @@ int NFCGameRoomModule::UpdateGameRoom()
                     pRoomInfo->set_online_count(NFGameSessionMgr::Instance()->GetPlayerCount());
                 }
 
-                NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UPDATE_ONLINE_COUNT_REQ, xMsg);
+                FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_ROOM_UPDATE_ONLINE_COUNT_REQ, xMsg);
             }
         }
     }
@@ -300,7 +300,7 @@ bool NFCGameRoomModule::OnDynamicPlugin()
 bool NFCGameRoomModule::AddMessageCallBack(uint16_t gameId, uint16_t subMsgId)
 {
     uint32_t msgId = MAKE_UINT32(subMsgId, gameId);
-	return NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_GAME_SERVER, msgId, this, &NFCGameRoomModule::OnHandleRoomMsg);
+	return FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, msgId, this, &NFCGameRoomModule::OnHandleRoomMsg);
 }
 
 int NFCGameRoomModule::OnHandleRoomMsg(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
@@ -342,7 +342,7 @@ int NFCGameRoomModule::OnHandleRoomMsg(uint64_t unLinkId, uint64_t playerId, uin
 //        proto_ff::EnterGameAutoJoinRsp rspMsg;
 //        rspMsg.set_result(-1);
 //
-//        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+//        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
 //                                                           proto_ff::NF_CS_MSG_EnterGame_AUTO_JOIN_Rsp, rspMsg, playerId);
 //        return 0;
 //    }
@@ -381,7 +381,7 @@ int NFCGameRoomModule::OnHandleReqDeskListFromClient(uint64_t unLinkId, uint64_t
         NFGameRobot* pRobot = NFGameRobotMgr::Instance()->GetRobot(playerId);
         if (!pRobot)
         {
-            return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+            return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                               proto_game::NF_SC_MSG_DeskListRsp, deskListRsp, playerId);
         }
         return 0;
@@ -392,7 +392,7 @@ int NFCGameRoomModule::OnHandleReqDeskListFromClient(uint64_t unLinkId, uint64_t
         proto_game::DeskListRsp deskListRsp;
         deskListRsp.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
 
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_DeskListRsp, deskListRsp, playerId);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_DeskListRsp, deskListRsp, playerId);
         return 0;
     }
 
@@ -467,7 +467,7 @@ int NFCGameRoomModule::OnHandleReqChairCheckFromClient(uint64_t unLinkId, uint64
 
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "SendMsgToWorldServer ==> NF_CS_MSG_ChairCheckRsp playerId = {}", playerId);
 
-	NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+	FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                          proto_game::NF_SC_MSG_ChairCheckRsp, chairCheckRsp, playerId);
 
 
@@ -544,7 +544,7 @@ int NFCGameRoomModule::OnHandleEnterGameReqFromClient(uint64_t unLinkId, uint64_
                     rspMsg.set_player_id(pPlayer->m_playerId);
                     if (!pPlayer->m_isRobot)
                     {
-                        return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+                        return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                                               proto_game::NF_SC_MSG_EnterGameRsp, rspMsg, pPlayer->m_playerId);
                     }
                     return 0;
@@ -570,7 +570,7 @@ int NFCGameRoomModule::OnHandleEnterGameReqFromClient(uint64_t unLinkId, uint64_
         rspMsg.set_player_id(pPlayer->m_playerId);
         if (!pPlayer->m_isRobot)
         {
-            return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
+            return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
                                                                   proto_game::NF_SC_MSG_EnterGameRsp, rspMsg, pPlayer->m_playerId);
         }
     }
@@ -628,7 +628,7 @@ int NFCGameRoomModule::OnHandleExitRoomReqFromClient(uint64_t unLinkId, uint64_t
 
         proto_game::ExitRoomRsp xMsgRet;
         xMsgRet.set_result(0);
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_ExitRoomRsp, xMsgRet, playerId);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_ExitRoomRsp, xMsgRet, playerId);
 
         return 0;
     }
@@ -757,7 +757,7 @@ int NFCGameRoomModule::SendMsgToClientByPlayerId(uint64_t playerId, uint32_t nMs
     NFGameSession* pPlayerInfo = NFGameSessionMgr::GetInstance()->GetPlayer(playerId);
     CHECK_EXPR(pPlayerInfo, -1, "playerId:{} not exist, can't find send message!");
     CHECK_EXPR(pPlayerInfo->m_proxyId > 0, -1, "pInfo->GetProxyId() > 0");
-    NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pPlayerInfo->m_proxyId, nMsgId, xData, playerId);
+    FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pPlayerInfo->m_proxyId, nMsgId, xData, playerId);
 
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -779,7 +779,7 @@ int NFCGameRoomModule::SendMsgToClientByPlayerId(uint64_t playerId, uint16_t nMa
 		}
 		else
 		{
-			NFMessageMgr::Instance()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pInfo->m_proxyId, nMainMsgId, nSubMsgId, xData, playerId);
+			FindModule<NFIMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pInfo->m_proxyId, nMainMsgId, nSubMsgId, xData, playerId);
 		}
 	}
 

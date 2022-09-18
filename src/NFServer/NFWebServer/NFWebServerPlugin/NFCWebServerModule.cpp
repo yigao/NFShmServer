@@ -10,7 +10,7 @@
 #include "NFCWebServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServer/NFCommHead/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
@@ -31,12 +31,12 @@ NFCWebServerModule::~NFCWebServerModule()
 
 bool NFCWebServerModule::Awake() {
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_WEB_SERVER);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER,
                                                        proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                        &NFCWebServerModule::OnHandleServerReport);
 
     /////////////////route agent msg///////////////////////////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCWebServerModule::OnRegisterRouteAgentRspProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCWebServerModule::OnRegisterRouteAgentRspProcess);
 
 
     //注册要完成的服务器启动任务
@@ -47,23 +47,23 @@ bool NFCWebServerModule::Awake() {
     NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig) {
         std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->mServerIp, pConfig->mHttpPort);
-        int ret = NFMessageMgr::Instance()->BindServer(NF_ST_WEB_SERVER, httpUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+        int ret = FindModule<NFIMessageModule>()->BindServer(NF_ST_WEB_SERVER, httpUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (ret < 0)
         {
             NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "web server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mHttpPort);
             return false;
         }
 
-        int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_WEB_SERVER, pConfig->mUrl, 1, 100, PACKET_PARSE_TYPE_INTERNAL);
+        int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_WEB_SERVER, pConfig->mUrl, 1, 100, PACKET_PARSE_TYPE_INTERNAL);
         if (unlinkId >= 0)
         {
             /*
                 注册客户端事件
             */
             uint64_t loginServerLinkId = (uint64_t) unlinkId;
-            NFMessageMgr::Instance()->SetServerLinkId(NF_ST_WEB_SERVER, loginServerLinkId);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnWebSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnHandleOtherMessage);
+            FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_WEB_SERVER, loginServerLinkId);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnWebSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnHandleOtherMessage);
             NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "web server listen success, serverId:{}, ip:{}, port:{}", pConfig->mBusName, pConfig->mServerIp, pConfig->mServerPort);
         }
         else
@@ -74,10 +74,10 @@ bool NFCWebServerModule::Awake() {
 
         if (pConfig->mLinkMode == "bus")
         {
-            int iRet = NFMessageMgr::Instance()->ResumeConnect(NF_ST_WEB_SERVER);
+            int iRet = FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_WEB_SERVER);
             if (iRet == 0)
             {
-                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(
+                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(
                         NF_ST_WEB_SERVER);
                 for (int i = 0; i < (int) vecServer.size(); i++)
                 {
@@ -86,10 +86,10 @@ bool NFCWebServerModule::Awake() {
                     {
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER)
                         {
-                            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-                            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+                            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
+                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
 
-                            auto pRouteServer = NFMessageMgr::Instance()->GetRouteData(NF_ST_WEB_SERVER);
+                            auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_WEB_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
                             pRouteServer->mServerInfo = pServerData->mServerInfo;
                         }
@@ -135,13 +135,13 @@ int NFCWebServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xD
     NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig)
     {
-        auto pMasterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_WEB_SERVER);
+        auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_WEB_SERVER);
         if (pMasterServerData->mUnlinkId <= 0)
         {
-            pMasterServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_WEB_SERVER, pMasterServerData->mUnlinkId, this,
+            pMasterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pMasterServerData->mUnlinkId, this,
                                                        &NFCWebServerModule::OnMasterSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_WEB_SERVER, pMasterServerData->mUnlinkId, this,
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pMasterServerData->mUnlinkId, this,
                                                        &NFCWebServerModule::OnHandleMasterOtherMessage);
         }
 
@@ -224,7 +224,7 @@ bool NFCWebServerModule::Execute()
 
 bool NFCWebServerModule::OnDynamicPlugin()
 {
-    NFMessageMgr::Instance()->CloseAllLink(NF_ST_WEB_SERVER);
+    FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_WEB_SERVER);
     return true;
 }
 
@@ -237,7 +237,7 @@ int NFCWebServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 
     if (nEvent == eMsgType_CONNECTED)
     {
-        std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+        std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
         NFLogDebug(NF_LOG_WEB_SERVER_PLUGIN, 0, "web server connect master success!");
         RegisterMasterServer();
 
@@ -249,7 +249,7 @@ int NFCWebServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-        std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+        std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
         NFLogError(NF_LOG_WEB_SERVER_PLUGIN, 0, "store server disconnect master success");
     }
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
@@ -262,7 +262,7 @@ int NFCWebServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 int NFCWebServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- begin --");
-    std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
     NFLogWarning(NF_LOG_WEB_SERVER_PLUGIN, 0, "master server other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -289,7 +289,7 @@ int NFCWebServerModule::RegisterMasterServer()
         pData->set_route_svr(pConfig->mRouteAgent);
         pData->set_server_state(proto_ff::EST_NARMAL);
 
-        NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -349,7 +349,7 @@ int NFCWebServerModule::ServerReport()
 
         if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
         {
-            NFMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+            FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
         }
     }
     return 0;
@@ -396,27 +396,27 @@ int NFCWebServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
         }
     }
 
-    auto pRouteAgentServerData = NFMessageMgr::Instance()->GetRouteData(NF_ST_WEB_SERVER);
+    auto pRouteAgentServerData = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_WEB_SERVER);
     CHECK_NULL(pRouteAgentServerData);
 
     if (pRouteAgentServerData->mUnlinkId == 0)
     {
-        pRouteAgentServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+        pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
-        NFMessageMgr::Instance()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-        NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+        FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
+        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
     }
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
             NFLogWarning(NF_LOG_SYSTEMLOG, 0, "the server:{} old url:{} changed, new url:{}",
                          pRouteAgentServerData->mServerInfo.server_name(), pRouteAgentServerData->mServerInfo.url(),
                          xData.url());
-            NFMessageMgr::Instance()->CloseLinkId(pRouteAgentServerData->mUnlinkId);
+            FindModule<NFIMessageModule>()->CloseLinkId(pRouteAgentServerData->mUnlinkId);
 
-            pRouteAgentServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
+            pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
         }
     }
 
@@ -471,7 +471,7 @@ int NFCWebServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
         pData->set_route_svr(pConfig->mRouteAgent);
         pData->set_server_state(proto_ff::EST_NARMAL);
 
-        NFMessageMgr::Instance()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
     }
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -503,7 +503,7 @@ int NFCWebServerModule::OnHandleOtherMessage(uint64_t unLinkId, uint64_t playerI
 int NFCWebServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- begin --");
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_WEB_SERVER, unLinkId);
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_WEB_SERVER, unLinkId);
     if (pServerData)
     {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
@@ -513,7 +513,7 @@ int NFCWebServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
         , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
-    NFMessageMgr::Instance()->DelServerLink(NF_ST_WEB_SERVER, unLinkId);
+    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_WEB_SERVER, unLinkId);
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

@@ -136,7 +136,7 @@ int NFGameDesk::BroadCastMsgToDesk(uint16_t nSubMsgId, const google::protobuf::M
 
 int NFGameDesk::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-	return NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, nMsgId,
+	return FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, nMsgId,
 		xData);
 }
 
@@ -148,13 +148,13 @@ int NFGameDesk::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Me
 
     CHECK_EXPR(pInfo->m_logicId > 0, -1, "pInfo->m_logicId > 0");
 
-	return NFMessageMgr::Instance()->SendMsgToLogicServer(NF_ST_GAME_SERVER, pInfo->m_logicId, nMsgId,
+	return FindModule<NFIMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, pInfo->m_logicId, nMsgId,
 		xData, playerId);
 }
 
 int NFGameDesk::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-	return NFMessageMgr::Instance()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId,
+	return FindModule<NFIMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId,
 		xData);
 }
 

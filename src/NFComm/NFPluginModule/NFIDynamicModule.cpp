@@ -9,7 +9,7 @@
 
 
 #include "NFIDynamicModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p),NFTimerObj(p),NFEventObj(p)
 {
@@ -18,7 +18,7 @@ NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p),NFTimerObj
 
 NFIDynamicModule::~NFIDynamicModule()
 {
-	NFMessageMgr::Instance()->DelAllCallBack(this);
+	FindModule<NFIMessageModule>()->DelAllCallBack(this);
 }
 
 void NFIDynamicModule::OnTimer(uint32_t nTimerID)

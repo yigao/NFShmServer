@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFPaoMaDengMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFGameSessionMgr.h"
 #include "NFGameRoomMgr.h"
 #include "NFGameRoom.h"
@@ -48,7 +48,7 @@ void NFPaoMaDengMgr::OnTimer(uint32_t nTimerID)
 
     if (notify.info_size() > 0)
     {
-        NFMessageMgr::Instance()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_PaoMaDengNotify, notify, 0);
+        FindModule<NFIMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_game::NF_SC_MSG_PaoMaDengNotify, notify, 0);
         m_notifyMgr.clear();
     }
     else

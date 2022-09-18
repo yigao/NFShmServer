@@ -1,7 +1,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/proto_cs_login.pb.h"
 
 enum NFTestRobotStatus

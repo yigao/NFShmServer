@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFComm/NFCore/NFServerIDUtil.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
 
 NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
@@ -393,7 +393,7 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
                 if (mServerConfig[i] && mServerConfig[i]->ServerType != NF_ST_MASTER_SERVER
                     && mServerConfig[i]->ServerType != NF_ST_ROUTE_AGENT_SERVER && mServerConfig[i]->ServerType != NF_ST_ROUTE_SERVER)
                 {
-					const NFServerData* pServerData = NFMessageMgr::Instance()->GetRouteData((NF_SERVER_TYPES)mServerConfig[i]->ServerType);
+					const NFServerData* pServerData = FindModule<NFIMessageModule>()->GetRouteData((NF_SERVER_TYPES)mServerConfig[i]->ServerType);
 					if (pServerData && pServerData->mUnlinkId > 0)
 					{
 						return mServerConfig[i];

@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFRouter.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 
 NFRouter::NFRouter(const std::string& name_path)

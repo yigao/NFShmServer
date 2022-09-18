@@ -4,7 +4,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFShmCore/NFArray.h"
 #include "NFServer/NFCommHead/NFIGameRobot.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"

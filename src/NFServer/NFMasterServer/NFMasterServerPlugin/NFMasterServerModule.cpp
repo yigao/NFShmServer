@@ -14,12 +14,12 @@
 
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFMessageMgr.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFServerComm/NFServerCore/NFServerMessageMgr.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 #include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
 
@@ -41,40 +41,40 @@ bool NFCMasterServerModule::Awake()
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_MASTER_SERVER);
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_MASTER_SERVER);
 
-	NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCMasterServerModule::OnServerRegisterProcess);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, this, &NFCMasterServerModule::OnServerReportProcess);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_STMaster_SEND_DUMP_INFO_NTF, this, &NFCMasterServerModule::OnServerDumpInfoProcess);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_GTM_KILL_ALL_SERVER_NTF, this, &NFCMasterServerModule::OnServerKillAllServerProcess);
+	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCMasterServerModule::OnServerRegisterProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, this, &NFCMasterServerModule::OnServerReportProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_STMaster_SEND_DUMP_INFO_NTF, this, &NFCMasterServerModule::OnServerDumpInfoProcess);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_GTM_KILL_ALL_SERVER_NTF, this, &NFCMasterServerModule::OnServerKillAllServerProcess);
     //////////////////////http send to monitor//////////////////
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "reload", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleReloadServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "reloadall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleReloadAllServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "restart", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleRestartServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "restartall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleRestartAllServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "start", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStartServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "startall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStartAllServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "stop", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStopServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "stopall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStopAllServer);
-    NFMessageMgr::Instance()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "killall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleKillAllServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "reload", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleReloadServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "reloadall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleReloadAllServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "restart", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleRestartServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "restartall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleRestartAllServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "start", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStartServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "startall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStartAllServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "stop", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStopServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "stopall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleStopAllServer);
+    FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "killall", NF_HTTP_REQ_GET, this, &NFCMasterServerModule::HandleKillAllServer);
     //////////////////////msg from monitor/////////////////
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, this, &NFCMasterServerModule::HandleStopSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, this, &NFCMasterServerModule::HandleRestartSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, this, &NFCMasterServerModule::HandleStartSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, this, &NFCMasterServerModule::HandleReloadSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleStopAllSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleRestartAllSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleStartAllSeverRsp);
-    NFMessageMgr::Instance()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleReloadAllSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, this, &NFCMasterServerModule::HandleStopSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, this, &NFCMasterServerModule::HandleRestartSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, this, &NFCMasterServerModule::HandleStartSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_CMD_RSP, this, &NFCMasterServerModule::HandleReloadSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_STOP_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleStopAllSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RESTART_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleRestartAllSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_START_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleStartAllSeverRsp);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_MonitorTMaster_RELOAD_ALL_CMD_RSP, this, &NFCMasterServerModule::HandleReloadAllSeverRsp);
 
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
 	if (pConfig)
 	{
-		int64_t unlinkId = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+		int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_MASTER_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
 		if (unlinkId >= 0)
 		{
 			uint64_t masterServerLinkId = (uint64_t)unlinkId;
-            NFMessageMgr::Instance()->SetServerLinkId(NF_ST_MASTER_SERVER, masterServerLinkId);
-			NFMessageMgr::Instance()->AddEventCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnProxySocketEvent);
-			NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnHandleOtherMessage);
+            FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_MASTER_SERVER, masterServerLinkId);
+			FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnProxySocketEvent);
+			FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_MASTER_SERVER, masterServerLinkId, this, &NFCMasterServerModule::OnHandleOtherMessage);
 			NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
 		}
 		else
@@ -84,7 +84,7 @@ bool NFCMasterServerModule::Awake()
 		}
 
         std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->ServerIp, pConfig->HttpPort);
-        int ret = NFMessageMgr::Instance()->BindServer(NF_ST_MASTER_SERVER, httpUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+        int ret = FindModule<NFIMessageModule>()->BindServer(NF_ST_MASTER_SERVER, httpUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (ret < 0)
         {
             NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->HttpPort);
@@ -111,10 +111,10 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDa
 	for (int i = 0; i < xMsg.server_list_size(); ++i)
 	{
 		const proto_ff::ServerInfoReport& xData = xMsg.server_list(i);
-		NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id());
+		NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id());
 		if (!pServerData)
 		{
-			pServerData = NFMessageMgr::Instance()->CreateServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id(), (NF_SERVER_TYPES)xData.server_type(), xData);
+			pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id(), (NF_SERVER_TYPES)xData.server_type(), xData);
 		}
 		else
 		{
@@ -122,14 +122,14 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDa
 			{
 				//该服务器ID已经注册过, 又被别的服务器使用了
 				//服务器连接还在没有崩溃
-				NFMessageMgr::Instance()->CloseLinkId(unLinkId);
+				FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
 				return 0;
 			}
 		}
 
 		pServerData->mUnlinkId = unLinkId;
 		pServerData->mServerInfo = xData;
-        NFMessageMgr::Instance()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
+        FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
         if (xData.server_type() != NF_ST_MONITOR_SERVER)
         {
 #if NF_PLATFORM == NF_PLATFORM_WIN
@@ -157,7 +157,7 @@ int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, const NFData
 
     for (int i = 0; i < xMsg.server_list_size(); ++i) {
         const proto_ff::ServerInfoReport &xData = xMsg.server_list(i);
-        NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id());
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id());
         if (pServerData)
         {
             pServerData->mServerInfo.set_system_info(xData.system_info());
@@ -187,7 +187,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDa
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
 
-    NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByServerId(NF_ST_MASTER_SERVER, xMsg.bus_id());
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, xMsg.bus_id());
     CHECK_EXPR(pServerData, -1, "can't find the serverID:{}..............................\n{}",xMsg.bus_id(), xMsg.dump_info());
 
     NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_name(), xMsg.dump_info());
@@ -204,7 +204,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDa
     xHeaders.emplace("Accept", "application/json");
     xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
 
-    NFMessageMgr::Instance()->HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
+    FindModule<NFIMessageModule>()->HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
         NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
     }, xHeaders);
 
@@ -216,14 +216,14 @@ int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, const
 {
     proto_ff::Proto_KillAllServerNtf xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
-    std::vector<NF_SHARE_PTR<NFServerData>> vec = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER);
 
     for(size_t i = 0; i < vec.size(); i++)
     {
         NF_SHARE_PTR<NFServerData> pCurServer = vec[i];
         if (pCurServer)
         {
-            NFMessageMgr::Instance()->Send(pCurServer->mUnlinkId, NF_MODULE_NONE, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg);
+            FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, NF_MODULE_NONE, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg);
         }
     }
     return 0;
@@ -232,7 +232,7 @@ int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, const
 int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
-	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "ip:{} connect master server success", ip);
@@ -249,7 +249,7 @@ int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId
 int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
-	std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_MASTER_SERVER_PLUGIN, 0, "other message not handled:packet:{},ip:{}", packet.ToString(), ip);
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
@@ -263,7 +263,7 @@ bool NFCMasterServerModule::Execute()
 
 bool NFCMasterServerModule::OnDynamicPlugin()
 {
-	NFMessageMgr::Instance()->CloseAllLink(NF_ST_MASTER_SERVER);
+	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_MASTER_SERVER);
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 	return true;
@@ -303,14 +303,14 @@ void NFCMasterServerModule::OnTimer(uint32_t nTimerID)
 int NFCMasterServerModule::OnClientDisconnect(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
-	NF_SHARE_PTR<NFServerData> pServerData = NFMessageMgr::Instance()->GetServerByUnlinkId(NF_ST_MASTER_SERVER, unLinkId);
+	NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_MASTER_SERVER, unLinkId);
 	if (pServerData)
 	{
 		NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "Server Disconnect Master Server, serverName:{}, busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
 		pServerData->mUnlinkId = 0;
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
 	}
-    NFMessageMgr::Instance()->DelServerLink(NF_ST_MASTER_SERVER, unLinkId);
+    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_MASTER_SERVER, unLinkId);
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }
@@ -324,7 +324,7 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
 	proto_ff::ServerInfoReport* pSelfData = xSelfData.add_server_list();
 	*pSelfData = pServerData->mServerInfo;
 
-	std::vector<NF_SHARE_PTR<NFServerData>> vec = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER);
+	std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER);
 
 	for(size_t i = 0; i < vec.size(); i++)
     {
@@ -338,13 +338,13 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
                     proto_ff::ServerInfoReport* pData = xData.add_server_list();
                     *pData = pCurServer->mServerInfo;
 
-                    NFMessageMgr::Instance()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
+                    FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
                 }
             }
         }
     }
 
-	NFMessageMgr::Instance()->Send(pServerData->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xData, 0);
+	FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xData, 0);
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }
@@ -363,13 +363,13 @@ bool NFCMasterServerModule::HandleReloadServer(uint32_t, const NFIHttpHandle &re
         return false;
     }
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorReloadReq reqMsg;
         reqMsg.set_server_name(serverName);
         reqMsg.set_server_id(serverID);
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RELOAD_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RELOAD_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -380,11 +380,11 @@ bool NFCMasterServerModule::HandleReloadAllServer(uint32_t, const NFIHttpHandle 
     std::string remote = req.GetRemoteHost();
     NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, " remote:{} send url:{}", remote, uri);
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorReloadReq reqMsg;
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RELOAD_ALL_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RELOAD_ALL_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -403,13 +403,13 @@ bool NFCMasterServerModule::HandleRestartServer(uint32_t, const NFIHttpHandle &r
         return false;
     }
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorRestartReq reqMsg;
         reqMsg.set_server_name(serverName);
         reqMsg.set_server_id(serverID);
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RESTART_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RESTART_CMD_REQ, reqMsg, req.GetRequestId());
     }
 
     return true;
@@ -421,11 +421,11 @@ bool NFCMasterServerModule::HandleRestartAllServer(uint32_t, const NFIHttpHandle
     std::string remote = req.GetRemoteHost();
     NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, " remote:{} send url:{}", remote, uri);
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorRestartReq reqMsg;
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RESTART_ALL_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_RESTART_ALL_CMD_REQ, reqMsg, req.GetRequestId());
     }
 
     return true;
@@ -445,13 +445,13 @@ bool NFCMasterServerModule::HandleStartServer(uint32_t, const NFIHttpHandle &req
         return false;
     }
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorStartReq reqMsg;
         reqMsg.set_server_name(serverName);
         reqMsg.set_server_id(serverID);
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_START_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_START_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -462,11 +462,11 @@ bool NFCMasterServerModule::HandleStartAllServer(uint32_t, const NFIHttpHandle &
     std::string remote = req.GetRemoteHost();
     NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, " remote:{} send url:{}", remote, uri);
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorStartReq reqMsg;
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_START_ALL_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_START_ALL_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -485,13 +485,13 @@ bool NFCMasterServerModule::HandleStopServer(uint32_t, const NFIHttpHandle &req)
         return false;
     }
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorStopReq reqMsg;
         reqMsg.set_server_name(serverName);
         reqMsg.set_server_id(serverID);
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_STOP_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_STOP_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -502,11 +502,11 @@ bool NFCMasterServerModule::HandleStopAllServer(uint32_t, const NFIHttpHandle &r
     std::string remote = req.GetRemoteHost();
     NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, " remote:{} send url:{}", remote, uri);
 
-    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER, NF_ST_MONITOR_SERVER);
     for(int i = 0; i < (int)vecServer.size(); i++)
     {
         proto_ff::Proto_MasterTMonitorStopReq reqMsg;
-        NFMessageMgr::Instance()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_STOP_ALL_CMD_REQ, reqMsg, req.GetRequestId());
+        FindModule<NFIMessageModule>()->Send(vecServer[i]->mUnlinkId, proto_ff::NF_MasterTMonitor_STOP_ALL_CMD_REQ, reqMsg, req.GetRequestId());
     }
     return true;
 }
@@ -514,14 +514,14 @@ bool NFCMasterServerModule::HandleStopAllServer(uint32_t, const NFIHttpHandle &r
 bool NFCMasterServerModule::HandleKillAllServer(uint32_t, const NFIHttpHandle &req)
 {
     proto_ff::Proto_KillAllServerNtf xMsg;
-    std::vector<NF_SHARE_PTR<NFServerData>> vec = NFMessageMgr::Instance()->GetAllServer(NF_ST_MASTER_SERVER);
+    std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER);
 
     for(size_t i = 0; i < vec.size(); i++)
     {
         NF_SHARE_PTR<NFServerData> pCurServer = vec[i];
         if (pCurServer)
         {
-            NFMessageMgr::Instance()->Send(pCurServer->mUnlinkId, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg, 0);
+            FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_STS_KILL_ALL_SERVER_NTF, xMsg, 0);
         }
     }
 
@@ -537,7 +537,7 @@ int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, const NFDataPac
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -551,7 +551,7 @@ int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, const NFData
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -565,7 +565,7 @@ int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, const NFDataPa
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -579,7 +579,7 @@ int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, const NFDat
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -593,7 +593,7 @@ int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, const NFData
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -607,7 +607,7 @@ int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, const NFD
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -621,7 +621,7 @@ int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, const NFDataP
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -635,7 +635,7 @@ int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, const NFDa
     uint64_t httpReqId = packet.nParam1;
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
-    NFMessageMgr::Instance()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
+    FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -648,12 +648,12 @@ int NFCMasterServerModule::ConnectGlobalServer() {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
-        auto pMasterServerData = NFMessageMgr::Instance()->GetMasterData(NF_ST_MASTER_SERVER);
+        auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_MASTER_SERVER);
         if (pMasterServerData->mUnlinkId <= 0)
         {
-            pMasterServerData->mUnlinkId = NFMessageMgr::Instance()->ConnectServer(NF_ST_MASTER_SERVER, "tcp://www.shmnframe.com:6100", PACKET_PARSE_TYPE_INTERNAL);
-            NFMessageMgr::Instance()->AddEventCallBack(NF_ST_MASTER_SERVER, pMasterServerData->mUnlinkId, this, &NFCMasterServerModule::OnGlobalSocketEvent);
-            NFMessageMgr::Instance()->AddOtherCallBack(NF_ST_MASTER_SERVER, pMasterServerData->mUnlinkId, this, &NFCMasterServerModule::OnHandleGlobalOtherMessage);
+            pMasterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_MASTER_SERVER, "tcp://www.shmnframe.com:6100", PACKET_PARSE_TYPE_INTERNAL);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_MASTER_SERVER, pMasterServerData->mUnlinkId, this, &NFCMasterServerModule::OnGlobalSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_MASTER_SERVER, pMasterServerData->mUnlinkId, this, &NFCMasterServerModule::OnHandleGlobalOtherMessage);
         }
     }
     else
@@ -706,7 +706,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
         pData->set_server_state(proto_ff::EST_NARMAL);
         pData->set_machine_addr(m_pObjPluginManager->GetMachineAddrMD5());
 
-        NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -718,7 +718,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
 int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    std::string ip = NFMessageMgr::Instance()->GetLinkIp(unLinkId);
+    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
     NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "global server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
     return 0;
@@ -778,7 +778,7 @@ int NFCMasterServerModule::ServerReport()
 
         if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
         {
-            NFServerMessageMgr::Instance()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
+            FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
         }
     }
     return 0;
