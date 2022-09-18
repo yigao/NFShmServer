@@ -6,11 +6,12 @@
       <config projectName="ShmNFrame" targetName="NFServerMessage" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
-      <config projectName="ShmNFrame" targetName="NFServerCore" />
+      <config projectName="ShmNFrame" targetName="NFServerCommon" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
+      <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
     </generated>
   </component>
@@ -21,7 +22,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +60,7 @@
     </option>
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFKernelPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFPluginLoader" />
   </component>
   <component name="ProjectId" id="1ujzzYRcDPHLLows0GpEXsI7QMX" />
   <component name="ProjectLevelVcsManager">
@@ -80,24 +83,24 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin" />
+      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/Message" />
       <recent name="$PROJECT_DIR$/src/NFServerComm" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCore" />
-      <recent name="$PROJECT_DIR$/thirdparty/common" />
-      <recent name="$PROJECT_DIR$/Install/TcpPlugin_Zookpeer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFPluginManager" />
+      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr" />
       <recent name="$PROJECT_DIR$/src/NFServerComm" />
       <recent name="$PROJECT_DIR$/src/NFComm" />
-      <recent name="$PROJECT_DIR$/doc" />
-      <recent name="$PROJECT_DIR$/src/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -131,7 +134,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart --AllMoreServer" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -146,7 +149,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFServerCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerCore" CONFIG_NAME="Debug">
+    <configuration name="NFServerCommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerCommon" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFServerCommonPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerCommonPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -162,6 +170,11 @@
       </method>
     </configuration>
     <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -223,7 +236,8 @@
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
       <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFServerCore" />
+      <item itemvalue="CMake 应用程序.NFServerCommon" />
+      <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
@@ -302,146 +316,6 @@
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
       <workItem from="1663338610780" duration="2740000" />
-    </task>
-    <task id="LOCAL-00072" summary="frame">
-      <created>1654962841339</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1654962841340</updated>
-    </task>
-    <task id="LOCAL-00073" summary="frame">
-      <created>1655113710620</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1655113710621</updated>
-    </task>
-    <task id="LOCAL-00074" summary="frame">
-      <created>1655119359612</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1655119359612</updated>
-    </task>
-    <task id="LOCAL-00075" summary="frame">
-      <created>1655132785033</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1655132785034</updated>
-    </task>
-    <task id="LOCAL-00076" summary="frame">
-      <created>1655175384210</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1655175384211</updated>
-    </task>
-    <task id="LOCAL-00077" summary="frame">
-      <created>1655198875998</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1655198875998</updated>
-    </task>
-    <task id="LOCAL-00078" summary="frame">
-      <created>1655222161147</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1655222161148</updated>
-    </task>
-    <task id="LOCAL-00079" summary="frame">
-      <created>1655730165008</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1655730165008</updated>
-    </task>
-    <task id="LOCAL-00080" summary="frame">
-      <created>1655786331722</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1655786331723</updated>
-    </task>
-    <task id="LOCAL-00081" summary="delete">
-      <created>1655886876090</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1655886876091</updated>
-    </task>
-    <task id="LOCAL-00082" summary="shell">
-      <created>1655888486638</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1655888486638</updated>
-    </task>
-    <task id="LOCAL-00083" summary="makefile">
-      <created>1655892765103</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1655892765103</updated>
-    </task>
-    <task id="LOCAL-00084" summary="makefile">
-      <created>1655894116308</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1655894116309</updated>
-    </task>
-    <task id="LOCAL-00085" summary="makefile">
-      <created>1655906879451</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1655906879451</updated>
-    </task>
-    <task id="LOCAL-00086" summary="makefile">
-      <created>1655912742501</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1655912742502</updated>
-    </task>
-    <task id="LOCAL-00087" summary="makefile">
-      <created>1655915110216</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1655915110216</updated>
-    </task>
-    <task id="LOCAL-00088" summary="makefile">
-      <created>1655915283286</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1655915283286</updated>
-    </task>
-    <task id="LOCAL-00089" summary="makefile">
-      <created>1655917808496</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1655917808496</updated>
-    </task>
-    <task id="LOCAL-00090" summary="makefile">
-      <created>1655967372729</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1655967372730</updated>
-    </task>
-    <task id="LOCAL-00091" summary="makefile">
-      <created>1656114134275</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1656114134275</updated>
     </task>
     <task id="LOCAL-00092" summary="makefile">
       <created>1656120476774</created>
@@ -646,7 +520,147 @@
       <option name="project" value="LOCAL" />
       <updated>1663422004396</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="chong gou">
+      <created>1663422225847</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1663422225847</updated>
+    </task>
+    <task id="LOCAL-00122" summary="chong gou">
+      <created>1663422293953</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1663422293953</updated>
+    </task>
+    <task id="LOCAL-00123" summary="chong gou">
+      <created>1663423346728</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1663423346728</updated>
+    </task>
+    <task id="LOCAL-00124" summary="chong gou">
+      <created>1663424320551</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1663424320551</updated>
+    </task>
+    <task id="LOCAL-00125" summary="chong gou">
+      <created>1663424331911</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1663424331911</updated>
+    </task>
+    <task id="LOCAL-00126" summary="chong gou">
+      <created>1663424434807</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1663424434807</updated>
+    </task>
+    <task id="LOCAL-00127" summary="chong gou">
+      <created>1663430128209</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1663430128209</updated>
+    </task>
+    <task id="LOCAL-00128" summary="chong gou">
+      <created>1663430811716</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1663430811716</updated>
+    </task>
+    <task id="LOCAL-00129" summary="chong gou">
+      <created>1663460244554</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1663460244554</updated>
+    </task>
+    <task id="LOCAL-00130" summary="chong gou">
+      <created>1663462680068</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1663462680068</updated>
+    </task>
+    <task id="LOCAL-00131" summary="chong gou">
+      <created>1663463078216</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1663463078216</updated>
+    </task>
+    <task id="LOCAL-00132" summary="chong gou">
+      <created>1663469373410</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1663469373410</updated>
+    </task>
+    <task id="LOCAL-00133" summary="chong gou">
+      <created>1663470478891</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1663470478891</updated>
+    </task>
+    <task id="LOCAL-00134" summary="chong gou">
+      <created>1663477018747</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1663477018747</updated>
+    </task>
+    <task id="LOCAL-00135" summary="chong gou">
+      <created>1663477231510</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1663477231510</updated>
+    </task>
+    <task id="LOCAL-00136" summary="chong gou">
+      <created>1663477263354</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1663477263354</updated>
+    </task>
+    <task id="LOCAL-00137" summary="chong gou">
+      <created>1663477458242</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1663477458242</updated>
+    </task>
+    <task id="LOCAL-00138" summary="chong gou">
+      <created>1663478292008</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1663478292008</updated>
+    </task>
+    <task id="LOCAL-00139" summary="chong gou">
+      <created>1663491593782</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1663491593782</updated>
+    </task>
+    <task id="LOCAL-00140" summary="chong gou">
+      <created>1663491824138</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1663491824138</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
