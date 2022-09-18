@@ -9,7 +9,7 @@
 
 #include "NFCNamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"

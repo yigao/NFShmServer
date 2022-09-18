@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include <fstream>
 
 NFMysqlResTable::NFMysqlResTable(NFIPluginManager* p, NFResMysqlDB* pFileResDB, const std::string& name):NFResTable(p)
@@ -33,7 +33,7 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = 0;
     {
-        NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         CHECK_NULL(pConfig);
 /*
         iRet = NFMessageMgr::Instance()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->mServerType, serverId, m_name, pMessage,
@@ -68,7 +68,7 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
 {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
     /*
@@ -82,7 +82,7 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
 {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
     return 0;
@@ -95,7 +95,7 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
 int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_NONE);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
     return 0;

@@ -18,7 +18,7 @@
 #include "NFComm/NFPluginModule/NFEventObj.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 #ifndef NF_DYNAMIC_PLUGIN
 

@@ -9,7 +9,7 @@
 #include "NFCConfigModule.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFComm/NFCore/NFServerIDUtil.h"
@@ -24,7 +24,6 @@ NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
     {
         mServerConfig[i] = NULL;
     }
-	NFConfigMgr::Instance()->Init(this);
 }
 
 NFCConfigModule::~NFCConfigModule()
@@ -331,7 +330,6 @@ bool NFCConfigModule::Shut()
 
 bool NFCConfigModule::Finalize()
 {
-    NFConfigMgr::Instance()->UnInit();
     for (auto it = mPluginConfig.begin(); it != mPluginConfig.end(); ++it)
     {
         NFPluginConfig* pConfig = it->second;

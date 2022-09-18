@@ -11,7 +11,7 @@
 #include "NFCLogModule.h"
 
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "my_date_and_hour_file_sink.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include <iostream>

@@ -19,7 +19,7 @@
 #include "NFComm/NFShmCore/NFDBObjTrans.h"
 #include "NFComm/NFShmCore/NFDBObjMgr.h"
 #include "NFComm/NFShmCore/NFDescStoreTrans.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 //
 //

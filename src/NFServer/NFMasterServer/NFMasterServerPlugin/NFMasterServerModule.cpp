@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
 
-#include <NFComm/NFPluginModule/NFConfigMgr.h>
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"

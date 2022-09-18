@@ -9,7 +9,7 @@
 
 #include "NFProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include <NFComm/NFPluginModule/NFConfigMgr.h>
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"

@@ -25,7 +25,7 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFPluginModule/NFMessageMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFIniReader.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 

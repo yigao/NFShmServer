@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFProfiler.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFFileUtility.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFPrintfLogo.h"
 #include "NFComm/NFCore/NFServerTime.h"
 #include "NFComm/NFPluginModule/NFIConsoleModule.h"
