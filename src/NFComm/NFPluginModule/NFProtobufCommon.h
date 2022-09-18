@@ -10,13 +10,11 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
-#include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFFileUtility.h"
-#include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFILuaModule.h"
 #include "NFIHttpHandle.h"
+#include "NFComm/NFPluginModule/NFILuaModule.h"
+#include <vector>
+#include <map>
 
 class _NFExport NFProtobufCommon {
 public:

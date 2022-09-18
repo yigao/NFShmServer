@@ -11,10 +11,13 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFStringUtility.h"
-#include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
+#include "NFComm/NFKernelMessage/proto_common_s.h"
+
+#include <set>
+#include <map>
 
 NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
 {
@@ -35,15 +38,13 @@ bool NFCConfigModule::LoadConfig()
 {
 	TryAddPackagePath(m_pObjPluginManager->GetPluginPath()); //Add Search Path to Lua
 
-    {
-        std::list<std::string> fileList;
-        NFFileUtility::GetFiles(m_pObjPluginManager->GetPluginPath(), fileList, true, "*.lua");
+    std::list<std::string> fileList;
+    NFFileUtility::GetFiles(m_pObjPluginManager->GetPluginPath(), fileList, true, "*.lua");
 
-        for (auto it = fileList.begin(); it != fileList.end(); ++it) {
-            if (TryLoadScriptFile(*it) == false) {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Load {} Failed!", *it);
-                assert(0);
-            }
+    for (auto it = fileList.begin(); it != fileList.end(); ++it) {
+        if (TryLoadScriptFile(*it) == false) {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Load {} Failed!", *it);
+            assert(0);
         }
     }
 

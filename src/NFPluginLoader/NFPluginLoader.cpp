@@ -25,6 +25,7 @@
 
 #include "NFPluginManager/NFCrashHandlerMgr.h"
 #include "NFPluginManager/NFProcessParameter.h"
+#include "NFComm/NFPluginModule/NFGlobalSystem.h"
 
 int main(int argc, char* argv[])
 {
@@ -36,7 +37,13 @@ int main(int argc, char* argv[])
 
 	ProcessParameter(argc, argv);
 
-	NFCPluginManager::GetSingletonPtr()->Begin();
+	std::vector<NFIPluginManager*> vecPluginManager = NFGlobalSystem::Instance()->GetPluginManagerList();
+
+	for(int i = 0; i < (int)vecPluginManager.size(); i++)
+    {
+        NFIPluginManager* pPluginManager = vecPluginManager[i];
+        pPluginManager->Begin();
+    }
 
 	uint64_t nIndex = 0;
 	bool bExitApp = false;
@@ -55,27 +62,32 @@ int main(int argc, char* argv[])
 			__try
 			{
 #endif
-				NFCPluginManager::GetSingletonPtr()->Execute();
-				if (NFCPluginManager::GetSingletonPtr()->GetReloadApp())
-				{
-					NFCPluginManager::GetSingletonPtr()->SetReloadApp(false);
-					NFCPluginManager::GetSingletonPtr()->OnReloadPlugin();
-				}
+            for(int i = 0; i < (int)vecPluginManager.size(); i++)
+            {
+                NFIPluginManager* pPluginManager = vecPluginManager[i];
+                pPluginManager->Execute();
+                if (pPluginManager->GetReloadApp())
+                {
+                    pPluginManager->SetReloadApp(false);
+                    pPluginManager->OnReloadPlugin();
+                }
 
-				if (NFCPluginManager::GetSingletonPtr()->GetChangeProfileApp())
-				{
-					NFCPluginManager::GetSingletonPtr()->SetChangeProfileApp(false);
-					NFCPluginManager::GetSingletonPtr()->SetOpenProfiler(!NFCPluginManager::GetSingletonPtr()->IsOpenProfiler());
-				}
+                if (pPluginManager->GetChangeProfileApp())
+                {
+                    pPluginManager->SetChangeProfileApp(false);
+                    pPluginManager->SetOpenProfiler(!pPluginManager->IsOpenProfiler());
+                }
 
-				if (NFCPluginManager::GetSingletonPtr()->GetShutDownApp())
-				{
-				    NFCPluginManager::GetSingletonPtr()->ShutDownApp();
-					NFSLEEP(1000);
-					exit(0);
-				}
+                if (pPluginManager->GetShutDownApp())
+                {
+                    pPluginManager->ShutDownApp();
+                    NFSLEEP(1000);
+                    exit(0);
+                }
 
-				bExitApp = NFCPluginManager::GetSingletonPtr()->GetExitApp();
+                bExitApp = pPluginManager->GetExitApp();
+            }
+
 #if NF_PLATFORM == NF_PLATFORM_WIN
 			}
 			__except (ApplicationCrashHandler(GetExceptionInformation()))
@@ -85,7 +97,11 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	NFCPluginManager::GetSingletonPtr()->End();
+    for(int i = 0; i < (int)vecPluginManager.size(); i++)
+    {
+        NFIPluginManager* pPluginManager = vecPluginManager[i];
+        pPluginManager->End();
+    }
 
 	return 0;
 }

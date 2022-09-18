@@ -53,33 +53,9 @@ public:
 class NFIPluginManager
 {
 public:
-    static NFIPluginManager* GetSingletonPtr();
-
-    static NFIPluginManager* Instance()
-    {
-        return GetSingletonPtr();
-    }
-
-    static void ReleaseInstance()
-    {
-        if (m_pInstance)
-        {
-            delete m_pInstance;
-            m_pInstance = NULL;
-        }
-    }
-
-private:
-    static NFIPluginManager* m_pInstance;
-public:
 	NFIPluginManager()
 	{
-#if defined( _MSC_VER ) && _MSC_VER < 1200
-        int offset = (int)(T*)1 - (int)(Singleton <T>*)(T*)1;
-		m_pInstance = (T*)((int)this + offset);
-#else
-        m_pInstance = static_cast<NFIPluginManager*>(this);
-#endif
+
 	}
 
 	virtual ~NFIPluginManager()

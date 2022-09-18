@@ -51,18 +51,6 @@ int sigar_net_address_to_string(sigar_t *sigar,
 #include "NFComm/NFPluginModule/NFCheck.h"
 #endif
 
-NFIPluginManager* NFIPluginManager::m_pInstance = nullptr;
-
-NFIPluginManager* NFIPluginManager::GetSingletonPtr()
-{
-    if (nullptr == m_pInstance)
-    {
-		m_pInstance = new NFCPluginManager();
-    }
-
-    return m_pInstance;
-}
-
 NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 {
 	m_nCurFrameCount = 0;
@@ -206,11 +194,10 @@ bool NFCPluginManager::Begin()
 
 bool NFCPluginManager::End()
 {
-	NFCPluginManager::GetSingletonPtr()->BeforeShut();
-	NFCPluginManager::GetSingletonPtr()->Shut();
-	NFCPluginManager::GetSingletonPtr()->Finalize();
+	BeforeShut();
+	Shut();
+	Finalize();
 
-	NFCPluginManager::GetSingletonPtr()->ReleaseInstance();
 	return true;
 }
 

@@ -17,6 +17,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFProto/NFXmlMessageCodec.h"
+#include "NFComm/NFCore/NFCommon.h"
 
 #ifdef GetMessage
 #undef GetMessage

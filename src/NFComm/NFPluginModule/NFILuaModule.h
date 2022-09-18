@@ -10,7 +10,6 @@
 
 #define LUAINTF_LINK_LUA_COMPILED_IN_CXX 0
 #include "LuaBind/luaintf/LuaIntf.h"
-#include "NFIModule.h"
 
 #include <iostream>
 #include <vector>
