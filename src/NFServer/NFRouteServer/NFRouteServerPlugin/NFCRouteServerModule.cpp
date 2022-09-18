@@ -45,9 +45,9 @@ bool NFCRouteServerModule::Awake()
 	//注册要完成的服务器启动任务
 	m_pPluginManager->RegisterAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_MASTER, ROUTE_SERVER_CONNECT_MASTER_SERVER);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_ROUTE_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig) {
-        m_pPluginManager->SetIdelSleepUs(pConfig->mIdleSleepUs);
+        m_pPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_ROUTE_SERVER, pConfig->mUrl,
                                                                 pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (unlinkId >= 0) {
@@ -104,7 +104,7 @@ void NFCRouteServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCRouteServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_ROUTE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_ROUTE_SERVER);
@@ -137,7 +137,7 @@ bool NFCRouteServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_ROUTE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig && pConfig->mNamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_SERVER);
@@ -300,7 +300,7 @@ int NFCRouteServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t
 int NFCRouteServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_ROUTE_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -339,7 +339,7 @@ int NFCRouteServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_ROUTE_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;

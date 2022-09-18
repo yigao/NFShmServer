@@ -52,9 +52,9 @@ bool NFCStoreServerModule::Awake() {
 	m_pPluginManager->RegisterAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_MASTER, STORE_SERVER_CONNECT_MASTER_SERVER);
 	m_pPluginManager->RegisterAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, STORE_SERVER_CONNECT_ROUTE_AGENT_SERVER);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     if (pConfig) {
-        m_pPluginManager->SetIdelSleepUs(pConfig->mIdleSleepUs);
+        m_pPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
 
         FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
 		for (int i = 0; i < (int)pConfig->mVecMysqlDbName.size(); i++)
@@ -148,7 +148,7 @@ void NFCStoreServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCStoreServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_STORE_SERVER);
@@ -174,7 +174,7 @@ int NFCStoreServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
 
 bool NFCStoreServerModule::Init()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
@@ -250,7 +250,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, u
                                        const char *msg, uint32_t nLen) {
     NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
     proto_ff::Proto_SvrPkg xMsg;
@@ -619,7 +619,7 @@ int NFCStoreServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t
 int NFCStoreServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -663,7 +663,7 @@ int NFCStoreServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -743,7 +743,7 @@ int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 {
     NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     CHECK_NULL(pConfig);
 
     if (!m_pPluginManager->IsLoadAllServer())
@@ -811,7 +811,7 @@ int NFCStoreServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint
 int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_STORE_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;

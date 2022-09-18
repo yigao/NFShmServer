@@ -79,7 +79,7 @@ int NFRobotMgr::Init()
     m_checkTimer = SetTimer(1000, 0, 0, 0, 0, 0);
     NFIPluginManager::Instance()->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_LOAD_GAME_ROBOT_FROM_DB, "Load Robot From DB", APP_INIT_STATUS_SERVER_LOAD_OBJ_FROM_DB);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
         for(int i = 0; i < (int)pConfig->mRoomIdList.size(); i++)

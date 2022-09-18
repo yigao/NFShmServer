@@ -44,7 +44,7 @@ bool NFCSnsServerModule::Awake()
 	m_pPluginManager->RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, SNS_SERVER_CONNECT_ROUTEAGENT_SERVER);
     m_pPluginManager->RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_NEED_STORE_SERVER, SNS_SERVER_CHECK_STORE_SERVER);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
 		if (!m_pPluginManager->IsLoadAllServer())
@@ -130,7 +130,7 @@ void NFCSnsServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCSnsServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     if (pConfig)
     {
         auto pMsterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_SNS_SERVER);
@@ -154,7 +154,7 @@ int NFCSnsServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xD
 
 bool NFCSnsServerModule::Init()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     NF_ASSERT(pConfig);
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_SNS_SERVER);
@@ -313,7 +313,7 @@ int NFCSnsServerModule::OnHandleServerReport(uint64_t unLinkId, uint64_t playerI
 int NFCSnsServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -352,7 +352,7 @@ int NFCSnsServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -409,7 +409,7 @@ int NFCSnsServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
 {
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_NULL(pConfig);
 
     if (!m_pPluginManager->IsLoadAllServer())
@@ -476,7 +476,7 @@ int NFCSnsServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint64
 int NFCSnsServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;

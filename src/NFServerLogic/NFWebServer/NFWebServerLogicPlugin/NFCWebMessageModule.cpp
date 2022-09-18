@@ -56,7 +56,7 @@ int NFCWebMessageModule::OnHandleRegisterAccountPhoneAutoCodeReq(uint64_t unLink
     proto_ff::LTWebPhoneAuthCodeReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, loginLinkId, msg, nLen, xMsg);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     CHECK_NULL(pConfig);
 
     uint32_t loginBusId = GetServerIndexFromUnlinkId(loginLinkId);
@@ -126,7 +126,7 @@ int NFCWebMessageModule::OnHandleAccountPhoneCheckCodeReq(uint64_t unLinkId, uin
     proto_ff::LTWebPhoneCheckCodeReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, loginLinkId, msg, nLen, xMsg);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     CHECK_NULL(pConfig);
 
     uint32_t loginBusId = GetServerIndexFromUnlinkId(loginLinkId);
@@ -208,7 +208,7 @@ int NFCWebMessageModule::OnHandlePlayerPhoneAutoCodeReq(uint64_t unLinkId, uint6
     proto_ff::LTWebPhoneAuthCodeReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, logicLinkId, msg, nLen, xMsg);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     CHECK_NULL(pConfig);
 
     uint32_t logicBusId = GetServerIndexFromUnlinkId(logicLinkId);
@@ -274,7 +274,7 @@ int NFCWebMessageModule::OnHandlePlayerPhoneCheckCodeReq(uint64_t unLinkId, uint
     proto_ff::LTWebPhoneCheckCodeReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, logicLinkId, msg, nLen, xMsg);
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     CHECK_NULL(pConfig);
 
     uint32_t logicBusId = GetServerIndexFromUnlinkId(logicLinkId);

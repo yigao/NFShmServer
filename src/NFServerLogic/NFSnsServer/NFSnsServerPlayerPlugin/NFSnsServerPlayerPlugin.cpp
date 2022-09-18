@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFSnsServerPlayerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -64,7 +64,7 @@ void NFSnsServerPlayerPlugin::Uninstall()
 
 bool NFSnsServerPlayerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_SNS_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;

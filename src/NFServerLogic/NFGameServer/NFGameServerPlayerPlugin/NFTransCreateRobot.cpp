@@ -312,7 +312,7 @@ int NFTransCreateRobot::ProGetSimpleInfoReq()
 }
 
 int NFTransCreateRobot::CreateRobotAccount() {
-    mAccount = NFMD5::md5str(NFConfigMgr::Instance()->GetGameDbName(NF_ST_GAME_SERVER) + "_robot_" + NFRandomString(8) + NFCommon::tostr(NFGetTime()));
+    mAccount = NFMD5::md5str(FindModule<NFIConfigModule>()->GetGameDbName(NF_ST_GAME_SERVER) + "_robot_" + NFRandomString(8) + NFCommon::tostr(NFGetTime()));
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(mAccount.GetString());
     accountInfo.set_password(NFMD5::md5str(accountInfo.account() + NFRandomString(8)));

@@ -31,7 +31,7 @@ bool NFCProxyClientModule::Awake()
     //////来自客户端的协议////////////////////////////////////////
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig) {
         if (!m_pPluginManager->IsLoadAllServer()) {
             if (pConfig->mServerType != NF_ST_PROXY_SERVER) {
@@ -88,7 +88,7 @@ bool NFCProxyClientModule::OnDynamicPlugin()
 
 void NFCProxyClientModule::OnTimer(uint32_t nTimerID)
 {
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_EXPR(pConfig, , "");
 
     std::vector<uint64_t> vec;

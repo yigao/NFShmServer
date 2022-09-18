@@ -37,12 +37,12 @@ public:
     int ServerReport();
 
 	int SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerData);
-	int OnServerRegisterProcess(uint64_t unLinkId, const NFDataPackage& packet);
-	int OnServerReportProcess(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
+	int OnServerReportProcess(uint64_t unLinkId, NFDataPackage& packet);
 
-	int OnServerDumpInfoProcess(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPackage& packet);
 
-    int OnServerKillAllServerProcess(uint64_t unLinkId, const NFDataPackage& packet);
+    int OnServerKillAllServerProcess(uint64_t unLinkId, NFDataPackage& packet);
 
     bool HandleReloadServer(uint32_t, const NFIHttpHandle &req);
     bool HandleReloadAllServer(uint32_t, const NFIHttpHandle &req);
@@ -54,20 +54,20 @@ public:
     bool HandleStopAllServer(uint32_t, const NFIHttpHandle &req);
     bool HandleKillAllServer(uint32_t, const NFIHttpHandle &req);
 
-    int HandleStopSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleStartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleRestartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleReloadSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleStopAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packetn);
-    int HandleStartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleRestartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
-    int HandleReloadAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet);
+    int HandleStopSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleStartSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleRestartSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleReloadSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleStopAllSeverRsp(uint64_t unLinkId, NFDataPackage& packetn);
+    int HandleStartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleRestartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
+    int HandleReloadAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet);
 
     int OnGlobalSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleGlobalOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
+    int OnHandleGlobalOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     int RegisterGlobalServer();
 protected:
 	int OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 	int OnClientDisconnect(uint64_t unLinkId);
 };

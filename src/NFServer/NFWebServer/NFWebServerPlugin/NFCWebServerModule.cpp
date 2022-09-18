@@ -44,7 +44,7 @@ bool NFCWebServerModule::Awake() {
     m_pPluginManager->RegisterAppTask(NF_ST_WEB_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, WEB_SERVER_CONNECT_ROUTE_AGENT_SERVER);
 
 
-    NFServerConfig *pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig) {
         std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->mServerIp, pConfig->mHttpPort);
         int ret = FindModule<NFIMessageModule>()->BindServer(NF_ST_WEB_SERVER, httpUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -132,7 +132,7 @@ void NFCWebServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCWebServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_WEB_SERVER);
@@ -158,7 +158,7 @@ int NFCWebServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xD
 
 bool NFCWebServerModule::Init()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     NF_ASSERT(pConfig);
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_WEB_SERVER);
@@ -271,7 +271,7 @@ int NFCWebServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t p
 int NFCWebServerModule::RegisterMasterServer()
 {
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;
@@ -310,7 +310,7 @@ int NFCWebServerModule::ServerReport()
 
     mLastReportTime = m_pPluginManager->GetNowTime();
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;
@@ -385,7 +385,7 @@ int NFCWebServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
 {
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     CHECK_NULL(pConfig);
 
     if (!m_pPluginManager->IsLoadAllServer())
@@ -453,7 +453,7 @@ int NFCWebServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint64
 int NFCWebServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WEB_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;

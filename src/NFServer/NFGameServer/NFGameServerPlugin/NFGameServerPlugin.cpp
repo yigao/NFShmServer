@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameServerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -52,7 +52,7 @@ void NFGameServerPlugin::Uninstall()
 
 bool NFGameServerPlugin::InitShmObjectRegister()
 {
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	NF_ASSERT(pConfig);
 
 	//uint32_t maxRoomNum = pConfig->GetMaxRoomNum();

@@ -118,7 +118,7 @@ int NFCGameRoomModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t by
 			RegisterGameRoom();
             NFPaoMaDengMgr::Instance()->Init();
 
-			NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+			NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 			if (pConfig)
 			{
 				NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "========> pConfig->mRobotOn = {}", pConfig->mRobotOn);
@@ -180,7 +180,7 @@ int NFCGameRoomModule::OnHandleRegisterResp(uint64_t unLinkId, uint64_t playerId
 
 int NFCGameRoomModule::CreateGameRoom()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
         for(int i = 0; i < (int)pConfig->mRoomIdList.size(); i++)
@@ -230,7 +230,7 @@ int NFCGameRoomModule::RegisterGameRoom()
         NFGameRoom* pGameRoom = vecRoom[i];
         if (pGameRoom)
         {
-            NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+            NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
             if (pConfig)
             {
                 proto_ff::GameRoomRegReq xMsg;
@@ -262,7 +262,7 @@ int NFCGameRoomModule::UpdateGameRoom()
         NFGameRoom* pGameRoom = vecRoom[i];
         if (pGameRoom)
         {
-            NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+            NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
             if (pConfig)
             {
                 proto_ff::GameRoomRegReq xMsg;
@@ -876,7 +876,7 @@ int NFCGameRoomModule::GameRobotMgrPolling()
 	int robotNumPerDesk = 2;
 	uint32_t robotShootInterval = 500;
 	bool isRobotNeedRealPlayer = true;
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
 	{
 		robotNumPerDesk = pConfig->mRobotNumPerDesk;

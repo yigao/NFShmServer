@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFUserDetailHashTable.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -219,7 +219,7 @@ int NFUserDetailMgr::UserLogin(NFUserDetail *pPlayer, bool isLoadDB)
 int NFUserDetailMgr::OnUserLogin(NFUserDetail *pPlayer, bool isLoadDB)
 {
 	CHECK_NULL(pPlayer);
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     CHECK_NULL(pConfig);
 
 	proto_ff::Proto_LogicToSnsLoginReq reqMsg;
@@ -290,7 +290,7 @@ int NFUserDetailMgr::UserReconnect(NFUserDetail *pPlayer)
 int NFUserDetailMgr::OnUserReconnect(NFUserDetail *pPlayer)
 {
     CHECK_NULL(pPlayer);
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     CHECK_NULL(pConfig);
 
     proto_ff::LTSNotifyPlayerReconnectReq xMsg;

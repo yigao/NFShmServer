@@ -31,7 +31,7 @@ NFCGameConfigModule::~NFCGameConfigModule()
 void NFCGameConfigModule::UnRegisterRoomInfo()
 {
 	//这里没调用到？
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
 		proto_ff::GameRoomUnRegReq xMsg;
@@ -56,7 +56,7 @@ void NFCGameConfigModule::UnRegisterRoomInfo()
 void NFCGameConfigModule::UpdateRoomInfo(uint32_t onlinecount)
 {
 	//这里没调用到？
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
         proto_ff::GameRoomUnRegReq xMsg;

@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameServerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -52,7 +52,7 @@ void NFWorldServerPlugin::Uninstall()
 
 bool NFWorldServerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     NF_ASSERT(pConfig);
 
     //uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;

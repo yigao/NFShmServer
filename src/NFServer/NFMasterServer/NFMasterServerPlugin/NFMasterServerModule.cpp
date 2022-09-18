@@ -104,7 +104,7 @@ bool NFCMasterServerModule::Awake()
 	return true;
 }
 
-int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
 	proto_ff::ServerInfoReportList xMsg;
@@ -151,7 +151,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, const NFDa
 	return 0;
 }
 
-int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
@@ -180,7 +180,7 @@ int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, const NFData
     return 0;
 }
 
-int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_STMasterServerDumpInfoNtf xMsg;
@@ -214,7 +214,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, const NFDa
     return 0;
 }
 
-int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
     proto_ff::Proto_KillAllServerNtf xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -248,7 +248,7 @@ int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId
 	return 0;
 }
 
-int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
@@ -530,7 +530,7 @@ bool NFCMasterServerModule::HandleKillAllServer(uint32_t, const NFIHttpHandle &r
     return true;
 }
 
-int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
@@ -544,7 +544,7 @@ int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, const NFDataPac
     return 0;
 }
 
-int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
@@ -558,7 +558,7 @@ int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, const NFData
     return 0;
 }
 
-int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
@@ -572,7 +572,7 @@ int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, const NFDataPa
     return 0;
 }
 
-int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
@@ -586,7 +586,7 @@ int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, const NFDat
     return 0;
 }
 
-int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
@@ -600,7 +600,7 @@ int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, const NFData
     return 0;
 }
 
-int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
@@ -614,7 +614,7 @@ int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, const NFD
     return 0;
 }
 
-int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
@@ -628,7 +628,7 @@ int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, const NFDataP
     return 0;
 }
 
-int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
@@ -717,7 +717,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
 /*
 	处理Master服务器未注册协议
 */
-int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
     std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);

@@ -48,7 +48,7 @@ bool NFCWorldServerModule::Awake()
 	m_pPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, WORLD_SERVER_CONNECT_ROUTEAGENT_SERVER);
 	m_pPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_NEED_STORE_SERVER, WORLD_SERVER_CHECK_STORE_SERVER);
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_WORLD_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -172,7 +172,7 @@ void NFCWorldServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCWorldServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_WORLD_SERVER);
@@ -196,7 +196,7 @@ int NFCWorldServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
 
 bool NFCWorldServerModule::Init()
 {
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	NF_ASSERT(pConfig);
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_WORLD_SERVER);
@@ -373,7 +373,7 @@ int NFCWorldServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t
 int NFCWorldServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -412,7 +412,7 @@ int NFCWorldServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -561,7 +561,7 @@ int NFCWorldServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     CHECK_NULL(pConfig);
 
     if (pConfig->mRouteAgent != xData.bus_name())
@@ -625,7 +625,7 @@ int NFCWorldServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint
 int NFCWorldServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -668,7 +668,7 @@ int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     CHECK_NULL(pConfig);
 
     if (pConfig->mRouteAgent != xData.route_svr())
@@ -710,7 +710,7 @@ int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 int NFCWorldServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_WORLD_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;

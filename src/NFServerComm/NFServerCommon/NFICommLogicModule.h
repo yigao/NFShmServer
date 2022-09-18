@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFICommLogicModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -11,8 +11,6 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
-#include "NFComm/NFMessageDefine/proto_common.pb.h"
 
 class NFICommLogicModule : public NFIDynamicModule
 {

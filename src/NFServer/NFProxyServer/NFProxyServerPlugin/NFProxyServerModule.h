@@ -37,17 +37,17 @@ public:
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
 	int RegisterMasterServer();
 	int ServerReport();
-	int OnHandleMasterServerReport(uint64_t unLinkId, const NFDataPackage& packet);
-    int OnHandleProxyAgentServerReport(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnHandleMasterServerReport(uint64_t unLinkId, NFDataPackage& packet);
+    int OnHandleProxyAgentServerReport(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleOtherReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId);
     int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId);
 
     int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleProxyServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
+    int OnHandleProxyServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleProxyServerDisconnect(uint64_t unLinkId);
 
     int RegisterProxyAgentServer(uint64_t unLinkId);

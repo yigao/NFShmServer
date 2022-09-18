@@ -40,7 +40,7 @@ bool NFGlobalServerModule::Awake()
     FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "killserver", NF_HTTP_REQ_GET, this, &NFGlobalServerModule::HandleKillServer);
     FindModule<NFIMessageModule>()->AddHttpRequestHandler(NF_ST_MASTER_SERVER, "killserver", NF_HTTP_REQ_POST, this, &NFGlobalServerModule::HandleKillServer);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MASTER_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_MASTER_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);

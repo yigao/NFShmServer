@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameServerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -57,7 +57,7 @@ void NFLoginServerPlayerPlugin::Uninstall()
 
 bool NFLoginServerPlayerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;

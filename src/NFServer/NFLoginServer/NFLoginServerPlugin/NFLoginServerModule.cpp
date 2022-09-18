@@ -48,7 +48,7 @@ bool NFCLoginServerModule::Awake()
 	m_pPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, LOGIN_SERVER_CONNECT_ROUTEAGENT_SERVER);
     m_pPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_NEED_STORE_SERVER, LOGIN_SERVER_CHECK_STORE_SERVER);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	if (pConfig)
 	{
 		int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_LOGIN_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -172,7 +172,7 @@ void NFCLoginServerModule::OnTimer(uint32_t nTimerID)
 
 int NFCLoginServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
     if (pConfig)
     {
         auto pMsterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_LOGIN_SERVER);
@@ -196,7 +196,7 @@ int NFCLoginServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
 
 bool NFCLoginServerModule::Init()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
     NF_ASSERT(pConfig);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
@@ -433,7 +433,7 @@ int NFCLoginServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport
 int NFCLoginServerModule::RegisterMasterServer()
 {
 	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -472,7 +472,7 @@ int NFCLoginServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -521,7 +521,7 @@ int NFCLoginServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 {
 	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
     CHECK_NULL(pConfig);
 
     if (pConfig->mRouteAgent != xData.bus_name())
@@ -564,7 +564,7 @@ int NFCLoginServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 {
 	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	CHECK_NULL(pConfig);
 
     if (pConfig->mRouteAgent != xData.route_svr())
@@ -621,7 +621,7 @@ int NFCLoginServerModule::OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_
 int NFCLoginServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -682,7 +682,7 @@ int NFCLoginServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint
 int NFCLoginServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;

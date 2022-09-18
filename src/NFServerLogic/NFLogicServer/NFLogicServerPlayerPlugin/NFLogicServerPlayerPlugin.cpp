@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFLogicServerPlayerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -67,7 +67,7 @@ void NFLogicServerPlayerPlugin::Uninstall()
 
 bool NFLogicServerPlayerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;

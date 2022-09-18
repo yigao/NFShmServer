@@ -49,7 +49,7 @@ bool NFCGameServerModule::Awake()
 	m_pPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, GAME_SERVER_CONNECT_ROUTEAGENT_SERVER);
 	m_pPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_NEED_STORE_SERVER, GAME_SERVER_CHECK_STORE_SERVER);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
 	{
 		int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_GAME_SERVER, pConfig->mUrl, pConfig->mNetThreadNum, pConfig->mMaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -127,7 +127,7 @@ void NFCGameServerModule::OnTimer(uint32_t nTimerID)
 
 int NFCGameServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_GAME_SERVER);
@@ -170,7 +170,7 @@ bool NFCGameServerModule::Init()
         CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
     });
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 
     if (pConfig->mLinkMode == "bus")
@@ -324,7 +324,7 @@ int NFCGameServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t 
 
 int NFCGameServerModule::RegisterMasterServer()
 {
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -363,7 +363,7 @@ int NFCGameServerModule::ServerReport()
 
 	mLastReportTime = m_pPluginManager->GetNowTime();
 
-	NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
 	{
 		proto_ff::ServerInfoReportList xMsg;
@@ -512,7 +512,7 @@ int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepo
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     CHECK_NULL(pConfig);
 
     if (!m_pPluginManager->IsLoadAllServer())
@@ -568,7 +568,7 @@ int NFCGameServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint6
 int NFCGameServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;

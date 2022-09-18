@@ -251,7 +251,7 @@ int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 /*
 	处理Master服务器未注册协议
 */
-int NFCProxyServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCProxyServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
@@ -351,7 +351,7 @@ int NFCProxyServerModule::ServerReport()
 	return 0;
 }
 
-int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
     /*
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
@@ -359,7 +359,7 @@ int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, const NF
 	proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_PROXY_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_NULL(pConfig);
 
 	for (int i = 0; i < xMsg.server_list_size(); ++i)
@@ -378,7 +378,7 @@ int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, const NF
     return 0;
 }
 
-int NFCProxyServerModule::OnHandleProxyAgentServerReport(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCProxyServerModule::OnHandleProxyAgentServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
 
@@ -439,7 +439,7 @@ int NFCProxyServerModule::OnHandleProxyServerDisconnect(uint64_t unLinkId) {
     return 0;
 }
 
-int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet)
+int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
     uint32_t busId = packet.nParam2;

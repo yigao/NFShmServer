@@ -86,7 +86,7 @@ bool NFCMonitorServerModule::Awake() {
 
 int NFCMonitorServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
 {
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MONITOR_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MONITOR_SERVER);
     if (pConfig)
     {
         auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_MONITOR_SERVER);
@@ -212,7 +212,7 @@ int NFCMonitorServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64
 int NFCMonitorServerModule::RegisterMasterServer()
 {
     NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MONITOR_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MONITOR_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;
@@ -251,7 +251,7 @@ int NFCMonitorServerModule::ServerReport()
 
     mLastReportTime = m_pPluginManager->GetNowTime();
 
-    NFServerConfig* pConfig = NFConfigMgr::Instance()->GetAppConfig(NF_ST_MONITOR_SERVER);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MONITOR_SERVER);
     if (pConfig)
     {
         proto_ff::ServerInfoReportList xMsg;

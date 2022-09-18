@@ -9,10 +9,6 @@
 
 #pragma once
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
-#include <NFComm/NFPluginModule/NFEventObj.h>
-#include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFCommLogicHead.h"
 
 
 class NFCProxyAgentServerModule : public NFIDynamicModule
@@ -37,9 +33,9 @@ public:
     处理ProxyServer链接事件和未注册消息
     */
     int OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleProxyAgentServerOtherMessage(uint64_t unLinkId, uint64_t value, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleProxyAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleProxyServerDisconnect(uint64_t unLinkId);
-    int OnServerRegisterProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
     int OnOtherServerRegisterProcess(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId);
 
 	/*
@@ -47,14 +43,14 @@ public:
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
 	int RegisterMasterServer();
     int RegisterProxyServer(uint64_t unLinkId);
 	int ServerReport();
-	int OnHandleServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleProxyReport(const proto_ff::ServerInfoReport& xData);
 
     int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleProxyOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleProxyOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 };
