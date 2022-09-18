@@ -42,4 +42,6 @@ bool NFGlobalSystem::LoadConfig(const std::string& path)
         std::cout << "AllMoreServer no server" << std::endl;
         assert(0);
     }
+
+    return true;
 }
