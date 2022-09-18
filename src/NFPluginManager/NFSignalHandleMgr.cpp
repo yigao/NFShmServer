@@ -8,6 +8,7 @@
 
 #include "NFSignalHandleMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFGlobalSystem.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFCPluginManager.h"
 #include <signal.h>
@@ -1053,7 +1054,7 @@ void FailureSignalHandler(int signal_number,
 	siginfo_t *signal_info,
 	void *ucontext) {
     //before every thing
-    NFIPluginManager::Instance()->ShutDownApp();
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->ShutDownApp();
 
 	// First check if we've already entered the function.  We use an atomic
 	// compare and swap operation for platforms that support it.  For other
@@ -1113,9 +1114,9 @@ void FailureSignalHandler(int signal_number,
         dumpInfo += "\n";
 	}
 
-    NFFileUtility::WriteFile(NFIPluginManager::Instance()->GetAppName()+"_"+NFIPluginManager::Instance()->GetBusName()+"_dump.log", dumpInfo.data(), dumpInfo.length());
+    NFFileUtility::WriteFile(NFGlobalSystem::Instance()->GetGlobalPluginManager()->GetAppName()+"_"+NFGlobalSystem::Instance()->GetGlobalPluginManager()->GetBusName()+"_dump.log", dumpInfo.data(), dumpInfo.length());
 
-	NFIPluginManager::Instance()->SendDumpInfo(dumpInfo);
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->SendDumpInfo(dumpInfo);
 
 	NFSLEEP(1000000);
 
@@ -1138,15 +1139,15 @@ void  HandleSignal(int signo)
 	switch (signo)
 	{
 	case SIGUSR1:
-		NFCPluginManager::GetSingletonPtr()->SetExitApp(true);
+        NFGlobalSystem::Instance()->GetGlobalPluginManager()->SetExitApp(true);
 		break;
 	case SIGUSR2:
-		NFCPluginManager::GetSingletonPtr()->SetReloadApp(true);
+        NFGlobalSystem::Instance()->GetGlobalPluginManager()->SetReloadApp(true);
 		break;
 	case SIGUNUSED:
 	case SIGTERM:
 	{
-		NFCPluginManager::GetSingletonPtr()->SetShutDownApp(true);
+        NFGlobalSystem::Instance()->GetGlobalPluginManager()->SetShutDownApp(true);
 	}
 	break;
 	default:

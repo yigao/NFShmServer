@@ -2,6 +2,7 @@
 #include <NFComm/NFPluginModule/NFProtobufCommon.h>
 #include "NFRedisDriver.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFCore/NFCommon.h"
 
 NFRedisDriver::NFRedisDriver()
 {
