@@ -416,6 +416,7 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
 					}
                 }
             }
+            return m_appConfig;
         }
         return GetServerConfig(eServerType);
     }
