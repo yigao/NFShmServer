@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFIBusConnect.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -20,7 +20,7 @@
 #include "NFIConnection.h"
 #include <map>
 
-typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, const NFDataPackage& packetd)> BusMsgPeerCallback;
+typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, NFDataPackage& packetd)> BusMsgPeerCallback;
 
 struct MsgFromBusInfo
 {

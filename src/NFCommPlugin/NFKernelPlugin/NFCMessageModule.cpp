@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFCMsgModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -126,27 +126,35 @@ void NFCMessageModule::CloseLinkId(uint64_t usLinkId)
     }
 }
 
-void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2)
+void NFCMessageModule::Send(uint64_t usLinkId, NFDataPackage& packet)
 {
     if (m_driver)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2);
+        m_driver->Send(usLinkId, packet);
     }
 }
 
-void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
+void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     if (m_driver)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2);
+        m_driver->Send(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, srcId, dstId);
     }
 }
 
-void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2)
+void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     if (m_driver)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2);
+        m_driver->Send(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, srcId, dstId);
+    }
+}
+
+void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
+{
+    if (m_driver)
+    {
+        m_driver->Send(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, srcId, dstId);
     }
 }
 
@@ -470,7 +478,7 @@ bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
 	return false;
 }
 
-int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet)
+int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet)
 {
 	uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
 	if (eServerType < mxCallBack.size()) {
@@ -548,7 +556,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
 	return 0;
 }
 
-int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet) {
+int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet) {
     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
     if (eServerType < mxCallBack.size()) {
         uint64_t startTime = NFGetMicroSecondTime();

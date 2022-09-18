@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFCBusModule.h
 //    @Author           :    Yi.Gao
 //    @Date             :   2022-09-18
@@ -88,11 +88,11 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet);
+    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet);
 
 	virtual void OnHandleMsgQueue();
 
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet);
 
     virtual int ResumeConnect() override;
 private:

@@ -373,7 +373,7 @@ void NFCNetMessageDriverModule::CloseLinkId(uint64_t usLinkId)
 	NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2)
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     NFDataPackage packet;
     packet.mModuleId = nModuleId;
@@ -381,10 +381,12 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     packet.mStrMsg = strData;
     packet.nParam1 = nParam1;
     packet.nParam2 = nParam2;
+    packet.nSrcId = srcId;
+    packet.nDstId = dstId;
     Send(usLinkId, packet);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     NFDataPackage packet;
     packet.mModuleId = nModuleId;
@@ -392,16 +394,20 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     packet.mStrMsg = std::string(msg, nLen);
     packet.nParam1 = nParam1;
     packet.nParam2 = nParam2;
+    packet.nSrcId = srcId;
+    packet.nDstId = dstId;
     Send(usLinkId, packet);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2)
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     NFDataPackage packet;
     packet.mModuleId = nModuleId;
     packet.nMsgId = nMsgID;
     packet.nParam1 = nParam1;
     packet.nParam2 = nParam2;
+    packet.nSrcId = srcId;
+    packet.nDstId = dstId;
     if (!xData.SerializeToString(&packet.mStrMsg))
     {
         return;

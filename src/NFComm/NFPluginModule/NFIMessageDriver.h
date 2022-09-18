@@ -27,7 +27,7 @@ public:
 	 *@brief  设置接收回调.
 	 */
 	template <typename BaseType>
-	void SetRecvCB(BaseType* pBaseType, int (BaseType::*handleRecieve)(uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet))
+	void SetRecvCB(BaseType* pBaseType, int (BaseType::*handleRecieve)(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet))
 	{
 		NET_CALLBACK_RECEIVE_FUNCTOR func = std::bind(handleRecieve, pBaseType, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 		SetRecvCB(func);
@@ -109,11 +109,11 @@ public:
 
 	virtual void CloseLinkId(uint64_t usLinkId) = 0;
 
-    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 
-    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg,uint32_t nLen, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg,uint32_t nLen, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 
-    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
+    virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 

@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFEvppServer.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -239,7 +239,7 @@ protected:
 	 * @param nValue  消息头携带的值，可能是玩家ID，也可能是对方客户端连接的唯一id
 	 * @return
 	 */
-	virtual void OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet);
+	virtual void OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet);
 
     /**
      * @brief	发送数据 不包含数据头

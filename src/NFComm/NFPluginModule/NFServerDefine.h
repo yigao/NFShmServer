@@ -161,9 +161,9 @@ struct NFDataPackage
     std::string mStrMsg;
 };
 
-typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, const NFDataPackage& packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
+typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
 
-typedef std::function<int(uint64_t unLinkId, const NFDataPackage& packet)> NET_RECEIVE_FUNCTOR;
+typedef std::function<int(uint64_t unLinkId, NFDataPackage& packet)> NET_RECEIVE_FUNCTOR;
 
 typedef std::function<int(eMsgType nEvent, uint64_t unLinkId)> NET_EVENT_FUNCTOR;
 

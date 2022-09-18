@@ -79,7 +79,8 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                     pObject->SetConnPtr(pMsg->mTCPConPtr);
                                     pObject->SetIsServer(false);
                                     pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, NFDataPackage());
+                                    NFDataPackage tmpPacket;
+                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
                                 }
                                 else
                                 {
@@ -93,7 +94,8 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 if (pObject)
                                 {
                                     pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, NFDataPackage());
+                                    NFDataPackage tmpPacket;
+                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
                                 }
                                 else
                                 {
@@ -128,7 +130,8 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                             }
 
                             pObject->mConnPtr = NULL;
-                            OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pObject->m_usLinkId, NFDataPackage());
+                            NFDataPackage tmpPacket;
+                            OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pObject->m_usLinkId, tmpPacket);
                         }
 
                         pMsg->mTCPConPtr->set_context(evpp::Any());
@@ -139,11 +142,13 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                         for (size_t i = 0; i < m_connectionList.size(); i++) {
                             if (m_connectionList[i]->GetLinkId() == pMsg->nLinkId) {
                                 if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT) {
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pMsg->nLinkId, NFDataPackage());
+                                    NFDataPackage tmpPacket;
+                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pMsg->nLinkId, tmpPacket);
                                 }
                                 else
                                 {
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, 0, NFDataPackage());
+                                    NFDataPackage tmpPacket;
+                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, 0, tmpPacket);
                                 }
                             }
                         }
@@ -549,7 +554,7 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& package)
     return false;
 }
 
-void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, const NFDataPackage& packet)
+void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet)
 {
 	switch (type)
 	{
