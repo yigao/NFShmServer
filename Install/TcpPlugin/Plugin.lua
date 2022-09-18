@@ -101,10 +101,11 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFShmPlugin",
 			"NFServerCommonPlugin",
 
 			"NFProxyServerPlugin",
-			"NFProxyClientPlugin",
+			--"NFProxyClientPlugin",
 		};
 		ServerType = NF_ST_PROXY_SERVER;
 	},

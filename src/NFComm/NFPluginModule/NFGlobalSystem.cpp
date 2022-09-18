@@ -36,7 +36,7 @@ bool NFGlobalSystem::LoadConfig(const std::string& path)
     }
 
     NFProtobufCommon::LuaToProtoMessage(pluginRef, &m_gAllMoreServerConfig);
-    std::cout << "all more server config:{}" << m_gAllMoreServerConfig.DebugString() << std::endl;
+    std::cout << "all more server config:" << m_gAllMoreServerConfig.DebugString() << std::endl;
     if (m_gAllMoreServerConfig.serverlist_size() <= 0)
     {
         std::cout << "AllMoreServer no server" << std::endl;

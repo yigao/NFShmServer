@@ -70,10 +70,23 @@ void ProcessParameter(int argc, char* argv[])
         NFCmdLine::NFParser cmdParser;
 
         cmdParser.Add("AllMoreServer", 0, "more server, must use different loaded server");
-        cmdParser.Add<std::string>("Server", 0, "Server Name", true, "AllServer");
-        cmdParser.Add<std::string>("ID", 0, "Server ID", true, "1.1.1.1");
-        cmdParser.Add<std::string>("Config", 0, "Config Path", true, "../../Config");
-        cmdParser.Add<std::string>("Plugin", 0, "Config Path", true, "../../Plugin");
+        cmdParser.Add<std::string>("Server", 0, "Server Name", false, "AllServer");
+        cmdParser.Add<std::string>("ID", 0, "Server ID", false, "1.1.1.1");
+        cmdParser.Add<std::string>("Config", 0, "Config Path", false, "../../Config");
+        cmdParser.Add<std::string>("Path", 0, "Config Path", false, "../../Config");
+        cmdParser.Add<std::string>("Plugin", 0, "Config Path", false, "../../Plugin");
+        cmdParser.Add<std::string>("LogPath", 0, "Log Path", false, "logs");
+        cmdParser.Add<std::string>("LuaScript", 0, "Lua Script Path", false, "../ScriptModule");
+        cmdParser.Add("XButton", 'x', "Close the 'X' button, only on windows");
+        cmdParser.Add("Daemon", 'd', "Run it as daemon mode, only on linux");
+        cmdParser.Add("Stop", 0, "Stop the run server, only on linux");
+        cmdParser.Add("Reload", 0, "Reload the run server, only on linux");
+        cmdParser.Add("Quit", 0, "Quit the run server, only on linux");
+        cmdParser.Add("Restart", 0, "close the run server, restart new proc, only on linux");
+        cmdParser.Add("Start", 0, "Start the run server, only on linux");
+        cmdParser.Add("Init", 0, "change shm mode to init, only on linux");
+        cmdParser.Add("Kill", 0, "kill the run server, only on linux");
+        cmdParser.Add<std::string>("Param", 0, "Temp Param, You love to use it", false, "Param");
 
         cmdParser.Usage();
 
