@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFCLoginServerModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFILogicServerModule.h"
+#include "NFServerComm/NFServerCommon/NFILogicServerModule.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
 
 class NFCLogicServerModule : public NFILogicServerModule

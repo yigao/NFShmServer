@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFProxyServerModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFServer/NFCommHead/NFIProxyClientModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"

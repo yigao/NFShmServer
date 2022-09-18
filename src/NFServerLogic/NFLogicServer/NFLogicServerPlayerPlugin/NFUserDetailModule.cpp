@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFUserDetailModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -18,7 +18,7 @@
 #include "NFUserDetail/NFUserDetailMgr.h"
 #include "NFUserDetail/NFTransGetEventLog.h"
 #include "NFUserDetail/NFPlayerBindPhoneTrans.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 
 
 NFCUserDetailModule::NFCUserDetailModule(NFIPluginManager *p) : NFIUserDetailModule(p) {

@@ -16,7 +16,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_game.pb.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFComm/NFCore/NFMD5.h"
 
 #include "NFGameSession.h"

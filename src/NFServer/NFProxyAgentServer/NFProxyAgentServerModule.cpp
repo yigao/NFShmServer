@@ -13,10 +13,10 @@
 #include <NFComm/NFPluginModule/NFEventDefine.h>
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFServer/NFCommHead/NFIProxyClientModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"

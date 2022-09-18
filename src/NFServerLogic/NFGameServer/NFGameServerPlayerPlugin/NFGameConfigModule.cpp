@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameConfigModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -10,7 +10,7 @@
 #include "NFGameConfigModule.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFServer/NFCommHead/NFIGameServerModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFMessageDefine/ResMeta.pb.h"

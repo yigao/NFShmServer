@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFWorldPaoMaDengMgr.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -13,7 +13,7 @@
 #include "NFGameRoomMgr.h"
 #include "NFGameRoom.h"
 #include "NFComm/NFCore/NFRandom.hpp"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 
 NFPaoMaDengMgr::NFPaoMaDengMgr() {
 

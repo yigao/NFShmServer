@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFWorldLoginModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -10,7 +10,7 @@
 #include "NFWorldPlayerModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/ResMeta.pb.h"
 #include "NFWorldPlayer.h"

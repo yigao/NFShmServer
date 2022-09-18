@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameServerModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFIRouteServerModule.h"
+#include "NFServerComm/NFServerCommon/NFIRouteServerModule.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 

@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
-#include "NFServer/NFCommHead/NFIMasterServerModule.h"
+#include "NFServerComm/NFServerCommon/NFIMasterServerModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "NFComm/NFMessageDefine/proto_common.pb.h"
 

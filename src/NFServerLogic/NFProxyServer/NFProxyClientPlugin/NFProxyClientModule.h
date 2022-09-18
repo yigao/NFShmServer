@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFProxyClientModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFServer/NFCommHead/NFIProxyClientModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFComm/NFMessageDefine/proto_cs_login.pb.h"

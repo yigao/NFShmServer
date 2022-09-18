@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameRoomModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -13,7 +13,7 @@
 #include "NFGameRoomMgr.h"
 #include "NFComm/NFShmCore/NFSubGameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFServer/NFCommHead/NFIGameServerModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"

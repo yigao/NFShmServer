@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFCProxyClientModule.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -9,10 +9,10 @@
 
 #include "NFProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFServer/NFCommHead/NFIProxyServerModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"

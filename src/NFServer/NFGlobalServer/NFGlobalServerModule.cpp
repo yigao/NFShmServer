@@ -14,7 +14,7 @@
 
 #include <NFComm/NFPluginModule/NFConfigMgr.h>
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"

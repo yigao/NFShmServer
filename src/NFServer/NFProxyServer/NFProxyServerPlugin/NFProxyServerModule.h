@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFProxyServerModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -8,11 +8,10 @@
 // -------------------------------------------------------------------------
 
 #pragma once
-#include "NFServer/NFCommHead/NFIProxyServerModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include <NFComm/NFPluginModule/NFEventObj.h>
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFCommLogicHead.h"
 
 
 class NFCProxyServerModule : public NFIProxyServerModule

@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameDesk.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -26,7 +26,7 @@
 #include "NFGameLogHandle.h"
 #include "proto_error_code.pb.h"
 #include "NFGameLogHandle.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameDesk, EOT_GAME_DESK_ID, NFShmObj)
 NFGameDesk::NFGameDesk()

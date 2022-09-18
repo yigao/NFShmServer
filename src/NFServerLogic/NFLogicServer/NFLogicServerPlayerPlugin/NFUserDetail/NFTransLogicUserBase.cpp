@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFTransCreateUserDetail.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -15,7 +15,7 @@
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFServer/NFCommHead/NFICommLogicModule.h"
+#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 
 #include "NFUserDetail.h"
 #include "NFUserDetailMgr.h"

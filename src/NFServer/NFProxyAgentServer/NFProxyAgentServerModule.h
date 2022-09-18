@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #pragma once
-#include "NFServer/NFCommHead/NFIProxyServerModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include <NFComm/NFPluginModule/NFEventObj.h>
 #include "NFComm/NFCore/NFMap.hpp"

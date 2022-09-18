@@ -1,4 +1,4 @@
-// -------------------------------------------------------------------------
+﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFCSnsServerModule.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFISnsServerModule.h"
+#include "NFServerComm/NFServerCommon/NFISnsServerModule.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
 
 class NFCSnsServerModule : public NFISnsServerModule
