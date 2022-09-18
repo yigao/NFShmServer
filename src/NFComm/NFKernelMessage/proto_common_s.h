@@ -104,13 +104,28 @@ namespace proto_ff_s {
 	};
 	typedef struct pbNetConfig_s pbNetConfig_t;
 
+	struct pbAllServerConfig_s {
+		pbAllServerConfig_s();
+		int CreateInit();
+		int ResumeInit();
+		std::string Server;
+		std::string ID;
+		uint32_t ServerType;
+
+		void write_to_pbmsg(::proto_ff::pbAllServerConfig & msg) const;
+		void read_from_pbmsg(const ::proto_ff::pbAllServerConfig & msg);
+		static ::proto_ff::pbAllServerConfig* new_pbmsg(){ return new ::proto_ff::pbAllServerConfig(); }
+		static ::proto_ff::pbAllServerConfig make_pbmsg(){ return ::proto_ff::pbAllServerConfig(); }
+	};
+	typedef struct pbAllServerConfig_s pbAllServerConfig_t;
+
 	struct pbPluginConfig_s {
 		pbPluginConfig_s();
 		int CreateInit();
 		int ResumeInit();
 		uint32_t ServerType;
 		std::vector<std::string> ServerPlugins;
-		std::vector<std::string> ServerList;
+		std::vector<struct pbAllServerConfig_s> ServerList;
 
 		void write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const;
 		void read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg);

@@ -35,6 +35,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* pbNetConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNetConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbAllServerConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  pbAllServerConfig_reflection_ = NULL;
 const ::google::protobuf::Descriptor* pbPluginConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbPluginConfig_reflection_ = NULL;
@@ -156,7 +159,24 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbNetConfig));
-  pbPluginConfig_descriptor_ = file->message_type(5);
+  pbAllServerConfig_descriptor_ = file->message_type(5);
+  static const int pbAllServerConfig_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbAllServerConfig, server_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbAllServerConfig, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbAllServerConfig, servertype_),
+  };
+  pbAllServerConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      pbAllServerConfig_descriptor_,
+      pbAllServerConfig::default_instance_,
+      pbAllServerConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbAllServerConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbAllServerConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(pbAllServerConfig));
+  pbPluginConfig_descriptor_ = file->message_type(6);
   static const int pbPluginConfig_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, serverplugins_),
@@ -173,7 +193,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbPluginConfig));
-  pbNFServerConfig_descriptor_ = file->message_type(6);
+  pbNFServerConfig_descriptor_ = file->message_type(7);
   static const int pbNFServerConfig_offsets_[39] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
@@ -250,6 +270,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNetConfig_descriptor_, &pbNetConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    pbAllServerConfig_descriptor_, &pbAllServerConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbPluginConfig_descriptor_, &pbPluginConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
@@ -268,6 +290,8 @@ void protobuf_ShutdownFile_proto_5fcommon_2eproto() {
   delete pbRouteConfig_reflection_;
   delete pbNetConfig::default_instance_;
   delete pbNetConfig_reflection_;
+  delete pbAllServerConfig::default_instance_;
+  delete pbAllServerConfig_reflection_;
   delete pbPluginConfig::default_instance_;
   delete pbPluginConfig_reflection_;
   delete pbNFServerConfig::default_instance_;
@@ -309,40 +333,42 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "ort\030\005 \001(\r\022\025\n\rMaxConnectNum\030\006 \001(\r\022\025\n\rWork"
     "ThreadNum\030\007 \001(\r\022\024\n\014NetThreadNum\030\010 \001(\r\022\020\n"
     "\010Security\030\t \001(\010\022\021\n\tWebSocket\030\n \001(\010\022\022\n\nmP"
-    "arseType\030\013 \001(\r\"U\n\016pbPluginConfig\022\030\n\nServ"
-    "erType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003("
-    "\t\022\022\n\nServerList\030\003 \003(\t\"\254\006\n\020pbNFServerConf"
-    "ig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType"
-    "\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001("
-    "\r\022\021\n\tBusLength\030\005 \001(\r\022\017\n\007BusName\030\006 \001(\t\022\020\n"
-    "\010LinkMode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSlee"
-    "pUs\030\t \001(\r\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPor"
-    "t\030\025 \001(\r\022\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022Ext"
-    "ernalServerPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022"
-    "\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030"
-    "\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030"
-    "\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\022\n\nmParseType\030\036"
-    " \001(\r\022\020\n\010MasterIp\0302 \001(\t\022\022\n\nMasterPort\0303 \001"
-    "(\r\022\022\n\nNamingHost\0304 \001(\t\022\022\n\nNamingPath\0305 \001"
-    "(\t\022\022\n\nRouteAgent\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022"
-    "\021\n\tMysqlPort\030G \001(\r\022\023\n\013MysqlDbName\030H \001(\t\022"
-    "\021\n\tMysqlUser\030I \001(\t\022\025\n\rMysqlPassword\030J \001("
-    "\t\022\025\n\rDefaultDBName\030K \001(\t\022\017\n\007RedisIp\030P \001("
-    "\t\022\021\n\tRedisPort\030Q \001(\r\022\021\n\tRedisPass\030R \001(\t\022"
-    "\016\n\006WwwUrl\030Z \001(\t\022\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnl"
-    "inePlayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e"
-    " \001(\r\022\036\n\026ClientKeepAliveTimeout\030f \001(\r*\224\003\n"
-    "\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST"
-    "_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_SE"
-    "RVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_ST_"
-    "PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_FOR"
-    "_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\006\022"
-    "\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN_S"
-    "ERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_ST"
-    "_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013\022\024"
-    "\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERVER"
-    "\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_MA"
-    "X\020\024", 2403);
+    "arseType\030\013 \001(\r\"I\n\021pbAllServerConfig\022\024\n\006S"
+    "erver\030\001 \001(\tB\004\240\301\024\001\022\n\n\002ID\030\002 \001(\t\022\022\n\nServerT"
+    "ype\030\003 \001(\r\"r\n\016pbPluginConfig\022\030\n\nServerTyp"
+    "e\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003(\t\022/\n\n"
+    "ServerList\030\003 \003(\0132\033.proto_ff.pbAllServerC"
+    "onfig\"\254\006\n\020pbNFServerConfig\022\026\n\010ServerId\030\001"
+    " \001(\tB\004\240\301\024\001\022\022\n\nServerType\030\002 \001(\r\022\022\n\nServer"
+    "Name\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005"
+    " \001(\r\022\017\n\007BusName\030\006 \001(\t\022\020\n\010LinkMode\030\007 \001(\t\022"
+    "\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUs\030\t \001(\r\022\020\n\010Ser"
+    "verIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020Exter"
+    "nalServerIp\030\026 \001(\t\022\032\n\022ExternalServerPort\030"
+    "\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxConnectNum"
+    "\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n\014NetThre"
+    "adNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSock"
+    "et\030\035 \001(\010\022\022\n\nmParseType\030\036 \001(\r\022\020\n\010MasterIp"
+    "\0302 \001(\t\022\022\n\nMasterPort\0303 \001(\r\022\022\n\nNamingHost"
+    "\0304 \001(\t\022\022\n\nNamingPath\0305 \001(\t\022\022\n\nRouteAgent"
+    "\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022\021\n\tMysqlPort\030G \001"
+    "(\r\022\023\n\013MysqlDbName\030H \001(\t\022\021\n\tMysqlUser\030I \001"
+    "(\t\022\025\n\rMysqlPassword\030J \001(\t\022\025\n\rDefaultDBNa"
+    "me\030K \001(\t\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPort\030Q"
+    " \001(\r\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022"
+    "\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001"
+    "(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKe"
+    "epAliveTimeout\030f \001(\r*\224\003\n\016NF_SERVER_TYPE\022"
+    "\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001"
+    "\022\034\n\030NF_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_"
+    "ROUTE_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!"
+    "\n\035NF_ST_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_"
+    "ST_PROXY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_S"
+    "ERVER\020\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST"
+    "_WORLD_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022"
+    "\025\n\021NF_ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERV"
+    "ER\020\014\022\024\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONI"
+    "TOR_SERVER\020\016\022\r\n\tNF_ST_MAX\020\024", 2507);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -350,6 +376,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbRedisConfig::default_instance_ = new pbRedisConfig();
   pbRouteConfig::default_instance_ = new pbRouteConfig();
   pbNetConfig::default_instance_ = new pbNetConfig();
+  pbAllServerConfig::default_instance_ = new pbAllServerConfig();
   pbPluginConfig::default_instance_ = new pbPluginConfig();
   pbNFServerConfig::default_instance_ = new pbNFServerConfig();
   tbServerMgr::default_instance_->InitAsDefaultInstance();
@@ -357,6 +384,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbRedisConfig::default_instance_->InitAsDefaultInstance();
   pbRouteConfig::default_instance_->InitAsDefaultInstance();
   pbNetConfig::default_instance_->InitAsDefaultInstance();
+  pbAllServerConfig::default_instance_->InitAsDefaultInstance();
   pbPluginConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfig::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fcommon_2eproto);
@@ -2897,6 +2925,328 @@ void pbNetConfig::Swap(pbNetConfig* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int pbAllServerConfig::kServerFieldNumber;
+const int pbAllServerConfig::kIDFieldNumber;
+const int pbAllServerConfig::kServerTypeFieldNumber;
+#endif  // !_MSC_VER
+
+pbAllServerConfig::pbAllServerConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void pbAllServerConfig::InitAsDefaultInstance() {
+}
+
+pbAllServerConfig::pbAllServerConfig(const pbAllServerConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void pbAllServerConfig::SharedCtor() {
+  _cached_size_ = 0;
+  server_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  servertype_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+pbAllServerConfig::~pbAllServerConfig() {
+  SharedDtor();
+}
+
+void pbAllServerConfig::SharedDtor() {
+  if (server_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_;
+  }
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void pbAllServerConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* pbAllServerConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return pbAllServerConfig_descriptor_;
+}
+
+const pbAllServerConfig& pbAllServerConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+pbAllServerConfig* pbAllServerConfig::default_instance_ = NULL;
+
+pbAllServerConfig* pbAllServerConfig::New() const {
+  return new pbAllServerConfig;
+}
+
+void pbAllServerConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_server()) {
+      if (server_ != &::google::protobuf::internal::kEmptyString) {
+        server_->clear();
+      }
+    }
+    if (has_id()) {
+      if (id_ != &::google::protobuf::internal::kEmptyString) {
+        id_->clear();
+      }
+    }
+    servertype_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool pbAllServerConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string Server = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server().data(), this->server().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_ID;
+        break;
+      }
+
+      // optional string ID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ID:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->id().data(), this->id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_ServerType;
+        break;
+      }
+
+      // optional uint32 ServerType = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ServerType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &servertype_)));
+          set_has_servertype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void pbAllServerConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string Server = 1;
+  if (has_server()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server().data(), this->server().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->server(), output);
+  }
+
+  // optional string ID = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->id(), output);
+  }
+
+  // optional uint32 ServerType = 3;
+  if (has_servertype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->servertype(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* pbAllServerConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string Server = 1;
+  if (has_server()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server().data(), this->server().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->server(), target);
+  }
+
+  // optional string ID = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->id(), target);
+  }
+
+  // optional uint32 ServerType = 3;
+  if (has_servertype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->servertype(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int pbAllServerConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string Server = 1;
+    if (has_server()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server());
+    }
+
+    // optional string ID = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->id());
+    }
+
+    // optional uint32 ServerType = 3;
+    if (has_servertype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->servertype());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void pbAllServerConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const pbAllServerConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbAllServerConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void pbAllServerConfig::MergeFrom(const pbAllServerConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_server()) {
+      set_server(from.server());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_servertype()) {
+      set_servertype(from.servertype());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void pbAllServerConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void pbAllServerConfig::CopyFrom(const pbAllServerConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool pbAllServerConfig::IsInitialized() const {
+
+  return true;
+}
+
+void pbAllServerConfig::Swap(pbAllServerConfig* other) {
+  if (other != this) {
+    std::swap(server_, other->server_);
+    std::swap(id_, other->id_);
+    std::swap(servertype_, other->servertype_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata pbAllServerConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = pbAllServerConfig_descriptor_;
+  metadata.reflection = pbAllServerConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int pbPluginConfig::kServerTypeFieldNumber;
 const int pbPluginConfig::kServerPluginsFieldNumber;
 const int pbPluginConfig::kServerListFieldNumber;
@@ -3002,17 +3352,13 @@ bool pbPluginConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string ServerList = 3;
+      // repeated .proto_ff.pbAllServerConfig ServerList = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_ServerList:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_serverlist()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->serverlist(this->serverlist_size() - 1).data(),
-            this->serverlist(this->serverlist_size() - 1).length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_serverlist()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3053,12 +3399,9 @@ void pbPluginConfig::SerializeWithCachedSizes(
       2, this->serverplugins(i), output);
   }
 
-  // repeated string ServerList = 3;
+  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
   for (int i = 0; i < this->serverlist_size(); i++) {
-  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-    this->serverlist(i).data(), this->serverlist(i).length(),
-    ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->serverlist(i), output);
   }
 
@@ -3084,13 +3427,11 @@ void pbPluginConfig::SerializeWithCachedSizes(
       WriteStringToArray(2, this->serverplugins(i), target);
   }
 
-  // repeated string ServerList = 3;
+  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
   for (int i = 0; i < this->serverlist_size(); i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->serverlist(i).data(), this->serverlist(i).length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(3, this->serverlist(i), target);
+      WriteMessageNoVirtualToArray(
+        3, this->serverlist(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3119,11 +3460,12 @@ int pbPluginConfig::ByteSize() const {
       this->serverplugins(i));
   }
 
-  // repeated string ServerList = 3;
+  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
   total_size += 1 * this->serverlist_size();
   for (int i = 0; i < this->serverlist_size(); i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->serverlist(i));
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->serverlist(i));
   }
 
   if (!unknown_fields().empty()) {

@@ -182,6 +182,31 @@ void pbNetConfig_s::read_from_pbmsg(const ::proto_ff::pbNetConfig & msg) {
 	mParseType = msg.mparsetype();
 }
 
+pbAllServerConfig_s::pbAllServerConfig_s() {
+	CreateInit();
+}
+
+int pbAllServerConfig_s::CreateInit() {
+	ServerType = (uint32_t)0;
+	return 0;
+}
+
+int pbAllServerConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbAllServerConfig_s::write_to_pbmsg(::proto_ff::pbAllServerConfig & msg) const {
+	msg.set_server(Server);
+	msg.set_id(ID);
+	msg.set_servertype((uint32_t)ServerType);
+}
+
+void pbAllServerConfig_s::read_from_pbmsg(const ::proto_ff::pbAllServerConfig & msg) {
+	Server = msg.server();
+	ID = msg.id();
+	ServerType = msg.servertype();
+}
+
 pbPluginConfig_s::pbPluginConfig_s() {
 	CreateInit();
 }
@@ -201,7 +226,8 @@ void pbPluginConfig_s::write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const {
 		msg.add_serverplugins(ServerPlugins[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
-		msg.add_serverlist(ServerList[i]);
+		::proto_ff::pbAllServerConfig* temp_serverlist = msg.add_serverlist();
+		ServerList[i].write_to_pbmsg(*temp_serverlist);
 	}
 }
 
@@ -213,7 +239,8 @@ void pbPluginConfig_s::read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg) {
 	}
 	ServerList.resize(msg.serverlist_size());
 	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
-		ServerList[i] = msg.serverlist(i);
+		const ::proto_ff::pbAllServerConfig & temp_serverlist = msg.serverlist(i);
+		ServerList[i].read_from_pbmsg(temp_serverlist);
 	}
 }
 

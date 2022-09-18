@@ -11,6 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
+#include "NFComm/NFPluginModule/NFGlobalSystem.h"
 #include "NFSystemInfo.h"
 #include <functional>
 #include <assert.h>
@@ -144,7 +145,7 @@ public:
     T* FindModule()
     {
         static T* pStaticModule = NULL;
-        if (IsLoadAllServer())
+        if (NFGlobalSystem::Instance()->IsMoreServer())
         {
             NFIModule* pLogicModule = FindModule(typeid(T).name());
             if (pLogicModule)

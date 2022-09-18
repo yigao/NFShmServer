@@ -179,6 +179,8 @@ bool NFCConfigModule::LoadPluginConfig()
 bool NFCConfigModule::LoadServerConfig()
 {
 	std::map<std::string, NFLuaRef> vecLuaRef;
+	std::set<std::string> vecServerIDMap;
+	std::set<uint32_t> vecServerTypeMap;
 
 	if (m_pObjPluginManager->IsLoadAllServer())
     {
@@ -187,10 +189,17 @@ bool NFCConfigModule::LoadServerConfig()
         {
             for(int i = 0; i < (int)pAllServer->ServerList.size(); i++)
             {
-                NFLuaRef serverRef = GetGlobal(pAllServer->ServerList[i]);
+                proto_ff_s::pbAllServerConfig_s& serverInfo = pAllServer->ServerList[i];
+                NFLuaRef serverRef = GetGlobal(serverInfo.Server);
                 if (serverRef.isValid() && serverRef.isTable())
                 {
-                    vecLuaRef.emplace(pAllServer->ServerList[i], serverRef);
+                    CHECK_EXPR_ASSERT(vecLuaRef.find(serverInfo.Server) == vecLuaRef.end(), false, "all server config error, the server:{} exist", serverInfo.Server);
+                    CHECK_EXPR_ASSERT(vecServerIDMap.find(serverInfo.ID) == vecServerIDMap.end(), false, "all server config error, the server id:{} exist", serverInfo.ID);
+                    CHECK_EXPR_ASSERT(vecServerTypeMap.find(serverInfo.ServerType) == vecServerTypeMap.end(), false, "all server config error, the server type:{} exist", serverInfo.ServerType);
+
+                    vecLuaRef.emplace(serverInfo.Server, serverRef);
+                    vecServerIDMap.insert(serverInfo.ID);
+                    vecServerTypeMap.insert(serverInfo.ServerType);
                 }
             }
         }
@@ -281,16 +290,7 @@ bool NFCConfigModule::LoadServerConfig()
 
             if (m_pObjPluginManager->IsLoadAllServer())
             {
-                if (mServerConfig[pPbConfig->servertype()])
-                {
-                    int index = NFServerIDUtil::GetInstID(mServerConfig[pPbConfig->servertype()]->BusId);
-                    int curIndex = NFServerIDUtil::GetInstID(pPbConfig->busid());
-                    if (curIndex < index)
-                    {
-                        mServerConfig[pPbConfig->servertype()] = pConfig;
-                    }
-                }
-                else
+                if (vecServerIDMap.find(pPbConfig->serverid()) != vecServerIDMap.end())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
                 }
@@ -310,10 +310,26 @@ bool NFCConfigModule::LoadServerConfig()
         }
 	}
 
-    if (!m_pObjPluginManager->IsLoadAllServer())
+	//check all server
+    if (m_pObjPluginManager->IsLoadAllServer())
     {
-        NF_ASSERT(m_appConfig);
+        NFPluginConfig* pAllServer = GetPluginConfig(ALL_SERVER);
+        if (pAllServer)
+        {
+            bool flag = true;
+            for(int i = 0; i < (int)pAllServer->ServerList.size(); i++) {
+                proto_ff_s::pbAllServerConfig_s &serverInfo = pAllServer->ServerList[i];
+                if (mServerConfig[serverInfo.ServerType] == NULL)
+                {
+                    flag = false;
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the server:{},{} match error, can't find the config", serverInfo.Server, serverInfo.ID);
+                }
+            }
+            CHECK_EXPR_ASSERT(flag, false, "all server config error..........");
+        }
     }
+
+    CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config", m_pObjPluginManager->GetAppName());
 
 	return true;
 }

@@ -67,19 +67,20 @@ LoadPlugin =
 		};
 		ServerType = NF_ST_NONE;
 		ServerList = {
-            "MasterServer",
-			"LoginServer",
-			"GameServer",
-			"ProxyServer",
-			"WorldServer",
-			"RouteAgentServer",
-			"RouteServer",
-			"StoreServer",
-			"SnsServer",
-			"LogicServer",
-			"WebServer",
-			"MonitorServer",
-			"ProxyAgentServer",
+			{Server="MasterServer", ID="1.1.1.1", ServerType=NF_ST_MASTER_SERVER},
+			{Server="ProxyServer", ID="15.100.4.1", ServerType=NF_ST_PROXY_SERVER},
+			--{"LoginServer"},
+			--"GameServer",
+			--"ProxyServer",
+			--"WorldServer",
+			--"RouteAgentServer",
+			--"RouteServer",
+			--"StoreServer",
+			--"SnsServer",
+			--"LogicServer",
+			--"WebServer",
+			--"MonitorServer",
+			--"ProxyAgentServer",
 		};
 	},
 	MasterServer = {

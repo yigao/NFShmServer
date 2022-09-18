@@ -40,6 +40,7 @@ class pbMysqlConfig;
 class pbRedisConfig;
 class pbRouteConfig;
 class pbNetConfig;
+class pbAllServerConfig;
 class pbPluginConfig;
 class pbNFServerConfig;
 
@@ -863,6 +864,118 @@ class pbNetConfig : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class pbAllServerConfig : public ::google::protobuf::Message {
+ public:
+  pbAllServerConfig();
+  virtual ~pbAllServerConfig();
+
+  pbAllServerConfig(const pbAllServerConfig& from);
+
+  inline pbAllServerConfig& operator=(const pbAllServerConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbAllServerConfig& default_instance();
+
+  void Swap(pbAllServerConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  pbAllServerConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbAllServerConfig& from);
+  void MergeFrom(const pbAllServerConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string Server = 1;
+  inline bool has_server() const;
+  inline void clear_server();
+  static const int kServerFieldNumber = 1;
+  inline const ::std::string& server() const;
+  inline void set_server(const ::std::string& value);
+  inline void set_server(const char* value);
+  inline void set_server(const char* value, size_t size);
+  inline ::std::string* mutable_server();
+  inline ::std::string* release_server();
+  inline void set_allocated_server(::std::string* server);
+
+  // optional string ID = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIDFieldNumber = 2;
+  inline const ::std::string& id() const;
+  inline void set_id(const ::std::string& value);
+  inline void set_id(const char* value);
+  inline void set_id(const char* value, size_t size);
+  inline ::std::string* mutable_id();
+  inline ::std::string* release_id();
+  inline void set_allocated_id(::std::string* id);
+
+  // optional uint32 ServerType = 3;
+  inline bool has_servertype() const;
+  inline void clear_servertype();
+  static const int kServerTypeFieldNumber = 3;
+  inline ::google::protobuf::uint32 servertype() const;
+  inline void set_servertype(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbAllServerConfig)
+ private:
+  inline void set_has_server();
+  inline void clear_has_server();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_servertype();
+  inline void clear_has_servertype();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* server_;
+  ::std::string* id_;
+  ::google::protobuf::uint32 servertype_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbAllServerConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class pbPluginConfig : public ::google::protobuf::Message {
  public:
   pbPluginConfig();
@@ -940,21 +1053,17 @@ class pbPluginConfig : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& serverplugins() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_serverplugins();
 
-  // repeated string ServerList = 3;
+  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
   inline int serverlist_size() const;
   inline void clear_serverlist();
   static const int kServerListFieldNumber = 3;
-  inline const ::std::string& serverlist(int index) const;
-  inline ::std::string* mutable_serverlist(int index);
-  inline void set_serverlist(int index, const ::std::string& value);
-  inline void set_serverlist(int index, const char* value);
-  inline void set_serverlist(int index, const char* value, size_t size);
-  inline ::std::string* add_serverlist();
-  inline void add_serverlist(const ::std::string& value);
-  inline void add_serverlist(const char* value);
-  inline void add_serverlist(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& serverlist() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_serverlist();
+  inline const ::proto_ff::pbAllServerConfig& serverlist(int index) const;
+  inline ::proto_ff::pbAllServerConfig* mutable_serverlist(int index);
+  inline ::proto_ff::pbAllServerConfig* add_serverlist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig >&
+      serverlist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig >*
+      mutable_serverlist();
 
   // @@protoc_insertion_point(class_scope:proto_ff.pbPluginConfig)
  private:
@@ -964,7 +1073,7 @@ class pbPluginConfig : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::std::string> serverplugins_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> serverlist_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig > serverlist_;
   ::google::protobuf::uint32 servertype_;
 
   mutable int _cached_size_;
@@ -3128,6 +3237,172 @@ inline void pbNetConfig::set_mparsetype(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// pbAllServerConfig
+
+// optional string Server = 1;
+inline bool pbAllServerConfig::has_server() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbAllServerConfig::set_has_server() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbAllServerConfig::clear_has_server() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbAllServerConfig::clear_server() {
+  if (server_ != &::google::protobuf::internal::kEmptyString) {
+    server_->clear();
+  }
+  clear_has_server();
+}
+inline const ::std::string& pbAllServerConfig::server() const {
+  return *server_;
+}
+inline void pbAllServerConfig::set_server(const ::std::string& value) {
+  set_has_server();
+  if (server_ == &::google::protobuf::internal::kEmptyString) {
+    server_ = new ::std::string;
+  }
+  server_->assign(value);
+}
+inline void pbAllServerConfig::set_server(const char* value) {
+  set_has_server();
+  if (server_ == &::google::protobuf::internal::kEmptyString) {
+    server_ = new ::std::string;
+  }
+  server_->assign(value);
+}
+inline void pbAllServerConfig::set_server(const char* value, size_t size) {
+  set_has_server();
+  if (server_ == &::google::protobuf::internal::kEmptyString) {
+    server_ = new ::std::string;
+  }
+  server_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbAllServerConfig::mutable_server() {
+  set_has_server();
+  if (server_ == &::google::protobuf::internal::kEmptyString) {
+    server_ = new ::std::string;
+  }
+  return server_;
+}
+inline ::std::string* pbAllServerConfig::release_server() {
+  clear_has_server();
+  if (server_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_;
+    server_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbAllServerConfig::set_allocated_server(::std::string* server) {
+  if (server_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_;
+  }
+  if (server) {
+    set_has_server();
+    server_ = server;
+  } else {
+    clear_has_server();
+    server_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string ID = 2;
+inline bool pbAllServerConfig::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbAllServerConfig::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbAllServerConfig::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbAllServerConfig::clear_id() {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    id_->clear();
+  }
+  clear_has_id();
+}
+inline const ::std::string& pbAllServerConfig::id() const {
+  return *id_;
+}
+inline void pbAllServerConfig::set_id(const ::std::string& value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void pbAllServerConfig::set_id(const char* value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void pbAllServerConfig::set_id(const char* value, size_t size) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbAllServerConfig::mutable_id() {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  return id_;
+}
+inline ::std::string* pbAllServerConfig::release_id() {
+  clear_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = id_;
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbAllServerConfig::set_allocated_id(::std::string* id) {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
+  if (id) {
+    set_has_id();
+    id_ = id;
+  } else {
+    clear_has_id();
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 ServerType = 3;
+inline bool pbAllServerConfig::has_servertype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbAllServerConfig::set_has_servertype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbAllServerConfig::clear_has_servertype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbAllServerConfig::clear_servertype() {
+  servertype_ = 0u;
+  clear_has_servertype();
+}
+inline ::google::protobuf::uint32 pbAllServerConfig::servertype() const {
+  return servertype_;
+}
+inline void pbAllServerConfig::set_servertype(::google::protobuf::uint32 value) {
+  set_has_servertype();
+  servertype_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // pbPluginConfig
 
 // optional uint32 ServerType = 1;
@@ -3196,46 +3471,27 @@ pbPluginConfig::mutable_serverplugins() {
   return &serverplugins_;
 }
 
-// repeated string ServerList = 3;
+// repeated .proto_ff.pbAllServerConfig ServerList = 3;
 inline int pbPluginConfig::serverlist_size() const {
   return serverlist_.size();
 }
 inline void pbPluginConfig::clear_serverlist() {
   serverlist_.Clear();
 }
-inline const ::std::string& pbPluginConfig::serverlist(int index) const {
+inline const ::proto_ff::pbAllServerConfig& pbPluginConfig::serverlist(int index) const {
   return serverlist_.Get(index);
 }
-inline ::std::string* pbPluginConfig::mutable_serverlist(int index) {
+inline ::proto_ff::pbAllServerConfig* pbPluginConfig::mutable_serverlist(int index) {
   return serverlist_.Mutable(index);
 }
-inline void pbPluginConfig::set_serverlist(int index, const ::std::string& value) {
-  serverlist_.Mutable(index)->assign(value);
-}
-inline void pbPluginConfig::set_serverlist(int index, const char* value) {
-  serverlist_.Mutable(index)->assign(value);
-}
-inline void pbPluginConfig::set_serverlist(int index, const char* value, size_t size) {
-  serverlist_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* pbPluginConfig::add_serverlist() {
+inline ::proto_ff::pbAllServerConfig* pbPluginConfig::add_serverlist() {
   return serverlist_.Add();
 }
-inline void pbPluginConfig::add_serverlist(const ::std::string& value) {
-  serverlist_.Add()->assign(value);
-}
-inline void pbPluginConfig::add_serverlist(const char* value) {
-  serverlist_.Add()->assign(value);
-}
-inline void pbPluginConfig::add_serverlist(const char* value, size_t size) {
-  serverlist_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig >&
 pbPluginConfig::serverlist() const {
   return serverlist_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig >*
 pbPluginConfig::mutable_serverlist() {
   return &serverlist_;
 }
