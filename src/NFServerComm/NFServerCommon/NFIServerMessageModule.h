@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFIMsgModule.h
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFPluginModule
 //
 // -------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 #include <functional>
 
 
-/// @brief »ùÓÚÏûÏ¢µÄÍ¨Ñ¶½Ó¿ÚÀà
+/// @brief åŸºäºæ¶ˆæ¯çš„é€šè®¯æ¥å£ç±»
 class NFIServerMessageModule : public NFIDynamicModule
 {
 public:

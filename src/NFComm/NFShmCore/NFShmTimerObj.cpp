@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFShmTimerObj.cpp
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFPluginModule
 //
 // -------------------------------------------------------------------------
@@ -57,7 +57,7 @@ int NFShmTimerObj::DeleteTimer(int timeObjId)
     return iRet;
 }
 
-//×¢²á¾àÀëÏÖÔÚ¶àÉÙÊ±¼äÖ´ĞĞÒ»´ÎµÄ¶¨Ê±Æ÷(hour  minutes  second  microSecÎªµÚÒ»´ÎÖ´ĞĞ¾àÀëÏÖÔÚµÄÊ±·ÖÃëºÁÃë, Ö»Ö´ĞĞÒ»´Î)
+//æ³¨å†Œè·ç¦»ç°åœ¨å¤šå°‘æ—¶é—´æ‰§è¡Œä¸€æ¬¡çš„å®šæ—¶å™¨(hour  minutes  second  microSecä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œè·ç¦»ç°åœ¨çš„æ—¶åˆ†ç§’æ¯«ç§’, åªæ‰§è¡Œä¸€æ¬¡)
 int NFShmTimerObj::SetTimer(int hour, int minutes, int second, int microSec)
 {
 	int timerId = FindModule<NFISharedMemModule>()->SetTimer(this, hour, minutes, second, microSec);
@@ -74,7 +74,7 @@ int NFShmTimerObj::SetTimer(int hour, int minutes, int second, int microSec)
     return timerId;
 }
 
-//×¢²áÄ³Ò»¸öÊ±¼äµãÖ´ĞĞÒ»´ÎµÄ¶¨Ê±Æ÷(hour  minutes  secondÎªµÚÒ»´ÎÖ´ĞĞµÄÊ±¼äµãÊ±·ÖÃë, Ö»Ö´ĞĞÒ»´Î)
+//æ³¨å†ŒæŸä¸€ä¸ªæ—¶é—´ç‚¹æ‰§è¡Œä¸€æ¬¡çš„å®šæ—¶å™¨(hour  minutes  secondä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œçš„æ—¶é—´ç‚¹æ—¶åˆ†ç§’, åªæ‰§è¡Œä¸€æ¬¡)
 int NFShmTimerObj::SetCalender(int hour, int minutes, int second)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetCalender(this, hour, minutes, second);
@@ -91,7 +91,7 @@ int NFShmTimerObj::SetCalender(int hour, int minutes, int second)
     return timerId;
 }
 
-//×¢²áÄ³Ò»¸öÊ±¼äµãÖ´ĞĞÒ»´ÎµÄ¶¨Ê±Æ÷(timestampÎªµÚÒ»´ÎÖ´ĞĞµÄÊ±¼äµãµÄÊ±¼ä´Á,µ¥Î»ÊÇÃë, Ö»Ö´ĞĞÒ»´Î)
+//æ³¨å†ŒæŸä¸€ä¸ªæ—¶é—´ç‚¹æ‰§è¡Œä¸€æ¬¡çš„å®šæ—¶å™¨(timestampä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œçš„æ—¶é—´ç‚¹çš„æ—¶é—´æˆ³,å•ä½æ˜¯ç§’, åªæ‰§è¡Œä¸€æ¬¡)
 int NFShmTimerObj::SetCalender(uint64_t timestamp)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetCalender(this, timestamp);
@@ -108,7 +108,7 @@ int NFShmTimerObj::SetCalender(uint64_t timestamp)
     return timerId;
 }
 
-//×¢²áÑ­»·Ö´ĞĞ¶¨Ê±Æ÷£¨hour  minutes  second  microSecÎªµÚÒ»´ÎÖ´ĞĞ¾àÀëÏÖÔÚµÄÊ±·ÖÃëºÁÃë,  interval ÎªÑ­»·¼ä¸ôÊ±¼ä£¬ÎªºÁÃë£©
+//æ³¨å†Œå¾ªç¯æ‰§è¡Œå®šæ—¶å™¨ï¼ˆhour  minutes  second  microSecä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œè·ç¦»ç°åœ¨çš„æ—¶åˆ†ç§’æ¯«ç§’,  interval ä¸ºå¾ªç¯é—´éš”æ—¶é—´ï¼Œä¸ºæ¯«ç§’ï¼‰
 int NFShmTimerObj::SetTimer(int interval, int callcount, int hour, int minutes, int second, int microSec)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetTimer(this, interval, callcount, hour, minutes, second, microSec);
@@ -125,7 +125,7 @@ int NFShmTimerObj::SetTimer(int interval, int callcount, int hour, int minutes, 
     return timerId;
 }
 
-//×¢²áÑ­»·Ö´ĞĞ¶¨Ê±Æ÷£¨hour  minutes  second  microSecÎªµÚÒ»´ÎÖ´ĞĞ¾àÀëÏÖÔÚµÄÊ±·ÖÃëºÁÃë£©
+//æ³¨å†Œå¾ªç¯æ‰§è¡Œå®šæ—¶å™¨ï¼ˆhour  minutes  second  microSecä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œè·ç¦»ç°åœ¨çš„æ—¶åˆ†ç§’æ¯«ç§’ï¼‰
 int NFShmTimerObj::SetDayTime(int callcount, int hour, int minutes, int second, int microSec)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetDayTime(this, callcount, hour, minutes, second, microSec);
@@ -142,7 +142,7 @@ int NFShmTimerObj::SetDayTime(int callcount, int hour, int minutes, int second, 
     return timerId;
 }
 
-//×¢²áÄ³Ò»¸öÊ±¼äµãÈÕÑ­»·Ö´ĞĞ¶¨Ê±Æ÷£¨hour  minutes  secondÎªÒ»ÌìÖĞ¿ªÊ¼Ö´ĞĞµÄÊ±¼äµã£¬    23£º23£º23     Ã¿Ìì23µã23·Ö23ÃëÖ´ĞĞ£©
+//æ³¨å†ŒæŸä¸€ä¸ªæ—¶é—´ç‚¹æ—¥å¾ªç¯æ‰§è¡Œå®šæ—¶å™¨ï¼ˆhour  minutes  secondä¸ºä¸€å¤©ä¸­å¼€å§‹æ‰§è¡Œçš„æ—¶é—´ç‚¹ï¼Œ    23ï¼š23ï¼š23     æ¯å¤©23ç‚¹23åˆ†23ç§’æ‰§è¡Œï¼‰
 int NFShmTimerObj::SetDayCalender(int callcount, int hour, int minutes, int second)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetDayCalender(this, callcount, hour, minutes, second);
@@ -159,7 +159,7 @@ int NFShmTimerObj::SetDayCalender(int callcount, int hour, int minutes, int seco
     return timerId;
 }
 
-//ÖÜÑ­»·£¨hour  minutes  second  microSecÎªµÚÒ»´ÎÖ´ĞĞ¾àÀëÏÖÔÚµÄÊ±·ÖÃëºÁÃë£©
+//å‘¨å¾ªç¯ï¼ˆhour  minutes  second  microSecä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œè·ç¦»ç°åœ¨çš„æ—¶åˆ†ç§’æ¯«ç§’ï¼‰
 int NFShmTimerObj::SetWeekTime(int callcount, int hour, int minutes, int second, int microSec)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetWeekTime(this, callcount, hour, minutes, second, microSec);
@@ -176,7 +176,7 @@ int NFShmTimerObj::SetWeekTime(int callcount, int hour, int minutes, int second,
     return timerId;
 }
 
-//×¢²áÄ³Ò»¸öÊ±¼äµãÖÜÑ­»·Ö´ĞĞ¶¨Ê±Æ÷£¨ weekDay  hour  minutes  second ÎªÒ»ÖÜÖĞÄ³Ò»Ìì¿ªÊ¼Ö´ĞĞµÄÊ±¼äµã£©
+//æ³¨å†ŒæŸä¸€ä¸ªæ—¶é—´ç‚¹å‘¨å¾ªç¯æ‰§è¡Œå®šæ—¶å™¨ï¼ˆ weekDay  hour  minutes  second ä¸ºä¸€å‘¨ä¸­æŸä¸€å¤©å¼€å§‹æ‰§è¡Œçš„æ—¶é—´ç‚¹ï¼‰
 int NFShmTimerObj::SetWeekCalender(int callcount, int weekDay, int hour, int minutes, int second)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetWeekCalender(this, callcount, weekDay, hour, minutes, second);
@@ -193,7 +193,7 @@ int NFShmTimerObj::SetWeekCalender(int callcount, int weekDay, int hour, int min
     return timerId;
 }
 
-//ÔÂÑ­»·£¨hour  minutes  second  microSecÎªµÚÒ»´ÎÖ´ĞĞ¾àÀëÏÖÔÚµÄÊ±·ÖÃëºÁÃë,×îºÃÊÇÍ¬Ò»Ìì£©
+//æœˆå¾ªç¯ï¼ˆhour  minutes  second  microSecä¸ºç¬¬ä¸€æ¬¡æ‰§è¡Œè·ç¦»ç°åœ¨çš„æ—¶åˆ†ç§’æ¯«ç§’,æœ€å¥½æ˜¯åŒä¸€å¤©ï¼‰
 int NFShmTimerObj::SetMonthTime(int callcount, int hour, int minutes, int second, int microSec)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetMonthTime(this, callcount, hour, minutes, second, microSec);
@@ -210,7 +210,7 @@ int NFShmTimerObj::SetMonthTime(int callcount, int hour, int minutes, int second
     return timerId;
 }
 
-//×¢²áÄ³Ò»¸öÊ±¼äµãÔÂÑ­»·Ö´ĞĞ¶¨Ê±Æ÷£¨ day  hour  minutes  second ÎªÒ»ÔÂÖĞÄ³Ò»Ìì¿ªÊ¼Ö´ĞĞµÄÊ±¼äµã£©
+//æ³¨å†ŒæŸä¸€ä¸ªæ—¶é—´ç‚¹æœˆå¾ªç¯æ‰§è¡Œå®šæ—¶å™¨ï¼ˆ day  hour  minutes  second ä¸ºä¸€æœˆä¸­æŸä¸€å¤©å¼€å§‹æ‰§è¡Œçš„æ—¶é—´ç‚¹ï¼‰
 int NFShmTimerObj::SetMonthCalender(int callcount, int day, int hour, int minutes, int second)
 {
     int timerId = FindModule<NFISharedMemModule>()->SetMonthCalender(this, callcount, day, hour, minutes, second);

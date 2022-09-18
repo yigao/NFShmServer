@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFConcurrentQueue.h
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFConcurrentQueue.h
 //
 // -------------------------------------------------------------------------

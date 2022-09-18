@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFITaskComponent.h
 //    @Author           :    Gao.Yi
-//    @Date             :   xxxx-xx-xx
+//    @Date             :   2022-09-18
 //    @Module           :    NFITaskComponent
 //
 //
@@ -31,7 +31,7 @@
 #include <string>
 
 /*
-Ïß³Ì³ØµÄÏß³Ì»ùÀà
+çº¿ç¨‹æ± çš„çº¿ç¨‹åŸºç±»
 */
 
 class NFTask
@@ -52,13 +52,13 @@ public:
 
 	enum TPTaskState
 	{
-		/// Ò»¸öÈÎÎñÒÑ¾­Íê³É
+		/// ä¸€ä¸ªä»»åŠ¡å·²ç»å®Œæˆ
 		TPTASK_STATE_COMPLETED = 0,
 
-		/// ¼ÌĞøÔÚÖ÷Ïß³ÌÖ´ĞĞ
+		/// ç»§ç»­åœ¨ä¸»çº¿ç¨‹æ‰§è¡Œ
 		TPTASK_STATE_CONTINUE_MAINTHREAD = 1,
 
-		// ¼ÌĞøÔÚ×ÓÏß³ÌÖ´ĞĞ
+		// ç»§ç»­åœ¨å­çº¿ç¨‹æ‰§è¡Œ
 		TPTASK_STATE_CONTINUE_CHILDTHREAD = 2,
 	};
 
@@ -78,23 +78,23 @@ public:
 	}
 
 	/**
-	**  Òì²½Ïß³Ì´¦Àíº¯Êı£¬½«ÔÚÁíÒ»¸öÏß³ÌÀïÔËĞĞ
+	**  å¼‚æ­¥çº¿ç¨‹å¤„ç†å‡½æ•°ï¼Œå°†åœ¨å¦ä¸€ä¸ªçº¿ç¨‹é‡Œè¿è¡Œ
 	*/
 	virtual bool ThreadProcess() = 0;
 
 	/**
-	** Ö÷Ïß³Ì´¦Àíº¯Êı£¬½«ÔÚÏß³Ì´¦ÀíÍêºó£¬Ìá½»¸øÖ÷ÏÈÀ´´¦Àí£¬¸ù¾İ·µ»Øº¯ÊıÊÇ·ñ¼ÌĞø´¦Àí
-		·µ»ØÖµ£º thread::TPTask::TPTaskState£¬ Çë²Î¿´TPTaskState
+	** ä¸»çº¿ç¨‹å¤„ç†å‡½æ•°ï¼Œå°†åœ¨çº¿ç¨‹å¤„ç†å®Œåï¼Œæäº¤ç»™ä¸»å…ˆæ¥å¤„ç†ï¼Œæ ¹æ®è¿”å›å‡½æ•°æ˜¯å¦ç»§ç»­å¤„ç†
+		è¿”å›å€¼ï¼š thread::TPTask::TPTaskStateï¼Œ è¯·å‚çœ‹TPTaskState
 	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 public:
-	bool m_needManThreadProcess; //ÊÇ·ñĞèÒªÖ÷Ïß³Ì´¦Àí
-	uint64_t m_balanceId; //¶¯Ì¬¾ùºâID, Èç¹ûÊÇÍæ¼Ò¾ÍÊÇÍæ¼ÒCharId, Èç¹û²»ÊÇÒ»°ãÌî0
-	uint32_t m_useTime; //´¦Àí¹ı³ÌÊ¹ÓÃÊ±¼ä
-	std::string m_taskName; //Òì²½ÈÎÎñÃû×Ö
+	bool m_needManThreadProcess; //æ˜¯å¦éœ€è¦ä¸»çº¿ç¨‹å¤„ç†
+	uint64_t m_balanceId; //åŠ¨æ€å‡è¡¡ID, å¦‚æœæ˜¯ç©å®¶å°±æ˜¯ç©å®¶CharId, å¦‚æœä¸æ˜¯ä¸€èˆ¬å¡«0
+	uint32_t m_useTime; //å¤„ç†è¿‡ç¨‹ä½¿ç”¨æ—¶é—´
+	std::string m_taskName; //å¼‚æ­¥ä»»åŠ¡åå­—
 	uint32_t m_handleActorId;
 	uint64_t m_handleStartTime;
 };

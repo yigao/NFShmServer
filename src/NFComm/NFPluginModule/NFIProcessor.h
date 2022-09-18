@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFIProcessor.h
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFCore
 //
 // -------------------------------------------------------------------------
@@ -11,31 +11,31 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 
-/// @brief ÏûÏ¢´¦Àí³éÏó½Ó¿Ú
+/// @brief æ¶ˆæ¯å¤„ç†æŠ½è±¡æ¥å£
 class NFIProcessor 
 {
 public:
 	NFIProcessor();
 	virtual ~NFIProcessor();
 
-	/// @brief ÏûÏ¢´¦ÀíÈë¿Ú(ProcessorµÄÊäÈë)
-	/// @param handle ÍøÂç¾ä±ú(ÓÃÓÚ´«ÊäÏûÏ¢µÄÁ¬½Ó»òÏûÏ¢¶ÓÁĞ±êÊ¶)
-	/// @param msg ÏûÏ¢
-	/// @param msg_len ÏûÏ¢³¤¶È
-	/// @param msg_info ÏûÏ¢ÊôĞÔ
-	/// @param is_overload ÊÇ·ñ¹ıÔØ(¿ò¼Ü¸ù¾İ³ÌĞòÔËĞĞÇé¿ö¸æÖªProcessorÄ¿Ç°ÊÇ·ñ¹ıÔØ£¬ÓÉProcessor×ÔĞĞ¹ıÔØ´¦Àí)
-	///     º­¸ÇÁË¾ßÌåµÄ¹ıÔØÀàĞÍ£¬¾ßÌå¿É²Î¿¼ @see OverLoadType
-	/// @return 0 ³É¹¦
-	/// @return ·Ç0 Ê§°Ü
-	// TODO: Ã¿¸öProcessor½¨ÒéÎ¬»¤Ò»¸öÏûÏ¢°×Ãûµ¥»òÓÅÏÈ¼¶ÁĞ±í£¬ÔÊĞíÄ³Ğ©ÏûÏ¢¼´Ê¹ÔÚ¹ıÔØÇé¿öÏÂÈÔÈ»Òª´¦Àí
+	/// @brief æ¶ˆæ¯å¤„ç†å…¥å£(Processorçš„è¾“å…¥)
+	/// @param handle ç½‘ç»œå¥æŸ„(ç”¨äºä¼ è¾“æ¶ˆæ¯çš„è¿æ¥æˆ–æ¶ˆæ¯é˜Ÿåˆ—æ ‡è¯†)
+	/// @param msg æ¶ˆæ¯
+	/// @param msg_len æ¶ˆæ¯é•¿åº¦
+	/// @param msg_info æ¶ˆæ¯å±æ€§
+	/// @param is_overload æ˜¯å¦è¿‡è½½(æ¡†æ¶æ ¹æ®ç¨‹åºè¿è¡Œæƒ…å†µå‘ŠçŸ¥Processorç›®å‰æ˜¯å¦è¿‡è½½ï¼Œç”±Processorè‡ªè¡Œè¿‡è½½å¤„ç†)
+	///     æ¶µç›–äº†å…·ä½“çš„è¿‡è½½ç±»å‹ï¼Œå…·ä½“å¯å‚è€ƒ @see OverLoadType
+	/// @return 0 æˆåŠŸ
+	/// @return é0 å¤±è´¥
+	// TODO: æ¯ä¸ªProcessorå»ºè®®ç»´æŠ¤ä¸€ä¸ªæ¶ˆæ¯ç™½åå•æˆ–ä¼˜å…ˆçº§åˆ—è¡¨ï¼Œå…è®¸æŸäº›æ¶ˆæ¯å³ä½¿åœ¨è¿‡è½½æƒ…å†µä¸‹ä»ç„¶è¦å¤„ç†
 	virtual int32_t OnMessage(int64_t handle, const uint8_t* msg, uint32_t msg_len, const MsgExternInfo* msg_info, uint32_t is_overload) = 0;
 
-	/// @brief Processor·¢ËÍÏûÏ¢½Ó¿Ú£¬Êµ¼ÊÊ¹ÓÃSetSendFunctionÉèÖÃµÄsendº¯Êı£¬ÓÃ»§¿ÉÀ©Õ¹ÔÚsendÇ°×öĞ©ÌØÊâ´¦Àí
-	/// @return 0 ³É¹¦£¬<0 Ê§°Ü
+	/// @brief Processorå‘é€æ¶ˆæ¯æ¥å£ï¼Œå®é™…ä½¿ç”¨SetSendFunctionè®¾ç½®çš„sendå‡½æ•°ï¼Œç”¨æˆ·å¯æ‰©å±•åœ¨sendå‰åšäº›ç‰¹æ®Šå¤„ç†
+	/// @return 0 æˆåŠŸï¼Œ<0 å¤±è´¥
 	virtual int32_t Send(int64_t handle, const uint8_t* msg, uint32_t msg_len, int32_t flag);
 
-	/// @brief Processor·¢ËÍÏûÏ¢½Ó¿Ú£¬Êµ¼ÊÊ¹ÓÃSetSendFunctionÉèÖÃµÄsendvº¯Êı£¬ÓÃ»§¿ÉÀ©Õ¹ÔÚsendÇ°×öĞ©ÌØÊâ´¦Àí
-	/// @return 0 ³É¹¦£¬<0 Ê§°Ü
+	/// @brief Processorå‘é€æ¶ˆæ¯æ¥å£ï¼Œå®é™…ä½¿ç”¨SetSendFunctionè®¾ç½®çš„sendvå‡½æ•°ï¼Œç”¨æˆ·å¯æ‰©å±•åœ¨sendå‰åšäº›ç‰¹æ®Šå¤„ç†
+	/// @return 0 æˆåŠŸï¼Œ<0 å¤±è´¥
 	virtual int32_t SendV(int64_t handle, uint32_t msg_frag_num,
 		const uint8_t* msg_frag[], uint32_t msg_frag_len[], int32_t flag);
 };

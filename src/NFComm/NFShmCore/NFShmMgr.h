@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFShmMgr.h
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFPluginModule
 //
 // -------------------------------------------------------------------------
@@ -24,17 +24,17 @@ public:
 	virtual ~NFShmMgr();
 public:
 	/**
-	* 共享内存创建对象模式
+	* 鍏变韩鍐呭瓨鍒涘缓瀵硅薄妯″紡
 	*/
 	virtual EN_OBJ_MODE	GetCreateMode();
 
 	/**
-	* 共享内存创建对象模式
+	* 鍏变韩鍐呭瓨鍒涘缓瀵硅薄妯″紡
 	*/
 	virtual void	SetCreateMode(EN_OBJ_MODE mode);
 
     /**
-    * @brief  获得偏移地址
+    * @brief  鑾峰緱鍋忕Щ鍦板潃
     */
     virtual size_t   GetAddrOffset();
 
@@ -42,7 +42,7 @@ public:
 public:
     EN_OBJ_MODE m_objMode;
     /**
-    * 相对于上次共享内存地址recover之后的偏移量,用来恢复指针对象
+    * 鐩稿浜庝笂娆″叡浜唴瀛樺湴鍧�recover涔嬪悗鐨勫亸绉婚噺,鐢ㄦ潵鎭㈠鎸囬拡瀵硅薄
     */
     size_t  m_siAddrOffset;
 };

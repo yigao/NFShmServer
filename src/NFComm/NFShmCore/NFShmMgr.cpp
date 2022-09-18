@@ -1,8 +1,8 @@
 // -------------------------------------------------------------------------
 //    @FileName         :    NFShmMgr.cpp
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFPluginModule
 //
 // -------------------------------------------------------------------------
@@ -22,7 +22,7 @@ NFShmMgr::~NFShmMgr()
 }
 
 /**
-* 共享内存创建对象模式
+* 鍏变韩鍐呭瓨鍒涘缓瀵硅薄妯″紡
 */
 EN_OBJ_MODE	NFShmMgr::GetCreateMode()
 {
@@ -30,7 +30,7 @@ EN_OBJ_MODE	NFShmMgr::GetCreateMode()
 }
 
 /**
-* 共享内存创建对象模式
+* 鍏变韩鍐呭瓨鍒涘缓瀵硅薄妯″紡
 */
 void NFShmMgr::SetCreateMode(EN_OBJ_MODE mode)
 {
