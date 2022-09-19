@@ -190,6 +190,7 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(),
               xData.server_id());
 
+    //test send msg
     TestSendProxyMsgToOtherServer(xData.bus_id());
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
     return 0;
