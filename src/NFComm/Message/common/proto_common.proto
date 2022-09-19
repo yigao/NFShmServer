@@ -43,6 +43,7 @@ message pbMysqlConfig
 	optional string MysqlDbName = 3;
 	optional string MysqlUser = 4;
 	optional string MysqlPassword = 5;
+	repeated pbTableConfig TBConfList = 6;
 }
 
 message pbRedisConfig
@@ -90,6 +91,12 @@ message pbPluginConfig
 	repeated pbAllServerConfig ServerList = 3;
 }
 
+message pbTableConfig
+{
+	optional string TableName = 1[(yd_fieldoptions.field_use_stl)=true];
+	optional uint32 TableCount = 2;
+}
+
 message pbNFServerConfig
 {
 	optional string ServerId = 1 [(yd_fieldoptions.field_use_stl)=true]; //服务器唯一ID like:1.1.1.1
@@ -129,6 +136,7 @@ message pbNFServerConfig
 	optional string MysqlUser = 73;
 	optional string MysqlPassword = 74;
 	optional string DefaultDBName = 75;
+	repeated pbTableConfig TBConfList = 76;
 	/////////////////////////////////////redis//////////////////////////////////////
 	optional string RedisIp = 80;
 	optional uint32	RedisPort = 81;

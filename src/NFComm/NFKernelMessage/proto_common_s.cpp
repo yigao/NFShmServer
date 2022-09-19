@@ -69,6 +69,10 @@ void pbMysqlConfig_s::write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const {
 	msg.set_mysqldbname(MysqlDbName);
 	msg.set_mysqluser(MysqlUser);
 	msg.set_mysqlpassword(MysqlPassword);
+	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
+		::proto_ff::pbTableConfig* temp_tbconflist = msg.add_tbconflist();
+		TBConfList[i].write_to_pbmsg(*temp_tbconflist);
+	}
 }
 
 void pbMysqlConfig_s::read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg) {
@@ -77,6 +81,11 @@ void pbMysqlConfig_s::read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg) {
 	MysqlDbName = msg.mysqldbname();
 	MysqlUser = msg.mysqluser();
 	MysqlPassword = msg.mysqlpassword();
+	TBConfList.resize(msg.tbconflist_size());
+	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
+		const ::proto_ff::pbTableConfig & temp_tbconflist = msg.tbconflist(i);
+		TBConfList[i].read_from_pbmsg(temp_tbconflist);
+	}
 }
 
 pbRedisConfig_s::pbRedisConfig_s() {
@@ -244,6 +253,29 @@ void pbPluginConfig_s::read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg) {
 	}
 }
 
+pbTableConfig_s::pbTableConfig_s() {
+	CreateInit();
+}
+
+int pbTableConfig_s::CreateInit() {
+	TableCount = (uint32_t)0;
+	return 0;
+}
+
+int pbTableConfig_s::ResumeInit() {
+	return 0;
+}
+
+void pbTableConfig_s::write_to_pbmsg(::proto_ff::pbTableConfig & msg) const {
+	msg.set_tablename(TableName);
+	msg.set_tablecount((uint32_t)TableCount);
+}
+
+void pbTableConfig_s::read_from_pbmsg(const ::proto_ff::pbTableConfig & msg) {
+	TableName = msg.tablename();
+	TableCount = msg.tablecount();
+}
+
 pbNFServerConfig_s::pbNFServerConfig_s() {
 	CreateInit();
 }
@@ -307,6 +339,10 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_mysqluser(MysqlUser);
 	msg.set_mysqlpassword(MysqlPassword);
 	msg.set_defaultdbname(DefaultDBName);
+	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
+		::proto_ff::pbTableConfig* temp_tbconflist = msg.add_tbconflist();
+		TBConfList[i].write_to_pbmsg(*temp_tbconflist);
+	}
 	msg.set_redisip(RedisIp);
 	msg.set_redisport((uint32_t)RedisPort);
 	msg.set_redispass(RedisPass);
@@ -349,6 +385,11 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	MysqlUser = msg.mysqluser();
 	MysqlPassword = msg.mysqlpassword();
 	DefaultDBName = msg.defaultdbname();
+	TBConfList.resize(msg.tbconflist_size());
+	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
+		const ::proto_ff::pbTableConfig & temp_tbconflist = msg.tbconflist(i);
+		TBConfList[i].read_from_pbmsg(temp_tbconflist);
+	}
 	RedisIp = msg.redisip();
 	RedisPort = msg.redisport();
 	RedisPass = msg.redispass();

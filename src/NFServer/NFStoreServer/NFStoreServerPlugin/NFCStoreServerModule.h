@@ -13,7 +13,6 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFServerComm/NFServerCommon/NFIStoreServerModule.h"
-#include "NFServer/NFCommHead/NFCommLogicHead.h"
 
 class NFCStoreServerModule : public NFIStoreServerModule
 {
@@ -33,27 +32,27 @@ public:
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 
-	int OnHandleStoreReq(uint64_t unLinkId, uint64_t destLinkId, uint64_t req_trans_id, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet);
 
 	int RegisterMasterServer();
 	int ServerReport();
 
 	int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
 	int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 	int RegisterRouteAgentServer(uint64_t unLinkId);
-    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet);
 
-	int OnHandleServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
 
 	/*
 		处理Master服务器链接事件和未注册消息
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
     int OnStoreSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char *msg, uint32_t nLen);
+    int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleServerDisconnect(uint64_t unLinkId);
 };

@@ -42,6 +42,7 @@ class pbRouteConfig;
 class pbNetConfig;
 class pbAllServerConfig;
 class pbPluginConfig;
+class pbTableConfig;
 class pbNFServerConfig;
 
 enum NF_SERVER_TYPE {
@@ -385,6 +386,18 @@ class pbMysqlConfig : public ::google::protobuf::Message {
   inline ::std::string* release_mysqlpassword();
   inline void set_allocated_mysqlpassword(::std::string* mysqlpassword);
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 6;
+  inline int tbconflist_size() const;
+  inline void clear_tbconflist();
+  static const int kTBConfListFieldNumber = 6;
+  inline const ::proto_ff::pbTableConfig& tbconflist(int index) const;
+  inline ::proto_ff::pbTableConfig* mutable_tbconflist(int index);
+  inline ::proto_ff::pbTableConfig* add_tbconflist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >&
+      tbconflist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >*
+      mutable_tbconflist();
+
   // @@protoc_insertion_point(class_scope:proto_ff.pbMysqlConfig)
  private:
   inline void set_has_mysqlip();
@@ -404,10 +417,11 @@ class pbMysqlConfig : public ::google::protobuf::Message {
   ::std::string* mysqldbname_;
   ::std::string* mysqluser_;
   ::std::string* mysqlpassword_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig > tbconflist_;
   ::google::protobuf::uint32 mysqlport_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -1088,6 +1102,103 @@ class pbPluginConfig : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class pbTableConfig : public ::google::protobuf::Message {
+ public:
+  pbTableConfig();
+  virtual ~pbTableConfig();
+
+  pbTableConfig(const pbTableConfig& from);
+
+  inline pbTableConfig& operator=(const pbTableConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbTableConfig& default_instance();
+
+  void Swap(pbTableConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  pbTableConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbTableConfig& from);
+  void MergeFrom(const pbTableConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string TableName = 1;
+  inline bool has_tablename() const;
+  inline void clear_tablename();
+  static const int kTableNameFieldNumber = 1;
+  inline const ::std::string& tablename() const;
+  inline void set_tablename(const ::std::string& value);
+  inline void set_tablename(const char* value);
+  inline void set_tablename(const char* value, size_t size);
+  inline ::std::string* mutable_tablename();
+  inline ::std::string* release_tablename();
+  inline void set_allocated_tablename(::std::string* tablename);
+
+  // optional uint32 TableCount = 2;
+  inline bool has_tablecount() const;
+  inline void clear_tablecount();
+  static const int kTableCountFieldNumber = 2;
+  inline ::google::protobuf::uint32 tablecount() const;
+  inline void set_tablecount(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbTableConfig)
+ private:
+  inline void set_has_tablename();
+  inline void clear_has_tablename();
+  inline void set_has_tablecount();
+  inline void clear_has_tablecount();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* tablename_;
+  ::google::protobuf::uint32 tablecount_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbTableConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class pbNFServerConfig : public ::google::protobuf::Message {
  public:
   pbNFServerConfig();
@@ -1439,6 +1550,18 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::std::string* release_defaultdbname();
   inline void set_allocated_defaultdbname(::std::string* defaultdbname);
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  inline int tbconflist_size() const;
+  inline void clear_tbconflist();
+  static const int kTBConfListFieldNumber = 76;
+  inline const ::proto_ff::pbTableConfig& tbconflist(int index) const;
+  inline ::proto_ff::pbTableConfig* mutable_tbconflist(int index);
+  inline ::proto_ff::pbTableConfig* add_tbconflist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >&
+      tbconflist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >*
+      mutable_tbconflist();
+
   // optional string RedisIp = 80;
   inline bool has_redisip() const;
   inline void clear_redisip();
@@ -1629,6 +1752,7 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::std::string* mysqluser_;
   ::std::string* mysqlpassword_;
   ::std::string* defaultdbname_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig > tbconflist_;
   ::std::string* redisip_;
   ::std::string* redispass_;
   ::std::string* wwwurl_;
@@ -1639,7 +1763,7 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::google::protobuf::uint32 clientkeepalivetimeout_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(39 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(40 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -2419,6 +2543,31 @@ inline void pbMysqlConfig::set_allocated_mysqlpassword(::std::string* mysqlpassw
     clear_has_mysqlpassword();
     mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// repeated .proto_ff.pbTableConfig TBConfList = 6;
+inline int pbMysqlConfig::tbconflist_size() const {
+  return tbconflist_.size();
+}
+inline void pbMysqlConfig::clear_tbconflist() {
+  tbconflist_.Clear();
+}
+inline const ::proto_ff::pbTableConfig& pbMysqlConfig::tbconflist(int index) const {
+  return tbconflist_.Get(index);
+}
+inline ::proto_ff::pbTableConfig* pbMysqlConfig::mutable_tbconflist(int index) {
+  return tbconflist_.Mutable(index);
+}
+inline ::proto_ff::pbTableConfig* pbMysqlConfig::add_tbconflist() {
+  return tbconflist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >&
+pbMysqlConfig::tbconflist() const {
+  return tbconflist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >*
+pbMysqlConfig::mutable_tbconflist() {
+  return &tbconflist_;
 }
 
 // -------------------------------------------------------------------
@@ -3494,6 +3643,102 @@ pbPluginConfig::serverlist() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig >*
 pbPluginConfig::mutable_serverlist() {
   return &serverlist_;
+}
+
+// -------------------------------------------------------------------
+
+// pbTableConfig
+
+// optional string TableName = 1;
+inline bool pbTableConfig::has_tablename() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbTableConfig::set_has_tablename() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbTableConfig::clear_has_tablename() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbTableConfig::clear_tablename() {
+  if (tablename_ != &::google::protobuf::internal::kEmptyString) {
+    tablename_->clear();
+  }
+  clear_has_tablename();
+}
+inline const ::std::string& pbTableConfig::tablename() const {
+  return *tablename_;
+}
+inline void pbTableConfig::set_tablename(const ::std::string& value) {
+  set_has_tablename();
+  if (tablename_ == &::google::protobuf::internal::kEmptyString) {
+    tablename_ = new ::std::string;
+  }
+  tablename_->assign(value);
+}
+inline void pbTableConfig::set_tablename(const char* value) {
+  set_has_tablename();
+  if (tablename_ == &::google::protobuf::internal::kEmptyString) {
+    tablename_ = new ::std::string;
+  }
+  tablename_->assign(value);
+}
+inline void pbTableConfig::set_tablename(const char* value, size_t size) {
+  set_has_tablename();
+  if (tablename_ == &::google::protobuf::internal::kEmptyString) {
+    tablename_ = new ::std::string;
+  }
+  tablename_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbTableConfig::mutable_tablename() {
+  set_has_tablename();
+  if (tablename_ == &::google::protobuf::internal::kEmptyString) {
+    tablename_ = new ::std::string;
+  }
+  return tablename_;
+}
+inline ::std::string* pbTableConfig::release_tablename() {
+  clear_has_tablename();
+  if (tablename_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = tablename_;
+    tablename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbTableConfig::set_allocated_tablename(::std::string* tablename) {
+  if (tablename_ != &::google::protobuf::internal::kEmptyString) {
+    delete tablename_;
+  }
+  if (tablename) {
+    set_has_tablename();
+    tablename_ = tablename;
+  } else {
+    clear_has_tablename();
+    tablename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 TableCount = 2;
+inline bool pbTableConfig::has_tablecount() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbTableConfig::set_has_tablecount() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbTableConfig::clear_has_tablecount() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbTableConfig::clear_tablecount() {
+  tablecount_ = 0u;
+  clear_has_tablecount();
+}
+inline ::google::protobuf::uint32 pbTableConfig::tablecount() const {
+  return tablecount_;
+}
+inline void pbTableConfig::set_tablecount(::google::protobuf::uint32 value) {
+  set_has_tablecount();
+  tablecount_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -4950,15 +5195,40 @@ inline void pbNFServerConfig::set_allocated_defaultdbname(::std::string* default
   }
 }
 
+// repeated .proto_ff.pbTableConfig TBConfList = 76;
+inline int pbNFServerConfig::tbconflist_size() const {
+  return tbconflist_.size();
+}
+inline void pbNFServerConfig::clear_tbconflist() {
+  tbconflist_.Clear();
+}
+inline const ::proto_ff::pbTableConfig& pbNFServerConfig::tbconflist(int index) const {
+  return tbconflist_.Get(index);
+}
+inline ::proto_ff::pbTableConfig* pbNFServerConfig::mutable_tbconflist(int index) {
+  return tbconflist_.Mutable(index);
+}
+inline ::proto_ff::pbTableConfig* pbNFServerConfig::add_tbconflist() {
+  return tbconflist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >&
+pbNFServerConfig::tbconflist() const {
+  return tbconflist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig >*
+pbNFServerConfig::mutable_tbconflist() {
+  return &tbconflist_;
+}
+
 // optional string RedisIp = 80;
 inline bool pbNFServerConfig::has_redisip() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
+  return (_has_bits_[1] & 0x00000001u) != 0;
 }
 inline void pbNFServerConfig::set_has_redisip() {
-  _has_bits_[0] |= 0x80000000u;
+  _has_bits_[1] |= 0x00000001u;
 }
 inline void pbNFServerConfig::clear_has_redisip() {
-  _has_bits_[0] &= ~0x80000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline void pbNFServerConfig::clear_redisip() {
   if (redisip_ != &::google::protobuf::internal::kEmptyString) {
@@ -5022,13 +5292,13 @@ inline void pbNFServerConfig::set_allocated_redisip(::std::string* redisip) {
 
 // optional uint32 RedisPort = 81;
 inline bool pbNFServerConfig::has_redisport() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
+  return (_has_bits_[1] & 0x00000002u) != 0;
 }
 inline void pbNFServerConfig::set_has_redisport() {
-  _has_bits_[1] |= 0x00000001u;
+  _has_bits_[1] |= 0x00000002u;
 }
 inline void pbNFServerConfig::clear_has_redisport() {
-  _has_bits_[1] &= ~0x00000001u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline void pbNFServerConfig::clear_redisport() {
   redisport_ = 0u;
@@ -5044,13 +5314,13 @@ inline void pbNFServerConfig::set_redisport(::google::protobuf::uint32 value) {
 
 // optional string RedisPass = 82;
 inline bool pbNFServerConfig::has_redispass() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
+  return (_has_bits_[1] & 0x00000004u) != 0;
 }
 inline void pbNFServerConfig::set_has_redispass() {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000004u;
 }
 inline void pbNFServerConfig::clear_has_redispass() {
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline void pbNFServerConfig::clear_redispass() {
   if (redispass_ != &::google::protobuf::internal::kEmptyString) {
@@ -5114,13 +5384,13 @@ inline void pbNFServerConfig::set_allocated_redispass(::std::string* redispass) 
 
 // optional string WwwUrl = 90;
 inline bool pbNFServerConfig::has_wwwurl() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[1] & 0x00000008u) != 0;
 }
 inline void pbNFServerConfig::set_has_wwwurl() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000008u;
 }
 inline void pbNFServerConfig::clear_has_wwwurl() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline void pbNFServerConfig::clear_wwwurl() {
   if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
@@ -5184,13 +5454,13 @@ inline void pbNFServerConfig::set_allocated_wwwurl(::std::string* wwwurl) {
 
 // optional string Email = 91;
 inline bool pbNFServerConfig::has_email() const {
-  return (_has_bits_[1] & 0x00000008u) != 0;
+  return (_has_bits_[1] & 0x00000010u) != 0;
 }
 inline void pbNFServerConfig::set_has_email() {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000010u;
 }
 inline void pbNFServerConfig::clear_has_email() {
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline void pbNFServerConfig::clear_email() {
   if (email_ != &::google::protobuf::internal::kEmptyString) {
@@ -5254,13 +5524,13 @@ inline void pbNFServerConfig::set_allocated_email(::std::string* email) {
 
 // optional uint32 MaxOnlinePlayerNum = 100;
 inline bool pbNFServerConfig::has_maxonlineplayernum() const {
-  return (_has_bits_[1] & 0x00000010u) != 0;
+  return (_has_bits_[1] & 0x00000020u) != 0;
 }
 inline void pbNFServerConfig::set_has_maxonlineplayernum() {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000020u;
 }
 inline void pbNFServerConfig::clear_has_maxonlineplayernum() {
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline void pbNFServerConfig::clear_maxonlineplayernum() {
   maxonlineplayernum_ = 0u;
@@ -5276,13 +5546,13 @@ inline void pbNFServerConfig::set_maxonlineplayernum(::google::protobuf::uint32 
 
 // optional uint32 HeartBeatTimeout = 101;
 inline bool pbNFServerConfig::has_heartbeattimeout() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
+  return (_has_bits_[1] & 0x00000040u) != 0;
 }
 inline void pbNFServerConfig::set_has_heartbeattimeout() {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000040u;
 }
 inline void pbNFServerConfig::clear_has_heartbeattimeout() {
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline void pbNFServerConfig::clear_heartbeattimeout() {
   heartbeattimeout_ = 0u;
@@ -5298,13 +5568,13 @@ inline void pbNFServerConfig::set_heartbeattimeout(::google::protobuf::uint32 va
 
 // optional uint32 ClientKeepAliveTimeout = 102;
 inline bool pbNFServerConfig::has_clientkeepalivetimeout() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[1] & 0x00000080u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientkeepalivetimeout() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000080u;
 }
 inline void pbNFServerConfig::clear_has_clientkeepalivetimeout() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000080u;
 }
 inline void pbNFServerConfig::clear_clientkeepalivetimeout() {
   clientkeepalivetimeout_ = 0u;

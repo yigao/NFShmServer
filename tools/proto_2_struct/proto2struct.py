@@ -222,8 +222,8 @@ def write_hfile():
 		message_desc.func_new_proto = "new_pbmsg()"
 		message_desc.func_make_proto = "make_pbmsg()"
 
-		h_file.write("\t\tvoid %s;\n" % (message_desc.func_write_to_pbmsg))
-		h_file.write("\t\tvoid %s;\n" % (message_desc.func_read_from_pbmsg))
+		h_file.write("\t\tvirtual void %s;\n" % (message_desc.func_write_to_pbmsg))
+		h_file.write("\t\tvirtual void %s;\n" % (message_desc.func_read_from_pbmsg))
 		h_file.write("\t\tstatic %s* %s{ return new %s(); }\n" % (message_desc.pb_msgname, message_desc.func_new_proto, message_desc.pb_msgname))
 		h_file.write("\t\tstatic %s %s{ return %s(); }\n" % (message_desc.pb_msgname, message_desc.func_make_proto, message_desc.pb_msgname))
 		h_file.write("\t};\n")

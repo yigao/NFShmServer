@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* pbPluginConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbPluginConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* pbTableConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  pbTableConfig_reflection_ = NULL;
 const ::google::protobuf::Descriptor* pbNFServerConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNFServerConfig_reflection_ = NULL;
@@ -80,12 +83,13 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbServerMgr));
   pbMysqlConfig_descriptor_ = file->message_type(1);
-  static const int pbMysqlConfig_offsets_[5] = {
+  static const int pbMysqlConfig_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqldbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqluser_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, mysqlpassword_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbMysqlConfig, tbconflist_),
   };
   pbMysqlConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -193,8 +197,24 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbPluginConfig));
-  pbNFServerConfig_descriptor_ = file->message_type(7);
-  static const int pbNFServerConfig_offsets_[39] = {
+  pbTableConfig_descriptor_ = file->message_type(7);
+  static const int pbTableConfig_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, tablename_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, tablecount_),
+  };
+  pbTableConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      pbTableConfig_descriptor_,
+      pbTableConfig::default_instance_,
+      pbTableConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(pbTableConfig));
+  pbNFServerConfig_descriptor_ = file->message_type(8);
+  static const int pbNFServerConfig_offsets_[40] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -226,6 +246,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqluser_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqlpassword_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, defaultdbname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, tbconflist_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redispass_),
@@ -274,6 +295,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbPluginConfig_descriptor_, &pbPluginConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    pbTableConfig_descriptor_, &pbTableConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
 }
 
@@ -294,6 +317,8 @@ void protobuf_ShutdownFile_proto_5fcommon_2eproto() {
   delete pbAllServerConfig_reflection_;
   delete pbPluginConfig::default_instance_;
   delete pbPluginConfig_reflection_;
+  delete pbTableConfig::default_instance_;
+  delete pbTableConfig_reflection_;
   delete pbNFServerConfig::default_instance_;
   delete pbNFServerConfig_reflection_;
 }
@@ -318,57 +343,61 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\346\234\215\345\212\241\345\231\250\346\225\260\0222\n\017last_login_time\030\010 \001(\004B\031\272"
     "\304\023\025\344\270\212\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0223\n\020last_logout_"
     "time\030\t \001(\004B\031\272\304\023\025\344\270\212\344\270\200\346\254\241\344\270\213\347\272\277\346\227\266\351\227\264\022%\n"
-    "\013create_time\030\n \001(\004B\020\272\304\023\014\345\210\233\345\273\272\346\227\266\351\227\264\"x\n\r"
-    "pbMysqlConfig\022\025\n\007MysqlIp\030\001 \001(\tB\004\240\301\024\001\022\021\n\t"
-    "MysqlPort\030\002 \001(\r\022\023\n\013MysqlDbName\030\003 \001(\t\022\021\n\t"
-    "MysqlUser\030\004 \001(\t\022\025\n\rMysqlPassword\030\005 \001(\t\"L"
-    "\n\rpbRedisConfig\022\025\n\007RedisIp\030\001 \001(\tB\004\240\301\024\001\022\021"
-    "\n\tRedisPort\030\002 \001(\r\022\021\n\tRedisPass\030\003 \001(\t\"w\n\r"
-    "pbRouteConfig\022\026\n\010MasterIp\030\001 \001(\tB\004\240\301\024\001\022\022\n"
-    "\nMasterPort\030\002 \001(\r\022\022\n\nNamingHost\030\003 \001(\t\022\022\n"
-    "\nNamingPath\030\004 \001(\t\022\022\n\nRouteAgent\030\005 \001(\t\"\376\001"
-    "\n\013pbNetConfig\022\026\n\010ServerIp\030\001 \001(\tB\004\240\301\024\001\022\022\n"
-    "\nServerPort\030\002 \001(\r\022\030\n\020ExternalServerIp\030\003 "
-    "\001(\t\022\032\n\022ExternalServerPort\030\004 \001(\r\022\020\n\010HttpP"
-    "ort\030\005 \001(\r\022\025\n\rMaxConnectNum\030\006 \001(\r\022\025\n\rWork"
-    "ThreadNum\030\007 \001(\r\022\024\n\014NetThreadNum\030\010 \001(\r\022\020\n"
-    "\010Security\030\t \001(\010\022\021\n\tWebSocket\030\n \001(\010\022\022\n\nmP"
-    "arseType\030\013 \001(\r\"I\n\021pbAllServerConfig\022\024\n\006S"
-    "erver\030\001 \001(\tB\004\240\301\024\001\022\n\n\002ID\030\002 \001(\t\022\022\n\nServerT"
-    "ype\030\003 \001(\r\"r\n\016pbPluginConfig\022\030\n\nServerTyp"
-    "e\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003(\t\022/\n\n"
-    "ServerList\030\003 \003(\0132\033.proto_ff.pbAllServerC"
-    "onfig\"\254\006\n\020pbNFServerConfig\022\026\n\010ServerId\030\001"
-    " \001(\tB\004\240\301\024\001\022\022\n\nServerType\030\002 \001(\r\022\022\n\nServer"
-    "Name\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005"
-    " \001(\r\022\017\n\007BusName\030\006 \001(\t\022\020\n\010LinkMode\030\007 \001(\t\022"
-    "\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUs\030\t \001(\r\022\020\n\010Ser"
-    "verIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020Exter"
-    "nalServerIp\030\026 \001(\t\022\032\n\022ExternalServerPort\030"
-    "\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxConnectNum"
-    "\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n\014NetThre"
-    "adNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSock"
-    "et\030\035 \001(\010\022\022\n\nmParseType\030\036 \001(\r\022\020\n\010MasterIp"
-    "\0302 \001(\t\022\022\n\nMasterPort\0303 \001(\r\022\022\n\nNamingHost"
-    "\0304 \001(\t\022\022\n\nNamingPath\0305 \001(\t\022\022\n\nRouteAgent"
-    "\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022\021\n\tMysqlPort\030G \001"
-    "(\r\022\023\n\013MysqlDbName\030H \001(\t\022\021\n\tMysqlUser\030I \001"
-    "(\t\022\025\n\rMysqlPassword\030J \001(\t\022\025\n\rDefaultDBNa"
-    "me\030K \001(\t\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPort\030Q"
-    " \001(\r\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022"
-    "\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001"
-    "(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKe"
-    "epAliveTimeout\030f \001(\r*\224\003\n\016NF_SERVER_TYPE\022"
-    "\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001"
-    "\022\034\n\030NF_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_"
-    "ROUTE_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!"
-    "\n\035NF_ST_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_"
-    "ST_PROXY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_S"
-    "ERVER\020\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST"
-    "_WORLD_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022"
-    "\025\n\021NF_ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERV"
-    "ER\020\014\022\024\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONI"
-    "TOR_SERVER\020\016\022\r\n\tNF_ST_MAX\020\024", 2507);
+    "\013create_time\030\n \001(\004B\020\272\304\023\014\345\210\233\345\273\272\346\227\266\351\227\264\"\245\001\n"
+    "\rpbMysqlConfig\022\025\n\007MysqlIp\030\001 \001(\tB\004\240\301\024\001\022\021\n"
+    "\tMysqlPort\030\002 \001(\r\022\023\n\013MysqlDbName\030\003 \001(\t\022\021\n"
+    "\tMysqlUser\030\004 \001(\t\022\025\n\rMysqlPassword\030\005 \001(\t\022"
+    "+\n\nTBConfList\030\006 \003(\0132\027.proto_ff.pbTableCo"
+    "nfig\"L\n\rpbRedisConfig\022\025\n\007RedisIp\030\001 \001(\tB\004"
+    "\240\301\024\001\022\021\n\tRedisPort\030\002 \001(\r\022\021\n\tRedisPass\030\003 \001"
+    "(\t\"w\n\rpbRouteConfig\022\026\n\010MasterIp\030\001 \001(\tB\004\240"
+    "\301\024\001\022\022\n\nMasterPort\030\002 \001(\r\022\022\n\nNamingHost\030\003 "
+    "\001(\t\022\022\n\nNamingPath\030\004 \001(\t\022\022\n\nRouteAgent\030\005 "
+    "\001(\t\"\376\001\n\013pbNetConfig\022\026\n\010ServerIp\030\001 \001(\tB\004\240"
+    "\301\024\001\022\022\n\nServerPort\030\002 \001(\r\022\030\n\020ExternalServe"
+    "rIp\030\003 \001(\t\022\032\n\022ExternalServerPort\030\004 \001(\r\022\020\n"
+    "\010HttpPort\030\005 \001(\r\022\025\n\rMaxConnectNum\030\006 \001(\r\022\025"
+    "\n\rWorkThreadNum\030\007 \001(\r\022\024\n\014NetThreadNum\030\010 "
+    "\001(\r\022\020\n\010Security\030\t \001(\010\022\021\n\tWebSocket\030\n \001(\010"
+    "\022\022\n\nmParseType\030\013 \001(\r\"I\n\021pbAllServerConfi"
+    "g\022\024\n\006Server\030\001 \001(\tB\004\240\301\024\001\022\n\n\002ID\030\002 \001(\t\022\022\n\nS"
+    "erverType\030\003 \001(\r\"r\n\016pbPluginConfig\022\030\n\nSer"
+    "verType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003"
+    "(\t\022/\n\nServerList\030\003 \003(\0132\033.proto_ff.pbAllS"
+    "erverConfig\"<\n\rpbTableConfig\022\027\n\tTableNam"
+    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\331\006\n\020pb"
+    "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
+    "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
+    "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\017\n\007BusN"
+    "ame\030\006 \001(\t\022\020\n\010LinkMode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t"
+    "\022\023\n\013IdleSleepUs\030\t \001(\r\022\020\n\010ServerIp\030\024 \001(\t\022"
+    "\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServerIp\030"
+    "\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020\n\010Htt"
+    "pPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rWo"
+    "rkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r\022"
+    "\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\022\n\n"
+    "mParseType\030\036 \001(\r\022\020\n\010MasterIp\0302 \001(\t\022\022\n\nMa"
+    "sterPort\0303 \001(\r\022\022\n\nNamingHost\0304 \001(\t\022\022\n\nNa"
+    "mingPath\0305 \001(\t\022\022\n\nRouteAgent\0306 \001(\t\022\017\n\007My"
+    "sqlIp\030F \001(\t\022\021\n\tMysqlPort\030G \001(\r\022\023\n\013MysqlD"
+    "bName\030H \001(\t\022\021\n\tMysqlUser\030I \001(\t\022\025\n\rMysqlP"
+    "assword\030J \001(\t\022\025\n\rDefaultDBName\030K \001(\t\022+\n\n"
+    "TBConfList\030L \003(\0132\027.proto_ff.pbTableConfi"
+    "g\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPort\030Q \001(\r\022\021\n"
+    "\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022\r\n\005Emai"
+    "l\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020H"
+    "eartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAlive"
+    "Timeout\030f \001(\r*\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF_S"
+    "T_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022\034\n\030NF_"
+    "ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_ROUTE_S"
+    "ERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!\n\035NF_ST"
+    "_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_ST_PROX"
+    "Y_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_SERVER\020\007"
+    "\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST_WORLD_"
+    "SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022\025\n\021NF_S"
+    "T_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024\n"
+    "\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONITOR_SER"
+    "VER\020\016\022\r\n\tNF_ST_MAX\020\024", 2660);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -378,6 +407,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbNetConfig::default_instance_ = new pbNetConfig();
   pbAllServerConfig::default_instance_ = new pbAllServerConfig();
   pbPluginConfig::default_instance_ = new pbPluginConfig();
+  pbTableConfig::default_instance_ = new pbTableConfig();
   pbNFServerConfig::default_instance_ = new pbNFServerConfig();
   tbServerMgr::default_instance_->InitAsDefaultInstance();
   pbMysqlConfig::default_instance_->InitAsDefaultInstance();
@@ -386,6 +416,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbNetConfig::default_instance_->InitAsDefaultInstance();
   pbAllServerConfig::default_instance_->InitAsDefaultInstance();
   pbPluginConfig::default_instance_->InitAsDefaultInstance();
+  pbTableConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfig::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fcommon_2eproto);
 }
@@ -1092,6 +1123,7 @@ const int pbMysqlConfig::kMysqlPortFieldNumber;
 const int pbMysqlConfig::kMysqlDbNameFieldNumber;
 const int pbMysqlConfig::kMysqlUserFieldNumber;
 const int pbMysqlConfig::kMysqlPasswordFieldNumber;
+const int pbMysqlConfig::kTBConfListFieldNumber;
 #endif  // !_MSC_VER
 
 pbMysqlConfig::pbMysqlConfig()
@@ -1184,6 +1216,7 @@ void pbMysqlConfig::Clear() {
       }
     }
   }
+  tbconflist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1273,6 +1306,21 @@ bool pbMysqlConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(50)) goto parse_TBConfList;
+        break;
+      }
+
+      // repeated .proto_ff.pbTableConfig TBConfList = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_TBConfList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_tbconflist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_TBConfList;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1336,6 +1384,12 @@ void pbMysqlConfig::SerializeWithCachedSizes(
       5, this->mysqlpassword(), output);
   }
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 6;
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->tbconflist(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1389,6 +1443,13 @@ void pbMysqlConfig::SerializeWithCachedSizes(
         5, this->mysqlpassword(), target);
   }
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 6;
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->tbconflist(i), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1436,6 +1497,14 @@ int pbMysqlConfig::ByteSize() const {
     }
 
   }
+  // repeated .proto_ff.pbTableConfig TBConfList = 6;
+  total_size += 1 * this->tbconflist_size();
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->tbconflist(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1461,6 +1530,7 @@ void pbMysqlConfig::MergeFrom(const ::google::protobuf::Message& from) {
 
 void pbMysqlConfig::MergeFrom(const pbMysqlConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
+  tbconflist_.MergeFrom(from.tbconflist_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_mysqlip()) {
       set_mysqlip(from.mysqlip());
@@ -1505,6 +1575,7 @@ void pbMysqlConfig::Swap(pbMysqlConfig* other) {
     std::swap(mysqldbname_, other->mysqldbname_);
     std::swap(mysqluser_, other->mysqluser_);
     std::swap(mysqlpassword_, other->mysqlpassword_);
+    tbconflist_.Swap(&other->tbconflist_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3543,6 +3614,271 @@ void pbPluginConfig::Swap(pbPluginConfig* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int pbTableConfig::kTableNameFieldNumber;
+const int pbTableConfig::kTableCountFieldNumber;
+#endif  // !_MSC_VER
+
+pbTableConfig::pbTableConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void pbTableConfig::InitAsDefaultInstance() {
+}
+
+pbTableConfig::pbTableConfig(const pbTableConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void pbTableConfig::SharedCtor() {
+  _cached_size_ = 0;
+  tablename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  tablecount_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+pbTableConfig::~pbTableConfig() {
+  SharedDtor();
+}
+
+void pbTableConfig::SharedDtor() {
+  if (tablename_ != &::google::protobuf::internal::kEmptyString) {
+    delete tablename_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void pbTableConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* pbTableConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return pbTableConfig_descriptor_;
+}
+
+const pbTableConfig& pbTableConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+pbTableConfig* pbTableConfig::default_instance_ = NULL;
+
+pbTableConfig* pbTableConfig::New() const {
+  return new pbTableConfig;
+}
+
+void pbTableConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_tablename()) {
+      if (tablename_ != &::google::protobuf::internal::kEmptyString) {
+        tablename_->clear();
+      }
+    }
+    tablecount_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool pbTableConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string TableName = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tablename()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->tablename().data(), this->tablename().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_TableCount;
+        break;
+      }
+
+      // optional uint32 TableCount = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_TableCount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tablecount_)));
+          set_has_tablecount();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void pbTableConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string TableName = 1;
+  if (has_tablename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->tablename().data(), this->tablename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->tablename(), output);
+  }
+
+  // optional uint32 TableCount = 2;
+  if (has_tablecount()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->tablecount(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* pbTableConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string TableName = 1;
+  if (has_tablename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->tablename().data(), this->tablename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->tablename(), target);
+  }
+
+  // optional uint32 TableCount = 2;
+  if (has_tablecount()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->tablecount(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int pbTableConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string TableName = 1;
+    if (has_tablename()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->tablename());
+    }
+
+    // optional uint32 TableCount = 2;
+    if (has_tablecount()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->tablecount());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void pbTableConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const pbTableConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const pbTableConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void pbTableConfig::MergeFrom(const pbTableConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_tablename()) {
+      set_tablename(from.tablename());
+    }
+    if (from.has_tablecount()) {
+      set_tablecount(from.tablecount());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void pbTableConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void pbTableConfig::CopyFrom(const pbTableConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool pbTableConfig::IsInitialized() const {
+
+  return true;
+}
+
+void pbTableConfig::Swap(pbTableConfig* other) {
+  if (other != this) {
+    std::swap(tablename_, other->tablename_);
+    std::swap(tablecount_, other->tablecount_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata pbTableConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = pbTableConfig_descriptor_;
+  metadata.reflection = pbTableConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int pbNFServerConfig::kServerIdFieldNumber;
 const int pbNFServerConfig::kServerTypeFieldNumber;
 const int pbNFServerConfig::kServerNameFieldNumber;
@@ -3574,6 +3910,7 @@ const int pbNFServerConfig::kMysqlDbNameFieldNumber;
 const int pbNFServerConfig::kMysqlUserFieldNumber;
 const int pbNFServerConfig::kMysqlPasswordFieldNumber;
 const int pbNFServerConfig::kDefaultDBNameFieldNumber;
+const int pbNFServerConfig::kTBConfListFieldNumber;
 const int pbNFServerConfig::kRedisIpFieldNumber;
 const int pbNFServerConfig::kRedisPortFieldNumber;
 const int pbNFServerConfig::kRedisPassFieldNumber;
@@ -3835,13 +4172,13 @@ void pbNFServerConfig::Clear() {
         defaultdbname_->clear();
       }
     }
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (has_redisip()) {
       if (redisip_ != &::google::protobuf::internal::kEmptyString) {
         redisip_->clear();
       }
     }
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     redisport_ = 0u;
     if (has_redispass()) {
       if (redispass_ != &::google::protobuf::internal::kEmptyString) {
@@ -3862,6 +4199,7 @@ void pbNFServerConfig::Clear() {
     heartbeattimeout_ = 0u;
     clientkeepalivetimeout_ = 0u;
   }
+  tbconflist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -4379,6 +4717,21 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(610)) goto parse_TBConfList;
+        break;
+      }
+
+      // repeated .proto_ff.pbTableConfig TBConfList = 76;
+      case 76: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_TBConfList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_tbconflist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(610)) goto parse_TBConfList;
         if (input->ExpectTag(642)) goto parse_RedisIp;
         break;
       }
@@ -4752,6 +5105,12 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       75, this->defaultdbname(), output);
   }
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      76, this->tbconflist(i), output);
+  }
+
   // optional string RedisIp = 80;
   if (has_redisip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -5051,6 +5410,13 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         75, this->defaultdbname(), target);
   }
 
+  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        76, this->tbconflist(i), target);
+  }
+
   // optional string RedisIp = 80;
   if (has_redisip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -5341,6 +5707,8 @@ int pbNFServerConfig::ByteSize() const {
           this->defaultdbname());
     }
 
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional string RedisIp = 80;
     if (has_redisip()) {
       total_size += 2 +
@@ -5348,8 +5716,6 @@ int pbNFServerConfig::ByteSize() const {
           this->redisip());
     }
 
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional uint32 RedisPort = 81;
     if (has_redisport()) {
       total_size += 2 +
@@ -5400,6 +5766,14 @@ int pbNFServerConfig::ByteSize() const {
     }
 
   }
+  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  total_size += 2 * this->tbconflist_size();
+  for (int i = 0; i < this->tbconflist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->tbconflist(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -5425,6 +5799,7 @@ void pbNFServerConfig::MergeFrom(const ::google::protobuf::Message& from) {
 
 void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
+  tbconflist_.MergeFrom(from.tbconflist_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_serverid()) {
       set_serverid(from.serverid());
@@ -5525,11 +5900,11 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_defaultdbname()) {
       set_defaultdbname(from.defaultdbname());
     }
+  }
+  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_redisip()) {
       set_redisip(from.redisip());
     }
-  }
-  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_redisport()) {
       set_redisport(from.redisport());
     }
@@ -5605,6 +5980,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(mysqluser_, other->mysqluser_);
     std::swap(mysqlpassword_, other->mysqlpassword_);
     std::swap(defaultdbname_, other->defaultdbname_);
+    tbconflist_.Swap(&other->tbconflist_);
     std::swap(redisip_, other->redisip_);
     std::swap(redisport_, other->redisport_);
     std::swap(redispass_, other->redispass_);

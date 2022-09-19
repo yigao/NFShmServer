@@ -25,8 +25,8 @@ namespace proto_ff_s {
 		uint64_t last_logout_time;
 		uint64_t create_time;
 
-		void write_to_pbmsg(::proto_ff::tbServerMgr & msg) const;
-		void read_from_pbmsg(const ::proto_ff::tbServerMgr & msg);
+		virtual void write_to_pbmsg(::proto_ff::tbServerMgr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbServerMgr & msg);
 		static ::proto_ff::tbServerMgr* new_pbmsg(){ return new ::proto_ff::tbServerMgr(); }
 		static ::proto_ff::tbServerMgr make_pbmsg(){ return ::proto_ff::tbServerMgr(); }
 	};
@@ -41,9 +41,10 @@ namespace proto_ff_s {
 		std::string MysqlDbName;
 		std::string MysqlUser;
 		std::string MysqlPassword;
+		std::vector<struct pbTableConfig_s> TBConfList;
 
-		void write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbMysqlConfig & msg);
 		static ::proto_ff::pbMysqlConfig* new_pbmsg(){ return new ::proto_ff::pbMysqlConfig(); }
 		static ::proto_ff::pbMysqlConfig make_pbmsg(){ return ::proto_ff::pbMysqlConfig(); }
 	};
@@ -57,8 +58,8 @@ namespace proto_ff_s {
 		uint32_t RedisPort;
 		std::string RedisPass;
 
-		void write_to_pbmsg(::proto_ff::pbRedisConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbRedisConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg);
 		static ::proto_ff::pbRedisConfig* new_pbmsg(){ return new ::proto_ff::pbRedisConfig(); }
 		static ::proto_ff::pbRedisConfig make_pbmsg(){ return ::proto_ff::pbRedisConfig(); }
 	};
@@ -74,8 +75,8 @@ namespace proto_ff_s {
 		std::string NamingPath;
 		std::string RouteAgent;
 
-		void write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg);
 		static ::proto_ff::pbRouteConfig* new_pbmsg(){ return new ::proto_ff::pbRouteConfig(); }
 		static ::proto_ff::pbRouteConfig make_pbmsg(){ return ::proto_ff::pbRouteConfig(); }
 	};
@@ -97,8 +98,8 @@ namespace proto_ff_s {
 		bool WebSocket;
 		uint32_t mParseType;
 
-		void write_to_pbmsg(::proto_ff::pbNetConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbNetConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbNetConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbNetConfig & msg);
 		static ::proto_ff::pbNetConfig* new_pbmsg(){ return new ::proto_ff::pbNetConfig(); }
 		static ::proto_ff::pbNetConfig make_pbmsg(){ return ::proto_ff::pbNetConfig(); }
 	};
@@ -112,8 +113,8 @@ namespace proto_ff_s {
 		std::string ID;
 		uint32_t ServerType;
 
-		void write_to_pbmsg(::proto_ff::pbAllServerConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbAllServerConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbAllServerConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbAllServerConfig & msg);
 		static ::proto_ff::pbAllServerConfig* new_pbmsg(){ return new ::proto_ff::pbAllServerConfig(); }
 		static ::proto_ff::pbAllServerConfig make_pbmsg(){ return ::proto_ff::pbAllServerConfig(); }
 	};
@@ -127,12 +128,26 @@ namespace proto_ff_s {
 		std::vector<std::string> ServerPlugins;
 		std::vector<struct pbAllServerConfig_s> ServerList;
 
-		void write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg);
 		static ::proto_ff::pbPluginConfig* new_pbmsg(){ return new ::proto_ff::pbPluginConfig(); }
 		static ::proto_ff::pbPluginConfig make_pbmsg(){ return ::proto_ff::pbPluginConfig(); }
 	};
 	typedef struct pbPluginConfig_s pbPluginConfig_t;
+
+	struct pbTableConfig_s {
+		pbTableConfig_s();
+		int CreateInit();
+		int ResumeInit();
+		std::string TableName;
+		uint32_t TableCount;
+
+		virtual void write_to_pbmsg(::proto_ff::pbTableConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbTableConfig & msg);
+		static ::proto_ff::pbTableConfig* new_pbmsg(){ return new ::proto_ff::pbTableConfig(); }
+		static ::proto_ff::pbTableConfig make_pbmsg(){ return ::proto_ff::pbTableConfig(); }
+	};
+	typedef struct pbTableConfig_s pbTableConfig_t;
 
 	struct pbNFServerConfig_s {
 		pbNFServerConfig_s();
@@ -169,6 +184,7 @@ namespace proto_ff_s {
 		std::string MysqlUser;
 		std::string MysqlPassword;
 		std::string DefaultDBName;
+		std::vector<struct pbTableConfig_s> TBConfList;
 		std::string RedisIp;
 		uint32_t RedisPort;
 		std::string RedisPass;
@@ -178,8 +194,8 @@ namespace proto_ff_s {
 		uint32_t HeartBeatTimeout;
 		uint32_t ClientKeepAliveTimeout;
 
-		void write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) const;
-		void read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg);
+		virtual void write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg);
 		static ::proto_ff::pbNFServerConfig* new_pbmsg(){ return new ::proto_ff::pbNFServerConfig(); }
 		static ::proto_ff::pbNFServerConfig make_pbmsg(){ return ::proto_ff::pbNFServerConfig(); }
 	};

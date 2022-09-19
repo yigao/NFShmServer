@@ -41,10 +41,10 @@ std::string NFRouteAgentServerPlugin::GetPluginName()
 
 void NFRouteAgentServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFIRouteAgentServerModule, NFCRouteAgentServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIRouteAgentServerModule, NFCRouteAgentServerModule);
 }
 
 void NFRouteAgentServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFIRouteAgentServerModule, NFCRouteAgentServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIRouteAgentServerModule, NFCRouteAgentServerModule);
 }

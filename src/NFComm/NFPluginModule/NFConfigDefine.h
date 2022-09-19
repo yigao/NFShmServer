@@ -51,4 +51,23 @@ struct NFLogConfig
 	std::vector<LogInfoConfig> mLineConfigList;
 };
 
-typedef proto_ff_s::pbNFServerConfig_s NFServerConfig;
+struct NFServerConfig : public proto_ff_s::pbNFServerConfig_s
+{
+public:
+	NFServerConfig()
+	{
+
+	}
+
+	virtual void read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg) override
+	{
+		proto_ff_s::pbNFServerConfig_s::read_from_pbmsg(msg);
+		for(int i = 0; i < (int)TBConfList.size(); i++)
+        {
+            struct proto_ff_s::pbTableConfig_s& tableConfig = TBConfList[i];
+            mTBConfMap.emplace(tableConfig.TableName, tableConfig.TableCount);
+        }
+	}
+
+    std::unordered_map<std::string, uint32_t> mTBConfMap;
+};
