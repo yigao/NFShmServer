@@ -31,6 +31,8 @@ public:
     virtual void OnTimer(uint32_t nTimerID) override;
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+
+    virtual void SetOtherServerMsgHandle(const NET_RECEIVE_FUNCTOR& func) override { m_otherServerMsgHandle = func; }
 public:
 	/*
 		处理Master服务器链接事件和未注册消息
@@ -53,4 +55,5 @@ public:
     int RegisterProxyAgentServer(uint64_t unLinkId);
 public:
     uint64_t m_proxyServerLinkId;
+    NET_RECEIVE_FUNCTOR m_otherServerMsgHandle;
 };

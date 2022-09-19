@@ -25,4 +25,6 @@ public:
 	{
 		
 	}
+
+    virtual void SetOtherServerMsgHandle(const NET_RECEIVE_FUNCTOR& func) = 0;
 };

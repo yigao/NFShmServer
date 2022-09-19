@@ -156,7 +156,17 @@ NF_SHARE_PTR<NFServerData> ServerLinkData::GetFirstServerByServerType(NF_SERVER_
 
 NF_SHARE_PTR<NFServerData> ServerLinkData::GetRandomServerByServerType(NF_SERVER_TYPES serverTypes)
 {
-    auto pServer =   mServerListMap[serverTypes].GetElementBySuitRandom();
+    if (mServerListMap[serverTypes].Count() == 1)
+    {
+        auto pServer = mServerListMap[serverTypes].First();
+        if (pServer)
+        {
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetRandomServerByServerType result:{}", pServer->mServerInfo.server_name());
+        }
+        return pServer;
+    }
+
+    auto pServer = mServerListMap[serverTypes].GetElementBySuitRandom();
     if (pServer)
     {
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetRandomServerByServerType result:{}", pServer->mServerInfo.server_name());
@@ -166,7 +176,17 @@ NF_SHARE_PTR<NFServerData> ServerLinkData::GetRandomServerByServerType(NF_SERVER
 
 NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, uint64_t value)
 {
-    auto pServer =  mServerListMap[serverTypes].GetElementBySuit(value);
+    if (mServerListMap[serverTypes].Count() == 1)
+    {
+        auto pServer = mServerListMap[serverTypes].First();
+        if (pServer)
+        {
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetRandomServerByServerType result:{}", pServer->mServerInfo.server_name());
+        }
+        return pServer;
+    }
+
+    auto pServer = mServerListMap[serverTypes].GetElementBySuit(value);
     if (pServer)
     {
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetSuitServerByServerType value:{} result:{}", value, pServer->mServerInfo.server_name());
@@ -176,6 +196,16 @@ NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitServerByServerType(NF_SERVER_T
 
 NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, const std::string& value)
 {
+    if (mServerListMap[serverTypes].Count() == 1)
+    {
+        auto pServer = mServerListMap[serverTypes].First();
+        if (pServer)
+        {
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetRandomServerByServerType result:{}", pServer->mServerInfo.server_name());
+        }
+        return pServer;
+    }
+
     auto pServer = mServerListMap[serverTypes].GetElementBySuit(value);
     if (pServer)
     {

@@ -25,6 +25,7 @@
 NFCProxyServerModule::NFCProxyServerModule(NFIPluginManager* p):NFIProxyServerModule(p)
 {
     m_proxyServerLinkId = 0;
+    m_otherServerMsgHandle = NULL;
 }
 
 NFCProxyServerModule::~NFCProxyServerModule()
@@ -444,15 +445,18 @@ int NFCProxyServerModule::OnHandleProxyServerDisconnect(uint64_t unLinkId) {
 int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
-    uint32_t busId = packet.nParam2;
-    auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, busId);
-    if (pServerData && FindModule<NFIProxyClientModule>())
+    uint32_t srcBusId = packet.nSrcId;
+    auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, srcBusId);
+    if (pServerData)
     {
-        FindModule<NFIProxyClientModule>()->OnHandleOtherServerOtherMessage(unLinkId, packet);
+        if (m_otherServerMsgHandle)
+        {
+            m_otherServerMsgHandle(unLinkId, packet);
+        }
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Can't find busId:{} busName:{} packet:{}", busId, NFServerIDUtil::GetBusNameFromBusID(busId), packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Can't find busId:{} busName:{} packet:{}", srcBusId, NFServerIDUtil::GetBusNameFromBusID(srcBusId), packet.ToString());
     }
 
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
