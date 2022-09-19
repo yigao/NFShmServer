@@ -74,7 +74,7 @@ proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES
         proto_ff::ServerInfoReport xData;
         xData.set_server_type(NF_ST_MASTER_SERVER);
         xData.set_bus_id(NFServerIDUtil::GetBusID("1.1.1.1"));
-        xData.set_bus_name("1.1.1.1");
+        xData.set_server_id("1.1.1.1");
         xData.set_server_name("MasterServer_1.1.1.1");
         xData.set_link_mode("tcp");
         std::string url = NF_FORMAT("tcp://{}:{}", pConfig->MasterIp, pConfig->MasterPort);
@@ -87,7 +87,7 @@ proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES
         proto_ff::ServerInfoReport xData;
         xData.set_server_type(NF_ST_MASTER_SERVER);
         xData.set_bus_id(NFServerIDUtil::GetBusID("1.1.1.1"));
-        xData.set_bus_name("1.1.1.1");
+        xData.set_server_id("1.1.1.1");
         xData.set_server_name("MasterServer_1.1.1.1");
         xData.set_link_mode("tcp");
         xData.set_url("tcp://127.0.0.1:6011");
@@ -522,7 +522,7 @@ int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
             proto_ff::ServerInfoReport xData;
             xData.set_server_type(destServerType);
             xData.set_bus_id(NFCommon::strto<uint32_t>(busId));
-            xData.set_bus_name(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
+            xData.set_server_id(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
             xData.set_server_name(GetServerName(destServerType)+"_"+NFCommon::tostr(NFServerIDUtil::GetInstID(xData.bus_id())));
 
             std::vector<std::string> vecTcpUrl;
@@ -617,7 +617,7 @@ int32_t NFCNamingModule::WatchTcpUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
         proto_ff::ServerInfoReport xData;
         xData.set_server_type(destServerType);
         xData.set_bus_id(NFCommon::strto<uint32_t>(busId));
-        xData.set_bus_name(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
+        xData.set_server_id(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
         xData.set_server_name(GetServerName(destServerType)+"_"+NFCommon::tostr(NFServerIDUtil::GetInstID(xData.bus_id())));
         for (int i = 0; i < (int)urls.size(); i++)
         {
@@ -720,7 +720,7 @@ int32_t NFCNamingModule::WatchBusUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
             proto_ff::ServerInfoReport xData;
             xData.set_server_type(destServerType);
             xData.set_bus_id(NFCommon::strto<uint32_t>(busId));
-            xData.set_bus_name(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
+            xData.set_server_id(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
             xData.set_server_name(GetServerName(destServerType)+"_"+NFCommon::tostr(NFServerIDUtil::GetInstID(xData.bus_id())));
 
             std::vector<std::string> vecBusUrl;
@@ -816,7 +816,7 @@ int32_t NFCNamingModule::WatchBusUrls(NF_SERVER_TYPES eServerType, NF_SERVER_TYP
         proto_ff::ServerInfoReport xData;
         xData.set_server_type(destServerType);
         xData.set_bus_id(NFCommon::strto<uint32_t>(busId));
-        xData.set_bus_name(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
+        xData.set_server_id(NFServerIDUtil::GetBusNameFromBusID(xData.bus_id()));
         xData.set_server_name(GetServerName(destServerType)+"_"+NFCommon::tostr(NFServerIDUtil::GetInstID(xData.bus_id())));
         for(int i = 0; i < (int)urls.size(); i++)
         {

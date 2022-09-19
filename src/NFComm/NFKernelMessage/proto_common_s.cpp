@@ -313,7 +313,6 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_servername(ServerName);
 	msg.set_busid((uint32_t)BusId);
 	msg.set_buslength((uint32_t)BusLength);
-	msg.set_busname(BusName);
 	msg.set_linkmode(LinkMode);
 	msg.set_url(Url);
 	msg.set_idlesleepus((uint32_t)IdleSleepUs);
@@ -359,7 +358,6 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	ServerName = msg.servername();
 	BusId = msg.busid();
 	BusLength = msg.buslength();
-	BusName = msg.busname();
 	LinkMode = msg.linkmode();
 	Url = msg.url();
 	IdleSleepUs = msg.idlesleepus();

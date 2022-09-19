@@ -181,7 +181,8 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
     pServerData->mUnlinkId = unLinkId;
     pServerData->mServerInfo = xData;
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(), xData.bus_name());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(),
+              xData.server_id());
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -200,7 +201,8 @@ int NFCProxyServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
     pServerData->mUnlinkId = unLinkId;
     pServerData->mServerInfo = xData;
     FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_PROXY_SERVER, xData.bus_id(), pServerData->mUnlinkId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Agent Server:{} Register Proxy Server, serverName:{} serverId:{}", xData.server_name(), xData.server_name(), xData.bus_name());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Agent Server:{} Register Proxy Server, serverName:{} serverId:{}", xData.server_name(), xData.server_name(),
+              xData.server_id());
 
     RegisterProxyAgentServer(unLinkId);
 
@@ -269,7 +271,7 @@ int NFCProxyServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -310,7 +312,7 @@ int NFCProxyServerModule::ServerReport()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -466,7 +468,7 @@ int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 

@@ -158,7 +158,6 @@ namespace proto_ff_s {
 		std::string ServerName;
 		uint32_t BusId;
 		uint32_t BusLength;
-		std::string BusName;
 		std::string LinkMode;
 		std::string Url;
 		uint32_t IdleSleepUs;

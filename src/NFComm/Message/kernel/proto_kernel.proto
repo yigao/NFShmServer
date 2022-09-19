@@ -163,7 +163,7 @@ enum EServerState
 message ServerInfoReport
 {
   optional uint32   bus_id = 1;
-  optional string  bus_name = 2 ;
+  optional string  server_id = 2 ;
   optional uint32   server_type = 3;
   optional string  server_name = 4 ;
   optional string  url = 5;

@@ -192,12 +192,13 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, xMsg.bus_id());
     CHECK_EXPR(pServerData, -1, "can't find the serverID:{}..............................\n{}",xMsg.bus_id(), xMsg.dump_info());
 
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_name(), xMsg.dump_info());
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(),
+               pServerData->mServerInfo.server_id(), xMsg.dump_info());
 
     std::string url = pConfig->WwwUrl + "/index.php/api/emsdump/send";
     proto_ff::emailSender sender;
     sender.set_email(pConfig->Email);
-    sender.set_title(pServerData->mServerInfo.server_name() + "_" + pServerData->mServerInfo.bus_name() + " 服务器崩溃信息");
+    sender.set_title(pServerData->mServerInfo.server_name() + "_" + pServerData->mServerInfo.server_id() + " 服务器崩溃信息");
     sender.set_msg(xMsg.dump_info());
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(sender, &json);
@@ -695,7 +696,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
         pData->set_bus_id(pConfig->BusId);
-        pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_id(pConfig->ServerId);
         pData->set_server_type(pConfig->ServerType);
         pData->set_server_name(pConfig->ServerName);
 
@@ -747,7 +748,7 @@ int NFCMasterServerModule::ServerReport()
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
         pData->set_bus_id(pConfig->BusId);
-        pData->set_bus_name(pConfig->ServerId);
+        pData->set_server_id(pConfig->ServerId);
         pData->set_server_type(pConfig->ServerType);
         pData->set_server_name(pConfig->ServerName);
 

@@ -885,17 +885,17 @@ class ServerInfoReport : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 bus_id() const;
   inline void set_bus_id(::google::protobuf::uint32 value);
 
-  // optional string bus_name = 2;
-  inline bool has_bus_name() const;
-  inline void clear_bus_name();
-  static const int kBusNameFieldNumber = 2;
-  inline const ::std::string& bus_name() const;
-  inline void set_bus_name(const ::std::string& value);
-  inline void set_bus_name(const char* value);
-  inline void set_bus_name(const char* value, size_t size);
-  inline ::std::string* mutable_bus_name();
-  inline ::std::string* release_bus_name();
-  inline void set_allocated_bus_name(::std::string* bus_name);
+  // optional string server_id = 2;
+  inline bool has_server_id() const;
+  inline void clear_server_id();
+  static const int kServerIdFieldNumber = 2;
+  inline const ::std::string& server_id() const;
+  inline void set_server_id(const ::std::string& value);
+  inline void set_server_id(const char* value);
+  inline void set_server_id(const char* value, size_t size);
+  inline ::std::string* mutable_server_id();
+  inline ::std::string* release_server_id();
+  inline void set_allocated_server_id(::std::string* server_id);
 
   // optional uint32 server_type = 3;
   inline bool has_server_type() const;
@@ -1173,8 +1173,8 @@ class ServerInfoReport : public ::google::protobuf::Message {
  private:
   inline void set_has_bus_id();
   inline void clear_has_bus_id();
-  inline void set_has_bus_name();
-  inline void clear_has_bus_name();
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
   inline void set_has_server_type();
   inline void clear_has_server_type();
   inline void set_has_server_name();
@@ -1236,7 +1236,7 @@ class ServerInfoReport : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 bus_id_;
   ::google::protobuf::uint32 server_type_;
-  ::std::string* bus_name_;
+  ::std::string* server_id_;
   ::std::string* server_name_;
   ::std::string* url_;
   ::std::string* link_mode_;
@@ -2762,73 +2762,73 @@ inline void ServerInfoReport::set_bus_id(::google::protobuf::uint32 value) {
   bus_id_ = value;
 }
 
-// optional string bus_name = 2;
-inline bool ServerInfoReport::has_bus_name() const {
+// optional string server_id = 2;
+inline bool ServerInfoReport::has_server_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ServerInfoReport::set_has_bus_name() {
+inline void ServerInfoReport::set_has_server_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ServerInfoReport::clear_has_bus_name() {
+inline void ServerInfoReport::clear_has_server_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ServerInfoReport::clear_bus_name() {
-  if (bus_name_ != &::google::protobuf::internal::kEmptyString) {
-    bus_name_->clear();
+inline void ServerInfoReport::clear_server_id() {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    server_id_->clear();
   }
-  clear_has_bus_name();
+  clear_has_server_id();
 }
-inline const ::std::string& ServerInfoReport::bus_name() const {
-  return *bus_name_;
+inline const ::std::string& ServerInfoReport::server_id() const {
+  return *server_id_;
 }
-inline void ServerInfoReport::set_bus_name(const ::std::string& value) {
-  set_has_bus_name();
-  if (bus_name_ == &::google::protobuf::internal::kEmptyString) {
-    bus_name_ = new ::std::string;
+inline void ServerInfoReport::set_server_id(const ::std::string& value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
   }
-  bus_name_->assign(value);
+  server_id_->assign(value);
 }
-inline void ServerInfoReport::set_bus_name(const char* value) {
-  set_has_bus_name();
-  if (bus_name_ == &::google::protobuf::internal::kEmptyString) {
-    bus_name_ = new ::std::string;
+inline void ServerInfoReport::set_server_id(const char* value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
   }
-  bus_name_->assign(value);
+  server_id_->assign(value);
 }
-inline void ServerInfoReport::set_bus_name(const char* value, size_t size) {
-  set_has_bus_name();
-  if (bus_name_ == &::google::protobuf::internal::kEmptyString) {
-    bus_name_ = new ::std::string;
+inline void ServerInfoReport::set_server_id(const char* value, size_t size) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
   }
-  bus_name_->assign(reinterpret_cast<const char*>(value), size);
+  server_id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* ServerInfoReport::mutable_bus_name() {
-  set_has_bus_name();
-  if (bus_name_ == &::google::protobuf::internal::kEmptyString) {
-    bus_name_ = new ::std::string;
+inline ::std::string* ServerInfoReport::mutable_server_id() {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
   }
-  return bus_name_;
+  return server_id_;
 }
-inline ::std::string* ServerInfoReport::release_bus_name() {
-  clear_has_bus_name();
-  if (bus_name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* ServerInfoReport::release_server_id() {
+  clear_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = bus_name_;
-    bus_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = server_id_;
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void ServerInfoReport::set_allocated_bus_name(::std::string* bus_name) {
-  if (bus_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete bus_name_;
+inline void ServerInfoReport::set_allocated_server_id(::std::string* server_id) {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_id_;
   }
-  if (bus_name) {
-    set_has_bus_name();
-    bus_name_ = bus_name;
+  if (server_id) {
+    set_has_server_id();
+    server_id_ = server_id;
   } else {
-    clear_has_bus_name();
-    bus_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_server_id();
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 

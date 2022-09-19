@@ -62,10 +62,10 @@ bool NFCGameServerModule::Awake()
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
                                                        &NFCGameServerModule::OnHandleOtherMessage);
             NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "game server listen success, serverId:{}, ip:{}, port:{}",
-                      pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
             NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "game server listen failed, serverId:{}, ip:{}, port:{}",
-                      pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
 
@@ -365,7 +365,7 @@ int NFCGameServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -404,7 +404,7 @@ int NFCGameServerModule::ServerReport()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -517,7 +517,8 @@ int NFCGameServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport&
 	pServerData->mUnlinkId = unlinkId;
 	pServerData->mServerInfo = xData;
 
-	NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "Proxy Server Register Game Server Success, serverName:{}, busname:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_name(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
+	NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "Proxy Server Register Game Server Success, serverName:{}, busname:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(),
+              pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
 	NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }
@@ -529,7 +530,7 @@ int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepo
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     CHECK_NULL(pConfig);
 
-    if (pConfig->RouteAgent != xData.bus_name())
+    if (pConfig->RouteAgent != xData.server_id())
     {
         return 0;
     }
@@ -604,7 +605,7 @@ int NFCGameServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
         pData->set_bus_length(pConfig->BusLength);
         pData->set_link_mode(pConfig->LinkMode);
         pData->set_url(pConfig->Url);
-        pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
         pData->set_server_type(pConfig->ServerType);
         pData->set_server_name(pConfig->ServerName);
 
@@ -686,7 +687,7 @@ int NFCGameServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
         pData->set_bus_id(pConfig->BusId);
-        pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
         pData->set_server_type(pConfig->ServerType);
         pData->set_server_name(pConfig->ServerName);
 

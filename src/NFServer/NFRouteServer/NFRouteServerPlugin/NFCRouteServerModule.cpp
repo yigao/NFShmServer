@@ -60,10 +60,10 @@ bool NFCRouteServerModule::Awake()
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_ROUTE_SERVER, routeServerLinkId, this,
                                                              &NFCRouteServerModule::OnHandleOtherMessage);
             NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server listen success, serverId:{}, ip:{}, port:{}",
-                      pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
             NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server listen failed, serverId:{}, ip:{}, port:{}",
-                      pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+                      pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
     }
@@ -197,7 +197,7 @@ int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
         NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
                    "the server disconnect from route server, serverName:{}, busid:{}, busname:{}. serverIp:{}, serverPort:{}",
                    pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(),
-                   pServerData->mServerInfo.bus_name(), pServerData->mServerInfo.server_ip(),
+                   pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(),
                    pServerData->mServerInfo.server_port());
     }
 
@@ -303,7 +303,7 @@ int NFCRouteServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -342,7 +342,7 @@ int NFCRouteServerModule::ServerReport()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -444,7 +444,7 @@ int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NF
             pRegServerData->mRouteAgentBusId = pServerData->mServerInfo.bus_id();
             pRegServerData->mServerInfo = xData;
 
-            NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) register route agent:{}({}) trans to route svr success",
+            NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) register route agent:{}({}) trans to route svr success",
                        pRegServerData->mServerInfo.server_name(), pRegServerData->mServerInfo.bus_id(),
                        pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id());
         }
@@ -472,7 +472,7 @@ int NFCRouteServerModule::OnHandleRouteAgentRegister(const proto_ff::ServerInfoR
     NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
               "Route Agent Server Register Route Server Success, serverName:{}, busid:{}, busname:{}, ip:{}, port:{}",
               pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(),
-              pServerData->mServerInfo.bus_name(), pServerData->mServerInfo.server_ip(),
+              pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(),
               pServerData->mServerInfo.server_port());
     NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
     return 0;

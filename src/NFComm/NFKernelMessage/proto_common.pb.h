@@ -1298,18 +1298,6 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 buslength() const;
   inline void set_buslength(::google::protobuf::uint32 value);
 
-  // optional string BusName = 6;
-  inline bool has_busname() const;
-  inline void clear_busname();
-  static const int kBusNameFieldNumber = 6;
-  inline const ::std::string& busname() const;
-  inline void set_busname(const ::std::string& value);
-  inline void set_busname(const char* value);
-  inline void set_busname(const char* value, size_t size);
-  inline ::std::string* mutable_busname();
-  inline ::std::string* release_busname();
-  inline void set_allocated_busname(::std::string* busname);
-
   // optional string LinkMode = 7;
   inline bool has_linkmode() const;
   inline void clear_linkmode();
@@ -1650,8 +1638,6 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline void clear_has_busid();
   inline void set_has_buslength();
   inline void clear_has_buslength();
-  inline void set_has_busname();
-  inline void clear_has_busname();
   inline void set_has_linkmode();
   inline void clear_has_linkmode();
   inline void set_has_url();
@@ -1725,10 +1711,9 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::std::string* servername_;
   ::google::protobuf::uint32 servertype_;
   ::google::protobuf::uint32 busid_;
-  ::std::string* busname_;
+  ::std::string* linkmode_;
   ::google::protobuf::uint32 buslength_;
   ::google::protobuf::uint32 idlesleepus_;
-  ::std::string* linkmode_;
   ::std::string* url_;
   ::std::string* serverip_;
   ::std::string* externalserverip_;
@@ -1763,7 +1748,7 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::google::protobuf::uint32 clientkeepalivetimeout_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(40 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(39 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -3951,85 +3936,15 @@ inline void pbNFServerConfig::set_buslength(::google::protobuf::uint32 value) {
   buslength_ = value;
 }
 
-// optional string BusName = 6;
-inline bool pbNFServerConfig::has_busname() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void pbNFServerConfig::set_has_busname() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void pbNFServerConfig::clear_has_busname() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void pbNFServerConfig::clear_busname() {
-  if (busname_ != &::google::protobuf::internal::kEmptyString) {
-    busname_->clear();
-  }
-  clear_has_busname();
-}
-inline const ::std::string& pbNFServerConfig::busname() const {
-  return *busname_;
-}
-inline void pbNFServerConfig::set_busname(const ::std::string& value) {
-  set_has_busname();
-  if (busname_ == &::google::protobuf::internal::kEmptyString) {
-    busname_ = new ::std::string;
-  }
-  busname_->assign(value);
-}
-inline void pbNFServerConfig::set_busname(const char* value) {
-  set_has_busname();
-  if (busname_ == &::google::protobuf::internal::kEmptyString) {
-    busname_ = new ::std::string;
-  }
-  busname_->assign(value);
-}
-inline void pbNFServerConfig::set_busname(const char* value, size_t size) {
-  set_has_busname();
-  if (busname_ == &::google::protobuf::internal::kEmptyString) {
-    busname_ = new ::std::string;
-  }
-  busname_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* pbNFServerConfig::mutable_busname() {
-  set_has_busname();
-  if (busname_ == &::google::protobuf::internal::kEmptyString) {
-    busname_ = new ::std::string;
-  }
-  return busname_;
-}
-inline ::std::string* pbNFServerConfig::release_busname() {
-  clear_has_busname();
-  if (busname_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = busname_;
-    busname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void pbNFServerConfig::set_allocated_busname(::std::string* busname) {
-  if (busname_ != &::google::protobuf::internal::kEmptyString) {
-    delete busname_;
-  }
-  if (busname) {
-    set_has_busname();
-    busname_ = busname;
-  } else {
-    clear_has_busname();
-    busname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
 // optional string LinkMode = 7;
 inline bool pbNFServerConfig::has_linkmode() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void pbNFServerConfig::set_has_linkmode() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void pbNFServerConfig::clear_has_linkmode() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void pbNFServerConfig::clear_linkmode() {
   if (linkmode_ != &::google::protobuf::internal::kEmptyString) {
@@ -4093,13 +4008,13 @@ inline void pbNFServerConfig::set_allocated_linkmode(::std::string* linkmode) {
 
 // optional string Url = 8;
 inline bool pbNFServerConfig::has_url() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void pbNFServerConfig::set_has_url() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void pbNFServerConfig::clear_has_url() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void pbNFServerConfig::clear_url() {
   if (url_ != &::google::protobuf::internal::kEmptyString) {
@@ -4163,13 +4078,13 @@ inline void pbNFServerConfig::set_allocated_url(::std::string* url) {
 
 // optional uint32 IdleSleepUs = 9;
 inline bool pbNFServerConfig::has_idlesleepus() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void pbNFServerConfig::set_has_idlesleepus() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void pbNFServerConfig::clear_has_idlesleepus() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void pbNFServerConfig::clear_idlesleepus() {
   idlesleepus_ = 0u;
@@ -4185,13 +4100,13 @@ inline void pbNFServerConfig::set_idlesleepus(::google::protobuf::uint32 value) 
 
 // optional string ServerIp = 20;
 inline bool pbNFServerConfig::has_serverip() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void pbNFServerConfig::set_has_serverip() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void pbNFServerConfig::clear_has_serverip() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void pbNFServerConfig::clear_serverip() {
   if (serverip_ != &::google::protobuf::internal::kEmptyString) {
@@ -4255,13 +4170,13 @@ inline void pbNFServerConfig::set_allocated_serverip(::std::string* serverip) {
 
 // optional uint32 ServerPort = 21;
 inline bool pbNFServerConfig::has_serverport() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void pbNFServerConfig::set_has_serverport() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void pbNFServerConfig::clear_has_serverport() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void pbNFServerConfig::clear_serverport() {
   serverport_ = 0u;
@@ -4277,13 +4192,13 @@ inline void pbNFServerConfig::set_serverport(::google::protobuf::uint32 value) {
 
 // optional string ExternalServerIp = 22;
 inline bool pbNFServerConfig::has_externalserverip() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void pbNFServerConfig::set_has_externalserverip() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void pbNFServerConfig::clear_has_externalserverip() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void pbNFServerConfig::clear_externalserverip() {
   if (externalserverip_ != &::google::protobuf::internal::kEmptyString) {
@@ -4347,13 +4262,13 @@ inline void pbNFServerConfig::set_allocated_externalserverip(::std::string* exte
 
 // optional uint32 ExternalServerPort = 23;
 inline bool pbNFServerConfig::has_externalserverport() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void pbNFServerConfig::set_has_externalserverport() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void pbNFServerConfig::clear_has_externalserverport() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void pbNFServerConfig::clear_externalserverport() {
   externalserverport_ = 0u;
@@ -4369,13 +4284,13 @@ inline void pbNFServerConfig::set_externalserverport(::google::protobuf::uint32 
 
 // optional uint32 HttpPort = 24;
 inline bool pbNFServerConfig::has_httpport() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void pbNFServerConfig::set_has_httpport() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void pbNFServerConfig::clear_has_httpport() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void pbNFServerConfig::clear_httpport() {
   httpport_ = 0u;
@@ -4391,13 +4306,13 @@ inline void pbNFServerConfig::set_httpport(::google::protobuf::uint32 value) {
 
 // optional uint32 MaxConnectNum = 25;
 inline bool pbNFServerConfig::has_maxconnectnum() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void pbNFServerConfig::set_has_maxconnectnum() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void pbNFServerConfig::clear_has_maxconnectnum() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void pbNFServerConfig::clear_maxconnectnum() {
   maxconnectnum_ = 0u;
@@ -4413,13 +4328,13 @@ inline void pbNFServerConfig::set_maxconnectnum(::google::protobuf::uint32 value
 
 // optional uint32 WorkThreadNum = 26;
 inline bool pbNFServerConfig::has_workthreadnum() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void pbNFServerConfig::set_has_workthreadnum() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void pbNFServerConfig::clear_has_workthreadnum() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void pbNFServerConfig::clear_workthreadnum() {
   workthreadnum_ = 0u;
@@ -4435,13 +4350,13 @@ inline void pbNFServerConfig::set_workthreadnum(::google::protobuf::uint32 value
 
 // optional uint32 NetThreadNum = 27;
 inline bool pbNFServerConfig::has_netthreadnum() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void pbNFServerConfig::set_has_netthreadnum() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void pbNFServerConfig::clear_has_netthreadnum() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void pbNFServerConfig::clear_netthreadnum() {
   netthreadnum_ = 0u;
@@ -4457,13 +4372,13 @@ inline void pbNFServerConfig::set_netthreadnum(::google::protobuf::uint32 value)
 
 // optional bool Security = 28;
 inline bool pbNFServerConfig::has_security() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void pbNFServerConfig::set_has_security() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void pbNFServerConfig::clear_has_security() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void pbNFServerConfig::clear_security() {
   security_ = false;
@@ -4479,13 +4394,13 @@ inline void pbNFServerConfig::set_security(bool value) {
 
 // optional bool WebSocket = 29;
 inline bool pbNFServerConfig::has_websocket() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void pbNFServerConfig::set_has_websocket() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void pbNFServerConfig::clear_has_websocket() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void pbNFServerConfig::clear_websocket() {
   websocket_ = false;
@@ -4501,13 +4416,13 @@ inline void pbNFServerConfig::set_websocket(bool value) {
 
 // optional uint32 mParseType = 30;
 inline bool pbNFServerConfig::has_mparsetype() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mparsetype() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void pbNFServerConfig::clear_has_mparsetype() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void pbNFServerConfig::clear_mparsetype() {
   mparsetype_ = 0u;
@@ -4523,13 +4438,13 @@ inline void pbNFServerConfig::set_mparsetype(::google::protobuf::uint32 value) {
 
 // optional string MasterIp = 50;
 inline bool pbNFServerConfig::has_masterip() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void pbNFServerConfig::set_has_masterip() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void pbNFServerConfig::clear_has_masterip() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void pbNFServerConfig::clear_masterip() {
   if (masterip_ != &::google::protobuf::internal::kEmptyString) {
@@ -4593,13 +4508,13 @@ inline void pbNFServerConfig::set_allocated_masterip(::std::string* masterip) {
 
 // optional uint32 MasterPort = 51;
 inline bool pbNFServerConfig::has_masterport() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void pbNFServerConfig::set_has_masterport() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void pbNFServerConfig::clear_has_masterport() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void pbNFServerConfig::clear_masterport() {
   masterport_ = 0u;
@@ -4615,13 +4530,13 @@ inline void pbNFServerConfig::set_masterport(::google::protobuf::uint32 value) {
 
 // optional string NamingHost = 52;
 inline bool pbNFServerConfig::has_naminghost() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void pbNFServerConfig::set_has_naminghost() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void pbNFServerConfig::clear_has_naminghost() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void pbNFServerConfig::clear_naminghost() {
   if (naminghost_ != &::google::protobuf::internal::kEmptyString) {
@@ -4685,13 +4600,13 @@ inline void pbNFServerConfig::set_allocated_naminghost(::std::string* naminghost
 
 // optional string NamingPath = 53;
 inline bool pbNFServerConfig::has_namingpath() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void pbNFServerConfig::set_has_namingpath() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void pbNFServerConfig::clear_has_namingpath() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void pbNFServerConfig::clear_namingpath() {
   if (namingpath_ != &::google::protobuf::internal::kEmptyString) {
@@ -4755,13 +4670,13 @@ inline void pbNFServerConfig::set_allocated_namingpath(::std::string* namingpath
 
 // optional string RouteAgent = 54;
 inline bool pbNFServerConfig::has_routeagent() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void pbNFServerConfig::set_has_routeagent() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void pbNFServerConfig::clear_has_routeagent() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void pbNFServerConfig::clear_routeagent() {
   if (routeagent_ != &::google::protobuf::internal::kEmptyString) {
@@ -4825,13 +4740,13 @@ inline void pbNFServerConfig::set_allocated_routeagent(::std::string* routeagent
 
 // optional string MysqlIp = 70;
 inline bool pbNFServerConfig::has_mysqlip() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mysqlip() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void pbNFServerConfig::clear_has_mysqlip() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void pbNFServerConfig::clear_mysqlip() {
   if (mysqlip_ != &::google::protobuf::internal::kEmptyString) {
@@ -4895,13 +4810,13 @@ inline void pbNFServerConfig::set_allocated_mysqlip(::std::string* mysqlip) {
 
 // optional uint32 MysqlPort = 71;
 inline bool pbNFServerConfig::has_mysqlport() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mysqlport() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void pbNFServerConfig::clear_has_mysqlport() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void pbNFServerConfig::clear_mysqlport() {
   mysqlport_ = 0u;
@@ -4917,13 +4832,13 @@ inline void pbNFServerConfig::set_mysqlport(::google::protobuf::uint32 value) {
 
 // optional string MysqlDbName = 72;
 inline bool pbNFServerConfig::has_mysqldbname() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mysqldbname() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void pbNFServerConfig::clear_has_mysqldbname() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void pbNFServerConfig::clear_mysqldbname() {
   if (mysqldbname_ != &::google::protobuf::internal::kEmptyString) {
@@ -4987,13 +4902,13 @@ inline void pbNFServerConfig::set_allocated_mysqldbname(::std::string* mysqldbna
 
 // optional string MysqlUser = 73;
 inline bool pbNFServerConfig::has_mysqluser() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mysqluser() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void pbNFServerConfig::clear_has_mysqluser() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void pbNFServerConfig::clear_mysqluser() {
   if (mysqluser_ != &::google::protobuf::internal::kEmptyString) {
@@ -5057,13 +4972,13 @@ inline void pbNFServerConfig::set_allocated_mysqluser(::std::string* mysqluser) 
 
 // optional string MysqlPassword = 74;
 inline bool pbNFServerConfig::has_mysqlpassword() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_mysqlpassword() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void pbNFServerConfig::clear_has_mysqlpassword() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void pbNFServerConfig::clear_mysqlpassword() {
   if (mysqlpassword_ != &::google::protobuf::internal::kEmptyString) {
@@ -5127,13 +5042,13 @@ inline void pbNFServerConfig::set_allocated_mysqlpassword(::std::string* mysqlpa
 
 // optional string DefaultDBName = 75;
 inline bool pbNFServerConfig::has_defaultdbname() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_defaultdbname() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void pbNFServerConfig::clear_has_defaultdbname() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void pbNFServerConfig::clear_defaultdbname() {
   if (defaultdbname_ != &::google::protobuf::internal::kEmptyString) {
@@ -5222,13 +5137,13 @@ pbNFServerConfig::mutable_tbconflist() {
 
 // optional string RedisIp = 80;
 inline bool pbNFServerConfig::has_redisip() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x80000000u) != 0;
 }
 inline void pbNFServerConfig::set_has_redisip() {
-  _has_bits_[1] |= 0x00000001u;
+  _has_bits_[0] |= 0x80000000u;
 }
 inline void pbNFServerConfig::clear_has_redisip() {
-  _has_bits_[1] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline void pbNFServerConfig::clear_redisip() {
   if (redisip_ != &::google::protobuf::internal::kEmptyString) {
@@ -5292,13 +5207,13 @@ inline void pbNFServerConfig::set_allocated_redisip(::std::string* redisip) {
 
 // optional uint32 RedisPort = 81;
 inline bool pbNFServerConfig::has_redisport() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
+  return (_has_bits_[1] & 0x00000001u) != 0;
 }
 inline void pbNFServerConfig::set_has_redisport() {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000001u;
 }
 inline void pbNFServerConfig::clear_has_redisport() {
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline void pbNFServerConfig::clear_redisport() {
   redisport_ = 0u;
@@ -5314,13 +5229,13 @@ inline void pbNFServerConfig::set_redisport(::google::protobuf::uint32 value) {
 
 // optional string RedisPass = 82;
 inline bool pbNFServerConfig::has_redispass() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[1] & 0x00000002u) != 0;
 }
 inline void pbNFServerConfig::set_has_redispass() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000002u;
 }
 inline void pbNFServerConfig::clear_has_redispass() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline void pbNFServerConfig::clear_redispass() {
   if (redispass_ != &::google::protobuf::internal::kEmptyString) {
@@ -5384,13 +5299,13 @@ inline void pbNFServerConfig::set_allocated_redispass(::std::string* redispass) 
 
 // optional string WwwUrl = 90;
 inline bool pbNFServerConfig::has_wwwurl() const {
-  return (_has_bits_[1] & 0x00000008u) != 0;
+  return (_has_bits_[1] & 0x00000004u) != 0;
 }
 inline void pbNFServerConfig::set_has_wwwurl() {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000004u;
 }
 inline void pbNFServerConfig::clear_has_wwwurl() {
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline void pbNFServerConfig::clear_wwwurl() {
   if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
@@ -5454,13 +5369,13 @@ inline void pbNFServerConfig::set_allocated_wwwurl(::std::string* wwwurl) {
 
 // optional string Email = 91;
 inline bool pbNFServerConfig::has_email() const {
-  return (_has_bits_[1] & 0x00000010u) != 0;
+  return (_has_bits_[1] & 0x00000008u) != 0;
 }
 inline void pbNFServerConfig::set_has_email() {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000008u;
 }
 inline void pbNFServerConfig::clear_has_email() {
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline void pbNFServerConfig::clear_email() {
   if (email_ != &::google::protobuf::internal::kEmptyString) {
@@ -5524,13 +5439,13 @@ inline void pbNFServerConfig::set_allocated_email(::std::string* email) {
 
 // optional uint32 MaxOnlinePlayerNum = 100;
 inline bool pbNFServerConfig::has_maxonlineplayernum() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
+  return (_has_bits_[1] & 0x00000010u) != 0;
 }
 inline void pbNFServerConfig::set_has_maxonlineplayernum() {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000010u;
 }
 inline void pbNFServerConfig::clear_has_maxonlineplayernum() {
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline void pbNFServerConfig::clear_maxonlineplayernum() {
   maxonlineplayernum_ = 0u;
@@ -5546,13 +5461,13 @@ inline void pbNFServerConfig::set_maxonlineplayernum(::google::protobuf::uint32 
 
 // optional uint32 HeartBeatTimeout = 101;
 inline bool pbNFServerConfig::has_heartbeattimeout() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[1] & 0x00000020u) != 0;
 }
 inline void pbNFServerConfig::set_has_heartbeattimeout() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000020u;
 }
 inline void pbNFServerConfig::clear_has_heartbeattimeout() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline void pbNFServerConfig::clear_heartbeattimeout() {
   heartbeattimeout_ = 0u;
@@ -5568,13 +5483,13 @@ inline void pbNFServerConfig::set_heartbeattimeout(::google::protobuf::uint32 va
 
 // optional uint32 ClientKeepAliveTimeout = 102;
 inline bool pbNFServerConfig::has_clientkeepalivetimeout() const {
-  return (_has_bits_[1] & 0x00000080u) != 0;
+  return (_has_bits_[1] & 0x00000040u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientkeepalivetimeout() {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000040u;
 }
 inline void pbNFServerConfig::clear_has_clientkeepalivetimeout() {
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline void pbNFServerConfig::clear_clientkeepalivetimeout() {
   clientkeepalivetimeout_ = 0u;

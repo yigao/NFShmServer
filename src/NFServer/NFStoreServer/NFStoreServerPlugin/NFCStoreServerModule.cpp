@@ -76,11 +76,11 @@ bool NFCStoreServerModule::Awake() {
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_STORE_SERVER, loginServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnStoreSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnHandleOtherMessage);
-            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
         {
-            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen failed, serverId:{}, ip:{}, port:{}", pConfig->BusName, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
 
@@ -621,7 +621,7 @@ int NFCStoreServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -660,7 +660,7 @@ int NFCStoreServerModule::ServerReport()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 
@@ -734,7 +734,7 @@ int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 
     if (!m_pObjPluginManager->IsLoadAllServer())
     {
-        if (pConfig->RouteAgent != xData.bus_name())
+        if (pConfig->RouteAgent != xData.server_id())
         {
             return 0;
         }
@@ -803,7 +803,7 @@ int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
 		pData->set_bus_id(pConfig->BusId);
-		pData->set_bus_name(pConfig->BusName);
+        pData->set_server_id(pConfig->ServerId);
 		pData->set_server_type(pConfig->ServerType);
 		pData->set_server_name(pConfig->ServerName);
 

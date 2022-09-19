@@ -104,7 +104,6 @@ message pbNFServerConfig
 	optional string ServerName = 3;
 	optional uint32 BusId = 4;
 	optional uint32 BusLength = 5; //NFBUS/TBUS共享内存通信大小
-	optional string BusName = 6;  //服务器唯一ID like:1.1.1.1
 	optional string LinkMode = 7;  //
 	optional string Url = 8;
 	optional uint32 IdleSleepUs = 9; //服务器类型
