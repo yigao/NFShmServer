@@ -49,7 +49,7 @@ LoadPlugin =
 			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			--"NFGameServerPlugin",
+			"NFGameServerPlugin",
 
 			--"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",

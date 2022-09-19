@@ -19,7 +19,7 @@
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 
-#define PROXY_SERVER_CONNECT_MASTER_SERVER "ProxyServer Connect MasterServer"
+#define PROXY_AGENT_SERVER_CONNECT_MASTER_SERVER "ProxyAgentServer Connect MasterServer"
 
 NFCProxyAgentServerModule::NFCProxyAgentServerModule(NFIPluginManager* p):NFIDynamicModule(p)
 {
@@ -38,7 +38,7 @@ bool NFCProxyAgentServerModule::Awake()
 	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_AGENT_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this, &NFCProxyAgentServerModule::OnHandleServerReport);
 
     //注册要完成的服务器启动任务
-    m_pObjPluginManager->RegisterAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER, PROXY_SERVER_CONNECT_MASTER_SERVER);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER, PROXY_AGENT_SERVER_CONNECT_MASTER_SERVER);
 
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_AGENT_SERVER);
 	if (pConfig)
@@ -326,11 +326,6 @@ int NFCProxyAgentServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPac
 	for (int i = 0; i < xMsg.server_list_size(); ++i)
 	{
 		const proto_ff::ServerInfoReport& xData = xMsg.server_list(i);
-		if (!m_pObjPluginManager->IsLoadAllServer() && xData.server_type() != NF_SERVER_TYPES::NF_ST_PROXY_SERVER)
-        {
-            if (pConfig->RouteAgent != xData.route_svr()) continue;
-        }
-
 		switch (xData.server_type())
 		{
         case NF_SERVER_TYPES::NF_ST_PROXY_SERVER:
@@ -577,7 +572,8 @@ int NFCProxyAgentServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFData
                     if (pServerData->mServerInfo.server_type() == NF_ST_WORLD_SERVER
                         || pServerData->mServerInfo.server_type() == NF_ST_GAME_SERVER
                         || pServerData->mServerInfo.server_type() == NF_ST_LOGIC_SERVER
-                        || pServerData->mServerInfo.server_type() == NF_ST_LOGIN_SERVER)
+                        || pServerData->mServerInfo.server_type() == NF_ST_LOGIN_SERVER
+                        || pServerData->mServerInfo.server_type() == NF_ST_SNS_SERVER)
                     {
                         FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 
