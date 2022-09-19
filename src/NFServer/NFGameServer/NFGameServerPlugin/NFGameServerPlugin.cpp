@@ -10,7 +10,7 @@
 #include "NFGameServerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFGameServerModule.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -42,12 +42,12 @@ std::string NFGameServerPlugin::GetPluginName()
 
 void NFGameServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFIGameServerModule, NFCGameServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIGameServerModule, NFCGameServerModule);
 }
 
 void NFGameServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFIGameServerModule, NFCGameServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIGameServerModule, NFCGameServerModule);
 }
 
 bool NFGameServerPlugin::InitShmObjectRegister()
@@ -55,8 +55,5 @@ bool NFGameServerPlugin::InitShmObjectRegister()
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	NF_ASSERT(pConfig);
 
-	//uint32_t maxRoomNum = pConfig->GetMaxRoomNum();
-	//uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;
-	//uint32_t maxDeskCount = pConfig->GetMaxDeskNum();
 	return true;
 }
