@@ -53,6 +53,10 @@ public:
     int OnHandleProxyServerDisconnect(uint64_t unLinkId);
 
     int RegisterProxyAgentServer(uint64_t unLinkId);
+
+    ////////////////////////////////test send msg/////////////////////////////////////////////////
+    int TestSendProxyMsgToOtherServer(uint64_t dstBusId);
+    int OnHandleTestOtherSendMsg(uint64_t unLinkId, NFDataPackage& packet);
 public:
     uint64_t m_proxyServerLinkId;
     NET_RECEIVE_FUNCTOR m_otherServerMsgHandle;

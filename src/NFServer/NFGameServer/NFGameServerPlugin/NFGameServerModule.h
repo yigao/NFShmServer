@@ -63,4 +63,6 @@ public:
     int RegisterProxyAgentServer(uint64_t unLinkId);
     int OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
     int OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+
+    int OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& packet);
 };

@@ -10,6 +10,8 @@ enum Proto_SvrMsgID
 {
   NF_STSTORE_CHECK_STORE_SERVER_REQ = 40; //server to store server, check exist
   NF_STORETS_CHECK_STORE_SERVER_RSP = 41; //store server to server, check exist rsp
+  NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ = 42; //test send proxy msg to other server
+  NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER = 43; //test send proxy msg to other server rsp
 }
 
 message CommonMsgRsp
@@ -85,4 +87,16 @@ message Proto_STStoreCheckReq
 message Proto_StoreTSCheckRsp
 {
 
+}
+
+message Proto_TestSendProxyMsgToOtherServer
+{
+  optional string server_id = 1;
+  optional string server_name = 2;
+}
+
+message Proto_TestOtherServerSendMsgToProxyServer
+{
+  optional string server_id = 3;
+  optional string server_name = 4;
 }

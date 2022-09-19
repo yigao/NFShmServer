@@ -147,7 +147,7 @@ struct NFDataPackage
     }
 
     std::string ToString() const {
-        return NF_FORMAT("mdouleId:{} msgId:{} param1:{} param2:{} bSecurity:{}", mModuleId, nMsgId, nParam1, nParam2, bSecurity);
+        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{})", mModuleId, nMsgId, nParam1, nParam2);
     }
 
     uint32_t mModuleId;

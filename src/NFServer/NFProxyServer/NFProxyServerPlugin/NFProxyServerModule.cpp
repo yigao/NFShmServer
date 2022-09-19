@@ -42,6 +42,11 @@ bool NFCProxyServerModule::Awake()
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
                                                  &NFCProxyServerModule::OnHandleProxyAgentServerReport);
 
+    ///////////////////test other server send msg to proxy server////////////////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER, this,
+                                                       &NFCProxyServerModule::OnHandleTestOtherSendMsg);
+
+
     //注册要完成的服务器启动任务
     m_pObjPluginManager->RegisterAppTask(NF_ST_PROXY_SERVER, APP_INIT_CONNECT_MASTER, PROXY_SERVER_CONNECT_MASTER_SERVER);
 
@@ -184,6 +189,8 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(),
               xData.server_id());
+
+    TestSendProxyMsgToOtherServer(xData.bus_id());
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
@@ -490,4 +497,29 @@ int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 	}
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
+}
+
+int NFCProxyServerModule::TestSendProxyMsgToOtherServer(uint64_t dstBusId)
+{
+    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
+    CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
+
+    proto_ff::Proto_TestSendProxyMsgToOtherServer xData;
+    xData.set_server_id(pConfig->ServerId);
+    xData.set_server_name(pConfig->ServerName);
+    FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, dstBusId, proto_ff::NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ, xData, 1, 2);
+    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyServerModule::OnHandleTestOtherSendMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+
+    proto_ff::Proto_TestOtherServerSendMsgToProxyServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
 }

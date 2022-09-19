@@ -447,8 +447,8 @@ int NFCProxyAgentServerModule::OnHandleProxyOtherMessage(uint64_t unLinkId, NFDa
         auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_AGENT_SERVER, dstBusId);
         if (pServerData)
         {
-            NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "Trans ProxyServer:{} msg:{} to OtherServer:{},{}",
-                       pProxyServerData->mServerInfo.server_id(), dstBusId, pServerData->mServerInfo.server_name(),
+            NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "Trans ProxyServer:{} packet:{} to OtherServer:{}({})",
+                       pProxyServerData->mServerInfo.server_id(), packet.ToString(), pProxyServerData->mServerInfo.server_name(),
                        pServerData->mServerInfo.server_id());
             FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
         }

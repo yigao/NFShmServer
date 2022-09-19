@@ -6,8 +6,8 @@ NF_LOG_LEVEL_WARN = 3  --    warn = 3,
 NF_LOG_LEVEL_ERROR = 4 --    err = 4,
 
 
-LogLevel = NF_LOG_LEVEL_INFO;				--log等级配置		当前日志输出级别，大于此等于级别的才会输出到console
-LogFlushLevel = NF_LOG_LEVEL_INFO;			--log刷新等级配置, 当前日志输出级别，大于此等于级别的才会刷新到LOG文件里
+LogLevel = NF_LOG_LEVEL_TRACE;				--log等级配置		当前日志输出级别，大于此等于级别的才会输出到console
+LogFlushLevel = NF_LOG_LEVEL_TRACE;			--log刷新等级配置, 当前日志输出级别，大于此等于级别的才会刷新到LOG文件里
 
 
 NFLogId = {
@@ -56,7 +56,7 @@ LogInfo = {
 	--0-100是基础框架层LOG
 	{logid = NFLogId.NF_LOG_DEFAULT, display=true, level=0, logname = "DefaultLog", guid = {0}, desc = "默认LOG"},
 	{logid = NFLogId.NF_LOG_SYSTEMLOG, display=true, level=0, logname = "SystemLog", guid = 0, desc = "系统LOG"},
-	{logid = NFLogId.NF_LOG_RECV_MSG, display=true, level=0, logname = "RecvMsg", guid = 0, desc = "接受消息LOG"},
+	{logid = NFLogId.NF_LOG_RECV_MSG, display=false, level=0, logname = "RecvMsg", guid = 0, desc = "接受消息LOG"},
 	{logid = NFLogId.NF_LOG_RECV_MSG_JSON_PRINTF, display=true, level=0, logname = "RecvMsgJson", guid = 0, desc = "接受消息Json输出LOG"},
 	{logid = NFLogId.NF_LOG_PLUGIN_MANAGER, display=true, level=0, logname = "PluginLog", guid = 0, desc = "引擎管理LOG"},
 	{logid = NFLogId.NF_LOG_LOAD_CONFIG, display=true, level=0, logname = "LoadConfigLog", guid = 0, desc = "加载配置LOG"},
