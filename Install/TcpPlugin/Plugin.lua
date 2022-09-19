@@ -44,7 +44,7 @@ LoadPlugin =
 
 			"NFProxyServerPlugin",
 			--"NFProxyClientPlugin",
-			--"NFProxyAgentServerPlugin",
+			"NFProxyAgentServerPlugin",
 
 			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
@@ -67,20 +67,20 @@ LoadPlugin =
 		};
 		ServerType = NF_ST_NONE;
 		ServerList = {
-			{Server="MasterServer", ID="1.1.1.1", ServerType=NF_ST_MASTER_SERVER},
-			{Server="ProxyServer", ID="15.100.4.1", ServerType=NF_ST_PROXY_SERVER},
-			--{"LoginServer"},
+			{Server="MasterServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MASTER_SERVER..".1", ServerType=NF_ST_MASTER_SERVER},
+			{Server="ProxyServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_PROXY_SERVER..".1", ServerType=NF_ST_PROXY_SERVER},
+			{Server="ProxyAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_PROXY_AGENT_SERVER..".1", ServerType=NF_ST_PROXY_AGENT_SERVER},
+			{Server="RouteAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_ROUTE_AGENT_SERVER..".1", ServerType=NF_ST_ROUTE_AGENT_SERVER},
+			{Server="RouteServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_ROUTE_SERVER..".1", ServerType=NF_ST_ROUTE_SERVER},
+			{Server="GameServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_GAME_SERVER..".1", ServerType=NF_ST_GAME_SERVER},
+			{Server="StoreServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_STORE_SERVER..".1", ServerType=NF_ST_STORE_SERVER},
 			--"GameServer",
 			--"ProxyServer",
 			--"WorldServer",
-			--"RouteAgentServer",
-			--"RouteServer",
-			--"StoreServer",
 			--"SnsServer",
 			--"LogicServer",
 			--"WebServer",
 			--"MonitorServer",
-			--"ProxyAgentServer",
 		};
 	},
 	MasterServer = {

@@ -200,7 +200,7 @@ int NFCProxyServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
     pServerData->mUnlinkId = unLinkId;
     pServerData->mServerInfo = xData;
     FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_PROXY_SERVER, xData.bus_id(), pServerData->mUnlinkId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Agent Server:{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(), xData.bus_name());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Agent Server:{} Register Proxy Server, serverName:{} serverId:{}", xData.server_name(), xData.server_name(), xData.bus_name());
 
     RegisterProxyAgentServer(unLinkId);
 
