@@ -41,7 +41,7 @@ public:
             }
             catch (fmt::v5::format_error& error) {
                 std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());\
-                m_pLogModule->LogDefault((NF_LOG_LEVEL)log_level, loc, logId, guid, str);
+                m_pLogModule->LogDefault((NF_LOG_LEVEL)NLL_ERROR_NORMAL, loc, logId, guid, str);
             }
 		}
 		else

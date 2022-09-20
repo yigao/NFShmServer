@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
         pPluginManager->Begin();
     }
 
-	uint64_t nIndex = 0;
+    uint64_t nIndex = 0;
 	bool bExitApp = false;
 	while (!bExitApp)
 	{

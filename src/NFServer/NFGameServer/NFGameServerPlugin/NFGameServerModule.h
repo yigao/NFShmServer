@@ -66,6 +66,6 @@ public:
 
     int OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& packet);
     ////////////////////////////////test send msg/////////////////////////////////////////////////
-    int TestOtherServerToWorldServer(uint64_t dstBusId);
+    int TestOtherServerToWorldServer();
     int OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet);
 };

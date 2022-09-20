@@ -30,9 +30,58 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou conect">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/AllMoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/AllMoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/LogConfig.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/LogConfig.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/RouteAgentServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/RouteAgentServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/WorldServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/WorldServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameConfigModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameConfigModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameDesk.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameDesk.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameLogHandle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameLogHandle.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRobot.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRobot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRobotMgr.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRobotMgr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoom.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoom.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoomMgr.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoomMgr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoomModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameRoomModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameServerModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameServerModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameSession.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameSession.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameSessionMgr.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameSessionMgr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameWebHandleModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameWebHandleModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFPaoMaDengMgr.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFPaoMaDengMgr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFRobotCommon.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFRobotCommon.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFRobotMgr.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFRobotMgr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransCreateRobot.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransCreateRobot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransGamePlayerBase.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransGamePlayerBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransQueryCoinBalance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFTransQueryCoinBalance.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFPluginLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFPluginLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +202,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config --Plugin=../../TcpPlugin --AllMoreServer --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -354,14 +403,7 @@
       <workItem from="1663235833757" duration="8850000" />
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
-      <workItem from="1663634390040" duration="2488000" />
-    </task>
-    <task id="LOCAL-00079" summary="frame">
-      <created>1655730165008</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1655730165008</updated>
+      <workItem from="1663634390040" duration="10078000" />
     </task>
     <task id="LOCAL-00080" summary="frame">
       <created>1655786331722</created>
@@ -699,7 +741,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663636405709</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="chong gou conect">
+      <created>1663637710522</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1663637710522</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,6 +893,41 @@
           <url>file://$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/NFProxyAgentServerModule.cpp</url>
           <line>367</line>
           <option name="timeStamp" value="287" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp</url>
+          <line>763</line>
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp</url>
+          <line>782</line>
+          <option name="timeStamp" value="293" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp</url>
+          <line>183</line>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
+          <line>204</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
+          <line>483</line>
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp</url>
+          <line>209</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
+          <line>492</line>
+          <option name="timeStamp" value="303" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -213,8 +213,14 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
     uint32_t serverType = GetServerTypeFromUnlinkId(packet.nDstId);
     uint32_t destBusId = GetServerIndexFromUnlinkId(packet.nDstId);
 
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
+    CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
+
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_SERVER, unLinkId);
+    CHECK_EXPR(pServerData != NULL, -1, "pServer == NULL");
+
     NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
-               "-- trans msg from {}:{} to {}:{}, packet:{} --",
+               "--{}:{} trans route agent server({}:{}) msg from {}:{} to {}:{}, packet:{} --", pConfig->ServerName, pConfig->ServerId, pServerData->mServerInfo.server_name(),pServerData->mServerInfo.server_id(),
                GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
 
     if (destBusId == 0) {
@@ -226,8 +232,8 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
             if (pRouteAgent) {
                 FindModule<NFIMessageModule>()->Send(pRouteAgent->mUnlinkId, packet);
             } else {
-                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromBusId:{} destBusId:{}",
-                           packet.ToString(), fromBusId, destBusId);
+                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                           packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
             }
         }
     } else {
@@ -240,12 +246,14 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
             if (pRouteAgent) {
                 FindModule<NFIMessageModule>()->Send(pRouteAgent->mUnlinkId, packet);
             } else {
-                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromBusId:{} destBusId:{}",
-                           packet.ToString(), fromBusId, destBusId);
+                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                           packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType),
+                           NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
             }
         } else {
-            NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "can't find destBusId, packet:{} trans failed, fromBusId:{} destBusId:{}",
-                       packet.ToString(), fromBusId, destBusId);
+            NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                       packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType),
+                       NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
         }
     }
 
@@ -445,8 +453,8 @@ int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NF
             pRegServerData->mServerInfo = xData;
 
             NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) register route agent:{}({}) trans to route svr success",
-                       pRegServerData->mServerInfo.server_name(), pRegServerData->mServerInfo.bus_id(),
-                       pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id());
+                       pRegServerData->mServerInfo.server_name(), pRegServerData->mServerInfo.server_id(),
+                       pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id());
         }
     }
 

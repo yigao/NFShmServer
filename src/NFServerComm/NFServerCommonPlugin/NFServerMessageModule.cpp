@@ -69,3 +69,23 @@ int NFServerMessageModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t 
     FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, nParam1, nParam2, pConfig->BusId, nDstId);
     return 0;
 }
+
+int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return SendMsgToWorldServer(eType, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return SendMsgToGameServer(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+}

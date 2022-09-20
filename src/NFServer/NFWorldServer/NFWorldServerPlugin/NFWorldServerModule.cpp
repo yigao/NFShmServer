@@ -766,13 +766,13 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
     proto_ff::Proto_TestOtherServerToWorldServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
     {
         proto_ff::Proto_TestSendWorldMsgToOtherServer xData;
         xData.set_server_id(pConfig->ServerId);
         xData.set_server_name(pConfig->ServerName);
-        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
+        FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
     }
 
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");

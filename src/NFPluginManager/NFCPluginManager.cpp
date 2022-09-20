@@ -311,7 +311,21 @@ bool NFCPluginManager::Execute()
 	g_GetGlobalServerTime()->Update(startTime);   //
 
 	BeginProfiler("MainLoop");
-	
+
+	if (!IsInited()) {
+        if (m_appInited.IsInitTasked())
+        {
+            SetIsInited(true);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Task, App Inited Success..............");
+
+            proto_ff::NFEventNoneData event;
+            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+        }
+        else {
+            m_appInited.Execute();
+        }
+    }
+
 	for (auto it = m_nPluginInstanceMap.begin(); it != m_nPluginInstanceMap.end(); ++it)
 	{
 		BeginProfiler(it->first + "--Loop");
@@ -580,38 +594,6 @@ bool NFCPluginManager::ReadyExecute()
 	for (PluginInstanceMap::iterator itCheckInstance = m_nPluginInstanceMap.begin(); itCheckInstance != m_nPluginInstanceMap.end(); ++itCheckInstance)
 	{
 		itCheckInstance->second->ReadyExecute();
-	}
-
-    bool bExitApp = false;
-	while (!IsInited() && !bExitApp)
-	{
-        m_appInited.Execute();
-
-		if (m_appInited.IsInitTasked())
-		{
-			SetIsInited(true);
-			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Task, App Inited Success..............");
-
-			proto_ff::NFEventNoneData event;
-            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
-			break;
-		}
-
-        if (bExitApp) //-V547
-        {
-            break;
-        }
-
-        Execute();
-
-        if (GetShutDownApp())
-        {
-            ShutDownApp();
-            NFSLEEP(1000);
-            exit(0);
-        }
-
-        bExitApp = GetExitApp();
 	}
 
 	return true;

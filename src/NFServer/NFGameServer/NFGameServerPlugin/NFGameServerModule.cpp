@@ -23,6 +23,9 @@
 #define GAME_SERVER_CONNECT_ROUTEAGENT_SERVER "GameServer Connect RouteAgentServer"
 #define GAME_SERVER_CHECK_STORE_SERVER "GameServer Check StoreServer"
 
+#define GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID 1
+#define GAME_SERVER_SERVER_DEAD_TIMER_ID 10000
+
 NFCGameServerModule::NFCGameServerModule(NFIPluginManager* p):NFIGameServerModule(p)
 {
 }
@@ -111,6 +114,7 @@ bool NFCGameServerModule::Awake()
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 
+	SetTimer(GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID, 10000, 1);
 	return true;
 }
 
@@ -161,7 +165,7 @@ int NFCGameServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t 
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
-            SetTimer(10000, 10000, 0);
+            SetTimer(GAME_SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
         }
     }
     return 0;
@@ -169,11 +173,15 @@ int NFCGameServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t 
 
 void NFCGameServerModule::OnTimer(uint32_t nTimerID)
 {
-    if (nTimerID == 10000)
+    if (nTimerID == GAME_SERVER_SERVER_DEAD_TIMER_ID)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
         exit(0);
+    }
+    else if (nTimerID == GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID)
+    {
+        //TestOtherServerToWorldServer();
     }
 }
 
@@ -756,7 +764,7 @@ int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& 
     return 0;
 }
 
-int NFCGameServerModule::TestOtherServerToWorldServer(uint64_t dstBusId)
+int NFCGameServerModule::TestOtherServerToWorldServer()
 {
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
@@ -765,7 +773,7 @@ int NFCGameServerModule::TestOtherServerToWorldServer(uint64_t dstBusId)
     proto_ff::Proto_TestOtherServerToWorldServer xData;
     xData.set_server_id(pConfig->ServerId);
     xData.set_server_name(pConfig->ServerName);
-    FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_GAME_SERVER, dstBusId, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }
