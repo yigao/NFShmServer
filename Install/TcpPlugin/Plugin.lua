@@ -40,16 +40,16 @@ LoadPlugin =
 			"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 
-			"NFStoreServerPlugin",
+			--"NFStoreServerPlugin",
 
 			"NFProxyServerPlugin",
 			--"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 
-			--"NFLoginServerPlugin",
+			"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			"NFGameServerPlugin",
+			--"NFGameServerPlugin",
 
 			"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",
@@ -75,6 +75,7 @@ LoadPlugin =
 			{Server="GameServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_GAME_SERVER..".1", ServerType=NF_ST_GAME_SERVER},
 			{Server="StoreServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_STORE_SERVER..".1", ServerType=NF_ST_STORE_SERVER},
 			{Server="WorldServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WORLD_SERVER..".1", ServerType=NF_ST_WORLD_SERVER},
+			{Server="LoginServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_LOGIN_SERVER..".1", ServerType=NF_ST_LOGIN_SERVER},
 			--"GameServer",
 			--"ProxyServer",
 			--"WorldServer",

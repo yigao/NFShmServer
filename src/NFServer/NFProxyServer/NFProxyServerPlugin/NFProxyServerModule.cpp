@@ -191,7 +191,7 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
               xData.server_id());
 
     //test send msg
-    TestSendProxyMsgToOtherServer(xData.bus_id());
+    //TestSendProxyMsgToOtherServer(xData.bus_id());
     NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

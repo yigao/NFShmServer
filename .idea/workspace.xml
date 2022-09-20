@@ -4,14 +4,21 @@
     <generated>
       <config projectName="ShmNFrame" targetName="evpp" />
       <config projectName="ShmNFrame" targetName="NFServerMessage" />
+      <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="NFServerCommon" />
+      <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFStoreServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
+      <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
+      <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
     </generated>
   </component>
@@ -24,7 +31,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisClientString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisClientString.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerPlugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +142,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NFLoginServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFLoginServerPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFMasterServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=MasterServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMasterServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -145,7 +162,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart --AllMoreServer" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -258,6 +275,7 @@
       <item itemvalue="CMake 应用程序.NFShmPlugin" />
       <item itemvalue="CMake 应用程序.NFPluginLoader" />
       <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
@@ -347,13 +365,6 @@
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
       <workItem from="1663338610780" duration="2740000" />
-    </task>
-    <task id="LOCAL-00092" summary="makefile">
-      <created>1656120476774</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1656120476774</updated>
     </task>
     <task id="LOCAL-00093" summary="chong gou">
       <created>1663127723075</created>
@@ -691,7 +702,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663491824138</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="chong gou">
+      <created>1663679822026</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1663679822027</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,11 +810,6 @@
           <url>file://$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp</url>
           <line>650</line>
           <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp</url>
-          <line>127</line>
-          <option name="timeStamp" value="243" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
