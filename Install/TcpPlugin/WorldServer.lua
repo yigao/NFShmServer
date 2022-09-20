@@ -5,16 +5,16 @@ require "Common"		--
 -- 100是区服务ID， 范围1-65536
 -- 4是服务器类型ID， 必须跟serverType一样 范围1-255
 -- 1服务器索引，范围1-255
-GameServer = {
-   GameServer_1 = {
-      ServerName = "GameServer_1",
-      ServerType = NF_ST_GAME_SERVER,
-      ServerId = NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_GAME_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+WorldServer = {
+   WorldServer_1 = {
+      ServerName = "WorldServer_1",
+      ServerType = NF_ST_WORLD_SERVER,
+      ServerId = NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WORLD_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
       BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
       IdleSleepUS = 1000,
       RouteAgent = NF_ROUTE_AGENT_ID,
       ServerIp = NF_INTER_SERVER_IP,
-      ServerPort = NF_INTER_SERVER_PORT+NF_ST_GAME_SERVER*10+1,
+      ServerPort = NF_INTER_SERVER_PORT+NF_ST_WORLD_SERVER*10+1,
       MaxConnectNum = NF_INTER_MAX_CONNECT,
       NetThreadNum = 1,
       WorkThreadNum = 1,
