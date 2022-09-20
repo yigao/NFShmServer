@@ -40,7 +40,7 @@ LoadPlugin =
 			"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 
-			--"NFStoreServerPlugin",
+			"NFStoreServerPlugin",
 
 			"NFProxyServerPlugin",
 			--"NFProxyClientPlugin",
