@@ -155,7 +155,7 @@ bool NFRedisDriver::MGET(const string_vector &keys, string_vector &values)
 {
 	NFRedisCommand cmd(GET_NAME(MGET));
 
-    for (int i = 0; i < keys.size(); ++i)
+    for (int i = 0; i < (int)keys.size(); ++i)
     {
         cmd << keys[i];
     }
@@ -186,7 +186,7 @@ void NFRedisDriver::MSET(const string_pair_vector &values)
 {
     NFRedisCommand cmd(GET_NAME(MSET));
 
-    for (int i = 0; i < values.size(); ++i)
+    for (int i = 0; i < (int)values.size(); ++i)
     {
         cmd << values[i].first;
         cmd << values[i].second;
