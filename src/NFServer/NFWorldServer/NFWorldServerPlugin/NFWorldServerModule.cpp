@@ -16,6 +16,7 @@
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
 #define WORLD_SERVER_CONNECT_MASTER_SERVER "WorldServer Connect MasterServer"
 #define WORLD_SERVER_CONNECT_ROUTEAGENT_SERVER "WorldServer Connect RouteAgentServer"
@@ -39,7 +40,8 @@ bool NFCWorldServerModule::Awake()
 	/////////////////route agent msg///////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCWorldServerModule::OnRegisterRouteAgentRspProcess);
 
-	/////////////////route agent msg///////////////////////////////////////
+	/////////////////test other server msg///////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, this, &NFCWorldServerModule::OnHandleTestOtherServerMsg);
 
 	//注册要完成的服务器启动任务
 	m_pObjPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_CONNECT_MASTER, WORLD_SERVER_CONNECT_MASTER_SERVER);
@@ -753,6 +755,26 @@ int NFCWorldServerModule::OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDa
 {
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
     NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "msg:{} not handled!", packet.ToString());
+    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+
+    proto_ff::Proto_TestOtherServerToWorldServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+    if (pConfig)
+    {
+        proto_ff::Proto_TestSendWorldMsgToOtherServer xData;
+        xData.set_server_id(pConfig->ServerId);
+        xData.set_server_name(pConfig->ServerName);
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
+    }
+
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

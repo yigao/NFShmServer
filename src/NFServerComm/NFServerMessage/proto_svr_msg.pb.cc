@@ -62,6 +62,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_TestOtherServerSendMsgToProxyServer_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_TestOtherServerSendMsgToProxyServer_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_TestSendWorldMsgToOtherServer_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_TestSendWorldMsgToOtherServer_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_TestOtherServerToWorldServer_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_TestOtherServerToWorldServer_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_SvrMsgID_descriptor_ = NULL;
 
 }  // namespace
@@ -296,6 +302,38 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestOtherServerSendMsgToProxyServer));
+  Proto_TestSendWorldMsgToOtherServer_descriptor_ = file->message_type(14);
+  static const int Proto_TestSendWorldMsgToOtherServer_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_name_),
+  };
+  Proto_TestSendWorldMsgToOtherServer_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_TestSendWorldMsgToOtherServer_descriptor_,
+      Proto_TestSendWorldMsgToOtherServer::default_instance_,
+      Proto_TestSendWorldMsgToOtherServer_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_TestSendWorldMsgToOtherServer));
+  Proto_TestOtherServerToWorldServer_descriptor_ = file->message_type(15);
+  static const int Proto_TestOtherServerToWorldServer_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_name_),
+  };
+  Proto_TestOtherServerToWorldServer_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_TestOtherServerToWorldServer_descriptor_,
+      Proto_TestOtherServerToWorldServer::default_instance_,
+      Proto_TestOtherServerToWorldServer_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_TestOtherServerToWorldServer));
   Proto_SvrMsgID_descriptor_ = file->enum_type(0);
 }
 
@@ -337,6 +375,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_TestSendProxyMsgToOtherServer_descriptor_, &Proto_TestSendProxyMsgToOtherServer::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_TestOtherServerSendMsgToProxyServer_descriptor_, &Proto_TestOtherServerSendMsgToProxyServer::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_TestSendWorldMsgToOtherServer_descriptor_, &Proto_TestSendWorldMsgToOtherServer::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_TestOtherServerToWorldServer_descriptor_, &Proto_TestOtherServerToWorldServer::default_instance());
 }
 
 }  // namespace
@@ -370,6 +412,10 @@ void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto() {
   delete Proto_TestSendProxyMsgToOtherServer_reflection_;
   delete Proto_TestOtherServerSendMsgToProxyServer::default_instance_;
   delete Proto_TestOtherServerSendMsgToProxyServer_reflection_;
+  delete Proto_TestSendWorldMsgToOtherServer::default_instance_;
+  delete Proto_TestSendWorldMsgToOtherServer_reflection_;
+  delete Proto_TestOtherServerToWorldServer::default_instance_;
+  delete Proto_TestOtherServerToWorldServer_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
@@ -408,12 +454,18 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
     "ToOtherServer\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013serv"
     "er_name\030\002 \001(\t\"S\n)Proto_TestOtherServerSe"
     "ndMsgToProxyServer\022\021\n\tserver_id\030\003 \001(\t\022\023\n"
-    "\013server_name\030\004 \001(\t*\301\001\n\016Proto_SvrMsgID\022%\n"
-    "!NF_STSTORE_CHECK_STORE_SERVER_REQ\020(\022%\n!"
-    "NF_STORETS_CHECK_STORE_SERVER_RSP\020)\022.\n*N"
-    "F_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_RE"
-    "Q\020*\0221\n-NF_TEST_OTHER_SERVER_SEND_MSG_TO_"
-    "PROXY_SERVER\020+", 1254);
+    "\013server_name\030\004 \001(\t\"M\n#Proto_TestSendWorl"
+    "dMsgToOtherServer\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013"
+    "server_name\030\002 \001(\t\"L\n\"Proto_TestOtherServ"
+    "erToWorldServer\022\021\n\tserver_id\030\003 \001(\t\022\023\n\013se"
+    "rver_name\030\004 \001(\t*\245\002\n\016Proto_SvrMsgID\022%\n!NF"
+    "_STSTORE_CHECK_STORE_SERVER_REQ\020(\022%\n!NF_"
+    "STORETS_CHECK_STORE_SERVER_RSP\020)\022.\n*NF_T"
+    "EST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ\020*"
+    "\0221\n-NF_TEST_OTHER_SERVER_SEND_MSG_TO_PRO"
+    "XY_SERVER\020+\0220\n,NF_TEST_OTHER_SERVER_MSG_"
+    "TO_WORLD_SERVER_REQ\020,\0220\n,NF_TEST_WORLD_S"
+    "ERVER_MSG_TO_OTHER_SERVER_REQ\020-", 1511);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_msg.proto", &protobuf_RegisterTypes);
   CommonMsgRsp::default_instance_ = new CommonMsgRsp();
@@ -430,6 +482,8 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
   Proto_StoreTSCheckRsp::default_instance_ = new Proto_StoreTSCheckRsp();
   Proto_TestSendProxyMsgToOtherServer::default_instance_ = new Proto_TestSendProxyMsgToOtherServer();
   Proto_TestOtherServerSendMsgToProxyServer::default_instance_ = new Proto_TestOtherServerSendMsgToProxyServer();
+  Proto_TestSendWorldMsgToOtherServer::default_instance_ = new Proto_TestSendWorldMsgToOtherServer();
+  Proto_TestOtherServerToWorldServer::default_instance_ = new Proto_TestOtherServerToWorldServer();
   CommonMsgRsp::default_instance_->InitAsDefaultInstance();
   Proto_STMasterServerDumpInfoNtf::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorReloadReq::default_instance_->InitAsDefaultInstance();
@@ -444,6 +498,8 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
   Proto_StoreTSCheckRsp::default_instance_->InitAsDefaultInstance();
   Proto_TestSendProxyMsgToOtherServer::default_instance_->InitAsDefaultInstance();
   Proto_TestOtherServerSendMsgToProxyServer::default_instance_->InitAsDefaultInstance();
+  Proto_TestSendWorldMsgToOtherServer::default_instance_->InitAsDefaultInstance();
+  Proto_TestOtherServerToWorldServer::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto);
 }
 
@@ -463,6 +519,8 @@ bool Proto_SvrMsgID_IsValid(int value) {
     case 41:
     case 42:
     case 43:
+    case 44:
+    case 45:
       return true;
     default:
       return false;
@@ -4231,6 +4289,570 @@ void Proto_TestOtherServerSendMsgToProxyServer::Swap(Proto_TestOtherServerSendMs
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_TestOtherServerSendMsgToProxyServer_descriptor_;
   metadata.reflection = Proto_TestOtherServerSendMsgToProxyServer_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_TestSendWorldMsgToOtherServer::kServerIdFieldNumber;
+const int Proto_TestSendWorldMsgToOtherServer::kServerNameFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_TestSendWorldMsgToOtherServer::Proto_TestSendWorldMsgToOtherServer()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_TestSendWorldMsgToOtherServer::InitAsDefaultInstance() {
+}
+
+Proto_TestSendWorldMsgToOtherServer::Proto_TestSendWorldMsgToOtherServer(const Proto_TestSendWorldMsgToOtherServer& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_TestSendWorldMsgToOtherServer::SharedCtor() {
+  _cached_size_ = 0;
+  server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_TestSendWorldMsgToOtherServer::~Proto_TestSendWorldMsgToOtherServer() {
+  SharedDtor();
+}
+
+void Proto_TestSendWorldMsgToOtherServer::SharedDtor() {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_id_;
+  }
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_TestSendWorldMsgToOtherServer::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_TestSendWorldMsgToOtherServer::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_TestSendWorldMsgToOtherServer_descriptor_;
+}
+
+const Proto_TestSendWorldMsgToOtherServer& Proto_TestSendWorldMsgToOtherServer::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  return *default_instance_;
+}
+
+Proto_TestSendWorldMsgToOtherServer* Proto_TestSendWorldMsgToOtherServer::default_instance_ = NULL;
+
+Proto_TestSendWorldMsgToOtherServer* Proto_TestSendWorldMsgToOtherServer::New() const {
+  return new Proto_TestSendWorldMsgToOtherServer;
+}
+
+void Proto_TestSendWorldMsgToOtherServer::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_server_id()) {
+      if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+        server_id_->clear();
+      }
+    }
+    if (has_server_name()) {
+      if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+        server_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_TestSendWorldMsgToOtherServer::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string server_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_id().data(), this->server_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_server_name;
+        break;
+      }
+
+      // optional string server_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_server_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_name().data(), this->server_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_TestSendWorldMsgToOtherServer::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string server_id = 1;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_id().data(), this->server_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->server_id(), output);
+  }
+
+  // optional string server_name = 2;
+  if (has_server_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_name().data(), this->server_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->server_name(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_TestSendWorldMsgToOtherServer::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string server_id = 1;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_id().data(), this->server_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->server_id(), target);
+  }
+
+  // optional string server_name = 2;
+  if (has_server_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_name().data(), this->server_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->server_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_TestSendWorldMsgToOtherServer::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string server_id = 1;
+    if (has_server_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server_id());
+    }
+
+    // optional string server_name = 2;
+    if (has_server_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server_name());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_TestSendWorldMsgToOtherServer::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_TestSendWorldMsgToOtherServer* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_TestSendWorldMsgToOtherServer*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_TestSendWorldMsgToOtherServer::MergeFrom(const Proto_TestSendWorldMsgToOtherServer& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_server_id()) {
+      set_server_id(from.server_id());
+    }
+    if (from.has_server_name()) {
+      set_server_name(from.server_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_TestSendWorldMsgToOtherServer::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_TestSendWorldMsgToOtherServer::CopyFrom(const Proto_TestSendWorldMsgToOtherServer& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_TestSendWorldMsgToOtherServer::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_TestSendWorldMsgToOtherServer::Swap(Proto_TestSendWorldMsgToOtherServer* other) {
+  if (other != this) {
+    std::swap(server_id_, other->server_id_);
+    std::swap(server_name_, other->server_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_TestSendWorldMsgToOtherServer::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_TestSendWorldMsgToOtherServer_descriptor_;
+  metadata.reflection = Proto_TestSendWorldMsgToOtherServer_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_TestOtherServerToWorldServer::kServerIdFieldNumber;
+const int Proto_TestOtherServerToWorldServer::kServerNameFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_TestOtherServerToWorldServer::Proto_TestOtherServerToWorldServer()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_TestOtherServerToWorldServer::InitAsDefaultInstance() {
+}
+
+Proto_TestOtherServerToWorldServer::Proto_TestOtherServerToWorldServer(const Proto_TestOtherServerToWorldServer& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_TestOtherServerToWorldServer::SharedCtor() {
+  _cached_size_ = 0;
+  server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_TestOtherServerToWorldServer::~Proto_TestOtherServerToWorldServer() {
+  SharedDtor();
+}
+
+void Proto_TestOtherServerToWorldServer::SharedDtor() {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_id_;
+  }
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_TestOtherServerToWorldServer::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_TestOtherServerToWorldServer::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_TestOtherServerToWorldServer_descriptor_;
+}
+
+const Proto_TestOtherServerToWorldServer& Proto_TestOtherServerToWorldServer::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  return *default_instance_;
+}
+
+Proto_TestOtherServerToWorldServer* Proto_TestOtherServerToWorldServer::default_instance_ = NULL;
+
+Proto_TestOtherServerToWorldServer* Proto_TestOtherServerToWorldServer::New() const {
+  return new Proto_TestOtherServerToWorldServer;
+}
+
+void Proto_TestOtherServerToWorldServer::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_server_id()) {
+      if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+        server_id_->clear();
+      }
+    }
+    if (has_server_name()) {
+      if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+        server_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_TestOtherServerToWorldServer::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string server_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_id().data(), this->server_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_server_name;
+        break;
+      }
+
+      // optional string server_name = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_server_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_name().data(), this->server_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_TestOtherServerToWorldServer::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string server_id = 3;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_id().data(), this->server_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->server_id(), output);
+  }
+
+  // optional string server_name = 4;
+  if (has_server_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_name().data(), this->server_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->server_name(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_TestOtherServerToWorldServer::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string server_id = 3;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_id().data(), this->server_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->server_id(), target);
+  }
+
+  // optional string server_name = 4;
+  if (has_server_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->server_name().data(), this->server_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->server_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_TestOtherServerToWorldServer::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string server_id = 3;
+    if (has_server_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server_id());
+    }
+
+    // optional string server_name = 4;
+    if (has_server_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->server_name());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_TestOtherServerToWorldServer::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_TestOtherServerToWorldServer* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_TestOtherServerToWorldServer*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_TestOtherServerToWorldServer::MergeFrom(const Proto_TestOtherServerToWorldServer& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_server_id()) {
+      set_server_id(from.server_id());
+    }
+    if (from.has_server_name()) {
+      set_server_name(from.server_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_TestOtherServerToWorldServer::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_TestOtherServerToWorldServer::CopyFrom(const Proto_TestOtherServerToWorldServer& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_TestOtherServerToWorldServer::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_TestOtherServerToWorldServer::Swap(Proto_TestOtherServerToWorldServer* other) {
+  if (other != this) {
+    std::swap(server_id_, other->server_id_);
+    std::swap(server_name_, other->server_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_TestOtherServerToWorldServer::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_TestOtherServerToWorldServer_descriptor_;
+  metadata.reflection = Proto_TestOtherServerToWorldServer_reflection_;
   return metadata;
 }
 

@@ -51,16 +51,20 @@ class Proto_STStoreCheckReq;
 class Proto_StoreTSCheckRsp;
 class Proto_TestSendProxyMsgToOtherServer;
 class Proto_TestOtherServerSendMsgToProxyServer;
+class Proto_TestSendWorldMsgToOtherServer;
+class Proto_TestOtherServerToWorldServer;
 
 enum Proto_SvrMsgID {
   NF_STSTORE_CHECK_STORE_SERVER_REQ = 40,
   NF_STORETS_CHECK_STORE_SERVER_RSP = 41,
   NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ = 42,
-  NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER = 43
+  NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER = 43,
+  NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ = 44,
+  NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ = 45
 };
 bool Proto_SvrMsgID_IsValid(int value);
 const Proto_SvrMsgID Proto_SvrMsgID_MIN = NF_STSTORE_CHECK_STORE_SERVER_REQ;
-const Proto_SvrMsgID Proto_SvrMsgID_MAX = NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER;
+const Proto_SvrMsgID Proto_SvrMsgID_MAX = NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ;
 const int Proto_SvrMsgID_ARRAYSIZE = Proto_SvrMsgID_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_SvrMsgID_descriptor();
@@ -1455,6 +1459,210 @@ class Proto_TestOtherServerSendMsgToProxyServer : public ::google::protobuf::Mes
 
   void InitAsDefaultInstance();
   static Proto_TestOtherServerSendMsgToProxyServer* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_TestSendWorldMsgToOtherServer : public ::google::protobuf::Message {
+ public:
+  Proto_TestSendWorldMsgToOtherServer();
+  virtual ~Proto_TestSendWorldMsgToOtherServer();
+
+  Proto_TestSendWorldMsgToOtherServer(const Proto_TestSendWorldMsgToOtherServer& from);
+
+  inline Proto_TestSendWorldMsgToOtherServer& operator=(const Proto_TestSendWorldMsgToOtherServer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_TestSendWorldMsgToOtherServer& default_instance();
+
+  void Swap(Proto_TestSendWorldMsgToOtherServer* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_TestSendWorldMsgToOtherServer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_TestSendWorldMsgToOtherServer& from);
+  void MergeFrom(const Proto_TestSendWorldMsgToOtherServer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string server_id = 1;
+  inline bool has_server_id() const;
+  inline void clear_server_id();
+  static const int kServerIdFieldNumber = 1;
+  inline const ::std::string& server_id() const;
+  inline void set_server_id(const ::std::string& value);
+  inline void set_server_id(const char* value);
+  inline void set_server_id(const char* value, size_t size);
+  inline ::std::string* mutable_server_id();
+  inline ::std::string* release_server_id();
+  inline void set_allocated_server_id(::std::string* server_id);
+
+  // optional string server_name = 2;
+  inline bool has_server_name() const;
+  inline void clear_server_name();
+  static const int kServerNameFieldNumber = 2;
+  inline const ::std::string& server_name() const;
+  inline void set_server_name(const ::std::string& value);
+  inline void set_server_name(const char* value);
+  inline void set_server_name(const char* value, size_t size);
+  inline ::std::string* mutable_server_name();
+  inline ::std::string* release_server_name();
+  inline void set_allocated_server_name(::std::string* server_name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestSendWorldMsgToOtherServer)
+ private:
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
+  inline void set_has_server_name();
+  inline void clear_has_server_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* server_id_;
+  ::std::string* server_name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_TestSendWorldMsgToOtherServer* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_TestOtherServerToWorldServer : public ::google::protobuf::Message {
+ public:
+  Proto_TestOtherServerToWorldServer();
+  virtual ~Proto_TestOtherServerToWorldServer();
+
+  Proto_TestOtherServerToWorldServer(const Proto_TestOtherServerToWorldServer& from);
+
+  inline Proto_TestOtherServerToWorldServer& operator=(const Proto_TestOtherServerToWorldServer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_TestOtherServerToWorldServer& default_instance();
+
+  void Swap(Proto_TestOtherServerToWorldServer* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_TestOtherServerToWorldServer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_TestOtherServerToWorldServer& from);
+  void MergeFrom(const Proto_TestOtherServerToWorldServer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string server_id = 3;
+  inline bool has_server_id() const;
+  inline void clear_server_id();
+  static const int kServerIdFieldNumber = 3;
+  inline const ::std::string& server_id() const;
+  inline void set_server_id(const ::std::string& value);
+  inline void set_server_id(const char* value);
+  inline void set_server_id(const char* value, size_t size);
+  inline ::std::string* mutable_server_id();
+  inline ::std::string* release_server_id();
+  inline void set_allocated_server_id(::std::string* server_id);
+
+  // optional string server_name = 4;
+  inline bool has_server_name() const;
+  inline void clear_server_name();
+  static const int kServerNameFieldNumber = 4;
+  inline const ::std::string& server_name() const;
+  inline void set_server_name(const ::std::string& value);
+  inline void set_server_name(const char* value);
+  inline void set_server_name(const char* value, size_t size);
+  inline ::std::string* mutable_server_name();
+  inline ::std::string* release_server_name();
+  inline void set_allocated_server_name(::std::string* server_name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestOtherServerToWorldServer)
+ private:
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
+  inline void set_has_server_name();
+  inline void clear_has_server_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* server_id_;
+  ::std::string* server_name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_TestOtherServerToWorldServer* default_instance_;
 };
 // ===================================================================
 
@@ -3105,6 +3313,294 @@ inline ::std::string* Proto_TestOtherServerSendMsgToProxyServer::release_server_
   }
 }
 inline void Proto_TestOtherServerSendMsgToProxyServer::set_allocated_server_name(::std::string* server_name) {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_name_;
+  }
+  if (server_name) {
+    set_has_server_name();
+    server_name_ = server_name;
+  } else {
+    clear_has_server_name();
+    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_TestSendWorldMsgToOtherServer
+
+// optional string server_id = 1;
+inline bool Proto_TestSendWorldMsgToOtherServer::has_server_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_has_server_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_server_id() {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    server_id_->clear();
+  }
+  clear_has_server_id();
+}
+inline const ::std::string& Proto_TestSendWorldMsgToOtherServer::server_id() const {
+  return *server_id_;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_id(const ::std::string& value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(value);
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_id(const char* value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(value);
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_id(const char* value, size_t size) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_TestSendWorldMsgToOtherServer::mutable_server_id() {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  return server_id_;
+}
+inline ::std::string* Proto_TestSendWorldMsgToOtherServer::release_server_id() {
+  clear_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_id_;
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_allocated_server_id(::std::string* server_id) {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_id_;
+  }
+  if (server_id) {
+    set_has_server_id();
+    server_id_ = server_id;
+  } else {
+    clear_has_server_id();
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string server_name = 2;
+inline bool Proto_TestSendWorldMsgToOtherServer::has_server_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_has_server_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_has_server_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_server_name() {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    server_name_->clear();
+  }
+  clear_has_server_name();
+}
+inline const ::std::string& Proto_TestSendWorldMsgToOtherServer::server_name() const {
+  return *server_name_;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_name(const ::std::string& value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(value);
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_name(const char* value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(value);
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_server_name(const char* value, size_t size) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_TestSendWorldMsgToOtherServer::mutable_server_name() {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  return server_name_;
+}
+inline ::std::string* Proto_TestSendWorldMsgToOtherServer::release_server_name() {
+  clear_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_name_;
+    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_allocated_server_name(::std::string* server_name) {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_name_;
+  }
+  if (server_name) {
+    set_has_server_name();
+    server_name_ = server_name;
+  } else {
+    clear_has_server_name();
+    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_TestOtherServerToWorldServer
+
+// optional string server_id = 3;
+inline bool Proto_TestOtherServerToWorldServer::has_server_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_TestOtherServerToWorldServer::set_has_server_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_server_id() {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    server_id_->clear();
+  }
+  clear_has_server_id();
+}
+inline const ::std::string& Proto_TestOtherServerToWorldServer::server_id() const {
+  return *server_id_;
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_id(const ::std::string& value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(value);
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_id(const char* value) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(value);
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_id(const char* value, size_t size) {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  server_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_TestOtherServerToWorldServer::mutable_server_id() {
+  set_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    server_id_ = new ::std::string;
+  }
+  return server_id_;
+}
+inline ::std::string* Proto_TestOtherServerToWorldServer::release_server_id() {
+  clear_has_server_id();
+  if (server_id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_id_;
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_TestOtherServerToWorldServer::set_allocated_server_id(::std::string* server_id) {
+  if (server_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_id_;
+  }
+  if (server_id) {
+    set_has_server_id();
+    server_id_ = server_id;
+  } else {
+    clear_has_server_id();
+    server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string server_name = 4;
+inline bool Proto_TestOtherServerToWorldServer::has_server_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_TestOtherServerToWorldServer::set_has_server_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_has_server_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_server_name() {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    server_name_->clear();
+  }
+  clear_has_server_name();
+}
+inline const ::std::string& Proto_TestOtherServerToWorldServer::server_name() const {
+  return *server_name_;
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_name(const ::std::string& value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(value);
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_name(const char* value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(value);
+}
+inline void Proto_TestOtherServerToWorldServer::set_server_name(const char* value, size_t size) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  server_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_TestOtherServerToWorldServer::mutable_server_name() {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
+  }
+  return server_name_;
+}
+inline ::std::string* Proto_TestOtherServerToWorldServer::release_server_name() {
+  clear_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = server_name_;
+    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_TestOtherServerToWorldServer::set_allocated_server_name(::std::string* server_name) {
   if (server_name_ != &::google::protobuf::internal::kEmptyString) {
     delete server_name_;
   }

@@ -65,4 +65,7 @@ public:
 	int RegisterMasterServer();
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+
+	////////////test server msg///////////////////////////////////////
+    int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage& packet);
 };

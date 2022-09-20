@@ -41,10 +41,12 @@ bool NFCGameServerModule::Awake()
     /////////////////route agent msg///////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCGameServerModule::OnRegisterRouteAgentRspProcess);
 
-    ////////////////test proxy server msg///////////////////////////////////////////////
+    ////////////////test other server msg///////////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ, this, &NFCGameServerModule::OnTestProxyServerMsg);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, this, &NFCGameServerModule::OnHandleTestWorldServerMsg);
 
-	//注册要完成的服务器启动任务
+
+    //注册要完成的服务器启动任务
 	m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_MASTER, GAME_SERVER_CONNECT_MASTER_SERVER);
 	m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, GAME_SERVER_CONNECT_ROUTEAGENT_SERVER);
 	m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_NEED_STORE_SERVER, GAME_SERVER_CHECK_STORE_SERVER);
@@ -749,6 +751,31 @@ int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& 
         xData.set_server_name(pConfig->ServerName);
         FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, packet.nSrcId, proto_ff::NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER, xData, 3, 4);
     }
+
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCGameServerModule::TestOtherServerToWorldServer(uint64_t dstBusId)
+{
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+    CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
+
+    proto_ff::Proto_TestOtherServerToWorldServer xData;
+    xData.set_server_id(pConfig->ServerId);
+    xData.set_server_name(pConfig->ServerName);
+    FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_GAME_SERVER, dstBusId, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCGameServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+
+    proto_ff::Proto_TestSendWorldMsgToOtherServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
