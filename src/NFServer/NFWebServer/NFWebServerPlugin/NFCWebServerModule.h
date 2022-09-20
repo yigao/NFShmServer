@@ -12,8 +12,7 @@
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFServer/NFCommHead/NFIWebServerModule.h"
-#include "NFServer/NFCommHead/NFCommLogicHead.h"
+#include "NFServerComm/NFServerCommon/NFIWebServerModule.h"
 
 class NFCWebServerModule : public NFIWebServerModule
 {
@@ -38,20 +37,20 @@ public:
 
     int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
     int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     int RegisterRouteAgentServer(uint64_t unLinkId);
-    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet);
 
-    int OnHandleServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
 
     /*
         处理Master服务器链接事件和未注册消息
     */
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
     int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
+    int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packetn);
 
     int OnWebSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char *msg, uint32_t nLen);
+    int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packetn);
     int OnHandleServerDisconnect(uint64_t unLinkId);
 };

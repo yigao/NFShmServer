@@ -42,12 +42,12 @@ std::string NFSnsServerPlugin::GetPluginName()
 
 void NFSnsServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFISnsServerModule, NFCSnsServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFISnsServerModule, NFCSnsServerModule);
 }
 
 void NFSnsServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFISnsServerModule, NFCSnsServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFISnsServerModule, NFCSnsServerModule);
 }
 
 bool NFSnsServerPlugin::InitShmObjectRegister()

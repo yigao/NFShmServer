@@ -42,11 +42,11 @@ std::string NFWebServerPlugin::GetPluginName()
 
 void NFWebServerPlugin::Install()
 {
-    REGISTER_MODULE(m_pPluginManager, NFIWebServerModule, NFCWebServerModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFIWebServerModule, NFCWebServerModule);
 }
 
 void NFWebServerPlugin::Uninstall()
 {
-    UNREGISTER_MODULE(m_pPluginManager, NFIWebServerModule, NFCWebServerModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIWebServerModule, NFCWebServerModule);
 }
 

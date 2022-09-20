@@ -46,12 +46,12 @@ LoadPlugin =
 			--"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 
-			"NFLoginServerPlugin",
+			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
 			--"NFGameServerPlugin",
 
-			"NFWorldServerPlugin",
+			--"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",
 
 			--"NFSnsServerPlugin",
@@ -60,7 +60,7 @@ LoadPlugin =
 			--"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
-			--"NFWebServerPlugin",
+			"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",
@@ -76,13 +76,10 @@ LoadPlugin =
 			{Server="StoreServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_STORE_SERVER..".1", ServerType=NF_ST_STORE_SERVER},
 			{Server="WorldServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WORLD_SERVER..".1", ServerType=NF_ST_WORLD_SERVER},
 			{Server="LoginServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_LOGIN_SERVER..".1", ServerType=NF_ST_LOGIN_SERVER},
-			--"GameServer",
-			--"ProxyServer",
-			--"WorldServer",
-			--"SnsServer",
-			--"LogicServer",
-			--"WebServer",
-			--"MonitorServer",
+			{Server="LogicServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_LOGIC_SERVER..".1", ServerType=NF_ST_LOGIC_SERVER},
+			{Server="SnsServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_SNS_SERVER..".1", ServerType=NF_ST_SNS_SERVER},
+			{Server="WebServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WEB_SERVER..".1", ServerType=NF_ST_WEB_SERVER},
+			--{Server="MonitorServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MONITOR_SERVER..".1", ServerType=NF_ST_MONITOR_SERVER},
 		};
 	},
 	MasterServer = {

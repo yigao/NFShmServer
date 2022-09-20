@@ -10,7 +10,6 @@
 #include "NFLogicServerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFLogicServerModule.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -42,20 +41,15 @@ std::string NFLogicServerPlugin::GetPluginName()
 
 void NFLogicServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFILogicServerModule, NFCLogicServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFILogicServerModule, NFCLogicServerModule);
 }
 
 void NFLogicServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFILogicServerModule, NFCLogicServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFILogicServerModule, NFCLogicServerModule);
 }
 
 bool NFLogicServerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
-    NF_ASSERT(pConfig);
-
-    //uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;
-
 	return true;
 }
