@@ -46,18 +46,18 @@ LoadPlugin =
 			--"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 
-			--"NFLoginServerPlugin",
+			"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			--"NFGameServerPlugin",
+			"NFGameServerPlugin",
 
-			--"NFWorldServerPlugin",
+			"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",
 
-			--"NFSnsServerPlugin",
+			"NFSnsServerPlugin",
 			--"NFSnsServerPlayerPlugin",
 
-			--"NFLogicServerPlugin",
+			"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
 			"NFWebServerPlugin",
