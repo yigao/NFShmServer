@@ -11,7 +11,6 @@
 
 #include <NFComm/NFPluginModule/NFServerDefine.h>
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "NFCommLogicHead.h"
 
 class NFIWorldServerModule : public NFIDynamicModule
 {

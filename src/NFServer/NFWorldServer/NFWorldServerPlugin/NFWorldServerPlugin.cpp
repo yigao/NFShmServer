@@ -9,8 +9,8 @@
 
 #include "NFWorldServerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFWorldServerModule.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -42,12 +42,12 @@ std::string NFWorldServerPlugin::GetPluginName()
 
 void NFWorldServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFIWorldServerModule, NFCWorldServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIWorldServerModule, NFCWorldServerModule);
 }
 
 void NFWorldServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFIWorldServerModule, NFCWorldServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIWorldServerModule, NFCWorldServerModule);
 }
 
 bool NFWorldServerPlugin::InitShmObjectRegister()
