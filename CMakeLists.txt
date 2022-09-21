@@ -71,8 +71,8 @@ SET(INCLUDE_DIR "/usr/local/include"
 		"${CMAKE_SOURCE_DIR}/thirdparty/common/hiredis/hiredis_linux"
 		"${CMAKE_SOURCE_DIR}/src"
 		"${CMAKE_SOURCE_DIR}/src/NFComm/NFKernelMessage"
-		"${CMAKE_SOURCE_DIR}/src/NFComm/NFMessageDefine")
-
+		"${CMAKE_SOURCE_DIR}/src/NFComm/NFMessageDefine"
+		"${CMAKE_SOURCE_DIR}/src/NFServerComm/NFServerMessage")
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
 	SET(LIB_DIR "/usr/lib"
@@ -109,7 +109,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	SET(LIB_LINK_DEP resolv dl rt pthread)
 endif()
 
-include_directories( ${INCLUDE_DIR} )
+include_directories( ${INCLUDE_DIR})
 
 link_directories( ${LIB_DIR} )
 
