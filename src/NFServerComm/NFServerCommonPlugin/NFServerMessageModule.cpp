@@ -306,14 +306,13 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
                                  const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
     CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS, , "error cmd:{}", cmd);
-    //CHECK_EXPR(proto_ff::TableID_IsValid(table_id), , "error table_id:{}", table_id);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
     svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType)packet_type);
-    //svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id((proto_ff::TableID) table_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
@@ -342,14 +341,13 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
                                  const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
     CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE, , "error cmd:{}", cmd);
-    //CHECK_EXPR(proto_ff::TableID_IsValid(table_id), , "error table_id:{}", table_id);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
     svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType)packet_type);
-    //svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id((proto_ff::TableID) table_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
@@ -379,14 +377,13 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 {
     CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_EXECUTE, , "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), , "error cmd:{}", cmd);
-    //CHECK_EXPR(proto_ff::TableID_IsValid(table_id), , "error table_id:{}", table_id);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
     svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND)cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType)packet_type);
-    //svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id((proto_ff::TableID) table_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
@@ -413,14 +410,13 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
     CHECK_EXPR(!(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE || cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS), , "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), , "error cmd:{}", cmd);
-    //CHECK_EXPR(proto_ff::TableID_IsValid(table_id), , "error table_id:{}", table_id);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
     svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND)cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType)packet_type);
-    //svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id((proto_ff::TableID) table_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
