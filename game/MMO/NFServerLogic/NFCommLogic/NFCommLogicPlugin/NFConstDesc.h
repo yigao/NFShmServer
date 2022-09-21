@@ -18,7 +18,7 @@
 class NFConstDesc : public NFIDescStore
 {
 public:
-	NFConstDesc();
+	NFConstDesc(NFIPluginManager* pPluginManager);
     virtual ~NFConstDesc();
     int CreateInit();
     int ResumeInit();

@@ -7,6 +7,8 @@
 //
 // -------------------------------------------------------------------------
 
+#pragma once
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"

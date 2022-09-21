@@ -15,7 +15,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFNameDesc, EOT_NAME_CONFIG_DESC_ID, NFShmObj)
 
-NFNameDesc::NFNameDesc()
+NFNameDesc::NFNameDesc(NFIPluginManager* pPluginManager):NFIDescStore(pPluginManager)
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
@@ -70,7 +70,7 @@ int NFNameDesc::Load(NFResDB *pDB)
     for (int i = 0; i < (int)table.namedesc_list_size(); i++)
     {
         const proto_ff::NameDesc& desc = table.namedesc_list(i);
-        proto_ff_s::NameDesc_s::read_from_pbmsg(desc, m_astDesc[i]);
+        m_astDesc[i].read_from_pbmsg(desc);
     }
 
     NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.namedesc_list_size());

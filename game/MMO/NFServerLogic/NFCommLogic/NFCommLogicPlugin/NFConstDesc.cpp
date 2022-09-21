@@ -11,11 +11,11 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFSnprintf.h"
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFConstDesc, EOT_CONST_CONFIG_DESC_ID, NFShmObj)
 
-NFConstDesc::NFConstDesc()
+NFConstDesc::NFConstDesc(NFIPluginManager* pPluginManager):NFIDescStore(pPluginManager)
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
@@ -71,7 +71,7 @@ int NFConstDesc::Load(NFResDB *pDB)
     for (int i = 0; i < table.constdesc_list_size(); i++)
     {
         const proto_ff::ConstDesc& desc = table.constdesc_list(i);
-        proto_ff_s::ConstDesc_s::read_from_pbmsg(desc, m_astDesc[i]);
+        m_astDesc[i].read_from_pbmsg(desc);
 		m_aiIndex[desc.id()] = i;
     }
 

@@ -18,7 +18,7 @@
 class NFNameDesc : public NFIDescStore
 {
 public:
-    NFNameDesc();
+    NFNameDesc(NFIPluginManager* pPluginManager);
     virtual ~NFNameDesc();
     int CreateInit();
     int ResumeInit();

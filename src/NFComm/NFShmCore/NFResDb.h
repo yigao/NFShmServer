@@ -50,7 +50,7 @@
             if (m_astDesc[i].IsUrgentNeedSave())\
             {\
                 auto pb = DESCCLASSNAME::make_pbmsg();\
-                DESCCLASSNAME::write_to_pbmsg(m_astDesc[i],pb);\
+                m_astDesc[i].write_to_pbmsg(pb);\
                 SaveDescStoreToDB(&pb);\
                 m_astDesc[i].ClearUrgent();\
             }\
@@ -60,14 +60,14 @@
     int InsertDescStore(const DESCCLASSNAME& desc)\
     {\
         auto pb = DESCCLASSNAME::make_pbmsg();\
-        DESCCLASSNAME::write_to_pbmsg(desc,pb);\
+        desc.write_to_pbmsg(pb);\
         InsertDescStoreToDB(&pb);\
         return 0;\
     }                                                        \
     int DeleteDescStore(const DESCCLASSNAME& desc)\
     {\
         auto pb = DESCCLASSNAME::make_pbmsg();\
-        DESCCLASSNAME::write_to_pbmsg(desc,pb);\
+        desc.write_to_pbmsg(pb);\
         DeleteDescStoreToDB(&pb);\
         return 0;\
     }                                                        \

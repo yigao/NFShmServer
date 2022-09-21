@@ -10,6 +10,8 @@
 #pragma once
 
 #include "NFDescStoreDefine.h"
+#include "NFIDescStoreModule.h"
+#include "NFISharedMemModule.h"
 #include "NFShmObj.h"
 #include "NFSizeString.h"
 #include "NFResDb.h"
@@ -19,7 +21,7 @@
 
 #define REGISTER_DESCSTORE(className, ClassType, dbName)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-	NFIPluginManager::Instance()->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
+	m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
 	REGISTER_SINGLETON_SHM_OBJ(className, ClassType, 1)\
 
 class NFIDescStore : public NFShmObj
