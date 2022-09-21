@@ -89,4 +89,4 @@ MAKE_DEPENDENT_ERROR_LOG=${GAME_BUILD_PATH}/make_dependent_error.log
 MAKE_LINK_ERROR_LOG=${GAME_BUILD_PATH}/make_link_error.log
 
 NEED_CLEAN_FILES=
-RESDB_BIN_FILE=${RESDB_DESC_BIN}/ConstDesc.bin ${GAME_DATA_PATH}/NameDesc.bin
+RESDB_BIN_FILE=${GAME_DATA_PATH}/ConstDesc.bin ${GAME_DATA_PATH}/NameDesc.bin
