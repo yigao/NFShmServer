@@ -277,7 +277,7 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
 		{
-			m_pObjPluginManager->FinishAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_MASTER);
+			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_SERVER, APP_INIT_CONNECT_MASTER);
 		}
 
         FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_ROUTE_SERVER);

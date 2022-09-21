@@ -261,7 +261,7 @@ int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
 		{
-			m_pObjPluginManager->FinishAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_MASTER);
+			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_MASTER);
 		}
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
@@ -437,7 +437,7 @@ int NFCRouteAgentServerModule::OnRouteServerSocketEvent(eMsgType nEvent, uint64_
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
 		{
-			m_pObjPluginManager->FinishAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_ROUTE_SERVER);
+			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_ROUTE_SERVER);
 		}
 
         FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_ROUTE_AGENT_SERVER);
