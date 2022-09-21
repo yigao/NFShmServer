@@ -7,6 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
+#include <NFServerComm/NFServerCommon/NFServerCommonDefine.h>
 #include "NFCStoreServerModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -620,17 +621,7 @@ int NFCStoreServerModule::RegisterMasterServer()
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->BusId);
-        pData->set_server_id(pConfig->ServerId);
-		pData->set_server_type(pConfig->ServerType);
-		pData->set_server_name(pConfig->ServerName);
-
-        pData->set_bus_length(pConfig->BusLength);
-        pData->set_link_mode(pConfig->LinkMode);
-        pData->set_url(pConfig->Url);
-		pData->set_server_ip(pConfig->ServerIp);
-		pData->set_server_port(pConfig->ServerPort);
-        pData->set_route_svr(pConfig->RouteAgent);
+        NFServerCommon::WriteServerInfo(pData, pConfig);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
@@ -659,36 +650,14 @@ int NFCStoreServerModule::ServerReport()
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->BusId);
-        pData->set_server_id(pConfig->ServerId);
-		pData->set_server_type(pConfig->ServerType);
-		pData->set_server_name(pConfig->ServerName);
-
-        pData->set_bus_length(pConfig->BusLength);
-        pData->set_link_mode(pConfig->LinkMode);
-        pData->set_url(pConfig->Url);
-		pData->set_server_ip(pConfig->ServerIp);
-		pData->set_server_port(pConfig->ServerPort);
-        pData->set_route_svr(pConfig->RouteAgent);
+        NFServerCommon::WriteServerInfo(pData, pConfig);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
 		NFIMonitorModule* pMonitorModule = m_pObjPluginManager->FindModule<NFIMonitorModule>();
 		if (pMonitorModule)
 		{
 			const NFSystemInfo& systemInfo = pMonitorModule->GetSystemInfo();
-
-			pData->set_system_info(systemInfo.GetOsInfo().mOsDescription);
-			pData->set_total_mem(systemInfo.GetMemInfo().mTotalMem);
-			pData->set_free_mem(systemInfo.GetMemInfo().mFreeMem);
-			pData->set_used_mem(systemInfo.GetMemInfo().mUsedMem);
-
-			pData->set_proc_cpu(systemInfo.GetProcessInfo().mCpuUsed);
-			pData->set_proc_mem(systemInfo.GetProcessInfo().mMemUsed);
-			pData->set_proc_thread(systemInfo.GetProcessInfo().mThreads);
-			pData->set_proc_name(systemInfo.GetProcessInfo().mName);
-			pData->set_proc_cwd(systemInfo.GetProcessInfo().mCwd);
-			pData->set_proc_pid(systemInfo.GetProcessInfo().mPid);
-			pData->set_server_cur_online(systemInfo.GetUserCount());
+            NFServerCommon::WriteServerInfo(pData, systemInfo);
 		}
 
 		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
@@ -802,17 +771,7 @@ int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 	{
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-		pData->set_bus_id(pConfig->BusId);
-        pData->set_server_id(pConfig->ServerId);
-		pData->set_server_type(pConfig->ServerType);
-		pData->set_server_name(pConfig->ServerName);
-
-        pData->set_bus_length(pConfig->BusLength);
-        pData->set_link_mode(pConfig->LinkMode);
-        pData->set_url(pConfig->Url);
-		pData->set_server_ip(pConfig->ServerIp);
-		pData->set_server_port(pConfig->ServerPort);
-        pData->set_route_svr(pConfig->RouteAgent);
+        NFServerCommon::WriteServerInfo(pData, pConfig);
 		pData->set_server_state(proto_ff::EST_NARMAL);
 
 		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);

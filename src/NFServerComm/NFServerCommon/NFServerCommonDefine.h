@@ -14,10 +14,8 @@
 #include <vector>
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFSlice.hpp"
-#include "NFComm/NFCore/NFSimpleBuffer.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+#include "NFComm/NFPluginModule/NFConfigDefine.h"
 
 class NFServerCommon
 {
@@ -29,4 +27,7 @@ public:
     virtual ~NFServerCommon()
     {
     };
+
+    static void WriteServerInfo(proto_ff::ServerInfoReport* pData, NFServerConfig* pConfig);
+    static void WriteServerInfo(proto_ff::ServerInfoReport* pData, const NFSystemInfo& systemInfo);
 };
