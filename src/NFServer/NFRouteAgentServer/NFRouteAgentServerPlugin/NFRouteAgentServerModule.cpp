@@ -44,8 +44,8 @@ bool NFCRouteAgentServerModule::Awake()
                                                        &NFCRouteAgentServerModule::OnHandleServerReport);
 
 	//注册要完成的服务器启动任务
-	m_pObjPluginManager->RegisterAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_MASTER, ROUTEAGENT_SERVER_CONNECT_MASTER_SERVER);
-	m_pObjPluginManager->RegisterAppTask(NF_ST_MASTER_SERVER, APP_INIT_CONNECT_ROUTE_SERVER, ROUTEAGENT_SERVER_CONNECT_ROUTE_SERVER);
+	m_pObjPluginManager->RegisterAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_MASTER, ROUTEAGENT_SERVER_CONNECT_MASTER_SERVER);
+	m_pObjPluginManager->RegisterAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_ROUTE_SERVER, ROUTEAGENT_SERVER_CONNECT_ROUTE_SERVER);
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
     if (pConfig) {
