@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFTransBase.h"
+#include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 

@@ -10,7 +10,6 @@
 #include "NFShmTimerManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFMagicTimeUtil.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"

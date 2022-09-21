@@ -8,17 +8,12 @@
 
 #include "NFShmPlugin.h"
 #include "NFCSharedMemModule.h"
-#include "NFCDescStoreModule.h"
 
 #include "NFGlobalID.h"
 #include "NFShmTimer.h"
 #include "NFShmTimerManager.h"
 #include "NFTransMng.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFComm/NFShmCore/NFBaseDBObj.h"
-#include "NFComm/NFShmCore/NFDBObjTrans.h"
-#include "NFComm/NFShmCore/NFDBObjMgr.h"
-#include "NFComm/NFShmCore/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 //
@@ -57,13 +52,11 @@ bool NFShmPlugin::IsDynamicLoad()
 void NFShmPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFIDescStoreModule, NFCDescStoreModule);
 }
 
 void NFShmPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFIDescStoreModule, NFCDescStoreModule);
 }
 
 bool NFShmPlugin::InitShmObjectRegister()
@@ -90,9 +83,5 @@ bool NFShmPlugin::InitShmObjectRegister()
     REGISTER_SINGLETON_SHM_OBJ(NFShmTimerManager, EOT_TYPE_TIMER_MNG, 1);
     REGISTER_SINGLETON_SHM_OBJ(NFTransMng, EOT_TRANS_MNG, 1);
     REGISTER_SHM_OBJ(NFTransBase, EOT_TRANS_BASE, 0);
-    REGISTER_SHM_OBJ(NFBaseDBObj, EOT_BASE_DB_OBJ, 0);
-    REGISTER_SHM_OBJ(NFDBObjTrans, EOT_TRANS_DB_OBJ, 100);
-    REGISTER_SINGLETON_SHM_OBJ(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, 1);
-    REGISTER_SHM_OBJ(NFDescStoreTrans, EOT_RPC_TRANS_ID, 100);
 	return true;
 }

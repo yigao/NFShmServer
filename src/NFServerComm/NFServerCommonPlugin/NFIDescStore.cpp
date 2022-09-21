@@ -8,8 +8,8 @@
 // -------------------------------------------------------------------------
 
 #include "NFIDescStore.h"
-#include "NFShmMgr.h"
-#include "NFComm/NFShmCore/NFIDescStoreModule.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFIDescStoreModule.h"
 
 NFIDescStore::NFIDescStore(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
 {

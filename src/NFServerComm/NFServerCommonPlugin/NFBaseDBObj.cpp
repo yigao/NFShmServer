@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFBaseDBObj.h"
-#include "NFServerFrameTypeDefines.h"
+#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBaseDBObj, EOT_BASE_DB_OBJ, NFShmObj)

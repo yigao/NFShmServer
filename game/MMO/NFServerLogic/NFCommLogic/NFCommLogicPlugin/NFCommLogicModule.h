@@ -28,11 +28,11 @@ public:
 
 	virtual bool Awake() override;
 
-	virtual std::string GetConstValue(proto_ff::enConstType type) const;
+	virtual std::string GetConstValue(proto_ff::enConstType type) const override;;
 
     virtual void OnTimer(uint32_t nTimerID) override;
 
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 
     virtual std::string GetRandomName() const override;
 };

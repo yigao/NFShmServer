@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include <fstream>
 
 NFMysqlResTable::NFMysqlResTable(NFIPluginManager* p, NFResMysqlDB* pFileResDB, const std::string& name):NFResTable(p)
@@ -35,18 +36,17 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
     {
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         CHECK_NULL(pConfig);
-/*
-        iRet = FindModule<NFIMessageModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->mServerType, serverId, m_name, pMessage,
-            [coId, pMessage](int iRet, google::protobuf::Message &message){
+
+        iRet = FindModule<NFIServerMessageModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, serverId, m_name, pMessage,
+            [this, coId, pMessage](int iRet, google::protobuf::Message &message){
             if (iRet != 0) {
-                NFCoMgr::Instance()->Resume(coId, iRet);
+                m_pObjPluginManager->FindModule<NFICoroutineModule>()->Resume(coId, iRet);
             }
             else {
                 pMessage->CopyFrom(message);
-                NFCoMgr::Instance()->Resume(coId);
+                m_pObjPluginManager->FindModule<NFICoroutineModule>()->Resume(coId);
             }
         });
-        */
     }
 
 	CHECK_EXPR(iRet == 0, -1, "QueryDescStore Failed!");

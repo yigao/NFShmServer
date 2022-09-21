@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "NFShmObj.h"
-#include "NFSeqOP.h"
+#include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFSeqOP.h"
 
 #define MAX_FAIL_RETRY_TIMES 100
 #define MAX_SAVED_OBJ_PRE_SEC 100

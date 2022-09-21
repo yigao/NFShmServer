@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFDescStoreTrans.h"
-#include "NFServerFrameTypeDefines.h"
+#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
@@ -16,6 +16,7 @@
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 
@@ -196,12 +197,10 @@ int NFDescStoreTrans::SendGetDescStoreReq(NF_SERVER_TYPES eType, const std::stri
 
     std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
-    /*
-    FindModule<NFIMessageModule>()->SendTransToStoreServer(eType,
-                                                           proto_ff::E_STORESVR_C2S_SELECT, proto_ff::E_TABLE_NONE, m_dbName,
+    FindModule<NFIServerMessageModule>()->SendTransToStoreServer(eType, 0,
+                                                           proto_ff::E_STORESVR_C2S_SELECT, 0, m_dbName,
                                                            table_name, vk_list, "",
                                                            GetGlobalID(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
-    */
 
     return 0;
 }

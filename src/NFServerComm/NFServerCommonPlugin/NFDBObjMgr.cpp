@@ -10,9 +10,9 @@
 #include "NFDBObjMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFBaseDBObj.h"
+#include "NFBaseDBObj.h"
 #include "NFDBObjTrans.h"
-#include "NFShmMgr.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, NFShmObj)

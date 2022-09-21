@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "NFShmObj.h"
-#include "NFShmStaticList.hpp"
+#include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFShmStaticList.hpp"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 
 class NFBaseDBObj;

@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFTransBase.h"
+#include "NFComm/NFShmCore/NFTransBase.h"
 
 class NFDBObjTrans : public NFTransBase
 {

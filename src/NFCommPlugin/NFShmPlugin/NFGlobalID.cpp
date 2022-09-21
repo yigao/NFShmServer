@@ -8,11 +8,9 @@
 
 #include "NFGlobalID.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
 #include "NFIDRuntimeClass.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFShmObjSeg.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"

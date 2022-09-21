@@ -11,10 +11,10 @@
 
 #include "NFDescStoreDefine.h"
 #include "NFIDescStoreModule.h"
-#include "NFISharedMemModule.h"
-#include "NFShmObj.h"
-#include "NFSizeString.h"
-#include "NFResDb.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFSizeString.h"
+#include "NFComm/NFShmCore/NFResDb.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
