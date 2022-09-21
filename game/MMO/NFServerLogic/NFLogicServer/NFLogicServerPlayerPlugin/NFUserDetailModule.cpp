@@ -7,17 +7,17 @@
 //
 // -------------------------------------------------------------------------
 #include "NFUserDetailModule.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransGetUserDetail.h"
+#include "NFUserDetail/NFTransGetUserDetail.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFUserDetail.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFUserDetailMgr.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransGetEventLog.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFPlayerBindPhoneTrans.h"
+#include "NFUserDetail/NFUserDetail.h"
+#include "NFUserDetail/NFUserDetailMgr.h"
+#include "NFUserDetail/NFTransGetEventLog.h"
+#include "NFUserDetail/NFPlayerBindPhoneTrans.h"
 #include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
 
 

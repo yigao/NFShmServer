@@ -13,18 +13,18 @@
 
 #include "NFComm/NFPluginModule/NFConfigMgr.h"
 
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransLogicUserBase.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFUserDetail.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFUserDetailMgr.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransGetUserDetail.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransCreateUserDetail.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransSaveDB.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransSaveMoney.h"
+#include "NFUserDetail/NFTransLogicUserBase.h"
+#include "NFUserDetail/NFUserDetail.h"
+#include "NFUserDetail/NFUserDetailMgr.h"
+#include "NFUserDetail/NFTransGetUserDetail.h"
+#include "NFUserDetail/NFTransCreateUserDetail.h"
+#include "NFUserDetail/NFTransSaveDB.h"
+#include "NFUserDetail/NFTransSaveMoney.h"
 
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransSendEventLog.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransGetEventLog.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFTransHandleEventLog.h"
-#include "MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserDetail/NFPlayerBindPhoneTrans.h"
+#include "NFUserDetail/NFTransSendEventLog.h"
+#include "NFUserDetail/NFTransGetEventLog.h"
+#include "NFUserDetail/NFTransHandleEventLog.h"
+#include "NFUserDetail/NFPlayerBindPhoneTrans.h"
 
 
 #ifdef NF_DYNAMIC_PLUGIN

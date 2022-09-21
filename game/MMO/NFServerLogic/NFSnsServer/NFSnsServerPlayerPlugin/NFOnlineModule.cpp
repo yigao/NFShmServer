@@ -16,12 +16,12 @@
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFUserSimple/NFSnsUserSimpleUtil.h"
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFUserSimple/NFSnsUserSimple.h"
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFOnlineUser/NFOnlineUserMgr.h"
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFOnlineUser/NFOnlineUser.h"
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFOnlineUser/NFTransSnsUserOnline.h"
-#include "MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFUserSimple/NFSnsUserSimpleMgr.h"
+#include "NFUserSimple/NFSnsUserSimpleUtil.h"
+#include "NFUserSimple/NFSnsUserSimple.h"
+#include "NFOnlineUser/NFOnlineUserMgr.h"
+#include "NFOnlineUser/NFOnlineUser.h"
+#include "NFOnlineUser/NFTransSnsUserOnline.h"
+#include "NFUserSimple/NFSnsUserSimpleMgr.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
 
 
