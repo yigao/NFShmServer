@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
 #include "proto_common.pb.h"
@@ -38,6 +39,30 @@ void protobuf_ShutdownFile_ConstDesc_2eproto();
 class ConstDesc;
 class Sheet_ConstDesc;
 
+enum enConstType {
+  EN_CONST_NONE = 0,
+  EN_CONST_USER_INIT_JETTON = 1,
+  EN_CONST_USER_INIT_FACE = 2,
+  EN_CONST_USER_INIT_BANK_JETTON = 3,
+  EN_CONST_USER_ACH_WITH_FEE = 4,
+  EN_CONST_USER_FEE_WITH_POUR = 5,
+  EN_CONST_USER_MIN_BANK_DRAW = 6
+};
+bool enConstType_IsValid(int value);
+const enConstType enConstType_MIN = EN_CONST_NONE;
+const enConstType enConstType_MAX = EN_CONST_USER_MIN_BANK_DRAW;
+const int enConstType_ARRAYSIZE = enConstType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* enConstType_descriptor();
+inline const ::std::string& enConstType_Name(enConstType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    enConstType_descriptor(), value);
+}
+inline bool enConstType_Parse(
+    const ::std::string& name, enConstType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enConstType>(
+    enConstType_descriptor(), name, value);
+}
 // ===================================================================
 
 class ConstDesc : public ::google::protobuf::Message {
@@ -442,6 +467,10 @@ Sheet_ConstDesc::mutable_constdesc_list() {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::enConstType>() {
+  return ::proto_ff::enConstType_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

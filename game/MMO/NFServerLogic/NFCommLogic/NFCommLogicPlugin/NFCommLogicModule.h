@@ -11,8 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
-#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
-
+#include "NFLogicCommon/NFICommLogicModule.h"
 
 class NFCommLogicModule : public NFICommLogicModule
 {

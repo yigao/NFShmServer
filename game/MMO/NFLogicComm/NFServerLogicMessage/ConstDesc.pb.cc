@@ -26,6 +26,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_ConstDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_ConstDesc_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* enConstType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -68,6 +69,7 @@ void protobuf_AssignDesc_ConstDesc_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ConstDesc));
+  enConstType_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -111,7 +113,19 @@ void protobuf_AddDesc_ConstDesc_2eproto() {
     "\272\304\023\t\345\270\270\351\207\217\345\200\274\220\301\024\200\001\310\202\024\200\001\022<\n\ttype_name\030\003 \001"
     "(\tB)\302\377\024\014\347\261\273\345\236\213\345\220\215\347\247\260\272\304\023\014\347\261\273\345\236\213\345\220\215\347\247\260\230\301\024\001"
     "\310\202\024\200\001\"D\n\017Sheet_ConstDesc\0221\n\016ConstDesc_Li"
-    "st\030\001 \003(\0132\023.proto_ff.ConstDescB\004\210\301\024d", 315);
+    "st\030\001 \003(\0132\023.proto_ff.ConstDescB\004\210\301\024d*\314\003\n\013"
+    "enConstType\022\021\n\rEN_CONST_NONE\020\000\022:\n\031EN_CON"
+    "ST_USER_INIT_JETTON\020\001\032\033\202}\030\347\216\251\345\256\266\345\210\235\345\247\213\350\265"
+    "\240\351\200\201\351\207\221\345\270\201\0222\n\027EN_CONST_USER_INIT_FACE\020\002\032"
+    "\025\202}\022\347\216\251\345\256\266\345\210\235\345\247\213\345\244\264\345\203\217\022\?\n\036EN_CONST_USER_"
+    "INIT_BANK_JETTON\020\003\032\033\202}\030\347\216\251\345\256\266\345\210\235\345\247\213\351\223\266\350\241"
+    "\214\345\257\206\347\240\201\022Q\n\032EN_CONST_USER_ACH_WITH_FEE\020\004\032"
+    "1\202}.=0 \346\212\275\346\260\264\347\256\227\344\270\252\346\265\201\346\260\264\357\274\214 =1 \346\212\275\346\260\264\344\270"
+    "\215\347\256\227\346\265\201\346\260\264\022b\n\033EN_CONST_USER_FEE_WITH_POU"
+    "R\020\005\032A\202}>=0\346\227\266\344\270\272\344\270\215\345\212\240\346\234\254\351\207\221\347\232\204\346\212\275\346\260\264\357\274\214"
+    " =1\346\227\266\344\270\272\345\212\240\344\270\212\346\234\254\351\207\221\347\232\204\346\212\275\346\260\264\022B\n\033EN_CON"
+    "ST_USER_MIN_BANK_DRAW\020\006\032!\202}\036\351\235\236VIP\350\275\254VIP"
+    "\346\234\200\345\260\217\350\275\254\350\264\246\351\242\235\345\272\246", 778);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ConstDesc.proto", &protobuf_RegisterTypes);
   ConstDesc::default_instance_ = new ConstDesc();
@@ -127,6 +141,25 @@ struct StaticDescriptorInitializer_ConstDesc_2eproto {
     protobuf_AddDesc_ConstDesc_2eproto();
   }
 } static_descriptor_initializer_ConstDesc_2eproto_;
+const ::google::protobuf::EnumDescriptor* enConstType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return enConstType_descriptor_;
+}
+bool enConstType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 

@@ -9,15 +9,15 @@
 
 #include "NFCommLogicModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFConstDesc.h"
-#include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include "NFNameDesc.h"
 
 std::string NFCommLogicModule::GetConstValue(proto_ff::enConstType type) const
 {
-	NFConstDesc* pConstDesc = NFConstDesc::Instance();
+	NFConstDesc* pConstDesc = NFConstDesc::Instance(m_pObjPluginManager);
 	CHECK_EXPR(pConstDesc, "", "FindDescStore<NFConstDesc>() null, type:{}", type);
 	return pConstDesc->GetValue(type);
 }
@@ -49,5 +49,5 @@ bool NFCommLogicModule::Awake() {
 
 std::string NFCommLogicModule::GetRandomName() const
 {
-    return NFNameDesc::Instance()->GetRandomName();
+    return NFNameDesc::Instance(m_pObjPluginManager)->GetRandomName();
 }

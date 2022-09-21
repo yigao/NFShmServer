@@ -44,12 +44,12 @@ std::string NFCommLogicPlugin::GetPluginName()
 
 void NFCommLogicPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFICommLogicModule, NFCommLogicModule)
+	REGISTER_MODULE(m_pObjPluginManager, NFICommLogicModule, NFCommLogicModule)
 }
 
 void NFCommLogicPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFICommLogicModule, NFCommLogicModule)
+	UNREGISTER_MODULE(m_pObjPluginManager, NFICommLogicModule, NFCommLogicModule)
 }
 
 bool NFCommLogicPlugin::InitShmObjectRegister()

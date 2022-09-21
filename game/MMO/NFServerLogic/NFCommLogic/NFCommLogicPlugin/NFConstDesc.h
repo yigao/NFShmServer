@@ -10,8 +10,8 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFIDescStore.h"
-#include "NFComm/NFMessageDefine/ResMeta_s.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFServerLogicMessage/ConstDesc_s.h"
 
 #define MAX_CONST_DESC_NUM 1000
 

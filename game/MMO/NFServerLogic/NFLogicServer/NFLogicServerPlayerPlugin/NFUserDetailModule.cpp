@@ -18,7 +18,7 @@
 #include "NFUserDetail/NFUserDetailMgr.h"
 #include "NFUserDetail/NFTransGetEventLog.h"
 #include "NFUserDetail/NFPlayerBindPhoneTrans.h"
-#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
+#include "NFLogicCommon/NFICommLogicModule.h"
 
 
 NFCUserDetailModule::NFCUserDetailModule(NFIPluginManager *p) : NFIUserDetailModule(p) {

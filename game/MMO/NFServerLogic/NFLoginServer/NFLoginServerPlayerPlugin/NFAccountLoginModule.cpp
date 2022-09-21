@@ -10,7 +10,7 @@
 #include "NFAccountLoginModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
+#include "NFLogicCommon/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
 #include "NFComm/NFMessageDefine/proto_common.pb.h"

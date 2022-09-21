@@ -11,6 +11,7 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFServerLogicMessage/ConstDesc.pb.h"
 
 class NFICommLogicModule : public NFIDynamicModule
 {

@@ -16,7 +16,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFTransGetUserDetail.h"
-#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
+#include "NFLogicCommon/NFICommLogicModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransCreateUserDetail, EOT_TRANS_CREATE_USER_DETAIL, NFTransLogicUserBase)

@@ -15,7 +15,7 @@
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFServerComm/NFServerCommon/NFICommLogicModule.h"
+#include "NFLogicCommon/NFICommLogicModule.h"
 
 #include "NFUserDetail.h"
 #include "NFUserDetailMgr.h"
