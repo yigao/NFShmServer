@@ -9,7 +9,7 @@ mysqldump -u${USR} -p${PASSWRD} ${DBNAME} > ${DBNAME}.sql
 mysql -u${USR} -p${PASSWRD} -e "drop database proto_ff"
 mysql -u${USR} -p${PASSWRD} -e "create database proto_ff"
 
-TABLE_LIST="tbAccountTable  tbUserDetailData tbUserSimpleData tbEventLog ConstDesc NameDesc"
+TABLE_LIST="ConstDesc NameDesc"
 
 for table in ${TABLE_LIST}
 do
