@@ -25,7 +25,7 @@ void ConstDesc_s::write_to_pbmsg(::proto_ff::ConstDesc & msg) const {
 }
 
 void ConstDesc_s::read_from_pbmsg(const ::proto_ff::ConstDesc & msg) {
-	memset(this, 0, sizeof(struct ConstDesc_s));
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ConstDesc_s));
 	id = msg.id();
 	value.Copy(msg.value());
 }
@@ -54,7 +54,7 @@ void Sheet_ConstDesc_s::write_to_pbmsg(::proto_ff::Sheet_ConstDesc & msg) const 
 }
 
 void Sheet_ConstDesc_s::read_from_pbmsg(const ::proto_ff::Sheet_ConstDesc & msg) {
-	memset(this, 0, sizeof(struct Sheet_ConstDesc_s));
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_ConstDesc_s));
 	ConstDesc_List.SetSize(msg.constdesc_list_size() > ConstDesc_List.GetMaxSize() ? ConstDesc_List.GetMaxSize() : msg.constdesc_list_size());
 	for(int32_t i = 0; i < (int32_t)ConstDesc_List.GetSize(); ++i) {
 		const ::proto_ff::ConstDesc & temp_constdesc_list = msg.constdesc_list(i);

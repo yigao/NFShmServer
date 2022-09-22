@@ -27,6 +27,7 @@ public:
 	virtual bool OnReloadPlugin() override;
 
 	virtual void RegisterDescStore(const std::string& strClassName, int objType, const std::string& dbName) override;
+    virtual void RegisterDescStore(const std::string& strClassName, int objType) override;
 
 	virtual NFIDescStore* FindDescStore(const std::string& strDescName) override;
 

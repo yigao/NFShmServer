@@ -54,7 +54,6 @@ public:
 	int CreateInit()
 	{
 		m_iSize = 0;
-		memset(m_astData, 0, sizeof(m_astData));
 		return 0;
 	}
 

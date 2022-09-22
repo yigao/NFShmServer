@@ -350,6 +350,11 @@ void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int o
     mDescStoreDBNameMap.insert(std::make_pair(strDescName, dbName));
 }
 
+void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int objType)
+{
+	mDescStoreRegister.insert(std::make_pair(strDescName, objType));
+}
+
 void NFCDescStoreModule::AddDescStore(const std::string& strDescName, NFIDescStore* pDesc)
 {
 	mDescStoreMap.insert(std::make_pair(strDescName, pDesc));

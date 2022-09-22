@@ -25,7 +25,7 @@ void NameDesc_s::write_to_pbmsg(::proto_ff::NameDesc & msg) const {
 }
 
 void NameDesc_s::read_from_pbmsg(const ::proto_ff::NameDesc & msg) {
-	memset(this, 0, sizeof(struct NameDesc_s));
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct NameDesc_s));
 	id = msg.id();
 	name.Copy(msg.name());
 }
@@ -54,7 +54,7 @@ void Sheet_NameDesc_s::write_to_pbmsg(::proto_ff::Sheet_NameDesc & msg) const {
 }
 
 void Sheet_NameDesc_s::read_from_pbmsg(const ::proto_ff::Sheet_NameDesc & msg) {
-	memset(this, 0, sizeof(struct Sheet_NameDesc_s));
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_NameDesc_s));
 	NameDesc_List.SetSize(msg.namedesc_list_size() > NameDesc_List.GetMaxSize() ? NameDesc_List.GetMaxSize() : msg.namedesc_list_size());
 	for(int32_t i = 0; i < (int32_t)NameDesc_List.GetSize(); ++i) {
 		const ::proto_ff::NameDesc & temp_namedesc_list = msg.namedesc_list(i);

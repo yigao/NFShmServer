@@ -23,5 +23,6 @@ LogicServer = {
       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
       MasterIp = NF_MASTER_IP,
       MasterPort = NF_MASTER_PORT,
+      DefaultDBName = NF_MYSQL_DB_NAME,
    };
 };

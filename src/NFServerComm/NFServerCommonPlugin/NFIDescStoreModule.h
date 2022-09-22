@@ -28,6 +28,8 @@ public:
 
 	virtual void RegisterDescStore(const std::string& strClassName, int objType, const std::string& dbName) = 0;
 
+    virtual void RegisterDescStore(const std::string& strClassName, int objType) = 0;
+
     virtual int InitDestStoreDB(const std::string &serverId, const std::string& hostip, int port, const std::string& dbname, const std::string& user, const std::string& pass) = 0;
 
 	virtual int Initialize() = 0;

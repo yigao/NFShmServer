@@ -350,7 +350,8 @@ def write_cppfile():
 		#read_from_pbmsg
 		cpp_file.write("void %s_s::%s {\n" % (message_desc.name, message_desc.func_read_from_pbmsg))
 		if message_desc.use_stl == False:
-			cpp_file.write("\tmemset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
+			#cpp_file.write("\tmemset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
+			cpp_file.write("\t//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct %s_s));\n" % message_desc.name)
 		for msg_field in message_desc.field_lst:
 			if msg_field.no_field == True:
 				continue

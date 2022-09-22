@@ -135,7 +135,8 @@ message pbNFServerConfig
 	optional string MysqlUser = 73;
 	optional string MysqlPassword = 74;
 	optional string DefaultDBName = 75;
-	repeated pbTableConfig TBConfList = 76;
+	optional string CrossDBName = 76;
+	repeated pbTableConfig TBConfList = 77;
 	/////////////////////////////////////redis//////////////////////////////////////
 	optional string RedisIp = 80;
 	optional uint32	RedisPort = 81;

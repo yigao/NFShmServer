@@ -251,7 +251,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
     proto_ff::Proto_SvrPkg xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
-    uint64_t sendLinkId = GetUnLinkId(NF_IS_NET, NF_ST_STORE_SERVER, 0);
+    uint64_t sendLinkId = GetUnLinkId(NF_IS_NET, NF_ST_STORE_SERVER, pConfig->BusId);
     uint64_t destLinkId = packet.nSrcId;
 
     proto_ff::Proto_SvrPkg retMsg;
@@ -287,7 +287,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -323,7 +323,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -355,7 +355,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -387,7 +387,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -419,7 +419,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -449,7 +449,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                if (retMsg.store_info().cb_data().id() > 0)
-                   FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                   FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
            });
         }
         break;
@@ -479,7 +479,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -509,7 +509,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                        if (retMsg.store_info().cb_data().id() > 0)
-                           FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                           FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
                    });
         }
         break;
@@ -539,7 +539,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -559,7 +559,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                    if (retMsg.store_info().cb_data().id() > 0)
-                       FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, sendLinkId, destLinkId);
+                       FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
                });
         }
             break;

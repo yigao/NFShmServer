@@ -25,5 +25,6 @@ WebServer = {
     --WWW="http://192.168.0.11",
     MasterIp = NF_MASTER_IP,
     MasterPort = NF_MASTER_PORT,
+    DefaultDBName = NF_MYSQL_DB_NAME,
  }
 };

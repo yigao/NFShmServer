@@ -10,6 +10,8 @@
 #include "NFCommLogicPlugin.h"
 #include "NFCommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFConstDesc.h"
 #include "NFNameDesc.h"
@@ -54,7 +56,11 @@ void NFCommLogicPlugin::Uninstall()
 
 bool NFCommLogicPlugin::InitShmObjectRegister()
 {
-	REGISTER_DESCSTORE(NFConstDesc, EOT_CONST_CONFIG_DESC_ID, NF_DEFAULT_MYSQL_DB_NAME);
-    REGISTER_DESCSTORE(NFNameDesc, EOT_NAME_CONFIG_DESC_ID, NF_DEFAULT_MYSQL_DB_NAME);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+    CHECK_EXPR(pConfig, false, "pConfig == NULL");
+    CHECK_EXPR(!pConfig->DefaultDBName.empty(), false, "pConfig->DefaultDBName.empty()");
+
+    REGISTER_DESCSTORE_WITH_DBNAME(NFConstDesc, EOT_CONST_CONFIG_DESC_ID, pConfig->DefaultDBName);
+    REGISTER_DESCSTORE_WITH_DBNAME(NFNameDesc, EOT_NAME_CONFIG_DESC_ID, pConfig->DefaultDBName);
 	return true;
 }
