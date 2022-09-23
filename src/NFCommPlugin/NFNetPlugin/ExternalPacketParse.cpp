@@ -116,25 +116,25 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 	uint32_t moduleId = (uint32_t)packHead->GetModule();
     uint32_t tmpMsgId = (uint32_t)packHead->GetCmd();
 
-	if (sizeof(ExternalMsg) + msgSize >= MAX_RECV_BUFFER_SIZE) //-V560
+	if (msgSize >= MAX_RECV_BUFFER_SIZE) //-V560
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed, msgSize:{}, moduleId:{} msgId:{}", msgSize, moduleId, tmpMsgId);
 		return -1;
 	}
 
-	if (sizeof(ExternalMsg) + msgSize > unLen)
+	if (msgSize > unLen)
 	{
 		return 1;
 	}
 
     outData = const_cast<char*>(strData + sizeof(ExternalMsg));
-    outLen = msgSize;
+    outLen = msgSize - sizeof(ExternalMsg);
     recvPackage.mModuleId = moduleId;
     recvPackage.nMsgId = tmpMsgId;
     recvPackage.nParam1 = 0;
     recvPackage.nParam2 = 0;
-    recvPackage.bSecurity = isCompressed;
-    allLen = sizeof(ExternalMsg) + msgSize;
+    recvPackage.bCompress = isCompressed;
+    allLen = msgSize;
 	return 0;
 }
 
@@ -143,7 +143,7 @@ int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	ExternalMsg packHead;
 	packHead.SetModule(recvPackage.mModuleId);
 	packHead.SetCmd(recvPackage.nMsgId);
-	packHead.SetLength(recvPackage.mStrMsg.length());
+	packHead.SetLength(recvPackage.mStrMsg.length()+sizeof(ExternalMsg));
 
 	buffer.PushData(&packHead, sizeof(ExternalMsg));
 	buffer.PushData(recvPackage.mStrMsg.data(), recvPackage.mStrMsg.length());

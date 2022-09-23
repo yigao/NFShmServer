@@ -119,7 +119,7 @@ message pbNFServerConfig
 	optional uint32 NetThreadNum = 27;   //tcp/bus线程数目
 	optional bool Security = 28;				//0 不加密不压缩 1 压缩 2 加密 3 压缩加密
 	optional bool WebSocket = 29;				//
-	optional uint32 mParseType = 30;  //协议解析方式, 默认值0，是标准内网协议
+	optional uint32 ParseType = 30;  //协议解析方式, 默认值0，是标准内网协议
 
 ////////////////////////////////////route/////////////////////////////////////////////
 	optional string MasterIp = 50;

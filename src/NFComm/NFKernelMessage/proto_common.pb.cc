@@ -214,7 +214,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbTableConfig));
   pbNFServerConfig_descriptor_ = file->message_type(8);
-  static const int pbNFServerConfig_offsets_[39] = {
+  static const int pbNFServerConfig_offsets_[40] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -233,7 +233,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, netthreadnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, security_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, websocket_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mparsetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, parsetype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, masterip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, masterport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, naminghost_),
@@ -245,6 +245,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqluser_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, mysqlpassword_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, defaultdbname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, crossdbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, tbconflist_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisport_),
@@ -364,7 +365,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "verType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003"
     "(\t\022/\n\nServerList\030\003 \003(\0132\033.proto_ff.pbAllS"
     "erverConfig\"<\n\rpbTableConfig\022\027\n\tTableNam"
-    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\310\006\n\020pb"
+    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\334\006\n\020pb"
     "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
     "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
     "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Link"
@@ -374,29 +375,29 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "ServerPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMa"
     "xConnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r"
     "\022\024\n\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010"
-    "\022\021\n\tWebSocket\030\035 \001(\010\022\022\n\nmParseType\030\036 \001(\r\022"
-    "\020\n\010MasterIp\0302 \001(\t\022\022\n\nMasterPort\0303 \001(\r\022\022\n"
-    "\nNamingHost\0304 \001(\t\022\022\n\nNamingPath\0305 \001(\t\022\022\n"
-    "\nRouteAgent\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022\021\n\tMy"
-    "sqlPort\030G \001(\r\022\023\n\013MysqlDbName\030H \001(\t\022\021\n\tMy"
-    "sqlUser\030I \001(\t\022\025\n\rMysqlPassword\030J \001(\t\022\025\n\r"
-    "DefaultDBName\030K \001(\t\022+\n\nTBConfList\030L \003(\0132"
-    "\027.proto_ff.pbTableConfig\022\017\n\007RedisIp\030P \001("
-    "\t\022\021\n\tRedisPort\030Q \001(\r\022\021\n\tRedisPass\030R \001(\t\022"
-    "\016\n\006WwwUrl\030Z \001(\t\022\r\n\005Email\030[ \001(\t\022\032\n\022MaxOnl"
-    "inePlayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e"
-    " \001(\r\022\036\n\026ClientKeepAliveTimeout\030f \001(\r*\224\003\n"
-    "\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST"
-    "_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_SE"
-    "RVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_ST_"
-    "PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_FOR"
-    "_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\006\022"
-    "\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN_S"
-    "ERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_ST"
-    "_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013\022\024"
-    "\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERVER"
-    "\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_MA"
-    "X\020\024", 2643);
+    "\022\021\n\tWebSocket\030\035 \001(\010\022\021\n\tParseType\030\036 \001(\r\022\020"
+    "\n\010MasterIp\0302 \001(\t\022\022\n\nMasterPort\0303 \001(\r\022\022\n\n"
+    "NamingHost\0304 \001(\t\022\022\n\nNamingPath\0305 \001(\t\022\022\n\n"
+    "RouteAgent\0306 \001(\t\022\017\n\007MysqlIp\030F \001(\t\022\021\n\tMys"
+    "qlPort\030G \001(\r\022\023\n\013MysqlDbName\030H \001(\t\022\021\n\tMys"
+    "qlUser\030I \001(\t\022\025\n\rMysqlPassword\030J \001(\t\022\025\n\rD"
+    "efaultDBName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022"
+    "+\n\nTBConfList\030M \003(\0132\027.proto_ff.pbTableCo"
+    "nfig\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPort\030Q \001(\r"
+    "\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022\r\n\005E"
+    "mail\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030"
+    "\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAl"
+    "iveTimeout\030f \001(\r*\224\003\n\016NF_SERVER_TYPE\022\016\n\nN"
+    "F_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022\034\n\030"
+    "NF_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_ROUT"
+    "E_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!\n\035NF"
+    "_ST_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_ST_P"
+    "ROXY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_SERVE"
+    "R\020\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST_WOR"
+    "LD_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022\025\n\021N"
+    "F_ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014"
+    "\022\024\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONITOR_"
+    "SERVER\020\016\022\r\n\tNF_ST_MAX\020\024", 2663);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -3896,7 +3897,7 @@ const int pbNFServerConfig::kWorkThreadNumFieldNumber;
 const int pbNFServerConfig::kNetThreadNumFieldNumber;
 const int pbNFServerConfig::kSecurityFieldNumber;
 const int pbNFServerConfig::kWebSocketFieldNumber;
-const int pbNFServerConfig::kMParseTypeFieldNumber;
+const int pbNFServerConfig::kParseTypeFieldNumber;
 const int pbNFServerConfig::kMasterIpFieldNumber;
 const int pbNFServerConfig::kMasterPortFieldNumber;
 const int pbNFServerConfig::kNamingHostFieldNumber;
@@ -3908,6 +3909,7 @@ const int pbNFServerConfig::kMysqlDbNameFieldNumber;
 const int pbNFServerConfig::kMysqlUserFieldNumber;
 const int pbNFServerConfig::kMysqlPasswordFieldNumber;
 const int pbNFServerConfig::kDefaultDBNameFieldNumber;
+const int pbNFServerConfig::kCrossDBNameFieldNumber;
 const int pbNFServerConfig::kTBConfListFieldNumber;
 const int pbNFServerConfig::kRedisIpFieldNumber;
 const int pbNFServerConfig::kRedisPortFieldNumber;
@@ -3953,7 +3955,7 @@ void pbNFServerConfig::SharedCtor() {
   netthreadnum_ = 0u;
   security_ = false;
   websocket_ = false;
-  mparsetype_ = 0u;
+  parsetype_ = 0u;
   masterip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   masterport_ = 0u;
   naminghost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -3965,6 +3967,7 @@ void pbNFServerConfig::SharedCtor() {
   mysqluser_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   mysqlpassword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   defaultdbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  crossdbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   redisport_ = 0u;
   redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -4025,6 +4028,9 @@ void pbNFServerConfig::SharedDtor() {
   }
   if (defaultdbname_ != &::google::protobuf::internal::kEmptyString) {
     delete defaultdbname_;
+  }
+  if (crossdbname_ != &::google::protobuf::internal::kEmptyString) {
+    delete crossdbname_;
   }
   if (redisip_ != &::google::protobuf::internal::kEmptyString) {
     delete redisip_;
@@ -4111,7 +4117,7 @@ void pbNFServerConfig::Clear() {
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     security_ = false;
     websocket_ = false;
-    mparsetype_ = 0u;
+    parsetype_ = 0u;
     if (has_masterip()) {
       if (masterip_ != &::google::protobuf::internal::kEmptyString) {
         masterip_->clear();
@@ -4161,13 +4167,18 @@ void pbNFServerConfig::Clear() {
         defaultdbname_->clear();
       }
     }
+    if (has_crossdbname()) {
+      if (crossdbname_ != &::google::protobuf::internal::kEmptyString) {
+        crossdbname_->clear();
+      }
+    }
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (has_redisip()) {
       if (redisip_ != &::google::protobuf::internal::kEmptyString) {
         redisip_->clear();
       }
     }
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     redisport_ = 0u;
     if (has_redispass()) {
       if (redispass_ != &::google::protobuf::internal::kEmptyString) {
@@ -4488,19 +4499,19 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_mParseType;
+        if (input->ExpectTag(240)) goto parse_ParseType;
         break;
       }
 
-      // optional uint32 mParseType = 30;
+      // optional uint32 ParseType = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mParseType:
+         parse_ParseType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &mparsetype_)));
-          set_has_mparsetype();
+                 input, &parsetype_)));
+          set_has_parsetype();
         } else {
           goto handle_uninterpreted;
         }
@@ -4689,12 +4700,29 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(610)) goto parse_TBConfList;
+        if (input->ExpectTag(610)) goto parse_CrossDBName;
         break;
       }
 
-      // repeated .proto_ff.pbTableConfig TBConfList = 76;
+      // optional string CrossDBName = 76;
       case 76: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_CrossDBName:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_crossdbname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->crossdbname().data(), this->crossdbname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(618)) goto parse_TBConfList;
+        break;
+      }
+
+      // repeated .proto_ff.pbTableConfig TBConfList = 77;
+      case 77: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_TBConfList:
@@ -4703,7 +4731,7 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(610)) goto parse_TBConfList;
+        if (input->ExpectTag(618)) goto parse_TBConfList;
         if (input->ExpectTag(642)) goto parse_RedisIp;
         break;
       }
@@ -4972,9 +5000,9 @@ void pbNFServerConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(29, this->websocket(), output);
   }
 
-  // optional uint32 mParseType = 30;
-  if (has_mparsetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(30, this->mparsetype(), output);
+  // optional uint32 ParseType = 30;
+  if (has_parsetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(30, this->parsetype(), output);
   }
 
   // optional string MasterIp = 50;
@@ -5068,10 +5096,19 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       75, this->defaultdbname(), output);
   }
 
-  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  // optional string CrossDBName = 76;
+  if (has_crossdbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->crossdbname().data(), this->crossdbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      76, this->crossdbname(), output);
+  }
+
+  // repeated .proto_ff.pbTableConfig TBConfList = 77;
   for (int i = 0; i < this->tbconflist_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      76, this->tbconflist(i), output);
+      77, this->tbconflist(i), output);
   }
 
   // optional string RedisIp = 80;
@@ -5258,9 +5295,9 @@ void pbNFServerConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(29, this->websocket(), target);
   }
 
-  // optional uint32 mParseType = 30;
-  if (has_mparsetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(30, this->mparsetype(), target);
+  // optional uint32 ParseType = 30;
+  if (has_parsetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(30, this->parsetype(), target);
   }
 
   // optional string MasterIp = 50;
@@ -5363,11 +5400,21 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         75, this->defaultdbname(), target);
   }
 
-  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  // optional string CrossDBName = 76;
+  if (has_crossdbname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->crossdbname().data(), this->crossdbname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        76, this->crossdbname(), target);
+  }
+
+  // repeated .proto_ff.pbTableConfig TBConfList = 77;
   for (int i = 0; i < this->tbconflist_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        76, this->tbconflist(i), target);
+        77, this->tbconflist(i), target);
   }
 
   // optional string RedisIp = 80;
@@ -5567,11 +5614,11 @@ int pbNFServerConfig::ByteSize() const {
       total_size += 2 + 1;
     }
 
-    // optional uint32 mParseType = 30;
-    if (has_mparsetype()) {
+    // optional uint32 ParseType = 30;
+    if (has_parsetype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->mparsetype());
+          this->parsetype());
     }
 
     // optional string MasterIp = 50;
@@ -5653,6 +5700,15 @@ int pbNFServerConfig::ByteSize() const {
           this->defaultdbname());
     }
 
+    // optional string CrossDBName = 76;
+    if (has_crossdbname()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->crossdbname());
+    }
+
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional string RedisIp = 80;
     if (has_redisip()) {
       total_size += 2 +
@@ -5660,8 +5716,6 @@ int pbNFServerConfig::ByteSize() const {
           this->redisip());
     }
 
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional uint32 RedisPort = 81;
     if (has_redisport()) {
       total_size += 2 +
@@ -5712,7 +5766,7 @@ int pbNFServerConfig::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.pbTableConfig TBConfList = 76;
+  // repeated .proto_ff.pbTableConfig TBConfList = 77;
   total_size += 2 * this->tbconflist_size();
   for (int i = 0; i < this->tbconflist_size(); i++) {
     total_size +=
@@ -5805,8 +5859,8 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_websocket()) {
       set_websocket(from.websocket());
     }
-    if (from.has_mparsetype()) {
-      set_mparsetype(from.mparsetype());
+    if (from.has_parsetype()) {
+      set_parsetype(from.parsetype());
     }
     if (from.has_masterip()) {
       set_masterip(from.masterip());
@@ -5843,11 +5897,14 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_defaultdbname()) {
       set_defaultdbname(from.defaultdbname());
     }
-    if (from.has_redisip()) {
-      set_redisip(from.redisip());
+    if (from.has_crossdbname()) {
+      set_crossdbname(from.crossdbname());
     }
   }
   if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    if (from.has_redisip()) {
+      set_redisip(from.redisip());
+    }
     if (from.has_redisport()) {
       set_redisport(from.redisport());
     }
@@ -5910,7 +5967,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(netthreadnum_, other->netthreadnum_);
     std::swap(security_, other->security_);
     std::swap(websocket_, other->websocket_);
-    std::swap(mparsetype_, other->mparsetype_);
+    std::swap(parsetype_, other->parsetype_);
     std::swap(masterip_, other->masterip_);
     std::swap(masterport_, other->masterport_);
     std::swap(naminghost_, other->naminghost_);
@@ -5922,6 +5979,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(mysqluser_, other->mysqluser_);
     std::swap(mysqlpassword_, other->mysqlpassword_);
     std::swap(defaultdbname_, other->defaultdbname_);
+    std::swap(crossdbname_, other->crossdbname_);
     tbconflist_.Swap(&other->tbconflist_);
     std::swap(redisip_, other->redisip_);
     std::swap(redisport_, other->redisport_);

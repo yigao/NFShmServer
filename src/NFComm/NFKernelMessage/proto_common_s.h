@@ -171,7 +171,7 @@ namespace proto_ff_s {
 		uint32_t NetThreadNum;
 		bool Security;
 		bool WebSocket;
-		uint32_t mParseType;
+		uint32_t ParseType;
 		std::string MasterIp;
 		uint32_t MasterPort;
 		std::string NamingHost;
@@ -183,6 +183,7 @@ namespace proto_ff_s {
 		std::string MysqlUser;
 		std::string MysqlPassword;
 		std::string DefaultDBName;
+		std::string CrossDBName;
 		std::vector<struct pbTableConfig_s> TBConfList;
 		std::string RedisIp;
 		uint32_t RedisPort;

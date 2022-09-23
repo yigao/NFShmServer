@@ -16,16 +16,17 @@ ProxyServer = {
         NetThreadNum = 5,
         WorkThreadNum = 1,
         ParseType = 1, --0是内网协议，1是外网协议
-        ServerIp = "127.0.0.1",
-        ServerPort = 6041,
-	    ExternalServerIp = "192.168.50.180",
-	    ExternalServerPort = 10092,
+        ServerIp = NF_INTER_SERVER_IP,
+        ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_SERVER*10+1,
+	    ExternalServerIp = NF_EXTER_SERVER_IP,
+	    ExternalServerPort = NF_EXTER_PROXY_SERVER_PORT,
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         --NamingHost = "127.0.0.1:2181,127.0.0.1:2182",
         --NamingPath = "99Puke",
         MasterIp = NF_MASTER_IP,
         MasterPort = NF_MASTER_PORT,
         Security = true,
+        ParseType = 1,
 	};
 
     ProxyServer_4_2 = {
@@ -41,12 +42,13 @@ ProxyServer = {
         ServerIp = NF_INTER_SERVER_IP,
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_SERVER*10+2,
         ExternalServerIp = NF_EXTER_SERVER_IP,
-        ExternalServerPort = NF_EXTER_PROXY_SERVER_PORT,
+        ExternalServerPort = NF_EXTER_PROXY_SERVER_PORT+1,
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         --NamingHost = NF_NAMING_HOST,
         --NamingPath = NF_NAMING_PATH,
         MasterIp = NF_MASTER_IP,
         MasterPort = NF_MASTER_PORT,
         Security = true,
+        ParseType = 1,
     };
 };

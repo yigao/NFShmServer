@@ -20,6 +20,7 @@
 #include "NFEvppServer.h"
 #include "NFIPacketParse.h"
 #include "NFComm/NFCore/NFStringUtility.h"
+#include "Encrypt.h"
 
 NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p)
 {
@@ -223,6 +224,10 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
             uint32_t outLen = 0;
             uint32_t allLen = 0;
             MsgFromNetInfo msgInfo(conn, linkId);
+            if (mSecurity)
+            {
+                Decryption((char*)msg->data(), msg->size());
+            }
             int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, msgInfo.mPacket);
 			if (ret < 0)
 			{
@@ -242,13 +247,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", msgInfo.mPacket.ToString());
                 }
 
-                if (msgInfo.mPacket.bSecurity)
+                if (msgInfo.mPacket.bCompress)
                 {
-                    if (!mSecurity)
-                    {
-                        NFLogWarning(NF_LOG_RECV_MSG,0,"recv msg:{}, the server no need decompress, but the packet need decompress", msgInfo.mPacket.ToString());
-                    }
-
                     NFBuffer comBuffer;
                     comBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
 
@@ -266,11 +266,6 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     while(!mMsgQueue.Enqueue(msgInfo)) {}
                 }
                 else {
-                    if (mSecurity)
-                    {
-                        NFLogWarning(NF_LOG_RECV_MSG,0,"recv msg:{}, the server need decompress, but the packet no need decompress", msgInfo.mPacket.ToString());
-                    }
-
                     msgInfo.nType = eMsgType_RECIVEDATA;
                     msgInfo.mPacket.mStrMsg = std::string(outData, outLen);
                     while(!mMsgQueue.Enqueue(msgInfo)) {}

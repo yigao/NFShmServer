@@ -31,36 +31,36 @@ LoadPlugin =
 			--"NFTestPlugin",
 			--"NFRobotPlugin",
 			"NFNetPlugin",
-			"NFShmPlugin",
+			--"NFShmPlugin",
 
-			"NFServerCommonPlugin",
-			"NFCommLogicPlugin",
+			--"NFServerCommonPlugin",
+			--"NFCommLogicPlugin",
 
-			"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
-			"NFRouteAgentServerPlugin",
+			--"NFMasterServerPlugin",
+			--"NFRouteServerPlugin",
+			--"NFRouteAgentServerPlugin",
 
-			"NFStoreServerPlugin",
+			--"NFStoreServerPlugin",
 
-			"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
-			"NFProxyAgentServerPlugin",
+			--"NFProxyServerPlugin",
+			"NFProxyClientPlugin",
+			--"NFProxyAgentServerPlugin",
 
-			"NFLoginServerPlugin",
+			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			"NFGameServerPlugin",
+			--"NFGameServerPlugin",
 
-			"NFWorldServerPlugin",
+			--"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",
 
-			"NFSnsServerPlugin",
+			--"NFSnsServerPlugin",
 			--"NFSnsServerPlayerPlugin",
 
-			"NFLogicServerPlugin",
+			--"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
-			"NFWebServerPlugin",
+			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",

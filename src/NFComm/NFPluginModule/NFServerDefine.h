@@ -130,7 +130,7 @@ const uint32_t s_compressBitPos = 15;
 
 struct NFDataPackage
 {
-    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bSecurity(false) {
+    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bCompress(false) {
 
     }
 
@@ -142,7 +142,7 @@ struct NFDataPackage
         nSrcId = packet.nSrcId;
         nDstId = packet.nDstId;
         nSendBusLinkId = packet.nSendBusLinkId;
-        bSecurity = packet.bSecurity;
+        bCompress = packet.bCompress;
         mStrMsg = packet.mStrMsg;
     }
 
@@ -157,7 +157,7 @@ struct NFDataPackage
     uint64_t nSrcId;
     uint64_t nDstId;
     uint64_t nSendBusLinkId;
-    bool bSecurity;
+    bool bCompress;
     std::string mStrMsg;
 };
 

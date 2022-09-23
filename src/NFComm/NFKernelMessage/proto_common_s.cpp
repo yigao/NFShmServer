@@ -37,7 +37,7 @@ void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
 }
 
 void tbServerMgr_s::read_from_pbmsg(const ::proto_ff::tbServerMgr & msg) {
-	memset(this, 0, sizeof(struct tbServerMgr_s));
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbServerMgr_s));
 	id = msg.id();
 	contract.Copy(msg.contract());
 	machine_addr.Copy(msg.machine_addr());
@@ -293,7 +293,7 @@ int pbNFServerConfig_s::CreateInit() {
 	NetThreadNum = (uint32_t)0;
 	Security = (bool)0;
 	WebSocket = (bool)0;
-	mParseType = (uint32_t)0;
+	ParseType = (uint32_t)0;
 	MasterPort = (uint32_t)0;
 	MysqlPort = (uint32_t)0;
 	RedisPort = (uint32_t)0;
@@ -326,7 +326,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_netthreadnum((uint32_t)NetThreadNum);
 	msg.set_security((bool)Security);
 	msg.set_websocket((bool)WebSocket);
-	msg.set_mparsetype((uint32_t)mParseType);
+	msg.set_parsetype((uint32_t)ParseType);
 	msg.set_masterip(MasterIp);
 	msg.set_masterport((uint32_t)MasterPort);
 	msg.set_naminghost(NamingHost);
@@ -338,6 +338,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_mysqluser(MysqlUser);
 	msg.set_mysqlpassword(MysqlPassword);
 	msg.set_defaultdbname(DefaultDBName);
+	msg.set_crossdbname(CrossDBName);
 	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
 		::proto_ff::pbTableConfig* temp_tbconflist = msg.add_tbconflist();
 		TBConfList[i].write_to_pbmsg(*temp_tbconflist);
@@ -371,7 +372,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	NetThreadNum = msg.netthreadnum();
 	Security = msg.security();
 	WebSocket = msg.websocket();
-	mParseType = msg.mparsetype();
+	ParseType = msg.parsetype();
 	MasterIp = msg.masterip();
 	MasterPort = msg.masterport();
 	NamingHost = msg.naminghost();
@@ -383,6 +384,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	MysqlUser = msg.mysqluser();
 	MysqlPassword = msg.mysqlpassword();
 	DefaultDBName = msg.defaultdbname();
+	CrossDBName = msg.crossdbname();
 	TBConfList.resize(msg.tbconflist_size());
 	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
 		const ::proto_ff::pbTableConfig & temp_tbconflist = msg.tbconflist(i);

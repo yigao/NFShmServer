@@ -12,8 +12,6 @@
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFComm/NFMessageDefine/proto_cs_login.pb.h"
-#include "NFComm/NFMessageDefine/proto_svr_login.pb.h"
 
 struct NFProxySession
 {
@@ -82,7 +80,7 @@ public:
 		处理客户端链接事件和未注册消息
 	*/
 	int OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleProxyClientOtherMessage(uint64_t unLinkId, const NFDataPackage& packet);
+	int OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 	int OnHandleClientDisconnect(uint64_t unLinkId);
 private:
 	/*
