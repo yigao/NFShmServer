@@ -13,7 +13,7 @@
 
 NFShmMgr::NFShmMgr()
 {
-    m_objMode = EN_OBJ_MODE_RECOVER;
+    m_objMode = EN_OBJ_MODE_INIT;
     m_siAddrOffset = 0;
 }
 

@@ -422,7 +422,8 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
     int iNowAssignIdx = m_iFirstFreeIdx;
     m_iFirstFreeIdx = m_astHashMap[m_iFirstFreeIdx].m_iHashNext;
     ++m_iUsedNodeNum;
-    memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
+    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
+    m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
     new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
     //DATA_TYPE rstData;
     //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
