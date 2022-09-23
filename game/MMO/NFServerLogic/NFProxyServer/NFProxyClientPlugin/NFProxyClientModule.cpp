@@ -248,6 +248,11 @@ int NFCProxyClientModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         pLogInfo->set_port(pLinkInfo->mPort);
     }
 
+    proto_ff::ServerToClientQueue_RSP  gateInfoRsp;
+    gateInfoRsp.set_retcode(proto_ff::RET_SUCCESS);
+    gateInfoRsp.set_nnum((uint32_t)0);
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::EMODULE_ID_LOGIN, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
+
     NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- end --");
     return 0;
 }

@@ -38,6 +38,8 @@ void protobuf_ShutdownFile_common_5fmsg_2eproto();
 class ClientToLogInfoProto;
 class PingRsp;
 class ClientLoginGateReq;
+class ClientQueueIndexReq;
+class ServerToClientQueue_RSP;
 
 // ===================================================================
 
@@ -616,6 +618,170 @@ class ClientLoginGateReq : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ClientLoginGateReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ClientQueueIndexReq : public ::google::protobuf::Message {
+ public:
+  ClientQueueIndexReq();
+  virtual ~ClientQueueIndexReq();
+
+  ClientQueueIndexReq(const ClientQueueIndexReq& from);
+
+  inline ClientQueueIndexReq& operator=(const ClientQueueIndexReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ClientQueueIndexReq& default_instance();
+
+  void Swap(ClientQueueIndexReq* other);
+
+  // implements Message ----------------------------------------------
+
+  ClientQueueIndexReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ClientQueueIndexReq& from);
+  void MergeFrom(const ClientQueueIndexReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ClientQueueIndexReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_common_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_common_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_common_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static ClientQueueIndexReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ServerToClientQueue_RSP : public ::google::protobuf::Message {
+ public:
+  ServerToClientQueue_RSP();
+  virtual ~ServerToClientQueue_RSP();
+
+  ServerToClientQueue_RSP(const ServerToClientQueue_RSP& from);
+
+  inline ServerToClientQueue_RSP& operator=(const ServerToClientQueue_RSP& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ServerToClientQueue_RSP& default_instance();
+
+  void Swap(ServerToClientQueue_RSP* other);
+
+  // implements Message ----------------------------------------------
+
+  ServerToClientQueue_RSP* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ServerToClientQueue_RSP& from);
+  void MergeFrom(const ServerToClientQueue_RSP& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .proto_ff.ERetCode retCode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::proto_ff::ERetCode retcode() const;
+  inline void set_retcode(::proto_ff::ERetCode value);
+
+  // optional uint32 nNum = 2;
+  inline bool has_nnum() const;
+  inline void clear_nnum();
+  static const int kNNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 nnum() const;
+  inline void set_nnum(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ServerToClientQueue_RSP)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+  inline void set_has_nnum();
+  inline void clear_has_nnum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  int retcode_;
+  ::google::protobuf::uint32 nnum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_common_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_common_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static ServerToClientQueue_RSP* default_instance_;
 };
 // ===================================================================
 
@@ -2030,6 +2196,59 @@ inline void ClientLoginGateReq::set_allocated_loginfo(::proto_ff::ClientToLogInf
   } else {
     clear_has_loginfo();
   }
+}
+
+// -------------------------------------------------------------------
+
+// ClientQueueIndexReq
+
+// -------------------------------------------------------------------
+
+// ServerToClientQueue_RSP
+
+// required .proto_ff.ERetCode retCode = 1;
+inline bool ServerToClientQueue_RSP::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ServerToClientQueue_RSP::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ServerToClientQueue_RSP::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ServerToClientQueue_RSP::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::proto_ff::ERetCode ServerToClientQueue_RSP::retcode() const {
+  return static_cast< ::proto_ff::ERetCode >(retcode_);
+}
+inline void ServerToClientQueue_RSP::set_retcode(::proto_ff::ERetCode value) {
+  assert(::proto_ff::ERetCode_IsValid(value));
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// optional uint32 nNum = 2;
+inline bool ServerToClientQueue_RSP::has_nnum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ServerToClientQueue_RSP::set_has_nnum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ServerToClientQueue_RSP::clear_has_nnum() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ServerToClientQueue_RSP::clear_nnum() {
+  nnum_ = 0u;
+  clear_has_nnum();
+}
+inline ::google::protobuf::uint32 ServerToClientQueue_RSP::nnum() const {
+  return nnum_;
+}
+inline void ServerToClientQueue_RSP::set_nnum(::google::protobuf::uint32 value) {
+  set_has_nnum();
+  nnum_ = value;
 }
 
 

@@ -5,3 +5,109 @@ package proto_ff;
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 
+//返回码（公用的返回码放到前面，模块相关的返回码放到后面）
+enum ERetCode
+{
+  option allow_alias = true;
+  //公用返回码 0 - 99
+  RET_SUCCESS = 0;  //成功
+  RET_FAIL = 1;  //失败
+}
+
+//模块ID定义
+enum EMODULE_ID
+{
+  option allow_alias = true;
+
+  EMODULE_ID_NONE			= 0;
+  EMODULE_ID_SERV_SYS		= 1;	//服务器系统模块（服务器专用）
+  EMODULE_ID_PLAYER       = 2;    //角色
+  EMODULE_ID_LOGIN		= 3;	//登录
+  EMODULE_ID_SCENE		= 4;	//场景
+  EMODULE_ID_SKILL		= 5;	//技能
+  EMODULE_ID_BUFF			= 6;	//BUFF
+  EMODULE_ID_PACKAGE		= 7;	//背包
+  EMODULE_ID_TASK			= 8;	//任务
+  EMODULE_ID_CHAT			= 9;	//聊天
+  EMODULE_ID_DUPLICATE	= 10;	//副本
+  EMODULE_ID_FRIEND		= 11;	//好友
+  EMODULE_ID_MOVE         = 12;   //移动
+  EMODULE_ID_MAIL			= 13;	//邮件
+  EMODULE_ID_DROP			= 14;	//掉落
+  EMODULE_ID_ACHIEVEMENT  = 15;	//成就
+  EMODULE_ID_ENEMY		= 16;	//仇人
+
+  EMODULE_ID_PVP			= 17;	//pvp
+  EMODULE_ID_MALL			= 18;	//商城
+  EMODULE_ID_BOWL			= 19;	//聚宝盆
+  EMODULE_ID_ACTIVITY		= 20;	//活动
+  EMODULE_ID_TEAM			= 21;	//组队
+  EMODULE_ID_AUCTIONEER   = 22;	//拍卖行
+  EMODULE_ID_PLAYERPET	= 23;	//玩家精灵(废弃)
+  EMODULE_ID_SEND_ZONE_MSG= 24;   //上层服务发送消息给Zone服务器
+  EMODULE_ID_RECV_ZONE_MSG= 25;	//上层服务收到Zone服务器消息
+  EMODULE_ID_RANKINGLIST	= 26;	//排行版
+  EMODULE_ID_GM			= 27;	//GM
+  EMODULE_ID_TREASURE		= 28;	//宝具
+  EMODULE_ID_ARENA		= 29;	//竞技场
+  EMODULE_ID_MIRROR		= 30;	//镜像系统
+  EMODULE_ID_QUERY		= 31;	//角色数据查询模块
+  EMODULE_ID_BREACH		= 32;   //突破
+  EMODULE_ID_UNION		= 33;	//工会
+  EMOUDLE_ID_COLLECT		= 34;	//采集 (废弃)
+  EMODULE_ID_CONVOY		= 35;	//护送
+  EMODULE_ID_RUNBUSINESS  = 36;	//跑商 (废弃)
+  EMODULE_ID_TITLE		= 37;	//称号
+  EMODULE_ID_WELFARE		= 38;	//福利
+  EMODULE_ID_OPERATELIMIT = 39;	//统计模块 (废弃)
+  EMODULE_ID_HUOYUEDU		= 40;	//活跃度
+  EMODULE_ID_PLANE		= 41;	//位面 (废弃)
+  EMODULE_ID_HORSE		= 42;	//坐骑 (废弃)
+  EMODULE_ID_GODHOOD		= 43;	//神格
+  EMODULE_ID_PANDOS		= 44;	//星盘 (废弃)
+  EMODULE_ID_PAY          = 45;   //充值
+  EMODULE_ID_COMPETE      = 46;   //切磋 (废弃)
+  EMODULE_ID_ADVENTURE	= 47;	//奇遇 (废弃)
+  EMODULE_ID_MAPBOSS		= 48;	//野外BOSS
+  EMODULE_ID_YODA			= 49;	//YODA直播平台
+  EMODULE_ID_FUNCTIONUNLOCK = 50; //功能解锁
+  EMODULE_ID_FESTIVAL		= 51;	//节日活动 (废弃)
+  EMODULE_ID_EMBLEM		= 52;	//纹章
+  EMODULE_ID_IDENTIFY		= 53;	//图鉴
+  EMODULE_ID_OCCUPATION	= 54;	//转职
+  EMODULE_ID_ELEMENT		= 55;	//元素
+  EMODULE_ID_WING			= 56;	//翅膀
+  EMODULE_ID_FASHION		= 57;	//时装
+  EMODULE_ID_MOUNT		= 58;	//坐骑
+  EMODULE_ID_ARTIFACT		= 59;	//神器
+  EMODULE_ID_FATESTAR		= 60;	//命星
+  EMODULE_ID_DAILY		= 61;	//日常
+  EMODULE_ID_FIELD		= 62;	//领域
+  EMODULE_ID_PARTNER      = 63;	//伙伴
+  EMODULE_ID_VIP			= 64;	//VIP
+  EMODULE_ID_RECOVERY		= 66;	//资源找回
+  EMODULE_ID_OPERATIONACTIVE = 67; //运营活动
+  EMODULE_ID_OPERATION_RANK = 68;	// 运营活动排行
+  EMODULE_ID_MARRY		= 69;	// 结婚
+  EMODULE_ID_SERVEROPENACTIVE = 70; //开服活动
+  EMODULE_ID_SERVEROPENRANK = 71; //开服活动冲榜
+  EMODULE_ID_POKER		= 72;	// 财富女巫
+  EMODULE_ID_3V3			= 73;	//3V3
+  EMODULE_ID_UNIONWAR			= 74;	//公会战
+  EMODULE_ID_MYSTERYSHOP = 75;	//神秘商店
+
+  EMODULE_IDPACKAGETESTREBATE = 76;	//封测返利
+  EMODULE_ID_WORLDBOSS	= 77;
+  EMODULE_ID_TUTOR		= 79;  //师徒
+
+  EMODULE_ID_MANOR		= 81;	//领土争夺
+  EMODULE_ID_POWER		= 82;	//神力觉醒
+  EMODULE_ID_HEAD			= 83;	//头像
+  EMODULE_ID_ONLINE_GIFT	= 84;	//在线有礼
+  EMODULE_ID_GM_HELP		= 85;	//GM助力
+  EMODULE_ID_GODGM		= 86;	//神权
+  EMODULE_ID_ARRIVAL_BOSS = 87;	//现金BOSS
+  EMODULE_ID_LIMIT		= 88;
+
+
+}

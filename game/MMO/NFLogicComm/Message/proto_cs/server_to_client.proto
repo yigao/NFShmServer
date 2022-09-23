@@ -7,4 +7,13 @@ enum ServerToClientCmd {
   //登录
   SERVER_TO_CLIENT_LOGIN_BEGIN		= 1;
   SERVER_TO_CLIENT_PING				= 2;		//客户端ping服务器回复
+
+  LOGIN_TO_CLIENT_ACCOUNT_LOGIN		= 3;
+  LOGIN_TO_CLIENT_SELECT_ZONE         = 4;        //客户端选区
+
+  ZONE_TO_CLIENT_GATEINFO_RSP         = 5;        //客户端连接管理服请求回复
+
+  LOGIN_TO_CLIENT_PING				= 6;        //客户端登陆服ping回复
+  SERVER_TO_CLIENT_QUEUE_RESULT	    = 7;		//服务器返回排队消息
+  SERVER_TO_CLIENT_LOGIN_END          = 20;
 };

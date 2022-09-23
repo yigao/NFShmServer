@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include "yd_fieldoptions.pb.h"
 // @@protoc_insertion_point(includes)
 
@@ -33,6 +34,128 @@ void protobuf_AssignDesc_common_5flogic_2eproto();
 void protobuf_ShutdownFile_common_5flogic_2eproto();
 
 
+enum ERetCode {
+  RET_SUCCESS = 0,
+  RET_FAIL = 1
+};
+bool ERetCode_IsValid(int value);
+const ERetCode ERetCode_MIN = RET_SUCCESS;
+const ERetCode ERetCode_MAX = RET_FAIL;
+const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
+inline const ::std::string& ERetCode_Name(ERetCode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ERetCode_descriptor(), value);
+}
+inline bool ERetCode_Parse(
+    const ::std::string& name, ERetCode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ERetCode>(
+    ERetCode_descriptor(), name, value);
+}
+enum EMODULE_ID {
+  EMODULE_ID_NONE = 0,
+  EMODULE_ID_SERV_SYS = 1,
+  EMODULE_ID_PLAYER = 2,
+  EMODULE_ID_LOGIN = 3,
+  EMODULE_ID_SCENE = 4,
+  EMODULE_ID_SKILL = 5,
+  EMODULE_ID_BUFF = 6,
+  EMODULE_ID_PACKAGE = 7,
+  EMODULE_ID_TASK = 8,
+  EMODULE_ID_CHAT = 9,
+  EMODULE_ID_DUPLICATE = 10,
+  EMODULE_ID_FRIEND = 11,
+  EMODULE_ID_MOVE = 12,
+  EMODULE_ID_MAIL = 13,
+  EMODULE_ID_DROP = 14,
+  EMODULE_ID_ACHIEVEMENT = 15,
+  EMODULE_ID_ENEMY = 16,
+  EMODULE_ID_PVP = 17,
+  EMODULE_ID_MALL = 18,
+  EMODULE_ID_BOWL = 19,
+  EMODULE_ID_ACTIVITY = 20,
+  EMODULE_ID_TEAM = 21,
+  EMODULE_ID_AUCTIONEER = 22,
+  EMODULE_ID_PLAYERPET = 23,
+  EMODULE_ID_SEND_ZONE_MSG = 24,
+  EMODULE_ID_RECV_ZONE_MSG = 25,
+  EMODULE_ID_RANKINGLIST = 26,
+  EMODULE_ID_GM = 27,
+  EMODULE_ID_TREASURE = 28,
+  EMODULE_ID_ARENA = 29,
+  EMODULE_ID_MIRROR = 30,
+  EMODULE_ID_QUERY = 31,
+  EMODULE_ID_BREACH = 32,
+  EMODULE_ID_UNION = 33,
+  EMOUDLE_ID_COLLECT = 34,
+  EMODULE_ID_CONVOY = 35,
+  EMODULE_ID_RUNBUSINESS = 36,
+  EMODULE_ID_TITLE = 37,
+  EMODULE_ID_WELFARE = 38,
+  EMODULE_ID_OPERATELIMIT = 39,
+  EMODULE_ID_HUOYUEDU = 40,
+  EMODULE_ID_PLANE = 41,
+  EMODULE_ID_HORSE = 42,
+  EMODULE_ID_GODHOOD = 43,
+  EMODULE_ID_PANDOS = 44,
+  EMODULE_ID_PAY = 45,
+  EMODULE_ID_COMPETE = 46,
+  EMODULE_ID_ADVENTURE = 47,
+  EMODULE_ID_MAPBOSS = 48,
+  EMODULE_ID_YODA = 49,
+  EMODULE_ID_FUNCTIONUNLOCK = 50,
+  EMODULE_ID_FESTIVAL = 51,
+  EMODULE_ID_EMBLEM = 52,
+  EMODULE_ID_IDENTIFY = 53,
+  EMODULE_ID_OCCUPATION = 54,
+  EMODULE_ID_ELEMENT = 55,
+  EMODULE_ID_WING = 56,
+  EMODULE_ID_FASHION = 57,
+  EMODULE_ID_MOUNT = 58,
+  EMODULE_ID_ARTIFACT = 59,
+  EMODULE_ID_FATESTAR = 60,
+  EMODULE_ID_DAILY = 61,
+  EMODULE_ID_FIELD = 62,
+  EMODULE_ID_PARTNER = 63,
+  EMODULE_ID_VIP = 64,
+  EMODULE_ID_RECOVERY = 66,
+  EMODULE_ID_OPERATIONACTIVE = 67,
+  EMODULE_ID_OPERATION_RANK = 68,
+  EMODULE_ID_MARRY = 69,
+  EMODULE_ID_SERVEROPENACTIVE = 70,
+  EMODULE_ID_SERVEROPENRANK = 71,
+  EMODULE_ID_POKER = 72,
+  EMODULE_ID_3V3 = 73,
+  EMODULE_ID_UNIONWAR = 74,
+  EMODULE_ID_MYSTERYSHOP = 75,
+  EMODULE_IDPACKAGETESTREBATE = 76,
+  EMODULE_ID_WORLDBOSS = 77,
+  EMODULE_ID_TUTOR = 79,
+  EMODULE_ID_MANOR = 81,
+  EMODULE_ID_POWER = 82,
+  EMODULE_ID_HEAD = 83,
+  EMODULE_ID_ONLINE_GIFT = 84,
+  EMODULE_ID_GM_HELP = 85,
+  EMODULE_ID_GODGM = 86,
+  EMODULE_ID_ARRIVAL_BOSS = 87,
+  EMODULE_ID_LIMIT = 88
+};
+bool EMODULE_ID_IsValid(int value);
+const EMODULE_ID EMODULE_ID_MIN = EMODULE_ID_NONE;
+const EMODULE_ID EMODULE_ID_MAX = EMODULE_ID_LIMIT;
+const int EMODULE_ID_ARRAYSIZE = EMODULE_ID_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor();
+inline const ::std::string& EMODULE_ID_Name(EMODULE_ID value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EMODULE_ID_descriptor(), value);
+}
+inline bool EMODULE_ID_Parse(
+    const ::std::string& name, EMODULE_ID* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EMODULE_ID>(
+    EMODULE_ID_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -50,6 +173,14 @@ void protobuf_ShutdownFile_common_5flogic_2eproto();
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ERetCode>() {
+  return ::proto_ff::ERetCode_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMODULE_ID>() {
+  return ::proto_ff::EMODULE_ID_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

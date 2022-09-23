@@ -49,3 +49,17 @@ message ClientLoginGateReq
   optional uint32  version	= 8;		//客户端版本号，留着备用
   optional ClientToLogInfoProto loginfo =9;	//客户端带上来的日志所需信息
 }
+
+//请求排队名次
+//CLIENT_TO_CENTER_REQ_QUEUE_INDEX		= 32
+message ClientQueueIndexReq
+{
+  //空
+}
+
+//返回排队结果 SERVER_TO_CLIENT_QUEUE_RESULT
+message ServerToClientQueue_RSP
+{
+  required ERetCode retCode = 1;        //返回错误码
+  optional uint32   nNum    =2;		 //当前排队人数
+}

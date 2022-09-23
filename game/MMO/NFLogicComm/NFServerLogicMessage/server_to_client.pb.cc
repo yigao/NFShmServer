@@ -60,9 +60,14 @@ void protobuf_AddDesc_server_5fto_5fclient_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\026server_to_client.proto\022\010proto_ff\032\025yd_f"
-    "ieldoptions.proto*P\n\021ServerToClientCmd\022 "
-    "\n\034SERVER_TO_CLIENT_LOGIN_BEGIN\020\001\022\031\n\025SERV"
-    "ER_TO_CLIENT_PING\020\002", 139);
+    "ieldoptions.proto*\222\002\n\021ServerToClientCmd\022"
+    " \n\034SERVER_TO_CLIENT_LOGIN_BEGIN\020\001\022\031\n\025SER"
+    "VER_TO_CLIENT_PING\020\002\022!\n\035LOGIN_TO_CLIENT_"
+    "ACCOUNT_LOGIN\020\003\022\037\n\033LOGIN_TO_CLIENT_SELEC"
+    "T_ZONE\020\004\022\037\n\033ZONE_TO_CLIENT_GATEINFO_RSP\020"
+    "\005\022\030\n\024LOGIN_TO_CLIENT_PING\020\006\022!\n\035SERVER_TO"
+    "_CLIENT_QUEUE_RESULT\020\007\022\036\n\032SERVER_TO_CLIE"
+    "NT_LOGIN_END\020\024", 334);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "server_to_client.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_server_5fto_5fclient_2eproto);
@@ -82,6 +87,12 @@ bool ServerToClientCmd_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 20:
       return true;
     default:
       return false;

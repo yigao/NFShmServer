@@ -20,6 +20,8 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::EnumDescriptor* ERetCode_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor_ = NULL;
 
 }  // namespace
 
@@ -30,6 +32,8 @@ void protobuf_AssignDesc_common_5flogic_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "common_logic.proto");
   GOOGLE_CHECK(file != NULL);
+  ERetCode_descriptor_ = file->enum_type(0);
+  EMODULE_ID_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -58,7 +62,60 @@ void protobuf_AddDesc_common_5flogic_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\022common_logic.proto\022\010proto_ff\032\025yd_field"
-    "options.proto", 53);
+    "options.proto*-\n\010ERetCode\022\017\n\013RET_SUCCESS"
+    "\020\000\022\014\n\010RET_FAIL\020\001\032\002\020\001*\246\020\n\nEMODULE_ID\022\023\n\017E"
+    "MODULE_ID_NONE\020\000\022\027\n\023EMODULE_ID_SERV_SYS\020"
+    "\001\022\025\n\021EMODULE_ID_PLAYER\020\002\022\024\n\020EMODULE_ID_L"
+    "OGIN\020\003\022\024\n\020EMODULE_ID_SCENE\020\004\022\024\n\020EMODULE_"
+    "ID_SKILL\020\005\022\023\n\017EMODULE_ID_BUFF\020\006\022\026\n\022EMODU"
+    "LE_ID_PACKAGE\020\007\022\023\n\017EMODULE_ID_TASK\020\010\022\023\n\017"
+    "EMODULE_ID_CHAT\020\t\022\030\n\024EMODULE_ID_DUPLICAT"
+    "E\020\n\022\025\n\021EMODULE_ID_FRIEND\020\013\022\023\n\017EMODULE_ID"
+    "_MOVE\020\014\022\023\n\017EMODULE_ID_MAIL\020\r\022\023\n\017EMODULE_"
+    "ID_DROP\020\016\022\032\n\026EMODULE_ID_ACHIEVEMENT\020\017\022\024\n"
+    "\020EMODULE_ID_ENEMY\020\020\022\022\n\016EMODULE_ID_PVP\020\021\022"
+    "\023\n\017EMODULE_ID_MALL\020\022\022\023\n\017EMODULE_ID_BOWL\020"
+    "\023\022\027\n\023EMODULE_ID_ACTIVITY\020\024\022\023\n\017EMODULE_ID"
+    "_TEAM\020\025\022\031\n\025EMODULE_ID_AUCTIONEER\020\026\022\030\n\024EM"
+    "ODULE_ID_PLAYERPET\020\027\022\034\n\030EMODULE_ID_SEND_"
+    "ZONE_MSG\020\030\022\034\n\030EMODULE_ID_RECV_ZONE_MSG\020\031"
+    "\022\032\n\026EMODULE_ID_RANKINGLIST\020\032\022\021\n\rEMODULE_"
+    "ID_GM\020\033\022\027\n\023EMODULE_ID_TREASURE\020\034\022\024\n\020EMOD"
+    "ULE_ID_ARENA\020\035\022\025\n\021EMODULE_ID_MIRROR\020\036\022\024\n"
+    "\020EMODULE_ID_QUERY\020\037\022\025\n\021EMODULE_ID_BREACH"
+    "\020 \022\024\n\020EMODULE_ID_UNION\020!\022\026\n\022EMOUDLE_ID_C"
+    "OLLECT\020\"\022\025\n\021EMODULE_ID_CONVOY\020#\022\032\n\026EMODU"
+    "LE_ID_RUNBUSINESS\020$\022\024\n\020EMODULE_ID_TITLE\020"
+    "%\022\026\n\022EMODULE_ID_WELFARE\020&\022\033\n\027EMODULE_ID_"
+    "OPERATELIMIT\020\'\022\027\n\023EMODULE_ID_HUOYUEDU\020(\022"
+    "\024\n\020EMODULE_ID_PLANE\020)\022\024\n\020EMODULE_ID_HORS"
+    "E\020*\022\026\n\022EMODULE_ID_GODHOOD\020+\022\025\n\021EMODULE_I"
+    "D_PANDOS\020,\022\022\n\016EMODULE_ID_PAY\020-\022\026\n\022EMODUL"
+    "E_ID_COMPETE\020.\022\030\n\024EMODULE_ID_ADVENTURE\020/"
+    "\022\026\n\022EMODULE_ID_MAPBOSS\0200\022\023\n\017EMODULE_ID_Y"
+    "ODA\0201\022\035\n\031EMODULE_ID_FUNCTIONUNLOCK\0202\022\027\n\023"
+    "EMODULE_ID_FESTIVAL\0203\022\025\n\021EMODULE_ID_EMBL"
+    "EM\0204\022\027\n\023EMODULE_ID_IDENTIFY\0205\022\031\n\025EMODULE"
+    "_ID_OCCUPATION\0206\022\026\n\022EMODULE_ID_ELEMENT\0207"
+    "\022\023\n\017EMODULE_ID_WING\0208\022\026\n\022EMODULE_ID_FASH"
+    "ION\0209\022\024\n\020EMODULE_ID_MOUNT\020:\022\027\n\023EMODULE_I"
+    "D_ARTIFACT\020;\022\027\n\023EMODULE_ID_FATESTAR\020<\022\024\n"
+    "\020EMODULE_ID_DAILY\020=\022\024\n\020EMODULE_ID_FIELD\020"
+    ">\022\026\n\022EMODULE_ID_PARTNER\020\?\022\022\n\016EMODULE_ID_"
+    "VIP\020@\022\027\n\023EMODULE_ID_RECOVERY\020B\022\036\n\032EMODUL"
+    "E_ID_OPERATIONACTIVE\020C\022\035\n\031EMODULE_ID_OPE"
+    "RATION_RANK\020D\022\024\n\020EMODULE_ID_MARRY\020E\022\037\n\033E"
+    "MODULE_ID_SERVEROPENACTIVE\020F\022\035\n\031EMODULE_"
+    "ID_SERVEROPENRANK\020G\022\024\n\020EMODULE_ID_POKER\020"
+    "H\022\022\n\016EMODULE_ID_3V3\020I\022\027\n\023EMODULE_ID_UNIO"
+    "NWAR\020J\022\032\n\026EMODULE_ID_MYSTERYSHOP\020K\022\037\n\033EM"
+    "ODULE_IDPACKAGETESTREBATE\020L\022\030\n\024EMODULE_I"
+    "D_WORLDBOSS\020M\022\024\n\020EMODULE_ID_TUTOR\020O\022\024\n\020E"
+    "MODULE_ID_MANOR\020Q\022\024\n\020EMODULE_ID_POWER\020R\022"
+    "\023\n\017EMODULE_ID_HEAD\020S\022\032\n\026EMODULE_ID_ONLIN"
+    "E_GIFT\020T\022\026\n\022EMODULE_ID_GM_HELP\020U\022\024\n\020EMOD"
+    "ULE_ID_GODGM\020V\022\033\n\027EMODULE_ID_ARRIVAL_BOS"
+    "S\020W\022\024\n\020EMODULE_ID_LIMIT\020X\032\002\020\001", 2189);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common_logic.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_common_5flogic_2eproto);
@@ -70,6 +127,118 @@ struct StaticDescriptorInitializer_common_5flogic_2eproto {
     protobuf_AddDesc_common_5flogic_2eproto();
   }
 } static_descriptor_initializer_common_5flogic_2eproto_;
+const ::google::protobuf::EnumDescriptor* ERetCode_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ERetCode_descriptor_;
+}
+bool ERetCode_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EMODULE_ID_descriptor_;
+}
+bool EMODULE_ID_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 25:
+    case 26:
+    case 27:
+    case 28:
+    case 29:
+    case 30:
+    case 31:
+    case 32:
+    case 33:
+    case 34:
+    case 35:
+    case 36:
+    case 37:
+    case 38:
+    case 39:
+    case 40:
+    case 41:
+    case 42:
+    case 43:
+    case 44:
+    case 45:
+    case 46:
+    case 47:
+    case 48:
+    case 49:
+    case 50:
+    case 51:
+    case 52:
+    case 53:
+    case 54:
+    case 55:
+    case 56:
+    case 57:
+    case 58:
+    case 59:
+    case 60:
+    case 61:
+    case 62:
+    case 63:
+    case 64:
+    case 66:
+    case 67:
+    case 68:
+    case 69:
+    case 70:
+    case 71:
+    case 72:
+    case 73:
+    case 74:
+    case 75:
+    case 76:
+    case 77:
+    case 79:
+    case 81:
+    case 82:
+    case 83:
+    case 84:
+    case 85:
+    case 86:
+    case 87:
+    case 88:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 

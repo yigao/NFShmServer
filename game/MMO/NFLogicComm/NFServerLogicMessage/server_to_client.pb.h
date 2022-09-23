@@ -36,11 +36,17 @@ void protobuf_ShutdownFile_server_5fto_5fclient_2eproto();
 
 enum ServerToClientCmd {
   SERVER_TO_CLIENT_LOGIN_BEGIN = 1,
-  SERVER_TO_CLIENT_PING = 2
+  SERVER_TO_CLIENT_PING = 2,
+  LOGIN_TO_CLIENT_ACCOUNT_LOGIN = 3,
+  LOGIN_TO_CLIENT_SELECT_ZONE = 4,
+  ZONE_TO_CLIENT_GATEINFO_RSP = 5,
+  LOGIN_TO_CLIENT_PING = 6,
+  SERVER_TO_CLIENT_QUEUE_RESULT = 7,
+  SERVER_TO_CLIENT_LOGIN_END = 20
 };
 bool ServerToClientCmd_IsValid(int value);
 const ServerToClientCmd ServerToClientCmd_MIN = SERVER_TO_CLIENT_LOGIN_BEGIN;
-const ServerToClientCmd ServerToClientCmd_MAX = SERVER_TO_CLIENT_PING;
+const ServerToClientCmd ServerToClientCmd_MAX = SERVER_TO_CLIENT_LOGIN_END;
 const int ServerToClientCmd_ARRAYSIZE = ServerToClientCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerToClientCmd_descriptor();
