@@ -31,10 +31,10 @@ LoadPlugin =
 			--"NFTestPlugin",
 			--"NFRobotPlugin",
 			"NFNetPlugin",
-			--"NFShmPlugin",
+			"NFShmPlugin",
 
-			--"NFServerCommonPlugin",
-			--"NFCommLogicPlugin",
+			"NFServerCommonPlugin",
+			"NFCommLogicPlugin",
 
 			--"NFMasterServerPlugin",
 			--"NFRouteServerPlugin",

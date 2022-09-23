@@ -65,7 +65,7 @@ public:
 
 	virtual bool IsFileLoad()
     {
-	    return false;
+	    return true;
     }
 
 	virtual bool IsNeedSpecialCheck()

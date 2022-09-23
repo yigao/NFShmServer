@@ -24,7 +24,7 @@ int NFFileResTable::FindAllRecord(const std::string &gamePath, google::protobuf:
 {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    std::string szFileName = m_pFileResDB->GetPath() + "/" + gamePath + "/" + m_name + ".bin";
+    std::string szFileName = m_pFileResDB->GetPath() + "/" + m_name + ".bin";
     std::fstream input(szFileName.c_str(), std::ios::in | std::ios::binary);
     bool ok = pMessage->ParseFromIstream(&input);
     input.close();

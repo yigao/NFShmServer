@@ -57,7 +57,7 @@ int NFConstDesc::Load(NFResDB *pDB)
     iRet = pResTable->FindAllRecord(GetDBName(), &table);
     CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
 
-    //NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
+    NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
     CreateInit();
 
