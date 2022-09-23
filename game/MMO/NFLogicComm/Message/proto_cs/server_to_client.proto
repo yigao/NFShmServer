@@ -1,0 +1,10 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+
+enum ServerToClientCmd {
+  //登录
+  SERVER_TO_CLIENT_LOGIN_BEGIN		= 1;
+  SERVER_TO_CLIENT_PING				= 2;		//客户端ping服务器回复
+};

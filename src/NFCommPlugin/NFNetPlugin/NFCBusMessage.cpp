@@ -177,6 +177,11 @@ std::string NFCBusMessage::GetLinkIp(uint64_t usLinkId)
     return pConn->GetLinkIp();
 }
 
+uint32_t NFCBusMessage::GetPort(uint64_t usLinkId)
+{
+    return 0;
+}
+
 /**
 * @brief 关闭连接
 *

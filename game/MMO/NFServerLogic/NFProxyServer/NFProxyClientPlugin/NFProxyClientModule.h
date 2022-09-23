@@ -20,11 +20,13 @@ struct NFProxySession
 		mLinkId = 0;
 		mPlayerId = 0;
         mLastHeartBeatTime = 0;
+        mPort = 0;
 	}
 
 	uint64_t mLinkId;
 	uint64_t mPlayerId;
 	std::string mIPAddr;
+	uint32_t mPort;
 	uint64_t mLastHeartBeatTime;
 };
 
@@ -82,6 +84,17 @@ public:
 	int OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 	int OnHandleClientDisconnect(uint64_t unLinkId);
+
+public:
+    /*
+     * 处理心跳包
+     */
+    int OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage& packet);
+public:
+    /*
+     *
+     */
+    int OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage& packet);
 private:
 	/*
 		对外部客户端监听唯一ID
@@ -89,4 +102,5 @@ private:
 	uint64_t m_proxyClientLinkId;
 	NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
 	NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
+	uint32_t m_loginInterPing;
 };

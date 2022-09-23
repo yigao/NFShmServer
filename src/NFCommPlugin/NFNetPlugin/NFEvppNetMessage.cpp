@@ -13,6 +13,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <NFComm/NFCore/NFCommon.h>
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
@@ -357,6 +358,16 @@ std::string NFEvppNetMessage::GetLinkIp(uint64_t usLinkId)
 	return std::string("");
 }
 
+uint32_t NFEvppNetMessage::GetPort(uint64_t usLinkId)
+{
+    NetEvppObject* pObject = GetNetObject(usLinkId);
+    if (pObject)
+    {
+        return pObject->GetPort();
+    }
+    return 0;
+}
+
 NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint32_t parseType)
 {
 	uint64_t usLinkId = GetFreeUnLinkId();
@@ -387,9 +398,10 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCP
 		std::string remote_addr = conn->remote_addr();
 		std::vector<std::string> vec;
         NFStringUtility::Split(remote_addr, ":", &vec);
-        if (vec.size() > 0)
+        if (vec.size() >= 2)
         {
             pObject->SetStrIp(vec[0]);
+            pObject->SetPort(NFCommon::strto<uint32_t>(vec[1]));
         }
 	}
 
@@ -643,6 +655,10 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& package)
     {
         mxSendBuffer.Clear();
         NFIPacketParse::EnCode(pObject->mPacketParseType, package, mxSendBuffer);
+        if (mSecurity)
+        {
+            Encryption(mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
+        }
         pObject->mConnPtr->Send((const void*)mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
         return true;
     }

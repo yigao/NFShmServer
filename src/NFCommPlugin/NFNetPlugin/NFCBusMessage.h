@@ -79,6 +79,7 @@ public:
 	 * @return std::string
 	 */
 	virtual std::string GetLinkIp(uint64_t usLinkId);
+    virtual uint32_t GetPort(uint64_t usLinkId);
 
 	/**
 	* @brief 关闭连接

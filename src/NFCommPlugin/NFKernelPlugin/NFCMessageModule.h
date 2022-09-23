@@ -56,6 +56,7 @@ public:
     virtual int ResumeConnect(NF_SERVER_TYPES eServerType) override;
 
 	virtual std::string GetLinkIp(uint64_t usLinkId) override;
+    virtual uint32_t GetPort(uint64_t usLinkId) override;
 
 	virtual void CloseLinkId(uint64_t usLinkId) override;
 

@@ -63,6 +63,7 @@ public:
 	 * @return std::string
 	 */
 	std::string GetStrIp() const;
+	uint32_t GetPort() const;
 
 	/**
 	 * @brief
@@ -71,6 +72,7 @@ public:
 	 * @return void
 	 */
 	void SetStrIp(std::string val);
+	void SetPort(uint32_t port);
 
 	/**
 	 * @brief	获得唯一ID
@@ -136,6 +138,7 @@ protected:
 	 * @brief	连接代表的对方的IP
 	 */
 	std::string m_strIp;
+	uint32_t m_port;
 
 	/**
 	 * @brief 是否需要删除, 这个链接不在起作用，将在下一次循环中被删除

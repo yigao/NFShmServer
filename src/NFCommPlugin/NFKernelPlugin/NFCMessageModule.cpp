@@ -110,6 +110,15 @@ std::string NFCMessageModule::GetLinkIp(uint64_t usLinkId)
 	return std::string();
 }
 
+uint32_t NFCMessageModule::GetPort(uint64_t usLinkId)
+{
+    if (m_driver)
+    {
+        return m_driver->GetPort(usLinkId);
+    }
+    return 0;
+}
+
 void NFCMessageModule::CloseLinkId(uint64_t usLinkId)
 {
 	if (m_driver)

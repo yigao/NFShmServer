@@ -16,6 +16,7 @@ NetEvppObject::NetEvppObject(const evpp::TCPConnPtr& conn) : m_usLinkId(0), mNee
 	mIsServer = true;
 	mPacketParseType = 0;
 	mLastHeartBeatTime = NFGetTime();
+    m_port = 0;
 }
 
 NetEvppObject::~NetEvppObject()
@@ -27,9 +28,19 @@ std::string NetEvppObject::GetStrIp() const
 	return m_strIp;
 }
 
+uint32_t NetEvppObject::GetPort() const
+{
+    return m_port;
+}
+
 void NetEvppObject::SetStrIp(std::string val)
 {
 	m_strIp = val;
+}
+
+void NetEvppObject::SetPort(uint32_t port)
+{
+    m_port = port;
 }
 
 void NetEvppObject::SetIsServer(bool b)

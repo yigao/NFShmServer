@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFTime.h>
+#include <common_msg.pb.h>
+#include <server_to_client.pb.h>
+#include <client_to_server.pb.h>
+#include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -19,6 +23,7 @@
 NFCProxyClientModule::NFCProxyClientModule(NFIPluginManager* p):NFIProxyClientModule(p)
 {
 	m_proxyClientLinkId = 0;
+    m_loginInterPing = 0;
 }
 
 NFCProxyClientModule::~NFCProxyClientModule()
@@ -28,6 +33,8 @@ NFCProxyClientModule::~NFCProxyClientModule()
 bool NFCProxyClientModule::Awake()
 {
     //////来自客户端的协议////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_LOGIC_PING, this, &NFCProxyClientModule::OnHandleClientHeartBeat);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this, &NFCProxyClientModule::OnHandleClientCenterLogin);
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
@@ -98,7 +105,8 @@ int NFCProxyClientModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "client ip:{} linkId:{} connected proxy server success!", ip, unLinkId);
+        uint32_t port = FindModule<NFIMessageModule>()->GetPort(unLinkId);
+		NFLogDebug(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "client ip:{} port:{} linkId:{} connected proxy server success!", ip, port, unLinkId);
 
         NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
         if (pLinkInfo == nullptr)
@@ -106,13 +114,15 @@ int NFCProxyClientModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
             pLinkInfo = NF_SHARE_PTR<NFProxySession>(NF_NEW NFProxySession());
             pLinkInfo->mLinkId = unLinkId;
             pLinkInfo->mIPAddr = ip;
+            pLinkInfo->mPort = port;
             mClientLinkInfo.AddElement(unLinkId, pLinkInfo);
         }
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "client ip:{} link:{} disconnected proxy server!", ip, unLinkId);
+        uint32_t port = FindModule<NFIMessageModule>()->GetPort(unLinkId);
+		NFLogDebug(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "client ip:{} port:{} link:{} disconnected proxy server!", ip, port, unLinkId);
 		OnHandleClientDisconnect(unLinkId);
 	}
 	NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- end --");
@@ -211,4 +221,33 @@ int NFCProxyClientModule::OnHandleOtherServerOtherMessage(uint64_t unLinkId, con
     */
 
 	return 0;
+}
+
+int NFCProxyClientModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage& packet)
+{
+    proto_ff::PingRsp xData;
+    xData.set_currentmstime(NFTime::Now().UnixMSec());
+    xData.set_queuereducenum(m_loginInterPing);
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::SERVER_TO_CLIENT_PING, xData);
+    return 0;
+}
+
+int NFCProxyClientModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- begin --");
+    proto_ff::ClientLoginGateReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    CHECK_EXPR(pLinkInfo, -1, "pLinkInfo == NULL");
+
+    proto_ff::ClientToLogInfoProto* pLogInfo = xMsg.mutable_loginfo();
+    if (pLogInfo)
+    {
+        pLogInfo->set_ip(pLinkInfo->mIPAddr);
+        pLogInfo->set_port(pLinkInfo->mPort);
+    }
+
+    NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- end --");
+    return 0;
 }

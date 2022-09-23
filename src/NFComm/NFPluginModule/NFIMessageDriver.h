@@ -106,6 +106,7 @@ public:
     virtual int ResumeConnect(NF_SERVER_TYPES eServerType) = 0;
 
 	virtual std::string GetLinkIp(uint64_t usLinkId) = 0;
+    virtual uint32_t GetPort(uint64_t usLinkId) = 0;
 
 	virtual void CloseLinkId(uint64_t usLinkId) = 0;
 

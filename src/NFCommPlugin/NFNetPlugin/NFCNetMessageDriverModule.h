@@ -154,6 +154,7 @@ public:
 	 * @return std::string
 	 */
 	virtual std::string GetLinkIp(uint64_t usLinkId) override;
+    virtual uint32_t GetPort(uint64_t usLinkId) override;
 
 	/**
 	* @brief 关闭连接

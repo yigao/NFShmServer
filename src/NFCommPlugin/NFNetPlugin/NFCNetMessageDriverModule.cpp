@@ -334,6 +334,40 @@ std::string NFCNetMessageDriverModule::GetLinkIp(uint64_t usLinkId)
 	return std::string();
 }
 
+uint32_t NFCNetMessageDriverModule::GetPort(uint64_t usLinkId)
+{
+    uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
+    if (serverType > NF_ST_NONE && serverType < NF_ST_MAX)
+    {
+        uint32_t isServer = GetServerLinkModeFromUnlinkId(usLinkId);
+        if (isServer != NF_IS_BUS)
+        {
+            auto pServer = mNetServerArray[serverType];
+            if (pServer)
+            {
+                return pServer->GetPort(usLinkId);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            auto pServer = mBusServerArray[serverType];
+            if (pServer)
+            {
+                return pServer->GetPort(usLinkId);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
+
 void NFCNetMessageDriverModule::CloseLinkId(uint64_t usLinkId)
 {
     if (usLinkId == 0) return;
