@@ -22,7 +22,8 @@ public:
     virtual ~NFNameDesc();
     int CreateInit();
     int ResumeInit();
-    std::string GetRandomName() const;
+    const proto_ff_s::NameDesc_s *GetDesc(int id) const;
+    proto_ff_s::NameDesc_s *GetDesc(int id);
 public:
 IMPL_RES_ARRAY_DESC(proto_ff_s::NameDesc_s, NameDesc, MAX_NAME_DESC_NUM);
 DECLARE_IDCREATE(NFNameDesc);

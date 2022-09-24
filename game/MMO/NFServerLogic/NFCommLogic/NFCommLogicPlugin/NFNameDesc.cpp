@@ -66,11 +66,12 @@ int NFNameDesc::Load(NFResDB *pDB)
         return -2;
     }
 
-    m_astDesc.SetSize(table.namedesc_list_size());
+    m_astDesc.SetSize(m_astDesc.GetMaxSize());
     for (int i = 0; i < (int)table.namedesc_list_size(); i++)
     {
         const proto_ff::NameDesc& desc = table.namedesc_list(i);
-        m_astDesc[i].read_from_pbmsg(desc);
+        CHECK_EXPR((int64_t)desc.id() >= 0 && (int64_t)desc.id() < (int64_t)m_astDesc.GetSize(), -1, "dest id:{} than the array max index:{}", desc.id(), m_astDesc.GetSize());
+        m_astDesc[desc.id()].read_from_pbmsg(desc);
     }
 
     NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.namedesc_list_size());
@@ -87,15 +88,13 @@ int NFNameDesc::CheckWhenAllDataLoaded()
     return 0;
 }
 
-std::string NFNameDesc::GetRandomName() const
-{
-    int index = NFRandInt(0, m_astDesc.GetSize());
-    if (index >= 0 && index < m_astDesc.GetSize())
-    {
-        return m_astDesc[index].name.GetString();
-    }
-    return std::string();
+
+const proto_ff_s::NameDesc_s *NFNameDesc::GetDesc(int id) const {
+    CHECK_EXPR(id >= 0 && id < m_astDesc.GetSize(), NULL, "id:{} than the array max index", id, m_astDesc.GetSize());
+    return &m_astDesc[id];
 }
 
-
-
+proto_ff_s::NameDesc_s *NFNameDesc::GetDesc(int id) {
+    CHECK_EXPR(id >= 0 && id < m_astDesc.GetSize(), NULL, "id:{} than the array max index", id, m_astDesc.GetSize());
+    return &m_astDesc[id];
+}

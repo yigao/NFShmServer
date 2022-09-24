@@ -23,7 +23,7 @@
     int GetResNum() const override { return m_astDesc.GetSize();}\
     NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
     int Initialize() override\
-    {                                                        \
+    {\
         m_astDesc.CreateInit();\
         return 0;\
     }\
