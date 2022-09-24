@@ -27,9 +27,5 @@ public:
 	{
 
 	}
-
-	virtual std::string GetConstValue(proto_ff::enConstType type) const = 0;
-
-    virtual std::string GetRandomName() const = 0;
 };
 

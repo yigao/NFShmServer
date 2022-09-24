@@ -31,7 +31,7 @@
     virtual int GetHashID();\
     virtual void SetHashID(int Id);\
     virtual void TestOP(){printf("Now %s OP\n",#class_name);}\
-    virtual void PrintMyself(){printf("Now %s type:%d,index:%d,GlobalID:%d\n",\
+    virtual void PrintMyself() {printf("Now %s type:%d,index:%d,GlobalID:%d\n",\
                                           #class_name,class_name::GetClassType(),GetObjectID(),GetGlobalID());}                                                                         \
     virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}",\
                                           #class_name,class_name::GetClassType());}\

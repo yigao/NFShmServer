@@ -12,15 +12,76 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFShmCore/NFArray.h"
+#include "NFComm/NFShmCore/NFShmHashMap.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
 //proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
-#define IMPL_RES_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
+#define IMPL_RES_ARRAY_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
     NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;\
     public:\
-    int GetResNum() const { return m_astDesc.GetSize();}\
+    int GetResNum() const override { return m_astDesc.GetSize();}\
     NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
+    int Initialize() override\
+    {                                                        \
+        m_astDesc.CreateInit();\
+        return 0;\
+    }\
+    int Reload(NFResDB *pDB) override\
+    {\
+        PrepareReload();\
+        int iRetCode = Load( pDB );\
+        return iRetCode;\
+    }\
+    virtual std::string GetFileName() override\
+    {\
+        return std::string(#DESCSTORENAME);\
+    }\
+    int Load(NFResDB* pDB) override;\
+    int CheckWhenAllDataLoaded() override;\
+    int CalcUseRatio() override\
+    {\
+        return m_astDesc.GetSize() * 100 / m_astDesc.GetMaxSize();\
+    }\
+    int SaveDescStore() override\
+    {\
+        if (!IsLoaded()) return 0;\
+        for(int i = 0; i < (int)m_astDesc.GetSize(); i++)\
+        {\
+            if (m_astDesc[i].IsUrgentNeedSave())\
+            {\
+                auto pb = DESCCLASSNAME::make_pbmsg();\
+                m_astDesc[i].write_to_pbmsg(pb);\
+                SaveDescStoreToDB(&pb);\
+                m_astDesc[i].ClearUrgent();\
+            }\
+        }\
+        return 0;\
+    }\
+    int InsertDescStore(const DESCCLASSNAME& desc)\
+    {\
+        auto pb = DESCCLASSNAME::make_pbmsg();\
+        desc.write_to_pbmsg(pb);\
+        InsertDescStoreToDB(&pb);\
+        return 0;\
+    }                                                        \
+    int DeleteDescStore(const DESCCLASSNAME& desc)\
+    {\
+        auto pb = DESCCLASSNAME::make_pbmsg();\
+        desc.write_to_pbmsg(pb);\
+        DeleteDescStoreToDB(&pb);\
+        return 0;\
+    }\
+
+
+
+
+#define IMPL_RES_HASH_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
+    private:\
+    NFShmHashMap<uint64_t, DESCCLASSNAME, DESCNUM> m_astDesc;\
+    public:\
+    int GetResNum() const { return m_astDesc.GetUsedNum();}\
+    NFShmHashMap<uint64_t, DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
     int Initialize()\
     {                                                        \
         m_astDesc.CreateInit();\
@@ -40,19 +101,20 @@
     int CheckWhenAllDataLoaded();\
     int CalcUseRatio()\
     {\
-        return m_astDesc.GetSize() * 100 / m_astDesc.GetMaxSize();\
+        return m_astDesc.GetUsedNum() * 100 / m_astDesc.GetSize();\
     }\
     int SaveDescStore()\
     {\
         if (!IsLoaded()) return 0;\
         for(int i = 0; i < (int)m_astDesc.GetSize(); i++)\
         {\
-            if (m_astDesc[i].IsUrgentNeedSave())\
+            auto pDesc = m_astDesc.GetByIndex(i);\
+            if (pDesc != NULL && pDesc->IsUrgentNeedSave())\
             {\
                 auto pb = DESCCLASSNAME::make_pbmsg();\
-                m_astDesc[i].write_to_pbmsg(pb);\
+                pDesc->write_to_pbmsg(pb);\
                 SaveDescStoreToDB(&pb);\
-                m_astDesc[i].ClearUrgent();\
+                pDesc->ClearUrgent();\
             }\
         }\
         return 0;\

@@ -15,13 +15,6 @@
 #include "NFConstDesc.h"
 #include "NFNameDesc.h"
 
-std::string NFCommLogicModule::GetConstValue(proto_ff::enConstType type) const
-{
-	NFConstDesc* pConstDesc = NFConstDesc::Instance(m_pObjPluginManager);
-	CHECK_EXPR(pConstDesc, "", "FindDescStore<NFConstDesc>() null, type:{}", type);
-	return pConstDesc->GetValue(type);
-}
-
 int NFCommLogicModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
@@ -45,9 +38,4 @@ void NFCommLogicModule::OnTimer(uint32_t nTimerID) {
 bool NFCommLogicModule::Awake() {
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     return true;
-}
-
-std::string NFCommLogicModule::GetRandomName() const
-{
-    return NFNameDesc::Instance(m_pObjPluginManager)->GetRandomName();
 }

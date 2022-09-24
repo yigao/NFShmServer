@@ -24,6 +24,6 @@ public:
     int ResumeInit();
     std::string GetRandomName() const;
 public:
-IMPL_RES_DESC(proto_ff_s::NameDesc_s, NameDesc, MAX_NAME_DESC_NUM);
+IMPL_RES_ARRAY_DESC(proto_ff_s::NameDesc_s, NameDesc, MAX_NAME_DESC_NUM);
 DECLARE_IDCREATE(NFNameDesc);
 };

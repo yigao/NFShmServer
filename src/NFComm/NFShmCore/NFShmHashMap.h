@@ -107,6 +107,7 @@ public:
     //DATA_TYPE& operator[](const KEY_TYPE& rstKeyval);
 
     //!指定Key值来获取数据指针，如果不存在则返回NULL，否则直接返回数据的指针
+    const DATA_TYPE* Find(const KEY_TYPE& rstKeyval, int *pOutSlotIdx = NULL) const;
     DATA_TYPE* Find(const KEY_TYPE& rstKeyval, int *pOutSlotIdx = NULL);
 
     //!指定索引值来获取数据指针，一般用于遍历中
@@ -568,7 +569,40 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx )
+const DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx ) const
+{
+    int iHashIdx = 0;
+    HashKeyToIndex(rstKeyval, iHashIdx);
+
+    if(iHashIdx < 0 || iHashIdx >= HASH_SIZE)
+    {
+        return NULL;
+    }
+
+    int iCurIndex = m_aiHashFirstIdx[iHashIdx];
+    CMP_FUNC stCmpFunc;
+
+    while(iCurIndex != -1)
+    {
+        if(stCmpFunc(rstKeyval, m_astHashMap[iCurIndex].m_stKey))
+        {
+            //add by shichaolin
+            if(pOutSlotIdx)
+            {
+                *pOutSlotIdx = iCurIndex;
+            }
+            return &m_astHashMap[iCurIndex].m_stData;
+        }
+
+        iCurIndex = m_astHashMap[iCurIndex].m_iHashNext;
+    }
+
+
+    return NULL;
+}
+
+template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
+DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx)
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -628,9 +662,4 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyTo
     riIndex = (int)(uiHashSum % HASH_SIZE);
 
     return 0;
-}
-
-void testHashMap()
-{
-
 }

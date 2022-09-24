@@ -33,7 +33,6 @@ NFConstDesc::~NFConstDesc()
 int NFConstDesc::CreateInit()
 {
     Initialize();
-    memset(m_aiIndex, -1, sizeof(m_aiIndex));
     return 0;
 }
 
@@ -61,18 +60,18 @@ int NFConstDesc::Load(NFResDB *pDB)
 
     CreateInit();
 
-    if ((table.constdesc_list_size() < 0) || (table.constdesc_list_size() > (int)(m_astDesc.GetMaxSize())))
+    if ((table.constdesc_list_size() < 0) || (table.constdesc_list_size() > (int)(m_astDesc.GetSize())))
     {
         NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.constdesc_list_size());
         return -2;
     }
 
-    m_astDesc.SetSize(table.constdesc_list_size());
     for (int i = 0; i < table.constdesc_list_size(); i++)
     {
         const proto_ff::ConstDesc& desc = table.constdesc_list(i);
-        m_astDesc[i].read_from_pbmsg(desc);
-		m_aiIndex[desc.id()] = i;
+        auto pDesc = m_astDesc.Insert(desc.id());
+        CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
+        pDesc->read_from_pbmsg(desc);
     }
 
     NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.constdesc_list_size());
@@ -89,17 +88,11 @@ int NFConstDesc::CheckWhenAllDataLoaded()
     return 0;
 }
 
-const proto_ff_s::ConstDesc_s *NFConstDesc::GetDesc(proto_ff::enConstType type) const {
-	CHECK_EXPR(m_aiIndex[type] >= 0 && m_aiIndex[type] < m_astDesc.GetSize(), NULL, "type [{}] not configed.", type);
-
-	return &m_astDesc[m_aiIndex[type]];
+const proto_ff_s::ConstDesc_s *NFConstDesc::GetDesc(int id) const {
+    return m_astDesc.Find(id);
 }
 
-std::string NFConstDesc::GetValue(proto_ff::enConstType type) const
-{
-	CHECK_EXPR(m_aiIndex[type] >= 0 && m_aiIndex[type] < m_astDesc.GetSize(), std::string(), "type [{}] not configed.", type);
-
-	return m_astDesc[m_aiIndex[type]].value.GetString();
+proto_ff_s::ConstDesc_s *NFConstDesc::GetDesc(int id) {
+    return m_astDesc.Find(id);
 }
-
 
