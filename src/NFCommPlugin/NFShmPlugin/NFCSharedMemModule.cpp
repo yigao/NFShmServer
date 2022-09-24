@@ -23,7 +23,7 @@
 #include "NFShmTimerManager.h"
 #include "NFTransMng.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFServerComm/NFServerCommonPlugin/NFIDescStoreModule.h"
+#include "NFServerComm/NFDescStorePlugin/NFIDescStoreModule.h"
 #include "NFComm/NFShmCore/NFShmTimerObj.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIPlugin.h"

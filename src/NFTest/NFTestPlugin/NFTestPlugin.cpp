@@ -39,10 +39,10 @@ std::string NFTestPlugin::GetPluginName()
 
 void NFTestPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFCTestModule, NFCTestModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFCTestModule, NFCTestModule);
 }
 
 void NFTestPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFCTestModule, NFCTestModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFCTestModule, NFCTestModule);
 }

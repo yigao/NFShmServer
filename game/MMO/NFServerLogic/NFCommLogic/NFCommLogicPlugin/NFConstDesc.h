@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFServerComm/NFServerCommonPlugin/NFIDescStore.h"
+#include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFServerLogicMessage/ConstDesc_s.h"
 

@@ -20,7 +20,7 @@
 #include "NFCommPlugin/NFKernelPlugin/NFCTaskModule.h"
 #include "NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.h"
 #include "NFCommPlugin/NFKernelPlugin/NFCNamingModule.h"
-#include "NFServerComm/NFServerCommonPlugin/NFDescStoreTrans.h"
+#include "NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 //

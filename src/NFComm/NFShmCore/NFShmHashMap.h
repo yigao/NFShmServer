@@ -54,12 +54,41 @@ bool CDefaultHashKeyCmp<KEY_TYPE>::operator() (const KEY_TYPE& rstKey1, const KE
 }
 
 //!三个模板值，Key是主键类型，T是数据类型，NODE_SIZE是数据最大的大小，需要预先分配，HASH_SIZE是Hash表大小
+/*
+ * 经过测试，HASH_SIZE 等于 NODE_SIZE即可，HASH_SIZE即使等于NODE_SIZE的一半，效率也不会明显降低，提高到2倍，效率也没明显提升。效率比相同情况下的std::unorder_map效率要好
+ */
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE = DEFAULT_HASH_MAP_NODE_SIZE,
         int HASH_SIZE = NODE_SIZE, typename CMP_FUNC = CDefaultHashKeyCmp<KEY_TYPE>>
 class NFShmHashMap
 {
     typedef struct tagHashMapNode
     {
+        tagHashMapNode()
+        {
+            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+                CreateInit();
+            } else {
+                ResumeInit();
+            }
+        }
+
+        ~tagHashMapNode()
+        {
+
+        }
+
+        int CreateInit()
+        {
+            m_cUseFlag = 0;
+            m_iHashNext = 0;
+            return 0;
+        }
+
+        int ResumeInit()
+        {
+            return 0;
+        }
+
         KEY_TYPE m_stKey; //!<节点主键值，根据这个Key计算出Hash值来找到节点
         DATA_TYPE m_stData; //!<存放数据
         char m_cUseFlag; //!<节点是否使用
@@ -206,6 +235,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
         m_astHashMap[i].m_cUseFlag = EHNF_NOT_USED;
         m_astHashMap[i].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[i].m_stData.DATA_TYPE::~DATA_TYPE();
+        new (&m_astHashMap[i].m_stKey)KEY_TYPE();
+        new (&m_astHashMap[i].m_stData)DATA_TYPE();
     }
 
     m_astHashMap[NODE_SIZE-1].m_iHashNext = -1;
@@ -264,7 +295,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::EraseBySI
     }
     if(pOutKey)
     {
-        memcpy(pOutKey, &(m_astHashMap[iSlotIdx].m_stKey), sizeof(KEY_TYPE));
+        //memcpy(pOutKey, &(m_astHashMap[iSlotIdx].m_stKey), sizeof(KEY_TYPE));
+        *pOutKey = m_astHashMap[iSlotIdx].m_stKey;
     }
     return Erase(m_astHashMap[iSlotIdx].m_stKey);
 }
@@ -314,6 +346,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(con
         m_astHashMap[iCurIndex].m_iHashNext = m_iFirstFreeIdx;
         m_astHashMap[iCurIndex].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[iCurIndex].m_stData.DATA_TYPE::~DATA_TYPE();
+        new (&m_astHashMap[iCurIndex].m_stKey)KEY_TYPE();
+        new (&m_astHashMap[iCurIndex].m_stData)DATA_TYPE();
         m_iFirstFreeIdx = iCurIndex;
         --m_iUsedNodeNum;
         //add by shichaolin
@@ -362,9 +396,11 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(co
     int iNowAssignIdx = m_iFirstFreeIdx;
     m_iFirstFreeIdx = m_astHashMap[m_iFirstFreeIdx].m_iHashNext;
     ++m_iUsedNodeNum;
-    memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
+    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
+    m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
     new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
-    memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
+    //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
+    m_astHashMap[iNowAssignIdx].m_stData = rstData;
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
 
@@ -459,7 +495,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(co
         return -1;
     }
 
-    memcpy(pstData, &rstData, sizeof(rstData));
+    *pstData = rstData;
+    //memcpy(pstData, &rstData, sizeof(rstData));
 
     return 0;
 }
@@ -484,8 +521,10 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
         //已经存在该Key则直接更新
         if(stCmpFunc(rstKeyval, m_astHashMap[iCurIndex].m_stKey))
         {
-            memcpy(&m_astHashMap[iCurIndex].m_stKey, &rstKeyval, sizeof(rstKeyval));
-            memcpy(&m_astHashMap[iCurIndex].m_stData, &rstData, sizeof(rstData));
+            m_astHashMap[iCurIndex].m_stKey = rstKeyval;
+            m_astHashMap[iCurIndex].m_stData = rstData;
+            //memcpy(&m_astHashMap[iCurIndex].m_stKey, &rstKeyval, sizeof(rstKeyval));
+            //memcpy(&m_astHashMap[iCurIndex].m_stData, &rstData, sizeof(rstData));
 
             return 0;
         }
@@ -503,8 +542,11 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
     int iNowAssignIdx = m_iFirstFreeIdx;
     m_iFirstFreeIdx = m_astHashMap[m_iFirstFreeIdx].m_iHashNext;
     ++m_iUsedNodeNum;
-    memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
-    memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
+    m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
+    new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
+    m_astHashMap[iNowAssignIdx].m_stData = rstData;
+    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
+    //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
 
@@ -588,3 +630,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyTo
     return 0;
 }
 
+void testHashMap()
+{
+
+}

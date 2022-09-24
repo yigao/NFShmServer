@@ -12,7 +12,7 @@
 #include <string>
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 
 class NFCTestModule : public NFIModule, NFTimerObj

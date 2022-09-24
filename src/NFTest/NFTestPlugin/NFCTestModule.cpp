@@ -17,7 +17,6 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFComm/NFCore/NFFileUtility.h"
-#include "NFComm/NFPluginModule/NFCoMgr.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
@@ -28,9 +27,6 @@
 #include "NFComm/NFPluginModule/NFJson2PB/NFJsonToPb.h"
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFComm/NFShmCore/NFArray.h"
-#include "NFComm/NFMessageDefine/proto_common.pb.h"
-#include "NFComm/NFMessageDefine/proto_common_s.h"
-#include "NFComm/NFMessageDefine/proto_event.pb.h"
 #include <iostream>
 #include <mutex>
 #include <atomic>
@@ -40,8 +36,9 @@
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFShmHashMapTest.h"
 
-NFCTestModule::NFCTestModule(NFIPluginManager* p):NFIModule(p)
+NFCTestModule::NFCTestModule(NFIPluginManager* p):NFIModule(p),NFTimerObj(p)
 {
 }
 
@@ -51,6 +48,9 @@ NFCTestModule::~NFCTestModule()
 
 bool NFCTestModule::Init()
 {
+    //²âÊÔNFShmHashMapµÄÐÔÄÜ
+    TestShmHashMap();
+
 	SetTimer(1, 1000, 1);
 	return true;
 }

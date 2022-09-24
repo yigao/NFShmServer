@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFDescStoreTrans.h"
+#include "NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h"
 
 NFServerMessageModule::NFServerMessageModule(NFIPluginManager* pPluginManager):NFIServerMessageModule(pPluginManager)
 {
