@@ -51,6 +51,8 @@ public:
 
     virtual bool AfterLoadAllPlugin() override;
 
+    virtual bool AfterInitShmMem() override;
+
 	virtual bool Awake() override;
 
 	virtual bool Init() override;

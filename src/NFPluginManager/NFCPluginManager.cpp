@@ -129,6 +129,17 @@ bool NFCPluginManager::AfterLoadAllPlugin()
     return true;
 }
 
+bool NFCPluginManager::AfterInitShmMem()
+{
+    //调用所有module的Awake函数
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterInitShmMem();
+    }
+
+    return true;
+}
+
 bool NFCPluginManager::Awake()
 {
 	//调用所有module的Awake函数
@@ -186,6 +197,7 @@ bool NFCPluginManager::Begin()
 {
 	LoadAllPlugin();
     AfterLoadAllPlugin();
+    AfterInitShmMem();
 	Awake();
 	Init();
 	CheckConfig();

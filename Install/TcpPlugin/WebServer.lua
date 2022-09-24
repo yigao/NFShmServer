@@ -1,3 +1,5 @@
+require "Common"
+
 --WebServer Web代理服务器， 负责Web
 --ServerId = "15.100.11.1" 15是世界服务ID， 范围1-15
 -- 100是区服务ID， 范围1-65536

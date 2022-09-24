@@ -75,7 +75,6 @@ bool NFCSharedMemModule::AfterLoadAllPlugin()
     */
     InitShmObjectGlobal();
 
-    FindModule<NFIDescStoreModule>()->Initialize();
     return true;
 }
 
@@ -1490,4 +1489,3 @@ int	NFCSharedMemModule::Get32UUID()
 {
 	return m_pGlobalID->Get32UUID();
 }
-

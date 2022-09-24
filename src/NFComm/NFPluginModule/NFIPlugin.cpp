@@ -27,6 +27,24 @@ bool NFIPlugin::AfterLoadAllPlugin()
     return true;
 }
 
+bool NFIPlugin::AfterInitShmMem()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            bool bRet = pModule->AfterInitShmMem();
+            if (!bRet)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterInitShmMem failed!", pModule->m_strName);
+                assert(0);
+            }
+        }
+    }
+    return true;
+}
+
 bool NFIPlugin::Awake()
 {
 	for (size_t i = 0; i < m_vecModule.size(); i++)

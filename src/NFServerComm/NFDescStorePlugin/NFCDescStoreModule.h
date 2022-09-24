@@ -20,6 +20,8 @@ public:
 	NFCDescStoreModule(NFIPluginManager* p);
 	virtual ~NFCDescStoreModule();
 
+    virtual bool AfterInitShmMem() override;
+
 	virtual bool Awake() override;
 
     virtual bool Execute() override;
@@ -70,6 +72,7 @@ public:
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
 
+    virtual void runAfterShmInit();
 public:
     virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) override;
 private:

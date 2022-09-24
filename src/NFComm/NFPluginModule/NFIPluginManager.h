@@ -65,6 +65,11 @@ public:
         return true;
     }
 
+    virtual bool AfterInitShmMem()
+    {
+	    return true;
+    }
+
 	virtual bool Awake()
 	{
 		return true;

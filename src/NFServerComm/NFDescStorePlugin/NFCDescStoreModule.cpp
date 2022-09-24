@@ -39,6 +39,11 @@ NFCDescStoreModule::~NFCDescStoreModule() {
     }
 }
 
+bool NFCDescStoreModule::AfterInitShmMem() {
+    Initialize();
+    return true;
+}
+
 bool NFCDescStoreModule::Awake() {
     m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
     Subscribe(proto_ff::NF_EVENT_SERVER_APP_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
@@ -485,4 +490,9 @@ int NFCDescStoreModule::SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const 
 
     pTrans->SendGetDescStoreReq(eType, dbName, table_name, cb);
     return 0;
+}
+
+void NFCDescStoreModule::runAfterShmInit()
+{
+    Initialize();
 }
