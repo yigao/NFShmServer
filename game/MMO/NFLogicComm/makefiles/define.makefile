@@ -24,6 +24,7 @@ THIRD_PARTY_TOOLS_PATH=${TOOLS_PATH}
 PROTOC=${THIRD_PARTY_TOOLS_PATH}/protoc
 PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
 EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
+EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
 PROTO2STRUCT_PATH=${TOOLS_PATH}/proto_2_struct/
 EXCEL2BIN_PATH=${TOOLS_PATH}/excel_2_bin/
