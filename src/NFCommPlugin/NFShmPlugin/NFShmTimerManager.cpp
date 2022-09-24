@@ -715,6 +715,15 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int seco
         return INVALID_ID;
     }
 
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
+    }
+
     return newTimer->GetObjectID();
 }
 
@@ -736,6 +745,15 @@ int NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp) {
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();
@@ -762,6 +780,15 @@ NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int s
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();
@@ -795,6 +822,15 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
         return INVALID_ID;
     }
 
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
+    }
+
     return newTimer->GetObjectID();
 }
 
@@ -819,6 +855,15 @@ int NFShmTimerManager::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, 
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();
@@ -850,6 +895,15 @@ int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int ho
         return INVALID_ID;
     }
 
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
+    }
+
     return newTimer->GetObjectID();
 }
 
@@ -872,6 +926,15 @@ int NFShmTimerManager::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour,
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();
@@ -904,6 +967,15 @@ int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int w
         return INVALID_ID;
     }
 
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
+    }
+
     return newTimer->GetObjectID();
 }
 
@@ -926,6 +998,15 @@ int NFShmTimerManager::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();
@@ -956,6 +1037,15 @@ int NFShmTimerManager::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int 
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
+    }
+
+    if (!pObj->AddTimerId(newTimer->GetObjectID()))
+    {
+#ifdef NF_DEBUG_MODE
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
+#endif
     }
 
     return newTimer->GetObjectID();

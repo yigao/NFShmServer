@@ -1364,6 +1364,14 @@ int NFCSharedMemModule::DeleteTimer(NFShmTimerObj *pObj, int timeObjId)
         {
             if (pShmTimer->GetTimerShmObj() == pObj)
             {
+                if (!pObj->DeleteTimerId(timeObjId))
+                {
+#ifdef NF_DEBUG_MODE
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "timeId:{} is not the pObj:{} 's timer...objType:{} objIndex:{}...........", timeObjId, (void*)pObj, pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
+#else
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "timeId:{} is not the pObj:{} 's timer", timeObjId, (void*)pObj);
+#endif
+                }
                 return pManager->Delete(timeObjId);
             }
             else

@@ -70,6 +70,11 @@ std::string NFShmTimer::GetDetailStructMsg() {
         << " objID:" << GetObjectID()
         << " globalID:" << GetGlobalID();
 
+#ifdef NF_DEBUG_MODE
+    oss << " shmobj type:" << m_obj.m_iType
+        << " shmobj index:" << m_obj.m_iIndex;
+#endif
+
     return oss.str();
 }
 

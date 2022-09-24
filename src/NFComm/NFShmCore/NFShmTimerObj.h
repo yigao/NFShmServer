@@ -9,6 +9,9 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFObject.h"
+#include "NFComm/NFShmCore/NFArray.h"
+
+#define NF_SHM_OBJ_MAX_TIMER_COUNT 5
 
 class NFShmTimerObj : public NFObject
 {
@@ -67,10 +70,13 @@ public:
     virtual void SetTimerObjType(uint32_t type) { m_iTimerObjType = type; }
     virtual void SetTimerObjIndex(uint32_t type) { m_iTimerObjIndex = type; }
 #endif
+public:
+    virtual bool AddTimerId(int timerId);
+    virtual bool DeleteTimerId(int timerId);
 protected:
 #ifdef NF_DEBUG_MODE
-    uint32_t m_shmTimerCount;
     uint32_t m_iTimerObjType;
     uint32_t m_iTimerObjIndex;
 #endif
+    NFArray<int, NF_SHM_OBJ_MAX_TIMER_COUNT> m_timerIdList;
 };

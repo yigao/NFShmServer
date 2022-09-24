@@ -27,16 +27,26 @@ NFShmTimerObj::NFShmTimerObj(NFIPluginManager* pPluginManager): NFObject(pPlugin
 
 NFShmTimerObj::~NFShmTimerObj()
 {
-
+    for(int i = 0; i < (int)m_timerIdList.GetSize(); i++)
+    {
+        if (m_timerIdList[i] != INVALID_ID)
+        {
+            DeleteTimer(m_timerIdList[i]);
+        }
+    }
 }
 
 int NFShmTimerObj::CreateInit()
 {
 #ifdef NF_DEBUG_MODE
-    m_shmTimerCount = 0;
     m_iTimerObjType = 0;
     m_iTimerObjIndex = 0;
 #endif
+    m_timerIdList.SetSize(m_timerIdList.GetMaxSize());
+    for(int i = 0; i < m_timerIdList.GetSize(); i++)
+    {
+        m_timerIdList[i] = INVALID_ID;
+    }
 	return 0;
 }
 
@@ -46,14 +56,7 @@ int NFShmTimerObj::DeleteTimer(int timeObjId)
     if (iRet == 0)
     {
 #ifdef NF_DEBUG_MODE
-        if (m_shmTimerCount > 0)
-        {
-            m_shmTimerCount--;
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "error delete timer, m_shmTimerCount = 0");
-        }
+
 #endif
     }
     return iRet;
@@ -66,11 +69,7 @@ int NFShmTimerObj::SetTimer(int hour, int minutes, int second, int microSec)
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -83,11 +82,7 @@ int NFShmTimerObj::SetCalender(int hour, int minutes, int second)
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -100,11 +95,7 @@ int NFShmTimerObj::SetCalender(uint64_t timestamp)
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -117,11 +108,7 @@ int NFShmTimerObj::SetTimer(int interval, int callcount, int hour, int minutes, 
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -134,11 +121,7 @@ int NFShmTimerObj::SetDayTime(int callcount, int hour, int minutes, int second, 
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -151,11 +134,7 @@ int NFShmTimerObj::SetDayCalender(int callcount, int hour, int minutes, int seco
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -168,11 +147,7 @@ int NFShmTimerObj::SetWeekTime(int callcount, int hour, int minutes, int second,
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -185,11 +160,7 @@ int NFShmTimerObj::SetWeekCalender(int callcount, int weekDay, int hour, int min
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -202,11 +173,7 @@ int NFShmTimerObj::SetMonthTime(int callcount, int hour, int minutes, int second
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
@@ -219,12 +186,39 @@ int NFShmTimerObj::SetMonthCalender(int callcount, int day, int hour, int minute
     if (timerId >= 0)
     {
 #ifdef NF_DEBUG_MODE
-        m_shmTimerCount++;
-        if (m_shmTimerCount >= 10)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "m_shmTimerCount:{}, the obj has too much timer", m_shmTimerCount);
-        }
+
 #endif
     }
     return timerId;
+}
+
+bool NFShmTimerObj::AddTimerId(int timerId)
+{
+    for(int i = 0; i < (int)m_timerIdList.GetSize(); i++)
+    {
+        if (m_timerIdList[i] == INVALID_ID)
+        {
+#ifdef NF_DEBUG_MODE
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin create timerId:{} shmobj type:{} index:{}", timerId, GetTimerObjType(), GetTimerObjIndex());
+#endif
+            m_timerIdList[i] = timerId;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool NFShmTimerObj::DeleteTimerId(int timerId)
+{
+    for(int i = 0; i < (int)m_timerIdList.GetSize(); i++)
+    {
+        if (m_timerIdList[i] == timerId)
+        {
+            m_timerIdList[i] = INVALID_ID;
+            return true;
+        }
+    }
+
+    return false;
 }
