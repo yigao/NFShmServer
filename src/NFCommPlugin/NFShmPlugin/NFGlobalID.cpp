@@ -206,6 +206,7 @@ void NFGlobalID::DestroyObject(NFIPluginManager* pPluginManager, NFShmObj *pObj)
 {
     NFGlobalID *pTmp = NULL;
 	pTmp= (NFGlobalID*)pObj;
+    (*pTmp).NFGlobalID::~NFGlobalID();
     pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(EOT_GLOBAL_ID, pTmp);
 	return;
 }
