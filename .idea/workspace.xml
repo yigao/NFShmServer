@@ -39,6 +39,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="IMPL_RES_HASH_DESC">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/_2022_9_24_8_45____.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" afterDir="false" />
     </list>
@@ -319,7 +322,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx --out_path=./" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -451,13 +454,6 @@
       <workItem from="1663634390040" duration="11554000" />
       <workItem from="1663808742487" duration="10264000" />
       <workItem from="1663896936625" duration="22582000" />
-    </task>
-    <task id="LOCAL-00103" summary="chong gou">
-      <created>1663220640121</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1663220640121</updated>
     </task>
     <task id="LOCAL-00104" summary="chong gou">
       <created>1663221536178</created>
@@ -795,7 +791,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664003779975</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="IMPL_RES_HASH_DESC">
+      <created>1664012925096</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1664012925096</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -966,33 +969,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>68</line>
+          <line>71</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>118</line>
+          <line>121</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>56</line>
+          <line>59</line>
           <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

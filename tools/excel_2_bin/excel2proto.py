@@ -59,6 +59,11 @@ def write_sheet_proto(excel_name, sheet_name, sheet_col_info, out_path):
 
 	proto_file.write("}\n");
 	proto_file.close()
+
+	#移动到指定路径
+	if os.path.exists(out_path) and out_path != "./":
+		shutil.copyfile(sheet_proto_name, out_path + sheet_proto_name)
+		os.remove(sheet_proto_name)
 	print
 
 
