@@ -37,13 +37,11 @@ from google.protobuf import descriptor_database
 from google.protobuf import descriptor_pool
 from google.protobuf import message_factory
 
-def write_sheet_proto(excel_name, sheet_name, sheet, sheet_col_info, out_path):
-	sheet_proto_name = excel_name+sheet_name+".proto"
-	proto_file = open(sheet_proto_name, 'w')
-	proto_file.write("package proto_ff;\n\n");
-	proto_file.write("import \"yd_fieldoptions.proto\";\n\n");
-	proto_file.write("message "+excel_name+sheet_name+"\n");
+def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info, out_path):
+
+	proto_file.write("\nmessage "+excel_name+sheet_name+"\n");
 	proto_file.write("{\n");
+
 	for index in xrange(0, len(sheet_col_info)):
 		if sheet_col_info[index]["col_type"] == "int" or sheet_col_info[index]["col_type"] == "int32":
 			proto_file.write("\toptional int32 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
@@ -63,13 +61,7 @@ def write_sheet_proto(excel_name, sheet_name, sheet, sheet_col_info, out_path):
 	proto_file.write("{\n");
 	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(sheet.nrows + 100) + "];\n");
 	proto_file.write("}\n");
-	proto_file.close()
 
-	#移动到指定路径
-	if os.path.exists(out_path) and out_path != "./":
-		shutil.copyfile(sheet_proto_name, out_path + sheet_proto_name)
-		os.remove(sheet_proto_name)
-	print
 
 
 
@@ -96,9 +88,34 @@ def read_excel(excel_file, out_path):
 			for row_index in xrange(0, excel_sheet_row_count):
 				sheet_map[sheet.cell_value(row_index, 0)] = 1
 
+	excel_src_file_name = os.path.basename(excel_file)
+	excel_file_name = os.path.splitext(excel_src_file_name)
+	excel_file_name = excel_file_name[0]
+
+	sheet_proto_name = excel_file_name+".proto"
+	proto_file = open(sheet_proto_name, 'w')
+	proto_file.write("package proto_ff;\n\n");
+	proto_file.write("import \"yd_fieldoptions.proto\";\n\n");
+
+	sheet_makefile_name = excel_file_name+"_gen.makefile"
+	makefile_file = open(sheet_makefile_name, 'w')
+	makefile_file.write("include ./define.makefile\n\n");
+	makefile_file.write(".PHONY:all\n\n");
+	makefile_file.write("all:");
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
-			print "handle the excel:%s sheet:%s" % (excel_file, sheet.name)
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name + sheet.name + ".bin ");
+	makefile_file.write("\n\n");
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCEL_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("\t${EXCEL2BIN} --excel=${RESDB_EXCEL_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
+			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${GAME_DATA_PATH}/\n\n");
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
+			print "handle the excel:%s.xls sheet:%s" % (excel_file_name, sheet.name)
 			#找到对应的sheet
 			#sheet的行数
 			excel_sheet_row_count = sheet.nrows
@@ -125,9 +142,18 @@ def read_excel(excel_file, out_path):
 							one_col_info["col_max_size"] = len(string_value)
 
 				sheet_col_info.append(one_col_info)
-			excel_file_name = os.path.splitext(os.path.basename(excel_file))
-			excel_file_name = excel_file_name[0]
-			write_sheet_proto(excel_file_name, sheet.name, sheet, sheet_col_info, out_path)
+
+			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, out_path)
+
+	proto_file.close()
+	makefile_file.close()
+
+	#移动到指定路径
+	if os.path.exists(out_path) and out_path != "./":
+		shutil.copyfile(sheet_proto_name, out_path + sheet_proto_name)
+		os.remove(sheet_proto_name)
+		shutil.copyfile(sheet_makefile_name, out_path + sheet_makefile_name)
+		os.remove(sheet_makefile_name)
 
 	sys.exit(-1)
 
@@ -137,7 +163,7 @@ def show_usage():
                 --out_path=./"""
 
 if __name__ == "__main__":
-	(opts, args) = getopt.getopt(sys.argv[1:], "e:d:p:m:s:n:l:o", ["excel=", "out_path="])
+	(opts, args) = getopt.getopt(sys.argv[1:], "e:o", ["excel=", "out_path="])
 
 	if( 0 == len( opts ) ):
 		show_usage()
