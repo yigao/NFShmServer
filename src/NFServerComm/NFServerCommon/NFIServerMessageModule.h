@@ -14,8 +14,6 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
-
 #include <map>
 #include <unordered_map>
 #include <list>
@@ -52,8 +50,7 @@ public:
     ///////////////////////////other server send msg to game msg/////////////////////////////
     virtual int SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
     virtual int SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
-public:
-    virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) = 0;
+
 public:
     virtual void
     SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id,

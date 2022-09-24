@@ -11,8 +11,6 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h"
 
 NFServerMessageModule::NFServerMessageModule(NFIPluginManager* pPluginManager):NFIServerMessageModule(pPluginManager)
 {
@@ -464,16 +462,3 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
     FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-int NFServerMessageModule::SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) {
-    NFDescStoreTrans* pTrans = dynamic_cast<NFDescStoreTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_RPC_TRANS_ID));
-    CHECK_EXPR(pTrans, -1, "Create NFDescStoreTrans Failed, use count:{}", NFDescStoreTrans::GetUsedCount(m_pObjPluginManager));
-
-    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    if (coId >= 0)
-    {
-        pTrans->Init(coId, pMessage);
-    }
-
-    pTrans->SendGetDescStoreReq(eType, dbName, table_name, cb);
-    return 0;
-}

@@ -20,6 +20,7 @@
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFDescStoreTrans.h"
 
 
 NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p),NFEventObj(p) {
@@ -472,4 +473,16 @@ NFResDB *NFCDescStoreModule::CreateResDBFromFiles(const std::string &dir) {
     return new NFFileResDB(m_pObjPluginManager, dir);
 }
 
+int NFCDescStoreModule::SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) {
+    NFDescStoreTrans* pTrans = dynamic_cast<NFDescStoreTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_RPC_TRANS_ID));
+    CHECK_EXPR(pTrans, -1, "Create NFDescStoreTrans Failed, use count:{}", NFDescStoreTrans::GetUsedCount(m_pObjPluginManager));
 
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    if (coId >= 0)
+    {
+        pTrans->Init(coId, pMessage);
+    }
+
+    pTrans->SendGetDescStoreReq(eType, dbName, table_name, cb);
+    return 0;
+}

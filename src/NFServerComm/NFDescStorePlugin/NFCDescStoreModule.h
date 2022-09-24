@@ -43,9 +43,9 @@ public:
 
 	virtual void RemoveDescStore(const std::string& strDescName);
 
-    virtual int InsertDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage);
-    virtual int DeleteDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage);
-    virtual int SaveDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage);
+    virtual int InsertDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) override;
+    virtual int DeleteDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) override;;
+    virtual int SaveDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) override;;
 
 	virtual void InitAllDescStore();
 
@@ -55,7 +55,7 @@ public:
 	virtual int Load();
 	virtual int Reload();
 
-	virtual bool IsAllDescStoreLoad();
+	virtual bool IsAllDescStoreLoad() override;;
 
 	int LoadDescStore(NFIDescStore *pDescStore);
 	int ReLoadDescStore(NFIDescStore *pDescStore);
@@ -69,6 +69,9 @@ public:
     NFResDB *CreateResDBFromFiles(const std::string& dir);
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
+
+public:
+    virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) override;
 private:
 	std::unordered_map<std::string, NFIDescStore*> mDescStoreMap;
     std::unordered_map<std::string, NFIDescStore*> mDescStoreFileMap;

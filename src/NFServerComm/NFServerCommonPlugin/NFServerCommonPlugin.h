@@ -29,7 +29,5 @@ public:
     virtual void Install() override;
 
     virtual void Uninstall() override;
-
-    virtual bool InitShmObjectRegister() override;
 };
 

@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "google/protobuf/message.h"
+#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 
 class NFIDescStore;
 class NFIDescStoreModule : public NFIModule
@@ -66,4 +67,7 @@ public:
     virtual int SaveDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) = 0;
     virtual int InsertDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) = 0;
     virtual int DeleteDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) = 0;
+
+public:
+    virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) = 0;
 };
