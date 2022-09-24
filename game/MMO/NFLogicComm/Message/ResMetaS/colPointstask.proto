@@ -1,0 +1,18 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+message colPointstask
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 point = 2[(yd_fieldoptions.field_cname) = "增加点数"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "可完成次数"];
+	optional int32 task = 4[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional string taskParam = 5[(yd_fieldoptions.field_cname) = "条件参数", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_colPointstask
+{
+	repeated colPointstask colPointstask_List = 1[(yd_fieldoptions.field_arysize)=107];
+}

@@ -38,12 +38,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="IMPL_RES_HASH_DESC">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/_2022_9_24_8_45____.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="excel proto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,13 +452,6 @@
       <workItem from="1663808742487" duration="10264000" />
       <workItem from="1663896936625" duration="22582000" />
     </task>
-    <task id="LOCAL-00104" summary="chong gou">
-      <created>1663221536178</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1663221536178</updated>
-    </task>
     <task id="LOCAL-00105" summary="chong gou">
       <created>1663222223635</created>
       <option name="number" value="00105" />
@@ -798,7 +788,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664012925096</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="excel proto">
+      <created>1664013266274</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1664013266274</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -962,19 +959,20 @@
     <MESSAGE value="desc store" />
     <MESSAGE value="timer" />
     <MESSAGE value="IMPL_RES_HASH_DESC" />
-    <option name="LAST_COMMIT_MESSAGE" value="IMPL_RES_HASH_DESC" />
+    <MESSAGE value="excel proto" />
+    <option name="LAST_COMMIT_MESSAGE" value="excel proto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>71</line>
+          <line>76</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>121</line>
+          <line>126</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

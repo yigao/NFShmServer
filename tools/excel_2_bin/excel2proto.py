@@ -37,7 +37,7 @@ from google.protobuf import descriptor_database
 from google.protobuf import descriptor_pool
 from google.protobuf import message_factory
 
-def write_sheet_proto(excel_name, sheet_name, sheet_col_info, out_path):
+def write_sheet_proto(excel_name, sheet_name, sheet, sheet_col_info, out_path):
 	sheet_proto_name = excel_name+sheet_name+".proto"
 	proto_file = open(sheet_proto_name, 'w')
 	proto_file.write("package proto_ff;\n\n");
@@ -57,6 +57,11 @@ def write_sheet_proto(excel_name, sheet_name, sheet_col_info, out_path):
 			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(sheet_col_info[index]["col_max_size"]) + "];\n");
 
 
+	proto_file.write("}\n");
+
+	proto_file.write("\n\nmessage Sheet_" + excel_name+sheet_name + "\n")
+	proto_file.write("{\n");
+	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(sheet.nrows + 100) + "];\n");
 	proto_file.write("}\n");
 	proto_file.close()
 
@@ -122,7 +127,7 @@ def read_excel(excel_file, out_path):
 				sheet_col_info.append(one_col_info)
 			excel_file_name = os.path.splitext(os.path.basename(excel_file))
 			excel_file_name = excel_file_name[0]
-			write_sheet_proto(excel_file_name, sheet.name, sheet_col_info, out_path)
+			write_sheet_proto(excel_file_name, sheet.name, sheet, sheet_col_info, out_path)
 
 	sys.exit(-1)
 

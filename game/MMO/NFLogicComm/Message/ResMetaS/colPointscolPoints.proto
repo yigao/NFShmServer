@@ -1,0 +1,19 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+message colPointscolPoints
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 weight = 2[(yd_fieldoptions.field_cname) = "权重"];
+	optional int64 boxid = 3[(yd_fieldoptions.field_cname) = "奖励"];
+	optional int32 beginPoint = 4[(yd_fieldoptions.field_cname) = "初始点数"];
+	optional int32 targetPoint = 5[(yd_fieldoptions.field_cname) = "目标点数"];
+	optional string taskID = 6[(yd_fieldoptions.field_cname) = "包含任务", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_colPointscolPoints
+{
+	repeated colPointscolPoints colPointscolPoints_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
