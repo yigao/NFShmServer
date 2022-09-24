@@ -60,8 +60,17 @@ public:
 
 	//注册某一个时间点月循环执行定时器（ day  hour  minutes  second 为一月中某一天开始执行的时间点）
 	virtual int SetMonthCalender(int callcount, int day, int hour, int minutes, int second);
+
+#ifdef NF_DEBUG_MODE
+    virtual uint32_t GetTimerObjType() const { return m_iTimerObjType; }
+    virtual uint32_t GetTimerObjIndex() const { return m_iTimerObjIndex; }
+    virtual void SetTimerObjType(uint32_t type) { m_iTimerObjType = type; }
+    virtual void SetTimerObjIndex(uint32_t type) { m_iTimerObjIndex = type; }
+#endif
 protected:
 #ifdef NF_DEBUG_MODE
     uint32_t m_shmTimerCount;
+    uint32_t m_iTimerObjType;
+    uint32_t m_iTimerObjIndex;
 #endif
 };

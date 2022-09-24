@@ -299,12 +299,12 @@ std::string storesvr_execute(const std::string &dbname, const std::string &tbnam
     return select.SerializeAsString();
 }
 
-void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData,
+int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData,
                                  std::vector<storesvr_sqldata::storesvr_vk> vk_list,
                                  const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS, , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
+    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS, -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
@@ -331,15 +331,15 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
         }
     }
 
-    FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname, const std::string &table_name,
+int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname, const std::string &table_name,
                                  std::vector<storesvr_sqldata::storesvr_vk> vk_list,
                                  const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE, , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
+    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE, -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
@@ -365,17 +365,17 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
             break;
         }
     }
-    FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-void
+int
 NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id,
                             const std::string &dbname, const std::string &table_name, const std::string &xData, int trans_id, uint32_t seq,
                             uint64_t mod_key, uint8_t packet_type)
 {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_EXECUTE, , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
+    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_EXECUTE, -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
@@ -399,16 +399,16 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
         }
             break;
     }
-    FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
+int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
                                  const std::string &table_name, const google::protobuf::Message &xData, int trans_id,
                                  uint32_t seq,
                                  uint64_t mod_key, const std::string& cls_name, uint8_t packet_type) {
-    CHECK_EXPR(!(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE || cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS), , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), , "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), , "error msg_type:{}", packet_type);
+    CHECK_EXPR(!(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE || cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
@@ -459,6 +459,6 @@ void NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32
             break;
     }
 
-    FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 

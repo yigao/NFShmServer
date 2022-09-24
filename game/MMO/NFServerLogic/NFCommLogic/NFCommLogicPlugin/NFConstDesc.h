@@ -24,6 +24,10 @@ public:
     int ResumeInit();
     const proto_ff_s::ConstDesc_s* GetDesc(proto_ff::enConstType type) const;
 	std::string GetValue(proto_ff::enConstType type) const;
+    virtual bool IsFileLoad() override
+    {
+        return false;
+    }
 public:
 	IMPL_RES_DESC(proto_ff_s::ConstDesc_s, ConstDesc, MAX_CONST_DESC_NUM);
 	int m_aiIndex[MAX_CONST_DESC_NUM];

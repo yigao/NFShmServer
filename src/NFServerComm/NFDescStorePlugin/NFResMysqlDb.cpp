@@ -72,11 +72,8 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
-    /*
-    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
-                                                            proto_ff::E_STORESVR_C2S_INSERT, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
-                                                            */
-    return 0;
+    return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
+                                                            proto_ff::E_STORESVR_C2S_INSERT, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage)
@@ -86,11 +83,8 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
-    return 0;
-    /*
-    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
-            proto_ff::E_STORESVR_C2S_DELETEOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
-            */
+    return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
+            proto_ff::E_STORESVR_C2S_DELETEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) {
@@ -99,11 +93,8 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
-    return 0;
-    /*
-    return FindModule<NFIMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->mServerType,
-                                                            proto_ff::E_STORESVR_C2S_MODINSOBJ, proto_ff::E_TABLE_NONE, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
-                                                            */
+    return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
+                                                            proto_ff::E_STORESVR_C2S_MODINSOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 NFResMysqlDB::NFResMysqlDB(NFIPluginManager* p):NFResDB(p)

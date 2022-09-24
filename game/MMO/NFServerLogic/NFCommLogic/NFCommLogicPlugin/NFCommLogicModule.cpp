@@ -40,10 +40,19 @@ void NFCommLogicModule::OnTimer(uint32_t nTimerID) {
         NFSLEEP(1000);
         exit(0);
     }
+
+    if (nTimerID == 1)
+    {
+        //NFConstDesc* pConstDesc = NFConstDesc::Instance(m_pObjPluginManager);
+        //auto& resDesc = pConstDesc->GetResDesc();
+        //resDesc[0].value = "xxxxx";
+        //resDesc[0].MarkDirty();
+    }
 }
 
 bool NFCommLogicModule::Awake() {
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    SetTimer(1, 10000, 1);
     return true;
 }
 

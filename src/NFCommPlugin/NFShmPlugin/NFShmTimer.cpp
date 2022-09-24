@@ -14,7 +14,11 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)
 
+#if NF_DEBUG_MODE
+NFShmTimer::NFShmTimer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager),m_obj(pPluginManager) {
+#else
 NFShmTimer::NFShmTimer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
+#endif
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {

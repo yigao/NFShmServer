@@ -11,6 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 enum NFTimerRetType {
     eTimerTypeSuccess = 0, // 执行成功
@@ -26,11 +27,39 @@ class NFShmObj;
  */
 class NFShmTimerSlot {
 public:
+#if NF_DEBUG_MODE
+NFShmTimerSlot(NFIPluginManager* pPluginManager):pDebugPluginManager(pPluginManager)
+#else
+    NFShmTimerSlot()
+#endif
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+            CreateInit();
+        } else {
+            ResumeInit();
+        }
+    }
+
+    int CreateInit()
+    {
+        m_pObjPtr = NULL;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+
     void SetParam(NFShmTimerObj* pObj)
     {
         if (pObj)
         {
             m_pObjPtr = pObj;
+#if NF_DEBUG_MODE
+            m_iType = pObj->GetTimerObjType();
+            m_iIndex = pObj->GetTimerObjIndex();
+#endif
         }
     }
 
@@ -39,10 +68,13 @@ public:
             return eTimerHandlerNull;
         }
 
-// #if defined(_DEBUG) | defined(_DEBUG_)
-//         NFShmObj *pObjGetObjFromTypeIndex = NFIDRuntimeClass::GetObj(m_iType, m_iIndex);
-//         assert(pObjGetObjFromTypeIndex == m_pObjPtr);
-// #endif
+#if NF_DEBUG_MODE
+        if (m_iType > 0)
+        {
+            NFShmObj *pObjGetObjFromTypeIndex = pDebugPluginManager->FindModule<NFISharedMemModule>()->GetObj(m_iType, m_iIndex);
+            assert(pObjGetObjFromTypeIndex == m_pObjPtr.GetPoint());
+        }
+#endif
 
         m_pObjPtr->OnTimer(timeId, callcount);
 
@@ -54,4 +86,9 @@ public:
     }
 
     NFRawShmPtr<NFShmTimerObj> m_pObjPtr;
+#if defined(_DEBUG) | defined(_DEBUG_)
+    uint32_t m_iType;
+    uint32_t m_iIndex;
+    NFIPluginManager* pDebugPluginManager;
+#endif
 };

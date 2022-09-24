@@ -951,7 +951,9 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 		if (iID >= 0)
 		{
 			pObj->SetGlobalID(iID);
-	#ifdef _DEBUG_DETAIL_
+	#ifdef NF_DEBUG_MODE
+			pObj->SetTimerObjType(iType);
+			pObj->SetTimerObjIndex(pObj->GetObjectID());
 			pObj->PrintMyself();
 	#endif
 		}

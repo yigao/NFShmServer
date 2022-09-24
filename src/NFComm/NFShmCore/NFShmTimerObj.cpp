@@ -34,6 +34,8 @@ int NFShmTimerObj::CreateInit()
 {
 #ifdef NF_DEBUG_MODE
     m_shmTimerCount = 0;
+    m_iTimerObjType = 0;
+    m_iTimerObjIndex = 0;
 #endif
 	return 0;
 }

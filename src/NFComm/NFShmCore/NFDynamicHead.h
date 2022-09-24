@@ -6,7 +6,7 @@
 #define _DECLARE_PREALLOCATED_(class_name)\
     public:\
     static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton = false);  \
-    static void* operator new( size_t nSize,void *pBuffer) throw();\
+    static void* operator new( size_t nSize,void *pBuffer) throw();                                                                                                                                                       \
     static class_name* GetObjectByID(NFIPluginManager* pPluginManager, int iID);\
     static int GetNextObjectID(NFIPluginManager* pPluginManager, int iObjID);\
     static int GetNextObjectID(NFIPluginManager* pPluginManager, class_name *pObj);\
@@ -146,6 +146,7 @@
 	{\
 		class_name *pTmp = NULL;\
 		pTmp = (class_name*)pObj;\
+        (*pTmp).class_name::~class_name();\
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(type, pTmp);\
 		return;\
 	}\

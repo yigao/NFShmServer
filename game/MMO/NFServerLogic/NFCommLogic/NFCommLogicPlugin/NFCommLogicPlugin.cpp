@@ -60,7 +60,7 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     CHECK_EXPR(pConfig, false, "pConfig == NULL");
     CHECK_EXPR(!pConfig->DefaultDBName.empty(), false, "pConfig->DefaultDBName.empty()");
 
-    REGISTER_DESCSTORE(NFConstDesc, EOT_CONST_CONFIG_DESC_ID);
+    REGISTER_DESCSTORE_WITH_DBNAME(NFConstDesc, EOT_CONST_CONFIG_DESC_ID, pConfig->DefaultDBName);
     REGISTER_DESCSTORE(NFNameDesc, EOT_NAME_CONFIG_DESC_ID);
 	return true;
 }
