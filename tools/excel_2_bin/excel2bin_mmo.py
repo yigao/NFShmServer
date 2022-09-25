@@ -146,10 +146,14 @@ def sheet_cell_value(sheet, row_index, col_index):
 	if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
 		sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_BLANK:
 		return 0
-	elif sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_TEXT and \
-		len(sheet.cell_value(row_index, col_index)) == 0:
-		return 0
-	
+	elif sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_TEXT:
+		str = sheet.cell_value(row_index, col_index)
+		str = str.strip()
+		str = re.sub(r"\s+", "", str)
+		str = str.encode('raw_unicode_escape')
+		if len(str) == 0:
+			return 0
+
 	return sheet.cell_value(row_index, col_index)
 
 def find_enum_value(sheet, row_index, col_index, enum_typename):

@@ -37,11 +37,43 @@ from google.protobuf import descriptor_database
 from google.protobuf import descriptor_pool
 from google.protobuf import message_factory
 
-def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info, out_path):
+def sheet_cell_value(sheet, row_index, col_index):
+	if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
+			sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_BLANK:
+		return 0
+	elif sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_TEXT and \
+			len(sheet.cell_value(row_index, col_index)) == 0:
+		return 0
+
+	return sheet.cell_value(row_index, col_index)
+
+def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info):
+
+	for struct_en_name, struct_info in sheet_struct_info.items():
+		proto_file.write("\nmessage "+sheet_name+ struct_en_name + "Desc\n");
+		proto_file.write("{\n");
+		index = 0
+		for sub_en_name, sub_info in struct_info["sub_msg"].items():
+			index = index + 1
+			cn_sub_name = sub_info["cn_sub_name"]
+			col_type = sub_info["col_type"]
+			col_max_size = sub_info["col_max_size"]
+			if col_type == "int" or col_type == "int32":
+				proto_file.write("\toptional int32 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif col_type == "uint" or col_type == "uint32":
+				proto_file.write("\toptional uint32 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif col_type == "int64":
+				proto_file.write("\toptional int64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif col_type == "uint64":
+				proto_file.write("\toptional uint64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif sheet_col_info[index]["col_type"] == "string":
+				proto_file.write("\toptional string " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\","+" (yd_fieldoptions.field_bufsize) = " + str(col_max_size) + "];\n");
+		proto_file.write("}\n");
 
 	proto_file.write("\nmessage "+excel_name+sheet_name+"\n");
 	proto_file.write("{\n");
 
+	index = 0
 	for index in xrange(0, len(sheet_col_info)):
 		if sheet_col_info[index]["col_type"] == "int" or sheet_col_info[index]["col_type"] == "int32":
 			proto_file.write("\toptional int32 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
@@ -54,6 +86,9 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 		elif sheet_col_info[index]["col_type"] == "string":
 			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(sheet_col_info[index]["col_max_size"]) + "];\n");
 
+	for struct_en_name, struct_info in sheet_struct_info.items():
+		index = index + 1
+		proto_file.write("\trepeated " + sheet_name+ struct_en_name + "Desc " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +struct_info["cn_name"] + "\","+" (yd_fieldoptions.field_arysize) = " + str(struct_info["max_num"]) + "];\n");
 
 	proto_file.write("}\n");
 
@@ -61,8 +96,6 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 	proto_file.write("{\n");
 	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(sheet.nrows + 100) + "];\n");
 	proto_file.write("}\n");
-
-
 
 
 
@@ -122,12 +155,71 @@ def read_excel(excel_file, out_path):
 			#sheet的列数
 			excel_sheet_col_count = sheet.ncols
 			sheet_col_info = []
+			sheet_struct_info = { }
+			sheet_struct_col_info = { }
 
 			#开始按行读取
 			for col_index in xrange(0, excel_sheet_col_count):
-				col_sel = int(sheet.cell_value(3, col_index))
-				col_type = sheet.cell_value(2, col_index)
+				col_en_name = str(sheet.cell_value(0, col_index))
+				col_cn_name = str(sheet.cell_value(1, col_index))
+				col_type = str(sheet.cell_value(2, col_index))
+				col_sel = int(sheet_cell_value(sheet, 3, col_index))
+
 				if col_sel != 2 and col_sel != 3:
+					continue;
+
+				col_en_name_list = col_en_name.split("_")
+				col_cn_name_list = re.split('(\d+)', col_cn_name)
+				if len(col_en_name_list) == 2 and len(col_cn_name_list) == 3:
+					sheet_struct_col_info[col_index] = 1
+					struct_num = int(col_cn_name_list[1])
+					struct_en_name = str(col_en_name_list[0])
+					struct_en_sub_name = str(col_en_name_list[1])
+					struct_cn_name = str(col_cn_name_list[0])
+					struct_cn_sub_name = str(col_cn_name_list[2])
+					if sheet_struct_info.has_key(struct_en_name) == False:
+						sheet_struct_info[struct_en_name] = {}
+						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+						sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+						sheet_struct_info[struct_en_name]["max_num"] = struct_num
+						sheet_struct_info[struct_en_name]["sub_msg"] = {}
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = { }
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+						if col_type == "string":
+							for row_index in xrange(4, excel_sheet_row_count):
+								string_value = str(sheet.cell_value(row_index, col_index))
+								if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+					else:
+						if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+							if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+								sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							if sheet_struct_info[struct_en_name]["sub_msg"].has_key(struct_en_sub_name) == False:
+								sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = { }
+								sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+								sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+								sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+								sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+								if col_type == "string":
+									for row_index in xrange(4, excel_sheet_row_count):
+										string_value = str(sheet.cell_value(row_index, col_index))
+										if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+											sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+
+
+
+			#开始按行读取
+			for col_index in xrange(0, excel_sheet_col_count):
+				col_type = sheet.cell_value(2, col_index)
+				col_sel = int(sheet_cell_value(sheet, 3, col_index))
+
+				if col_sel != 2 and col_sel != 3:
+					continue;
+
+				if sheet_struct_col_info.has_key(col_index):
 					continue;
 
 				one_col_info = {}
@@ -143,7 +235,7 @@ def read_excel(excel_file, out_path):
 
 				sheet_col_info.append(one_col_info)
 
-			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, out_path)
+			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info)
 
 	proto_file.close()
 	makefile_file.close()

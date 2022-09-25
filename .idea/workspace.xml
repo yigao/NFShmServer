@@ -38,8 +38,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="chong gou">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="excel parse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,11 +121,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.excel2bin_mmo">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -297,7 +294,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx  --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/ResMeta.proto.ds --proto_package=proto_ff  --proto_sheet_msgname=Sheet_colPointscolPoints  --excel_sheetname=colPoints  --proto_msgname=colPointscolPoints  --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/box.xlsx --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/ResMeta.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_boxbox --excel_sheetname=box --proto_msgname=boxbox --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -339,7 +336,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/box.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -470,13 +467,7 @@
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
       <workItem from="1663338610780" duration="2740000" />
-    </task>
-    <task id="LOCAL-00097" summary="chong gou">
-      <created>1663153848115</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1663153848115</updated>
+      <workItem from="1664069237413" duration="11462000" />
     </task>
     <task id="LOCAL-00098" summary="chong gou">
       <created>1663206007172</created>
@@ -814,7 +805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664035008854</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="excel parse">
+      <created>1664036237041</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1664036237041</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -886,7 +884,8 @@
     <MESSAGE value="shell" />
     <MESSAGE value="makefile" />
     <MESSAGE value="chong gou" />
-    <option name="LAST_COMMIT_MESSAGE" value="chong gou" />
+    <MESSAGE value="excel parse" />
+    <option name="LAST_COMMIT_MESSAGE" value="excel parse" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,11 +934,6 @@
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py</url>
           <line>241</line>
           <option name="timeStamp" value="251" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
-          <line>234</line>
-          <option name="timeStamp" value="266" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
