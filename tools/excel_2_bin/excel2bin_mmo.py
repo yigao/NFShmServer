@@ -239,8 +239,8 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	global g_sheet_object_field_proterties
 	global g_layername_refcount
 
-	#print "line(%s:%d) fill_record record[%s] start row:col[%d:%d] recursion_count[%d] parent_layertype[%s] parent_layer_cname[%s]++++++++++++++++" % \
-	#	  (__file__, sys._getframe().f_lineno, record.DESCRIPTOR.full_name, row_index, col_index, recursion_count, parent_layertype, parent_layer_cname)
+	print "line(%s:%d) fill_record record[%s] start row:col[%d:%d] recursion_count[%d] parent_layertype[%s] parent_layer_cname[%s]++++++++++++++++" % \
+		  (__file__, sys._getframe().f_lineno, record.DESCRIPTOR.full_name, row_index, col_index, recursion_count, parent_layertype, parent_layer_cname)
 
 	# example Sheet-Sheetobject-1-CommodityFactoryAddress
 	current_layer_typename = parent_layertype  + '-' + record.DESCRIPTOR.name + '-' + parent_layer_cname
@@ -249,12 +249,13 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 		g_layertype_instancecount[current_layer_typename] += 1
 	else:
 		g_layertype_instancecount[current_layer_typename] = 1
+
 	#当前层的id example Sheet-Sheetobject-1
 	current_layerid = current_layer_typename + '-' + str(g_layertype_instancecount[current_layer_typename])
 
 	current_layer_cname = parent_layer_cname
 	if len(parent_layer_cname) > 0:
-		current_layer_cname = parent_layer_cname + '-' + str(g_layertype_instancecount[current_layer_typename]) + '-'
+		current_layer_cname = parent_layer_cname + str(g_layertype_instancecount[current_layer_typename])
 
 	#print "line(%s:%d) current_layer_typename[%s] current_layerid[%s] current_layer_cname[%s]" % \
 	#	  (__file__, sys._getframe().f_lineno, current_layer_typename, current_layerid, current_layer_cname)
@@ -292,12 +293,11 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 			compare_cname_len = len(compare_cname)
 			column_prefixname = column_name[:compare_cname_len]
 
-			#还要判断后缀
 			column_postfixname = column_name[compare_cname_len:]
-			#must_strictcompare = False
 			if len(column_name) > len(compare_cname):
 				#如果有超过部分，判断是否是分层部分，不是就要严格匹配
-				if column_name[compare_cname_len] != '-':
+				col_cn_name_list = re.split('(\d+)', column_postfixname)
+				if len(col_cn_name_list) <= 1 or col_cn_name_list[1].isdigit() == False:
 					column_prefixname = column_name
 
 			#print "------------compare_cname[%s] column_prefixname[%s]" % (compare_cname, column_prefixname)
@@ -346,6 +346,13 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 
 			#print "111: " + str(recursion_count)
 			#print col_index
+			tmp_key = current_layerid  + '-' + repeated_unit_msgrepeatedfield.DESCRIPTOR.name + '-' + input_layer_cname
+			if g_layertype_instancecount.has_key(tmp_key):
+				col_cn_name_list = re.split('(\d+)', column_name)
+				tmp_num = g_layertype_instancecount[tmp_key]
+				if len(col_cn_name_list) != 3 or tmp_num + 1 != int(col_cn_name_list[1]):
+					print "\033[1;31;40m-------------line(%s:%d) Error!---------------\033[0m" % (__file__, sys._getframe().f_lineno)
+
 			col_index = fill_record(repeated_unit_msgrepeatedfield, sheet, row_index, col_index, \
 									excel_sheet_col_count, recursion_count+1, current_layerid, input_layer_cname)
 			#print col_index
@@ -385,8 +392,8 @@ def read_excel(excel_file, excel_sheetname, proto_sheet_repeatedfieldname, sheet
 			#sheet的列数
 			excel_sheet_col_count = sheet.ncols
 
-			#print "line(%s:%d) excel sheet[%s] row_count[%d] col_count[%d] sheet_object_field_count[%d]" % \
-			#(__file__, sys._getframe().f_lineno, sheet.name, excel_sheet_row_count, excel_sheet_col_count, len(sheet_record_object.DESCRIPTOR.fields))
+			print "line(%s:%d) excel sheet[%s] row_count[%d] col_count[%d] sheet_object_field_count[%d]" % \
+			(__file__, sys._getframe().f_lineno, sheet.name, excel_sheet_row_count, excel_sheet_col_count, len(sheet_record_object.DESCRIPTOR.fields))
 
 			#通过反射获取sheet_object中repeated成员
 			# <class 'google.protobuf.internal.containers.RepeatedCompositeFieldContainer'>
@@ -492,6 +499,9 @@ if __name__ == "__main__":
 	proto_sheet_repeatedfieldname, \
 	excel_sheetnames, \
 	bin_file)
+
+	reload(sys)
+	sys.setdefaultencoding("utf-8")
 
     #读取该文件
 	pb_ds_content = read_proto_ds(proto_ds_file)

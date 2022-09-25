@@ -54,7 +54,6 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 		proto_file.write("{\n");
 		index = 0
 		for sub_en_name, sub_info in struct_info["sub_msg"].items():
-			index = index + 1
 			cn_sub_name = sub_info["cn_sub_name"]
 			col_type = sub_info["col_type"]
 			col_max_size = sub_info["col_max_size"]
@@ -66,8 +65,10 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 				proto_file.write("\toptional int64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
 			elif col_type == "uint64":
 				proto_file.write("\toptional uint64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
-			elif sheet_col_info[index]["col_type"] == "string":
+			elif col_type == "string":
 				proto_file.write("\toptional string " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\","+" (yd_fieldoptions.field_bufsize) = " + str(col_max_size) + "];\n");
+
+			index = index + 1
 		proto_file.write("}\n");
 
 	proto_file.write("\nmessage "+excel_name+sheet_name+"\n");

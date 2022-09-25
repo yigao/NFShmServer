@@ -95,33 +95,45 @@ class boxequipDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 rand = 2;
+  // optional int32 rand = 1;
   inline bool has_rand() const;
   inline void clear_rand();
-  static const int kRandFieldNumber = 2;
+  static const int kRandFieldNumber = 1;
   inline ::google::protobuf::int32 rand() const;
   inline void set_rand(::google::protobuf::int32 value);
 
-  // optional int32 minNum = 3;
+  // optional int32 minNum = 2;
   inline bool has_minnum() const;
   inline void clear_minnum();
-  static const int kMinNumFieldNumber = 3;
+  static const int kMinNumFieldNumber = 2;
   inline ::google::protobuf::int32 minnum() const;
   inline void set_minnum(::google::protobuf::int32 value);
 
-  // optional int32 isbind = 4;
+  // optional int32 isbind = 3;
   inline bool has_isbind() const;
   inline void clear_isbind();
-  static const int kIsbindFieldNumber = 4;
+  static const int kIsbindFieldNumber = 3;
   inline ::google::protobuf::int32 isbind() const;
   inline void set_isbind(::google::protobuf::int32 value);
 
-  // optional int32 maxNum = 5;
+  // optional int32 maxNum = 4;
   inline bool has_maxnum() const;
   inline void clear_maxnum();
-  static const int kMaxNumFieldNumber = 5;
+  static const int kMaxNumFieldNumber = 4;
   inline ::google::protobuf::int32 maxnum() const;
   inline void set_maxnum(::google::protobuf::int32 value);
+
+  // optional string id = 5;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 5;
+  inline const ::std::string& id() const;
+  inline void set_id(const ::std::string& value);
+  inline void set_id(const char* value);
+  inline void set_id(const char* value, size_t size);
+  inline ::std::string* mutable_id();
+  inline ::std::string* release_id();
+  inline void set_allocated_id(::std::string* id);
 
   // @@protoc_insertion_point(class_scope:proto_ff.boxequipDesc)
  private:
@@ -133,6 +145,8 @@ class boxequipDesc : public ::google::protobuf::Message {
   inline void clear_has_isbind();
   inline void set_has_maxnum();
   inline void clear_has_maxnum();
+  inline void set_has_id();
+  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -140,9 +154,10 @@ class boxequipDesc : public ::google::protobuf::Message {
   ::google::protobuf::int32 minnum_;
   ::google::protobuf::int32 isbind_;
   ::google::protobuf::int32 maxnum_;
+  ::std::string* id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_box_2eproto();
   friend void protobuf_AssignDesc_box_2eproto();
@@ -207,44 +222,89 @@ class boxitemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 maxNum = 3;
+  // optional string rand = 1;
+  inline bool has_rand() const;
+  inline void clear_rand();
+  static const int kRandFieldNumber = 1;
+  inline const ::std::string& rand() const;
+  inline void set_rand(const ::std::string& value);
+  inline void set_rand(const char* value);
+  inline void set_rand(const char* value, size_t size);
+  inline ::std::string* mutable_rand();
+  inline ::std::string* release_rand();
+  inline void set_allocated_rand(::std::string* rand);
+
+  // optional int32 maxNum = 2;
   inline bool has_maxnum() const;
   inline void clear_maxnum();
-  static const int kMaxNumFieldNumber = 3;
+  static const int kMaxNumFieldNumber = 2;
   inline ::google::protobuf::int32 maxnum() const;
   inline void set_maxnum(::google::protobuf::int32 value);
 
-  // optional int32 rarerand = 4;
+  // optional int32 rarerand = 3;
   inline bool has_rarerand() const;
   inline void clear_rarerand();
-  static const int kRarerandFieldNumber = 4;
+  static const int kRarerandFieldNumber = 3;
   inline ::google::protobuf::int32 rarerand() const;
   inline void set_rarerand(::google::protobuf::int32 value);
 
-  // optional int32 minNum = 5;
+  // optional int32 minNum = 4;
   inline bool has_minnum() const;
   inline void clear_minnum();
-  static const int kMinNumFieldNumber = 5;
+  static const int kMinNumFieldNumber = 4;
   inline ::google::protobuf::int32 minnum() const;
   inline void set_minnum(::google::protobuf::int32 value);
 
+  // optional string isbind = 5;
+  inline bool has_isbind() const;
+  inline void clear_isbind();
+  static const int kIsbindFieldNumber = 5;
+  inline const ::std::string& isbind() const;
+  inline void set_isbind(const ::std::string& value);
+  inline void set_isbind(const char* value);
+  inline void set_isbind(const char* value, size_t size);
+  inline ::std::string* mutable_isbind();
+  inline ::std::string* release_isbind();
+  inline void set_allocated_isbind(::std::string* isbind);
+
+  // optional string id = 6;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 6;
+  inline const ::std::string& id() const;
+  inline void set_id(const ::std::string& value);
+  inline void set_id(const char* value);
+  inline void set_id(const char* value, size_t size);
+  inline ::std::string* mutable_id();
+  inline ::std::string* release_id();
+  inline void set_allocated_id(::std::string* id);
+
   // @@protoc_insertion_point(class_scope:proto_ff.boxitemDesc)
  private:
+  inline void set_has_rand();
+  inline void clear_has_rand();
   inline void set_has_maxnum();
   inline void clear_has_maxnum();
   inline void set_has_rarerand();
   inline void clear_has_rarerand();
   inline void set_has_minnum();
   inline void clear_has_minnum();
+  inline void set_has_isbind();
+  inline void clear_has_isbind();
+  inline void set_has_id();
+  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::std::string* rand_;
   ::google::protobuf::int32 maxnum_;
   ::google::protobuf::int32 rarerand_;
+  ::std::string* isbind_;
+  ::std::string* id_;
   ::google::protobuf::int32 minnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_box_2eproto();
   friend void protobuf_AssignDesc_box_2eproto();
@@ -598,7 +658,7 @@ class Sheet_boxbox : public ::google::protobuf::Message {
 
 // boxequipDesc
 
-// optional int32 rand = 2;
+// optional int32 rand = 1;
 inline bool boxequipDesc::has_rand() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -620,7 +680,7 @@ inline void boxequipDesc::set_rand(::google::protobuf::int32 value) {
   rand_ = value;
 }
 
-// optional int32 minNum = 3;
+// optional int32 minNum = 2;
 inline bool boxequipDesc::has_minnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -642,7 +702,7 @@ inline void boxequipDesc::set_minnum(::google::protobuf::int32 value) {
   minnum_ = value;
 }
 
-// optional int32 isbind = 4;
+// optional int32 isbind = 3;
 inline bool boxequipDesc::has_isbind() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -664,7 +724,7 @@ inline void boxequipDesc::set_isbind(::google::protobuf::int32 value) {
   isbind_ = value;
 }
 
-// optional int32 maxNum = 5;
+// optional int32 maxNum = 4;
 inline bool boxequipDesc::has_maxnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -686,19 +746,159 @@ inline void boxequipDesc::set_maxnum(::google::protobuf::int32 value) {
   maxnum_ = value;
 }
 
+// optional string id = 5;
+inline bool boxequipDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void boxequipDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void boxequipDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void boxequipDesc::clear_id() {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    id_->clear();
+  }
+  clear_has_id();
+}
+inline const ::std::string& boxequipDesc::id() const {
+  return *id_;
+}
+inline void boxequipDesc::set_id(const ::std::string& value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void boxequipDesc::set_id(const char* value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void boxequipDesc::set_id(const char* value, size_t size) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* boxequipDesc::mutable_id() {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  return id_;
+}
+inline ::std::string* boxequipDesc::release_id() {
+  clear_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = id_;
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void boxequipDesc::set_allocated_id(::std::string* id) {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
+  if (id) {
+    set_has_id();
+    id_ = id;
+  } else {
+    clear_has_id();
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
 // -------------------------------------------------------------------
 
 // boxitemDesc
 
-// optional int32 maxNum = 3;
-inline bool boxitemDesc::has_maxnum() const {
+// optional string rand = 1;
+inline bool boxitemDesc::has_rand() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxitemDesc::set_has_maxnum() {
+inline void boxitemDesc::set_has_rand() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxitemDesc::clear_has_maxnum() {
+inline void boxitemDesc::clear_has_rand() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void boxitemDesc::clear_rand() {
+  if (rand_ != &::google::protobuf::internal::kEmptyString) {
+    rand_->clear();
+  }
+  clear_has_rand();
+}
+inline const ::std::string& boxitemDesc::rand() const {
+  return *rand_;
+}
+inline void boxitemDesc::set_rand(const ::std::string& value) {
+  set_has_rand();
+  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+    rand_ = new ::std::string;
+  }
+  rand_->assign(value);
+}
+inline void boxitemDesc::set_rand(const char* value) {
+  set_has_rand();
+  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+    rand_ = new ::std::string;
+  }
+  rand_->assign(value);
+}
+inline void boxitemDesc::set_rand(const char* value, size_t size) {
+  set_has_rand();
+  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+    rand_ = new ::std::string;
+  }
+  rand_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* boxitemDesc::mutable_rand() {
+  set_has_rand();
+  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+    rand_ = new ::std::string;
+  }
+  return rand_;
+}
+inline ::std::string* boxitemDesc::release_rand() {
+  clear_has_rand();
+  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = rand_;
+    rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void boxitemDesc::set_allocated_rand(::std::string* rand) {
+  if (rand_ != &::google::protobuf::internal::kEmptyString) {
+    delete rand_;
+  }
+  if (rand) {
+    set_has_rand();
+    rand_ = rand;
+  } else {
+    clear_has_rand();
+    rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 maxNum = 2;
+inline bool boxitemDesc::has_maxnum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void boxitemDesc::set_has_maxnum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void boxitemDesc::clear_has_maxnum() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void boxitemDesc::clear_maxnum() {
   maxnum_ = 0;
@@ -712,15 +912,15 @@ inline void boxitemDesc::set_maxnum(::google::protobuf::int32 value) {
   maxnum_ = value;
 }
 
-// optional int32 rarerand = 4;
+// optional int32 rarerand = 3;
 inline bool boxitemDesc::has_rarerand() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void boxitemDesc::set_has_rarerand() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void boxitemDesc::clear_has_rarerand() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void boxitemDesc::clear_rarerand() {
   rarerand_ = 0;
@@ -734,15 +934,15 @@ inline void boxitemDesc::set_rarerand(::google::protobuf::int32 value) {
   rarerand_ = value;
 }
 
-// optional int32 minNum = 5;
+// optional int32 minNum = 4;
 inline bool boxitemDesc::has_minnum() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void boxitemDesc::set_has_minnum() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void boxitemDesc::clear_has_minnum() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void boxitemDesc::clear_minnum() {
   minnum_ = 0;
@@ -754,6 +954,146 @@ inline ::google::protobuf::int32 boxitemDesc::minnum() const {
 inline void boxitemDesc::set_minnum(::google::protobuf::int32 value) {
   set_has_minnum();
   minnum_ = value;
+}
+
+// optional string isbind = 5;
+inline bool boxitemDesc::has_isbind() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void boxitemDesc::set_has_isbind() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void boxitemDesc::clear_has_isbind() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void boxitemDesc::clear_isbind() {
+  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
+    isbind_->clear();
+  }
+  clear_has_isbind();
+}
+inline const ::std::string& boxitemDesc::isbind() const {
+  return *isbind_;
+}
+inline void boxitemDesc::set_isbind(const ::std::string& value) {
+  set_has_isbind();
+  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+    isbind_ = new ::std::string;
+  }
+  isbind_->assign(value);
+}
+inline void boxitemDesc::set_isbind(const char* value) {
+  set_has_isbind();
+  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+    isbind_ = new ::std::string;
+  }
+  isbind_->assign(value);
+}
+inline void boxitemDesc::set_isbind(const char* value, size_t size) {
+  set_has_isbind();
+  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+    isbind_ = new ::std::string;
+  }
+  isbind_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* boxitemDesc::mutable_isbind() {
+  set_has_isbind();
+  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+    isbind_ = new ::std::string;
+  }
+  return isbind_;
+}
+inline ::std::string* boxitemDesc::release_isbind() {
+  clear_has_isbind();
+  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = isbind_;
+    isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void boxitemDesc::set_allocated_isbind(::std::string* isbind) {
+  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
+    delete isbind_;
+  }
+  if (isbind) {
+    set_has_isbind();
+    isbind_ = isbind;
+  } else {
+    clear_has_isbind();
+    isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string id = 6;
+inline bool boxitemDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void boxitemDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void boxitemDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void boxitemDesc::clear_id() {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    id_->clear();
+  }
+  clear_has_id();
+}
+inline const ::std::string& boxitemDesc::id() const {
+  return *id_;
+}
+inline void boxitemDesc::set_id(const ::std::string& value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void boxitemDesc::set_id(const char* value) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(value);
+}
+inline void boxitemDesc::set_id(const char* value, size_t size) {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* boxitemDesc::mutable_id() {
+  set_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    id_ = new ::std::string;
+  }
+  return id_;
+}
+inline ::std::string* boxitemDesc::release_id() {
+  clear_has_id();
+  if (id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = id_;
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void boxitemDesc::set_allocated_id(::std::string* id) {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
+  if (id) {
+    set_has_id();
+    id_ = id;
+  } else {
+    clear_has_id();
+    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // -------------------------------------------------------------------

@@ -43,11 +43,12 @@ void protobuf_AssignDesc_box_2eproto() {
       "box.proto");
   GOOGLE_CHECK(file != NULL);
   boxequipDesc_descriptor_ = file->message_type(0);
-  static const int boxequipDesc_offsets_[4] = {
+  static const int boxequipDesc_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, rand_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, minnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, isbind_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, maxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, id_),
   };
   boxequipDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -61,10 +62,13 @@ void protobuf_AssignDesc_box_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(boxequipDesc));
   boxitemDesc_descriptor_ = file->message_type(1);
-  static const int boxitemDesc_offsets_[3] = {
+  static const int boxitemDesc_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, rand_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, maxnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, rarerand_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, minnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, isbind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, id_),
   };
   boxitemDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -167,33 +171,36 @@ void protobuf_AddDesc_box_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tbox.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"\221\001\n\014boxequipDesc\022!\n\004rand\030\002 \001(\005B\023\302\377\024"
-    "\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\003 \001(\005B\020\302\377\024\014\346\234"
-    "\200\345\260\217\346\225\260\351\207\217\022\032\n\006isbind\030\004 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022 "
-    "\n\006maxNum\030\005 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\"x\n\013boxi"
-    "temDesc\022 \n\006maxNum\030\003 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207"
-    "\217\022%\n\010rarerand\030\004 \001(\005B\023\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224"
-    "\022 \n\006minNum\030\005 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\"\337\005\n\006b"
-    "oxbox\022\033\n\002id\030\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022#\n\tdr"
-    "op_type\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022$\n\ngoldm"
-    "inNum\030\003 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022$\n\ngoldmax"
-    "Num\030\004 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022%\n\010goldrand\030"
-    "\005 \001(\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022)\n\017bindjewelm"
-    "inNum\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022)\n\017bindjew"
-    "elmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022*\n\rbind"
-    "jewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022%\n\013"
-    "jewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022%\n\013j"
-    "ewelmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022&\n\tje"
-    "welrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022(\n\016go"
-    "djewelminNum\030\014 \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\213\351\231\220\022(\n\016"
-    "godjewelmaxNum\030\r \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\212\351\231\220\022)"
-    "\n\014godjewelrand\030\016 \001(\005B\023\302\377\024\017\347\245\236\351\222\273\346\216\211\350\220\275\347\216"
-    "\207\0221\n\req_profession\030\017 \001(\tB\032\302\377\024\022\350\243\205\345\244\207\350\201\214\344"
-    "\270\232\351\231\220\345\210\266\220\301\024 \022;\n\005equip\030\020 \003(\0132\026.proto_ff.b"
-    "oxequipDescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024\010\0229\n\004ite"
-    "m\030\021 \003(\0132\025.proto_ff.boxitemDescB\024\302\377\024\014\347\250\200\346"
-    "\234\211\347\211\251\345\223\201\210\301\0242\"<\n\014Sheet_boxbox\022,\n\013boxbox_L"
-    "ist\030\001 \003(\0132\020.proto_ff.boxboxB\005\210\301\024\214(", 1114);
+    "roto\"\251\001\n\014boxequipDesc\022!\n\004rand\030\001 \001(\005B\023\302\377\024"
+    "\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\002 \001(\005B\020\302\377\024\014\346\234"
+    "\200\345\260\217\346\225\260\351\207\217\022\032\n\006isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022 "
+    "\n\006maxNum\030\004 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\026\n\002id\030\005"
+    " \001(\tB\n\302\377\024\002id\220\301\024/\"\326\001\n\013boxitemDesc\022\035\n\004rand"
+    "\030\001 \001(\tB\017\302\377\024\006\346\235\203\351\207\215\220\301\024\257\002\022 \n\006maxNum\030\002 \001(\005B"
+    "\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022%\n\010rarerand\030\003 \001(\005B\023\302\377\024"
+    "\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\004 \001(\005B\020\302\377\024\014\346\234"
+    "\200\345\260\217\346\225\260\351\207\217\022$\n\006isbind\030\005 \001(\tB\024\302\377\024\014\346\240\207\345\256\232\346\240"
+    "\207\350\256\260\220\301\024\177\022\027\n\002id\030\006 \001(\tB\013\302\377\024\002id\220\301\024\377\005\"\337\005\n\006bo"
+    "xbox\022\033\n\002id\030\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022#\n\tdro"
+    "p_type\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022$\n\ngoldmi"
+    "nNum\030\003 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022$\n\ngoldmaxN"
+    "um\030\004 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022%\n\010goldrand\030\005"
+    " \001(\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022)\n\017bindjewelmi"
+    "nNum\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022)\n\017bindjewe"
+    "lmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022*\n\rbindj"
+    "ewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022%\n\013j"
+    "ewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022%\n\013je"
+    "welmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022&\n\tjew"
+    "elrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022(\n\016god"
+    "jewelminNum\030\014 \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\213\351\231\220\022(\n\016g"
+    "odjewelmaxNum\030\r \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\212\351\231\220\022)\n"
+    "\014godjewelrand\030\016 \001(\005B\023\302\377\024\017\347\245\236\351\222\273\346\216\211\350\220\275\347\216\207"
+    "\0221\n\req_profession\030\017 \001(\tB\032\302\377\024\022\350\243\205\345\244\207\350\201\214\344\270"
+    "\232\351\231\220\345\210\266\220\301\024 \022;\n\005equip\030\020 \003(\0132\026.proto_ff.bo"
+    "xequipDescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024\t\0229\n\004item"
+    "\030\021 \003(\0132\025.proto_ff.boxitemDescB\024\302\377\024\014\347\250\200\346\234"
+    "\211\347\211\251\345\223\201\210\301\0243\"<\n\014Sheet_boxbox\022,\n\013boxbox_Li"
+    "st\030\001 \003(\0132\020.proto_ff.boxboxB\005\210\301\024\214(", 1233);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "box.proto", &protobuf_RegisterTypes);
   boxequipDesc::default_instance_ = new boxequipDesc();
@@ -221,6 +228,7 @@ const int boxequipDesc::kRandFieldNumber;
 const int boxequipDesc::kMinNumFieldNumber;
 const int boxequipDesc::kIsbindFieldNumber;
 const int boxequipDesc::kMaxNumFieldNumber;
+const int boxequipDesc::kIdFieldNumber;
 #endif  // !_MSC_VER
 
 boxequipDesc::boxequipDesc()
@@ -243,6 +251,7 @@ void boxequipDesc::SharedCtor() {
   minnum_ = 0;
   isbind_ = 0;
   maxnum_ = 0;
+  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -251,6 +260,9 @@ boxequipDesc::~boxequipDesc() {
 }
 
 void boxequipDesc::SharedDtor() {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -282,6 +294,11 @@ void boxequipDesc::Clear() {
     minnum_ = 0;
     isbind_ = 0;
     maxnum_ = 0;
+    if (has_id()) {
+      if (id_ != &::google::protobuf::internal::kEmptyString) {
+        id_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -293,8 +310,8 @@ bool boxequipDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 rand = 2;
-      case 2: {
+      // optional int32 rand = 1;
+      case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -304,12 +321,12 @@ bool boxequipDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_minNum;
+        if (input->ExpectTag(16)) goto parse_minNum;
         break;
       }
 
-      // optional int32 minNum = 3;
-      case 3: {
+      // optional int32 minNum = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_minNum:
@@ -320,12 +337,12 @@ bool boxequipDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_isbind;
+        if (input->ExpectTag(24)) goto parse_isbind;
         break;
       }
 
-      // optional int32 isbind = 4;
-      case 4: {
+      // optional int32 isbind = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_isbind:
@@ -336,12 +353,12 @@ bool boxequipDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_maxNum;
+        if (input->ExpectTag(32)) goto parse_maxNum;
         break;
       }
 
-      // optional int32 maxNum = 5;
-      case 5: {
+      // optional int32 maxNum = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_maxNum:
@@ -349,6 +366,23 @@ bool boxequipDesc::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &maxnum_)));
           set_has_maxnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_id;
+        break;
+      }
+
+      // optional string id = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->id().data(), this->id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -374,24 +408,33 @@ bool boxequipDesc::MergePartialFromCodedStream(
 
 void boxequipDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 rand = 2;
+  // optional int32 rand = 1;
   if (has_rand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->rand(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->rand(), output);
   }
 
-  // optional int32 minNum = 3;
+  // optional int32 minNum = 2;
   if (has_minnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->minnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->minnum(), output);
   }
 
-  // optional int32 isbind = 4;
+  // optional int32 isbind = 3;
   if (has_isbind()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->isbind(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->isbind(), output);
   }
 
-  // optional int32 maxNum = 5;
+  // optional int32 maxNum = 4;
   if (has_maxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->maxnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->maxnum(), output);
+  }
+
+  // optional string id = 5;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -402,24 +445,34 @@ void boxequipDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* boxequipDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 rand = 2;
+  // optional int32 rand = 1;
   if (has_rand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->rand(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->rand(), target);
   }
 
-  // optional int32 minNum = 3;
+  // optional int32 minNum = 2;
   if (has_minnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->minnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->minnum(), target);
   }
 
-  // optional int32 isbind = 4;
+  // optional int32 isbind = 3;
   if (has_isbind()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->isbind(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->isbind(), target);
   }
 
-  // optional int32 maxNum = 5;
+  // optional int32 maxNum = 4;
   if (has_maxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->maxnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->maxnum(), target);
+  }
+
+  // optional string id = 5;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -433,32 +486,39 @@ int boxequipDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 rand = 2;
+    // optional int32 rand = 1;
     if (has_rand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->rand());
     }
 
-    // optional int32 minNum = 3;
+    // optional int32 minNum = 2;
     if (has_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->minnum());
     }
 
-    // optional int32 isbind = 4;
+    // optional int32 isbind = 3;
     if (has_isbind()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->isbind());
     }
 
-    // optional int32 maxNum = 5;
+    // optional int32 maxNum = 4;
     if (has_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->maxnum());
+    }
+
+    // optional string id = 5;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->id());
     }
 
   }
@@ -500,6 +560,9 @@ void boxequipDesc::MergeFrom(const boxequipDesc& from) {
     if (from.has_maxnum()) {
       set_maxnum(from.maxnum());
     }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -527,6 +590,7 @@ void boxequipDesc::Swap(boxequipDesc* other) {
     std::swap(minnum_, other->minnum_);
     std::swap(isbind_, other->isbind_);
     std::swap(maxnum_, other->maxnum_);
+    std::swap(id_, other->id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -545,9 +609,12 @@ void boxequipDesc::Swap(boxequipDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int boxitemDesc::kRandFieldNumber;
 const int boxitemDesc::kMaxNumFieldNumber;
 const int boxitemDesc::kRarerandFieldNumber;
 const int boxitemDesc::kMinNumFieldNumber;
+const int boxitemDesc::kIsbindFieldNumber;
+const int boxitemDesc::kIdFieldNumber;
 #endif  // !_MSC_VER
 
 boxitemDesc::boxitemDesc()
@@ -566,9 +633,12 @@ boxitemDesc::boxitemDesc(const boxitemDesc& from)
 
 void boxitemDesc::SharedCtor() {
   _cached_size_ = 0;
+  rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   maxnum_ = 0;
   rarerand_ = 0;
   minnum_ = 0;
+  isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -577,6 +647,15 @@ boxitemDesc::~boxitemDesc() {
 }
 
 void boxitemDesc::SharedDtor() {
+  if (rand_ != &::google::protobuf::internal::kEmptyString) {
+    delete rand_;
+  }
+  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
+    delete isbind_;
+  }
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -604,9 +683,24 @@ boxitemDesc* boxitemDesc::New() const {
 
 void boxitemDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_rand()) {
+      if (rand_ != &::google::protobuf::internal::kEmptyString) {
+        rand_->clear();
+      }
+    }
     maxnum_ = 0;
     rarerand_ = 0;
     minnum_ = 0;
+    if (has_isbind()) {
+      if (isbind_ != &::google::protobuf::internal::kEmptyString) {
+        isbind_->clear();
+      }
+    }
+    if (has_id()) {
+      if (id_ != &::google::protobuf::internal::kEmptyString) {
+        id_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -618,10 +712,27 @@ bool boxitemDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 maxNum = 3;
-      case 3: {
+      // optional string rand = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_rand()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->rand().data(), this->rand().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_maxNum;
+        break;
+      }
+
+      // optional int32 maxNum = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_maxNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &maxnum_)));
@@ -629,12 +740,12 @@ bool boxitemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_rarerand;
+        if (input->ExpectTag(24)) goto parse_rarerand;
         break;
       }
 
-      // optional int32 rarerand = 4;
-      case 4: {
+      // optional int32 rarerand = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_rarerand:
@@ -645,12 +756,12 @@ bool boxitemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_minNum;
+        if (input->ExpectTag(32)) goto parse_minNum;
         break;
       }
 
-      // optional int32 minNum = 5;
-      case 5: {
+      // optional int32 minNum = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_minNum:
@@ -658,6 +769,40 @@ bool boxitemDesc::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &minnum_)));
           set_has_minnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_isbind;
+        break;
+      }
+
+      // optional string isbind = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_isbind:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_isbind()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->isbind().data(), this->isbind().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_id;
+        break;
+      }
+
+      // optional string id = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->id().data(), this->id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -683,19 +828,46 @@ bool boxitemDesc::MergePartialFromCodedStream(
 
 void boxitemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 maxNum = 3;
+  // optional string rand = 1;
+  if (has_rand()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->rand().data(), this->rand().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->rand(), output);
+  }
+
+  // optional int32 maxNum = 2;
   if (has_maxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->maxnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->maxnum(), output);
   }
 
-  // optional int32 rarerand = 4;
+  // optional int32 rarerand = 3;
   if (has_rarerand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->rarerand(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->rarerand(), output);
   }
 
-  // optional int32 minNum = 5;
+  // optional int32 minNum = 4;
   if (has_minnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->minnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->minnum(), output);
+  }
+
+  // optional string isbind = 5;
+  if (has_isbind()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->isbind().data(), this->isbind().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->isbind(), output);
+  }
+
+  // optional string id = 6;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -706,19 +878,49 @@ void boxitemDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* boxitemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 maxNum = 3;
+  // optional string rand = 1;
+  if (has_rand()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->rand().data(), this->rand().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->rand(), target);
+  }
+
+  // optional int32 maxNum = 2;
   if (has_maxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->maxnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->maxnum(), target);
   }
 
-  // optional int32 rarerand = 4;
+  // optional int32 rarerand = 3;
   if (has_rarerand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->rarerand(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->rarerand(), target);
   }
 
-  // optional int32 minNum = 5;
+  // optional int32 minNum = 4;
   if (has_minnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->minnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->minnum(), target);
+  }
+
+  // optional string isbind = 5;
+  if (has_isbind()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->isbind().data(), this->isbind().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->isbind(), target);
+  }
+
+  // optional string id = 6;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -732,25 +934,46 @@ int boxitemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 maxNum = 3;
+    // optional string rand = 1;
+    if (has_rand()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->rand());
+    }
+
+    // optional int32 maxNum = 2;
     if (has_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->maxnum());
     }
 
-    // optional int32 rarerand = 4;
+    // optional int32 rarerand = 3;
     if (has_rarerand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->rarerand());
     }
 
-    // optional int32 minNum = 5;
+    // optional int32 minNum = 4;
     if (has_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->minnum());
+    }
+
+    // optional string isbind = 5;
+    if (has_isbind()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->isbind());
+    }
+
+    // optional string id = 6;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->id());
     }
 
   }
@@ -780,6 +1003,9 @@ void boxitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
 void boxitemDesc::MergeFrom(const boxitemDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_rand()) {
+      set_rand(from.rand());
+    }
     if (from.has_maxnum()) {
       set_maxnum(from.maxnum());
     }
@@ -788,6 +1014,12 @@ void boxitemDesc::MergeFrom(const boxitemDesc& from) {
     }
     if (from.has_minnum()) {
       set_minnum(from.minnum());
+    }
+    if (from.has_isbind()) {
+      set_isbind(from.isbind());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -812,9 +1044,12 @@ bool boxitemDesc::IsInitialized() const {
 
 void boxitemDesc::Swap(boxitemDesc* other) {
   if (other != this) {
+    std::swap(rand_, other->rand_);
     std::swap(maxnum_, other->maxnum_);
     std::swap(rarerand_, other->rarerand_);
     std::swap(minnum_, other->minnum_);
+    std::swap(isbind_, other->isbind_);
+    std::swap(id_, other->id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

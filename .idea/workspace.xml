@@ -40,6 +40,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="excel parse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
@@ -467,14 +472,7 @@
       <workItem from="1663289012502" duration="17739000" />
       <workItem from="1663320007549" duration="6112000" />
       <workItem from="1663338610780" duration="2740000" />
-      <workItem from="1664069237413" duration="11462000" />
-    </task>
-    <task id="LOCAL-00098" summary="chong gou">
-      <created>1663206007172</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1663206007173</updated>
+      <workItem from="1664069237413" duration="25747000" />
     </task>
     <task id="LOCAL-00099" summary="chong gou">
       <created>1663215901726</created>
@@ -812,7 +810,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664036237041</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="excel parse">
+      <created>1664080960285</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1664080960285</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -931,9 +936,14 @@
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py</url>
-          <line>241</line>
-          <option name="timeStamp" value="251" />
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
+          <line>353</line>
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
+          <line>559</line>
+          <option name="timeStamp" value="337" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

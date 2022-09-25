@@ -27,6 +27,7 @@ void boxequipDesc_s::write_to_pbmsg(::proto_ff::boxequipDesc & msg) const {
 	msg.set_minnum((int32_t)minNum);
 	msg.set_isbind((int32_t)isbind);
 	msg.set_maxnum((int32_t)maxNum);
+	msg.set_id((const char*)id.Get());
 }
 
 void boxequipDesc_s::read_from_pbmsg(const ::proto_ff::boxequipDesc & msg) {
@@ -35,6 +36,7 @@ void boxequipDesc_s::read_from_pbmsg(const ::proto_ff::boxequipDesc & msg) {
 	minNum = msg.minnum();
 	isbind = msg.isbind();
 	maxNum = msg.maxnum();
+	id.Copy(msg.id());
 }
 
 boxitemDesc_s::boxitemDesc_s() {
@@ -57,16 +59,22 @@ int boxitemDesc_s::ResumeInit() {
 }
 
 void boxitemDesc_s::write_to_pbmsg(::proto_ff::boxitemDesc & msg) const {
+	msg.set_rand((const char*)rand.Get());
 	msg.set_maxnum((int32_t)maxNum);
 	msg.set_rarerand((int32_t)rarerand);
 	msg.set_minnum((int32_t)minNum);
+	msg.set_isbind((const char*)isbind.Get());
+	msg.set_id((const char*)id.Get());
 }
 
 void boxitemDesc_s::read_from_pbmsg(const ::proto_ff::boxitemDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct boxitemDesc_s));
+	rand.Copy(msg.rand());
 	maxNum = msg.maxnum();
 	rarerand = msg.rarerand();
 	minNum = msg.minnum();
+	isbind.Copy(msg.isbind());
+	id.Copy(msg.id());
 }
 
 boxbox_s::boxbox_s() {
