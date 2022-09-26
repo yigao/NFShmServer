@@ -29,7 +29,7 @@ def write_makefile(makefile_file, file):
 	makefile_file.write("${PROTOCGEN_FILE_PATH}/" + file + ".proto " + "${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n")
 	makefile_file.write("\tmkdir -p ${PROTOCGEN_FILE_PATH}\n")
 	makefile_file.write("\t${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/\n")
-	makefile_file.write("\t${FILE_COPY_EXE} --src=\"$@\" --dst=${RESDB_META_PATH}/\n")
+	makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + file + ".proto " + "${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile"+ "\" --dst=${RESDB_META_PATH}/\n")
 	makefile_file.write("\n\n")
 
 def show_usage():

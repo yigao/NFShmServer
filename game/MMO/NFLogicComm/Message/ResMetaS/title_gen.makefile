@@ -1,0 +1,14 @@
+include ./define.makefile
+
+.PHONY:all
+
+all:${GAME_DATA_PATH}/titletype.bin ${GAME_DATA_PATH}/titletitle.bin 
+
+${GAME_DATA_PATH}/titletype.bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/title.xlsx
+	${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/title.xlsx  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \
+		--proto_sheet_msgname=Sheet_titletype  --excel_sheetname=type  --proto_msgname=titletype  --start_row=4 --out_path=${GAME_DATA_PATH}/
+
+${GAME_DATA_PATH}/titletitle.bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/title.xlsx
+	${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/title.xlsx  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \
+		--proto_sheet_msgname=Sheet_titletitle  --excel_sheetname=title  --proto_msgname=titletitle  --start_row=4 --out_path=${GAME_DATA_PATH}/
+
