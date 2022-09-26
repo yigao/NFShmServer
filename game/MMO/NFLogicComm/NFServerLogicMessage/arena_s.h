@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t arenaId;
-		NFSizeString<32> robotname;
+		NFSizeString<60> robotname;
 		int64_t aiId;
 		int32_t rankId;
 		int32_t robotProfession;
@@ -49,7 +49,7 @@ namespace proto_ff_s {
 		Sheet_arenarobot_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenarobot_s, 5104> arenarobot_List;
+		NFArray<struct arenarobot_s, 6000> arenarobot_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_arenarobot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenarobot & msg);
@@ -95,7 +95,7 @@ namespace proto_ff_s {
 		Sheet_arenarankaward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenarankaward_s, 111> arenarankaward_List;
+		NFArray<struct arenarankaward_s, 20> arenarankaward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_arenarankaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenarankaward & msg);
@@ -128,7 +128,7 @@ namespace proto_ff_s {
 		Sheet_arenaarenAward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenaarenAward_s, 1604> arenaarenAward_List;
+		NFArray<struct arenaarenAward_s, 2000> arenaarenAward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_arenaarenAward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenaarenAward & msg);
@@ -143,6 +143,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t rankDown;
 		int32_t rankUp;
+		NFArray<float, 1> RewardONE;
 
 		virtual void write_to_pbmsg(::proto_ff::arenafirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::arenafirstrank & msg);
@@ -155,7 +156,7 @@ namespace proto_ff_s {
 		Sheet_arenafirstrank_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenafirstrank_s, 111> arenafirstrank_List;
+		NFArray<struct arenafirstrank_s, 20> arenafirstrank_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_arenafirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenafirstrank & msg);
@@ -183,7 +184,7 @@ namespace proto_ff_s {
 		Sheet_arenabuychallenge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenabuychallenge_s, 109> arenabuychallenge_List;
+		NFArray<struct arenabuychallenge_s, 20> arenabuychallenge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_arenabuychallenge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenabuychallenge & msg);

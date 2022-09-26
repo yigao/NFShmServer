@@ -34,7 +34,7 @@ namespace proto_ff_s {
 		int32_t achievementType;
 		int32_t achievementSubType;
 		int64_t achievementObjectID;
-		NFSizeString<32> achievementObjectIDString;
+		NFSizeString<60> achievementObjectIDString;
 		int32_t achievementObjectValue;
 		int32_t achievementDia;
 		int32_t achievementGod;
@@ -53,7 +53,7 @@ namespace proto_ff_s {
 		Sheet_achievementachievement_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct achievementachievement_s, 429> achievementachievement_List;
+		NFArray<struct achievementachievement_s, 400> achievementachievement_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_achievementachievement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_achievementachievement & msg);
@@ -83,7 +83,7 @@ namespace proto_ff_s {
 		Sheet_achievementachievementreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct achievementachievementreward_s, 110> achievementachievementreward_List;
+		NFArray<struct achievementachievementreward_s, 20> achievementachievementreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_achievementachievementreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_achievementachievementreward & msg);

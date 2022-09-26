@@ -7,11 +7,11 @@ message constantconstant
 {
 	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 153];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 200];
 }
 
 
 message Sheet_constantconstant
 {
-	repeated constantconstant constantconstant_List = 1[(yd_fieldoptions.field_arysize)=272];
+	repeated constantconstant constantconstant_List = 1[(yd_fieldoptions.field_arysize)=200];
 }

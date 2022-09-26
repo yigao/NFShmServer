@@ -31,7 +31,7 @@ namespace proto_ff_s {
 		Sheet_areaarea_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct areaarea_s, 390> areaarea_List;
+		NFArray<struct areaarea_s, 300> areaarea_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_areaarea & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_areaarea & msg);
@@ -58,7 +58,7 @@ namespace proto_ff_s {
 		Sheet_areapath_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct areapath_s, 1864> areapath_List;
+		NFArray<struct areapath_s, 2000> areapath_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_areapath & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_areapath & msg);

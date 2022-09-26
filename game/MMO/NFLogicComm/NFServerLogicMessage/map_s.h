@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t mapId;
 		int32_t levelLimit;
-		NFSizeString<32> adviceLv;
+		NFSizeString<60> adviceLv;
 		int32_t mapType;
 		int32_t clearanceTime;
 		int32_t mapSubType;
@@ -28,12 +28,12 @@ namespace proto_ff_s {
 		int32_t reviveTime;
 		int32_t mapWide;
 		int32_t mapHeight;
-		NFSizeString<32> mapResources;
+		NFSizeString<60> mapResources;
 		int64_t reviveSkill;
 		int32_t reviveInPlaceType;
 		int32_t isHangUp;
 		int32_t itemDropType;
-		NFSizeString<32> itemDropID;
+		NFSizeString<60> itemDropID;
 		int64_t linkOffLine;
 		int32_t banOnHook;
 
@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		Sheet_mapmap_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapmap_s, 224> mapmap_List;
+		NFArray<struct mapmap_s, 200> mapmap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mapmap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapmap & msg);
@@ -82,7 +82,7 @@ namespace proto_ff_s {
 		Sheet_mapitemdrop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapitemdrop_s, 127> mapitemdrop_List;
+		NFArray<struct mapitemdrop_s, 40> mapitemdrop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mapitemdrop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapitemdrop & msg);
@@ -108,7 +108,7 @@ namespace proto_ff_s {
 		Sheet_mapdestroyitem_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapdestroyitem_s, 301> mapdestroyitem_List;
+		NFArray<struct mapdestroyitem_s, 200> mapdestroyitem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mapdestroyitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapdestroyitem & msg);

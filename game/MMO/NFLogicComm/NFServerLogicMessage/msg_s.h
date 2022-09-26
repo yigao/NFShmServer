@@ -15,8 +15,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<87> content;
-		NFSizeString<32> note;
+		NFSizeString<160> content;
+		NFSizeString<60> note;
 
 		virtual void write_to_pbmsg(::proto_ff::msgphpmsg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::msgphpmsg & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_msgphpmsg_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct msgphpmsg_s, 228> msgphpmsg_List;
+		NFArray<struct msgphpmsg_s, 200> msgphpmsg_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_msgphpmsg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_msgphpmsg & msg);

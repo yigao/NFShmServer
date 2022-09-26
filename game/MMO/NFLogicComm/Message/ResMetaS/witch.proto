@@ -23,7 +23,7 @@ message witchaward
 
 message Sheet_witchaward
 {
-	repeated witchaward witchaward_List = 1[(yd_fieldoptions.field_arysize)=116];
+	repeated witchaward witchaward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message witchsummon
@@ -41,7 +41,7 @@ message witchsummon
 
 message Sheet_witchsummon
 {
-	repeated witchsummon witchsummon_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated witchsummon witchsummon_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message witchrewardExp
@@ -53,5 +53,5 @@ message witchrewardExp
 
 message Sheet_witchrewardExp
 {
-	repeated witchrewardExp witchrewardExp_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated witchrewardExp witchrewardExp_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

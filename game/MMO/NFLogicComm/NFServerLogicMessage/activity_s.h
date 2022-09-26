@@ -15,20 +15,20 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t activeId;
-		NFSizeString<32> activeName;
+		NFSizeString<60> activeName;
 		int32_t typeId;
 		int32_t Descriptiontype;
 		int64_t typeArgs;
-		NFSizeString<71> involveMap;
+		NFSizeString<140> involveMap;
 		int32_t minlevel;
-		NFSizeString<32> openCycle;
-		NFSizeString<32> openTime;
-		NFSizeString<32> pushTime;
+		NFSizeString<60> openCycle;
+		NFSizeString<60> openTime;
+		NFSizeString<60> pushTime;
 		int32_t openingTime;
 		int32_t advanceTime;
 		int32_t intervalTime;
-		NFSizeString<32> opeDay;
-		NFSizeString<32> closeDay;
+		NFSizeString<60> opeDay;
+		NFSizeString<60> closeDay;
 		int32_t isCross;
 		int32_t serverTime;
 		int32_t serverdelayTime;
@@ -45,7 +45,7 @@ namespace proto_ff_s {
 		Sheet_activitydaily_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitydaily_s, 121> activitydaily_List;
+		NFArray<struct activitydaily_s, 20> activitydaily_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitydaily & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitydaily & msg);
@@ -71,7 +71,7 @@ namespace proto_ff_s {
 		Sheet_activityactivitynotice_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activityactivitynotice_s, 116> activityactivitynotice_List;
+		NFArray<struct activityactivitynotice_s, 20> activityactivitynotice_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activityactivitynotice & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activityactivitynotice & msg);
@@ -120,7 +120,7 @@ namespace proto_ff_s {
 		Sheet_activityscuffle_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activityscuffle_s, 122> activityscuffle_List;
+		NFArray<struct activityscuffle_s, 20> activityscuffle_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activityscuffle & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activityscuffle & msg);
@@ -165,7 +165,7 @@ namespace proto_ff_s {
 		Sheet_activitychaosDragons_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitychaosDragons_s, 117> activitychaosDragons_List;
+		NFArray<struct activitychaosDragons_s, 20> activitychaosDragons_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitychaosDragons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitychaosDragons & msg);
@@ -207,7 +207,7 @@ namespace proto_ff_s {
 		Sheet_activitycircus_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitycircus_s, 127> activitycircus_List;
+		NFArray<struct activitycircus_s, 40> activitycircus_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitycircus & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitycircus & msg);
@@ -248,7 +248,7 @@ namespace proto_ff_s {
 		Sheet_activitycircusNum_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitycircusNum_s, 204> activitycircusNum_List;
+		NFArray<struct activitycircusNum_s, 200> activitycircusNum_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitycircusNum & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitycircusNum & msg);
@@ -304,7 +304,7 @@ namespace proto_ff_s {
 		Sheet_activitycircusDan_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitycircusDan_s, 136> activitycircusDan_List;
+		NFArray<struct activitycircusDan_s, 60> activitycircusDan_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitycircusDan & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitycircusDan & msg);
@@ -338,7 +338,7 @@ namespace proto_ff_s {
 		Sheet_activitymathrule_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitymathrule_s, 128> activitymathrule_List;
+		NFArray<struct activitymathrule_s, 40> activitymathrule_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitymathrule & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitymathrule & msg);
@@ -381,7 +381,7 @@ namespace proto_ff_s {
 		Sheet_activitymathreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitymathreward_s, 116> activitymathreward_List;
+		NFArray<struct activitymathreward_s, 20> activitymathreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitymathreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitymathreward & msg);
@@ -396,7 +396,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int64_t constantdata;
-		NFSizeString<59> stringdata;
+		NFSizeString<100> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::activitygvgConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitygvgConst & msg);
@@ -409,7 +409,7 @@ namespace proto_ff_s {
 		Sheet_activitygvgConst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitygvgConst_s, 191> activitygvgConst_List;
+		NFArray<struct activitygvgConst_s, 160> activitygvgConst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitygvgConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitygvgConst & msg);
@@ -466,7 +466,7 @@ namespace proto_ff_s {
 		Sheet_activitygvgRankReward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitygvgRankReward_s, 108> activitygvgRankReward_List;
+		NFArray<struct activitygvgRankReward_s, 20> activitygvgRankReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitygvgRankReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitygvgRankReward & msg);
@@ -523,7 +523,7 @@ namespace proto_ff_s {
 		Sheet_activitygvgReward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitygvgReward_s, 202> activitygvgReward_List;
+		NFArray<struct activitygvgReward_s, 180> activitygvgReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitygvgReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitygvgReward & msg);
@@ -550,7 +550,7 @@ namespace proto_ff_s {
 		Sheet_activityworldTreasureConst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activityworldTreasureConst_s, 108> activityworldTreasureConst_List;
+		NFArray<struct activityworldTreasureConst_s, 20> activityworldTreasureConst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activityworldTreasureConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activityworldTreasureConst & msg);
@@ -564,7 +564,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t mapID;
-		NFSizeString<599> pathID;
+		NFSizeString<600> pathID;
 
 		virtual void write_to_pbmsg(::proto_ff::activityworldTreasureMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activityworldTreasureMap & msg);
@@ -577,7 +577,7 @@ namespace proto_ff_s {
 		Sheet_activityworldTreasureMap_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activityworldTreasureMap_s, 106> activityworldTreasureMap_List;
+		NFArray<struct activityworldTreasureMap_s, 20> activityworldTreasureMap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activityworldTreasureMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activityworldTreasureMap & msg);
@@ -606,7 +606,7 @@ namespace proto_ff_s {
 		Sheet_activityworldTreasureMonster_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activityworldTreasureMonster_s, 108> activityworldTreasureMonster_List;
+		NFArray<struct activityworldTreasureMonster_s, 20> activityworldTreasureMonster_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activityworldTreasureMonster & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activityworldTreasureMonster & msg);
@@ -621,7 +621,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int64_t constantdata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::activitylosttempleConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitylosttempleConstant & msg);
@@ -634,7 +634,7 @@ namespace proto_ff_s {
 		Sheet_activitylosttempleConstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct activitylosttempleConstant_s, 108> activitylosttempleConstant_List;
+		NFArray<struct activitylosttempleConstant_s, 20> activitylosttempleConstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_activitylosttempleConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_activitylosttempleConstant & msg);

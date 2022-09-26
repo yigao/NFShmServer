@@ -9,28 +9,28 @@ message vipvip
 	optional int32 level = 2[(yd_fieldoptions.field_cname) = "vip等级"];
 	optional int32 vipType = 3[(yd_fieldoptions.field_cname) = "vip类型"];
 	optional int32 exp = 4[(yd_fieldoptions.field_cname) = "经验值"];
-	optional string privilege_id = 5[(yd_fieldoptions.field_cname) = "特权id", (yd_fieldoptions.field_bufsize) = 191];
+	optional string privilege_id = 5[(yd_fieldoptions.field_cname) = "特权id", (yd_fieldoptions.field_bufsize) = 200];
 	optional int64 chat = 6[(yd_fieldoptions.field_cname) = "跑马灯"];
 }
 
 
 message Sheet_vipvip
 {
-	repeated vipvip vipvip_List = 1[(yd_fieldoptions.field_arysize)=125];
+	repeated vipvip vipvip_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message vipprivilege
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int32 type = 2[(yd_fieldoptions.field_cname) = "开放类型"];
-	optional string canshuString = 3[(yd_fieldoptions.field_cname) = "整数功能参数", (yd_fieldoptions.field_bufsize) = 32];
-	repeated int32 canshu = 4[(yd_fieldoptions.field_cname) = "功能参数"];
+	optional string canshuString = 3[(yd_fieldoptions.field_cname) = "整数功能参数", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 canshu = 4[(yd_fieldoptions.field_cname) = "功能参数", (yd_fieldoptions.field_arysize) = 1];
 }
 
 
 message Sheet_vipprivilege
 {
-	repeated vipprivilege vipprivilege_List = 1[(yd_fieldoptions.field_arysize)=469];
+	repeated vipprivilege vipprivilege_List = 1[(yd_fieldoptions.field_arysize)=400];
 }
 
 message vipgift
@@ -47,5 +47,5 @@ message vipgift
 
 message Sheet_vipgift
 {
-	repeated vipgift vipgift_List = 1[(yd_fieldoptions.field_arysize)=144];
+	repeated vipgift vipgift_List = 1[(yd_fieldoptions.field_arysize)=80];
 }

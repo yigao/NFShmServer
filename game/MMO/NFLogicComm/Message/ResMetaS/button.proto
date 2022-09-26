@@ -12,5 +12,5 @@ message buttonbutton
 
 message Sheet_buttonbutton
 {
-	repeated buttonbutton buttonbutton_List = 1[(yd_fieldoptions.field_arysize)=144];
+	repeated buttonbutton buttonbutton_List = 1[(yd_fieldoptions.field_arysize)=80];
 }

@@ -56,12 +56,12 @@ namespace proto_ff_s {
 		int64_t occupationID;
 		int32_t id;
 		int32_t grade;
-		NFSizeString<75> activeDesc;
+		NFSizeString<140> activeDesc;
 		int32_t level;
 		int64_t aptitude;
-		NFSizeString<32> taskID;
-		NFSizeString<32> equip;
-		NFSizeString<32> modelID;
+		NFSizeString<60> taskID;
+		NFSizeString<60> equip;
+		NFSizeString<60> modelID;
 		NFArray<struct occupationoccupationattributeDesc_s, 4> attribute;
 		NFArray<struct occupationoccupationdelSkillDesc_s, 3> delSkill;
 		NFArray<struct occupationoccupationskillDesc_s, 3> skill;
@@ -77,7 +77,7 @@ namespace proto_ff_s {
 		Sheet_occupationoccupation_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct occupationoccupation_s, 132> occupationoccupation_List;
+		NFArray<struct occupationoccupation_s, 40> occupationoccupation_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_occupationoccupation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_occupationoccupation & msg);
@@ -109,7 +109,7 @@ namespace proto_ff_s {
 		int64_t requirement;
 		int64_t material;
 		int32_t num;
-		NFSizeString<32> conditionId;
+		NFSizeString<60> conditionId;
 		NFArray<struct occupationaptitudeattributeDesc_s, 4> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::occupationaptitude & msg) const;
@@ -123,7 +123,7 @@ namespace proto_ff_s {
 		Sheet_occupationaptitude_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct occupationaptitude_s, 146> occupationaptitude_List;
+		NFArray<struct occupationaptitude_s, 80> occupationaptitude_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_occupationaptitude & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_occupationaptitude & msg);
@@ -152,7 +152,7 @@ namespace proto_ff_s {
 		Sheet_occupationconditionList_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct occupationconditionList_s, 159> occupationconditionList_List;
+		NFArray<struct occupationconditionList_s, 100> occupationconditionList_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_occupationconditionList & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_occupationconditionList & msg);

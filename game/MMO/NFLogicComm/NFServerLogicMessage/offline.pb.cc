@@ -179,7 +179,7 @@ void protobuf_AddDesc_offline_2eproto() {
     "\302\377\024\014\350\247\222\350\211\262\347\255\211\347\272\247\022*\n\nofflineExp\030\002 \001(\003B\026\302\377"
     "\024\022\347\246\273\347\272\277\345\237\272\347\241\200\347\273\217\351\252\214\"T\n\024Sheet_offlineoff"
     "line\022<\n\023offlineoffline_List\030\001 \003(\0132\030.prot"
-    "o_ff.offlineofflineB\005\210\301\024\304\014\"_\n\027offlineite"
+    "o_ff.offlineofflineB\005\210\301\024\320\017\"_\n\027offlineite"
     "mlistitemDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\027"
     "\n\003Vle\030\002 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022\022\n\002ID\030\003 \001(\003B\006\302\377\024"
     "\002ID\"\320\001\n\017offlineitemlist\022\026\n\002id\030\001 \001(\005B\n\302\377\024"
@@ -187,9 +187,9 @@ void protobuf_AddDesc_offline_2eproto() {
     "\220\022\036\n\004Lvup\030\003 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022\"\n\005dao"
     "ju\030\004 \001(\005B\023\302\377\024\017\351\201\223\345\205\267\347\261\273\345\236\213\345\272\223\022\?\n\004item\030\005 "
     "\003(\0132!.proto_ff.offlineitemlistitemDescB\016"
-    "\302\377\024\006\351\201\223\345\205\267\210\301\024\026\"W\n\025Sheet_offlineitemlist\022"
-    ">\n\024offlineitemlist_List\030\001 \003(\0132\031.proto_ff"
-    ".offlineitemlistB\005\210\301\024\206\001", 623);
+    "\302\377\024\006\351\201\223\345\205\267\210\301\024\026\"V\n\025Sheet_offlineitemlist\022"
+    "=\n\024offlineitemlist_List\030\001 \003(\0132\031.proto_ff"
+    ".offlineitemlistB\004\210\301\024<", 622);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "offline.proto", &protobuf_RegisterTypes);
   offlineoffline::default_instance_ = new offlineoffline();

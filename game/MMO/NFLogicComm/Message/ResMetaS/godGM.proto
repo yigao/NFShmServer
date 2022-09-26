@@ -11,8 +11,8 @@ message godGMgodGM
 	optional int32 rechargeId = 4[(yd_fieldoptions.field_cname) = "永久神权计费点"];
 	optional int64 freeBox = 5[(yd_fieldoptions.field_cname) = "免费礼包id"];
 	optional int64 rechargeBox = 6[(yd_fieldoptions.field_cname) = "永久礼包id"];
-	optional string freePrivilege = 7[(yd_fieldoptions.field_cname) = "临时神权特权", (yd_fieldoptions.field_bufsize) = 32];
-	optional string payPrivilege = 8[(yd_fieldoptions.field_cname) = "永久神权特权", (yd_fieldoptions.field_bufsize) = 35];
+	optional string freePrivilege = 7[(yd_fieldoptions.field_cname) = "临时神权特权", (yd_fieldoptions.field_bufsize) = 60];
+	optional string payPrivilege = 8[(yd_fieldoptions.field_cname) = "永久神权特权", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 costId = 9[(yd_fieldoptions.field_cname) = "兑换消耗id"];
 	optional int32 costNum = 10[(yd_fieldoptions.field_cname) = "兑换消耗数量"];
 	optional int64 getId = 11[(yd_fieldoptions.field_cname) = "兑换获得id"];
@@ -23,5 +23,5 @@ message godGMgodGM
 
 message Sheet_godGMgodGM
 {
-	repeated godGMgodGM godGMgodGM_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated godGMgodGM godGMgodGM_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

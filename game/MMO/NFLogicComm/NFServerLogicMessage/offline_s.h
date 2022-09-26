@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_offlineoffline_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct offlineoffline_s, 1604> offlineoffline_List;
+		NFArray<struct offlineoffline_s, 2000> offlineoffline_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_offlineoffline & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_offlineoffline & msg);
@@ -73,7 +73,7 @@ namespace proto_ff_s {
 		Sheet_offlineitemlist_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct offlineitemlist_s, 134> offlineitemlist_List;
+		NFArray<struct offlineitemlist_s, 60> offlineitemlist_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_offlineitemlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_offlineitemlist & msg);

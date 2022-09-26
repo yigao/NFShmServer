@@ -12,7 +12,7 @@ message escortescortshuangDesc
 message escortescort
 {
 	optional int64 convoyId = 1[(yd_fieldoptions.field_cname) = "镖车ID"];
-	optional string convoyName = 2[(yd_fieldoptions.field_cname) = "物资车名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string convoyName = 2[(yd_fieldoptions.field_cname) = "物资车名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 MonsterId = 3[(yd_fieldoptions.field_cname) = "物资车ID"];
 	optional int32 convoyLevel = 4[(yd_fieldoptions.field_cname) = "镖车等级"];
 	optional int32 chance = 5[(yd_fieldoptions.field_cname) = "默认获得权重"];
@@ -35,7 +35,7 @@ message escortescort
 
 message Sheet_escortescort
 {
-	repeated escortescort escortescort_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated escortescort escortescort_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message escortchanceescortDesc
@@ -53,7 +53,7 @@ message escortchance
 
 message Sheet_escortchance
 {
-	repeated escortchance escortchance_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated escortchance escortchance_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message escortrewardExprewardDesc
@@ -70,5 +70,5 @@ message escortrewardExp
 
 message Sheet_escortrewardExp
 {
-	repeated escortrewardExp escortrewardExp_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated escortrewardExp escortrewardExp_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

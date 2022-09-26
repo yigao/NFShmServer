@@ -13,7 +13,7 @@ message attributeattribute
 
 message Sheet_attributeattribute
 {
-	repeated attributeattribute attributeattribute_List = 1[(yd_fieldoptions.field_arysize)=239];
+	repeated attributeattribute attributeattribute_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message attributesuppress
@@ -34,7 +34,7 @@ message attributesuppress
 
 message Sheet_attributesuppress
 {
-	repeated attributesuppress attributesuppress_List = 1[(yd_fieldoptions.field_arysize)=605];
+	repeated attributesuppress attributesuppress_List = 1[(yd_fieldoptions.field_arysize)=600];
 }
 
 message attributepowersup
@@ -47,5 +47,5 @@ message attributepowersup
 
 message Sheet_attributepowersup
 {
-	repeated attributepowersup attributepowersup_List = 1[(yd_fieldoptions.field_arysize)=205];
+	repeated attributepowersup attributepowersup_List = 1[(yd_fieldoptions.field_arysize)=200];
 }

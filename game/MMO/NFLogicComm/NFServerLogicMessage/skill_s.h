@@ -16,9 +16,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t Target;
 		int32_t Point;
-		NFSizeString<32> Parameter;
-		NFSizeString<32> Rate;
-		NFSizeString<32> Time;
+		NFSizeString<60> Parameter;
+		NFSizeString<60> Rate;
+		NFSizeString<60> Time;
 		int32_t Type;
 		int64_t ID;
 
@@ -34,7 +34,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t skillID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t skillType;
 		int32_t specialSkill;
 		int32_t cdSkill;
@@ -45,33 +45,33 @@ namespace proto_ff_s {
 		int32_t type;
 		int32_t cd;
 		int32_t priority;
-		NFSizeString<32> fighting;
+		NFSizeString<60> fighting;
 		int32_t releaseType;
 		int32_t processTypes;
 		int32_t flySpeed;
 		int32_t readyTime;
 		int32_t attackTime;
-		NFSizeString<48> damageTime;
+		NFSizeString<80> damageTime;
 		int32_t displaceTime;
 		int32_t displaceSign;
-		NFSizeString<32> displaceSpeed;
-		NFSizeString<32> disTimes;
+		NFSizeString<60> displaceSpeed;
+		NFSizeString<60> disTimes;
 		int32_t attackDistance;
 		int32_t rangeType;
-		NFSizeString<32> rangeTypeValue;
+		NFSizeString<60> rangeTypeValue;
 		int32_t warn;
 		int32_t dazeTime;
 		int32_t warnTime;
-		NFSizeString<32> infomationId;
+		NFSizeString<60> infomationId;
 		int32_t summonType;
-		NFSizeString<32> summonValue;
+		NFSizeString<60> summonValue;
 		int32_t attackMinDistance;
 		int32_t goalMaxNum;
 		int32_t damageType;
-		NFSizeString<32> attackValue;
-		NFSizeString<32> attackRate;
-		NFSizeString<32> damageValue;
-		NFSizeString<53> damageRate;
+		NFSizeString<60> attackValue;
+		NFSizeString<60> attackRate;
+		NFSizeString<60> damageValue;
+		NFSizeString<100> damageRate;
 		int32_t addhitrate;
 		NFArray<struct skillskillstateBagDesc_s, 16> stateBag;
 
@@ -86,7 +86,7 @@ namespace proto_ff_s {
 		Sheet_skillskill_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillskill_s, 1129> skillskill_List;
+		NFArray<struct skillskill_s, 2000> skillskill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_skillskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillskill & msg);
@@ -100,7 +100,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t Type;
-		NFSizeString<32> Param;
+		NFSizeString<60> Param;
 
 		virtual void write_to_pbmsg(::proto_ff::skillbuffeffectDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::skillbuffeffectDesc & msg);
@@ -114,17 +114,18 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t stateBagID;
-		NFSizeString<43> stateBagName;
-		NFSizeString<32> stateBagIcon;
-		NFSizeString<32> effectResources;
+		NFSizeString<80> stateBagName;
+		NFSizeString<60> stateBagIcon;
+		NFSizeString<60> effectResources;
 		int32_t startType;
 		int32_t startProbability;
-		NFSizeString<32> startTypeValue;
-		NFSizeString<32> endType;
+		NFSizeString<60> startTypeValue;
+		NFSizeString<60> endType;
 		int32_t save;
-		NFSizeString<32> stateBagRule;
+		NFSizeString<60> stateBagRule;
 		int32_t label;
-		NFSizeString<32> stateBagCd;
+		NFSizeString<60> stateBagCd;
+		NFArray<int32_t, 32> mask;
 		NFArray<struct skillbuffeffectDesc_s, 5> effect;
 
 		virtual void write_to_pbmsg(::proto_ff::skillbuff & msg) const;
@@ -138,7 +139,7 @@ namespace proto_ff_s {
 		Sheet_skillbuff_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillbuff_s, 432> skillbuff_List;
+		NFArray<struct skillbuff_s, 400> skillbuff_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_skillbuff & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillbuff & msg);

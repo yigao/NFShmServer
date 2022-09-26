@@ -12,9 +12,9 @@ message treasuretreasureattributeDesc
 message treasuretreasure
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "宝具ID"];
-	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
-	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
-	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 69];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 120];
 	optional int32 realLevel = 5[(yd_fieldoptions.field_cname) = "等级"];
 	optional int64 materialID = 6[(yd_fieldoptions.field_cname) = "进阶材料ID"];
 	optional int32 materialEXP = 7[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
@@ -24,13 +24,13 @@ message treasuretreasure
 	optional int64 skill = 11[(yd_fieldoptions.field_cname) = "主动技能ID"];
 	optional int64 skillID = 12[(yd_fieldoptions.field_cname) = "解锁技能ID"];
 	repeated treasuretreasureattributeDesc attribute = 13[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
-	repeated int64 fragmentID = 14[(yd_fieldoptions.field_cname) = "关联碎片ID"];
+	repeated int64 fragmentID = 14[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
 message Sheet_treasuretreasure
 {
-	repeated treasuretreasure treasuretreasure_List = 1[(yd_fieldoptions.field_arysize)=584];
+	repeated treasuretreasure treasuretreasure_List = 1[(yd_fieldoptions.field_arysize)=500];
 }
 
 message treasurechangeattributeDesc
@@ -42,12 +42,12 @@ message treasurechangeattributeDesc
 message treasurechange
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "宝具ID"];
-	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
-	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
-	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 75];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 140];
 	optional int32 quality = 5[(yd_fieldoptions.field_cname) = "品质"];
 	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 151];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 200];
 	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
 	optional int32 starBer = 9[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
 	optional int64 occupation = 10[(yd_fieldoptions.field_cname) = "转职要求"];
@@ -59,7 +59,7 @@ message treasurechange
 
 message Sheet_treasurechange
 {
-	repeated treasurechange treasurechange_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated treasurechange treasurechange_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message treasurestarUpupAttributeDesc
@@ -79,7 +79,7 @@ message treasurestarUp
 
 message Sheet_treasurestarUp
 {
-	repeated treasurestarUp treasurestarUp_List = 1[(yd_fieldoptions.field_arysize)=116];
+	repeated treasurestarUp treasurestarUp_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message treasurefragmentattributeDesc
@@ -99,7 +99,7 @@ message treasurefragment
 
 message Sheet_treasurefragment
 {
-	repeated treasurefragment treasurefragment_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated treasurefragment treasurefragment_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message treasureequipattributeDesc
@@ -118,7 +118,7 @@ message treasureequip
 
 message Sheet_treasureequip
 {
-	repeated treasureequip treasureequip_List = 1[(yd_fieldoptions.field_arysize)=124];
+	repeated treasureequip treasureequip_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message treasureslot
@@ -131,7 +131,7 @@ message treasureslot
 
 message Sheet_treasureslot
 {
-	repeated treasureslot treasureslot_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated treasureslot treasureslot_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message treasurerefine
@@ -144,5 +144,5 @@ message treasurerefine
 
 message Sheet_treasurerefine
 {
-	repeated treasurerefine treasurerefine_List = 1[(yd_fieldoptions.field_arysize)=204];
+	repeated treasurerefine treasurerefine_List = 1[(yd_fieldoptions.field_arysize)=200];
 }

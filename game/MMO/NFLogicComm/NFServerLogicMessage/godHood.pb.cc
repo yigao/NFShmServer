@@ -189,10 +189,10 @@ void protobuf_AddDesc_godHood_2eproto() {
     "godHoodattributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301"
     "\024\002\"T\n\024Sheet_godHoodgodHood\022<\n\023godHoodgod"
     "Hood_List\030\001 \003(\0132\030.proto_ff.godHoodgodHoo"
-    "dB\005\210\301\024\351\001\"F\n\ngodHoodexp\022\026\n\002lv\030\001 \001(\005B\n\302\377\024\006"
+    "dB\005\210\301\024\310\001\"F\n\ngodHoodexp\022\026\n\002lv\030\001 \001(\005B\n\302\377\024\006"
     "\347\255\211\347\272\247\022 \n\003exp\030\002 \001(\005B\023\302\377\024\017\345\215\207\347\272\247\347\273\217\351\252\214\345\200\274"
     "\"H\n\020Sheet_godHoodexp\0224\n\017godHoodexp_List\030"
-    "\001 \003(\0132\024.proto_ff.godHoodexpB\005\210\301\024\342\002", 674);
+    "\001 \003(\0132\024.proto_ff.godHoodexpB\005\210\301\024\254\002", 674);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "godHood.proto", &protobuf_RegisterTypes);
   godHoodgodHoodattributeDesc::default_instance_ = new godHoodgodHoodattributeDesc();

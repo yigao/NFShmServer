@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		Sheet_teleportborn_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct teleportborn_s, 362> teleportborn_List;
+		NFArray<struct teleportborn_s, 300> teleportborn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_teleportborn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_teleportborn & msg);
@@ -45,15 +45,15 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t teleportID;
 		int32_t teleportType;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int64_t monsterId;
 		int32_t showCondition;
-		NFSizeString<41> conditionValue;
+		NFSizeString<80> conditionValue;
 		int32_t canEnter;
 		int64_t showPathID;
 		int64_t toPathID;
 		int64_t toDuplicateId;
-		NFSizeString<32> enterCost;
+		NFSizeString<60> enterCost;
 		int32_t trigRange;
 		int32_t livingTime;
 		int64_t openChatId;
@@ -70,7 +70,7 @@ namespace proto_ff_s {
 		Sheet_teleportteleport_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct teleportteleport_s, 126> teleportteleport_List;
+		NFArray<struct teleportteleport_s, 40> teleportteleport_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_teleportteleport & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_teleportteleport & msg);

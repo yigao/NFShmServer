@@ -116,7 +116,7 @@ void protobuf_AddDesc_serverHorn_2eproto() {
     "\026\302\377\024\022\346\233\277\344\273\243\350\264\247\345\270\201\344\273\267\346\240\274\"e\n\032Sheet_serverH"
     "ornserverHorn\022G\n\031serverHornserverHorn_Li"
     "st\030\001 \003(\0132\036.proto_ff.serverHornserverHorn"
-    "B\004\210\301\024k", 406);
+    "B\004\210\301\024\024", 406);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "serverHorn.proto", &protobuf_RegisterTypes);
   serverHornserverHorn::default_instance_ = new serverHornserverHorn();

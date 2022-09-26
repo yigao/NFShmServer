@@ -41,7 +41,7 @@ namespace proto_ff_s {
 		Sheet_dynamicexpdynamicexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dynamicexpdynamicexp_s, 1604> dynamicexpdynamicexp_List;
+		NFArray<struct dynamicexpdynamicexp_s, 2000> dynamicexpdynamicexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_dynamicexpdynamicexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dynamicexpdynamicexp & msg);

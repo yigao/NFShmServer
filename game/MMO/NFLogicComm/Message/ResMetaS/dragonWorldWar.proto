@@ -7,13 +7,13 @@ message dragonWorldWarconstants
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
 	optional int32 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 117];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 200];
 }
 
 
 message Sheet_dragonWorldWarconstants
 {
-	repeated dragonWorldWarconstants dragonWorldWarconstants_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated dragonWorldWarconstants dragonWorldWarconstants_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message dragonWorldWargoldskill
@@ -27,7 +27,7 @@ message dragonWorldWargoldskill
 
 message Sheet_dragonWorldWargoldskill
 {
-	repeated dragonWorldWargoldskill dragonWorldWargoldskill_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated dragonWorldWargoldskill dragonWorldWargoldskill_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message dragonWorldWargoldShop
@@ -42,5 +42,5 @@ message dragonWorldWargoldShop
 
 message Sheet_dragonWorldWargoldShop
 {
-	repeated dragonWorldWargoldShop dragonWorldWargoldShop_List = 1[(yd_fieldoptions.field_arysize)=139];
+	repeated dragonWorldWargoldShop dragonWorldWargoldShop_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

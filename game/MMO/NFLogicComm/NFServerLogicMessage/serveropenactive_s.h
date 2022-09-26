@@ -18,7 +18,7 @@ namespace proto_ff_s {
 		int32_t servertype;
 		int32_t timeA;
 		int32_t timeB;
-		NFSizeString<279> pageId;
+		NFSizeString<300> pageId;
 
 		virtual void write_to_pbmsg(::proto_ff::serveropenactiveserviceActivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::serveropenactiveserviceActivity & msg);
@@ -31,7 +31,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactiveserviceActivity_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactiveserviceActivity_s, 105> serveropenactiveserviceActivity_List;
+		NFArray<struct serveropenactiveserviceActivity_s, 20> serveropenactiveserviceActivity_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactiveserviceActivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactiveserviceActivity & msg);
@@ -57,7 +57,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivepageBook_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivepageBook_s, 118> serveropenactivepageBook_List;
+		NFArray<struct serveropenactivepageBook_s, 20> serveropenactivepageBook_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivepageBook & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivepageBook & msg);
@@ -73,10 +73,10 @@ namespace proto_ff_s {
 		int64_t Id;
 		int32_t mType;
 		int32_t mCanshu;
-		NFSizeString<32> start;
-		NFSizeString<32> finish;
-		NFSizeString<106> miaoshu;
-		NFSizeString<41> tiaojianId;
+		NFSizeString<60> start;
+		NFSizeString<60> finish;
+		NFSizeString<200> miaoshu;
+		NFSizeString<80> tiaojianId;
 		int64_t mailid;
 		int64_t youjianid;
 		int64_t nonstandardmailid;
@@ -92,7 +92,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivepage_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivepage_s, 182> serveropenactivepage_List;
+		NFArray<struct serveropenactivepage_s, 140> serveropenactivepage_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivepage & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivepage & msg);
@@ -107,8 +107,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t randtype;
-		NFSizeString<57> miaoshu;
+		NFSizeString<100> miaoshu;
 		int64_t boxid;
+		NFArray<int64_t, 2> canshu;
 
 		virtual void write_to_pbmsg(::proto_ff::serveropenactivemRank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::serveropenactivemRank & msg);
@@ -121,7 +122,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivemRank_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivemRank_s, 223> serveropenactivemRank_List;
+		NFArray<struct serveropenactivemRank_s, 200> serveropenactivemRank_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivemRank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivemRank & msg);
@@ -138,7 +139,7 @@ namespace proto_ff_s {
 		int32_t advancedType;
 		int64_t num;
 		int64_t parameter;
-		NFSizeString<37> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::serveropenactivemAdvanced & msg) const;
@@ -152,7 +153,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivemAdvanced_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivemAdvanced_s, 185> serveropenactivemAdvanced_List;
+		NFArray<struct serveropenactivemAdvanced_s, 160> serveropenactivemAdvanced_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivemAdvanced & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivemAdvanced & msg);
@@ -168,7 +169,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t numType;
 		int32_t num;
-		NFSizeString<39> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::serveropenactivemRecharge & msg) const;
@@ -182,7 +183,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivemRecharge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivemRecharge_s, 230> serveropenactivemRecharge_List;
+		NFArray<struct serveropenactivemRecharge_s, 200> serveropenactivemRecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivemRecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivemRecharge & msg);
@@ -213,7 +214,7 @@ namespace proto_ff_s {
 		Sheet_serveropenactivemGoods_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serveropenactivemGoods_s, 188> serveropenactivemGoods_List;
+		NFArray<struct serveropenactivemGoods_s, 160> serveropenactivemGoods_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serveropenactivemGoods & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serveropenactivemGoods & msg);

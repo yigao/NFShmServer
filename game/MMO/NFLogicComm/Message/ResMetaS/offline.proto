@@ -12,7 +12,7 @@ message offlineoffline
 
 message Sheet_offlineoffline
 {
-	repeated offlineoffline offlineoffline_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated offlineoffline offlineoffline_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message offlineitemlistitemDesc
@@ -34,5 +34,5 @@ message offlineitemlist
 
 message Sheet_offlineitemlist
 {
-	repeated offlineitemlist offlineitemlist_List = 1[(yd_fieldoptions.field_arysize)=134];
+	repeated offlineitemlist offlineitemlist_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

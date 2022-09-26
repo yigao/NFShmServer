@@ -29,10 +29,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<73> activeDesc;
-		NFSizeString<35> partnerSkill;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<140> activeDesc;
+		NFSizeString<60> partnerSkill;
 		int32_t realLevel;
 		int64_t materialID;
 		int32_t materialEXP;
@@ -42,6 +42,7 @@ namespace proto_ff_s {
 		int64_t skillID;
 		int64_t aiId;
 		NFArray<struct partnerpartnerattributeDesc_s, 4> attribute;
+		NFArray<int64_t, 3> fragmentID;
 
 		virtual void write_to_pbmsg(::proto_ff::partnerpartner & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::partnerpartner & msg);
@@ -54,7 +55,7 @@ namespace proto_ff_s {
 		Sheet_partnerpartner_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerpartner_s, 584> partnerpartner_List;
+		NFArray<struct partnerpartner_s, 500> partnerpartner_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerpartner & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerpartner & msg);
@@ -82,14 +83,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<69> activeDesc;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<120> activeDesc;
 		int32_t quality;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
-		NFSizeString<47> partnerSkill;
+		NFSizeString<80> partnerSkill;
 		int32_t starBer;
 		int64_t occupation;
 		int64_t aiId;
@@ -107,7 +108,7 @@ namespace proto_ff_s {
 		Sheet_partnerchange_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerchange_s, 133> partnerchange_List;
+		NFArray<struct partnerchange_s, 40> partnerchange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerchange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerchange & msg);
@@ -150,7 +151,7 @@ namespace proto_ff_s {
 		Sheet_partnerstarUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerstarUp_s, 128> partnerstarUp_List;
+		NFArray<struct partnerstarUp_s, 40> partnerstarUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerstarUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerstarUp & msg);
@@ -193,7 +194,7 @@ namespace proto_ff_s {
 		Sheet_partnerfragment_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerfragment_s, 107> partnerfragment_List;
+		NFArray<struct partnerfragment_s, 20> partnerfragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerfragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerfragment & msg);
@@ -235,7 +236,7 @@ namespace proto_ff_s {
 		Sheet_partnerattribute_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerattribute_s, 1604> partnerattribute_List;
+		NFArray<struct partnerattribute_s, 2000> partnerattribute_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerattribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerattribute & msg);
@@ -264,7 +265,7 @@ namespace proto_ff_s {
 		Sheet_partnerexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerexp_s, 209> partnerexp_List;
+		NFArray<struct partnerexp_s, 200> partnerexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerexp & msg);
@@ -308,7 +309,7 @@ namespace proto_ff_s {
 		Sheet_partnerequip_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerequip_s, 124> partnerequip_List;
+		NFArray<struct partnerequip_s, 40> partnerequip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerequip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerequip & msg);
@@ -336,7 +337,7 @@ namespace proto_ff_s {
 		Sheet_partnerrefine_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerrefine_s, 204> partnerrefine_List;
+		NFArray<struct partnerrefine_s, 200> partnerrefine_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerrefine & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerrefine & msg);
@@ -364,7 +365,7 @@ namespace proto_ff_s {
 		Sheet_partnerslot_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct partnerslot_s, 108> partnerslot_List;
+		NFArray<struct partnerslot_s, 20> partnerslot_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_partnerslot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_partnerslot & msg);

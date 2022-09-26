@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		Sheet_godHoodgodHood_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct godHoodgodHood_s, 233> godHoodgodHood_List;
+		NFArray<struct godHoodgodHood_s, 200> godHoodgodHood_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_godHoodgodHood & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_godHoodgodHood & msg);
@@ -75,7 +75,7 @@ namespace proto_ff_s {
 		Sheet_godHoodexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct godHoodexp_s, 354> godHoodexp_List;
+		NFArray<struct godHoodexp_s, 300> godHoodexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_godHoodexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_godHoodexp & msg);

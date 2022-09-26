@@ -44,7 +44,7 @@ namespace proto_ff_s {
 		Sheet_intimacyintimacy_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct intimacyintimacy_s, 115> intimacyintimacy_List;
+		NFArray<struct intimacyintimacy_s, 20> intimacyintimacy_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_intimacyintimacy & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_intimacyintimacy & msg);
@@ -73,7 +73,7 @@ namespace proto_ff_s {
 		Sheet_intimacygift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct intimacygift_s, 105> intimacygift_List;
+		NFArray<struct intimacygift_s, 20> intimacygift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_intimacygift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_intimacygift & msg);

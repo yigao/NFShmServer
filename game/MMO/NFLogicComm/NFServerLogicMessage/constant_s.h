@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t constantid;
 		int64_t constantdata;
-		NFSizeString<153> stringdata;
+		NFSizeString<200> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::constantconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::constantconstant & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_constantconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct constantconstant_s, 272> constantconstant_List;
+		NFArray<struct constantconstant_s, 200> constantconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_constantconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_constantconstant & msg);

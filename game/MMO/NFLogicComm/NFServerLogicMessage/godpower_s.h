@@ -31,7 +31,7 @@ namespace proto_ff_s {
 		Sheet_godpowergodpower_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct godpowergodpower_s, 113> godpowergodpower_List;
+		NFArray<struct godpowergodpower_s, 20> godpowergodpower_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_godpowergodpower & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_godpowergodpower & msg);
@@ -79,7 +79,7 @@ namespace proto_ff_s {
 		Sheet_godpowerskillupdate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct godpowerskillupdate_s, 356> godpowerskillupdate_List;
+		NFArray<struct godpowerskillupdate_s, 300> godpowerskillupdate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_godpowerskillupdate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_godpowerskillupdate & msg);

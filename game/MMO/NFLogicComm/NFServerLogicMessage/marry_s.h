@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int64_t constantdata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::marryconst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::marryconst & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_marryconst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marryconst_s, 119> marryconst_List;
+		NFArray<struct marryconst_s, 20> marryconst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marryconst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marryconst & msg);
@@ -85,7 +85,7 @@ namespace proto_ff_s {
 		Sheet_marrybanquet_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marrybanquet_s, 107> marrybanquet_List;
+		NFArray<struct marrybanquet_s, 20> marrybanquet_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marrybanquet & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marrybanquet & msg);
@@ -101,12 +101,12 @@ namespace proto_ff_s {
 		int32_t id;
 		int64_t title;
 		int64_t item;
-		NFSizeString<32> nickName;
+		NFSizeString<60> nickName;
 		int64_t initiate;
 		int32_t usetype;
 		int32_t useprice;
 		int32_t AAPrice;
-		NFSizeString<32> preset;
+		NFSizeString<60> preset;
 		int64_t weddingEffect;
 
 		virtual void write_to_pbmsg(::proto_ff::marrygear & msg) const;
@@ -120,7 +120,7 @@ namespace proto_ff_s {
 		Sheet_marrygear_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marrygear_s, 107> marrygear_List;
+		NFArray<struct marrygear_s, 20> marrygear_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marrygear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marrygear & msg);
@@ -134,9 +134,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> startTime;
-		NFSizeString<32> endTime;
-		NFSizeString<32> limit;
+		NFSizeString<60> startTime;
+		NFSizeString<60> endTime;
+		NFSizeString<60> limit;
 
 		virtual void write_to_pbmsg(::proto_ff::marrytimes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::marrytimes & msg);
@@ -149,7 +149,7 @@ namespace proto_ff_s {
 		Sheet_marrytimes_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marrytimes_s, 110> marrytimes_List;
+		NFArray<struct marrytimes_s, 20> marrytimes_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marrytimes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marrytimes & msg);
@@ -181,7 +181,7 @@ namespace proto_ff_s {
 		Sheet_marrywarm_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marrywarm_s, 108> marrywarm_List;
+		NFArray<struct marrywarm_s, 20> marrywarm_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marrywarm & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marrywarm & msg);
@@ -222,7 +222,7 @@ namespace proto_ff_s {
 		Sheet_marrylevelexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct marrylevelexp_s, 1604> marrylevelexp_List;
+		NFArray<struct marrylevelexp_s, 2000> marrylevelexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_marrylevelexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_marrylevelexp & msg);

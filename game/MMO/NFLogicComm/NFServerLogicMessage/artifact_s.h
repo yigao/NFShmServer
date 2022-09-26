@@ -29,18 +29,18 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> previewRes;
+		NFSizeString<60> resource;
+		NFSizeString<60> previewRes;
 		int32_t professionID;
-		NFSizeString<32> name;
-		NFSizeString<72> activeDesc;
+		NFSizeString<60> name;
+		NFSizeString<140> activeDesc;
 		int32_t quality;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		int64_t skill;
-		NFSizeString<79> skillUi;
+		NFSizeString<140> skillUi;
 		int32_t artifactType;
 		NFArray<struct artifactartifactattributeDesc_s, 5> attribute;
 
@@ -55,7 +55,7 @@ namespace proto_ff_s {
 		Sheet_artifactartifact_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct artifactartifact_s, 128> artifactartifact_List;
+		NFArray<struct artifactartifact_s, 40> artifactartifact_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_artifactartifact & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_artifactartifact & msg);

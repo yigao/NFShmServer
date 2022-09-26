@@ -6,71 +6,71 @@ import "yd_fieldoptions.proto";
 message randomnamemanfirst
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamemanfirst
 {
-	repeated randomnamemanfirst randomnamemanfirst_List = 1[(yd_fieldoptions.field_arysize)=160];
+	repeated randomnamemanfirst randomnamemanfirst_List = 1[(yd_fieldoptions.field_arysize)=100];
 }
 
 message randomnamemansecond
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamemansecond
 {
-	repeated randomnamemansecond randomnamemansecond_List = 1[(yd_fieldoptions.field_arysize)=143];
+	repeated randomnamemansecond randomnamemansecond_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message randomnamemanthird
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamemanthird
 {
-	repeated randomnamemanthird randomnamemanthird_List = 1[(yd_fieldoptions.field_arysize)=511];
+	repeated randomnamemanthird randomnamemanthird_List = 1[(yd_fieldoptions.field_arysize)=500];
 }
 
 message randomnamewomanfirst
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamewomanfirst
 {
-	repeated randomnamewomanfirst randomnamewomanfirst_List = 1[(yd_fieldoptions.field_arysize)=344];
+	repeated randomnamewomanfirst randomnamewomanfirst_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message randomnamewomansecond
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamewomansecond
 {
-	repeated randomnamewomansecond randomnamewomansecond_List = 1[(yd_fieldoptions.field_arysize)=132];
+	repeated randomnamewomansecond randomnamewomansecond_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message randomnamewomanthird
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_randomnamewomanthird
 {
-	repeated randomnamewomanthird randomnamewomanthird_List = 1[(yd_fieldoptions.field_arysize)=489];
+	repeated randomnamewomanthird randomnamewomanthird_List = 1[(yd_fieldoptions.field_arysize)=400];
 }

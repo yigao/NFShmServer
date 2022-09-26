@@ -11,7 +11,7 @@ message titletype
 
 message Sheet_titletype
 {
-	repeated titletype titletype_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated titletype titletype_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message titletitleattributeDesc
@@ -23,11 +23,11 @@ message titletitleattributeDesc
 message titletitle
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "称号ID"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "称号名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "称号名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 type = 3[(yd_fieldoptions.field_cname) = "称号类型"];
 	optional int32 subType = 4[(yd_fieldoptions.field_cname) = "获取条件类型"];
-	optional string eventValue = 5[(yd_fieldoptions.field_cname) = "获取条件值", (yd_fieldoptions.field_bufsize) = 32];
-	optional string describe = 6[(yd_fieldoptions.field_cname) = "获取条件描述", (yd_fieldoptions.field_bufsize) = 61];
+	optional string eventValue = 5[(yd_fieldoptions.field_cname) = "获取条件值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string describe = 6[(yd_fieldoptions.field_cname) = "获取条件描述", (yd_fieldoptions.field_bufsize) = 120];
 	optional int32 addTime = 7[(yd_fieldoptions.field_cname) = "自动延期"];
 	optional int32 lifeTime = 8[(yd_fieldoptions.field_cname) = "生效时间"];
 	repeated titletitleattributeDesc attribute = 9[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
@@ -36,5 +36,5 @@ message titletitle
 
 message Sheet_titletitle
 {
-	repeated titletitle titletitle_List = 1[(yd_fieldoptions.field_arysize)=169];
+	repeated titletitle titletitle_List = 1[(yd_fieldoptions.field_arysize)=120];
 }

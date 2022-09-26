@@ -14,7 +14,7 @@ namespace proto_ff_s {
 		worldmapbossworldbossbornDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<32> Time;
+		NFSizeString<60> Time;
 
 		virtual void write_to_pbmsg(::proto_ff::worldmapbossworldbossbornDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::worldmapbossworldbossbornDesc & msg);
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		int32_t miniLevel;
 		int32_t unLockLevel;
 		int32_t levelCheck;
-		NFSizeString<32> pathId;
+		NFSizeString<60> pathId;
 		int32_t specNoticeHP;
 		int32_t bornSpaceTime;
 		NFArray<struct worldmapbossworldbossbornDesc_s, 6> born;
@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		Sheet_worldmapbossworldboss_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct worldmapbossworldboss_s, 390> worldmapbossworldboss_List;
+		NFArray<struct worldmapbossworldboss_s, 300> worldmapbossworldboss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_worldmapbossworldboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_worldmapbossworldboss & msg);
@@ -77,7 +77,7 @@ namespace proto_ff_s {
 		Sheet_worldmapbossdroplist_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct worldmapbossdroplist_s, 4007> worldmapbossdroplist_List;
+		NFArray<struct worldmapbossdroplist_s, 4000> worldmapbossdroplist_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_worldmapbossdroplist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_worldmapbossdroplist & msg);
@@ -105,7 +105,7 @@ namespace proto_ff_s {
 		Sheet_worldmapbossfestival_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct worldmapbossfestival_s, 390> worldmapbossfestival_List;
+		NFArray<struct worldmapbossfestival_s, 300> worldmapbossfestival_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_worldmapbossfestival & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_worldmapbossfestival & msg);

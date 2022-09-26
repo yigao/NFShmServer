@@ -57,10 +57,13 @@ void fieldfield_s::write_to_pbmsg(::proto_ff::fieldfield & msg) const {
 		::proto_ff::fieldfieldfieldDesc* temp_field = msg.add_field();
 		field[i].write_to_pbmsg(*temp_field);
 	}
+	for(int32_t i = 0; i < (int32_t)skill.GetSize() && i < skill.GetMaxSize(); ++i) {
 		msg.add_skill((int64_t)skill[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)num.GetSize() && i < num.GetMaxSize(); ++i) {
 		msg.add_num((int32_t)num[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)pos.GetSize() && i < pos.GetMaxSize(); ++i) {
 		msg.add_pos((int32_t)pos[i]);
 	}
 }
@@ -75,10 +78,16 @@ void fieldfield_s::read_from_pbmsg(const ::proto_ff::fieldfield & msg) {
 		const ::proto_ff::fieldfieldfieldDesc & temp_field = msg.field(i);
 		field[i].read_from_pbmsg(temp_field);
 	}
+	skill.SetSize(msg.skill_size() > skill.GetMaxSize() ? skill.GetMaxSize() : msg.skill_size());
+	for(int32_t i = 0; i < (int32_t)skill.GetSize(); ++i) {
 		skill[i] = msg.skill(i);
 	}
+	num.SetSize(msg.num_size() > num.GetMaxSize() ? num.GetMaxSize() : msg.num_size());
+	for(int32_t i = 0; i < (int32_t)num.GetSize(); ++i) {
 		num[i] = msg.num(i);
 	}
+	pos.SetSize(msg.pos_size() > pos.GetMaxSize() ? pos.GetMaxSize() : msg.pos_size());
+	for(int32_t i = 0; i < (int32_t)pos.GetSize(); ++i) {
 		pos[i] = msg.pos(i);
 	}
 }
@@ -322,6 +331,7 @@ int fieldvalue_s::ResumeInit() {
 
 void fieldvalue_s::write_to_pbmsg(::proto_ff::fieldvalue & msg) const {
 	msg.set_id((int64_t)id);
+	for(int32_t i = 0; i < (int32_t)lvValue.GetSize() && i < lvValue.GetMaxSize(); ++i) {
 		msg.add_lvvalue((int32_t)lvValue[i]);
 	}
 }
@@ -329,6 +339,8 @@ void fieldvalue_s::write_to_pbmsg(::proto_ff::fieldvalue & msg) const {
 void fieldvalue_s::read_from_pbmsg(const ::proto_ff::fieldvalue & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct fieldvalue_s));
 	id = msg.id();
+	lvValue.SetSize(msg.lvvalue_size() > lvValue.GetMaxSize() ? lvValue.GetMaxSize() : msg.lvvalue_size());
+	for(int32_t i = 0; i < (int32_t)lvValue.GetSize(); ++i) {
 		lvValue[i] = msg.lvvalue(i);
 	}
 }

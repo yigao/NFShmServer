@@ -16,5 +16,5 @@ message serverHornserverHorn
 
 message Sheet_serverHornserverHorn
 {
-	repeated serverHornserverHorn serverHornserverHorn_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated serverHornserverHorn serverHornserverHorn_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

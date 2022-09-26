@@ -16,5 +16,5 @@ message functionunlockfunctionUnlock
 
 message Sheet_functionunlockfunctionUnlock
 {
-	repeated functionunlockfunctionUnlock functionunlockfunctionUnlock_List = 1[(yd_fieldoptions.field_arysize)=357];
+	repeated functionunlockfunctionUnlock functionunlockfunctionUnlock_List = 1[(yd_fieldoptions.field_arysize)=300];
 }

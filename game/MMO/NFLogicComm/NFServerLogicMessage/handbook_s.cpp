@@ -171,6 +171,7 @@ void handbookfate_s::write_to_pbmsg(::proto_ff::handbookfate & msg) const {
 	msg.set_fateid((int64_t)fateID);
 	msg.set_fatename((const char*)fateName.Get());
 	msg.set_starlv((int32_t)starLv);
+	for(int32_t i = 0; i < (int32_t)fateHand.GetSize() && i < fateHand.GetMaxSize(); ++i) {
 		msg.add_fatehand((int64_t)fateHand[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
@@ -184,6 +185,8 @@ void handbookfate_s::read_from_pbmsg(const ::proto_ff::handbookfate & msg) {
 	fateID = msg.fateid();
 	fateName.Copy(msg.fatename());
 	starLv = msg.starlv();
+	fateHand.SetSize(msg.fatehand_size() > fateHand.GetMaxSize() ? fateHand.GetMaxSize() : msg.fatehand_size());
+	for(int32_t i = 0; i < (int32_t)fateHand.GetSize(); ++i) {
 		fateHand[i] = msg.fatehand(i);
 	}
 	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
@@ -244,6 +247,7 @@ int handbookattr_s::ResumeInit() {
 
 void handbookattr_s::write_to_pbmsg(::proto_ff::handbookattr & msg) const {
 	msg.set_attid((int64_t)attID);
+	for(int32_t i = 0; i < (int32_t)att.GetSize() && i < att.GetMaxSize(); ++i) {
 		msg.add_att((int32_t)att[i]);
 	}
 }
@@ -251,6 +255,8 @@ void handbookattr_s::write_to_pbmsg(::proto_ff::handbookattr & msg) const {
 void handbookattr_s::read_from_pbmsg(const ::proto_ff::handbookattr & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct handbookattr_s));
 	attID = msg.attid();
+	att.SetSize(msg.att_size() > att.GetMaxSize() ? att.GetMaxSize() : msg.att_size());
+	for(int32_t i = 0; i < (int32_t)att.GetSize(); ++i) {
 		att[i] = msg.att(i);
 	}
 }

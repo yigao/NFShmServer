@@ -49,7 +49,7 @@ namespace proto_ff_s {
 		Sheet_flashflash_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct flashflash_s, 645> flashflash_List;
+		NFArray<struct flashflash_s, 600> flashflash_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_flashflash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_flashflash & msg);
@@ -77,7 +77,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<155> useMap;
+		NFSizeString<200> useMap;
 		int32_t live;
 		int32_t levelwave;
 		int32_t flashNum;
@@ -94,7 +94,7 @@ namespace proto_ff_s {
 		Sheet_flashitemFlash_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct flashitemFlash_s, 157> flashitemFlash_List;
+		NFArray<struct flashitemFlash_s, 100> flashitemFlash_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_flashitemFlash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_flashitemFlash & msg);

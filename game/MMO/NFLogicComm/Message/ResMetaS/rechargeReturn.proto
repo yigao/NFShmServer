@@ -16,21 +16,21 @@ message rechargeReturnrechargeReturn
 
 message Sheet_rechargeReturnrechargeReturn
 {
-	repeated rechargeReturnrechargeReturn rechargeReturnrechargeReturn_List = 1[(yd_fieldoptions.field_arysize)=112];
+	repeated rechargeReturnrechargeReturn rechargeReturnrechargeReturn_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message rechargeReturntime
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 timeType = 2[(yd_fieldoptions.field_cname) = "时间类型"];
-	optional string timeA = 3[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string timeB = 4[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeA = 3[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string timeB = 4[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_rechargeReturntime
 {
-	repeated rechargeReturntime rechargeReturntime_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated rechargeReturntime rechargeReturntime_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message rechargeReturncontinuousReturn
@@ -42,18 +42,18 @@ message rechargeReturncontinuousReturn
 
 message Sheet_rechargeReturncontinuousReturn
 {
-	repeated rechargeReturncontinuousReturn rechargeReturncontinuousReturn_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated rechargeReturncontinuousReturn rechargeReturncontinuousReturn_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message rechargeReturnrechargeTrigger
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 timeType = 2[(yd_fieldoptions.field_cname) = "时间类型"];
-	optional string timeA = 3[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string timeB = 4[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeA = 3[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string timeB = 4[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 reset = 5[(yd_fieldoptions.field_cname) = "是否每日重置"];
 	optional int32 triggerType = 6[(yd_fieldoptions.field_cname) = "触发类型"];
-	optional string TriggerValue = 7[(yd_fieldoptions.field_cname) = "触发值", (yd_fieldoptions.field_bufsize) = 90];
+	optional string TriggerValue = 7[(yd_fieldoptions.field_cname) = "触发值", (yd_fieldoptions.field_bufsize) = 180];
 	optional int64 boxId = 8[(yd_fieldoptions.field_cname) = "发送奖励"];
 	optional int64 mailId = 9[(yd_fieldoptions.field_cname) = "邮件id"];
 }
@@ -61,18 +61,18 @@ message rechargeReturnrechargeTrigger
 
 message Sheet_rechargeReturnrechargeTrigger
 {
-	repeated rechargeReturnrechargeTrigger rechargeReturnrechargeTrigger_List = 1[(yd_fieldoptions.field_arysize)=141];
+	repeated rechargeReturnrechargeTrigger rechargeReturnrechargeTrigger_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message rechargeReturnconstant
 {
 	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_rechargeReturnconstant
 {
-	repeated rechargeReturnconstant rechargeReturnconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated rechargeReturnconstant rechargeReturnconstant_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

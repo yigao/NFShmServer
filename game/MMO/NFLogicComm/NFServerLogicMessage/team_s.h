@@ -36,7 +36,7 @@ namespace proto_ff_s {
 		Sheet_teamteam_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct teamteam_s, 128> teamteam_List;
+		NFArray<struct teamteam_s, 40> teamteam_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_teamteam & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_teamteam & msg);

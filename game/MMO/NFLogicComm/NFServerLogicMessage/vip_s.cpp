@@ -96,6 +96,7 @@ void vipprivilege_s::write_to_pbmsg(::proto_ff::vipprivilege & msg) const {
 	msg.set_id((int64_t)id);
 	msg.set_type((int32_t)type);
 	msg.set_canshustring((const char*)canshuString.Get());
+	for(int32_t i = 0; i < (int32_t)canshu.GetSize() && i < canshu.GetMaxSize(); ++i) {
 		msg.add_canshu((int32_t)canshu[i]);
 	}
 }
@@ -105,6 +106,8 @@ void vipprivilege_s::read_from_pbmsg(const ::proto_ff::vipprivilege & msg) {
 	id = msg.id();
 	type = msg.type();
 	canshuString.Copy(msg.canshustring());
+	canshu.SetSize(msg.canshu_size() > canshu.GetMaxSize() ? canshu.GetMaxSize() : msg.canshu_size());
+	for(int32_t i = 0; i < (int32_t)canshu.GetSize(); ++i) {
 		canshu[i] = msg.canshu(i);
 	}
 }

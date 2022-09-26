@@ -133,7 +133,7 @@ void protobuf_AddDesc_condition_2eproto() {
     ").proto_ff.conditionconditionconditionDe"
     "scB\016\302\377\024\006\346\235\241\344\273\266\210\301\024\003\"_\n\030Sheet_conditioncon"
     "dition\022C\n\027conditioncondition_List\030\001 \003(\0132"
-    "\034.proto_ff.conditionconditionB\004\210\301\024}", 355);
+    "\034.proto_ff.conditionconditionB\004\210\301\024(", 355);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "condition.proto", &protobuf_RegisterTypes);
   conditionconditionconditionDesc::default_instance_ = new conditionconditionconditionDesc();

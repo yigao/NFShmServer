@@ -107,9 +107,9 @@ void protobuf_AddDesc_snowballWar_2eproto() {
     "ptions.proto\"x\n\017snowballWarcons\022\026\n\002ID\030\001 "
     "\001(\005B\n\302\377\024\006\347\274\226\345\217\267\022 \n\tvaluedata\030\002 \001(\003B\r\302\377\024\t"
     "\345\200\274\346\225\260\346\215\256\022+\n\nstringdata\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254"
-    "\246\344\270\262\346\225\260\346\215\256\220\301\024 \"V\n\025Sheet_snowballWarcons\022"
+    "\246\344\270\262\346\225\260\346\215\256\220\301\024<\"V\n\025Sheet_snowballWarcons\022"
     "=\n\024snowballWarcons_List\030\001 \003(\0132\031.proto_ff"
-    ".snowballWarconsB\004\210\301\024v", 262);
+    ".snowballWarconsB\004\210\301\024\024", 262);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "snowballWar.proto", &protobuf_RegisterTypes);
   snowballWarcons::default_instance_ = new snowballWarcons();

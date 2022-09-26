@@ -7,13 +7,13 @@ message GMtoolsGMTools
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 type = 2[(yd_fieldoptions.field_cname) = "内容类型"];
-	optional string typePrarm = 3[(yd_fieldoptions.field_cname) = "内容", (yd_fieldoptions.field_bufsize) = 32];
+	optional string typePrarm = 3[(yd_fieldoptions.field_cname) = "内容", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_GMtoolsGMTools
 {
-	repeated GMtoolsGMTools GMtoolsGMTools_List = 1[(yd_fieldoptions.field_arysize)=112];
+	repeated GMtoolsGMTools GMtoolsGMTools_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message GMtoolsrecharge
@@ -26,14 +26,14 @@ message GMtoolsrecharge
 
 message Sheet_GMtoolsrecharge
 {
-	repeated GMtoolsrecharge GMtoolsrecharge_List = 1[(yd_fieldoptions.field_arysize)=118];
+	repeated GMtoolsrecharge GMtoolsrecharge_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message GMtoolsgift
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 upperLimit = 2[(yd_fieldoptions.field_cname) = "需要的上限值"];
-	optional string condition = 3[(yd_fieldoptions.field_cname) = "需要完成的扶持", (yd_fieldoptions.field_bufsize) = 32];
+	optional string condition = 3[(yd_fieldoptions.field_cname) = "需要完成的扶持", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 cost = 4[(yd_fieldoptions.field_cname) = "消耗点数"];
 	optional int32 daily = 5[(yd_fieldoptions.field_cname) = "是否每日重置"];
 	optional int64 boxid = 6[(yd_fieldoptions.field_cname) = "奖励内容"];
@@ -42,7 +42,7 @@ message GMtoolsgift
 
 message Sheet_GMtoolsgift
 {
-	repeated GMtoolsgift GMtoolsgift_List = 1[(yd_fieldoptions.field_arysize)=117];
+	repeated GMtoolsgift GMtoolsgift_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message GMtoolsunlimit
@@ -57,7 +57,7 @@ message GMtoolsunlimit
 
 message Sheet_GMtoolsunlimit
 {
-	repeated GMtoolsunlimit GMtoolsunlimit_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated GMtoolsunlimit GMtoolsunlimit_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message GMtoolsupperLimit
@@ -70,5 +70,5 @@ message GMtoolsupperLimit
 
 message Sheet_GMtoolsupperLimit
 {
-	repeated GMtoolsupperLimit GMtoolsupperLimit_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated GMtoolsupperLimit GMtoolsupperLimit_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

@@ -18,12 +18,12 @@ namespace proto_ff_s {
 		int32_t showType;
 		int32_t type;
 		int32_t param;
-		NFSizeString<32> severParam;
+		NFSizeString<60> severParam;
 		int64_t openReward;
 		int64_t dailyReward;
 		int32_t resourceLimit;
 		int64_t skillid;
-		NFSizeString<47> privilege_id;
+		NFSizeString<80> privilege_id;
 
 		virtual void write_to_pbmsg(::proto_ff::privilegeprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::privilegeprivilege & msg);
@@ -36,7 +36,7 @@ namespace proto_ff_s {
 		Sheet_privilegeprivilege_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct privilegeprivilege_s, 111> privilegeprivilege_List;
+		NFArray<struct privilegeprivilege_s, 20> privilegeprivilege_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_privilegeprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_privilegeprivilege & msg);

@@ -12,17 +12,17 @@ message rechargerechargepresentDesc
 message rechargerechargechannelDesc
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional string point = 2[(yd_fieldoptions.field_cname) = "计费点", (yd_fieldoptions.field_bufsize) = 32];
+	optional string point = 2[(yd_fieldoptions.field_cname) = "计费点", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 message rechargerecharge
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 42];
-	optional string defaultPoint = 3[(yd_fieldoptions.field_cname) = "默认计费点", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 80];
+	optional string defaultPoint = 3[(yd_fieldoptions.field_cname) = "默认计费点", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 type = 4[(yd_fieldoptions.field_cname) = "充值类型"];
-	optional string unit = 5[(yd_fieldoptions.field_cname) = "单位", (yd_fieldoptions.field_bufsize) = 32];
-	optional string beizhu = 6[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 103];
+	optional string unit = 5[(yd_fieldoptions.field_cname) = "单位", (yd_fieldoptions.field_bufsize) = 60];
+	optional string beizhu = 6[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 200];
 	optional int64 quantity = 7[(yd_fieldoptions.field_cname) = "获取档位"];
 	optional int32 itemNum = 8[(yd_fieldoptions.field_cname) = "获得物品的数量"];
 	optional int64 multipleTimes = 9[(yd_fieldoptions.field_cname) = "重复次数"];
@@ -35,7 +35,7 @@ message rechargerecharge
 	optional int32 price = 16[(yd_fieldoptions.field_cname) = "售价"];
 	optional int32 fristpresent = 17[(yd_fieldoptions.field_cname) = "首充赠送数量"];
 	optional int32 presenttype = 18[(yd_fieldoptions.field_cname) = "赠送类型"];
-	optional string icon = 19[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional string icon = 19[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 preRecharge = 20[(yd_fieldoptions.field_cname) = "是否允许金券充值"];
 	repeated rechargerechargepresentDesc present = 21[(yd_fieldoptions.field_cname) = "充值赠送物品", (yd_fieldoptions.field_arysize) = 2];
 	repeated rechargerechargechannelDesc channel = 22[(yd_fieldoptions.field_cname) = "渠道", (yd_fieldoptions.field_arysize) = 4];
@@ -44,5 +44,5 @@ message rechargerecharge
 
 message Sheet_rechargerecharge
 {
-	repeated rechargerecharge rechargerecharge_List = 1[(yd_fieldoptions.field_arysize)=1338];
+	repeated rechargerecharge rechargerecharge_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

@@ -19,7 +19,7 @@ namespace proto_ff_s {
 		int64_t boxid;
 		int32_t beginPoint;
 		int32_t targetPoint;
-		NFSizeString<32> taskID;
+		NFSizeString<60> taskID;
 
 		virtual void write_to_pbmsg(::proto_ff::colPointscolPoints & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::colPointscolPoints & msg);
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_colPointscolPoints_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct colPointscolPoints_s, 108> colPointscolPoints_List;
+		NFArray<struct colPointscolPoints_s, 20> colPointscolPoints_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_colPointscolPoints & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_colPointscolPoints & msg);
@@ -49,7 +49,7 @@ namespace proto_ff_s {
 		int32_t point;
 		int32_t num;
 		int32_t task;
-		NFSizeString<32> taskParam;
+		NFSizeString<60> taskParam;
 
 		virtual void write_to_pbmsg(::proto_ff::colPointstask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::colPointstask & msg);
@@ -62,7 +62,7 @@ namespace proto_ff_s {
 		Sheet_colPointstask_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct colPointstask_s, 107> colPointstask_List;
+		NFArray<struct colPointstask_s, 20> colPointstask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_colPointstask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_colPointstask & msg);

@@ -110,18 +110,19 @@ void protobuf_AddDesc_conditionshop_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023conditionshop.proto\022\010proto_ff\032\025yd_fiel"
-    "doptions.proto\"\317\002\n\032conditionshopconditio"
+    "doptions.proto\"\327\002\n\032conditionshopconditio"
     "nshop\022\022\n\002Id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004Type\030\002 \001(\005B"
     "\n\302\377\024\006\347\261\273\345\236\213\022\036\n\004Time\030\003 \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266"
     "\351\227\264\022\033\n\005boxId\030\004 \001(\003B\014\302\377\024\010\345\245\226\345\212\261ID\022 \n\006item"
-    "Id\030\005 \001(\tB\020\302\377\024\010\345\245\226\345\212\261ID\220\301\024 \022\036\n\004type\030\006 \001(\005"
+    "Id\030\005 \001(\tB\020\302\377\024\010\345\245\226\345\212\261ID\220\301\024<\022\036\n\004type\030\006 \001(\005"
     "B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022!\n\rDiscountPrice\030\007 \001("
-    "\005B\n\302\377\024\006\347\216\260\344\273\267\0222\n\016ConditionParam\030\010 \003(\tB\032\302"
-    "\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\345\217\202\346\225\260\210\301\024 \022-\n\rConditionTy"
-    "pe\030\t \003(\005B\026\302\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\347\261\273\345\236\213\"w\n Shee"
-    "t_conditionshopconditionshop\022S\n\037conditio"
-    "nshopconditionshop_List\030\001 \003(\0132$.proto_ff"
-    ".conditionshopconditionshopB\004\210\301\024k", 513);
+    "\005B\n\302\377\024\006\347\216\260\344\273\267\0226\n\016ConditionParam\030\010 \003(\tB\036\302"
+    "\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\345\217\202\346\225\260\210\301\024\003\220\301\024<\0221\n\rConditi"
+    "onType\030\t \003(\005B\032\302\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\347\261\273\345\236\213\210\301\024\003"
+    "\"w\n Sheet_conditionshopconditionshop\022S\n\037"
+    "conditionshopconditionshop_List\030\001 \003(\0132$."
+    "proto_ff.conditionshopconditionshopB\004\210\301\024"
+    "\024", 521);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "conditionshop.proto", &protobuf_RegisterTypes);
   conditionshopconditionshop::default_instance_ = new conditionshopconditionshop();

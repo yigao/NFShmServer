@@ -17,13 +17,13 @@ message guildconstant
 	optional int32 autoCleanCellNum = 10[(yd_fieldoptions.field_cname) = "触发自动清理余格子数量"];
 	optional int32 dismiss = 11[(yd_fieldoptions.field_cname) = "解散公会时间"];
 	optional int32 transferGuild = 12[(yd_fieldoptions.field_cname) = "转移会长时间"];
-	repeated string initialAutoCleanQS = 13[(yd_fieldoptions.field_cname) = "默认清理的品质星级", (yd_fieldoptions.field_arysize) = 32];
+	repeated string initialAutoCleanQS = 13[(yd_fieldoptions.field_cname) = "默认清理的品质星级", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_guildconstant
 {
-	repeated guildconstant guildconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated guildconstant guildconstant_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildlevel
@@ -38,7 +38,7 @@ message guildlevel
 
 message Sheet_guildlevel
 {
-	repeated guildlevel guildlevel_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated guildlevel guildlevel_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildcollege
@@ -56,7 +56,7 @@ message guildcollege
 
 message Sheet_guildcollege
 {
-	repeated guildcollege guildcollege_List = 1[(yd_fieldoptions.field_arysize)=5104];
+	repeated guildcollege guildcollege_List = 1[(yd_fieldoptions.field_arysize)=6000];
 }
 
 message guildposition
@@ -82,7 +82,7 @@ message guildposition
 
 message Sheet_guildposition
 {
-	repeated guildposition guildposition_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated guildposition guildposition_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildhouse
@@ -96,7 +96,7 @@ message guildhouse
 
 message Sheet_guildhouse
 {
-	repeated guildhouse guildhouse_List = 1[(yd_fieldoptions.field_arysize)=209];
+	repeated guildhouse guildhouse_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message guildgift
@@ -110,7 +110,7 @@ message guildgift
 
 message Sheet_guildgift
 {
-	repeated guildgift guildgift_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated guildgift guildgift_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message guildguildance
@@ -127,23 +127,23 @@ message guildguildance
 
 message Sheet_guildguildance
 {
-	repeated guildguildance guildguildance_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated guildguildance guildguildance_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildwarconstant
 {
 	optional int64 warid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int32 signopenCycle = 2[(yd_fieldoptions.field_cname) = "公会战报名开启日期"];
-	optional string signopenTime = 3[(yd_fieldoptions.field_cname) = "公会战报名开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string signopenTime = 3[(yd_fieldoptions.field_cname) = "公会战报名开启时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 signclosedCycle = 4[(yd_fieldoptions.field_cname) = "公会战报名结束日期"];
-	optional string signclosedTime = 5[(yd_fieldoptions.field_cname) = "公会战报名结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string signclosedTime = 5[(yd_fieldoptions.field_cname) = "公会战报名结束时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 guildPosition = 6[(yd_fieldoptions.field_cname) = "要求公会职位"];
 	optional int32 guildNum = 7[(yd_fieldoptions.field_cname) = "要求公会人数"];
 	optional int32 guildLevel = 8[(yd_fieldoptions.field_cname) = "要求公会等级"];
 	optional int32 enteropenCycle = 9[(yd_fieldoptions.field_cname) = "公会战进入开启日期"];
-	optional string enteropenTime = 10[(yd_fieldoptions.field_cname) = "公会战进入开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string enteropenTime = 10[(yd_fieldoptions.field_cname) = "公会战进入开启时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 enterclosedCycle = 11[(yd_fieldoptions.field_cname) = "公会战进入结束日期"];
-	optional string enterclosedTime = 12[(yd_fieldoptions.field_cname) = "公会战进入结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string enterclosedTime = 12[(yd_fieldoptions.field_cname) = "公会战进入结束时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 guildwarBaseScore = 13[(yd_fieldoptions.field_cname) = "公会战初始分数"];
 	optional int32 guildwarWinScore = 14[(yd_fieldoptions.field_cname) = "公会战胜利获得分数"];
 	optional int32 guildwarLoseScore = 15[(yd_fieldoptions.field_cname) = "公会战失败获得分数"];
@@ -170,7 +170,7 @@ message guildwarconstant
 
 message Sheet_guildwarconstant
 {
-	repeated guildwarconstant guildwarconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated guildwarconstant guildwarconstant_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildwarmorale
@@ -184,7 +184,7 @@ message guildwarmorale
 
 message Sheet_guildwarmorale
 {
-	repeated guildwarmorale guildwarmorale_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated guildwarmorale guildwarmorale_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message guildwarrevive
@@ -196,5 +196,5 @@ message guildwarrevive
 
 message Sheet_guildwarrevive
 {
-	repeated guildwarrevive guildwarrevive_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated guildwarrevive guildwarrevive_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

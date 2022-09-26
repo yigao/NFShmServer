@@ -16,8 +16,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t effectId;
 		int32_t effectType;
-		NFSizeString<32> eContent;
+		NFSizeString<60> eContent;
 		int32_t effectAudio;
+		NFArray<int32_t, 5> eparam;
 
 		virtual void write_to_pbmsg(::proto_ff::effecteffect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::effecteffect & msg);
@@ -30,7 +31,7 @@ namespace proto_ff_s {
 		Sheet_effecteffect_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct effecteffect_s, 1632> effecteffect_List;
+		NFArray<struct effecteffect_s, 2000> effecteffect_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_effecteffect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_effecteffect & msg);

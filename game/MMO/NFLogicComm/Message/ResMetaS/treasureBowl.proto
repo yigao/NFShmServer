@@ -15,11 +15,11 @@ message treasureBowltreasureBowl
 	optional int32 returnItem = 8[(yd_fieldoptions.field_cname) = "特殊物品返还比例"];
 	optional int64 boxid = 9[(yd_fieldoptions.field_cname) = "解锁奖励"];
 	optional int64 skillid = 10[(yd_fieldoptions.field_cname) = "解锁特权技能"];
-	optional string skilldes = 11[(yd_fieldoptions.field_cname) = "解锁特权技能", (yd_fieldoptions.field_bufsize) = 32];
+	optional string skilldes = 11[(yd_fieldoptions.field_cname) = "解锁特权技能", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_treasureBowltreasureBowl
 {
-	repeated treasureBowltreasureBowl treasureBowltreasureBowl_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated treasureBowltreasureBowl treasureBowltreasureBowl_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

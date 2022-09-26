@@ -25,7 +25,7 @@ message flashflash
 
 message Sheet_flashflash
 {
-	repeated flashflash flashflash_List = 1[(yd_fieldoptions.field_arysize)=645];
+	repeated flashflash flashflash_List = 1[(yd_fieldoptions.field_arysize)=600];
 }
 
 message flashitemFlashmonsterDesc
@@ -37,7 +37,7 @@ message flashitemFlashmonsterDesc
 message flashitemFlash
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "刷新ID"];
-	optional string useMap = 2[(yd_fieldoptions.field_cname) = "可使用地图", (yd_fieldoptions.field_bufsize) = 155];
+	optional string useMap = 2[(yd_fieldoptions.field_cname) = "可使用地图", (yd_fieldoptions.field_bufsize) = 200];
 	optional int32 live = 3[(yd_fieldoptions.field_cname) = "怪物存在时间"];
 	optional int32 levelwave = 4[(yd_fieldoptions.field_cname) = "是否动态等级"];
 	optional int32 flashNum = 5[(yd_fieldoptions.field_cname) = "刷新怪物数量"];
@@ -47,5 +47,5 @@ message flashitemFlash
 
 message Sheet_flashitemFlash
 {
-	repeated flashitemFlash flashitemFlash_List = 1[(yd_fieldoptions.field_arysize)=157];
+	repeated flashitemFlash flashitemFlash_List = 1[(yd_fieldoptions.field_arysize)=100];
 }

@@ -137,12 +137,14 @@ void roleborn_s::write_to_pbmsg(::proto_ff::roleborn & msg) const {
 	msg.set_radius((int32_t)radius);
 	msg.set_sheny((int64_t)sheny);
 	msg.set_shenw((int64_t)shenw);
+	for(int32_t i = 0; i < (int32_t)actBuff.GetSize() && i < actBuff.GetMaxSize(); ++i) {
 		msg.add_actbuff((int32_t)actBuff[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
 		::proto_ff::rolebornitemDesc* temp_item = msg.add_item();
 		item[i].write_to_pbmsg(*temp_item);
 	}
+	for(int32_t i = 0; i < (int32_t)actSkill.GetSize() && i < actSkill.GetMaxSize(); ++i) {
 		msg.add_actskill((int64_t)actSkill[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)mail.GetSize() && i < mail.GetMaxSize(); ++i) {
@@ -187,6 +189,8 @@ void roleborn_s::read_from_pbmsg(const ::proto_ff::roleborn & msg) {
 	radius = msg.radius();
 	sheny = msg.sheny();
 	shenw = msg.shenw();
+	actBuff.SetSize(msg.actbuff_size() > actBuff.GetMaxSize() ? actBuff.GetMaxSize() : msg.actbuff_size());
+	for(int32_t i = 0; i < (int32_t)actBuff.GetSize(); ++i) {
 		actBuff[i] = msg.actbuff(i);
 	}
 	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
@@ -194,6 +198,8 @@ void roleborn_s::read_from_pbmsg(const ::proto_ff::roleborn & msg) {
 		const ::proto_ff::rolebornitemDesc & temp_item = msg.item(i);
 		item[i].read_from_pbmsg(temp_item);
 	}
+	actSkill.SetSize(msg.actskill_size() > actSkill.GetMaxSize() ? actSkill.GetMaxSize() : msg.actskill_size());
+	for(int32_t i = 0; i < (int32_t)actSkill.GetSize(); ++i) {
 		actSkill[i] = msg.actskill(i);
 	}
 	mail.SetSize(msg.mail_size() > mail.GetMaxSize() ? mail.GetMaxSize() : msg.mail_size());

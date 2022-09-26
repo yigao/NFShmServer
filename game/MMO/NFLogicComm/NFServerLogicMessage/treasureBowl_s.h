@@ -24,7 +24,7 @@ namespace proto_ff_s {
 		int32_t returnItem;
 		int64_t boxid;
 		int64_t skillid;
-		NFSizeString<32> skilldes;
+		NFSizeString<60> skilldes;
 
 		virtual void write_to_pbmsg(::proto_ff::treasureBowltreasureBowl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::treasureBowltreasureBowl & msg);
@@ -37,7 +37,7 @@ namespace proto_ff_s {
 		Sheet_treasureBowltreasureBowl_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasureBowltreasureBowl_s, 105> treasureBowltreasureBowl_List;
+		NFArray<struct treasureBowltreasureBowl_s, 20> treasureBowltreasureBowl_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasureBowltreasureBowl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasureBowltreasureBowl & msg);

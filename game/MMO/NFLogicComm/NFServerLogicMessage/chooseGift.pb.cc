@@ -137,7 +137,7 @@ void protobuf_AddDesc_chooseGift_2eproto() {
     "ff.chooseGiftchooseGiftrechargeDescB\016\302\377\024"
     "\006\345\205\205\345\200\274\210\301\024\002\"e\n\032Sheet_chooseGiftchooseGif"
     "t\022G\n\031chooseGiftchooseGift_List\030\001 \003(\0132\036.p"
-    "roto_ff.chooseGiftchooseGiftB\004\210\301\024i", 434);
+    "roto_ff.chooseGiftchooseGiftB\004\210\301\024\024", 434);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chooseGift.proto", &protobuf_RegisterTypes);
   chooseGiftchooseGiftrechargeDesc::default_instance_ = new chooseGiftchooseGiftrechargeDesc();

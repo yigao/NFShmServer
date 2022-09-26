@@ -7,21 +7,21 @@ message operateoperate
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "活动ID"];
 	optional int32 huoDong = 2[(yd_fieldoptions.field_cname) = "所属活动"];
-	optional string name = 3[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 nameId = 4[(yd_fieldoptions.field_cname) = "活动细分类型"];
-	optional string tiaoJian = 5[(yd_fieldoptions.field_cname) = "达成条件", (yd_fieldoptions.field_bufsize) = 245];
+	optional string tiaoJian = 5[(yd_fieldoptions.field_cname) = "达成条件", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 servertype = 6[(yd_fieldoptions.field_cname) = "服务器类型"];
-	optional string timeA = 7[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string timeB = 8[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeA = 7[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string timeB = 8[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 timeType = 9[(yd_fieldoptions.field_cname) = "时间类型"];
-	optional string miaoSu = 10[(yd_fieldoptions.field_cname) = "规则描述", (yd_fieldoptions.field_bufsize) = 96];
+	optional string miaoSu = 10[(yd_fieldoptions.field_cname) = "规则描述", (yd_fieldoptions.field_bufsize) = 180];
 	optional int32 ifOpen = 11[(yd_fieldoptions.field_cname) = "活动开关"];
 }
 
 
 message Sheet_operateoperate
 {
-	repeated operateoperate operateoperate_List = 1[(yd_fieldoptions.field_arysize)=129];
+	repeated operateoperate operateoperate_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message operatetutor
@@ -29,8 +29,7 @@ message operatetutor
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int32 type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 condition = 3[(yd_fieldoptions.field_cname) = "条件"];
-	optional int32 conditionParam1 = 4[(yd_fieldoptions.field_cname) = "条件参数"];
-	optional int32 conditionParam2 = 5[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional int64 conditionParam1 = 4[(yd_fieldoptions.field_cname) = "条件参数"];
 	optional int64 boxId = 6[(yd_fieldoptions.field_cname) = "奖励ID"];
 	optional int32 teach = 7[(yd_fieldoptions.field_cname) = "教诲值"];
 }
@@ -38,18 +37,18 @@ message operatetutor
 
 message Sheet_operatetutor
 {
-	repeated operatetutor operatetutor_List = 1[(yd_fieldoptions.field_arysize)=153];
+	repeated operatetutor operatetutor_List = 1[(yd_fieldoptions.field_arysize)=80];
 }
 
 message operatejiangli
 {
 	optional int64 tiaoJianId = 1[(yd_fieldoptions.field_cname) = "达成条件"];
-	optional string huoDong = 2[(yd_fieldoptions.field_cname) = "所属活动名称", (yd_fieldoptions.field_bufsize) = 32];
-	optional string downNu = 3[(yd_fieldoptions.field_cname) = "参数一", (yd_fieldoptions.field_bufsize) = 32];
-	optional string upNu = 4[(yd_fieldoptions.field_cname) = "参数二", (yd_fieldoptions.field_bufsize) = 32];
-	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
-	optional string miaoshuAdd = 6[(yd_fieldoptions.field_cname) = "附加描述", (yd_fieldoptions.field_bufsize) = 34];
-	optional string tiaoJian = 7[(yd_fieldoptions.field_cname) = "达成条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional string huoDong = 2[(yd_fieldoptions.field_cname) = "所属活动名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional string downNu = 3[(yd_fieldoptions.field_cname) = "参数一", (yd_fieldoptions.field_bufsize) = 60];
+	optional string upNu = 4[(yd_fieldoptions.field_cname) = "参数二", (yd_fieldoptions.field_bufsize) = 60];
+	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 60];
+	optional string miaoshuAdd = 6[(yd_fieldoptions.field_cname) = "附加描述", (yd_fieldoptions.field_bufsize) = 60];
+	optional string tiaoJian = 7[(yd_fieldoptions.field_cname) = "达成条件", (yd_fieldoptions.field_bufsize) = 120];
 	optional int64 boxId = 8[(yd_fieldoptions.field_cname) = "奖励ID"];
 	optional int64 sdboxid = 9[(yd_fieldoptions.field_cname) = "困难奖励"];
 }
@@ -57,7 +56,7 @@ message operatejiangli
 
 message Sheet_operatejiangli
 {
-	repeated operatejiangli operatejiangli_List = 1[(yd_fieldoptions.field_arysize)=282];
+	repeated operatejiangli operatejiangli_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message operatehoroscope
@@ -66,19 +65,19 @@ message operatehoroscope
 	optional int64 daojuId = 2[(yd_fieldoptions.field_cname) = "道具id"];
 	optional int32 daojuPrice = 3[(yd_fieldoptions.field_cname) = "道具单抽价格"];
 	optional int32 cycle = 4[(yd_fieldoptions.field_cname) = "免费次数刷新时间"];
-	optional string poolid = 5[(yd_fieldoptions.field_cname) = "奖池ID", (yd_fieldoptions.field_bufsize) = 32];
+	optional string poolid = 5[(yd_fieldoptions.field_cname) = "奖池ID", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 wheelTime = 6[(yd_fieldoptions.field_cname) = "轮环时间(天)"];
-	optional string ExchangeGroupID = 7[(yd_fieldoptions.field_cname) = "兑换组id", (yd_fieldoptions.field_bufsize) = 39];
-	optional string boxid = 8[(yd_fieldoptions.field_cname) = "总奖池box", (yd_fieldoptions.field_bufsize) = 141];
+	optional string ExchangeGroupID = 7[(yd_fieldoptions.field_cname) = "兑换组id", (yd_fieldoptions.field_bufsize) = 60];
+	optional string boxid = 8[(yd_fieldoptions.field_cname) = "总奖池box", (yd_fieldoptions.field_bufsize) = 200];
 	optional int64 luckid = 9[(yd_fieldoptions.field_cname) = "幸运奖池box"];
-	optional string fateid = 10[(yd_fieldoptions.field_cname) = "累计幸运值奖励", (yd_fieldoptions.field_bufsize) = 35];
-	optional string felicityid = 11[(yd_fieldoptions.field_cname) = "福气奖励", (yd_fieldoptions.field_bufsize) = 47];
+	optional string fateid = 10[(yd_fieldoptions.field_cname) = "累计幸运值奖励", (yd_fieldoptions.field_bufsize) = 60];
+	optional string felicityid = 11[(yd_fieldoptions.field_cname) = "福气奖励", (yd_fieldoptions.field_bufsize) = 80];
 }
 
 
 message Sheet_operatehoroscope
 {
-	repeated operatehoroscope operatehoroscope_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated operatehoroscope operatehoroscope_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message operatehoroscopePool
@@ -99,7 +98,7 @@ message operatehoroscopePool
 
 message Sheet_operatehoroscopePool
 {
-	repeated operatehoroscopePool operatehoroscopePool_List = 1[(yd_fieldoptions.field_arysize)=1037];
+	repeated operatehoroscopePool operatehoroscopePool_List = 1[(yd_fieldoptions.field_arysize)=1000];
 }
 
 message operatehoroscopeExchange
@@ -116,27 +115,27 @@ message operatehoroscopeExchange
 
 message Sheet_operatehoroscopeExchange
 {
-	repeated operatehoroscopeExchange operatehoroscopeExchange_List = 1[(yd_fieldoptions.field_arysize)=222];
+	repeated operatehoroscopeExchange operatehoroscopeExchange_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message operateconst
 {
 	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 99];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 180];
 }
 
 
 message Sheet_operateconst
 {
-	repeated operateconst operateconst_List = 1[(yd_fieldoptions.field_arysize)=161];
+	repeated operateconst operateconst_List = 1[(yd_fieldoptions.field_arysize)=100];
 }
 
 message operateunlimited
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int32 price = 2[(yd_fieldoptions.field_cname) = "价格"];
-	optional string severPrice = 3[(yd_fieldoptions.field_cname) = "解锁计费点", (yd_fieldoptions.field_bufsize) = 32];
+	optional string severPrice = 3[(yd_fieldoptions.field_cname) = "解锁计费点", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 itemId = 4[(yd_fieldoptions.field_cname) = "领取的物品ID"];
 	optional int64 num = 5[(yd_fieldoptions.field_cname) = "单次领取的物品数量"];
 }
@@ -144,7 +143,7 @@ message operateunlimited
 
 message Sheet_operateunlimited
 {
-	repeated operateunlimited operateunlimited_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated operateunlimited operateunlimited_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message operaterand
@@ -152,13 +151,13 @@ message operaterand
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 randtype = 2[(yd_fieldoptions.field_cname) = "冲榜类型"];
 	optional int64 boxid = 3[(yd_fieldoptions.field_cname) = "奖励id"];
-	repeated string canshu = 4[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 32];
+	repeated string canshu = 4[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_operaterand
 {
-	repeated operaterand operaterand_List = 1[(yd_fieldoptions.field_arysize)=139];
+	repeated operaterand operaterand_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message operatemooncard
@@ -170,7 +169,7 @@ message operatemooncard
 
 message Sheet_operatemooncard
 {
-	repeated operatemooncard operatemooncard_List = 1[(yd_fieldoptions.field_arysize)=135];
+	repeated operatemooncard operatemooncard_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message operatefund
@@ -184,7 +183,7 @@ message operatefund
 
 message Sheet_operatefund
 {
-	repeated operatefund operatefund_List = 1[(yd_fieldoptions.field_arysize)=143];
+	repeated operatefund operatefund_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message operatetask
@@ -192,13 +191,13 @@ message operatetask
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "任务id"];
 	optional int32 taskNan = 2[(yd_fieldoptions.field_cname) = "任务难度"];
 	optional int32 taskType = 3[(yd_fieldoptions.field_cname) = "任务类型"];
-	optional string num = 4[(yd_fieldoptions.field_cname) = "格式参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string num = 4[(yd_fieldoptions.field_cname) = "格式参数", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_operatetask
 {
-	repeated operatetask operatetask_List = 1[(yd_fieldoptions.field_arysize)=175];
+	repeated operatetask operatetask_List = 1[(yd_fieldoptions.field_arysize)=140];
 }
 
 message operateshop
@@ -215,7 +214,7 @@ message operateshop
 
 message Sheet_operateshop
 {
-	repeated operateshop operateshop_List = 1[(yd_fieldoptions.field_arysize)=169];
+	repeated operateshop operateshop_List = 1[(yd_fieldoptions.field_arysize)=120];
 }
 
 message operatewish
@@ -227,7 +226,7 @@ message operatewish
 
 message Sheet_operatewish
 {
-	repeated operatewish operatewish_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated operatewish operatewish_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message operateturntable
@@ -246,7 +245,7 @@ message operateturntable
 
 message Sheet_operateturntable
 {
-	repeated operateturntable operateturntable_List = 1[(yd_fieldoptions.field_arysize)=112];
+	repeated operateturntable operateturntable_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message operateturntableTask
@@ -261,5 +260,5 @@ message operateturntableTask
 
 message Sheet_operateturntableTask
 {
-	repeated operateturntableTask operateturntableTask_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated operateturntableTask operateturntableTask_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

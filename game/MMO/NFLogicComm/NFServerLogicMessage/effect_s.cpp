@@ -26,6 +26,7 @@ void effecteffect_s::write_to_pbmsg(::proto_ff::effecteffect & msg) const {
 	msg.set_effecttype((int32_t)effectType);
 	msg.set_econtent((const char*)eContent.Get());
 	msg.set_effectaudio((int32_t)effectAudio);
+	for(int32_t i = 0; i < (int32_t)eparam.GetSize() && i < eparam.GetMaxSize(); ++i) {
 		msg.add_eparam((int32_t)eparam[i]);
 	}
 }
@@ -36,6 +37,8 @@ void effecteffect_s::read_from_pbmsg(const ::proto_ff::effecteffect & msg) {
 	effectType = msg.effecttype();
 	eContent.Copy(msg.econtent());
 	effectAudio = msg.effectaudio();
+	eparam.SetSize(msg.eparam_size() > eparam.GetMaxSize() ? eparam.GetMaxSize() : msg.eparam_size());
+	for(int32_t i = 0; i < (int32_t)eparam.GetSize(); ++i) {
 		eparam[i] = msg.eparam(i);
 	}
 }

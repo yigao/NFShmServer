@@ -530,6 +530,7 @@ void getTreasurehelp_s::write_to_pbmsg(::proto_ff::getTreasurehelp & msg) const 
 	msg.set_id((int32_t)id);
 	msg.set_down((int32_t)down);
 	msg.set_up((int32_t)up);
+	for(int32_t i = 0; i < (int32_t)num.GetSize() && i < num.GetMaxSize(); ++i) {
 		msg.add_num((int64_t)num[i]);
 	}
 }
@@ -539,6 +540,8 @@ void getTreasurehelp_s::read_from_pbmsg(const ::proto_ff::getTreasurehelp & msg)
 	id = msg.id();
 	down = msg.down();
 	up = msg.up();
+	num.SetSize(msg.num_size() > num.GetMaxSize() ? num.GetMaxSize() : msg.num_size());
+	for(int32_t i = 0; i < (int32_t)num.GetSize(); ++i) {
 		num[i] = msg.num(i);
 	}
 }

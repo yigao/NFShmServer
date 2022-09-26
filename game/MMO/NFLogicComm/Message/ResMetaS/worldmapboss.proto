@@ -5,7 +5,7 @@ import "yd_fieldoptions.proto";
 
 message worldmapbossworldbossbornDesc
 {
-	optional string Time = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 32];
+	optional string Time = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 message worldmapbossworldboss
@@ -15,7 +15,7 @@ message worldmapbossworldboss
 	optional int32 miniLevel = 3[(yd_fieldoptions.field_cname) = "刷新初始等级"];
 	optional int32 unLockLevel = 4[(yd_fieldoptions.field_cname) = "解锁等级"];
 	optional int32 levelCheck = 5[(yd_fieldoptions.field_cname) = "动态等级校正"];
-	optional string pathId = 6[(yd_fieldoptions.field_cname) = "刷新地点库", (yd_fieldoptions.field_bufsize) = 32];
+	optional string pathId = 6[(yd_fieldoptions.field_cname) = "刷新地点库", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 specNoticeHP = 7[(yd_fieldoptions.field_cname) = "特殊跑马灯触发血量"];
 	optional int32 bornSpaceTime = 8[(yd_fieldoptions.field_cname) = "死亡重生间隔（秒）"];
 	repeated worldmapbossworldbossbornDesc born = 9[(yd_fieldoptions.field_cname) = "刷新时间点", (yd_fieldoptions.field_arysize) = 6];
@@ -24,7 +24,7 @@ message worldmapbossworldboss
 
 message Sheet_worldmapbossworldboss
 {
-	repeated worldmapbossworldboss worldmapbossworldboss_List = 1[(yd_fieldoptions.field_arysize)=390];
+	repeated worldmapbossworldboss worldmapbossworldboss_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message worldmapbossdroplist
@@ -38,7 +38,7 @@ message worldmapbossdroplist
 
 message Sheet_worldmapbossdroplist
 {
-	repeated worldmapbossdroplist worldmapbossdroplist_List = 1[(yd_fieldoptions.field_arysize)=4007];
+	repeated worldmapbossdroplist worldmapbossdroplist_List = 1[(yd_fieldoptions.field_arysize)=4000];
 }
 
 message worldmapbossfestival
@@ -51,5 +51,5 @@ message worldmapbossfestival
 
 message Sheet_worldmapbossfestival
 {
-	repeated worldmapbossfestival worldmapbossfestival_List = 1[(yd_fieldoptions.field_arysize)=390];
+	repeated worldmapbossfestival worldmapbossfestival_List = 1[(yd_fieldoptions.field_arysize)=300];
 }

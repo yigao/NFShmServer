@@ -156,13 +156,13 @@ void protobuf_AddDesc_closetest_2eproto() {
     "\n\tTypeParam\030\003 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022\033\n\005B"
     "oxId\030\004 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\"\\\n\027Sheet_closet"
     "estActivity\022A\n\026closetestActivity_List\030\001 "
-    "\003(\0132\033.proto_ff.closetestActivityB\004\210\301\024m\"\206"
+    "\003(\0132\033.proto_ff.closetestActivityB\004\210\301\024\024\"\206"
     "\001\n\017closetestRebate\022\027\n\003Day\030\001 \001(\005B\n\302\377\024\006\345\244\251"
     "\346\225\260\022,\n\014ReturnParamA\030\002 \001(\005B\026\302\377\024\022\350\277\224\350\277\230\351\222\273"
     "\347\237\263\347\263\273\346\225\260\022,\n\014ReturnParamB\030\003 \001(\005B\026\302\377\024\022\350\277\224"
     "\350\277\230\347\273\221\351\222\273\347\263\273\346\225\260\"V\n\025Sheet_closetestRebate"
     "\022=\n\024closetestRebate_List\030\001 \003(\0132\031.proto_f"
-    "f.closetestRebateB\004\210\301\024k", 503);
+    "f.closetestRebateB\004\210\301\024\024", 503);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "closetest.proto", &protobuf_RegisterTypes);
   closetestActivity::default_instance_ = new closetestActivity();

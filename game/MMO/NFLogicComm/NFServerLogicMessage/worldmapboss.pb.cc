@@ -226,13 +226,13 @@ void protobuf_AddDesc_worldmapboss_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\022worldmapboss.proto\022\010proto_ff\032\025yd_field"
     "options.proto\"7\n\035worldmapbossworldbossbo"
-    "rnDesc\022\026\n\004Time\030\001 \001(\tB\010\302\377\024\000\220\301\024 \"\255\003\n\025world"
+    "rnDesc\022\026\n\004Time\030\001 \001(\tB\010\302\377\024\000\220\301\024<\"\255\003\n\025world"
     "mapbossworldboss\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\032\n\006"
     "bossId\030\002 \001(\003B\n\302\377\024\006BOSSID\022)\n\tminiLevel\030\003 "
     "\001(\005B\026\302\377\024\022\345\210\267\346\226\260\345\210\235\345\247\213\347\255\211\347\272\247\022%\n\013unLockLev"
     "el\030\004 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\347\255\211\347\272\247\022*\n\nlevelCheck"
     "\030\005 \001(\005B\026\302\377\024\022\345\212\250\346\200\201\347\255\211\347\272\247\346\240\241\346\255\243\022\'\n\006pathId"
-    "\030\006 \001(\tB\027\302\377\024\017\345\210\267\346\226\260\345\234\260\347\202\271\345\272\223\220\301\024 \0225\n\014specN"
+    "\030\006 \001(\tB\027\302\377\024\017\345\210\267\346\226\260\345\234\260\347\202\271\345\272\223\220\301\024<\0225\n\014specN"
     "oticeHP\030\007 \001(\005B\037\302\377\024\033\347\211\271\346\256\212\350\267\221\351\251\254\347\201\257\350\247\246\345\217\221"
     "\350\241\200\351\207\217\0226\n\rbornSpaceTime\030\010 \001(\005B\037\302\377\024\033\346\255\273\344\272"
     "\241\351\207\215\347\224\237\351\227\264\351\232\224\357\274\210\347\247\222\357\274\211\022N\n\004born\030\t \003(\0132\'.p"
@@ -240,18 +240,18 @@ void protobuf_AddDesc_worldmapboss_2eproto() {
     "\377\024\017\345\210\267\346\226\260\346\227\266\351\227\264\347\202\271\210\301\024\006\"i\n\033Sheet_worldmap"
     "bossworldboss\022J\n\032worldmapbossworldboss_L"
     "ist\030\001 \003(\0132\037.proto_ff.worldmapbossworldbo"
-    "ssB\005\210\301\024\206\003\"\214\001\n\024worldmapbossdroplist\022\022\n\002id"
+    "ssB\005\210\301\024\254\002\"\214\001\n\024worldmapbossdroplist\022\022\n\002id"
     "\030\001 \001(\005B\006\302\377\024\002ID\022\037\n\tmonsterId\030\002 \001(\003B\014\302\377\024\010\346"
     "\200\252\347\211\251ID\022!\n\tbossLevel\030\003 \001(\005B\016\302\377\024\nBOSS\347\255\211\347"
     "\272\247\022\034\n\006dropId\030\004 \001(\003B\014\302\377\024\010\346\216\211\350\220\275ID\"f\n\032Shee"
     "t_worldmapbossdroplist\022H\n\031worldmapbossdr"
     "oplist_List\030\001 \003(\0132\036.proto_ff.worldmapbos"
-    "sdroplistB\005\210\301\024\247\037\"h\n\024worldmapbossfestival"
+    "sdroplistB\005\210\301\024\240\037\"h\n\024worldmapbossfestival"
     "\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\032\n\006bossId\030\002 \001(\003B\n\302\377"
     "\024\006BOSSID\022 \n\006across\030\003 \001(\005B\020\302\377\024\014\350\267\250\346\234\215\346\240\207\350"
     "\256\260\"f\n\032Sheet_worldmapbossfestival\022H\n\031worl"
     "dmapbossfestival_List\030\001 \003(\0132\036.proto_ff.w"
-    "orldmapbossfestivalB\005\210\301\024\206\003", 1106);
+    "orldmapbossfestivalB\005\210\301\024\254\002", 1106);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "worldmapboss.proto", &protobuf_RegisterTypes);
   worldmapbossworldbossbornDesc::default_instance_ = new worldmapbossworldbossbornDesc();

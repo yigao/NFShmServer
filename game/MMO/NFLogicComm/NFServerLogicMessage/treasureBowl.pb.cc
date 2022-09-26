@@ -123,10 +123,10 @@ void protobuf_AddDesc_treasureBowl_2eproto() {
     "\030\347\211\271\346\256\212\347\211\251\345\223\201\350\277\224\350\277\230\346\257\224\344\276\213\022\037\n\005boxid\030\t \001(\003"
     "B\020\302\377\024\014\350\247\243\351\224\201\345\245\226\345\212\261\022\'\n\007skillid\030\n \001(\003B\026\302\377\024"
     "\022\350\247\243\351\224\201\347\211\271\346\235\203\346\212\200\350\203\275\022,\n\010skilldes\030\013 \001(\tB\032\302"
-    "\377\024\022\350\247\243\351\224\201\347\211\271\346\235\203\346\212\200\350\203\275\220\301\024 \"q\n\036Sheet_treas"
+    "\377\024\022\350\247\243\351\224\201\347\211\271\346\235\203\346\212\200\350\203\275\220\301\024<\"q\n\036Sheet_treas"
     "ureBowltreasureBowl\022O\n\035treasureBowltreas"
     "ureBowl_List\030\001 \003(\0132\".proto_ff.treasureBo"
-    "wltreasureBowlB\004\210\301\024i", 620);
+    "wltreasureBowlB\004\210\301\024\024", 620);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "treasureBowl.proto", &protobuf_RegisterTypes);
   treasureBowltreasureBowl::default_instance_ = new treasureBowltreasureBowl();

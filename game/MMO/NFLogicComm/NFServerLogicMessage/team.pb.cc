@@ -121,8 +121,8 @@ void protobuf_AddDesc_team_2eproto() {
     "\347\255\211\347\272\247\022+\n\013isAutoMatch\030\010 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\350"
     "\207\252\345\212\250\345\214\271\351\205\215\022&\n\014speakChannel\030\t \001(\005B\020\302\377\024\014\345"
     "\226\212\350\257\235\351\242\221\351\201\223\022\036\n\nteamnumber\030\n \001(\005B\n\302\377\024\006\345\272\217"
-    "\345\210\227\"B\n\016Sheet_teamteam\0220\n\rteamteam_List\030\001"
-    " \003(\0132\022.proto_ff.teamteamB\005\210\301\024\200\001", 511);
+    "\345\210\227\"A\n\016Sheet_teamteam\022/\n\rteamteam_List\030\001"
+    " \003(\0132\022.proto_ff.teamteamB\004\210\301\024(", 510);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "team.proto", &protobuf_RegisterTypes);
   teamteam::default_instance_ = new teamteam();

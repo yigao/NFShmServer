@@ -170,7 +170,7 @@ void protobuf_AddDesc_taskreward_2eproto() {
     "ardtaskrewardattrDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"f\n"
     "\032Sheet_taskrewardtaskreward\022H\n\031taskrewar"
     "dtaskreward_List\030\001 \003(\0132\036.proto_ff.taskre"
-    "wardtaskrewardB\005\210\301\024\240\030", 661);
+    "wardtaskrewardB\005\210\301\024\240\037", 661);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "taskreward.proto", &protobuf_RegisterTypes);
   taskrewardtaskrewarditemDesc::default_instance_ = new taskrewardtaskrewarditemDesc();

@@ -339,7 +339,7 @@ void protobuf_AddDesc_solo_2eproto() {
     " \003(\0132&.proto_ff.soloduanweidayRewardItem"
     "DescB\024\302\377\024\014\346\257\217\346\227\245\351\201\223\345\205\267\210\301\024\002\"J\n\021Sheet_solo"
     "duanwei\0225\n\020soloduanwei_List\030\001 \003(\0132\025.prot"
-    "o_ff.soloduanweiB\004\210\301\024}\"G\n\022solorankreward"
+    "o_ff.soloduanweiB\004\210\301\024(\"G\n\022solorankreward"
     "Desc\022\027\n\003num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\030\n\004rank\030\002 "
     "\001(\003B\n\302\377\024\006\346\216\222\345\220\215\"\336\001\n\010solorank\022\034\n\006rankID\030\001"
     " \001(\005B\014\302\377\024\010\346\216\222\345\220\215ID\022!\n\007maxRank\030\002 \001(\005B\020\302\377\024"
@@ -348,15 +348,15 @@ void protobuf_AddDesc_solo_2eproto() {
     "\345\245\226\345\212\261\347\273\221\351\222\273\346\225\260\351\207\217\022<\n\006reward\030\005 \003(\0132\034.pro"
     "to_ff.solorankrewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\004"
     "\"A\n\016Sheet_solorank\022/\n\rsolorank_List\030\001 \003("
-    "\0132\022.proto_ff.solorankB\004\210\301\024p\"Z\n\tsolopipei"
+    "\0132\022.proto_ff.solorankB\004\210\301\024\024\"Z\n\tsolopipei"
     "\022\022\n\002ID\030\001 \001(\005B\006\302\377\024\002ID\022\035\n\003num\030\002 \001(\005B\020\302\377\024\014\345"
     "\214\271\351\205\215\346\254\241\346\225\260\022\032\n\006reward\030\003 \001(\003B\n\302\377\024\006\345\245\226\345\212\261\""
     "D\n\017Sheet_solopipei\0221\n\016solopipei_List\030\001 \003"
-    "(\0132\023.proto_ff.solopipeiB\004\210\301\024k\"D\n\014solocon"
+    "(\0132\023.proto_ff.solopipeiB\004\210\301\024\024\"D\n\014solocon"
     "stant\022\022\n\002ID\030\001 \001(\005B\006\302\377\024\002ID\022 \n\010constant\030\002 "
-    "\001(\tB\016\302\377\024\006\345\217\202\346\225\260\220\301\0241\"N\n\022Sheet_soloconstan"
-    "t\0228\n\021soloconstant_List\030\001 \003(\0132\026.proto_ff."
-    "soloconstantB\005\210\301\024\213\001", 1499);
+    "\001(\tB\016\302\377\024\006\345\217\202\346\225\260\220\301\024P\"M\n\022Sheet_soloconstan"
+    "t\0227\n\021soloconstant_List\030\001 \003(\0132\026.proto_ff."
+    "soloconstantB\004\210\301\024<", 1498);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "solo.proto", &protobuf_RegisterTypes);
   soloduanweirewardDesc::default_instance_ = new soloduanweirewardDesc();

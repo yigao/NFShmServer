@@ -14,7 +14,7 @@ message closetestActivity
 
 message Sheet_closetestActivity
 {
-	repeated closetestActivity closetestActivity_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated closetestActivity closetestActivity_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message closetestRebate
@@ -27,5 +27,5 @@ message closetestRebate
 
 message Sheet_closetestRebate
 {
-	repeated closetestRebate closetestRebate_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated closetestRebate closetestRebate_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

@@ -17,7 +17,7 @@ namespace proto_ff_s {
 		int64_t chatId;
 		int32_t chatType;
 		int32_t showTime;
-		NFSizeString<157> chatContent;
+		NFSizeString<200> chatContent;
 		int32_t channel;
 		int32_t CrossService;
 
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_chatchat_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct chatchat_s, 296> chatchat_List;
+		NFArray<struct chatchat_s, 200> chatchat_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_chatchat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_chatchat & msg);
@@ -46,8 +46,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type;
-		NFSizeString<32> parama;
-		NFSizeString<71> paramb;
+		NFSizeString<60> parama;
+		NFSizeString<140> paramb;
 		int64_t chat_Id;
 
 		virtual void write_to_pbmsg(::proto_ff::chatspecialchat & msg) const;
@@ -61,7 +61,7 @@ namespace proto_ff_s {
 		Sheet_chatspecialchat_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct chatspecialchat_s, 111> chatspecialchat_List;
+		NFArray<struct chatspecialchat_s, 20> chatspecialchat_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_chatspecialchat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_chatspecialchat & msg);

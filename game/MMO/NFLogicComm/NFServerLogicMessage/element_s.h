@@ -41,13 +41,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> resource;
+		NFSizeString<60> resource;
 		int32_t type;
 		int32_t level;
 		int32_t exp;
 		int64_t skillID;
 		NFArray<struct elementelementattributeDesc_s, 2> attribute;
 		NFArray<struct elementelementmaterialDesc_s, 3> material;
+		NFArray<int64_t, 3> fragmentID;
 
 		virtual void write_to_pbmsg(::proto_ff::elementelement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::elementelement & msg);
@@ -60,7 +61,7 @@ namespace proto_ff_s {
 		Sheet_elementelement_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct elementelement_s, 1708> elementelement_List;
+		NFArray<struct elementelement_s, 2000> elementelement_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_elementelement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_elementelement & msg);
@@ -102,7 +103,7 @@ namespace proto_ff_s {
 		Sheet_elementfragment_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct elementfragment_s, 116> elementfragment_List;
+		NFArray<struct elementfragment_s, 20> elementfragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_elementfragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_elementfragment & msg);
@@ -116,7 +117,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::elementelementUI & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::elementelementUI & msg);
@@ -129,7 +130,7 @@ namespace proto_ff_s {
 		Sheet_elementelementUI_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct elementelementUI_s, 108> elementelementUI_List;
+		NFArray<struct elementelementUI_s, 20> elementelementUI_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_elementelementUI & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_elementelementUI & msg);

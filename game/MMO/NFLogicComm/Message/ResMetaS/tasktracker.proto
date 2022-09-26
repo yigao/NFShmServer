@@ -12,5 +12,5 @@ message tasktrackertasktracker
 
 message Sheet_tasktrackertasktracker
 {
-	repeated tasktrackertasktracker tasktrackertasktracker_List = 1[(yd_fieldoptions.field_arysize)=139];
+	repeated tasktrackertasktracker tasktrackertasktracker_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

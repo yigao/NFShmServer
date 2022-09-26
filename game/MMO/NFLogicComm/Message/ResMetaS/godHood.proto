@@ -24,7 +24,7 @@ message godHoodgodHood
 
 message Sheet_godHoodgodHood
 {
-	repeated godHoodgodHood godHoodgodHood_List = 1[(yd_fieldoptions.field_arysize)=233];
+	repeated godHoodgodHood godHoodgodHood_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message godHoodexp
@@ -36,5 +36,5 @@ message godHoodexp
 
 message Sheet_godHoodexp
 {
-	repeated godHoodexp godHoodexp_List = 1[(yd_fieldoptions.field_arysize)=354];
+	repeated godHoodexp godHoodexp_List = 1[(yd_fieldoptions.field_arysize)=300];
 }

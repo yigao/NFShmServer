@@ -47,7 +47,7 @@ namespace proto_ff_s {
 		Sheet_witchaward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct witchaward_s, 116> witchaward_List;
+		NFArray<struct witchaward_s, 20> witchaward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_witchaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_witchaward & msg);
@@ -80,7 +80,7 @@ namespace proto_ff_s {
 		Sheet_witchsummon_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct witchsummon_s, 107> witchsummon_List;
+		NFArray<struct witchsummon_s, 20> witchsummon_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_witchsummon & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_witchsummon & msg);
@@ -107,7 +107,7 @@ namespace proto_ff_s {
 		Sheet_witchrewardExp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct witchrewardExp_s, 1604> witchrewardExp_List;
+		NFArray<struct witchrewardExp_s, 2000> witchrewardExp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_witchrewardExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_witchrewardExp & msg);

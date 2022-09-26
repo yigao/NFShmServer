@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_starpoint_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct starpoint_s, 112> starpoint_List;
+		NFArray<struct starpoint_s, 20> starpoint_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_starpoint & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_starpoint & msg);
@@ -56,7 +56,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t starID;
-		NFSizeString<32> starName;
+		NFSizeString<60> starName;
 		int32_t starQuality;
 		int32_t starNum;
 		int32_t change;
@@ -66,6 +66,7 @@ namespace proto_ff_s {
 		int32_t rock;
 		int32_t exp;
 		int32_t starType;
+		NFArray<NFSizeString<60>, 2> LvAdd;
 		NFArray<struct starstarstarDesc_s, 2> star;
 
 		virtual void write_to_pbmsg(::proto_ff::starstar & msg) const;
@@ -79,7 +80,7 @@ namespace proto_ff_s {
 		Sheet_starstar_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct starstar_s, 253> starstar_List;
+		NFArray<struct starstar_s, 200> starstar_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_starstar & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_starstar & msg);
@@ -109,7 +110,7 @@ namespace proto_ff_s {
 		Sheet_starexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct starexp_s, 1554> starexp_List;
+		NFArray<struct starexp_s, 2000> starexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_starexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_starexp & msg);
@@ -130,6 +131,8 @@ namespace proto_ff_s {
 		int32_t time;
 		int32_t coinTye;
 		int32_t number;
+		NFArray<int32_t, 5> gailv;
+		NFArray<int32_t, 5> probability;
 
 		virtual void write_to_pbmsg(::proto_ff::starastrology & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::starastrology & msg);
@@ -142,7 +145,7 @@ namespace proto_ff_s {
 		Sheet_starastrology_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct starastrology_s, 106> starastrology_List;
+		NFArray<struct starastrology_s, 20> starastrology_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_starastrology & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_starastrology & msg);

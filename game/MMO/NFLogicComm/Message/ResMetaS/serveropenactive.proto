@@ -9,13 +9,13 @@ message serveropenactiveserviceActivity
 	optional int32 servertype = 2[(yd_fieldoptions.field_cname) = "服务器类型"];
 	optional int32 timeA = 3[(yd_fieldoptions.field_cname) = "开启时间"];
 	optional int32 timeB = 4[(yd_fieldoptions.field_cname) = "关闭时间"];
-	optional string pageId = 5[(yd_fieldoptions.field_cname) = "页签参数", (yd_fieldoptions.field_bufsize) = 279];
+	optional string pageId = 5[(yd_fieldoptions.field_cname) = "页签参数", (yd_fieldoptions.field_bufsize) = 300];
 }
 
 
 message Sheet_serveropenactiveserviceActivity
 {
-	repeated serveropenactiveserviceActivity serveropenactiveserviceActivity_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated serveropenactiveserviceActivity serveropenactiveserviceActivity_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message serveropenactivepageBook
@@ -26,7 +26,7 @@ message serveropenactivepageBook
 
 message Sheet_serveropenactivepageBook
 {
-	repeated serveropenactivepageBook serveropenactivepageBook_List = 1[(yd_fieldoptions.field_arysize)=118];
+	repeated serveropenactivepageBook serveropenactivepageBook_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message serveropenactivepage
@@ -34,10 +34,10 @@ message serveropenactivepage
 	optional int64 Id = 1[(yd_fieldoptions.field_cname) = "页签id"];
 	optional int32 mType = 2[(yd_fieldoptions.field_cname) = "模板类型"];
 	optional int32 mCanshu = 3[(yd_fieldoptions.field_cname) = "模板参数"];
-	optional string start = 4[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string finish = 5[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string miaoshu = 6[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 106];
-	optional string tiaojianId = 7[(yd_fieldoptions.field_cname) = "条件", (yd_fieldoptions.field_bufsize) = 41];
+	optional string start = 4[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string finish = 5[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string miaoshu = 6[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 200];
+	optional string tiaojianId = 7[(yd_fieldoptions.field_cname) = "条件", (yd_fieldoptions.field_bufsize) = 80];
 	optional int64 mailid = 8[(yd_fieldoptions.field_cname) = "邮件id"];
 	optional int64 youjianid = 9[(yd_fieldoptions.field_cname) = "普通邮件"];
 	optional int64 nonstandardmailid = 10[(yd_fieldoptions.field_cname) = "未达标邮件"];
@@ -46,22 +46,22 @@ message serveropenactivepage
 
 message Sheet_serveropenactivepage
 {
-	repeated serveropenactivepage serveropenactivepage_List = 1[(yd_fieldoptions.field_arysize)=182];
+	repeated serveropenactivepage serveropenactivepage_List = 1[(yd_fieldoptions.field_arysize)=140];
 }
 
 message serveropenactivemRank
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 randtype = 2[(yd_fieldoptions.field_cname) = "冲榜类型"];
-	optional string miaoshu = 3[(yd_fieldoptions.field_cname) = "目标描述", (yd_fieldoptions.field_bufsize) = 57];
+	optional string miaoshu = 3[(yd_fieldoptions.field_cname) = "目标描述", (yd_fieldoptions.field_bufsize) = 100];
 	optional int64 boxid = 4[(yd_fieldoptions.field_cname) = "奖励id"];
-	repeated int32 canshu = 5[(yd_fieldoptions.field_cname) = "参数"];
+	repeated int64 canshu = 5[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
 message Sheet_serveropenactivemRank
 {
-	repeated serveropenactivemRank serveropenactivemRank_List = 1[(yd_fieldoptions.field_arysize)=223];
+	repeated serveropenactivemRank serveropenactivemRank_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message serveropenactivemAdvanced
@@ -70,14 +70,14 @@ message serveropenactivemAdvanced
 	optional int32 advancedType = 2[(yd_fieldoptions.field_cname) = "进阶类型"];
 	optional int64 num = 3[(yd_fieldoptions.field_cname) = "进阶参数"];
 	optional int64 parameter = 4[(yd_fieldoptions.field_cname) = "参数"];
-	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 37];
+	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 jiangLi = 6[(yd_fieldoptions.field_cname) = "奖励id"];
 }
 
 
 message Sheet_serveropenactivemAdvanced
 {
-	repeated serveropenactivemAdvanced serveropenactivemAdvanced_List = 1[(yd_fieldoptions.field_arysize)=185];
+	repeated serveropenactivemAdvanced serveropenactivemAdvanced_List = 1[(yd_fieldoptions.field_arysize)=160];
 }
 
 message serveropenactivemRecharge
@@ -85,14 +85,14 @@ message serveropenactivemRecharge
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
 	optional int32 numType = 2[(yd_fieldoptions.field_cname) = "计数类型"];
 	optional int32 num = 3[(yd_fieldoptions.field_cname) = "充值元数"];
-	optional string miaoshu = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 39];
+	optional string miaoshu = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 jiangLi = 5[(yd_fieldoptions.field_cname) = "奖励id"];
 }
 
 
 message Sheet_serveropenactivemRecharge
 {
-	repeated serveropenactivemRecharge serveropenactivemRecharge_List = 1[(yd_fieldoptions.field_arysize)=230];
+	repeated serveropenactivemRecharge serveropenactivemRecharge_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message serveropenactivemGoods
@@ -108,5 +108,5 @@ message serveropenactivemGoods
 
 message Sheet_serveropenactivemGoods
 {
-	repeated serveropenactivemGoods serveropenactivemGoods_List = 1[(yd_fieldoptions.field_arysize)=188];
+	repeated serveropenactivemGoods serveropenactivemGoods_List = 1[(yd_fieldoptions.field_arysize)=160];
 }

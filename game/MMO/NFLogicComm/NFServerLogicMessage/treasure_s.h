@@ -29,9 +29,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<69> activeDesc;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<120> activeDesc;
 		int32_t realLevel;
 		int64_t materialID;
 		int32_t materialEXP;
@@ -41,6 +41,7 @@ namespace proto_ff_s {
 		int64_t skill;
 		int64_t skillID;
 		NFArray<struct treasuretreasureattributeDesc_s, 4> attribute;
+		NFArray<int64_t, 3> fragmentID;
 
 		virtual void write_to_pbmsg(::proto_ff::treasuretreasure & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::treasuretreasure & msg);
@@ -53,7 +54,7 @@ namespace proto_ff_s {
 		Sheet_treasuretreasure_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasuretreasure_s, 584> treasuretreasure_List;
+		NFArray<struct treasuretreasure_s, 500> treasuretreasure_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasuretreasure & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasuretreasure & msg);
@@ -81,12 +82,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<75> activeDesc;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<140> activeDesc;
 		int32_t quality;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		int64_t occupation;
@@ -105,7 +106,7 @@ namespace proto_ff_s {
 		Sheet_treasurechange_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasurechange_s, 110> treasurechange_List;
+		NFArray<struct treasurechange_s, 20> treasurechange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasurechange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasurechange & msg);
@@ -148,7 +149,7 @@ namespace proto_ff_s {
 		Sheet_treasurestarUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasurestarUp_s, 116> treasurestarUp_List;
+		NFArray<struct treasurestarUp_s, 20> treasurestarUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasurestarUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasurestarUp & msg);
@@ -191,7 +192,7 @@ namespace proto_ff_s {
 		Sheet_treasurefragment_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasurefragment_s, 107> treasurefragment_List;
+		NFArray<struct treasurefragment_s, 20> treasurefragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasurefragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasurefragment & msg);
@@ -233,7 +234,7 @@ namespace proto_ff_s {
 		Sheet_treasureequip_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasureequip_s, 124> treasureequip_List;
+		NFArray<struct treasureequip_s, 40> treasureequip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasureequip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasureequip & msg);
@@ -261,7 +262,7 @@ namespace proto_ff_s {
 		Sheet_treasureslot_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasureslot_s, 108> treasureslot_List;
+		NFArray<struct treasureslot_s, 20> treasureslot_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasureslot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasureslot & msg);
@@ -289,7 +290,7 @@ namespace proto_ff_s {
 		Sheet_treasurerefine_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct treasurerefine_s, 204> treasurerefine_List;
+		NFArray<struct treasurerefine_s, 200> treasurerefine_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_treasurerefine & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_treasurerefine & msg);

@@ -15,16 +15,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<63> name;
+		NFSizeString<120> name;
 		int32_t itemType;
 		int32_t subType;
 		int32_t functionType;
-		NFSizeString<32> functionValue;
-		NFSizeString<32> usecondition;
+		NFSizeString<60> functionValue;
+		NFSizeString<60> usecondition;
 		int32_t level;
 		int32_t quality;
 		int32_t levelRequest;
-		NFSizeString<32> profession;
+		NFSizeString<60> profession;
 		int32_t bindType;
 		int32_t isTradeBind;
 		int32_t stackLimit;
@@ -35,7 +35,7 @@ namespace proto_ff_s {
 		int32_t dayUse;
 		int32_t outTime;
 		int32_t dayOutTime;
-		NFSizeString<1583> useLimit;
+		NFSizeString<2000> useLimit;
 		int32_t blessing;
 		int32_t invest;
 		int32_t exchange;
@@ -51,7 +51,7 @@ namespace proto_ff_s {
 		Sheet_itemitem_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct itemitem_s, 3008> itemitem_List;
+		NFArray<struct itemitem_s, 3000> itemitem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_itemitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_itemitem & msg);

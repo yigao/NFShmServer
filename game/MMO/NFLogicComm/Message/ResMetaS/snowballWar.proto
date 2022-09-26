@@ -7,11 +7,11 @@ message snowballWarcons
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
 	optional int64 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_snowballWarcons
 {
-	repeated snowballWarcons snowballWarcons_List = 1[(yd_fieldoptions.field_arysize)=118];
+	repeated snowballWarcons snowballWarcons_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

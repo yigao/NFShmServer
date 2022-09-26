@@ -5,33 +5,33 @@ import "yd_fieldoptions.proto";
 
 message dropdropitemDesc
 {
-	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 279];
+	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 rand = 2[(yd_fieldoptions.field_cname) = "概率"];
 	optional int32 maxNum = 3[(yd_fieldoptions.field_cname) = "最大数量"];
-	optional string QZ = 4[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 209];
+	optional string QZ = 4[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 minNum = 5[(yd_fieldoptions.field_cname) = "最小数量"];
-	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 671];
+	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 700];
 }
 
 message dropdropitemTeamDesc
 {
-	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 32];
+	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 rand = 2[(yd_fieldoptions.field_cname) = "概率百分比"];
 	optional int32 maxNum = 3[(yd_fieldoptions.field_cname) = "最大数量"];
-	optional string QZ = 4[(yd_fieldoptions.field_cname) = "掉落权重", (yd_fieldoptions.field_bufsize) = 63];
+	optional string QZ = 4[(yd_fieldoptions.field_cname) = "掉落权重", (yd_fieldoptions.field_bufsize) = 120];
 	optional int32 minNum = 5[(yd_fieldoptions.field_cname) = "最小数量"];
-	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 191];
+	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 200];
 }
 
 message dropdropequipDesc
 {
 	optional int32 rand = 1[(yd_fieldoptions.field_cname) = "概率百分比"];
 	optional int32 maxNum = 2[(yd_fieldoptions.field_cname) = "最大数量"];
-	optional string weight = 3[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 47];
+	optional string weight = 3[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 80];
 	optional int32 minNum = 4[(yd_fieldoptions.field_cname) = "最小数量"];
-	optional string isbind = 5[(yd_fieldoptions.field_cname) = "绑定概率", (yd_fieldoptions.field_bufsize) = 32];
-	optional string prof = 6[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 32];
-	optional string id = 7[(yd_fieldoptions.field_cname) = "道具ID", (yd_fieldoptions.field_bufsize) = 95];
+	optional string isbind = 5[(yd_fieldoptions.field_cname) = "绑定概率", (yd_fieldoptions.field_bufsize) = 60];
+	optional string prof = 6[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional string id = 7[(yd_fieldoptions.field_cname) = "道具ID", (yd_fieldoptions.field_bufsize) = 180];
 }
 
 message dropdrop
@@ -50,5 +50,5 @@ message dropdrop
 
 message Sheet_dropdrop
 {
-	repeated dropdrop dropdrop_List = 1[(yd_fieldoptions.field_arysize)=1252];
+	repeated dropdrop dropdrop_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

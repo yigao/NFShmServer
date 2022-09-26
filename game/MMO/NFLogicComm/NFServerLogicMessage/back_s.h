@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t type;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t backTimes;
 		int32_t vipType;
 		int32_t group;
@@ -25,7 +25,11 @@ namespace proto_ff_s {
 		int32_t functionUnlock;
 		int32_t levelLimit;
 		int64_t itemId;
-		NFSizeString<32> icon;
+		NFSizeString<60> icon;
+		NFArray<int32_t, 2> backExp;
+		NFArray<int32_t, 2> backNum;
+		NFArray<int32_t, 2> param;
+		NFArray<int32_t, 2> backExpend;
 
 		virtual void write_to_pbmsg(::proto_ff::backback & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::backback & msg);
@@ -38,7 +42,7 @@ namespace proto_ff_s {
 		Sheet_backback_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct backback_s, 188> backback_List;
+		NFArray<struct backback_s, 160> backback_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_backback & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_backback & msg);

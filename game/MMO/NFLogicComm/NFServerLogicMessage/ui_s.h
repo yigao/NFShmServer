@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_uieffect_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct uieffect_s, 209> uieffect_List;
+		NFArray<struct uieffect_s, 200> uieffect_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_uieffect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_uieffect & msg);

@@ -24,7 +24,7 @@ message combinecitem
 
 message Sheet_combinecitem
 {
-	repeated combinecitem combinecitem_List = 1[(yd_fieldoptions.field_arysize)=537];
+	repeated combinecitem combinecitem_List = 1[(yd_fieldoptions.field_arysize)=500];
 }
 
 message combinestarUp
@@ -38,7 +38,7 @@ message combinestarUp
 	optional int32 wearQuality = 7[(yd_fieldoptions.field_cname) = "阶级"];
 	optional int32 quality = 8[(yd_fieldoptions.field_cname) = "品质"];
 	optional int32 sameProfession = 9[(yd_fieldoptions.field_cname) = "是否相同职业"];
-	optional string samePosition = 10[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional string samePosition = 10[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 probability = 11[(yd_fieldoptions.field_cname) = "基础成功率"];
 	optional int32 increase = 12[(yd_fieldoptions.field_cname) = "装备件数加成"];
 }
@@ -46,7 +46,7 @@ message combinestarUp
 
 message Sheet_combinestarUp
 {
-	repeated combinestarUp combinestarUp_List = 1[(yd_fieldoptions.field_arysize)=852];
+	repeated combinestarUp combinestarUp_List = 1[(yd_fieldoptions.field_arysize)=800];
 }
 
 message combineitemUp
@@ -64,7 +64,7 @@ message combineitemUp
 
 message Sheet_combineitemUp
 {
-	repeated combineitemUp combineitemUp_List = 1[(yd_fieldoptions.field_arysize)=136];
+	repeated combineitemUp combineitemUp_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message combinerankUp
@@ -77,19 +77,19 @@ message combinerankUp
 	optional int32 wearQuality = 6[(yd_fieldoptions.field_cname) = "阶级"];
 	optional int32 quality = 7[(yd_fieldoptions.field_cname) = "品质"];
 	optional int32 sameProfession = 8[(yd_fieldoptions.field_cname) = "是否相同职业"];
-	optional string samePosition = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional string samePosition = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 probability = 10[(yd_fieldoptions.field_cname) = "成功率"];
 }
 
 
 message Sheet_combinerankUp
 {
-	repeated combinerankUp combinerankUp_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated combinerankUp combinerankUp_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message combinequalityUpneedEqupDesc
 {
-	optional string id = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 83];
+	optional string id = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 160];
 }
 
 message combinequalityUpneedMaterialDesc
@@ -106,7 +106,7 @@ message combinequalityUp
 	optional int32 wearQuality = 5[(yd_fieldoptions.field_cname) = "阶级"];
 	optional int32 quality = 6[(yd_fieldoptions.field_cname) = "品质"];
 	optional int32 sameProfession = 7[(yd_fieldoptions.field_cname) = "是否相同职业"];
-	optional string samePosition = 8[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional string samePosition = 8[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 probability = 9[(yd_fieldoptions.field_cname) = "基础成功率"];
 	optional int32 costType = 10[(yd_fieldoptions.field_cname) = "货币类型"];
 	optional int32 bindJewelCost = 11[(yd_fieldoptions.field_cname) = "合成消耗"];
@@ -117,5 +117,5 @@ message combinequalityUp
 
 message Sheet_combinequalityUp
 {
-	repeated combinequalityUp combinequalityUp_List = 1[(yd_fieldoptions.field_arysize)=392];
+	repeated combinequalityUp combinequalityUp_List = 1[(yd_fieldoptions.field_arysize)=300];
 }

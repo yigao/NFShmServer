@@ -106,8 +106,10 @@ void festivalmuban_dingzhi_s::write_to_pbmsg(::proto_ff::festivalmuban_dingzhi &
 	msg.set_currencytype((int32_t)currencyType);
 	msg.set_price((int32_t)price);
 	msg.set_times((int32_t)times);
+	for(int32_t i = 0; i < (int32_t)freeBoxId.GetSize() && i < freeBoxId.GetMaxSize(); ++i) {
 		msg.add_freeboxid((int64_t)freeBoxId[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)freeNum.GetSize() && i < freeNum.GetMaxSize(); ++i) {
 		msg.add_freenum((int32_t)freeNum[i]);
 	}
 }
@@ -120,8 +122,12 @@ void festivalmuban_dingzhi_s::read_from_pbmsg(const ::proto_ff::festivalmuban_di
 	currencyType = msg.currencytype();
 	price = msg.price();
 	times = msg.times();
+	freeBoxId.SetSize(msg.freeboxid_size() > freeBoxId.GetMaxSize() ? freeBoxId.GetMaxSize() : msg.freeboxid_size());
+	for(int32_t i = 0; i < (int32_t)freeBoxId.GetSize(); ++i) {
 		freeBoxId[i] = msg.freeboxid(i);
 	}
+	freeNum.SetSize(msg.freenum_size() > freeNum.GetMaxSize() ? freeNum.GetMaxSize() : msg.freenum_size());
+	for(int32_t i = 0; i < (int32_t)freeNum.GetSize(); ++i) {
 		freeNum[i] = msg.freenum(i);
 	}
 }

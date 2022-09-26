@@ -44,7 +44,7 @@ namespace proto_ff_s {
 		Sheet_chooseGiftchooseGift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct chooseGiftchooseGift_s, 105> chooseGiftchooseGift_List;
+		NFArray<struct chooseGiftchooseGift_s, 20> chooseGiftchooseGift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_chooseGiftchooseGift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_chooseGiftchooseGift & msg);

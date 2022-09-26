@@ -7,13 +7,13 @@ message gm5Helpcons
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_gm5Helpcons
 {
-	repeated gm5Helpcons gm5Helpcons_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated gm5Helpcons gm5Helpcons_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message gm5HelprewardrewardDesc
@@ -33,5 +33,5 @@ message gm5Helpreward
 
 message Sheet_gm5Helpreward
 {
-	repeated gm5Helpreward gm5Helpreward_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated gm5Helpreward gm5Helpreward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

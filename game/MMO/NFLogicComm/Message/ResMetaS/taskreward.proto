@@ -30,5 +30,5 @@ message taskrewardtaskreward
 
 message Sheet_taskrewardtaskreward
 {
-	repeated taskrewardtaskreward taskrewardtaskreward_List = 1[(yd_fieldoptions.field_arysize)=3104];
+	repeated taskrewardtaskreward taskrewardtaskreward_List = 1[(yd_fieldoptions.field_arysize)=4000];
 }

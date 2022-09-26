@@ -17,8 +17,8 @@ namespace proto_ff_s {
 		int64_t Id;
 		int32_t profession;
 		int32_t position;
-		NFSizeString<32> name;
-		NFSizeString<32> icon;
+		NFSizeString<60> name;
+		NFSizeString<60> icon;
 		int32_t num;
 
 		virtual void write_to_pbmsg(::proto_ff::auctionacquisition & msg) const;
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_auctionacquisition_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct auctionacquisition_s, 162> auctionacquisition_List;
+		NFArray<struct auctionacquisition_s, 100> auctionacquisition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_auctionacquisition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_auctionacquisition & msg);
@@ -48,9 +48,9 @@ namespace proto_ff_s {
 		int64_t Id;
 		int32_t type;
 		int32_t subType;
-		NFSizeString<32> name;
-		NFSizeString<32> itemName;
-		NFSizeString<35> itemId;
+		NFSizeString<60> name;
+		NFSizeString<60> itemName;
+		NFSizeString<60> itemId;
 
 		virtual void write_to_pbmsg(::proto_ff::auctionpurchase & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::auctionpurchase & msg);
@@ -63,7 +63,7 @@ namespace proto_ff_s {
 		Sheet_auctionpurchase_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct auctionpurchase_s, 1404> auctionpurchase_List;
+		NFArray<struct auctionpurchase_s, 2000> auctionpurchase_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_auctionpurchase & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_auctionpurchase & msg);

@@ -90,6 +90,7 @@ void elementelement_s::write_to_pbmsg(::proto_ff::elementelement & msg) const {
 		::proto_ff::elementelementmaterialDesc* temp_material = msg.add_material();
 		material[i].write_to_pbmsg(*temp_material);
 	}
+	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize() && i < fragmentID.GetMaxSize(); ++i) {
 		msg.add_fragmentid((int64_t)fragmentID[i]);
 	}
 }
@@ -112,6 +113,8 @@ void elementelement_s::read_from_pbmsg(const ::proto_ff::elementelement & msg) {
 		const ::proto_ff::elementelementmaterialDesc & temp_material = msg.material(i);
 		material[i].read_from_pbmsg(temp_material);
 	}
+	fragmentID.SetSize(msg.fragmentid_size() > fragmentID.GetMaxSize() ? fragmentID.GetMaxSize() : msg.fragmentid_size());
+	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize(); ++i) {
 		fragmentID[i] = msg.fragmentid(i);
 	}
 }

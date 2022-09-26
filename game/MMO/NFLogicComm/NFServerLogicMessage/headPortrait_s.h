@@ -29,13 +29,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
-		NFSizeString<32> professionLimit;
+		NFSizeString<60> professionLimit;
 		int64_t activationItem;
 		int32_t activationNum;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		NFArray<struct headPortraitheadattributeDesc_s, 6> attribute;
@@ -51,7 +51,7 @@ namespace proto_ff_s {
 		Sheet_headPortraithead_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct headPortraithead_s, 112> headPortraithead_List;
+		NFArray<struct headPortraithead_s, 20> headPortraithead_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_headPortraithead & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_headPortraithead & msg);
@@ -79,13 +79,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
-		NFSizeString<32> professionLimit;
+		NFSizeString<60> professionLimit;
 		int64_t activationItem;
 		int32_t activationNum;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		NFArray<struct headPortraitframeattributeDesc_s, 6> attribute;
@@ -101,7 +101,7 @@ namespace proto_ff_s {
 		Sheet_headPortraitframe_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct headPortraitframe_s, 108> headPortraitframe_List;
+		NFArray<struct headPortraitframe_s, 20> headPortraitframe_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_headPortraitframe & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_headPortraitframe & msg);
@@ -129,13 +129,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
-		NFSizeString<32> professionLimit;
+		NFSizeString<60> professionLimit;
 		int64_t activationItem;
 		int32_t activationNum;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		NFArray<struct headPortraitbubbleattributeDesc_s, 6> attribute;
@@ -151,7 +151,7 @@ namespace proto_ff_s {
 		Sheet_headPortraitbubble_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct headPortraitbubble_s, 109> headPortraitbubble_List;
+		NFArray<struct headPortraitbubble_s, 20> headPortraitbubble_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_headPortraitbubble & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_headPortraitbubble & msg);

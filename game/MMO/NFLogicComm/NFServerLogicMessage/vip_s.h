@@ -18,7 +18,7 @@ namespace proto_ff_s {
 		int32_t level;
 		int32_t vipType;
 		int32_t exp;
-		NFSizeString<191> privilege_id;
+		NFSizeString<200> privilege_id;
 		int64_t chat;
 
 		virtual void write_to_pbmsg(::proto_ff::vipvip & msg) const;
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_vipvip_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct vipvip_s, 125> vipvip_List;
+		NFArray<struct vipvip_s, 40> vipvip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_vipvip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_vipvip & msg);
@@ -47,7 +47,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t id;
 		int32_t type;
-		NFSizeString<32> canshuString;
+		NFSizeString<60> canshuString;
+		NFArray<int32_t, 1> canshu;
 
 		virtual void write_to_pbmsg(::proto_ff::vipprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::vipprivilege & msg);
@@ -60,7 +61,7 @@ namespace proto_ff_s {
 		Sheet_vipprivilege_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct vipprivilege_s, 469> vipprivilege_List;
+		NFArray<struct vipprivilege_s, 400> vipprivilege_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_vipprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_vipprivilege & msg);
@@ -92,7 +93,7 @@ namespace proto_ff_s {
 		Sheet_vipgift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct vipgift_s, 144> vipgift_List;
+		NFArray<struct vipgift_s, 80> vipgift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_vipgift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_vipgift & msg);

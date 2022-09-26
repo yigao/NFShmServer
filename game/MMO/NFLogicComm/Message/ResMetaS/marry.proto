@@ -7,13 +7,13 @@ message marryconst
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_marryconst
 {
-	repeated marryconst marryconst_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated marryconst marryconst_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message marrybanquetfireworkDesc
@@ -46,7 +46,7 @@ message marrybanquet
 
 message Sheet_marrybanquet
 {
-	repeated marrybanquet marrybanquet_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated marrybanquet marrybanquet_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message marrygear
@@ -54,33 +54,33 @@ message marrygear
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int64 title = 2[(yd_fieldoptions.field_cname) = "称号奖励（第一个物品）"];
 	optional int64 item = 3[(yd_fieldoptions.field_cname) = "物品奖励（第二个物品）"];
-	optional string nickName = 4[(yd_fieldoptions.field_cname) = "昵称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string nickName = 4[(yd_fieldoptions.field_cname) = "昵称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 initiate = 5[(yd_fieldoptions.field_cname) = "发起奖励"];
 	optional int32 usetype = 6[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 useprice = 7[(yd_fieldoptions.field_cname) = "发起价格"];
 	optional int32 AAPrice = 8[(yd_fieldoptions.field_cname) = "AA价格"];
-	optional string preset = 9[(yd_fieldoptions.field_cname) = "告白", (yd_fieldoptions.field_bufsize) = 32];
+	optional string preset = 9[(yd_fieldoptions.field_cname) = "告白", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 weddingEffect = 10[(yd_fieldoptions.field_cname) = "结婚特效"];
 }
 
 
 message Sheet_marrygear
 {
-	repeated marrygear marrygear_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated marrygear marrygear_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message marrytimes
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional string startTime = 2[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string endTime = 3[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string limit = 4[(yd_fieldoptions.field_cname) = "预约类型限制", (yd_fieldoptions.field_bufsize) = 32];
+	optional string startTime = 2[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string endTime = 3[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string limit = 4[(yd_fieldoptions.field_cname) = "预约类型限制", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_marrytimes
 {
-	repeated marrytimes marrytimes_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated marrytimes marrytimes_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message marrywarm
@@ -97,7 +97,7 @@ message marrywarm
 
 message Sheet_marrywarm
 {
-	repeated marrywarm marrywarm_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated marrywarm marrywarm_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message marrylevelexpwarmDesc
@@ -115,5 +115,5 @@ message marrylevelexp
 
 message Sheet_marrylevelexp
 {
-	repeated marrylevelexp marrylevelexp_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated marrylevelexp marrylevelexp_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_buttonbutton_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct buttonbutton_s, 144> buttonbutton_List;
+		NFArray<struct buttonbutton_s, 80> buttonbutton_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_buttonbutton & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_buttonbutton & msg);

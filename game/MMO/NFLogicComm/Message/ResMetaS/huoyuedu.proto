@@ -15,18 +15,18 @@ message huoyuedureward
 
 message Sheet_huoyuedureward
 {
-	repeated huoyuedureward huoyuedureward_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated huoyuedureward huoyuedureward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message huoyueduactive
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "类型ID"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 type = 3[(yd_fieldoptions.field_cname) = "活动类型"];
-	optional string args = 4[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string args = 4[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 funciontID = 5[(yd_fieldoptions.field_cname) = "功能ID"];
 	optional int32 countRule = 6[(yd_fieldoptions.field_cname) = "计次规则"];
-	optional string countParam = 7[(yd_fieldoptions.field_cname) = "计次参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string countParam = 7[(yd_fieldoptions.field_cname) = "计次参数", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 number = 8[(yd_fieldoptions.field_cname) = "次数"];
 	optional int32 viptype = 9[(yd_fieldoptions.field_cname) = "VIP类型"];
 	optional int32 otherNum = 10[(yd_fieldoptions.field_cname) = "其余可购买次数"];
@@ -38,5 +38,5 @@ message huoyueduactive
 
 message Sheet_huoyueduactive
 {
-	repeated huoyueduactive huoyueduactive_List = 1[(yd_fieldoptions.field_arysize)=145];
+	repeated huoyueduactive huoyueduactive_List = 1[(yd_fieldoptions.field_arysize)=80];
 }

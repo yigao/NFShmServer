@@ -30,6 +30,7 @@ void rankingranking_s::write_to_pbmsg(::proto_ff::rankingranking & msg) const {
 	msg.set_capacity((int32_t)capacity);
 	msg.set_showsize((int32_t)showSize);
 	msg.set_rankmodule((int32_t)rankModule);
+	for(int32_t i = 0; i < (int32_t)dateID.GetSize() && i < dateID.GetMaxSize(); ++i) {
 		msg.add_dateid((int32_t)dateID[i]);
 	}
 }
@@ -42,6 +43,8 @@ void rankingranking_s::read_from_pbmsg(const ::proto_ff::rankingranking & msg) {
 	capacity = msg.capacity();
 	showSize = msg.showsize();
 	rankModule = msg.rankmodule();
+	dateID.SetSize(msg.dateid_size() > dateID.GetMaxSize() ? dateID.GetMaxSize() : msg.dateid_size());
+	for(int32_t i = 0; i < (int32_t)dateID.GetSize(); ++i) {
 		dateID[i] = msg.dateid(i);
 	}
 }

@@ -105,9 +105,8 @@ void protobuf_AddDesc_button_2eproto() {
     "\n\014button.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"H\n\014buttonbutton\022\030\n\002id\030\001 \001(\003B\014\302\377\024"
     "\010\346\214\211\351\222\256id\022\036\n\004time\030\002 \001(\005B\020\302\377\024\014\350\257\273\346\235\241\346\227\266\351\227"
-    "\264\"N\n\022Sheet_buttonbutton\0228\n\021buttonbutton_"
-    "List\030\001 \003(\0132\026.proto_ff.buttonbuttonB\005\210\301\024\220"
-    "\001", 201);
+    "\264\"M\n\022Sheet_buttonbutton\0227\n\021buttonbutton_"
+    "List\030\001 \003(\0132\026.proto_ff.buttonbuttonB\004\210\301\024P", 200);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "button.proto", &protobuf_RegisterTypes);
   buttonbutton::default_instance_ = new buttonbutton();

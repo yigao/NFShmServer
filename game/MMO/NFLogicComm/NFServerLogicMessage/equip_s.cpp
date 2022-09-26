@@ -401,6 +401,7 @@ void equipgem_s::write_to_pbmsg(::proto_ff::equipgem & msg) const {
 	msg.set_position((int32_t)position);
 	msg.set_gemtype((int32_t)gemType);
 	msg.set_vipunlock((int32_t)VipUnlock);
+	for(int32_t i = 0; i < (int32_t)gemUnlock.GetSize() && i < gemUnlock.GetMaxSize(); ++i) {
 		msg.add_gemunlock((int32_t)gemUnlock[i]);
 	}
 }
@@ -410,6 +411,8 @@ void equipgem_s::read_from_pbmsg(const ::proto_ff::equipgem & msg) {
 	position = msg.position();
 	gemType = msg.gemtype();
 	VipUnlock = msg.vipunlock();
+	gemUnlock.SetSize(msg.gemunlock_size() > gemUnlock.GetMaxSize() ? gemUnlock.GetMaxSize() : msg.gemunlock_size());
+	for(int32_t i = 0; i < (int32_t)gemUnlock.GetSize(); ++i) {
 		gemUnlock[i] = msg.gemunlock(i);
 	}
 }
@@ -652,6 +655,7 @@ void equipclear_s::write_to_pbmsg(::proto_ff::equipclear & msg) const {
 	msg.set_position((int32_t)position);
 	msg.set_lv((int32_t)Lv);
 	msg.set_value((const char*)value.Get());
+	for(int32_t i = 0; i < (int32_t)teamId.GetSize() && i < teamId.GetMaxSize(); ++i) {
 		msg.add_teamid((int64_t)teamId[i]);
 	}
 }
@@ -662,6 +666,8 @@ void equipclear_s::read_from_pbmsg(const ::proto_ff::equipclear & msg) {
 	position = msg.position();
 	Lv = msg.lv();
 	value.Copy(msg.value());
+	teamId.SetSize(msg.teamid_size() > teamId.GetMaxSize() ? teamId.GetMaxSize() : msg.teamid_size());
+	for(int32_t i = 0; i < (int32_t)teamId.GetSize(); ++i) {
 		teamId[i] = msg.teamid(i);
 	}
 }

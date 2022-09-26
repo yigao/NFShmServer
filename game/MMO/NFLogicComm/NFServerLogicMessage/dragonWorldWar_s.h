@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int32_t valuedata;
-		NFSizeString<117> stringdata;
+		NFSizeString<200> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::dragonWorldWarconstants & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::dragonWorldWarconstants & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_dragonWorldWarconstants_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dragonWorldWarconstants_s, 119> dragonWorldWarconstants_List;
+		NFArray<struct dragonWorldWarconstants_s, 20> dragonWorldWarconstants_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_dragonWorldWarconstants & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dragonWorldWarconstants & msg);
@@ -58,7 +58,7 @@ namespace proto_ff_s {
 		Sheet_dragonWorldWargoldskill_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dragonWorldWargoldskill_s, 119> dragonWorldWargoldskill_List;
+		NFArray<struct dragonWorldWargoldskill_s, 20> dragonWorldWargoldskill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_dragonWorldWargoldskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dragonWorldWargoldskill & msg);
@@ -88,7 +88,7 @@ namespace proto_ff_s {
 		Sheet_dragonWorldWargoldShop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dragonWorldWargoldShop_s, 139> dragonWorldWargoldShop_List;
+		NFArray<struct dragonWorldWargoldShop_s, 60> dragonWorldWargoldShop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_dragonWorldWargoldShop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dragonWorldWargoldShop & msg);

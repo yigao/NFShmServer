@@ -29,9 +29,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<51> activeDesc;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<100> activeDesc;
 		int32_t realLevel;
 		int64_t materialID;
 		int32_t materialEXP;
@@ -40,6 +40,7 @@ namespace proto_ff_s {
 		int64_t BreakMaterialID;
 		int32_t BreakMaterialCost;
 		NFArray<struct wingwingattributeDesc_s, 4> attribute;
+		NFArray<int64_t, 3> fragmentID;
 
 		virtual void write_to_pbmsg(::proto_ff::wingwing & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::wingwing & msg);
@@ -52,7 +53,7 @@ namespace proto_ff_s {
 		Sheet_wingwing_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct wingwing_s, 584> wingwing_List;
+		NFArray<struct wingwing_s, 500> wingwing_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_wingwing & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_wingwing & msg);
@@ -80,12 +81,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> resource;
-		NFSizeString<32> name;
-		NFSizeString<87> activeDesc;
+		NFSizeString<60> resource;
+		NFSizeString<60> name;
+		NFSizeString<160> activeDesc;
 		int32_t quality;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		int64_t upAttributeId;
@@ -102,7 +103,7 @@ namespace proto_ff_s {
 		Sheet_wingchange_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct wingchange_s, 132> wingchange_List;
+		NFArray<struct wingchange_s, 40> wingchange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_wingchange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_wingchange & msg);
@@ -145,7 +146,7 @@ namespace proto_ff_s {
 		Sheet_wingfragment_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct wingfragment_s, 107> wingfragment_List;
+		NFArray<struct wingfragment_s, 20> wingfragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_wingfragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_wingfragment & msg);
@@ -188,7 +189,7 @@ namespace proto_ff_s {
 		Sheet_wingstarUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct wingstarUp_s, 124> wingstarUp_List;
+		NFArray<struct wingstarUp_s, 40> wingstarUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_wingstarUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_wingstarUp & msg);

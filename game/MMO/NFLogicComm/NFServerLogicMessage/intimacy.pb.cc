@@ -184,13 +184,13 @@ void protobuf_AddDesc_intimacy_2eproto() {
     "roto_ff.intimacyintimacyattributeDescB\024\302"
     "\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\003\"Y\n\026Sheet_intimacyint"
     "imacy\022\?\n\025intimacyintimacy_List\030\001 \003(\0132\032.p"
-    "roto_ff.intimacyintimacyB\004\210\301\024s\"\211\001\n\014intim"
+    "roto_ff.intimacyintimacyB\004\210\301\024\024\"\211\001\n\014intim"
     "acygift\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345\223\201id\022#\n\tmon"
     "eyType\030\002 \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\031\n\005price\030"
     "\003 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022\037\n\010intimacy\030\004 \001(\005B\r\302\377\024"
     "\t\344\272\262\345\257\206\345\272\246\"M\n\022Sheet_intimacygift\0227\n\021inti"
     "macygift_List\030\001 \003(\0132\026.proto_ff.intimacyg"
-    "iftB\004\210\301\024i", 649);
+    "iftB\004\210\301\024\024", 649);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "intimacy.proto", &protobuf_RegisterTypes);
   intimacyintimacyattributeDesc::default_instance_ = new intimacyintimacyattributeDesc();

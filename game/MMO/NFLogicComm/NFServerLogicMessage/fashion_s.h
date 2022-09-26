@@ -29,12 +29,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t fashionID;
-		NFSizeString<32> fashionName;
+		NFSizeString<60> fashionName;
 		int32_t fashionType;
 		int32_t quality;
-		NFSizeString<32> fashionZhiye;
+		NFSizeString<60> fashionZhiye;
 		int64_t starId;
-		NFSizeString<151> starNum;
+		NFSizeString<200> starNum;
 		int32_t starUp;
 		int32_t starBer;
 		NFArray<struct fashionfashionattributeDesc_s, 5> attribute;
@@ -50,7 +50,7 @@ namespace proto_ff_s {
 		Sheet_fashionfashion_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fashionfashion_s, 234> fashionfashion_List;
+		NFArray<struct fashionfashion_s, 200> fashionfashion_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fashionfashion & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fashionfashion & msg);

@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_functionunlockfunctionUnlock_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct functionunlockfunctionUnlock_s, 357> functionunlockfunctionUnlock_List;
+		NFArray<struct functionunlockfunctionUnlock_s, 300> functionunlockfunctionUnlock_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_functionunlockfunctionUnlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_functionunlockfunctionUnlock & msg);

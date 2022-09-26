@@ -6,7 +6,7 @@ import "yd_fieldoptions.proto";
 message monstermonster
 {
 	optional int64 monsterID = 1[(yd_fieldoptions.field_cname) = "怪物ID"];
-	optional string monsterName = 2[(yd_fieldoptions.field_cname) = "怪物名", (yd_fieldoptions.field_bufsize) = 32];
+	optional string monsterName = 2[(yd_fieldoptions.field_cname) = "怪物名", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 functionType = 3[(yd_fieldoptions.field_cname) = "功能类型"];
 	optional int64 functionValue = 4[(yd_fieldoptions.field_cname) = "功能参数"];
 	optional int32 profession = 5[(yd_fieldoptions.field_cname) = "怪物职业"];
@@ -21,7 +21,7 @@ message monstermonster
 	optional int32 breedProb = 14[(yd_fieldoptions.field_cname) = "死亡触发新怪物几率"];
 	optional int64 breedMonID = 15[(yd_fieldoptions.field_cname) = "触发生成怪物ID"];
 	optional int32 breedMonLive = 16[(yd_fieldoptions.field_cname) = "怪物存活时间"];
-	optional string itemCost = 17[(yd_fieldoptions.field_cname) = "道具消耗", (yd_fieldoptions.field_bufsize) = 32];
+	optional string itemCost = 17[(yd_fieldoptions.field_cname) = "道具消耗", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isBornActionOn = 18[(yd_fieldoptions.field_cname) = "是否启用出生动作"];
 	optional int64 exp = 19[(yd_fieldoptions.field_cname) = "经验产出"];
 	optional int32 dropType = 20[(yd_fieldoptions.field_cname) = "掉落类型"];
@@ -38,7 +38,7 @@ message monstermonster
 
 message Sheet_monstermonster
 {
-	repeated monstermonster monstermonster_List = 1[(yd_fieldoptions.field_arysize)=2031];
+	repeated monstermonster monstermonster_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message monsterdisplayskillDesc
@@ -62,7 +62,7 @@ message monsterdisplay
 
 message Sheet_monsterdisplay
 {
-	repeated monsterdisplay monsterdisplay_List = 1[(yd_fieldoptions.field_arysize)=310];
+	repeated monsterdisplay monsterdisplay_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message monstervalue
@@ -96,5 +96,5 @@ message monstervalue
 
 message Sheet_monstervalue
 {
-	repeated monstervalue monstervalue_List = 1[(yd_fieldoptions.field_arysize)=42194];
+	repeated monstervalue monstervalue_List = 1[(yd_fieldoptions.field_arysize)=43000];
 }

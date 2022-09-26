@@ -148,18 +148,18 @@ void protobuf_AddDesc_sensitiveword_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023sensitiveword.proto\022\010proto_ff\032\025yd_fiel"
-    "doptions.proto\"_\n\033sensitivewordsensitive"
-    "_word\022\026\n\002id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022(\n\rsensiti"
-    "veWord\030\002 \001(\tB\021\302\377\024\t\346\225\217\346\204\237\345\255\227\220\301\024f\"|\n!Sheet"
-    "_sensitivewordsensitive_word\022W\n sensitiv"
-    "ewordsensitive_word_List\030\001 \003(\0132%.proto_f"
-    "f.sensitivewordsensitive_wordB\006\210\301\024\304\325\003\"^\n"
-    "\032sensitivewordrolesensitive\022\026\n\002id\030\001 \001(\005B"
-    "\n\302\377\024\006\345\272\217\345\217\267\022(\n\rsensitiveWord\030\002 \001(\tB\021\302\377\024\t"
-    "\346\225\217\346\204\237\345\255\227\220\301\024 \"x\n Sheet_sensitivewordrole"
-    "sensitive\022T\n\037sensitivewordrolesensitive_"
-    "List\030\001 \003(\0132$.proto_ff.sensitivewordroles"
-    "ensitiveB\005\210\301\024\271\002", 495);
+    "doptions.proto\"`\n\033sensitivewordsensitive"
+    "_word\022\026\n\002id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022)\n\rsensiti"
+    "veWord\030\002 \001(\tB\022\302\377\024\t\346\225\217\346\204\237\345\255\227\220\301\024\310\001\"|\n!Shee"
+    "t_sensitivewordsensitive_word\022W\n sensiti"
+    "vewordsensitive_word_List\030\001 \003(\0132%.proto_"
+    "ff.sensitivewordsensitive_wordB\006\210\301\024\340\324\003\"^"
+    "\n\032sensitivewordrolesensitive\022\026\n\002id\030\001 \001(\005"
+    "B\n\302\377\024\006\345\272\217\345\217\267\022(\n\rsensitiveWord\030\002 \001(\tB\021\302\377\024"
+    "\t\346\225\217\346\204\237\345\255\227\220\301\024<\"x\n Sheet_sensitivewordrol"
+    "esensitive\022T\n\037sensitivewordrolesensitive"
+    "_List\030\001 \003(\0132$.proto_ff.sensitivewordrole"
+    "sensitiveB\005\210\301\024\254\002", 496);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sensitiveword.proto", &protobuf_RegisterTypes);
   sensitivewordsensitive_word::default_instance_ = new sensitivewordsensitive_word();

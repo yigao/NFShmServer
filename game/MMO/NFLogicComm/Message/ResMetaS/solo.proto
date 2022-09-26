@@ -33,7 +33,7 @@ message soloduanwei
 
 message Sheet_soloduanwei
 {
-	repeated soloduanwei soloduanwei_List = 1[(yd_fieldoptions.field_arysize)=125];
+	repeated soloduanwei soloduanwei_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message solorankrewardDesc
@@ -54,7 +54,7 @@ message solorank
 
 message Sheet_solorank
 {
-	repeated solorank solorank_List = 1[(yd_fieldoptions.field_arysize)=112];
+	repeated solorank solorank_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message solopipei
@@ -67,17 +67,17 @@ message solopipei
 
 message Sheet_solopipei
 {
-	repeated solopipei solopipei_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated solopipei solopipei_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message soloconstant
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional string constant = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 49];
+	optional string constant = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 80];
 }
 
 
 message Sheet_soloconstant
 {
-	repeated soloconstant soloconstant_List = 1[(yd_fieldoptions.field_arysize)=139];
+	repeated soloconstant soloconstant_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

@@ -157,9 +157,9 @@ void protobuf_AddDesc_lightAndShadow_2eproto() {
     "ldoptions.proto\"{\n\022lightAndShadowcons\022\026\n"
     "\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\022 \n\tvaluedata\030\002 \001(\003"
     "B\r\302\377\024\t\345\200\274\346\225\260\346\215\256\022+\n\nstringdata\030\003 \001(\tB\027\302\377\024"
-    "\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024/\"_\n\030Sheet_lightAndSh"
+    "\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024P\"_\n\030Sheet_lightAndSh"
     "adowcons\022C\n\027lightAndShadowcons_List\030\001 \003("
-    "\0132\034.proto_ff.lightAndShadowconsB\004\210\301\024y\"\267\002"
+    "\0132\034.proto_ff.lightAndShadowconsB\004\210\301\024\024\"\267\002"
     "\n\024lightAndShadowreward\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006"
     "\347\274\226\345\217\267\0220\n\007goldMin\030\002 \001(\005B\037\302\377\024\033\346\234\200\344\275\216\347\247\257\345\210"
     "\206\357\274\210\344\270\215\345\214\205\345\220\253\357\274\211\022-\n\007goldMax\030\003 \001(\005B\034\302\377\024\030\346"
@@ -170,7 +170,7 @@ void protobuf_AddDesc_lightAndShadow_2eproto() {
     "wardNum\030\007 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"e\n\032Sheet"
     "_lightAndShadowreward\022G\n\031lightAndShadowr"
     "eward_List\030\001 \003(\0132\036.proto_ff.lightAndShad"
-    "owrewardB\004\210\301\024n", 694);
+    "owrewardB\004\210\301\024\024", 694);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "lightAndShadow.proto", &protobuf_RegisterTypes);
   lightAndShadowcons::default_instance_ = new lightAndShadowcons();

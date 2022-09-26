@@ -30,13 +30,13 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t handbookID;
 		int64_t itemId;
-		NFSizeString<32> handbookName;
+		NFSizeString<60> handbookName;
 		int32_t handbookType;
 		int32_t handbookQuality;
 		int32_t handbookLv;
 		int32_t handZ;
 		int64_t starId;
-		NFSizeString<201> starNum;
+		NFSizeString<300> starNum;
 		NFArray<struct handbookhandbookattributeDesc_s, 4> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::handbookhandbook & msg) const;
@@ -50,7 +50,7 @@ namespace proto_ff_s {
 		Sheet_handbookhandbook_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct handbookhandbook_s, 504> handbookhandbook_List;
+		NFArray<struct handbookhandbook_s, 500> handbookhandbook_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_handbookhandbook & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_handbookhandbook & msg);
@@ -78,8 +78,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t fateID;
-		NFSizeString<32> fateName;
+		NFSizeString<60> fateName;
 		int32_t starLv;
+		NFArray<int64_t, 4> fateHand;
 		NFArray<struct handbookfateattributeDesc_s, 4> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::handbookfate & msg) const;
@@ -93,7 +94,7 @@ namespace proto_ff_s {
 		Sheet_handbookfate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct handbookfate_s, 129> handbookfate_List;
+		NFArray<struct handbookfate_s, 40> handbookfate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_handbookfate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_handbookfate & msg);
@@ -107,6 +108,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t attID;
+		NFArray<int32_t, 76> att;
 
 		virtual void write_to_pbmsg(::proto_ff::handbookattr & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::handbookattr & msg);
@@ -119,7 +121,7 @@ namespace proto_ff_s {
 		Sheet_handbookattr_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct handbookattr_s, 599> handbookattr_List;
+		NFArray<struct handbookattr_s, 500> handbookattr_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_handbookattr & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_handbookattr & msg);

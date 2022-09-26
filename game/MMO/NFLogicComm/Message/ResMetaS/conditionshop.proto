@@ -9,15 +9,15 @@ message conditionshopconditionshop
 	optional int32 Type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 Time = 3[(yd_fieldoptions.field_cname) = "持续时间"];
 	optional int64 boxId = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
-	optional string itemId = 5[(yd_fieldoptions.field_cname) = "奖励ID", (yd_fieldoptions.field_bufsize) = 32];
+	optional string itemId = 5[(yd_fieldoptions.field_cname) = "奖励ID", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 type = 6[(yd_fieldoptions.field_cname) = "货币类型"];
 	optional int32 DiscountPrice = 7[(yd_fieldoptions.field_cname) = "现价"];
-	repeated string ConditionParam = 8[(yd_fieldoptions.field_cname) = "触发条件参数", (yd_fieldoptions.field_arysize) = 32];
-	repeated int32 ConditionType = 9[(yd_fieldoptions.field_cname) = "触发条件类型"];
+	repeated string ConditionParam = 8[(yd_fieldoptions.field_cname) = "触发条件参数", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 ConditionType = 9[(yd_fieldoptions.field_cname) = "触发条件类型", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
 message Sheet_conditionshopconditionshop
 {
-	repeated conditionshopconditionshop conditionshopconditionshop_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated conditionshopconditionshop conditionshopconditionshop_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

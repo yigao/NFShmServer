@@ -35,6 +35,7 @@ void conditionshopconditionshop_s::write_to_pbmsg(::proto_ff::conditionshopcondi
 	for(int32_t i = 0; i < (int32_t)ConditionParam.GetSize() && i < ConditionParam.GetMaxSize(); ++i) {
 		msg.add_conditionparam((const char*)ConditionParam[i].Get());
 	}
+	for(int32_t i = 0; i < (int32_t)ConditionType.GetSize() && i < ConditionType.GetMaxSize(); ++i) {
 		msg.add_conditiontype((int32_t)ConditionType[i]);
 	}
 }
@@ -52,6 +53,8 @@ void conditionshopconditionshop_s::read_from_pbmsg(const ::proto_ff::conditionsh
 	for(int32_t i = 0; i < (int32_t)ConditionParam.GetSize(); ++i) {
 		ConditionParam[i].Copy(msg.conditionparam(i));
 	}
+	ConditionType.SetSize(msg.conditiontype_size() > ConditionType.GetMaxSize() ? ConditionType.GetMaxSize() : msg.conditiontype_size());
+	for(int32_t i = 0; i < (int32_t)ConditionType.GetSize(); ++i) {
 		ConditionType[i] = msg.conditiontype(i);
 	}
 }

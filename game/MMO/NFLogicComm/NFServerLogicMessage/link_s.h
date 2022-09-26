@@ -15,11 +15,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> icon;
-		NFSizeString<32> dbArgs;
-		NFSizeString<32> argsm;
+		NFSizeString<60> icon;
+		NFSizeString<60> dbArgs;
+		NFSizeString<60> argsm;
 		int32_t functionUnlock;
-		NFSizeString<32> linkNpc;
+		NFSizeString<60> linkNpc;
 
 		virtual void write_to_pbmsg(::proto_ff::linklink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::linklink & msg);
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_linklink_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct linklink_s, 371> linklink_List;
+		NFArray<struct linklink_s, 300> linklink_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_linklink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_linklink & msg);

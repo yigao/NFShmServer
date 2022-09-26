@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int64_t constantdata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::gm5Helpcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::gm5Helpcons & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_gm5Helpcons_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct gm5Helpcons_s, 110> gm5Helpcons_List;
+		NFArray<struct gm5Helpcons_s, 20> gm5Helpcons_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_gm5Helpcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_gm5Helpcons & msg);
@@ -72,7 +72,7 @@ namespace proto_ff_s {
 		Sheet_gm5Helpreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct gm5Helpreward_s, 108> gm5Helpreward_List;
+		NFArray<struct gm5Helpreward_s, 20> gm5Helpreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_gm5Helpreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_gm5Helpreward & msg);

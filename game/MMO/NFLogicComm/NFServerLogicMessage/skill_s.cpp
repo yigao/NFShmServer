@@ -277,6 +277,7 @@ void skillbuff_s::write_to_pbmsg(::proto_ff::skillbuff & msg) const {
 	msg.set_statebagrule((const char*)stateBagRule.Get());
 	msg.set_label((int32_t)label);
 	msg.set_statebagcd((const char*)stateBagCd.Get());
+	for(int32_t i = 0; i < (int32_t)mask.GetSize() && i < mask.GetMaxSize(); ++i) {
 		msg.add_mask((int32_t)mask[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)effect.GetSize() && i < effect.GetMaxSize(); ++i) {
@@ -299,6 +300,8 @@ void skillbuff_s::read_from_pbmsg(const ::proto_ff::skillbuff & msg) {
 	stateBagRule.Copy(msg.statebagrule());
 	label = msg.label();
 	stateBagCd.Copy(msg.statebagcd());
+	mask.SetSize(msg.mask_size() > mask.GetMaxSize() ? mask.GetMaxSize() : msg.mask_size());
+	for(int32_t i = 0; i < (int32_t)mask.GetSize(); ++i) {
 		mask[i] = msg.mask(i);
 	}
 	effect.SetSize(msg.effect_size() > effect.GetMaxSize() ? effect.GetMaxSize() : msg.effect_size());

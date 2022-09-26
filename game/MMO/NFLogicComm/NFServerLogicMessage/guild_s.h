@@ -26,6 +26,7 @@ namespace proto_ff_s {
 		int32_t autoCleanCellNum;
 		int32_t dismiss;
 		int32_t transferGuild;
+		NFArray<NFSizeString<60>, 2> initialAutoCleanQS;
 
 		virtual void write_to_pbmsg(::proto_ff::guildconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::guildconstant & msg);
@@ -38,7 +39,7 @@ namespace proto_ff_s {
 		Sheet_guildconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildconstant_s, 105> guildconstant_List;
+		NFArray<struct guildconstant_s, 20> guildconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildconstant & msg);
@@ -68,7 +69,7 @@ namespace proto_ff_s {
 		Sheet_guildlevel_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildlevel_s, 119> guildlevel_List;
+		NFArray<struct guildlevel_s, 20> guildlevel_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildlevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildlevel & msg);
@@ -101,7 +102,7 @@ namespace proto_ff_s {
 		Sheet_guildcollege_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildcollege_s, 5104> guildcollege_List;
+		NFArray<struct guildcollege_s, 6000> guildcollege_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildcollege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildcollege & msg);
@@ -142,7 +143,7 @@ namespace proto_ff_s {
 		Sheet_guildposition_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildposition_s, 108> guildposition_List;
+		NFArray<struct guildposition_s, 20> guildposition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildposition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildposition & msg);
@@ -171,7 +172,7 @@ namespace proto_ff_s {
 		Sheet_guildhouse_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildhouse_s, 209> guildhouse_List;
+		NFArray<struct guildhouse_s, 200> guildhouse_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildhouse & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildhouse & msg);
@@ -200,7 +201,7 @@ namespace proto_ff_s {
 		Sheet_guildgift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildgift_s, 128> guildgift_List;
+		NFArray<struct guildgift_s, 40> guildgift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildgift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildgift & msg);
@@ -232,7 +233,7 @@ namespace proto_ff_s {
 		Sheet_guildguildance_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildguildance_s, 111> guildguildance_List;
+		NFArray<struct guildguildance_s, 20> guildguildance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildguildance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildguildance & msg);
@@ -247,16 +248,16 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t warid;
 		int32_t signopenCycle;
-		NFSizeString<32> signopenTime;
+		NFSizeString<60> signopenTime;
 		int32_t signclosedCycle;
-		NFSizeString<32> signclosedTime;
+		NFSizeString<60> signclosedTime;
 		int32_t guildPosition;
 		int32_t guildNum;
 		int32_t guildLevel;
 		int32_t enteropenCycle;
-		NFSizeString<32> enteropenTime;
+		NFSizeString<60> enteropenTime;
 		int32_t enterclosedCycle;
-		NFSizeString<32> enterclosedTime;
+		NFSizeString<60> enterclosedTime;
 		int32_t guildwarBaseScore;
 		int32_t guildwarWinScore;
 		int32_t guildwarLoseScore;
@@ -290,7 +291,7 @@ namespace proto_ff_s {
 		Sheet_guildwarconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildwarconstant_s, 105> guildwarconstant_List;
+		NFArray<struct guildwarconstant_s, 20> guildwarconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildwarconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildwarconstant & msg);
@@ -319,7 +320,7 @@ namespace proto_ff_s {
 		Sheet_guildwarmorale_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildwarmorale_s, 114> guildwarmorale_List;
+		NFArray<struct guildwarmorale_s, 20> guildwarmorale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildwarmorale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildwarmorale & msg);
@@ -346,7 +347,7 @@ namespace proto_ff_s {
 		Sheet_guildwarrevive_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct guildwarrevive_s, 114> guildwarrevive_List;
+		NFArray<struct guildwarrevive_s, 20> guildwarrevive_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_guildwarrevive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_guildwarrevive & msg);

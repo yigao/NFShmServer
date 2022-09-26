@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t type;
-		NFSizeString<32> typePrarm;
+		NFSizeString<60> typePrarm;
 
 		virtual void write_to_pbmsg(::proto_ff::GMtoolsGMTools & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GMtoolsGMTools & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_GMtoolsGMTools_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMtoolsGMTools_s, 112> GMtoolsGMTools_List;
+		NFArray<struct GMtoolsGMTools_s, 20> GMtoolsGMTools_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMtoolsGMTools & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMtoolsGMTools & msg);
@@ -57,7 +57,7 @@ namespace proto_ff_s {
 		Sheet_GMtoolsrecharge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMtoolsrecharge_s, 118> GMtoolsrecharge_List;
+		NFArray<struct GMtoolsrecharge_s, 20> GMtoolsrecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMtoolsrecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMtoolsrecharge & msg);
@@ -72,7 +72,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t upperLimit;
-		NFSizeString<32> condition;
+		NFSizeString<60> condition;
 		int32_t cost;
 		int32_t daily;
 		int64_t boxid;
@@ -88,7 +88,7 @@ namespace proto_ff_s {
 		Sheet_GMtoolsgift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMtoolsgift_s, 117> GMtoolsgift_List;
+		NFArray<struct GMtoolsgift_s, 20> GMtoolsgift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMtoolsgift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMtoolsgift & msg);
@@ -118,7 +118,7 @@ namespace proto_ff_s {
 		Sheet_GMtoolsunlimit_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMtoolsunlimit_s, 108> GMtoolsunlimit_List;
+		NFArray<struct GMtoolsunlimit_s, 20> GMtoolsunlimit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMtoolsunlimit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMtoolsunlimit & msg);
@@ -146,7 +146,7 @@ namespace proto_ff_s {
 		Sheet_GMtoolsupperLimit_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMtoolsupperLimit_s, 108> GMtoolsupperLimit_List;
+		NFArray<struct GMtoolsupperLimit_s, 20> GMtoolsupperLimit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMtoolsupperLimit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMtoolsupperLimit & msg);

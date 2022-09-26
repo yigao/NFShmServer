@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_getTreasurerareItem_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasurerareItem_s, 475> getTreasurerareItem_List;
+		NFArray<struct getTreasurerareItem_s, 400> getTreasurerareItem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasurerareItem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasurerareItem & msg);
@@ -83,7 +83,7 @@ namespace proto_ff_s {
 		Sheet_getTreasuretimesControl_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasuretimesControl_s, 110> getTreasuretimesControl_List;
+		NFArray<struct getTreasuretimesControl_s, 20> getTreasuretimesControl_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasuretimesControl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasuretimesControl & msg);
@@ -112,7 +112,7 @@ namespace proto_ff_s {
 		Sheet_getTreasureArrivalBossReward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasureArrivalBossReward_s, 112> getTreasureArrivalBossReward_List;
+		NFArray<struct getTreasureArrivalBossReward_s, 20> getTreasureArrivalBossReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasureArrivalBossReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasureArrivalBossReward & msg);
@@ -135,7 +135,7 @@ namespace proto_ff_s {
 		int64_t duplicateGroup;
 		int64_t bossid;
 		int64_t pathID;
-		NFSizeString<32> radio;
+		NFSizeString<60> radio;
 
 		virtual void write_to_pbmsg(::proto_ff::getTreasureArrivalBossControl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::getTreasureArrivalBossControl & msg);
@@ -148,7 +148,7 @@ namespace proto_ff_s {
 		Sheet_getTreasureArrivalBossControl_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasureArrivalBossControl_s, 105> getTreasureArrivalBossControl_List;
+		NFArray<struct getTreasureArrivalBossControl_s, 20> getTreasureArrivalBossControl_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasureArrivalBossControl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasureArrivalBossControl & msg);
@@ -178,7 +178,7 @@ namespace proto_ff_s {
 		Sheet_getTreasurevipBossControl_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasurevipBossControl_s, 109> getTreasurevipBossControl_List;
+		NFArray<struct getTreasurevipBossControl_s, 20> getTreasurevipBossControl_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasurevipBossControl & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasurevipBossControl & msg);
@@ -212,7 +212,7 @@ namespace proto_ff_s {
 		Sheet_getTreasureboss_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasureboss_s, 863> getTreasureboss_List;
+		NFArray<struct getTreasureboss_s, 800> getTreasureboss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasureboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasureboss & msg);
@@ -228,6 +228,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t down;
 		int32_t up;
+		NFArray<int64_t, 6> num;
 
 		virtual void write_to_pbmsg(::proto_ff::getTreasurehelp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::getTreasurehelp & msg);
@@ -240,7 +241,7 @@ namespace proto_ff_s {
 		Sheet_getTreasurehelp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct getTreasurehelp_s, 107> getTreasurehelp_List;
+		NFArray<struct getTreasurehelp_s, 20> getTreasurehelp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_getTreasurehelp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_getTreasurehelp & msg);

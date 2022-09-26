@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int64_t valuedata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::snowballWarcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::snowballWarcons & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_snowballWarcons_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct snowballWarcons_s, 118> snowballWarcons_List;
+		NFArray<struct snowballWarcons_s, 20> snowballWarcons_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_snowballWarcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_snowballWarcons & msg);

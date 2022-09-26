@@ -234,7 +234,8 @@ void serveropenactivemRank_s::write_to_pbmsg(::proto_ff::serveropenactivemRank &
 	msg.set_randtype((int32_t)randtype);
 	msg.set_miaoshu((const char*)miaoshu.Get());
 	msg.set_boxid((int64_t)boxid);
-		msg.add_canshu((int32_t)canshu[i]);
+	for(int32_t i = 0; i < (int32_t)canshu.GetSize() && i < canshu.GetMaxSize(); ++i) {
+		msg.add_canshu((int64_t)canshu[i]);
 	}
 }
 
@@ -244,6 +245,8 @@ void serveropenactivemRank_s::read_from_pbmsg(const ::proto_ff::serveropenactive
 	randtype = msg.randtype();
 	miaoshu.Copy(msg.miaoshu());
 	boxid = msg.boxid();
+	canshu.SetSize(msg.canshu_size() > canshu.GetMaxSize() ? canshu.GetMaxSize() : msg.canshu_size());
+	for(int32_t i = 0; i < (int32_t)canshu.GetSize(); ++i) {
 		canshu[i] = msg.canshu(i);
 	}
 }

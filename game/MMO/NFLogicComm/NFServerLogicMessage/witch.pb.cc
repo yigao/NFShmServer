@@ -238,7 +238,7 @@ void protobuf_AddDesc_witch_2eproto() {
     "\211\262\347\247\257\345\210\206\022:\n\004item\030\007 \003(\0132\034.proto_ff.witcha"
     "warditemDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\003\"G\n\020Sheet_wi"
     "tchaward\0223\n\017witchaward_List\030\001 \003(\0132\024.prot"
-    "o_ff.witchawardB\004\210\301\024t\"\237\002\n\013witchsummon\022\022\n"
+    "o_ff.witchawardB\004\210\301\024\024\"\237\002\n\013witchsummon\022\022\n"
     "\002id\030\001 \001(\005B\006\302\377\024\002id\022\'\n\007consume\030\002 \001(\005B\026\302\377\024\022"
     "\346\266\210\350\200\227\347\247\257\345\210\206\347\261\273\345\236\213\022!\n\006bossId\030\003 \001(\003B\021\302\377\024\r"
     "\345\217\254\345\224\244BOSS_ID\022 \n\004item\030\004 \001(\003B\022\302\377\024\016\347\272\242\345\214\205\345"
@@ -247,11 +247,11 @@ void protobuf_AddDesc_witch_2eproto() {
     "\250\252\345\220\221\022\037\n\005yzhou\030\007 \001(\005B\020\302\377\024\014\345\235\220\346\240\207\347\272\265\345\220\221\022\037"
     "\n\005zzhou\030\010 \001(\005B\020\302\377\024\014\345\235\220\346\240\207\345\236\202\347\233\264\"J\n\021Sheet"
     "_witchsummon\0225\n\020witchsummon_List\030\001 \003(\0132\025"
-    ".proto_ff.witchsummonB\004\210\301\024k\"T\n\016witchrewa"
+    ".proto_ff.witchsummonB\004\210\301\024\024\"T\n\016witchrewa"
     "rdExp\022\034\n\002lv\030\001 \001(\005B\020\302\377\024\014\350\247\222\350\211\262\347\255\211\347\272\247\022$\n\nr"
     "eward_Exp\030\002 \001(\003B\020\302\377\024\014\345\245\226\345\212\261\347\273\217\351\252\214\"T\n\024She"
     "et_witchrewardExp\022<\n\023witchrewardExp_List"
-    "\030\001 \003(\0132\030.proto_ff.witchrewardExpB\005\210\301\024\304\014", 1039);
+    "\030\001 \003(\0132\030.proto_ff.witchrewardExpB\005\210\301\024\320\017", 1039);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "witch.proto", &protobuf_RegisterTypes);
   witchawarditemDesc::default_instance_ = new witchawarditemDesc();

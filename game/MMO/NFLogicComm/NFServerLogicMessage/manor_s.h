@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int64_t valuedata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::manorconstants & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manorconstants & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_manorconstants_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorconstants_s, 136> manorconstants_List;
+		NFArray<struct manorconstants_s, 60> manorconstants_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorconstants & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorconstants & msg);
@@ -59,7 +59,7 @@ namespace proto_ff_s {
 		Sheet_manoritemCost_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manoritemCost_s, 109> manoritemCost_List;
+		NFArray<struct manoritemCost_s, 20> manoritemCost_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manoritemCost & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manoritemCost & msg);
@@ -100,7 +100,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t manorType;
 		int32_t attackBuildLevel;
 		int32_t coreBaseLevel;
@@ -135,7 +135,7 @@ namespace proto_ff_s {
 		Sheet_manormanorlist_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manormanorlist_s, 140> manormanorlist_List;
+		NFArray<struct manormanorlist_s, 60> manormanorlist_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manormanorlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manormanorlist & msg);
@@ -177,7 +177,7 @@ namespace proto_ff_s {
 		Sheet_manorproduct_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorproduct_s, 125> manorproduct_List;
+		NFArray<struct manorproduct_s, 40> manorproduct_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorproduct & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorproduct & msg);
@@ -191,12 +191,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t buildingType;
 		int64_t monsterId;
-		NFSizeString<32> buildingvalue;
-		NFSizeString<71> buildingAddBuff;
-		NFSizeString<32> buildingConsume;
+		NFSizeString<60> buildingvalue;
+		NFSizeString<140> buildingAddBuff;
+		NFSizeString<60> buildingConsume;
 
 		virtual void write_to_pbmsg(::proto_ff::manorbuild & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manorbuild & msg);
@@ -209,7 +209,7 @@ namespace proto_ff_s {
 		Sheet_manorbuild_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorbuild_s, 114> manorbuild_List;
+		NFArray<struct manorbuild_s, 20> manorbuild_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorbuild & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorbuild & msg);
@@ -250,7 +250,7 @@ namespace proto_ff_s {
 		Sheet_manorbuildUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorbuildUp_s, 111> manorbuildUp_List;
+		NFArray<struct manorbuildUp_s, 20> manorbuildUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorbuildUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorbuildUp & msg);
@@ -265,7 +265,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t eggItemID;
 		int32_t incubationTime;
-		NFSizeString<40> patBeastsProbab;
+		NFSizeString<80> patBeastsProbab;
 
 		virtual void write_to_pbmsg(::proto_ff::manoregg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manoregg & msg);
@@ -278,7 +278,7 @@ namespace proto_ff_s {
 		Sheet_manoregg_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manoregg_s, 119> manoregg_List;
+		NFArray<struct manoregg_s, 20> manoregg_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manoregg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manoregg & msg);
@@ -304,7 +304,7 @@ namespace proto_ff_s {
 		Sheet_manorpatBeast_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorpatBeast_s, 114> manorpatBeast_List;
+		NFArray<struct manorpatBeast_s, 20> manorpatBeast_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorpatBeast & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorpatBeast & msg);
@@ -331,7 +331,7 @@ namespace proto_ff_s {
 		Sheet_manorpatBeastUP_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorpatBeastUP_s, 114> manorpatBeastUP_List;
+		NFArray<struct manorpatBeastUP_s, 20> manorpatBeastUP_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorpatBeastUP & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorpatBeastUP & msg);
@@ -358,7 +358,7 @@ namespace proto_ff_s {
 		Sheet_manorbuildBuff_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorbuildBuff_s, 110> manorbuildBuff_List;
+		NFArray<struct manorbuildBuff_s, 20> manorbuildBuff_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorbuildBuff & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorbuildBuff & msg);
@@ -390,7 +390,7 @@ namespace proto_ff_s {
 		Sheet_manorshop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorshop_s, 119> manorshop_List;
+		NFArray<struct manorshop_s, 20> manorshop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorshop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorshop & msg);
@@ -417,7 +417,7 @@ namespace proto_ff_s {
 		Sheet_manorbuildAdd_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorbuildAdd_s, 110> manorbuildAdd_List;
+		NFArray<struct manorbuildAdd_s, 20> manorbuildAdd_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorbuildAdd & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorbuildAdd & msg);
@@ -443,7 +443,7 @@ namespace proto_ff_s {
 		Sheet_manorlog_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manorlog_s, 121> manorlog_List;
+		NFArray<struct manorlog_s, 20> manorlog_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manorlog & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manorlog & msg);

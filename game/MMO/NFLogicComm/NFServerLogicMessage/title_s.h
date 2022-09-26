@@ -27,7 +27,7 @@ namespace proto_ff_s {
 		Sheet_titletype_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct titletype_s, 109> titletype_List;
+		NFArray<struct titletype_s, 20> titletype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_titletype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_titletype & msg);
@@ -55,11 +55,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t type;
 		int32_t subType;
-		NFSizeString<32> eventValue;
-		NFSizeString<61> describe;
+		NFSizeString<60> eventValue;
+		NFSizeString<120> describe;
 		int32_t addTime;
 		int32_t lifeTime;
 		NFArray<struct titletitleattributeDesc_s, 4> attribute;
@@ -75,7 +75,7 @@ namespace proto_ff_s {
 		Sheet_titletitle_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct titletitle_s, 169> titletitle_List;
+		NFArray<struct titletitle_s, 120> titletitle_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_titletitle & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_titletitle & msg);

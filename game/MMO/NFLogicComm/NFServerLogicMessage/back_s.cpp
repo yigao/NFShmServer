@@ -41,12 +41,16 @@ void backback_s::write_to_pbmsg(::proto_ff::backback & msg) const {
 	msg.set_levellimit((int32_t)levelLimit);
 	msg.set_itemid((int64_t)itemId);
 	msg.set_icon((const char*)icon.Get());
+	for(int32_t i = 0; i < (int32_t)backExp.GetSize() && i < backExp.GetMaxSize(); ++i) {
 		msg.add_backexp((int32_t)backExp[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)backNum.GetSize() && i < backNum.GetMaxSize(); ++i) {
 		msg.add_backnum((int32_t)backNum[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)param.GetSize() && i < param.GetMaxSize(); ++i) {
 		msg.add_param((int32_t)param[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)backExpend.GetSize() && i < backExpend.GetMaxSize(); ++i) {
 		msg.add_backexpend((int32_t)backExpend[i]);
 	}
 }
@@ -65,12 +69,20 @@ void backback_s::read_from_pbmsg(const ::proto_ff::backback & msg) {
 	levelLimit = msg.levellimit();
 	itemId = msg.itemid();
 	icon.Copy(msg.icon());
+	backExp.SetSize(msg.backexp_size() > backExp.GetMaxSize() ? backExp.GetMaxSize() : msg.backexp_size());
+	for(int32_t i = 0; i < (int32_t)backExp.GetSize(); ++i) {
 		backExp[i] = msg.backexp(i);
 	}
+	backNum.SetSize(msg.backnum_size() > backNum.GetMaxSize() ? backNum.GetMaxSize() : msg.backnum_size());
+	for(int32_t i = 0; i < (int32_t)backNum.GetSize(); ++i) {
 		backNum[i] = msg.backnum(i);
 	}
+	param.SetSize(msg.param_size() > param.GetMaxSize() ? param.GetMaxSize() : msg.param_size());
+	for(int32_t i = 0; i < (int32_t)param.GetSize(); ++i) {
 		param[i] = msg.param(i);
 	}
+	backExpend.SetSize(msg.backexpend_size() > backExpend.GetMaxSize() ? backExpend.GetMaxSize() : msg.backexpend_size());
+	for(int32_t i = 0; i < (int32_t)backExpend.GetSize(); ++i) {
 		backExpend[i] = msg.backexpend(i);
 	}
 }

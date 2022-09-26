@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_serverHornserverHorn_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct serverHornserverHorn_s, 107> serverHornserverHorn_List;
+		NFArray<struct serverHornserverHorn_s, 20> serverHornserverHorn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_serverHornserverHorn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_serverHornserverHorn & msg);

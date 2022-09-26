@@ -44,8 +44,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t bornID;
 		int32_t professionID;
-		NFSizeString<32> professionName;
-		NFSizeString<229> placement;
+		NFSizeString<60> professionName;
+		NFSizeString<300> placement;
 		int32_t gender;
 		int32_t bornLevel;
 		int32_t bornTitle;
@@ -54,12 +54,12 @@ namespace proto_ff_s {
 		int64_t gold;
 		int64_t mapID;
 		int32_t birthFace;
-		NFSizeString<32> icons;
-		NFSizeString<32> loginAvata;
-		NFSizeString<32> newweapon;
-		NFSizeString<32> newclothing;
-		NFSizeString<32> weaponAvata;
-		NFSizeString<32> roleAvata;
+		NFSizeString<60> icons;
+		NFSizeString<60> loginAvata;
+		NFSizeString<60> newweapon;
+		NFSizeString<60> newclothing;
+		NFSizeString<60> weaponAvata;
+		NFSizeString<60> roleAvata;
 		int64_t carryWeapons;
 		int64_t carryArmor;
 		int64_t carryCloak;
@@ -76,7 +76,9 @@ namespace proto_ff_s {
 		int32_t radius;
 		int64_t sheny;
 		int64_t shenw;
+		NFArray<int32_t, 4> actBuff;
 		NFArray<struct rolebornitemDesc_s, 35> item;
+		NFArray<int64_t, 6> actSkill;
 		NFArray<struct rolebornmailDesc_s, 1> mail;
 
 		virtual void write_to_pbmsg(::proto_ff::roleborn & msg) const;
@@ -90,7 +92,7 @@ namespace proto_ff_s {
 		Sheet_roleborn_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleborn_s, 111> roleborn_List;
+		NFArray<struct roleborn_s, 20> roleborn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleborn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleborn & msg);
@@ -132,7 +134,7 @@ namespace proto_ff_s {
 		Sheet_rolewarrior_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolewarrior_s, 1604> rolewarrior_List;
+		NFArray<struct rolewarrior_s, 2000> rolewarrior_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rolewarrior & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolewarrior & msg);
@@ -174,7 +176,7 @@ namespace proto_ff_s {
 		Sheet_rolemaster_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolemaster_s, 1604> rolemaster_List;
+		NFArray<struct rolemaster_s, 2000> rolemaster_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rolemaster & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolemaster & msg);
@@ -216,7 +218,7 @@ namespace proto_ff_s {
 		Sheet_roleassassin_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleassassin_s, 1604> roleassassin_List;
+		NFArray<struct roleassassin_s, 2000> roleassassin_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleassassin & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleassassin & msg);
@@ -258,7 +260,7 @@ namespace proto_ff_s {
 		Sheet_roleshooter_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleshooter_s, 1604> roleshooter_List;
+		NFArray<struct roleshooter_s, 2000> roleshooter_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleshooter & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleshooter & msg);
@@ -286,7 +288,7 @@ namespace proto_ff_s {
 		Sheet_roleexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleexp_s, 1604> roleexp_List;
+		NFArray<struct roleexp_s, 2000> roleexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleexp & msg);
@@ -313,7 +315,7 @@ namespace proto_ff_s {
 		Sheet_roleskillType_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleskillType_s, 205> roleskillType_List;
+		NFArray<struct roleskillType_s, 200> roleskillType_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleskillType & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleskillType & msg);
@@ -340,7 +342,7 @@ namespace proto_ff_s {
 		Sheet_roleaddSkill_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleaddSkill_s, 105> roleaddSkill_List;
+		NFArray<struct roleaddSkill_s, 20> roleaddSkill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleaddSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleaddSkill & msg);
@@ -367,7 +369,7 @@ namespace proto_ff_s {
 		Sheet_roleworldexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleworldexp_s, 604> roleworldexp_List;
+		NFArray<struct roleworldexp_s, 600> roleworldexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_roleworldexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleworldexp & msg);

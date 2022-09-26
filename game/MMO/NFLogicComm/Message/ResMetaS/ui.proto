@@ -12,5 +12,5 @@ message uieffect
 
 message Sheet_uieffect
 {
-	repeated uieffect uieffect_List = 1[(yd_fieldoptions.field_arysize)=209];
+	repeated uieffect uieffect_List = 1[(yd_fieldoptions.field_arysize)=200];
 }

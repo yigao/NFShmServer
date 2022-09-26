@@ -65,7 +65,7 @@ namespace proto_ff_s {
 		Sheet_soloduanwei_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct soloduanwei_s, 125> soloduanwei_List;
+		NFArray<struct soloduanwei_s, 40> soloduanwei_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_soloduanwei & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_soloduanwei & msg);
@@ -109,7 +109,7 @@ namespace proto_ff_s {
 		Sheet_solorank_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct solorank_s, 112> solorank_List;
+		NFArray<struct solorank_s, 20> solorank_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_solorank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_solorank & msg);
@@ -137,7 +137,7 @@ namespace proto_ff_s {
 		Sheet_solopipei_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct solopipei_s, 107> solopipei_List;
+		NFArray<struct solopipei_s, 20> solopipei_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_solopipei & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_solopipei & msg);
@@ -151,7 +151,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t ID;
-		NFSizeString<49> constant;
+		NFSizeString<80> constant;
 
 		virtual void write_to_pbmsg(::proto_ff::soloconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::soloconstant & msg);
@@ -164,7 +164,7 @@ namespace proto_ff_s {
 		Sheet_soloconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct soloconstant_s, 139> soloconstant_List;
+		NFArray<struct soloconstant_s, 60> soloconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_soloconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_soloconstant & msg);

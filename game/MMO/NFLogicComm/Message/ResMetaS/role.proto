@@ -19,8 +19,8 @@ message roleborn
 {
 	optional int64 bornID = 1[(yd_fieldoptions.field_cname) = "主键ID"];
 	optional int32 professionID = 2[(yd_fieldoptions.field_cname) = "职业ID"];
-	optional string professionName = 3[(yd_fieldoptions.field_cname) = "职业名称", (yd_fieldoptions.field_bufsize) = 32];
-	optional string placement = 4[(yd_fieldoptions.field_cname) = "职业介绍", (yd_fieldoptions.field_bufsize) = 229];
+	optional string professionName = 3[(yd_fieldoptions.field_cname) = "职业名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional string placement = 4[(yd_fieldoptions.field_cname) = "职业介绍", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 gender = 5[(yd_fieldoptions.field_cname) = "性别"];
 	optional int32 bornLevel = 6[(yd_fieldoptions.field_cname) = "出生等级"];
 	optional int32 bornTitle = 7[(yd_fieldoptions.field_cname) = "携带称号"];
@@ -29,12 +29,12 @@ message roleborn
 	optional int64 gold = 10[(yd_fieldoptions.field_cname) = "携带金币"];
 	optional int64 mapID = 11[(yd_fieldoptions.field_cname) = "出生地图ID"];
 	optional int32 birthFace = 12[(yd_fieldoptions.field_cname) = "出生朝向"];
-	optional string icons = 13[(yd_fieldoptions.field_cname) = "头像图标", (yd_fieldoptions.field_bufsize) = 32];
-	optional string loginAvata = 14[(yd_fieldoptions.field_cname) = "创角界面模型", (yd_fieldoptions.field_bufsize) = 32];
-	optional string newweapon = 15[(yd_fieldoptions.field_cname) = "新手副本武器模型", (yd_fieldoptions.field_bufsize) = 32];
-	optional string newclothing = 16[(yd_fieldoptions.field_cname) = "新手副本衣服模型", (yd_fieldoptions.field_bufsize) = 32];
-	optional string weaponAvata = 17[(yd_fieldoptions.field_cname) = "出生时武器模型", (yd_fieldoptions.field_bufsize) = 32];
-	optional string roleAvata = 18[(yd_fieldoptions.field_cname) = "出生时模型", (yd_fieldoptions.field_bufsize) = 32];
+	optional string icons = 13[(yd_fieldoptions.field_cname) = "头像图标", (yd_fieldoptions.field_bufsize) = 60];
+	optional string loginAvata = 14[(yd_fieldoptions.field_cname) = "创角界面模型", (yd_fieldoptions.field_bufsize) = 60];
+	optional string newweapon = 15[(yd_fieldoptions.field_cname) = "新手副本武器模型", (yd_fieldoptions.field_bufsize) = 60];
+	optional string newclothing = 16[(yd_fieldoptions.field_cname) = "新手副本衣服模型", (yd_fieldoptions.field_bufsize) = 60];
+	optional string weaponAvata = 17[(yd_fieldoptions.field_cname) = "出生时武器模型", (yd_fieldoptions.field_bufsize) = 60];
+	optional string roleAvata = 18[(yd_fieldoptions.field_cname) = "出生时模型", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 carryWeapons = 19[(yd_fieldoptions.field_cname) = "装备武器"];
 	optional int64 carryArmor = 20[(yd_fieldoptions.field_cname) = "装备衣服"];
 	optional int64 carryCloak = 21[(yd_fieldoptions.field_cname) = "装备披风"];
@@ -51,16 +51,16 @@ message roleborn
 	optional int32 radius = 32[(yd_fieldoptions.field_cname) = "人物半径"];
 	optional int64 sheny = 33[(yd_fieldoptions.field_cname) = "神装衣服"];
 	optional int64 shenw = 34[(yd_fieldoptions.field_cname) = "神装武器"];
-	repeated int32 actBuff = 35[(yd_fieldoptions.field_cname) = "生成buff"];
+	repeated int32 actBuff = 35[(yd_fieldoptions.field_cname) = "生成buff", (yd_fieldoptions.field_arysize) = 4];
 	repeated rolebornitemDesc item = 36[(yd_fieldoptions.field_cname) = "背包物品", (yd_fieldoptions.field_arysize) = 35];
-	repeated int64 actSkill = 37[(yd_fieldoptions.field_cname) = "生成技能"];
+	repeated int64 actSkill = 37[(yd_fieldoptions.field_cname) = "生成技能", (yd_fieldoptions.field_arysize) = 6];
 	repeated rolebornmailDesc mail = 38[(yd_fieldoptions.field_cname) = "邮件物品", (yd_fieldoptions.field_arysize) = 1];
 }
 
 
 message Sheet_roleborn
 {
-	repeated roleborn roleborn_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated roleborn roleborn_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message rolewarriorattributeDesc
@@ -79,7 +79,7 @@ message rolewarrior
 
 message Sheet_rolewarrior
 {
-	repeated rolewarrior rolewarrior_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated rolewarrior rolewarrior_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message rolemasterattributeDesc
@@ -98,7 +98,7 @@ message rolemaster
 
 message Sheet_rolemaster
 {
-	repeated rolemaster rolemaster_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated rolemaster rolemaster_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message roleassassinattributeDesc
@@ -117,7 +117,7 @@ message roleassassin
 
 message Sheet_roleassassin
 {
-	repeated roleassassin roleassassin_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated roleassassin roleassassin_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message roleshooterattributeDesc
@@ -136,7 +136,7 @@ message roleshooter
 
 message Sheet_roleshooter
 {
-	repeated roleshooter roleshooter_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated roleshooter roleshooter_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message roleexp
@@ -149,7 +149,7 @@ message roleexp
 
 message Sheet_roleexp
 {
-	repeated roleexp roleexp_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated roleexp roleexp_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message roleskillType
@@ -161,7 +161,7 @@ message roleskillType
 
 message Sheet_roleskillType
 {
-	repeated roleskillType roleskillType_List = 1[(yd_fieldoptions.field_arysize)=205];
+	repeated roleskillType roleskillType_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message roleaddSkill
@@ -173,7 +173,7 @@ message roleaddSkill
 
 message Sheet_roleaddSkill
 {
-	repeated roleaddSkill roleaddSkill_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated roleaddSkill roleaddSkill_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message roleworldexp
@@ -185,5 +185,5 @@ message roleworldexp
 
 message Sheet_roleworldexp
 {
-	repeated roleworldexp roleworldexp_List = 1[(yd_fieldoptions.field_arysize)=604];
+	repeated roleworldexp roleworldexp_List = 1[(yd_fieldoptions.field_arysize)=600];
 }

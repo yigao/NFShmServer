@@ -12,7 +12,7 @@ message arenarobotattrDesc
 message arenarobot
 {
 	optional int64 arenaId = 1[(yd_fieldoptions.field_cname) = "竞技场排名ID"];
-	optional string robotname = 2[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string robotname = 2[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 aiId = 3[(yd_fieldoptions.field_cname) = "aiID"];
 	optional int32 rankId = 4[(yd_fieldoptions.field_cname) = "排名id"];
 	optional int32 robotProfession = 5[(yd_fieldoptions.field_cname) = "机器人职业"];
@@ -25,7 +25,7 @@ message arenarobot
 
 message Sheet_arenarobot
 {
-	repeated arenarobot arenarobot_List = 1[(yd_fieldoptions.field_arysize)=5104];
+	repeated arenarobot arenarobot_List = 1[(yd_fieldoptions.field_arysize)=6000];
 }
 
 message arenarankawardRewardDesc
@@ -48,7 +48,7 @@ message arenarankaward
 
 message Sheet_arenarankaward
 {
-	repeated arenarankaward arenarankaward_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated arenarankaward arenarankaward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message arenaarenAward
@@ -66,20 +66,20 @@ message arenaarenAward
 
 message Sheet_arenaarenAward
 {
-	repeated arenaarenAward arenaarenAward_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated arenaarenAward arenaarenAward_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message arenafirstrank
 {
 	optional int32 rankDown = 1[(yd_fieldoptions.field_cname) = "下限排名"];
 	optional int32 rankUp = 2[(yd_fieldoptions.field_cname) = "上限排名"];
-	repeated float RewardONE = 3[(yd_fieldoptions.field_cname) = "奖励物品"];
+	repeated float RewardONE = 3[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 1];
 }
 
 
 message Sheet_arenafirstrank
 {
-	repeated arenafirstrank arenafirstrank_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated arenafirstrank arenafirstrank_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message arenabuychallenge
@@ -92,5 +92,5 @@ message arenabuychallenge
 
 message Sheet_arenabuychallenge
 {
-	repeated arenabuychallenge arenabuychallenge_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated arenabuychallenge arenabuychallenge_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

@@ -6,20 +6,20 @@ import "yd_fieldoptions.proto";
 message activitydaily
 {
 	optional int64 activeId = 1[(yd_fieldoptions.field_cname) = "活动ID"];
-	optional string activeName = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeName = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 typeId = 3[(yd_fieldoptions.field_cname) = "类型ID"];
 	optional int32 Descriptiontype = 4[(yd_fieldoptions.field_cname) = "开启条件"];
 	optional int64 typeArgs = 5[(yd_fieldoptions.field_cname) = "类型参数"];
-	optional string involveMap = 6[(yd_fieldoptions.field_cname) = "涉及地图", (yd_fieldoptions.field_bufsize) = 71];
+	optional string involveMap = 6[(yd_fieldoptions.field_cname) = "涉及地图", (yd_fieldoptions.field_bufsize) = 140];
 	optional int32 minlevel = 7[(yd_fieldoptions.field_cname) = "参与活动等级下限"];
-	optional string openCycle = 8[(yd_fieldoptions.field_cname) = "开启日期", (yd_fieldoptions.field_bufsize) = 32];
-	optional string openTime = 9[(yd_fieldoptions.field_cname) = "开启时间", (yd_fieldoptions.field_bufsize) = 32];
-	optional string pushTime = 10[(yd_fieldoptions.field_cname) = "推送时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string openCycle = 8[(yd_fieldoptions.field_cname) = "开启日期", (yd_fieldoptions.field_bufsize) = 60];
+	optional string openTime = 9[(yd_fieldoptions.field_cname) = "开启时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string pushTime = 10[(yd_fieldoptions.field_cname) = "推送时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 openingTime = 11[(yd_fieldoptions.field_cname) = "开启时长"];
 	optional int32 advanceTime = 12[(yd_fieldoptions.field_cname) = "提前广播时间"];
 	optional int32 intervalTime = 13[(yd_fieldoptions.field_cname) = "广播间隔"];
-	optional string opeDay = 14[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 32];
-	optional string closeDay = 15[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 32];
+	optional string opeDay = 14[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 60];
+	optional string closeDay = 15[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isCross = 16[(yd_fieldoptions.field_cname) = "是否跨服"];
 	optional int32 serverTime = 17[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
 	optional int32 serverdelayTime = 18[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
@@ -29,7 +29,7 @@ message activitydaily
 
 message Sheet_activitydaily
 {
-	repeated activitydaily activitydaily_List = 1[(yd_fieldoptions.field_arysize)=121];
+	repeated activitydaily activitydaily_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activityactivitynotice
@@ -40,7 +40,7 @@ message activityactivitynotice
 
 message Sheet_activityactivitynotice
 {
-	repeated activityactivitynotice activityactivitynotice_List = 1[(yd_fieldoptions.field_arysize)=116];
+	repeated activityactivitynotice activityactivitynotice_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activityscufflerewardDesc
@@ -66,7 +66,7 @@ message activityscuffle
 
 message Sheet_activityscuffle
 {
-	repeated activityscuffle activityscuffle_List = 1[(yd_fieldoptions.field_arysize)=122];
+	repeated activityscuffle activityscuffle_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activitychaosDragonsrewardDesc
@@ -88,7 +88,7 @@ message activitychaosDragons
 
 message Sheet_activitychaosDragons
 {
-	repeated activitychaosDragons activitychaosDragons_List = 1[(yd_fieldoptions.field_arysize)=117];
+	repeated activitychaosDragons activitychaosDragons_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activitycircuscircusDesc
@@ -107,7 +107,7 @@ message activitycircus
 
 message Sheet_activitycircus
 {
-	repeated activitycircus activitycircus_List = 1[(yd_fieldoptions.field_arysize)=127];
+	repeated activitycircus activitycircus_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message activitycircusNumitemDesc
@@ -125,7 +125,7 @@ message activitycircusNum
 
 message Sheet_activitycircusNum
 {
-	repeated activitycircusNum activitycircusNum_List = 1[(yd_fieldoptions.field_arysize)=204];
+	repeated activitycircusNum activitycircusNum_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message activitycircusDanitemDesc
@@ -150,7 +150,7 @@ message activitycircusDan
 
 message Sheet_activitycircusDan
 {
-	repeated activitycircusDan activitycircusDan_List = 1[(yd_fieldoptions.field_arysize)=136];
+	repeated activitycircusDan activitycircusDan_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message activitymathrule
@@ -169,7 +169,7 @@ message activitymathrule
 
 message Sheet_activitymathrule
 {
-	repeated activitymathrule activitymathrule_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated activitymathrule activitymathrule_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message activitymathrewardrewardDesc
@@ -189,20 +189,20 @@ message activitymathreward
 
 message Sheet_activitymathreward
 {
-	repeated activitymathreward activitymathreward_List = 1[(yd_fieldoptions.field_arysize)=116];
+	repeated activitymathreward activitymathreward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activitygvgConst
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 59];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 100];
 }
 
 
 message Sheet_activitygvgConst
 {
-	repeated activitygvgConst activitygvgConst_List = 1[(yd_fieldoptions.field_arysize)=191];
+	repeated activitygvgConst activitygvgConst_List = 1[(yd_fieldoptions.field_arysize)=160];
 }
 
 message activitygvgRankRewardgMemberrewardDesc
@@ -228,7 +228,7 @@ message activitygvgRankReward
 
 message Sheet_activitygvgRankReward
 {
-	repeated activitygvgRankReward activitygvgRankReward_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated activitygvgRankReward activitygvgRankReward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activitygvgRewardrewardDesc
@@ -254,7 +254,7 @@ message activitygvgReward
 
 message Sheet_activitygvgReward
 {
-	repeated activitygvgReward activitygvgReward_List = 1[(yd_fieldoptions.field_arysize)=202];
+	repeated activitygvgReward activitygvgReward_List = 1[(yd_fieldoptions.field_arysize)=180];
 }
 
 message activityworldTreasureConst
@@ -266,19 +266,19 @@ message activityworldTreasureConst
 
 message Sheet_activityworldTreasureConst
 {
-	repeated activityworldTreasureConst activityworldTreasureConst_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated activityworldTreasureConst activityworldTreasureConst_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activityworldTreasureMap
 {
 	optional int64 mapID = 1[(yd_fieldoptions.field_cname) = "地图ID"];
-	optional string pathID = 2[(yd_fieldoptions.field_cname) = "刷怪点", (yd_fieldoptions.field_bufsize) = 599];
+	optional string pathID = 2[(yd_fieldoptions.field_cname) = "刷怪点", (yd_fieldoptions.field_bufsize) = 600];
 }
 
 
 message Sheet_activityworldTreasureMap
 {
-	repeated activityworldTreasureMap activityworldTreasureMap_List = 1[(yd_fieldoptions.field_arysize)=106];
+	repeated activityworldTreasureMap activityworldTreasureMap_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activityworldTreasureMonster
@@ -292,18 +292,18 @@ message activityworldTreasureMonster
 
 message Sheet_activityworldTreasureMonster
 {
-	repeated activityworldTreasureMonster activityworldTreasureMonster_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated activityworldTreasureMonster activityworldTreasureMonster_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message activitylosttempleConstant
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_activitylosttempleConstant
 {
-	repeated activitylosttempleConstant activitylosttempleConstant_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated activitylosttempleConstant activitylosttempleConstant_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

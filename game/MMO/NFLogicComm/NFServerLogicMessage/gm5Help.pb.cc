@@ -177,8 +177,8 @@ void protobuf_AddDesc_gm5Help_2eproto() {
     "ns.proto\"p\n\013gm5Helpcons\022\022\n\002id\030\001 \001(\005B\006\302\377\024"
     "\002ID\022 \n\014constantdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022+\n"
     "\nstringdata\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301"
-    "\024 \"J\n\021Sheet_gm5Helpcons\0225\n\020gm5Helpcons_L"
-    "ist\030\001 \003(\0132\025.proto_ff.gm5HelpconsB\004\210\301\024n\"V"
+    "\024<\"J\n\021Sheet_gm5Helpcons\0225\n\020gm5Helpcons_L"
+    "ist\030\001 \003(\0132\025.proto_ff.gm5HelpconsB\004\210\301\024\024\"V"
     "\n\027gm5HelprewardrewardDesc\022\034\n\006ItemId\030\001 \001("
     "\003B\014\302\377\024\010\351\201\223\345\205\267ID\022\035\n\003num\030\002 \001(\005B\020\302\377\024\014\351\201\223\345\205\267"
     "\346\225\260\351\207\217\"\257\001\n\rgm5Helpreward\022\022\n\002id\030\001 \001(\005B\006\302\377"
@@ -187,7 +187,7 @@ void protobuf_AddDesc_gm5Help_2eproto() {
     "\006reward\030\004 \003(\0132!.proto_ff.gm5Helprewardre"
     "wardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\004\"P\n\023Sheet_gm5Hel"
     "preward\0229\n\022gm5Helpreward_List\030\001 \003(\0132\027.pr"
-    "oto_ff.gm5HelprewardB\004\210\301\024l", 586);
+    "oto_ff.gm5HelprewardB\004\210\301\024\024", 586);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gm5Help.proto", &protobuf_RegisterTypes);
   gm5Helpcons::default_instance_ = new gm5Helpcons();

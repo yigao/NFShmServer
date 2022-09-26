@@ -106,14 +106,14 @@ void protobuf_AddDesc_effect_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014effect.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"\313\001\n\014effecteffect\022\036\n\010effectId\030\001 \001"
+    "s.proto\"\317\001\n\014effecteffect\022\036\n\010effectId\030\001 \001"
     "(\005B\014\302\377\024\010\346\225\210\346\236\234id\022$\n\neffectType\030\002 \001(\005B\020\302\377"
     "\024\014\346\225\210\346\236\234\347\261\273\345\236\213\022&\n\010eContent\030\003 \001(\tB\024\302\377\024\014\346\225"
-    "\210\346\236\234\345\206\205\345\256\271\220\301\024 \022+\n\013effectAudio\030\004 \001(\005B\026\302\377\024"
-    "\022\351\237\263\346\225\210\346\225\210\346\236\234\345\217\202\346\225\260\022 \n\006eparam\030\005 \003(\005B\020\302\377\024"
-    "\014\346\225\210\346\236\234\345\217\202\346\225\260\"N\n\022Sheet_effecteffect\0228\n\021e"
-    "ffecteffect_List\030\001 \003(\0132\026.proto_ff.effect"
-    "effectB\005\210\301\024\340\014", 333);
+    "\210\346\236\234\345\206\205\345\256\271\220\301\024<\022+\n\013effectAudio\030\004 \001(\005B\026\302\377\024"
+    "\022\351\237\263\346\225\210\346\225\210\346\236\234\345\217\202\346\225\260\022$\n\006eparam\030\005 \003(\005B\024\302\377\024"
+    "\014\346\225\210\346\236\234\345\217\202\346\225\260\210\301\024\005\"N\n\022Sheet_effecteffect\022"
+    "8\n\021effecteffect_List\030\001 \003(\0132\026.proto_ff.ef"
+    "fecteffectB\005\210\301\024\320\017", 337);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "effect.proto", &protobuf_RegisterTypes);
   effecteffect::default_instance_ = new effecteffect();

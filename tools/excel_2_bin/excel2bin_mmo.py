@@ -264,6 +264,7 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	last_ok_col_index = -1;
 	while col_index < excel_sheet_col_count:
 		#得到sheet的列名
+		col_en_name = str(sheet.cell_value(0, col_index))
 		column_name = sheet.cell_value(1, col_index)
 		col_type = str(sheet.cell_value(2, col_index))
 
@@ -316,9 +317,15 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 			if compare_cname == column_prefixname and field_belong_message_fullname == record.DESCRIPTOR.full_name:
 				#print "line(%s:%d) compare_cname[%s] column_prefixname[%s] column_name[%s] find is ok!" % \
 				#	  (__file__, sys._getframe().f_lineno, compare_cname, column_prefixname, column_name)
-				is_find = True
-				last_ok_col_index = col_index;
-				break;
+				if len(parent_layer_cname) == 0 and field_property_label != descriptor.FieldDescriptor.LABEL_REPEATED and field_property_type != descriptor.FieldDescriptor.TYPE_MESSAGE:
+					if col_en_name == field_property_name:
+						is_find = True
+						last_ok_col_index = col_index;
+						break;
+				else:
+					is_find = True
+					last_ok_col_index = col_index;
+					break;
 
 #			print "line(%s:%d) ------------field_property_cname[%s] field_property_index[%d] field_property_name[%s] field_property_label[%d] field_property_type[%d]" \
 #				  % (__file__, sys._getframe().f_lineno, field_property_cname, field_property_index, field_property_name, field_property_label, field_property_type)

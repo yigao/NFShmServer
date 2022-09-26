@@ -104,11 +104,11 @@ void protobuf_AddDesc_msg_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tmsg.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"h\n\tmsgphpmsg\022\026\n\002id\030\001 \001(\005B\n\302\377\024\006\344\270\213\346\240"
-    "\207\022%\n\007content\030\002 \001(\tB\024\302\377\024\014\346\230\276\347\244\272\344\277\241\346\201\257\220\301\024W"
-    "\022\034\n\004note\030\003 \001(\tB\016\302\377\024\006\345\244\207\346\263\250\220\301\024 \"E\n\017Sheet_"
-    "msgphpmsg\0222\n\016msgphpmsg_List\030\001 \003(\0132\023.prot"
-    "o_ff.msgphpmsgB\005\210\301\024\344\001", 221);
+    "roto\"i\n\tmsgphpmsg\022\026\n\002id\030\001 \001(\005B\n\302\377\024\006\344\270\213\346\240"
+    "\207\022&\n\007content\030\002 \001(\tB\025\302\377\024\014\346\230\276\347\244\272\344\277\241\346\201\257\220\301\024\240"
+    "\001\022\034\n\004note\030\003 \001(\tB\016\302\377\024\006\345\244\207\346\263\250\220\301\024<\"E\n\017Sheet"
+    "_msgphpmsg\0222\n\016msgphpmsg_List\030\001 \003(\0132\023.pro"
+    "to_ff.msgphpmsgB\005\210\301\024\310\001", 222);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg.proto", &protobuf_RegisterTypes);
   msgphpmsg::default_instance_ = new msgphpmsg();

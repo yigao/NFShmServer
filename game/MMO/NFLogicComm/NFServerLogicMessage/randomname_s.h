@@ -15,7 +15,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamemanfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamemanfirst & msg);
@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_randomnamemanfirst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamemanfirst_s, 160> randomnamemanfirst_List;
+		NFArray<struct randomnamemanfirst_s, 100> randomnamemanfirst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamemanfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamemanfirst & msg);
@@ -42,7 +42,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamemansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamemansecond & msg);
@@ -55,7 +55,7 @@ namespace proto_ff_s {
 		Sheet_randomnamemansecond_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamemansecond_s, 143> randomnamemansecond_List;
+		NFArray<struct randomnamemansecond_s, 60> randomnamemansecond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamemansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamemansecond & msg);
@@ -69,7 +69,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamemanthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamemanthird & msg);
@@ -82,7 +82,7 @@ namespace proto_ff_s {
 		Sheet_randomnamemanthird_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamemanthird_s, 511> randomnamemanthird_List;
+		NFArray<struct randomnamemanthird_s, 500> randomnamemanthird_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamemanthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamemanthird & msg);
@@ -96,7 +96,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamewomanfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamewomanfirst & msg);
@@ -109,7 +109,7 @@ namespace proto_ff_s {
 		Sheet_randomnamewomanfirst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamewomanfirst_s, 344> randomnamewomanfirst_List;
+		NFArray<struct randomnamewomanfirst_s, 300> randomnamewomanfirst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamewomanfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomanfirst & msg);
@@ -123,7 +123,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamewomansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamewomansecond & msg);
@@ -136,7 +136,7 @@ namespace proto_ff_s {
 		Sheet_randomnamewomansecond_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamewomansecond_s, 132> randomnamewomansecond_List;
+		NFArray<struct randomnamewomansecond_s, 40> randomnamewomansecond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamewomansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomansecond & msg);
@@ -150,7 +150,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 
 		virtual void write_to_pbmsg(::proto_ff::randomnamewomanthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::randomnamewomanthird & msg);
@@ -163,7 +163,7 @@ namespace proto_ff_s {
 		Sheet_randomnamewomanthird_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct randomnamewomanthird_s, 489> randomnamewomanthird_List;
+		NFArray<struct randomnamewomanthird_s, 400> randomnamewomanthird_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_randomnamewomanthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomanthird & msg);

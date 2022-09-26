@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		Sheet_combinecitem_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct combinecitem_s, 537> combinecitem_List;
+		NFArray<struct combinecitem_s, 500> combinecitem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_combinecitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_combinecitem & msg);
@@ -70,7 +70,7 @@ namespace proto_ff_s {
 		int32_t wearQuality;
 		int32_t quality;
 		int32_t sameProfession;
-		NFSizeString<32> samePosition;
+		NFSizeString<60> samePosition;
 		int32_t probability;
 		int32_t increase;
 
@@ -85,7 +85,7 @@ namespace proto_ff_s {
 		Sheet_combinestarUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct combinestarUp_s, 852> combinestarUp_List;
+		NFArray<struct combinestarUp_s, 800> combinestarUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_combinestarUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_combinestarUp & msg);
@@ -118,7 +118,7 @@ namespace proto_ff_s {
 		Sheet_combineitemUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct combineitemUp_s, 136> combineitemUp_List;
+		NFArray<struct combineitemUp_s, 60> combineitemUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_combineitemUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_combineitemUp & msg);
@@ -139,7 +139,7 @@ namespace proto_ff_s {
 		int32_t wearQuality;
 		int32_t quality;
 		int32_t sameProfession;
-		NFSizeString<32> samePosition;
+		NFSizeString<60> samePosition;
 		int32_t probability;
 
 		virtual void write_to_pbmsg(::proto_ff::combinerankUp & msg) const;
@@ -153,7 +153,7 @@ namespace proto_ff_s {
 		Sheet_combinerankUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct combinerankUp_s, 128> combinerankUp_List;
+		NFArray<struct combinerankUp_s, 40> combinerankUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_combinerankUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_combinerankUp & msg);
@@ -166,7 +166,7 @@ namespace proto_ff_s {
 		combinequalityUpneedEqupDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<83> id;
+		NFSizeString<160> id;
 
 		virtual void write_to_pbmsg(::proto_ff::combinequalityUpneedEqupDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::combinequalityUpneedEqupDesc & msg);
@@ -199,7 +199,7 @@ namespace proto_ff_s {
 		int32_t wearQuality;
 		int32_t quality;
 		int32_t sameProfession;
-		NFSizeString<32> samePosition;
+		NFSizeString<60> samePosition;
 		int32_t probability;
 		int32_t costType;
 		int32_t bindJewelCost;
@@ -217,7 +217,7 @@ namespace proto_ff_s {
 		Sheet_combinequalityUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct combinequalityUp_s, 392> combinequalityUp_List;
+		NFArray<struct combinequalityUp_s, 300> combinequalityUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_combinequalityUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_combinequalityUp & msg);

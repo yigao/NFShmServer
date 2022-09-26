@@ -12,7 +12,7 @@ message getTreasurerareItem
 
 message Sheet_getTreasurerareItem
 {
-	repeated getTreasurerareItem getTreasurerareItem_List = 1[(yd_fieldoptions.field_arysize)=475];
+	repeated getTreasurerareItem getTreasurerareItem_List = 1[(yd_fieldoptions.field_arysize)=400];
 }
 
 message getTreasuretimesControlgroupDesc
@@ -44,7 +44,7 @@ message getTreasuretimesControl
 
 message Sheet_getTreasuretimesControl
 {
-	repeated getTreasuretimesControl getTreasuretimesControl_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated getTreasuretimesControl getTreasuretimesControl_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message getTreasureArrivalBossReward
@@ -58,7 +58,7 @@ message getTreasureArrivalBossReward
 
 message Sheet_getTreasureArrivalBossReward
 {
-	repeated getTreasureArrivalBossReward getTreasureArrivalBossReward_List = 1[(yd_fieldoptions.field_arysize)=112];
+	repeated getTreasureArrivalBossReward getTreasureArrivalBossReward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message getTreasureArrivalBossControl
@@ -73,13 +73,13 @@ message getTreasureArrivalBossControl
 	optional int64 duplicateGroup = 8[(yd_fieldoptions.field_cname) = "副本组ID"];
 	optional int64 bossid = 9[(yd_fieldoptions.field_cname) = "bossid"];
 	optional int64 pathID = 10[(yd_fieldoptions.field_cname) = "位置点"];
-	optional string radio = 11[(yd_fieldoptions.field_cname) = "广播通知血量参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string radio = 11[(yd_fieldoptions.field_cname) = "广播通知血量参数", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_getTreasureArrivalBossControl
 {
-	repeated getTreasureArrivalBossControl getTreasureArrivalBossControl_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated getTreasureArrivalBossControl getTreasureArrivalBossControl_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message getTreasurevipBossControl
@@ -94,7 +94,7 @@ message getTreasurevipBossControl
 
 message Sheet_getTreasurevipBossControl
 {
-	repeated getTreasurevipBossControl getTreasurevipBossControl_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated getTreasurevipBossControl getTreasurevipBossControl_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message getTreasureboss
@@ -113,7 +113,7 @@ message getTreasureboss
 
 message Sheet_getTreasureboss
 {
-	repeated getTreasureboss getTreasureboss_List = 1[(yd_fieldoptions.field_arysize)=863];
+	repeated getTreasureboss getTreasureboss_List = 1[(yd_fieldoptions.field_arysize)=800];
 }
 
 message getTreasurehelp
@@ -121,11 +121,11 @@ message getTreasurehelp
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "获奖等级"];
 	optional int32 down = 2[(yd_fieldoptions.field_cname) = "伤血下限（等于）"];
 	optional int32 up = 3[(yd_fieldoptions.field_cname) = "伤血上限（等于）"];
-	repeated int64 num = 4[(yd_fieldoptions.field_cname) = "奖励内容"];
+	repeated int64 num = 4[(yd_fieldoptions.field_cname) = "奖励内容", (yd_fieldoptions.field_arysize) = 6];
 }
 
 
 message Sheet_getTreasurehelp
 {
-	repeated getTreasurehelp getTreasurehelp_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated getTreasurehelp getTreasurehelp_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

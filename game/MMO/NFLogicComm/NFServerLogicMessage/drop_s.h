@@ -14,12 +14,12 @@ namespace proto_ff_s {
 		dropdropitemDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<279> bd;
+		NFSizeString<300> bd;
 		int32_t rand;
 		int32_t maxNum;
-		NFSizeString<209> QZ;
+		NFSizeString<300> QZ;
 		int32_t minNum;
-		NFSizeString<671> id;
+		NFSizeString<700> id;
 
 		virtual void write_to_pbmsg(::proto_ff::dropdropitemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::dropdropitemDesc & msg);
@@ -32,12 +32,12 @@ namespace proto_ff_s {
 		dropdropitemTeamDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<32> bd;
+		NFSizeString<60> bd;
 		int32_t rand;
 		int32_t maxNum;
-		NFSizeString<63> QZ;
+		NFSizeString<120> QZ;
 		int32_t minNum;
-		NFSizeString<191> id;
+		NFSizeString<200> id;
 
 		virtual void write_to_pbmsg(::proto_ff::dropdropitemTeamDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::dropdropitemTeamDesc & msg);
@@ -52,11 +52,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t rand;
 		int32_t maxNum;
-		NFSizeString<47> weight;
+		NFSizeString<80> weight;
 		int32_t minNum;
-		NFSizeString<32> isbind;
-		NFSizeString<32> prof;
-		NFSizeString<95> id;
+		NFSizeString<60> isbind;
+		NFSizeString<60> prof;
+		NFSizeString<180> id;
 
 		virtual void write_to_pbmsg(::proto_ff::dropdropequipDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::dropdropequipDesc & msg);
@@ -90,7 +90,7 @@ namespace proto_ff_s {
 		Sheet_dropdrop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dropdrop_s, 1252> dropdrop_List;
+		NFArray<struct dropdrop_s, 2000> dropdrop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_dropdrop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dropdrop & msg);

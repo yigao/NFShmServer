@@ -17,7 +17,7 @@ message achievementachievement
 	optional int32 achievementType = 4[(yd_fieldoptions.field_cname) = "成就类型"];
 	optional int32 achievementSubType = 5[(yd_fieldoptions.field_cname) = "事件类型"];
 	optional int64 achievementObjectID = 6[(yd_fieldoptions.field_cname) = "事件目标ID"];
-	optional string achievementObjectIDString = 7[(yd_fieldoptions.field_cname) = "事件目标Idstring", (yd_fieldoptions.field_bufsize) = 32];
+	optional string achievementObjectIDString = 7[(yd_fieldoptions.field_cname) = "事件目标Idstring", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 achievementObjectValue = 8[(yd_fieldoptions.field_cname) = "事件目标完成值"];
 	optional int32 achievementDia = 9[(yd_fieldoptions.field_cname) = "获得绑定钻石数量"];
 	optional int32 achievementGod = 10[(yd_fieldoptions.field_cname) = "获得金币数量"];
@@ -29,7 +29,7 @@ message achievementachievement
 
 message Sheet_achievementachievement
 {
-	repeated achievementachievement achievementachievement_List = 1[(yd_fieldoptions.field_arysize)=429];
+	repeated achievementachievement achievementachievement_List = 1[(yd_fieldoptions.field_arysize)=400];
 }
 
 message achievementachievementreward
@@ -44,5 +44,5 @@ message achievementachievementreward
 
 message Sheet_achievementachievementreward
 {
-	repeated achievementachievementreward achievementachievementreward_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated achievementachievementreward achievementachievementreward_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

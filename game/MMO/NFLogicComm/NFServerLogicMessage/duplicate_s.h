@@ -15,8 +15,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t duplicateID;
-		NFSizeString<32> duplicateName;
-		NFSizeString<32> duplicateTitlePic;
+		NFSizeString<60> duplicateName;
+		NFSizeString<60> duplicateTitlePic;
 		int64_t groupID;
 		int32_t duplicateType;
 		int32_t playType;
@@ -24,19 +24,19 @@ namespace proto_ff_s {
 		int32_t levelLimit;
 		int64_t linkDuplicateRequest;
 		int32_t isAutoFight;
-		NFSizeString<32> duplicateConditionType;
+		NFSizeString<60> duplicateConditionType;
 		int32_t reviveMaxTimes;
 		int64_t dropNormalMonster;
 		int64_t dropEliteMonster;
 		int64_t dropBossMonster;
-		NFSizeString<32> sceneAIScript;
-		NFSizeString<32> bossDesc;
+		NFSizeString<60> sceneAIScript;
+		NFSizeString<60> bossDesc;
 		int32_t TeamObjectID;
-		NFSizeString<32> gradeCondition;
+		NFSizeString<60> gradeCondition;
 		int64_t sweepRewardBoxID;
 		int32_t sweepRewardExp;
-		NFSizeString<119> trackpath;
-		NFSizeString<121> pathOfmonster;
+		NFSizeString<200> trackpath;
+		NFSizeString<200> pathOfmonster;
 		int32_t isPatrol;
 		int32_t sweepType;
 
@@ -51,7 +51,7 @@ namespace proto_ff_s {
 		Sheet_duplicateduplicate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateduplicate_s, 911> duplicateduplicate_List;
+		NFArray<struct duplicateduplicate_s, 900> duplicateduplicate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateduplicate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateduplicate & msg);
@@ -66,7 +66,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t constantid;
 		int64_t constantdata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::duplicateconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::duplicateconstant & msg);
@@ -79,7 +79,7 @@ namespace proto_ff_s {
 		Sheet_duplicateconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateconstant_s, 106> duplicateconstant_List;
+		NFArray<struct duplicateconstant_s, 20> duplicateconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateconstant & msg);
@@ -94,7 +94,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t level;
-		NFSizeString<224> duplicateID;
+		NFSizeString<300> duplicateID;
 		int32_t CreateRate;
 		int64_t rewardID;
 
@@ -109,7 +109,7 @@ namespace proto_ff_s {
 		Sheet_duplicateendlessMaze_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateendlessMaze_s, 117> duplicateendlessMaze_List;
+		NFArray<struct duplicateendlessMaze_s, 20> duplicateendlessMaze_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateendlessMaze & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateendlessMaze & msg);
@@ -139,7 +139,7 @@ namespace proto_ff_s {
 		Sheet_duplicatetowerReward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicatetowerReward_s, 145> duplicatetowerReward_List;
+		NFArray<struct duplicatetowerReward_s, 80> duplicatetowerReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicatetowerReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicatetowerReward & msg);
@@ -183,7 +183,7 @@ namespace proto_ff_s {
 		Sheet_duplicatedungeonReward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicatedungeonReward_s, 304> duplicatedungeonReward_List;
+		NFArray<struct duplicatedungeonReward_s, 300> duplicatedungeonReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicatedungeonReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicatedungeonReward & msg);
@@ -197,19 +197,19 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
-		NFSizeString<32> duplicateTitlePic;
+		NFSizeString<60> name;
+		NFSizeString<60> duplicateTitlePic;
 		int32_t unlockLevel;
 		int32_t belongToType;
 		int32_t viptype;
 		int32_t dynamiclevel;
-		NFSizeString<32> timesRes;
+		NFSizeString<60> timesRes;
 		int32_t groupTimesType;
 		int32_t groupTimes;
 		int32_t refreshType;
 		int64_t enterItemID;
 		int32_t reliveTpye;
-		NFSizeString<32> sweepCondition;
+		NFSizeString<60> sweepCondition;
 		int32_t buyEnterTimesCostType;
 		int32_t buyEnterTimesCost;
 		int32_t countDown;
@@ -226,7 +226,7 @@ namespace proto_ff_s {
 		Sheet_duplicategroup_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicategroup_s, 133> duplicategroup_List;
+		NFArray<struct duplicategroup_s, 40> duplicategroup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicategroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicategroup & msg);
@@ -257,7 +257,7 @@ namespace proto_ff_s {
 		Sheet_duplicatesweepmonsterNum_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicatesweepmonsterNum_s, 155> duplicatesweepmonsterNum_List;
+		NFArray<struct duplicatesweepmonsterNum_s, 100> duplicatesweepmonsterNum_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicatesweepmonsterNum & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicatesweepmonsterNum & msg);
@@ -272,7 +272,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t duplicateID;
 		int32_t openCycle;
-		NFSizeString<32> openTime;
+		NFSizeString<60> openTime;
 		int32_t bossGroup;
 		int32_t relevance;
 
@@ -287,7 +287,7 @@ namespace proto_ff_s {
 		Sheet_duplicateGuildbosstime_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateGuildbosstime_s, 325> duplicateGuildbosstime_List;
+		NFArray<struct duplicateGuildbosstime_s, 300> duplicateGuildbosstime_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateGuildbosstime & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateGuildbosstime & msg);
@@ -330,7 +330,7 @@ namespace proto_ff_s {
 		Sheet_duplicateGuildboss_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateGuildboss_s, 325> duplicateGuildboss_List;
+		NFArray<struct duplicateGuildboss_s, 300> duplicateGuildboss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateGuildboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateGuildboss & msg);
@@ -358,7 +358,7 @@ namespace proto_ff_s {
 		Sheet_duplicateGuildDuplicate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct duplicateGuildDuplicate_s, 1604> duplicateGuildDuplicate_List;
+		NFArray<struct duplicateGuildDuplicate_s, 2000> duplicateGuildDuplicate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_duplicateGuildDuplicate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_duplicateGuildDuplicate & msg);

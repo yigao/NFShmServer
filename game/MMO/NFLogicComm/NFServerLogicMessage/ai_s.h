@@ -31,8 +31,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t id;
 		int32_t type;
-		NFSizeString<32> deadHateRemain;
-		NFSizeString<32> invisibleRemain;
+		NFSizeString<60> deadHateRemain;
+		NFSizeString<60> invisibleRemain;
 		int32_t isActive;
 		int32_t returnType;
 		int32_t view;
@@ -42,7 +42,7 @@ namespace proto_ff_s {
 		int32_t wakeupRadius;
 		int32_t isAIWorkWhenNobody;
 		int32_t bornEffectAIDelay;
-		NFSizeString<74> initSkills;
+		NFSizeString<140> initSkills;
 		NFArray<struct aiaihpDesc_s, 2> hp;
 
 		virtual void write_to_pbmsg(::proto_ff::aiai & msg) const;
@@ -56,7 +56,7 @@ namespace proto_ff_s {
 		Sheet_aiai_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct aiai_s, 166> aiai_List;
+		NFArray<struct aiai_s, 120> aiai_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_aiai & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_aiai & msg);

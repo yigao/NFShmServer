@@ -16,14 +16,14 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t id;
 		int32_t huoDong;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t nameId;
-		NFSizeString<245> tiaoJian;
+		NFSizeString<300> tiaoJian;
 		int32_t servertype;
-		NFSizeString<32> timeA;
-		NFSizeString<32> timeB;
+		NFSizeString<60> timeA;
+		NFSizeString<60> timeB;
 		int32_t timeType;
-		NFSizeString<96> miaoSu;
+		NFSizeString<180> miaoSu;
 		int32_t ifOpen;
 
 		virtual void write_to_pbmsg(::proto_ff::operateoperate & msg) const;
@@ -37,7 +37,7 @@ namespace proto_ff_s {
 		Sheet_operateoperate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateoperate_s, 129> operateoperate_List;
+		NFArray<struct operateoperate_s, 40> operateoperate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateoperate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateoperate & msg);
@@ -53,8 +53,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t type;
 		int32_t condition;
-		int32_t conditionParam1;
-		int32_t conditionParam2;
+		int64_t conditionParam1;
 		int64_t boxId;
 		int32_t teach;
 
@@ -69,7 +68,7 @@ namespace proto_ff_s {
 		Sheet_operatetutor_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatetutor_s, 153> operatetutor_List;
+		NFArray<struct operatetutor_s, 80> operatetutor_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatetutor & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatetutor & msg);
@@ -83,12 +82,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t tiaoJianId;
-		NFSizeString<32> huoDong;
-		NFSizeString<32> downNu;
-		NFSizeString<32> upNu;
-		NFSizeString<32> miaoshu;
-		NFSizeString<34> miaoshuAdd;
-		NFSizeString<64> tiaoJian;
+		NFSizeString<60> huoDong;
+		NFSizeString<60> downNu;
+		NFSizeString<60> upNu;
+		NFSizeString<60> miaoshu;
+		NFSizeString<60> miaoshuAdd;
+		NFSizeString<120> tiaoJian;
 		int64_t boxId;
 		int64_t sdboxid;
 
@@ -103,7 +102,7 @@ namespace proto_ff_s {
 		Sheet_operatejiangli_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatejiangli_s, 282> operatejiangli_List;
+		NFArray<struct operatejiangli_s, 200> operatejiangli_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatejiangli & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatejiangli & msg);
@@ -120,13 +119,13 @@ namespace proto_ff_s {
 		int64_t daojuId;
 		int32_t daojuPrice;
 		int32_t cycle;
-		NFSizeString<32> poolid;
+		NFSizeString<60> poolid;
 		int32_t wheelTime;
-		NFSizeString<39> ExchangeGroupID;
-		NFSizeString<141> boxid;
+		NFSizeString<60> ExchangeGroupID;
+		NFSizeString<200> boxid;
 		int64_t luckid;
-		NFSizeString<35> fateid;
-		NFSizeString<47> felicityid;
+		NFSizeString<60> fateid;
+		NFSizeString<80> felicityid;
 
 		virtual void write_to_pbmsg(::proto_ff::operatehoroscope & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::operatehoroscope & msg);
@@ -139,7 +138,7 @@ namespace proto_ff_s {
 		Sheet_operatehoroscope_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatehoroscope_s, 111> operatehoroscope_List;
+		NFArray<struct operatehoroscope_s, 20> operatehoroscope_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatehoroscope & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatehoroscope & msg);
@@ -175,7 +174,7 @@ namespace proto_ff_s {
 		Sheet_operatehoroscopePool_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatehoroscopePool_s, 1037> operatehoroscopePool_List;
+		NFArray<struct operatehoroscopePool_s, 1000> operatehoroscopePool_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatehoroscopePool & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatehoroscopePool & msg);
@@ -207,7 +206,7 @@ namespace proto_ff_s {
 		Sheet_operatehoroscopeExchange_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatehoroscopeExchange_s, 222> operatehoroscopeExchange_List;
+		NFArray<struct operatehoroscopeExchange_s, 200> operatehoroscopeExchange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatehoroscopeExchange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatehoroscopeExchange & msg);
@@ -222,7 +221,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t constantid;
 		int64_t constantdata;
-		NFSizeString<99> stringdata;
+		NFSizeString<180> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::operateconst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::operateconst & msg);
@@ -235,7 +234,7 @@ namespace proto_ff_s {
 		Sheet_operateconst_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateconst_s, 161> operateconst_List;
+		NFArray<struct operateconst_s, 100> operateconst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateconst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateconst & msg);
@@ -250,7 +249,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int32_t price;
-		NFSizeString<32> severPrice;
+		NFSizeString<60> severPrice;
 		int64_t itemId;
 		int64_t num;
 
@@ -265,7 +264,7 @@ namespace proto_ff_s {
 		Sheet_operateunlimited_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateunlimited_s, 107> operateunlimited_List;
+		NFArray<struct operateunlimited_s, 20> operateunlimited_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateunlimited & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateunlimited & msg);
@@ -281,6 +280,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t randtype;
 		int64_t boxid;
+		NFArray<NFSizeString<60>, 2> canshu;
 
 		virtual void write_to_pbmsg(::proto_ff::operaterand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::operaterand & msg);
@@ -293,7 +293,7 @@ namespace proto_ff_s {
 		Sheet_operaterand_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operaterand_s, 139> operaterand_List;
+		NFArray<struct operaterand_s, 60> operaterand_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operaterand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operaterand & msg);
@@ -320,7 +320,7 @@ namespace proto_ff_s {
 		Sheet_operatemooncard_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatemooncard_s, 135> operatemooncard_List;
+		NFArray<struct operatemooncard_s, 60> operatemooncard_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatemooncard & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatemooncard & msg);
@@ -349,7 +349,7 @@ namespace proto_ff_s {
 		Sheet_operatefund_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatefund_s, 143> operatefund_List;
+		NFArray<struct operatefund_s, 60> operatefund_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatefund & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatefund & msg);
@@ -365,7 +365,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t taskNan;
 		int32_t taskType;
-		NFSizeString<32> num;
+		NFSizeString<60> num;
 
 		virtual void write_to_pbmsg(::proto_ff::operatetask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::operatetask & msg);
@@ -378,7 +378,7 @@ namespace proto_ff_s {
 		Sheet_operatetask_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatetask_s, 175> operatetask_List;
+		NFArray<struct operatetask_s, 140> operatetask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatetask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatetask & msg);
@@ -410,7 +410,7 @@ namespace proto_ff_s {
 		Sheet_operateshop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateshop_s, 169> operateshop_List;
+		NFArray<struct operateshop_s, 120> operateshop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateshop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateshop & msg);
@@ -437,7 +437,7 @@ namespace proto_ff_s {
 		Sheet_operatewish_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operatewish_s, 1604> operatewish_List;
+		NFArray<struct operatewish_s, 2000> operatewish_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operatewish & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operatewish & msg);
@@ -471,7 +471,7 @@ namespace proto_ff_s {
 		Sheet_operateturntable_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateturntable_s, 112> operateturntable_List;
+		NFArray<struct operateturntable_s, 20> operateturntable_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateturntable & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateturntable & msg);
@@ -501,7 +501,7 @@ namespace proto_ff_s {
 		Sheet_operateturntableTask_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct operateturntableTask_s, 108> operateturntableTask_List;
+		NFArray<struct operateturntableTask_s, 20> operateturntableTask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_operateturntableTask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_operateturntableTask & msg);

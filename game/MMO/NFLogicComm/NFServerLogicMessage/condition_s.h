@@ -42,7 +42,7 @@ namespace proto_ff_s {
 		Sheet_conditioncondition_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct conditioncondition_s, 125> conditioncondition_List;
+		NFArray<struct conditioncondition_s, 40> conditioncondition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_conditioncondition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_conditioncondition & msg);

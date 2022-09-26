@@ -107,11 +107,11 @@ void protobuf_AddDesc_GMCommand_2eproto() {
     "\n\017GMCommand.proto\022\010proto_ff\032\025yd_fieldopt"
     "ions.proto\"\233\001\n\022GMCommandGMCommand\022\034\n\002ID\030"
     "\001 \001(\005B\020\302\377\024\014\345\221\275\344\273\244\347\264\242\345\274\225\022$\n\003Key\030\002 \001(\tB\027\302\377"
-    "\024\017\345\221\275\344\273\244\345\205\263\351\224\256\345\255\227\220\301\024#\022$\n\nParamCount\030\003 \001("
+    "\024\017\345\221\275\344\273\244\345\205\263\351\224\256\345\255\227\220\301\024<\022$\n\nParamCount\030\003 \001("
     "\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\022\033\n\003Des\030\004 \001(\tB\016\302\377\024\006\346\217"
-    "\217\350\277\260\220\301\024+\"`\n\030Sheet_GMCommandGMCommand\022D\n\027"
+    "\217\350\277\260\220\301\024P\"_\n\030Sheet_GMCommandGMCommand\022C\n\027"
     "GMCommandGMCommand_List\030\001 \003(\0132\034.proto_ff"
-    ".GMCommandGMCommandB\005\210\301\024\226\001", 306);
+    ".GMCommandGMCommandB\004\210\301\024P", 305);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "GMCommand.proto", &protobuf_RegisterTypes);
   GMCommandGMCommand::default_instance_ = new GMCommandGMCommand();

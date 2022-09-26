@@ -62,7 +62,7 @@ namespace proto_ff_s {
 		Sheet_taskrewardtaskreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskrewardtaskreward_s, 3104> taskrewardtaskreward_List;
+		NFArray<struct taskrewardtaskreward_s, 4000> taskrewardtaskreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_taskrewardtaskreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskrewardtaskreward & msg);

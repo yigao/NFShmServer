@@ -15,7 +15,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t monsterID;
-		NFSizeString<32> monsterName;
+		NFSizeString<60> monsterName;
 		int32_t functionType;
 		int64_t functionValue;
 		int32_t profession;
@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		int32_t breedProb;
 		int64_t breedMonID;
 		int32_t breedMonLive;
-		NFSizeString<32> itemCost;
+		NFSizeString<60> itemCost;
 		int32_t isBornActionOn;
 		int64_t exp;
 		int32_t dropType;
@@ -54,7 +54,7 @@ namespace proto_ff_s {
 		Sheet_monstermonster_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct monstermonster_s, 2031> monstermonster_List;
+		NFArray<struct monstermonster_s, 2000> monstermonster_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_monstermonster & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_monstermonster & msg);
@@ -101,7 +101,7 @@ namespace proto_ff_s {
 		Sheet_monsterdisplay_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct monsterdisplay_s, 310> monsterdisplay_List;
+		NFArray<struct monsterdisplay_s, 300> monsterdisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_monsterdisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_monsterdisplay & msg);
@@ -150,7 +150,7 @@ namespace proto_ff_s {
 		Sheet_monstervalue_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct monstervalue_s, 42194> monstervalue_List;
+		NFArray<struct monstervalue_s, 43000> monstervalue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_monstervalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_monstervalue & msg);

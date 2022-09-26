@@ -13,43 +13,43 @@ message equipequipattributeDesc
 message equipequip
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "装备ID"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "装备名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "装备名称", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
 	optional int32 position = 4[(yd_fieldoptions.field_cname) = "装备位置"];
-	optional string profession = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 32];
+	optional string profession = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 professionLv = 6[(yd_fieldoptions.field_cname) = "转职等级"];
 	optional int32 level = 7[(yd_fieldoptions.field_cname) = "穿戴等级限制"];
 	optional int32 quality = 8[(yd_fieldoptions.field_cname) = "装备品质"];
 	optional int32 star = 9[(yd_fieldoptions.field_cname) = "装备星级"];
 	optional int32 refineAttributeDown = 10[(yd_fieldoptions.field_cname) = "星级属性数量下限"];
 	optional int32 refineAttributeUp = 11[(yd_fieldoptions.field_cname) = "星级属性数量上限"];
-	optional string refineAttribute_typeLibrary = 12[(yd_fieldoptions.field_cname) = "随机星级属性库", (yd_fieldoptions.field_bufsize) = 32];
-	optional string refineAttribute_valueMin = 13[(yd_fieldoptions.field_cname) = "星级属性最小值", (yd_fieldoptions.field_bufsize) = 32];
-	optional string refineAttribute_valueMax = 14[(yd_fieldoptions.field_cname) = "星级属性最大值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string refineAttribute_typeLibrary = 12[(yd_fieldoptions.field_cname) = "随机星级属性库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string refineAttribute_valueMin = 13[(yd_fieldoptions.field_cname) = "星级属性最小值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string refineAttribute_valueMax = 14[(yd_fieldoptions.field_cname) = "星级属性最大值", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 blueStarNum = 15[(yd_fieldoptions.field_cname) = "蓝色星级属性条数"];
-	optional string blueStar_type = 16[(yd_fieldoptions.field_cname) = "蓝色星级属性类型库", (yd_fieldoptions.field_bufsize) = 32];
-	optional string blueStar_lv = 17[(yd_fieldoptions.field_cname) = "蓝色星级等级间隔差", (yd_fieldoptions.field_bufsize) = 32];
-	optional string blueStar_number = 18[(yd_fieldoptions.field_cname) = "蓝色星级每级增加值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string blueStar_type = 16[(yd_fieldoptions.field_cname) = "蓝色星级属性类型库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string blueStar_lv = 17[(yd_fieldoptions.field_cname) = "蓝色星级等级间隔差", (yd_fieldoptions.field_bufsize) = 60];
+	optional string blueStar_number = 18[(yd_fieldoptions.field_cname) = "蓝色星级每级增加值", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isCanbind = 19[(yd_fieldoptions.field_cname) = "是否绑定"];
 	optional int32 isTradeBind = 20[(yd_fieldoptions.field_cname) = "是否交易绑定"];
 	optional int32 sellPrice = 21[(yd_fieldoptions.field_cname) = "出售价格"];
-	optional string icon = 22[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 32];
+	optional string icon = 22[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 time = 23[(yd_fieldoptions.field_cname) = "限时装备"];
 	optional int32 Combat = 24[(yd_fieldoptions.field_cname) = "战斗力（不含蓝星属性）"];
 	optional int32 broadcast = 25[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
-	optional string meltingResult = 26[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 32];
+	optional string meltingResult = 26[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 60];
 	repeated equipequipattributeDesc attribute = 27[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
 message Sheet_equipequip
 {
-	repeated equipequip equipequip_List = 1[(yd_fieldoptions.field_arysize)=3663];
+	repeated equipequip equipequip_List = 1[(yd_fieldoptions.field_arysize)=4000];
 }
 
 message equipstrongtypeDesc
 {
-	optional string num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 id = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
@@ -65,7 +65,7 @@ message equipstrong
 
 message Sheet_equipstrong
 {
-	repeated equipstrong equipstrong_List = 1[(yd_fieldoptions.field_arysize)=254];
+	repeated equipstrong equipstrong_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message equipgemfinedateDesc
@@ -87,7 +87,7 @@ message equipgemfine
 
 message Sheet_equipgemfine
 {
-	repeated equipgemfine equipgemfine_List = 1[(yd_fieldoptions.field_arysize)=254];
+	repeated equipgemfine equipgemfine_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message equipgem
@@ -95,13 +95,13 @@ message equipgem
 	optional int32 position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
 	optional int32 gemType = 2[(yd_fieldoptions.field_cname) = "宝石类型"];
 	optional int32 VipUnlock = 3[(yd_fieldoptions.field_cname) = "Vip解锁等级"];
-	repeated int32 gemUnlock = 4[(yd_fieldoptions.field_cname) = "装备槽解锁品阶"];
+	repeated int32 gemUnlock = 4[(yd_fieldoptions.field_cname) = "装备槽解锁品阶", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
 message Sheet_equipgem
 {
-	repeated equipgem equipgem_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated equipgem equipgem_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message equipatt
@@ -109,13 +109,13 @@ message equipatt
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "总等级ID"];
 	optional int32 idType = 2[(yd_fieldoptions.field_cname) = "总等级类型"];
 	optional int32 idNum = 3[(yd_fieldoptions.field_cname) = "总等级"];
-	optional string att = 4[(yd_fieldoptions.field_cname) = "属性值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string att = 4[(yd_fieldoptions.field_cname) = "属性值", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_equipatt
 {
-	repeated equipatt equipatt_List = 1[(yd_fieldoptions.field_arysize)=217];
+	repeated equipatt equipatt_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message equipsuitattributeDesc
@@ -126,20 +126,20 @@ message equipsuitattributeDesc
 message equipsuit
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "套装ID"];
-	optional string profession = 2[(yd_fieldoptions.field_cname) = "职业", (yd_fieldoptions.field_bufsize) = 32];
+	optional string profession = 2[(yd_fieldoptions.field_cname) = "职业", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 suitLv = 3[(yd_fieldoptions.field_cname) = "套装等级"];
 	optional int32 level = 4[(yd_fieldoptions.field_cname) = "套装打造等级"];
 	optional int32 colour = 5[(yd_fieldoptions.field_cname) = "套装打造品质"];
-	optional string afterName = 6[(yd_fieldoptions.field_cname) = "套装命前缀", (yd_fieldoptions.field_bufsize) = 32];
+	optional string afterName = 6[(yd_fieldoptions.field_cname) = "套装命前缀", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 suiteValue = 7[(yd_fieldoptions.field_cname) = "套装套件数量"];
 	repeated equipsuitattributeDesc attribute = 8[(yd_fieldoptions.field_cname) = "套件激活属性", (yd_fieldoptions.field_arysize) = 3];
-	repeated string position = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_arysize) = 32];
+	repeated string position = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_arysize) = 10, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_equipsuit
 {
-	repeated equipsuit equipsuit_List = 1[(yd_fieldoptions.field_arysize)=164];
+	repeated equipsuit equipsuit_List = 1[(yd_fieldoptions.field_arysize)=120];
 }
 
 message equipclear
@@ -147,14 +147,14 @@ message equipclear
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "序号id"];
 	optional int32 position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
 	optional int32 Lv = 3[(yd_fieldoptions.field_cname) = "开启等级"];
-	optional string value = 4[(yd_fieldoptions.field_cname) = "开孔绑钻花费", (yd_fieldoptions.field_bufsize) = 32];
-	repeated int64 teamId = 5[(yd_fieldoptions.field_cname) = "洗练段属性"];
+	optional string value = 4[(yd_fieldoptions.field_cname) = "开孔绑钻花费", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int64 teamId = 5[(yd_fieldoptions.field_cname) = "洗练段属性", (yd_fieldoptions.field_arysize) = 15];
 }
 
 
 message Sheet_equipclear
 {
-	repeated equipclear equipclear_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated equipclear equipclear_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message equipstrongexp
@@ -168,7 +168,7 @@ message equipstrongexp
 
 message Sheet_equipstrongexp
 {
-	repeated equipstrongexp equipstrongexp_List = 1[(yd_fieldoptions.field_arysize)=854];
+	repeated equipstrongexp equipstrongexp_List = 1[(yd_fieldoptions.field_arysize)=800];
 }
 
 message equipgemfineexp
@@ -180,16 +180,16 @@ message equipgemfineexp
 
 message Sheet_equipgemfineexp
 {
-	repeated equipgemfineexp equipgemfineexp_List = 1[(yd_fieldoptions.field_arysize)=354];
+	repeated equipgemfineexp equipgemfineexp_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message equipclearteamSectionDesc
 {
-	optional string down = 1[(yd_fieldoptions.field_cname) = "最小值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string down = 1[(yd_fieldoptions.field_cname) = "最小值", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 p = 2[(yd_fieldoptions.field_cname) = "普通洗练"];
-	optional string type = 3[(yd_fieldoptions.field_cname) = "库", (yd_fieldoptions.field_bufsize) = 32];
-	optional string up = 4[(yd_fieldoptions.field_cname) = "最大值", (yd_fieldoptions.field_bufsize) = 32];
-	optional string g = 5[(yd_fieldoptions.field_cname) = "高级洗练", (yd_fieldoptions.field_bufsize) = 32];
+	optional string type = 3[(yd_fieldoptions.field_cname) = "库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string up = 4[(yd_fieldoptions.field_cname) = "最大值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string g = 5[(yd_fieldoptions.field_cname) = "高级洗练", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 message equipclearteam
@@ -199,16 +199,16 @@ message equipclearteam
 	optional int64 shengId = 3[(yd_fieldoptions.field_cname) = "升段道具ID"];
 	optional int32 shengNum = 4[(yd_fieldoptions.field_cname) = "升段道具数量"];
 	optional int64 consumeId = 5[(yd_fieldoptions.field_cname) = "消耗道具ID"];
-	optional string consumeNum = 6[(yd_fieldoptions.field_cname) = "消耗道具数量", (yd_fieldoptions.field_bufsize) = 32];
-	optional string lockingId = 7[(yd_fieldoptions.field_cname) = "高级道具ID", (yd_fieldoptions.field_bufsize) = 35];
-	optional string lockingNum = 8[(yd_fieldoptions.field_cname) = "高级道具数量", (yd_fieldoptions.field_bufsize) = 32];
+	optional string consumeNum = 6[(yd_fieldoptions.field_cname) = "消耗道具数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional string lockingId = 7[(yd_fieldoptions.field_cname) = "高级道具ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional string lockingNum = 8[(yd_fieldoptions.field_cname) = "高级道具数量", (yd_fieldoptions.field_bufsize) = 60];
 	repeated equipclearteamSectionDesc Section = 9[(yd_fieldoptions.field_cname) = "属性类型", (yd_fieldoptions.field_arysize) = 8];
 }
 
 
 message Sheet_equipclearteam
 {
-	repeated equipclearteam equipclearteam_List = 1[(yd_fieldoptions.field_arysize)=254];
+	repeated equipclearteam equipclearteam_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message equipawakeningawakenDesc
@@ -231,7 +231,7 @@ message equipawakening
 
 message Sheet_equipawakening
 {
-	repeated equipawakening equipawakening_List = 1[(yd_fieldoptions.field_arysize)=704];
+	repeated equipawakening equipawakening_List = 1[(yd_fieldoptions.field_arysize)=700];
 }
 
 message equipenchantingtypeDesc
@@ -260,7 +260,7 @@ message equipenchanting
 
 message Sheet_equipenchanting
 {
-	repeated equipenchanting equipenchanting_List = 1[(yd_fieldoptions.field_arysize)=704];
+	repeated equipenchanting equipenchanting_List = 1[(yd_fieldoptions.field_arysize)=700];
 }
 
 message equipmarryattributeDesc
@@ -284,5 +284,5 @@ message equipmarry
 
 message Sheet_equipmarry
 {
-	repeated equipmarry equipmarry_List = 1[(yd_fieldoptions.field_arysize)=1004];
+	repeated equipmarry equipmarry_List = 1[(yd_fieldoptions.field_arysize)=1000];
 }

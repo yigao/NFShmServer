@@ -16,7 +16,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int64_t valuedata;
-		NFSizeString<47> stringdata;
+		NFSizeString<80> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::lightAndShadowcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::lightAndShadowcons & msg);
@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_lightAndShadowcons_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct lightAndShadowcons_s, 121> lightAndShadowcons_List;
+		NFArray<struct lightAndShadowcons_s, 20> lightAndShadowcons_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_lightAndShadowcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_lightAndShadowcons & msg);
@@ -61,7 +61,7 @@ namespace proto_ff_s {
 		Sheet_lightAndShadowreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct lightAndShadowreward_s, 110> lightAndShadowreward_List;
+		NFArray<struct lightAndShadowreward_s, 20> lightAndShadowreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_lightAndShadowreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_lightAndShadowreward & msg);

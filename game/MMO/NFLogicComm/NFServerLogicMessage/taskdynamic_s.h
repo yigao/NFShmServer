@@ -15,12 +15,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t taskID;
-		NFSizeString<32> remark;
+		NFSizeString<60> remark;
 		int32_t taskType;
 		int32_t minlv;
 		int32_t maxlv;
 		int32_t receCount;
-		NFSizeString<179> idList;
+		NFSizeString<200> idList;
 
 		virtual void write_to_pbmsg(::proto_ff::taskdynamictaskdynamic & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::taskdynamictaskdynamic & msg);
@@ -33,7 +33,7 @@ namespace proto_ff_s {
 		Sheet_taskdynamictaskdynamic_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictaskdynamic_s, 127> taskdynamictaskdynamic_List;
+		NFArray<struct taskdynamictaskdynamic_s, 40> taskdynamictaskdynamic_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictaskdynamic & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictaskdynamic & msg);
@@ -66,7 +66,7 @@ namespace proto_ff_s {
 		Sheet_taskdynamictaskcomcond_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictaskcomcond_s, 182> taskdynamictaskcomcond_List;
+		NFArray<struct taskdynamictaskcomcond_s, 140> taskdynamictaskcomcond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictaskcomcond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictaskcomcond & msg);
@@ -80,7 +80,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t textID;
-		NFSizeString<32> taskType;
+		NFSizeString<60> taskType;
 		int32_t comcondType;
 
 		virtual void write_to_pbmsg(::proto_ff::taskdynamictasktext & msg) const;
@@ -94,7 +94,7 @@ namespace proto_ff_s {
 		Sheet_taskdynamictasktext_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictasktext_s, 108> taskdynamictasktext_List;
+		NFArray<struct taskdynamictasktext_s, 20> taskdynamictasktext_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictasktext & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictasktext & msg);

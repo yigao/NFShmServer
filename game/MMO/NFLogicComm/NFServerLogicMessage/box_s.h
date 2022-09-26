@@ -18,7 +18,7 @@ namespace proto_ff_s {
 		int32_t minNum;
 		int32_t isbind;
 		int32_t maxNum;
-		NFSizeString<47> id;
+		NFSizeString<80> id;
 
 		virtual void write_to_pbmsg(::proto_ff::boxboxequipDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::boxboxequipDesc & msg);
@@ -31,12 +31,12 @@ namespace proto_ff_s {
 		boxboxitemDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<303> rand;
+		NFSizeString<400> rand;
 		int32_t maxNum;
 		int32_t rarerand;
 		int32_t minNum;
-		NFSizeString<127> isbind;
-		NFSizeString<767> id;
+		NFSizeString<200> isbind;
+		NFSizeString<800> id;
 
 		virtual void write_to_pbmsg(::proto_ff::boxboxitemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::boxboxitemDesc & msg);
@@ -63,7 +63,7 @@ namespace proto_ff_s {
 		int32_t godjewelminNum;
 		int32_t godjewelmaxNum;
 		int32_t godjewelrand;
-		NFSizeString<32> eq_profession;
+		NFSizeString<60> eq_profession;
 		NFArray<struct boxboxequipDesc_s, 8> equip;
 		NFArray<struct boxboxitemDesc_s, 50> item;
 
@@ -78,7 +78,7 @@ namespace proto_ff_s {
 		Sheet_boxbox_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct boxbox_s, 5177> boxbox_List;
+		NFArray<struct boxbox_s, 6000> boxbox_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_boxbox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_boxbox & msg);

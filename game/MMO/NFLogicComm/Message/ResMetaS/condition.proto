@@ -18,5 +18,5 @@ message conditioncondition
 
 message Sheet_conditioncondition
 {
-	repeated conditioncondition conditioncondition_List = 1[(yd_fieldoptions.field_arysize)=125];
+	repeated conditioncondition conditioncondition_List = 1[(yd_fieldoptions.field_arysize)=40];
 }

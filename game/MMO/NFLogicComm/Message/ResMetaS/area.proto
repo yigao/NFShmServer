@@ -15,7 +15,7 @@ message areaarea
 
 message Sheet_areaarea
 {
-	repeated areaarea areaarea_List = 1[(yd_fieldoptions.field_arysize)=390];
+	repeated areaarea areaarea_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message areapath
@@ -27,5 +27,5 @@ message areapath
 
 message Sheet_areapath
 {
-	repeated areapath areapath_List = 1[(yd_fieldoptions.field_arysize)=1864];
+	repeated areapath areapath_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

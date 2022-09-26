@@ -209,7 +209,7 @@ void protobuf_AddDesc_attribute_2eproto() {
     "\017\346\230\257\345\220\246\347\231\276\345\210\206\346\257\224\022\034\n\005power\030\003 \001(\002B\r\302\377\024\t\346\210\230"
     "\346\226\227\345\212\233\"`\n\030Sheet_attributeattribute\022D\n\027at"
     "tributeattribute_List\030\001 \003(\0132\034.proto_ff.a"
-    "ttributeattributeB\005\210\301\024\357\001\"\253\003\n\021attributesu"
+    "ttributeattributeB\005\210\301\024\310\001\"\253\003\n\021attributesu"
     "ppress\022\036\n\007lvlDiff\030\001 \001(\005B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022#"
     "\n\thitSupPve\030\002 \001(\005B\020\302\377\024\014\345\221\275\344\270\255\345\216\213\345\210\266\022$\n\nc"
     "ritSupPve\030\003 \001(\005B\020\302\377\024\014\346\232\264\345\207\273\345\216\213\345\210\266\022$\n\nkil"
@@ -222,13 +222,13 @@ void protobuf_AddDesc_attribute_2eproto() {
     "B\020\302\377\024\014\347\212\266\346\200\201\345\216\213\345\210\266\022\"\n\010lvSupPvp\030\013 \001(\005B\020\302\377"
     "\024\014\347\255\211\347\272\247\345\216\213\345\210\266\"]\n\027Sheet_attributesuppres"
     "s\022B\n\026attributesuppress_List\030\001 \003(\0132\033.prot"
-    "o_ff.attributesuppressB\005\210\301\024\335\004\"\203\001\n\021attrib"
+    "o_ff.attributesuppressB\005\210\301\024\330\004\"\203\001\n\021attrib"
     "utepowersup\022 \n\tpowerDiff\030\001 \001(\005B\r\302\377\024\t\346\210\230\345"
     "\212\233\345\267\256\022%\n\013powerSupPve\030\002 \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216"
     "\213\345\210\266\022%\n\013powerSupPvp\030\003 \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216\213"
     "\345\210\266\"]\n\027Sheet_attributepowersup\022B\n\026attrib"
     "utepowersup_List\030\001 \003(\0132\033.proto_ff.attrib"
-    "utepowersupB\005\210\301\024\315\001", 1018);
+    "utepowersupB\005\210\301\024\310\001", 1018);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "attribute.proto", &protobuf_RegisterTypes);
   attributeattribute::default_instance_ = new attributeattribute();

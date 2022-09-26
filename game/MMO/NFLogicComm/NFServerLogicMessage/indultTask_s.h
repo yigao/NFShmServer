@@ -18,7 +18,7 @@ namespace proto_ff_s {
 		int32_t order;
 		int32_t functionUnlock;
 		int64_t boxid;
-		NFSizeString<32> taskID;
+		NFSizeString<60> taskID;
 		int32_t taskNum;
 
 		virtual void write_to_pbmsg(::proto_ff::indultTaskindultTask & msg) const;
@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_indultTaskindultTask_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct indultTaskindultTask_s, 115> indultTaskindultTask_List;
+		NFArray<struct indultTaskindultTask_s, 20> indultTaskindultTask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_indultTaskindultTask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_indultTaskindultTask & msg);
@@ -47,7 +47,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t task;
-		NFSizeString<47> taskParam;
+		NFSizeString<80> taskParam;
 
 		virtual void write_to_pbmsg(::proto_ff::indultTasktask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::indultTasktask & msg);
@@ -60,7 +60,7 @@ namespace proto_ff_s {
 		Sheet_indultTasktask_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct indultTasktask_s, 112> indultTasktask_List;
+		NFArray<struct indultTasktask_s, 20> indultTasktask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_indultTasktask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_indultTasktask & msg);

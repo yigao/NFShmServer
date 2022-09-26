@@ -9,16 +9,16 @@ message privilegeprivilege
 	optional int32 showType = 2[(yd_fieldoptions.field_cname) = "显示类型"];
 	optional int32 type = 3[(yd_fieldoptions.field_cname) = "开放类型"];
 	optional int32 param = 4[(yd_fieldoptions.field_cname) = "开放参数"];
-	optional string severParam = 5[(yd_fieldoptions.field_cname) = "服务器开放参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string severParam = 5[(yd_fieldoptions.field_cname) = "服务器开放参数", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 openReward = 6[(yd_fieldoptions.field_cname) = "开启奖励"];
 	optional int64 dailyReward = 7[(yd_fieldoptions.field_cname) = "每日奖励"];
 	optional int32 resourceLimit = 8[(yd_fieldoptions.field_cname) = "熔炼上限加成"];
 	optional int64 skillid = 9[(yd_fieldoptions.field_cname) = "特权技能"];
-	optional string privilege_id = 10[(yd_fieldoptions.field_cname) = "特权id", (yd_fieldoptions.field_bufsize) = 47];
+	optional string privilege_id = 10[(yd_fieldoptions.field_cname) = "特权id", (yd_fieldoptions.field_bufsize) = 80];
 }
 
 
 message Sheet_privilegeprivilege
 {
-	repeated privilegeprivilege privilegeprivilege_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated privilegeprivilege privilegeprivilege_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

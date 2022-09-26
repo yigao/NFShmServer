@@ -42,7 +42,7 @@ def get_max_row_num(num):
 	if num < 10:
 		return 20
 	elif num <= 100:
-		return int(num / 10) * 2
+		return int(num / 10) * 10 * 2
 	elif num <= 1000:
 		return int(num/100) * 100 + 100
 	else:
@@ -119,7 +119,7 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 			max_num = struct_info["max_num"]
 			col_max_size = struct_info["col_max_size"]
 			if col_type == "int" or col_type == "int32":
-				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + ", (yd_fieldoptions.field_arysize) = " + "" + "];\n");
+				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "uint" or col_type == "uint32":
 				proto_file.write("\trepeated uint32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "int64":

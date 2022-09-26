@@ -20,5 +20,5 @@ message chooseGiftchooseGift
 
 message Sheet_chooseGiftchooseGift
 {
-	repeated chooseGiftchooseGift chooseGiftchooseGift_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated chooseGiftchooseGift chooseGiftchooseGift_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

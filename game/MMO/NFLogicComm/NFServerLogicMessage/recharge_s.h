@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> point;
+		NFSizeString<60> point;
 
 		virtual void write_to_pbmsg(::proto_ff::rechargerechargechannelDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rechargerechargechannelDesc & msg);
@@ -43,11 +43,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<42> name;
-		NFSizeString<32> defaultPoint;
+		NFSizeString<80> name;
+		NFSizeString<60> defaultPoint;
 		int32_t type;
-		NFSizeString<32> unit;
-		NFSizeString<103> beizhu;
+		NFSizeString<60> unit;
+		NFSizeString<200> beizhu;
 		int64_t quantity;
 		int32_t itemNum;
 		int64_t multipleTimes;
@@ -60,7 +60,7 @@ namespace proto_ff_s {
 		int32_t price;
 		int32_t fristpresent;
 		int32_t presenttype;
-		NFSizeString<32> icon;
+		NFSizeString<60> icon;
 		int32_t preRecharge;
 		NFArray<struct rechargerechargepresentDesc_s, 2> present;
 		NFArray<struct rechargerechargechannelDesc_s, 4> channel;
@@ -76,7 +76,7 @@ namespace proto_ff_s {
 		Sheet_rechargerecharge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargerecharge_s, 1338> rechargerecharge_List;
+		NFArray<struct rechargerecharge_s, 2000> rechargerecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargerecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargerecharge & msg);

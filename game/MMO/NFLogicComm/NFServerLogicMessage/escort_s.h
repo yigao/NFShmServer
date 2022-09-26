@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t convoyId;
-		NFSizeString<32> convoyName;
+		NFSizeString<60> convoyName;
 		int64_t MonsterId;
 		int32_t convoyLevel;
 		int32_t chance;
@@ -59,7 +59,7 @@ namespace proto_ff_s {
 		Sheet_escortescort_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct escortescort_s, 108> escortescort_List;
+		NFArray<struct escortescort_s, 20> escortescort_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_escortescort & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_escortescort & msg);
@@ -100,7 +100,7 @@ namespace proto_ff_s {
 		Sheet_escortchance_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct escortchance_s, 107> escortchance_List;
+		NFArray<struct escortchance_s, 20> escortchance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_escortchance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_escortchance & msg);
@@ -140,7 +140,7 @@ namespace proto_ff_s {
 		Sheet_escortrewardExp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct escortrewardExp_s, 1604> escortrewardExp_List;
+		NFArray<struct escortrewardExp_s, 2000> escortrewardExp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_escortrewardExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_escortrewardExp & msg);

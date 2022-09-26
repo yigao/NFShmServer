@@ -26,9 +26,9 @@ namespace proto_ff_s {
 		int64_t SkillIdA;
 		int64_t SkillIdB;
 		int64_t GuardskillId;
-		NFSizeString<44> ContinuousKillBuffId;
-		NFSizeString<44> WinReward;
-		NFSizeString<43> LoseReward;
+		NFSizeString<80> ContinuousKillBuffId;
+		NFSizeString<80> WinReward;
+		NFSizeString<80> LoseReward;
 		int64_t PrepareBuff;
 		int32_t PrepareTime;
 		int64_t invincibleSkillId;
@@ -46,7 +46,7 @@ namespace proto_ff_s {
 		Sheet_warlandconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct warlandconstant_s, 105> warlandconstant_List;
+		NFArray<struct warlandconstant_s, 20> warlandconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_warlandconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_warlandconstant & msg);
@@ -60,7 +60,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t multiKillNum;
-		NFSizeString<32> multiKillIcon;
+		NFSizeString<60> multiKillIcon;
 		int32_t endMultiKillscore;
 		int32_t endMultiKillPoint;
 
@@ -75,7 +75,7 @@ namespace proto_ff_s {
 		Sheet_warlandmultiKill_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct warlandmultiKill_s, 109> warlandmultiKill_List;
+		NFArray<struct warlandmultiKill_s, 20> warlandmultiKill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_warlandmultiKill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_warlandmultiKill & msg);
@@ -91,7 +91,7 @@ namespace proto_ff_s {
 		int32_t stageId;
 		int32_t MinRanking;
 		int32_t MaxRanking;
-		NFSizeString<72> Reward;
+		NFSizeString<140> Reward;
 
 		virtual void write_to_pbmsg(::proto_ff::warlandrankreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::warlandrankreward & msg);
@@ -104,7 +104,7 @@ namespace proto_ff_s {
 		Sheet_warlandrankreward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct warlandrankreward_s, 112> warlandrankreward_List;
+		NFArray<struct warlandrankreward_s, 20> warlandrankreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_warlandrankreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_warlandrankreward & msg);

@@ -29,9 +29,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
 		NFArray<struct fieldfieldfieldDesc_s, 4> field;
+		NFArray<int64_t, 3> skill;
+		NFArray<int32_t, 5> num;
+		NFArray<int32_t, 5> pos;
 
 		virtual void write_to_pbmsg(::proto_ff::fieldfield & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::fieldfield & msg);
@@ -44,7 +47,7 @@ namespace proto_ff_s {
 		Sheet_fieldfield_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldfield_s, 134> fieldfield_List;
+		NFArray<struct fieldfield_s, 60> fieldfield_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldfield & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldfield & msg);
@@ -72,16 +75,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
 		int32_t field;
 		int32_t Lv;
 		int32_t star;
-		NFSizeString<32> refineAttribute;
-		NFSizeString<32> refineAttributeValue;
+		NFSizeString<60> refineAttribute;
+		NFSizeString<60> refineAttributeValue;
 		int32_t blueStarNum;
-		NFSizeString<32> blueStar_type;
-		NFSizeString<32> blueStar_value;
+		NFSizeString<60> blueStar_type;
+		NFSizeString<60> blueStar_value;
 		int32_t exp;
 		int64_t link;
 		NFArray<struct fieldreikirefineDesc_s, 2> refine;
@@ -97,7 +100,7 @@ namespace proto_ff_s {
 		Sheet_fieldreiki_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldreiki_s, 249> fieldreiki_List;
+		NFArray<struct fieldreiki_s, 200> fieldreiki_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldreiki & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldreiki & msg);
@@ -124,7 +127,7 @@ namespace proto_ff_s {
 		Sheet_fieldexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldexp_s, 254> fieldexp_List;
+		NFArray<struct fieldexp_s, 200> fieldexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldexp & msg);
@@ -138,6 +141,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
+		NFArray<int32_t, 150> lvValue;
 
 		virtual void write_to_pbmsg(::proto_ff::fieldvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::fieldvalue & msg);
@@ -150,7 +154,7 @@ namespace proto_ff_s {
 		Sheet_fieldvalue_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldvalue_s, 174> fieldvalue_List;
+		NFArray<struct fieldvalue_s, 140> fieldvalue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldvalue & msg);
@@ -179,7 +183,7 @@ namespace proto_ff_s {
 		Sheet_fieldexpand_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldexpand_s, 134> fieldexpand_List;
+		NFArray<struct fieldexpand_s, 60> fieldexpand_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldexpand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldexpand & msg);
@@ -208,7 +212,7 @@ namespace proto_ff_s {
 		Sheet_fieldstong_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fieldstong_s, 154> fieldstong_List;
+		NFArray<struct fieldstong_s, 100> fieldstong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_fieldstong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fieldstong & msg);

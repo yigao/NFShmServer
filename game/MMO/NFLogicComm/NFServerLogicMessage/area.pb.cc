@@ -157,11 +157,11 @@ void protobuf_AddDesc_area_2eproto() {
     "\231\257\022#\n\tshapeType\030\004 \001(\005B\020\302\377\024\014\345\275\242\347\212\266\347\261\273\345\236\213\022"
     "(\n\010isNotice\030\005 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\350\277\233\345\207\272\346\217\220\347\244"
     "\272\"B\n\016Sheet_areaarea\0220\n\rareaarea_List\030\001 \003"
-    "(\0132\022.proto_ff.areaareaB\005\210\301\024\206\003\"O\n\010areapat"
+    "(\0132\022.proto_ff.areaareaB\005\210\301\024\254\002\"O\n\010areapat"
     "h\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\350\267\257\345\276\204ID\022)\n\017belongToS"
     "ceneID\030\002 \001(\003B\020\302\377\024\014\346\211\200\345\261\236\345\234\272\346\231\257\"B\n\016Sheet_"
     "areapath\0220\n\rareapath_List\030\001 \003(\0132\022.proto_"
-    "ff.areapathB\005\210\301\024\310\016", 458);
+    "ff.areapathB\005\210\301\024\320\017", 458);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "area.proto", &protobuf_RegisterTypes);
   areaarea::default_instance_ = new areaarea();

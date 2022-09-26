@@ -794,16 +794,16 @@ class serveropenactivemRank : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 boxid() const;
   inline void set_boxid(::google::protobuf::int64 value);
 
-  // repeated int32 canshu = 5;
+  // repeated int64 canshu = 5;
   inline int canshu_size() const;
   inline void clear_canshu();
   static const int kCanshuFieldNumber = 5;
-  inline ::google::protobuf::int32 canshu(int index) const;
-  inline void set_canshu(int index, ::google::protobuf::int32 value);
-  inline void add_canshu(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+  inline ::google::protobuf::int64 canshu(int index) const;
+  inline void set_canshu(int index, ::google::protobuf::int64 value);
+  inline void add_canshu(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
       canshu() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_canshu();
 
   // @@protoc_insertion_point(class_scope:proto_ff.serveropenactivemRank)
@@ -823,7 +823,7 @@ class serveropenactivemRank : public ::google::protobuf::Message {
   ::google::protobuf::int32 randtype_;
   ::std::string* miaoshu_;
   ::google::protobuf::int64 boxid_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > canshu_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > canshu_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -2405,27 +2405,27 @@ inline void serveropenactivemRank::set_boxid(::google::protobuf::int64 value) {
   boxid_ = value;
 }
 
-// repeated int32 canshu = 5;
+// repeated int64 canshu = 5;
 inline int serveropenactivemRank::canshu_size() const {
   return canshu_.size();
 }
 inline void serveropenactivemRank::clear_canshu() {
   canshu_.Clear();
 }
-inline ::google::protobuf::int32 serveropenactivemRank::canshu(int index) const {
+inline ::google::protobuf::int64 serveropenactivemRank::canshu(int index) const {
   return canshu_.Get(index);
 }
-inline void serveropenactivemRank::set_canshu(int index, ::google::protobuf::int32 value) {
+inline void serveropenactivemRank::set_canshu(int index, ::google::protobuf::int64 value) {
   canshu_.Set(index, value);
 }
-inline void serveropenactivemRank::add_canshu(::google::protobuf::int32 value) {
+inline void serveropenactivemRank::add_canshu(::google::protobuf::int64 value) {
   canshu_.Add(value);
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
 serveropenactivemRank::canshu() const {
   return canshu_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
 serveropenactivemRank::mutable_canshu() {
   return &canshu_;
 }

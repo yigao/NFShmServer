@@ -30,31 +30,31 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t wearQuality;
 		int32_t position;
-		NFSizeString<32> profession;
+		NFSizeString<60> profession;
 		int32_t professionLv;
 		int32_t level;
 		int32_t quality;
 		int32_t star;
 		int32_t refineAttributeDown;
 		int32_t refineAttributeUp;
-		NFSizeString<32> refineAttribute_typeLibrary;
-		NFSizeString<32> refineAttribute_valueMin;
-		NFSizeString<32> refineAttribute_valueMax;
+		NFSizeString<60> refineAttribute_typeLibrary;
+		NFSizeString<60> refineAttribute_valueMin;
+		NFSizeString<60> refineAttribute_valueMax;
 		int32_t blueStarNum;
-		NFSizeString<32> blueStar_type;
-		NFSizeString<32> blueStar_lv;
-		NFSizeString<32> blueStar_number;
+		NFSizeString<60> blueStar_type;
+		NFSizeString<60> blueStar_lv;
+		NFSizeString<60> blueStar_number;
 		int32_t isCanbind;
 		int32_t isTradeBind;
 		int32_t sellPrice;
-		NFSizeString<32> icon;
+		NFSizeString<60> icon;
 		int32_t time;
 		int32_t Combat;
 		int32_t broadcast;
-		NFSizeString<32> meltingResult;
+		NFSizeString<60> meltingResult;
 		NFArray<struct equipequipattributeDesc_s, 2> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::equipequip & msg) const;
@@ -68,7 +68,7 @@ namespace proto_ff_s {
 		Sheet_equipequip_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipequip_s, 3663> equipequip_List;
+		NFArray<struct equipequip_s, 4000> equipequip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipequip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipequip & msg);
@@ -81,7 +81,7 @@ namespace proto_ff_s {
 		equipstrongtypeDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<32> num;
+		NFSizeString<60> num;
 		int32_t id;
 
 		virtual void write_to_pbmsg(::proto_ff::equipstrongtypeDesc & msg) const;
@@ -112,7 +112,7 @@ namespace proto_ff_s {
 		Sheet_equipstrong_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstrong_s, 254> equipstrong_List;
+		NFArray<struct equipstrong_s, 200> equipstrong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstrong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstrong & msg);
@@ -157,7 +157,7 @@ namespace proto_ff_s {
 		Sheet_equipgemfine_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipgemfine_s, 254> equipgemfine_List;
+		NFArray<struct equipgemfine_s, 200> equipgemfine_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipgemfine & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipgemfine & msg);
@@ -173,6 +173,7 @@ namespace proto_ff_s {
 		int32_t position;
 		int32_t gemType;
 		int32_t VipUnlock;
+		NFArray<int32_t, 5> gemUnlock;
 
 		virtual void write_to_pbmsg(::proto_ff::equipgem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::equipgem & msg);
@@ -185,7 +186,7 @@ namespace proto_ff_s {
 		Sheet_equipgem_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipgem_s, 114> equipgem_List;
+		NFArray<struct equipgem_s, 20> equipgem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipgem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipgem & msg);
@@ -201,7 +202,7 @@ namespace proto_ff_s {
 		int64_t id;
 		int32_t idType;
 		int32_t idNum;
-		NFSizeString<32> att;
+		NFSizeString<60> att;
 
 		virtual void write_to_pbmsg(::proto_ff::equipatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::equipatt & msg);
@@ -214,7 +215,7 @@ namespace proto_ff_s {
 		Sheet_equipatt_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipatt_s, 217> equipatt_List;
+		NFArray<struct equipatt_s, 200> equipatt_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipatt & msg);
@@ -241,13 +242,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> profession;
+		NFSizeString<60> profession;
 		int32_t suitLv;
 		int32_t level;
 		int32_t colour;
-		NFSizeString<32> afterName;
+		NFSizeString<60> afterName;
 		int32_t suiteValue;
 		NFArray<struct equipsuitattributeDesc_s, 3> attribute;
+		NFArray<NFSizeString<60>, 10> position;
 
 		virtual void write_to_pbmsg(::proto_ff::equipsuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::equipsuit & msg);
@@ -260,7 +262,7 @@ namespace proto_ff_s {
 		Sheet_equipsuit_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipsuit_s, 164> equipsuit_List;
+		NFArray<struct equipsuit_s, 120> equipsuit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipsuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipsuit & msg);
@@ -276,7 +278,8 @@ namespace proto_ff_s {
 		int64_t id;
 		int32_t position;
 		int32_t Lv;
-		NFSizeString<32> value;
+		NFSizeString<60> value;
+		NFArray<int64_t, 15> teamId;
 
 		virtual void write_to_pbmsg(::proto_ff::equipclear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::equipclear & msg);
@@ -289,7 +292,7 @@ namespace proto_ff_s {
 		Sheet_equipclear_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipclear_s, 114> equipclear_List;
+		NFArray<struct equipclear_s, 20> equipclear_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipclear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipclear & msg);
@@ -318,7 +321,7 @@ namespace proto_ff_s {
 		Sheet_equipstrongexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstrongexp_s, 854> equipstrongexp_List;
+		NFArray<struct equipstrongexp_s, 800> equipstrongexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstrongexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstrongexp & msg);
@@ -345,7 +348,7 @@ namespace proto_ff_s {
 		Sheet_equipgemfineexp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipgemfineexp_s, 354> equipgemfineexp_List;
+		NFArray<struct equipgemfineexp_s, 300> equipgemfineexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipgemfineexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipgemfineexp & msg);
@@ -358,11 +361,11 @@ namespace proto_ff_s {
 		equipclearteamSectionDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		NFSizeString<32> down;
+		NFSizeString<60> down;
 		int32_t p;
-		NFSizeString<32> type;
-		NFSizeString<32> up;
-		NFSizeString<32> g;
+		NFSizeString<60> type;
+		NFSizeString<60> up;
+		NFSizeString<60> g;
 
 		virtual void write_to_pbmsg(::proto_ff::equipclearteamSectionDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::equipclearteamSectionDesc & msg);
@@ -380,9 +383,9 @@ namespace proto_ff_s {
 		int64_t shengId;
 		int32_t shengNum;
 		int64_t consumeId;
-		NFSizeString<32> consumeNum;
-		NFSizeString<35> lockingId;
-		NFSizeString<32> lockingNum;
+		NFSizeString<60> consumeNum;
+		NFSizeString<60> lockingId;
+		NFSizeString<60> lockingNum;
 		NFArray<struct equipclearteamSectionDesc_s, 8> Section;
 
 		virtual void write_to_pbmsg(::proto_ff::equipclearteam & msg) const;
@@ -396,7 +399,7 @@ namespace proto_ff_s {
 		Sheet_equipclearteam_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipclearteam_s, 254> equipclearteam_List;
+		NFArray<struct equipclearteam_s, 200> equipclearteam_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipclearteam & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipclearteam & msg);
@@ -442,7 +445,7 @@ namespace proto_ff_s {
 		Sheet_equipawakening_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipawakening_s, 704> equipawakening_List;
+		NFArray<struct equipawakening_s, 700> equipawakening_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipawakening & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipawakening & msg);
@@ -502,7 +505,7 @@ namespace proto_ff_s {
 		Sheet_equipenchanting_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipenchanting_s, 704> equipenchanting_List;
+		NFArray<struct equipenchanting_s, 700> equipenchanting_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipenchanting & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipenchanting & msg);
@@ -549,7 +552,7 @@ namespace proto_ff_s {
 		Sheet_equipmarry_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipmarry_s, 1004> equipmarry_List;
+		NFArray<struct equipmarry_s, 1000> equipmarry_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_equipmarry & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipmarry & msg);

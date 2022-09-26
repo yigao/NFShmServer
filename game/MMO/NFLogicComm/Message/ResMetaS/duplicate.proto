@@ -6,8 +6,8 @@ import "yd_fieldoptions.proto";
 message duplicateduplicate
 {
 	optional int64 duplicateID = 1[(yd_fieldoptions.field_cname) = "副本ID"];
-	optional string duplicateName = 2[(yd_fieldoptions.field_cname) = "副本名称", (yd_fieldoptions.field_bufsize) = 32];
-	optional string duplicateTitlePic = 3[(yd_fieldoptions.field_cname) = "副本标题图片", (yd_fieldoptions.field_bufsize) = 32];
+	optional string duplicateName = 2[(yd_fieldoptions.field_cname) = "副本名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional string duplicateTitlePic = 3[(yd_fieldoptions.field_cname) = "副本标题图片", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 groupID = 4[(yd_fieldoptions.field_cname) = "所属副本组ID"];
 	optional int32 duplicateType = 5[(yd_fieldoptions.field_cname) = "副本内容类型"];
 	optional int32 playType = 6[(yd_fieldoptions.field_cname) = "副本玩法类型"];
@@ -15,19 +15,19 @@ message duplicateduplicate
 	optional int32 levelLimit = 8[(yd_fieldoptions.field_cname) = "等级要求下限"];
 	optional int64 linkDuplicateRequest = 9[(yd_fieldoptions.field_cname) = "前置副本要求"];
 	optional int32 isAutoFight = 10[(yd_fieldoptions.field_cname) = "是否允许自动战斗"];
-	optional string duplicateConditionType = 11[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 32];
+	optional string duplicateConditionType = 11[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 reviveMaxTimes = 12[(yd_fieldoptions.field_cname) = "复活次数上限"];
 	optional int64 dropNormalMonster = 13[(yd_fieldoptions.field_cname) = "普通怪物掉落"];
 	optional int64 dropEliteMonster = 14[(yd_fieldoptions.field_cname) = "精英怪物掉落"];
 	optional int64 dropBossMonster = 15[(yd_fieldoptions.field_cname) = "首领怪物掉落"];
-	optional string sceneAIScript = 16[(yd_fieldoptions.field_cname) = "场景AI脚本", (yd_fieldoptions.field_bufsize) = 32];
-	optional string bossDesc = 17[(yd_fieldoptions.field_cname) = "首领说明序列", (yd_fieldoptions.field_bufsize) = 32];
+	optional string sceneAIScript = 16[(yd_fieldoptions.field_cname) = "场景AI脚本", (yd_fieldoptions.field_bufsize) = 60];
+	optional string bossDesc = 17[(yd_fieldoptions.field_cname) = "首领说明序列", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 TeamObjectID = 18[(yd_fieldoptions.field_cname) = "组队目标ID"];
-	optional string gradeCondition = 19[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string gradeCondition = 19[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 sweepRewardBoxID = 20[(yd_fieldoptions.field_cname) = "扫荡奖励BOXID"];
 	optional int32 sweepRewardExp = 21[(yd_fieldoptions.field_cname) = "扫荡经验奖励"];
-	optional string trackpath = 22[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 119];
-	optional string pathOfmonster = 23[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 121];
+	optional string trackpath = 22[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 200];
+	optional string pathOfmonster = 23[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 200];
 	optional int32 isPatrol = 24[(yd_fieldoptions.field_cname) = "寻路前是否巡敌"];
 	optional int32 sweepType = 25[(yd_fieldoptions.field_cname) = "扫荡类型"];
 }
@@ -35,27 +35,27 @@ message duplicateduplicate
 
 message Sheet_duplicateduplicate
 {
-	repeated duplicateduplicate duplicateduplicate_List = 1[(yd_fieldoptions.field_arysize)=911];
+	repeated duplicateduplicate duplicateduplicate_List = 1[(yd_fieldoptions.field_arysize)=900];
 }
 
 message duplicateconstant
 {
 	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_duplicateconstant
 {
-	repeated duplicateconstant duplicateconstant_List = 1[(yd_fieldoptions.field_arysize)=106];
+	repeated duplicateconstant duplicateconstant_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message duplicateendlessMaze
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 level = 2[(yd_fieldoptions.field_cname) = "等级下限"];
-	optional string duplicateID = 3[(yd_fieldoptions.field_cname) = "副本id", (yd_fieldoptions.field_bufsize) = 224];
+	optional string duplicateID = 3[(yd_fieldoptions.field_cname) = "副本id", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 CreateRate = 4[(yd_fieldoptions.field_cname) = "分配到新副本的概率"];
 	optional int64 rewardID = 5[(yd_fieldoptions.field_cname) = "参与奖励id"];
 }
@@ -63,7 +63,7 @@ message duplicateendlessMaze
 
 message Sheet_duplicateendlessMaze
 {
-	repeated duplicateendlessMaze duplicateendlessMaze_List = 1[(yd_fieldoptions.field_arysize)=117];
+	repeated duplicateendlessMaze duplicateendlessMaze_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message duplicatetowerReward
@@ -78,7 +78,7 @@ message duplicatetowerReward
 
 message Sheet_duplicatetowerReward
 {
-	repeated duplicatetowerReward duplicatetowerReward_List = 1[(yd_fieldoptions.field_arysize)=145];
+	repeated duplicatetowerReward duplicatetowerReward_List = 1[(yd_fieldoptions.field_arysize)=80];
 }
 
 message duplicatedungeonRewardrewardDesc
@@ -99,25 +99,25 @@ message duplicatedungeonReward
 
 message Sheet_duplicatedungeonReward
 {
-	repeated duplicatedungeonReward duplicatedungeonReward_List = 1[(yd_fieldoptions.field_arysize)=304];
+	repeated duplicatedungeonReward duplicatedungeonReward_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message duplicategroup
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "副本组ID"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "副本组名", (yd_fieldoptions.field_bufsize) = 32];
-	optional string duplicateTitlePic = 3[(yd_fieldoptions.field_cname) = "副本标题图片", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "副本组名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string duplicateTitlePic = 3[(yd_fieldoptions.field_cname) = "副本标题图片", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 unlockLevel = 4[(yd_fieldoptions.field_cname) = "解锁等级"];
 	optional int32 belongToType = 5[(yd_fieldoptions.field_cname) = "所属类型"];
 	optional int32 viptype = 6[(yd_fieldoptions.field_cname) = "VIP类型"];
 	optional int32 dynamiclevel = 7[(yd_fieldoptions.field_cname) = "是否动态等级"];
-	optional string timesRes = 8[(yd_fieldoptions.field_cname) = "次数ICON资源", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timesRes = 8[(yd_fieldoptions.field_cname) = "次数ICON资源", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 groupTimesType = 9[(yd_fieldoptions.field_cname) = "组次数类型"];
 	optional int32 groupTimes = 10[(yd_fieldoptions.field_cname) = "次数上限值"];
 	optional int32 refreshType = 11[(yd_fieldoptions.field_cname) = "次数上限刷新类型"];
 	optional int64 enterItemID = 12[(yd_fieldoptions.field_cname) = "副本进入道具"];
 	optional int32 reliveTpye = 13[(yd_fieldoptions.field_cname) = "复活类型"];
-	optional string sweepCondition = 14[(yd_fieldoptions.field_cname) = "扫荡条件", (yd_fieldoptions.field_bufsize) = 32];
+	optional string sweepCondition = 14[(yd_fieldoptions.field_cname) = "扫荡条件", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 buyEnterTimesCostType = 15[(yd_fieldoptions.field_cname) = "购买次数消耗货币"];
 	optional int32 buyEnterTimesCost = 16[(yd_fieldoptions.field_cname) = "购买进入次数消耗"];
 	optional int32 countDown = 17[(yd_fieldoptions.field_cname) = "倒计时时间"];
@@ -127,7 +127,7 @@ message duplicategroup
 
 message Sheet_duplicategroup
 {
-	repeated duplicategroup duplicategroup_List = 1[(yd_fieldoptions.field_arysize)=133];
+	repeated duplicategroup duplicategroup_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message duplicatesweepmonsterNum
@@ -143,14 +143,14 @@ message duplicatesweepmonsterNum
 
 message Sheet_duplicatesweepmonsterNum
 {
-	repeated duplicatesweepmonsterNum duplicatesweepmonsterNum_List = 1[(yd_fieldoptions.field_arysize)=155];
+	repeated duplicatesweepmonsterNum duplicatesweepmonsterNum_List = 1[(yd_fieldoptions.field_arysize)=100];
 }
 
 message duplicateGuildbosstime
 {
 	optional int64 duplicateID = 1[(yd_fieldoptions.field_cname) = "副本ID"];
 	optional int32 openCycle = 2[(yd_fieldoptions.field_cname) = "副本开启星期"];
-	optional string openTime = 3[(yd_fieldoptions.field_cname) = "副本开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string openTime = 3[(yd_fieldoptions.field_cname) = "副本开启时间", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 bossGroup = 4[(yd_fieldoptions.field_cname) = "公会boss组ID"];
 	optional int32 relevance = 5[(yd_fieldoptions.field_cname) = "互斥标记"];
 }
@@ -158,7 +158,7 @@ message duplicateGuildbosstime
 
 message Sheet_duplicateGuildbosstime
 {
-	repeated duplicateGuildbosstime duplicateGuildbosstime_List = 1[(yd_fieldoptions.field_arysize)=325];
+	repeated duplicateGuildbosstime duplicateGuildbosstime_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message duplicateGuildbosskillDesc
@@ -178,7 +178,7 @@ message duplicateGuildboss
 
 message Sheet_duplicateGuildboss
 {
-	repeated duplicateGuildboss duplicateGuildboss_List = 1[(yd_fieldoptions.field_arysize)=325];
+	repeated duplicateGuildboss duplicateGuildboss_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message duplicateGuildDuplicate
@@ -191,5 +191,5 @@ message duplicateGuildDuplicate
 
 message Sheet_duplicateGuildDuplicate
 {
-	repeated duplicateGuildDuplicate duplicateGuildDuplicate_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated duplicateGuildDuplicate duplicateGuildDuplicate_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }

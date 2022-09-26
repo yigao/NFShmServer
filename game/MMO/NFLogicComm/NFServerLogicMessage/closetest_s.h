@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		Sheet_closetestActivity_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct closetestActivity_s, 109> closetestActivity_List;
+		NFArray<struct closetestActivity_s, 20> closetestActivity_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_closetestActivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_closetestActivity & msg);
@@ -58,7 +58,7 @@ namespace proto_ff_s {
 		Sheet_closetestRebate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct closetestRebate_s, 107> closetestRebate_List;
+		NFArray<struct closetestRebate_s, 20> closetestRebate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_closetestRebate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_closetestRebate & msg);

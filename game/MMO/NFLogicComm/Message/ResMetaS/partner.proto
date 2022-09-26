@@ -12,10 +12,10 @@ message partnerpartnerattributeDesc
 message partnerpartner
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "契灵ID"];
-	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
-	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
-	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 73];
-	optional string partnerSkill = 5[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 35];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 140];
+	optional string partnerSkill = 5[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 realLevel = 6[(yd_fieldoptions.field_cname) = "等级"];
 	optional int64 materialID = 7[(yd_fieldoptions.field_cname) = "进阶材料ID"];
 	optional int32 materialEXP = 8[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
@@ -25,13 +25,13 @@ message partnerpartner
 	optional int64 skillID = 12[(yd_fieldoptions.field_cname) = "解锁技能ID"];
 	optional int64 aiId = 13[(yd_fieldoptions.field_cname) = "AI表ID"];
 	repeated partnerpartnerattributeDesc attribute = 14[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
-	repeated int64 fragmentID = 15[(yd_fieldoptions.field_cname) = "关联碎片ID"];
+	repeated int64 fragmentID = 15[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
 message Sheet_partnerpartner
 {
-	repeated partnerpartner partnerpartner_List = 1[(yd_fieldoptions.field_arysize)=584];
+	repeated partnerpartner partnerpartner_List = 1[(yd_fieldoptions.field_arysize)=500];
 }
 
 message partnerchangeattributeDesc
@@ -43,14 +43,14 @@ message partnerchangeattributeDesc
 message partnerchange
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "契灵ID"];
-	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
-	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
-	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 69];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 120];
 	optional int32 quality = 5[(yd_fieldoptions.field_cname) = "品质"];
 	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 151];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 200];
 	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
-	optional string partnerSkill = 9[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 47];
+	optional string partnerSkill = 9[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 80];
 	optional int32 starBer = 10[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
 	optional int64 occupation = 11[(yd_fieldoptions.field_cname) = "转职要求"];
 	optional int64 aiId = 12[(yd_fieldoptions.field_cname) = "AI表ID"];
@@ -61,7 +61,7 @@ message partnerchange
 
 message Sheet_partnerchange
 {
-	repeated partnerchange partnerchange_List = 1[(yd_fieldoptions.field_arysize)=133];
+	repeated partnerchange partnerchange_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message partnerstarUpupAttributeDesc
@@ -81,7 +81,7 @@ message partnerstarUp
 
 message Sheet_partnerstarUp
 {
-	repeated partnerstarUp partnerstarUp_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated partnerstarUp partnerstarUp_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message partnerfragmentattributeDesc
@@ -101,7 +101,7 @@ message partnerfragment
 
 message Sheet_partnerfragment
 {
-	repeated partnerfragment partnerfragment_List = 1[(yd_fieldoptions.field_arysize)=107];
+	repeated partnerfragment partnerfragment_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message partnerattributeattributeDesc
@@ -120,7 +120,7 @@ message partnerattribute
 
 message Sheet_partnerattribute
 {
-	repeated partnerattribute partnerattribute_List = 1[(yd_fieldoptions.field_arysize)=1604];
+	repeated partnerattribute partnerattribute_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message partnerexp
@@ -134,7 +134,7 @@ message partnerexp
 
 message Sheet_partnerexp
 {
-	repeated partnerexp partnerexp_List = 1[(yd_fieldoptions.field_arysize)=209];
+	repeated partnerexp partnerexp_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message partnerequipattributeDesc
@@ -155,7 +155,7 @@ message partnerequip
 
 message Sheet_partnerequip
 {
-	repeated partnerequip partnerequip_List = 1[(yd_fieldoptions.field_arysize)=124];
+	repeated partnerequip partnerequip_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message partnerrefine
@@ -168,7 +168,7 @@ message partnerrefine
 
 message Sheet_partnerrefine
 {
-	repeated partnerrefine partnerrefine_List = 1[(yd_fieldoptions.field_arysize)=204];
+	repeated partnerrefine partnerrefine_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message partnerslot
@@ -181,5 +181,5 @@ message partnerslot
 
 message Sheet_partnerslot
 {
-	repeated partnerslot partnerslot_List = 1[(yd_fieldoptions.field_arysize)=108];
+	repeated partnerslot partnerslot_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

@@ -15,9 +15,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t ID;
-		NFSizeString<35> Key;
+		NFSizeString<60> Key;
 		int32_t ParamCount;
-		NFSizeString<43> Des;
+		NFSizeString<80> Des;
 
 		virtual void write_to_pbmsg(::proto_ff::GMCommandGMCommand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GMCommandGMCommand & msg);
@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		Sheet_GMCommandGMCommand_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GMCommandGMCommand_s, 150> GMCommandGMCommand_List;
+		NFArray<struct GMCommandGMCommand_s, 80> GMCommandGMCommand_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GMCommandGMCommand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GMCommandGMCommand & msg);

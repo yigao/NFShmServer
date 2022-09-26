@@ -29,12 +29,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t mountId;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t quality;
 		int64_t occupation;
 		int32_t speedNum;
 		int64_t needItem;
-		NFSizeString<151> ItemNum;
+		NFSizeString<200> ItemNum;
 		int32_t starLv;
 		int32_t starNumber;
 		int32_t sourceLink;
@@ -52,7 +52,7 @@ namespace proto_ff_s {
 		Sheet_mountmount_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mountmount_s, 149> mountmount_List;
+		NFArray<struct mountmount_s, 80> mountmount_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mountmount & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mountmount & msg);
@@ -95,7 +95,7 @@ namespace proto_ff_s {
 		Sheet_mountstarUp_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mountstarUp_s, 152> mountstarUp_List;
+		NFArray<struct mountstarUp_s, 80> mountstarUp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mountstarUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mountstarUp & msg);

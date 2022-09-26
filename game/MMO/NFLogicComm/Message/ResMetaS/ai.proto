@@ -14,8 +14,8 @@ message aiai
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "表ID"];
 	optional int32 type = 2[(yd_fieldoptions.field_cname) = "ai类型"];
-	optional string deadHateRemain = 3[(yd_fieldoptions.field_cname) = "死亡仇恨保留", (yd_fieldoptions.field_bufsize) = 32];
-	optional string invisibleRemain = 4[(yd_fieldoptions.field_cname) = "隐身仇恨保留", (yd_fieldoptions.field_bufsize) = 32];
+	optional string deadHateRemain = 3[(yd_fieldoptions.field_cname) = "死亡仇恨保留", (yd_fieldoptions.field_bufsize) = 60];
+	optional string invisibleRemain = 4[(yd_fieldoptions.field_cname) = "隐身仇恨保留", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isActive = 5[(yd_fieldoptions.field_cname) = "是否为主动怪"];
 	optional int32 returnType = 6[(yd_fieldoptions.field_cname) = "回归类型"];
 	optional int32 view = 7[(yd_fieldoptions.field_cname) = "视野"];
@@ -25,12 +25,12 @@ message aiai
 	optional int32 wakeupRadius = 11[(yd_fieldoptions.field_cname) = "唤醒半径"];
 	optional int32 isAIWorkWhenNobody = 12[(yd_fieldoptions.field_cname) = "是否无人时启用AI"];
 	optional int32 bornEffectAIDelay = 13[(yd_fieldoptions.field_cname) = "出生AI延时"];
-	optional string initSkills = 14[(yd_fieldoptions.field_cname) = "技能池初始技能组", (yd_fieldoptions.field_bufsize) = 74];
+	optional string initSkills = 14[(yd_fieldoptions.field_cname) = "技能池初始技能组", (yd_fieldoptions.field_bufsize) = 140];
 	repeated aiaihpDesc hp = 15[(yd_fieldoptions.field_cname) = "触发血量", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
 message Sheet_aiai
 {
-	repeated aiai aiai_List = 1[(yd_fieldoptions.field_arysize)=166];
+	repeated aiai aiai_List = 1[(yd_fieldoptions.field_arysize)=120];
 }

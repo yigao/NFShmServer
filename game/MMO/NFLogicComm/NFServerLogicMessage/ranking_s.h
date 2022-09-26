@@ -15,11 +15,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t rankingID;
-		NFSizeString<32> rankingName;
+		NFSizeString<60> rankingName;
 		int32_t save;
 		int32_t capacity;
 		int32_t showSize;
 		int32_t rankModule;
+		NFArray<int32_t, 5> dateID;
 
 		virtual void write_to_pbmsg(::proto_ff::rankingranking & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rankingranking & msg);
@@ -32,7 +33,7 @@ namespace proto_ff_s {
 		Sheet_rankingranking_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rankingranking_s, 160> rankingranking_List;
+		NFArray<struct rankingranking_s, 100> rankingranking_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rankingranking & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rankingranking & msg);
@@ -46,7 +47,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t dateID;
-		NFSizeString<32> dateName;
+		NFSizeString<60> dateName;
 
 		virtual void write_to_pbmsg(::proto_ff::rankingdate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rankingdate & msg);
@@ -59,7 +60,7 @@ namespace proto_ff_s {
 		Sheet_rankingdate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rankingdate_s, 159> rankingdate_List;
+		NFArray<struct rankingdate_s, 100> rankingdate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rankingdate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rankingdate & msg);
@@ -74,7 +75,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t ID;
 		int32_t valuedata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::rankingpkcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rankingpkcons & msg);
@@ -87,7 +88,7 @@ namespace proto_ff_s {
 		Sheet_rankingpkcons_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rankingpkcons_s, 107> rankingpkcons_List;
+		NFArray<struct rankingpkcons_s, 20> rankingpkcons_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rankingpkcons & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rankingpkcons & msg);

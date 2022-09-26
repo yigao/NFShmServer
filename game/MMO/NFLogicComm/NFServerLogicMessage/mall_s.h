@@ -24,8 +24,8 @@ namespace proto_ff_s {
 		int32_t price;
 		int32_t discount;
 		int32_t daily;
-		NFSizeString<32> buyAmount;
-		NFSizeString<32> vipLimit;
+		NFSizeString<60> buyAmount;
+		NFSizeString<60> vipLimit;
 		int32_t isClose;
 		int32_t cantBuy;
 		int32_t isMarkBind;
@@ -43,7 +43,7 @@ namespace proto_ff_s {
 		Sheet_mallmall_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mallmall_s, 290> mallmall_List;
+		NFArray<struct mallmall_s, 200> mallmall_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mallmall & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mallmall & msg);
@@ -57,8 +57,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> title;
-		NFSizeString<32> tab;
+		NFSizeString<60> title;
+		NFSizeString<60> tab;
 		int32_t groupType;
 		int32_t priority;
 		int32_t logicType;
@@ -75,7 +75,7 @@ namespace proto_ff_s {
 		Sheet_mallmalltype_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mallmalltype_s, 114> mallmalltype_List;
+		NFArray<struct mallmalltype_s, 20> mallmalltype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mallmalltype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mallmalltype & msg);

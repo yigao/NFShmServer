@@ -29,7 +29,7 @@ namespace proto_ff_s {
 		Sheet_attributeattribute_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct attributeattribute_s, 239> attributeattribute_List;
+		NFArray<struct attributeattribute_s, 200> attributeattribute_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_attributeattribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_attributeattribute & msg);
@@ -65,7 +65,7 @@ namespace proto_ff_s {
 		Sheet_attributesuppress_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct attributesuppress_s, 605> attributesuppress_List;
+		NFArray<struct attributesuppress_s, 600> attributesuppress_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_attributesuppress & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_attributesuppress & msg);
@@ -93,7 +93,7 @@ namespace proto_ff_s {
 		Sheet_attributepowersup_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct attributepowersup_s, 205> attributepowersup_List;
+		NFArray<struct attributepowersup_s, 200> attributepowersup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_attributepowersup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_attributepowersup & msg);

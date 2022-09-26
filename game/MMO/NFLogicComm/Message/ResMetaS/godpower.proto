@@ -15,7 +15,7 @@ message godpowergodpower
 
 message Sheet_godpowergodpower
 {
-	repeated godpowergodpower godpowergodpower_List = 1[(yd_fieldoptions.field_arysize)=113];
+	repeated godpowergodpower godpowergodpower_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message godpowerskillupdateattributeDesc
@@ -40,5 +40,5 @@ message godpowerskillupdate
 
 message Sheet_godpowerskillupdate
 {
-	repeated godpowerskillupdate godpowerskillupdate_List = 1[(yd_fieldoptions.field_arysize)=356];
+	repeated godpowerskillupdate godpowerskillupdate_List = 1[(yd_fieldoptions.field_arysize)=300];
 }

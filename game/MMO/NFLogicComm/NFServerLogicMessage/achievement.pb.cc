@@ -196,7 +196,7 @@ void protobuf_AddDesc_achievement_2eproto() {
     "\030\005 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022/\n\023achievementO"
     "bjectID\030\006 \001(\003B\022\302\377\024\016\344\272\213\344\273\266\347\233\256\346\240\207ID\022\?\n\031ach"
     "ievementObjectIDString\030\007 \001(\tB\034\302\377\024\024\344\272\213\344\273\266"
-    "\347\233\256\346\240\207Idstring\220\301\024 \0229\n\026achievementObjectV"
+    "\347\233\256\346\240\207Idstring\220\301\024<\0229\n\026achievementObjectV"
     "alue\030\010 \001(\005B\031\302\377\024\025\344\272\213\344\273\266\347\233\256\346\240\207\345\256\214\346\210\220\345\200\274\0224\n"
     "\016achievementDia\030\t \001(\005B\034\302\377\024\030\350\216\267\345\276\227\347\273\221\345\256\232\351"
     "\222\273\347\237\263\346\225\260\351\207\217\022.\n\016achievementGod\030\n \001(\005B\026\302\377\024"
@@ -207,7 +207,7 @@ void protobuf_AddDesc_achievement_2eproto() {
     "RewardDescB\024\302\377\024\014\350\216\267\345\276\227\347\211\251\345\223\201\210\301\024\002\"l\n\034Shee"
     "t_achievementachievement\022L\n\033achievementa"
     "chievement_List\030\001 \003(\0132 .proto_ff.achieve"
-    "mentachievementB\005\210\301\024\255\003\"\223\002\n\034achievementac"
+    "mentachievementB\005\210\301\024\220\003\"\223\002\n\034achievementac"
     "hievementreward\022.\n\022achievementPrizeId\030\001 "
     "\001(\003B\022\302\377\024\016\346\210\220\345\260\261\345\245\226\345\212\261ID\022)\n\017achievementTy"
     "pe\030\002 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\347\261\273\345\236\213\0225\n\025achievemen"
@@ -217,7 +217,7 @@ void protobuf_AddDesc_achievement_2eproto() {
     "\276\227\347\273\221\345\256\232\351\222\273\347\237\263\346\225\260\351\207\217\"}\n\"Sheet_achievemen"
     "tachievementreward\022W\n!achievementachieve"
     "mentreward_List\030\001 \003(\0132&.proto_ff.achieve"
-    "mentachievementrewardB\004\210\301\024n", 1347);
+    "mentachievementrewardB\004\210\301\024\024", 1347);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "achievement.proto", &protobuf_RegisterTypes);
   achievementachievementitemRewardDesc::default_instance_ = new achievementachievementitemRewardDesc();

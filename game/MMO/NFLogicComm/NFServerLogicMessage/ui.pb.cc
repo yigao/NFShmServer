@@ -106,7 +106,7 @@ void protobuf_AddDesc_ui_2eproto() {
     "oto\"D\n\010uieffect\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\271\346\225\210I"
     "D\022\036\n\004time\030\002 \001(\005B\020\302\377\024\014\346\222\255\346\224\276\346\227\266\351\227\264\"B\n\016She"
     "et_uieffect\0220\n\ruieffect_List\030\001 \003(\0132\022.pro"
-    "to_ff.uieffectB\005\210\301\024\321\001", 181);
+    "to_ff.uieffectB\005\210\301\024\310\001", 181);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ui.proto", &protobuf_RegisterTypes);
   uieffect::default_instance_ = new uieffect();

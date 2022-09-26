@@ -402,58 +402,58 @@ void protobuf_AddDesc_serveropenactive_2eproto() {
     "\'\n\nservertype\030\002 \001(\005B\023\302\377\024\017\346\234\215\345\212\241\345\231\250\347\261\273\345\236\213"
     "\022\037\n\005timeA\030\003 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\227\266\351\227\264\022\037\n\005tim"
     "eB\030\004 \001(\005B\020\302\377\024\014\345\205\263\351\227\255\346\227\266\351\227\264\022%\n\006pageId\030\005 \001"
-    "(\tB\025\302\377\024\014\351\241\265\347\255\276\345\217\202\346\225\260\220\301\024\227\002\"\206\001\n%Sheet_serv"
+    "(\tB\025\302\377\024\014\351\241\265\347\255\276\345\217\202\346\225\260\220\301\024\254\002\"\206\001\n%Sheet_serv"
     "eropenactiveserviceActivity\022]\n$serverope"
     "nactiveserviceActivity_List\030\001 \003(\0132).prot"
     "o_ff.serveropenactiveserviceActivityB\004\210\301"
-    "\024i\"4\n\030serveropenactivepageBook\022\030\n\002Id\030\001 \001"
+    "\024\024\"4\n\030serveropenactivepageBook\022\030\n\002Id\030\001 \001"
     "(\005B\014\302\377\024\010\351\241\265\347\255\276id\"q\n\036Sheet_serveropenacti"
     "vepageBook\022O\n\035serveropenactivepageBook_L"
     "ist\030\001 \003(\0132\".proto_ff.serveropenactivepag"
-    "eBookB\004\210\301\024v\"\367\002\n\024serveropenactivepage\022\030\n\002"
+    "eBookB\004\210\301\024\024\"\370\002\n\024serveropenactivepage\022\030\n\002"
     "Id\030\001 \001(\003B\014\302\377\024\010\351\241\265\347\255\276id\022\037\n\005mType\030\002 \001(\005B\020\302"
     "\377\024\014\346\250\241\346\235\277\347\261\273\345\236\213\022!\n\007mCanshu\030\003 \001(\005B\020\302\377\024\014\346\250"
     "\241\346\235\277\345\217\202\346\225\260\022#\n\005start\030\004 \001(\tB\024\302\377\024\014\345\274\200\345\247\213\346\227\266"
-    "\351\227\264\220\301\024 \022$\n\006finish\030\005 \001(\tB\024\302\377\024\014\347\273\223\346\235\237\346\227\266\351\227"
-    "\264\220\301\024 \022\037\n\007miaoshu\030\006 \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220\301\024j\022\""
-    "\n\ntiaojianId\030\007 \001(\tB\016\302\377\024\006\346\235\241\344\273\266\220\301\024)\022\034\n\006ma"
-    "ilid\030\010 \001(\003B\014\302\377\024\010\351\202\256\344\273\266id\022#\n\tyoujianid\030\t "
-    "\001(\003B\020\302\377\024\014\346\231\256\351\200\232\351\202\256\344\273\266\022.\n\021nonstandardmail"
-    "id\030\n \001(\003B\023\302\377\024\017\346\234\252\350\276\276\346\240\207\351\202\256\344\273\266\"f\n\032Sheet_s"
-    "erveropenactivepage\022H\n\031serveropenactivep"
-    "age_List\030\001 \003(\0132\036.proto_ff.serveropenacti"
-    "vepageB\005\210\301\024\266\001\"\257\001\n\025serveropenactivemRank\022"
-    "\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010randtype\030\002 \001(\005B\020\302"
-    "\377\024\014\345\206\262\346\246\234\347\261\273\345\236\213\022%\n\007miaoshu\030\003 \001(\tB\024\302\377\024\014\347\233"
-    "\256\346\240\207\346\217\217\350\277\260\220\301\0249\022\033\n\005boxid\030\004 \001(\003B\014\302\377\024\010\345\245\226\345\212"
-    "\261id\022\032\n\006canshu\030\005 \003(\005B\n\302\377\024\006\345\217\202\346\225\260\"i\n\033Sheet"
-    "_serveropenactivemRank\022J\n\032serveropenacti"
-    "vemRank_List\030\001 \003(\0132\037.proto_ff.serveropen"
-    "activemRankB\005\210\301\024\337\001\"\325\001\n\031serveropenactivem"
-    "Advanced\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022&\n\014advanced"
-    "Type\030\002 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\261\273\345\236\213\022\035\n\003num\030\003 \001("
-    "\003B\020\302\377\024\014\350\277\233\351\230\266\345\217\202\346\225\260\022\035\n\tparameter\030\004 \001(\003B\n"
-    "\302\377\024\006\345\217\202\346\225\260\022\037\n\007miaoshu\030\005 \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220"
-    "\301\024%\022\035\n\007jiangLi\030\006 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\"u\n\037Sh"
-    "eet_serveropenactivemAdvanced\022R\n\036servero"
-    "penactivemAdvanced_List\030\001 \003(\0132#.proto_ff"
-    ".serveropenactivemAdvancedB\005\210\301\024\271\001\"\267\001\n\031se"
-    "rveropenactivemRecharge\022\030\n\002id\030\001 \001(\005B\014\302\377\024"
-    "\010\346\241\243\344\275\215id\022!\n\007numType\030\002 \001(\005B\020\302\377\024\014\350\256\241\346\225\260\347\261"
-    "\273\345\236\213\022\035\n\003num\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\345\205\203\346\225\260\022\037\n\007m"
-    "iaoshu\030\004 \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220\301\024\'\022\035\n\007jiangLi\030"
-    "\005 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\"u\n\037Sheet_serveropena"
-    "ctivemRecharge\022R\n\036serveropenactivemRecha"
-    "rge_List\030\001 \003(\0132#.proto_ff.serveropenacti"
-    "vemRechargeB\005\210\301\024\346\001\"\323\001\n\026serveropenactivem"
-    "Goods\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\346\235\241\344\273\266id\022\034\n\006itemi"
-    "d\030\002 \001(\003B\014\302\377\024\010\345\225\206\345\223\201id\022\"\n\010currency\030\003 \001(\005B"
-    "\020\302\377\024\014\350\264\247\345\270\201\345\215\225\344\275\215\022\032\n\006priceA\030\004 \001(\005B\n\302\377\024\006\345"
-    "\216\237\344\273\267\022\032\n\006priceB\030\005 \001(\005B\n\302\377\024\006\347\216\260\344\273\267\022%\n\010qua"
-    "ntity\030\006 \001(\005B\023\302\377\024\017\344\270\252\344\272\272\351\231\220\350\264\255\346\225\260\"l\n\034Shee"
-    "t_serveropenactivemGoods\022L\n\033serveropenac"
-    "tivemGoods_List\030\001 \003(\0132 .proto_ff.servero"
-    "penactivemGoodsB\005\210\301\024\274\001", 2302);
+    "\351\227\264\220\301\024<\022$\n\006finish\030\005 \001(\tB\024\302\377\024\014\347\273\223\346\235\237\346\227\266\351\227"
+    "\264\220\301\024<\022 \n\007miaoshu\030\006 \001(\tB\017\302\377\024\006\346\217\217\350\277\260\220\301\024\310\001\022"
+    "\"\n\ntiaojianId\030\007 \001(\tB\016\302\377\024\006\346\235\241\344\273\266\220\301\024P\022\034\n\006m"
+    "ailid\030\010 \001(\003B\014\302\377\024\010\351\202\256\344\273\266id\022#\n\tyoujianid\030\t"
+    " \001(\003B\020\302\377\024\014\346\231\256\351\200\232\351\202\256\344\273\266\022.\n\021nonstandardmai"
+    "lid\030\n \001(\003B\023\302\377\024\017\346\234\252\350\276\276\346\240\207\351\202\256\344\273\266\"f\n\032Sheet_"
+    "serveropenactivepage\022H\n\031serveropenactive"
+    "page_List\030\001 \003(\0132\036.proto_ff.serveropenact"
+    "ivepageB\005\210\301\024\214\001\"\263\001\n\025serveropenactivemRank"
+    "\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010randtype\030\002 \001(\005B\020"
+    "\302\377\024\014\345\206\262\346\246\234\347\261\273\345\236\213\022%\n\007miaoshu\030\003 \001(\tB\024\302\377\024\014\347"
+    "\233\256\346\240\207\346\217\217\350\277\260\220\301\024d\022\033\n\005boxid\030\004 \001(\003B\014\302\377\024\010\345\245\226\345"
+    "\212\261id\022\036\n\006canshu\030\005 \003(\003B\016\302\377\024\006\345\217\202\346\225\260\210\301\024\002\"i\n\033"
+    "Sheet_serveropenactivemRank\022J\n\032serverope"
+    "nactivemRank_List\030\001 \003(\0132\037.proto_ff.serve"
+    "ropenactivemRankB\005\210\301\024\310\001\"\325\001\n\031serveropenac"
+    "tivemAdvanced\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022&\n\014adv"
+    "ancedType\030\002 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\261\273\345\236\213\022\035\n\003num"
+    "\030\003 \001(\003B\020\302\377\024\014\350\277\233\351\230\266\345\217\202\346\225\260\022\035\n\tparameter\030\004 "
+    "\001(\003B\n\302\377\024\006\345\217\202\346\225\260\022\037\n\007miaoshu\030\005 \001(\tB\016\302\377\024\006\346\217"
+    "\217\350\277\260\220\301\024<\022\035\n\007jiangLi\030\006 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\""
+    "u\n\037Sheet_serveropenactivemAdvanced\022R\n\036se"
+    "rveropenactivemAdvanced_List\030\001 \003(\0132#.pro"
+    "to_ff.serveropenactivemAdvancedB\005\210\301\024\240\001\"\267"
+    "\001\n\031serveropenactivemRecharge\022\030\n\002id\030\001 \001(\005"
+    "B\014\302\377\024\010\346\241\243\344\275\215id\022!\n\007numType\030\002 \001(\005B\020\302\377\024\014\350\256\241"
+    "\346\225\260\347\261\273\345\236\213\022\035\n\003num\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\345\205\203\346\225\260"
+    "\022\037\n\007miaoshu\030\004 \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220\301\024<\022\035\n\007jia"
+    "ngLi\030\005 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\"u\n\037Sheet_server"
+    "openactivemRecharge\022R\n\036serveropenactivem"
+    "Recharge_List\030\001 \003(\0132#.proto_ff.serverope"
+    "nactivemRechargeB\005\210\301\024\310\001\"\323\001\n\026serveropenac"
+    "tivemGoods\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\346\235\241\344\273\266id\022\034\n\006"
+    "itemid\030\002 \001(\003B\014\302\377\024\010\345\225\206\345\223\201id\022\"\n\010currency\030\003"
+    " \001(\005B\020\302\377\024\014\350\264\247\345\270\201\345\215\225\344\275\215\022\032\n\006priceA\030\004 \001(\005B\n"
+    "\302\377\024\006\345\216\237\344\273\267\022\032\n\006priceB\030\005 \001(\005B\n\302\377\024\006\347\216\260\344\273\267\022%"
+    "\n\010quantity\030\006 \001(\005B\023\302\377\024\017\344\270\252\344\272\272\351\231\220\350\264\255\346\225\260\"l\n"
+    "\034Sheet_serveropenactivemGoods\022L\n\033servero"
+    "penactivemGoods_List\030\001 \003(\0132 .proto_ff.se"
+    "rveropenactivemGoodsB\005\210\301\024\240\001", 2307);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "serveropenactive.proto", &protobuf_RegisterTypes);
   serveropenactiveserviceActivity::default_instance_ = new serveropenactiveserviceActivity();
@@ -2490,19 +2490,19 @@ bool serveropenactivemRank::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated int32 canshu = 5;
+      // repeated int64 canshu = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_canshu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  1, 40, input, this->mutable_canshu())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, this->mutable_canshu())));
         } else {
           goto handle_uninterpreted;
@@ -2554,9 +2554,9 @@ void serveropenactivemRank::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->boxid(), output);
   }
 
-  // repeated int32 canshu = 5;
+  // repeated int64 canshu = 5;
   for (int i = 0; i < this->canshu_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
       5, this->canshu(i), output);
   }
 
@@ -2593,10 +2593,10 @@ void serveropenactivemRank::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->boxid(), target);
   }
 
-  // repeated int32 canshu = 5;
+  // repeated int64 canshu = 5;
   for (int i = 0; i < this->canshu_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->canshu(i), target);
+      WriteInt64ToArray(5, this->canshu(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2639,12 +2639,12 @@ int serveropenactivemRank::ByteSize() const {
     }
 
   }
-  // repeated int32 canshu = 5;
+  // repeated int64 canshu = 5;
   {
     int data_size = 0;
     for (int i = 0; i < this->canshu_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->canshu(i));
+        Int64Size(this->canshu(i));
     }
     total_size += 1 * this->canshu_size() + data_size;
   }

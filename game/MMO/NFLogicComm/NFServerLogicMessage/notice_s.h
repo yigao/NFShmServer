@@ -17,13 +17,13 @@ namespace proto_ff_s {
 		int32_t noticeId;
 		int32_t noitceOnoff;
 		int32_t noticeType;
-		NFSizeString<32> openCycle;
-		NFSizeString<32> time;
+		NFSizeString<60> openCycle;
+		NFSizeString<60> time;
 		int32_t levelRequire;
-		NFSizeString<32> endDay;
-		NFSizeString<32> startDay;
-		NFSizeString<32> noticeTitle;
-		NFSizeString<63> noticeContent;
+		NFSizeString<60> endDay;
+		NFSizeString<60> startDay;
+		NFSizeString<60> noticeTitle;
+		NFSizeString<120> noticeContent;
 
 		virtual void write_to_pbmsg(::proto_ff::noticenotice & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::noticenotice & msg);
@@ -36,7 +36,7 @@ namespace proto_ff_s {
 		Sheet_noticenotice_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct noticenotice_s, 116> noticenotice_List;
+		NFArray<struct noticenotice_s, 20> noticenotice_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_noticenotice & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_noticenotice & msg);

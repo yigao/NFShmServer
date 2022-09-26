@@ -31,7 +31,7 @@ namespace proto_ff_s {
 		Sheet_huoyuedureward_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct huoyuedureward_s, 114> huoyuedureward_List;
+		NFArray<struct huoyuedureward_s, 20> huoyuedureward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_huoyuedureward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_huoyuedureward & msg);
@@ -45,12 +45,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<32> name;
+		NFSizeString<60> name;
 		int32_t type;
-		NFSizeString<32> args;
+		NFSizeString<60> args;
 		int64_t funciontID;
 		int32_t countRule;
-		NFSizeString<32> countParam;
+		NFSizeString<60> countParam;
 		int32_t number;
 		int32_t viptype;
 		int32_t otherNum;
@@ -69,7 +69,7 @@ namespace proto_ff_s {
 		Sheet_huoyueduactive_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct huoyueduactive_s, 145> huoyueduactive_List;
+		NFArray<struct huoyueduactive_s, 80> huoyueduactive_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_huoyueduactive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_huoyueduactive & msg);

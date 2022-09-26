@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_tasktrackertasktracker_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct tasktrackertasktracker_s, 139> tasktrackertasktracker_List;
+		NFArray<struct tasktrackertasktracker_s, 60> tasktrackertasktracker_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_tasktrackertasktracker & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_tasktrackertasktracker & msg);

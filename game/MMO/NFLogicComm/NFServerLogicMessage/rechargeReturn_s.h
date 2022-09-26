@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		Sheet_rechargeReturnrechargeReturn_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargeReturnrechargeReturn_s, 112> rechargeReturnrechargeReturn_List;
+		NFArray<struct rechargeReturnrechargeReturn_s, 20> rechargeReturnrechargeReturn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargeReturnrechargeReturn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargeReturnrechargeReturn & msg);
@@ -47,8 +47,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t timeType;
-		NFSizeString<32> timeA;
-		NFSizeString<32> timeB;
+		NFSizeString<60> timeA;
+		NFSizeString<60> timeB;
 
 		virtual void write_to_pbmsg(::proto_ff::rechargeReturntime & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rechargeReturntime & msg);
@@ -61,7 +61,7 @@ namespace proto_ff_s {
 		Sheet_rechargeReturntime_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargeReturntime_s, 109> rechargeReturntime_List;
+		NFArray<struct rechargeReturntime_s, 20> rechargeReturntime_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargeReturntime & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargeReturntime & msg);
@@ -88,7 +88,7 @@ namespace proto_ff_s {
 		Sheet_rechargeReturncontinuousReturn_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargeReturncontinuousReturn_s, 109> rechargeReturncontinuousReturn_List;
+		NFArray<struct rechargeReturncontinuousReturn_s, 20> rechargeReturncontinuousReturn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargeReturncontinuousReturn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargeReturncontinuousReturn & msg);
@@ -103,11 +103,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t timeType;
-		NFSizeString<32> timeA;
-		NFSizeString<32> timeB;
+		NFSizeString<60> timeA;
+		NFSizeString<60> timeB;
 		int32_t reset;
 		int32_t triggerType;
-		NFSizeString<90> TriggerValue;
+		NFSizeString<180> TriggerValue;
 		int64_t boxId;
 		int64_t mailId;
 
@@ -122,7 +122,7 @@ namespace proto_ff_s {
 		Sheet_rechargeReturnrechargeTrigger_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargeReturnrechargeTrigger_s, 141> rechargeReturnrechargeTrigger_List;
+		NFArray<struct rechargeReturnrechargeTrigger_s, 60> rechargeReturnrechargeTrigger_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargeReturnrechargeTrigger & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargeReturnrechargeTrigger & msg);
@@ -137,7 +137,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t constantid;
 		int64_t constantdata;
-		NFSizeString<32> stringdata;
+		NFSizeString<60> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::rechargeReturnconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::rechargeReturnconstant & msg);
@@ -150,7 +150,7 @@ namespace proto_ff_s {
 		Sheet_rechargeReturnconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rechargeReturnconstant_s, 105> rechargeReturnconstant_List;
+		NFArray<struct rechargeReturnconstant_s, 20> rechargeReturnconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_rechargeReturnconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rechargeReturnconstant & msg);

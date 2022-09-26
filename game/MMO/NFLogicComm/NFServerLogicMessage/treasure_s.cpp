@@ -73,6 +73,7 @@ void treasuretreasure_s::write_to_pbmsg(::proto_ff::treasuretreasure & msg) cons
 		::proto_ff::treasuretreasureattributeDesc* temp_attribute = msg.add_attribute();
 		attribute[i].write_to_pbmsg(*temp_attribute);
 	}
+	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize() && i < fragmentID.GetMaxSize(); ++i) {
 		msg.add_fragmentid((int64_t)fragmentID[i]);
 	}
 }
@@ -96,6 +97,8 @@ void treasuretreasure_s::read_from_pbmsg(const ::proto_ff::treasuretreasure & ms
 		const ::proto_ff::treasuretreasureattributeDesc & temp_attribute = msg.attribute(i);
 		attribute[i].read_from_pbmsg(temp_attribute);
 	}
+	fragmentID.SetSize(msg.fragmentid_size() > fragmentID.GetMaxSize() ? fragmentID.GetMaxSize() : msg.fragmentid_size());
+	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize(); ++i) {
 		fragmentID[i] = msg.fragmentid(i);
 	}
 }

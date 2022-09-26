@@ -33,7 +33,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_JFduihuan_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_JFduihuan_s, 120> festivalmuban_JFduihuan_List;
+		NFArray<struct festivalmuban_JFduihuan_s, 20> festivalmuban_JFduihuan_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_JFduihuan & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_JFduihuan & msg);
@@ -47,11 +47,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> des;
+		NFSizeString<60> des;
 		int64_t mustBoxId;
 		int32_t currencyType;
 		int32_t price;
 		int32_t times;
+		NFArray<int64_t, 3> freeBoxId;
+		NFArray<int32_t, 3> freeNum;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_dingzhi & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivalmuban_dingzhi & msg);
@@ -64,7 +66,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_dingzhi_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_dingzhi_s, 110> festivalmuban_dingzhi_List;
+		NFArray<struct festivalmuban_dingzhi_s, 20> festivalmuban_dingzhi_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_dingzhi & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_dingzhi & msg);
@@ -94,7 +96,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_CZfanzuan_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_CZfanzuan_s, 111> festivalmuban_CZfanzuan_List;
+		NFArray<struct festivalmuban_CZfanzuan_s, 20> festivalmuban_CZfanzuan_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_CZfanzuan & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_CZfanzuan & msg);
@@ -110,7 +112,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t Num;
 		int32_t remarkId;
-		NFSizeString<32> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_lianxuCZ & msg) const;
@@ -124,7 +126,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_lianxuCZ_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_lianxuCZ_s, 111> festivalmuban_lianxuCZ_List;
+		NFArray<struct festivalmuban_lianxuCZ_s, 20> festivalmuban_lianxuCZ_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_lianxuCZ & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_lianxuCZ & msg);
@@ -139,7 +141,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t order;
-		NFSizeString<32> des;
+		NFSizeString<60> des;
 		int64_t boxid;
 		int32_t rechargeId;
 		int32_t times;
@@ -155,7 +157,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_prerecharge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_prerecharge_s, 124> festivalmuban_prerecharge_List;
+		NFArray<struct festivalmuban_prerecharge_s, 40> festivalmuban_prerecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_prerecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_prerecharge & msg);
@@ -184,7 +186,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_doubleGift_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_doubleGift_s, 107> festivalmuban_doubleGift_List;
+		NFArray<struct festivalmuban_doubleGift_s, 20> festivalmuban_doubleGift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_doubleGift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_doubleGift & msg);
@@ -211,7 +213,7 @@ namespace proto_ff_s {
 		Sheet_festivalbigyanhuarecharge_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalbigyanhuarecharge_s, 120> festivalbigyanhuarecharge_List;
+		NFArray<struct festivalbigyanhuarecharge_s, 20> festivalbigyanhuarecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalbigyanhuarecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalbigyanhuarecharge & msg);
@@ -239,7 +241,7 @@ namespace proto_ff_s {
 		Sheet_festivalbigyanhuacost_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalbigyanhuacost_s, 114> festivalbigyanhuacost_List;
+		NFArray<struct festivalbigyanhuacost_s, 20> festivalbigyanhuacost_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalbigyanhuacost & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalbigyanhuacost & msg);
@@ -262,7 +264,7 @@ namespace proto_ff_s {
 		int64_t relation;
 		int64_t modelid;
 		int32_t modeltype;
-		NFSizeString<32> scale;
+		NFSizeString<60> scale;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_bigyanhua & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivalmuban_bigyanhua & msg);
@@ -275,7 +277,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_bigyanhua_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_bigyanhua_s, 114> festivalmuban_bigyanhua_List;
+		NFArray<struct festivalmuban_bigyanhua_s, 20> festivalmuban_bigyanhua_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_bigyanhua & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_bigyanhua & msg);
@@ -291,17 +293,17 @@ namespace proto_ff_s {
 		int64_t id;
 		int32_t huoDongType;
 		int32_t nameId;
-		NFSizeString<37> name;
+		NFSizeString<60> name;
 		int32_t servertype;
-		NFSizeString<32> timeA;
-		NFSizeString<32> timeB;
+		NFSizeString<60> timeA;
+		NFSizeString<60> timeB;
 		int32_t timeType;
 		int32_t Level;
 		int32_t vipLevel;
 		int32_t rechange;
 		int32_t ifOpen;
-		NFSizeString<739> list;
-		NFSizeString<32> icon;
+		NFSizeString<800> list;
+		NFSizeString<60> icon;
 		int32_t loginPopPriority;
 		int32_t belong;
 
@@ -316,7 +318,7 @@ namespace proto_ff_s {
 		Sheet_festivalfestival_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalfestival_s, 188> festivalfestival_List;
+		NFArray<struct festivalfestival_s, 160> festivalfestival_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalfestival & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalfestival & msg);
@@ -332,22 +334,22 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t muBan;
 		int32_t order;
-		NFSizeString<593> list;
+		NFSizeString<600> list;
 		int32_t nameId;
-		NFSizeString<32> Name;
-		NFSizeString<32> type;
-		NFSizeString<32> timeA;
-		NFSizeString<32> timeB;
+		NFSizeString<60> Name;
+		NFSizeString<60> type;
+		NFSizeString<60> timeA;
+		NFSizeString<60> timeB;
 		int32_t timeType;
 		int32_t level;
 		int32_t vipLevel;
 		int32_t rechange;
 		int32_t remarkId;
-		NFSizeString<120> MiaoShu;
+		NFSizeString<200> MiaoShu;
 		int64_t jiangLi;
-		NFSizeString<32> beiJing;
-		NFSizeString<32> title;
-		NFSizeString<41> desc;
+		NFSizeString<60> beiJing;
+		NFSizeString<60> title;
+		NFSizeString<80> desc;
 
 		virtual void write_to_pbmsg(::proto_ff::festivaltemplate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivaltemplate & msg);
@@ -360,7 +362,7 @@ namespace proto_ff_s {
 		Sheet_festivaltemplate_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivaltemplate_s, 2043> festivaltemplate_List;
+		NFArray<struct festivaltemplate_s, 2000> festivaltemplate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivaltemplate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivaltemplate & msg);
@@ -378,7 +380,7 @@ namespace proto_ff_s {
 		int32_t sort;
 		int32_t conditionType;
 		int32_t condition;
-		NFSizeString<53> des;
+		NFSizeString<100> des;
 		int64_t boxId;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_worldboss & msg) const;
@@ -392,7 +394,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_worldboss_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_worldboss_s, 119> festivalmuban_worldboss_List;
+		NFArray<struct festivalmuban_worldboss_s, 20> festivalmuban_worldboss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_worldboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_worldboss & msg);
@@ -425,7 +427,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_libao_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_libao_s, 267> festivalmuban_libao_List;
+		NFArray<struct festivalmuban_libao_s, 200> festivalmuban_libao_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_libao & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_libao & msg);
@@ -453,7 +455,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_double_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_double_s, 111> festivalmuban_double_List;
+		NFArray<struct festivalmuban_double_s, 20> festivalmuban_double_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_double & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_double & msg);
@@ -467,7 +469,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<54> wenzi;
+		NFSizeString<100> wenzi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmiaoshu & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivalmiaoshu & msg);
@@ -480,7 +482,7 @@ namespace proto_ff_s {
 		Sheet_festivalmiaoshu_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmiaoshu_s, 108> festivalmiaoshu_List;
+		NFArray<struct festivalmiaoshu_s, 20> festivalmiaoshu_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmiaoshu & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmiaoshu & msg);
@@ -496,7 +498,7 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t Num;
 		int32_t remarkId;
-		NFSizeString<32> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_denglu & msg) const;
@@ -510,7 +512,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_denglu_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_denglu_s, 233> festivalmuban_denglu_List;
+		NFArray<struct festivalmuban_denglu_s, 200> festivalmuban_denglu_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_denglu & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_denglu & msg);
@@ -528,7 +530,7 @@ namespace proto_ff_s {
 		int32_t Num;
 		int64_t addNum;
 		int32_t remarkId;
-		NFSizeString<33> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 		int64_t linkId;
 
@@ -543,7 +545,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_touzi_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_touzi_s, 405> festivalmuban_touzi_List;
+		NFArray<struct festivalmuban_touzi_s, 400> festivalmuban_touzi_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_touzi & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_touzi & msg);
@@ -558,9 +560,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t Num;
-		NFSizeString<32> severNum;
+		NFSizeString<60> severNum;
 		int32_t remarkId;
-		NFSizeString<32> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_zhichong & msg) const;
@@ -574,7 +576,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_zhichong_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_zhichong_s, 204> festivalmuban_zhichong_List;
+		NFArray<struct festivalmuban_zhichong_s, 200> festivalmuban_zhichong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_zhichong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_zhichong & msg);
@@ -591,7 +593,7 @@ namespace proto_ff_s {
 		int32_t type;
 		int32_t Num;
 		int32_t remarkId;
-		NFSizeString<32> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_leichong & msg) const;
@@ -605,7 +607,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_leichong_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_leichong_s, 822> festivalmuban_leichong_List;
+		NFArray<struct festivalmuban_leichong_s, 800> festivalmuban_leichong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_leichong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_leichong & msg);
@@ -637,7 +639,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_duihuan_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_duihuan_s, 571> festivalmuban_duihuan_List;
+		NFArray<struct festivalmuban_duihuan_s, 500> festivalmuban_duihuan_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_duihuan & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_duihuan & msg);
@@ -653,8 +655,8 @@ namespace proto_ff_s {
 		int32_t id;
 		int32_t mixLevel;
 		int32_t bossType;
-		NFSizeString<32> dropNum;
-		NFSizeString<32> dropRand;
+		NFSizeString<60> dropNum;
+		NFSizeString<60> dropRand;
 
 		virtual void write_to_pbmsg(::proto_ff::festivald_diaoluo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivald_diaoluo & msg);
@@ -667,7 +669,7 @@ namespace proto_ff_s {
 		Sheet_festivald_diaoluo_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivald_diaoluo_s, 108> festivald_diaoluo_List;
+		NFArray<struct festivald_diaoluo_s, 20> festivald_diaoluo_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivald_diaoluo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivald_diaoluo & msg);
@@ -684,7 +686,7 @@ namespace proto_ff_s {
 		int32_t type;
 		int32_t xiaoFei;
 		int32_t remarkId;
-		NFSizeString<34> miaoshu;
+		NFSizeString<60> miaoshu;
 		int64_t jiangLi;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_leixiao & msg) const;
@@ -698,7 +700,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_leixiao_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_leixiao_s, 145> festivalmuban_leixiao_List;
+		NFArray<struct festivalmuban_leixiao_s, 80> festivalmuban_leixiao_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_leixiao & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_leixiao & msg);
@@ -725,7 +727,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_shouchong_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_shouchong_s, 105> festivalmuban_shouchong_List;
+		NFArray<struct festivalmuban_shouchong_s, 20> festivalmuban_shouchong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_shouchong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_shouchong & msg);
@@ -748,7 +750,7 @@ namespace proto_ff_s {
 		int64_t relation;
 		int64_t modelid;
 		int32_t modeltype;
-		NFSizeString<32> scale;
+		NFSizeString<60> scale;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_yanhua & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivalmuban_yanhua & msg);
@@ -761,7 +763,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_yanhua_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_yanhua_s, 2192> festivalmuban_yanhua_List;
+		NFArray<struct festivalmuban_yanhua_s, 3000> festivalmuban_yanhua_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_yanhua & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_yanhua & msg);
@@ -791,7 +793,7 @@ namespace proto_ff_s {
 		Sheet_festivalyanhuaConstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalyanhuaConstant_s, 120> festivalyanhuaConstant_List;
+		NFArray<struct festivalyanhuaConstant_s, 20> festivalyanhuaConstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalyanhuaConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalyanhuaConstant & msg);
@@ -824,7 +826,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_shop_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_shop_s, 181> festivalmuban_shop_List;
+		NFArray<struct festivalmuban_shop_s, 140> festivalmuban_shop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_shop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_shop & msg);
@@ -838,7 +840,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> RechargePoint;
+		NFSizeString<60> RechargePoint;
 		int32_t Perc;
 		int32_t fristpresent;
 		int32_t presenttype;
@@ -855,7 +857,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_czjb_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_czjb_s, 111> festivalmuban_czjb_List;
+		NFArray<struct festivalmuban_czjb_s, 20> festivalmuban_czjb_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_czjb & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_czjb & msg);
@@ -869,7 +871,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<32> RechargePoint;
+		NFSizeString<60> RechargePoint;
 		int32_t fristpresent;
 		int32_t presenttype;
 		int32_t Point;
@@ -885,7 +887,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_scsb_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_scsb_s, 111> festivalmuban_scsb_List;
+		NFArray<struct festivalmuban_scsb_s, 20> festivalmuban_scsb_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_scsb & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_scsb & msg);
@@ -919,7 +921,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_eggs_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_eggs_s, 206> festivalmuban_eggs_List;
+		NFArray<struct festivalmuban_eggs_s, 200> festivalmuban_eggs_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_eggs & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_eggs & msg);
@@ -933,13 +935,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t id;
-		NFSizeString<74> exReward;
+		NFSizeString<140> exReward;
 		int64_t costItem;
 		int32_t freeTime;
-		NFSizeString<32> poolChange;
+		NFSizeString<60> poolChange;
 		int32_t specialRate;
 		int32_t specialAddRate;
-		NFSizeString<32> flashCost;
+		NFSizeString<60> flashCost;
 		int32_t limit;
 		int32_t rewardPool;
 
@@ -954,7 +956,7 @@ namespace proto_ff_s {
 		Sheet_festivaleggConstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivaleggConstant_s, 106> festivaleggConstant_List;
+		NFArray<struct festivaleggConstant_s, 20> festivaleggConstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivaleggConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivaleggConstant & msg);
@@ -969,7 +971,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t constantid;
 		int64_t constantdata;
-		NFSizeString<70> stringdata;
+		NFSizeString<140> stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::festivalconstant & msg);
@@ -982,7 +984,7 @@ namespace proto_ff_s {
 		Sheet_festivalconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalconstant_s, 110> festivalconstant_List;
+		NFArray<struct festivalconstant_s, 20> festivalconstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalconstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalconstant & msg);
@@ -1011,7 +1013,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_shousha_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_shousha_s, 116> festivalmuban_shousha_List;
+		NFArray<struct festivalmuban_shousha_s, 20> festivalmuban_shousha_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_shousha & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_shousha & msg);
@@ -1026,7 +1028,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		int32_t activity;
-		NFSizeString<40> desc;
+		NFSizeString<80> desc;
 		int64_t boxId;
 
 		virtual void write_to_pbmsg(::proto_ff::festivalmuban_huoyue & msg) const;
@@ -1040,7 +1042,7 @@ namespace proto_ff_s {
 		Sheet_festivalmuban_huoyue_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct festivalmuban_huoyue_s, 380> festivalmuban_huoyue_List;
+		NFArray<struct festivalmuban_huoyue_s, 300> festivalmuban_huoyue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_festivalmuban_huoyue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_festivalmuban_huoyue & msg);

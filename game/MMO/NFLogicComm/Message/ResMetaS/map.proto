@@ -7,7 +7,7 @@ message mapmap
 {
 	optional int64 mapId = 1[(yd_fieldoptions.field_cname) = "地图id"];
 	optional int32 levelLimit = 2[(yd_fieldoptions.field_cname) = "地图等级限制"];
-	optional string adviceLv = 3[(yd_fieldoptions.field_cname) = "地图推荐等级段", (yd_fieldoptions.field_bufsize) = 32];
+	optional string adviceLv = 3[(yd_fieldoptions.field_cname) = "地图推荐等级段", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 mapType = 4[(yd_fieldoptions.field_cname) = "地图类型"];
 	optional int32 clearanceTime = 5[(yd_fieldoptions.field_cname) = "地图清场时间（秒）"];
 	optional int32 mapSubType = 6[(yd_fieldoptions.field_cname) = "地图子类型"];
@@ -19,12 +19,12 @@ message mapmap
 	optional int32 reviveTime = 12[(yd_fieldoptions.field_cname) = "场景复活倒计时长"];
 	optional int32 mapWide = 13[(yd_fieldoptions.field_cname) = "地图宽度"];
 	optional int32 mapHeight = 14[(yd_fieldoptions.field_cname) = "地图高度"];
-	optional string mapResources = 15[(yd_fieldoptions.field_cname) = "地图资源名", (yd_fieldoptions.field_bufsize) = 32];
+	optional string mapResources = 15[(yd_fieldoptions.field_cname) = "地图资源名", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 reviveSkill = 16[(yd_fieldoptions.field_cname) = "复活无敌"];
 	optional int32 reviveInPlaceType = 17[(yd_fieldoptions.field_cname) = "原地复活类型"];
 	optional int32 isHangUp = 18[(yd_fieldoptions.field_cname) = "是否能自动挂机"];
 	optional int32 itemDropType = 19[(yd_fieldoptions.field_cname) = "死亡掉落类型"];
-	optional string itemDropID = 20[(yd_fieldoptions.field_cname) = "触发掉落组ID", (yd_fieldoptions.field_bufsize) = 32];
+	optional string itemDropID = 20[(yd_fieldoptions.field_cname) = "触发掉落组ID", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 linkOffLine = 21[(yd_fieldoptions.field_cname) = "下线后回到地图"];
 	optional int32 banOnHook = 22[(yd_fieldoptions.field_cname) = "是否禁止原地挂机"];
 }
@@ -32,7 +32,7 @@ message mapmap
 
 message Sheet_mapmap
 {
-	repeated mapmap mapmap_List = 1[(yd_fieldoptions.field_arysize)=224];
+	repeated mapmap mapmap_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message mapitemdrop
@@ -51,7 +51,7 @@ message mapitemdrop
 
 message Sheet_mapitemdrop
 {
-	repeated mapitemdrop mapitemdrop_List = 1[(yd_fieldoptions.field_arysize)=127];
+	repeated mapitemdrop mapitemdrop_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message mapdestroyitem
@@ -62,5 +62,5 @@ message mapdestroyitem
 
 message Sheet_mapdestroyitem
 {
-	repeated mapdestroyitem mapdestroyitem_List = 1[(yd_fieldoptions.field_arysize)=301];
+	repeated mapdestroyitem mapdestroyitem_List = 1[(yd_fieldoptions.field_arysize)=200];
 }

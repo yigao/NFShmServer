@@ -7,13 +7,13 @@ message manorconstants
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
 	optional int64 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
-	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 32];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_manorconstants
 {
-	repeated manorconstants manorconstants_List = 1[(yd_fieldoptions.field_arysize)=136];
+	repeated manorconstants manorconstants_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message manoritemCost
@@ -28,7 +28,7 @@ message manoritemCost
 
 message Sheet_manoritemCost
 {
-	repeated manoritemCost manoritemCost_List = 1[(yd_fieldoptions.field_arysize)=109];
+	repeated manoritemCost manoritemCost_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manormanorlistinitialMonsterDesc
@@ -45,7 +45,7 @@ message manormanorlistpatBeastAttackDesc
 message manormanorlist
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "领土名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "领土名字", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 manorType = 3[(yd_fieldoptions.field_cname) = "领地类型"];
 	optional int32 attackBuildLevel = 4[(yd_fieldoptions.field_cname) = "宣战所需建筑等级"];
 	optional int32 coreBaseLevel = 5[(yd_fieldoptions.field_cname) = "魔灵柱野生增量等级"];
@@ -73,7 +73,7 @@ message manormanorlist
 
 message Sheet_manormanorlist
 {
-	repeated manormanorlist manormanorlist_List = 1[(yd_fieldoptions.field_arysize)=140];
+	repeated manormanorlist manormanorlist_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message manorproductproductDesc
@@ -92,24 +92,24 @@ message manorproduct
 
 message Sheet_manorproduct
 {
-	repeated manorproduct manorproduct_List = 1[(yd_fieldoptions.field_arysize)=125];
+	repeated manorproduct manorproduct_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message manorbuild
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "建筑名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "建筑名字", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 buildingType = 3[(yd_fieldoptions.field_cname) = "建筑类型"];
 	optional int64 monsterId = 4[(yd_fieldoptions.field_cname) = "怪物ID"];
-	optional string buildingvalue = 5[(yd_fieldoptions.field_cname) = "建筑各等级参数", (yd_fieldoptions.field_bufsize) = 32];
-	optional string buildingAddBuff = 6[(yd_fieldoptions.field_cname) = "各等级给魔灵柱加成", (yd_fieldoptions.field_bufsize) = 71];
-	optional string buildingConsume = 7[(yd_fieldoptions.field_cname) = "各等级魔灵日耗", (yd_fieldoptions.field_bufsize) = 32];
+	optional string buildingvalue = 5[(yd_fieldoptions.field_cname) = "建筑各等级参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional string buildingAddBuff = 6[(yd_fieldoptions.field_cname) = "各等级给魔灵柱加成", (yd_fieldoptions.field_bufsize) = 140];
+	optional string buildingConsume = 7[(yd_fieldoptions.field_cname) = "各等级魔灵日耗", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_manorbuild
 {
-	repeated manorbuild manorbuild_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated manorbuild manorbuild_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorbuildUpbuildDesc
@@ -127,20 +127,20 @@ message manorbuildUp
 
 message Sheet_manorbuildUp
 {
-	repeated manorbuildUp manorbuildUp_List = 1[(yd_fieldoptions.field_arysize)=111];
+	repeated manorbuildUp manorbuildUp_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manoregg
 {
 	optional int64 eggItemID = 1[(yd_fieldoptions.field_cname) = "蛋道具"];
 	optional int32 incubationTime = 2[(yd_fieldoptions.field_cname) = "孵化时长（秒）"];
-	optional string patBeastsProbab = 3[(yd_fieldoptions.field_cname) = "孵出怪物权重", (yd_fieldoptions.field_bufsize) = 40];
+	optional string patBeastsProbab = 3[(yd_fieldoptions.field_cname) = "孵出怪物权重", (yd_fieldoptions.field_bufsize) = 80];
 }
 
 
 message Sheet_manoregg
 {
-	repeated manoregg manoregg_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated manoregg manoregg_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorpatBeast
@@ -151,7 +151,7 @@ message manorpatBeast
 
 message Sheet_manorpatBeast
 {
-	repeated manorpatBeast manorpatBeast_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated manorpatBeast manorpatBeast_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorpatBeastUP
@@ -163,7 +163,7 @@ message manorpatBeastUP
 
 message Sheet_manorpatBeastUP
 {
-	repeated manorpatBeastUP manorpatBeastUP_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated manorpatBeastUP manorpatBeastUP_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorbuildBuff
@@ -175,7 +175,7 @@ message manorbuildBuff
 
 message Sheet_manorbuildBuff
 {
-	repeated manorbuildBuff manorbuildBuff_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated manorbuildBuff manorbuildBuff_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorshop
@@ -192,7 +192,7 @@ message manorshop
 
 message Sheet_manorshop
 {
-	repeated manorshop manorshop_List = 1[(yd_fieldoptions.field_arysize)=119];
+	repeated manorshop manorshop_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorbuildAdd
@@ -204,7 +204,7 @@ message manorbuildAdd
 
 message Sheet_manorbuildAdd
 {
-	repeated manorbuildAdd manorbuildAdd_List = 1[(yd_fieldoptions.field_arysize)=110];
+	repeated manorbuildAdd manorbuildAdd_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message manorlog
@@ -215,5 +215,5 @@ message manorlog
 
 message Sheet_manorlog
 {
-	repeated manorlog manorlog_List = 1[(yd_fieldoptions.field_arysize)=121];
+	repeated manorlog manorlog_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

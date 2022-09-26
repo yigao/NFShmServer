@@ -20,8 +20,8 @@ namespace proto_ff_s {
 		int32_t rechargeId;
 		int64_t freeBox;
 		int64_t rechargeBox;
-		NFSizeString<32> freePrivilege;
-		NFSizeString<35> payPrivilege;
+		NFSizeString<60> freePrivilege;
+		NFSizeString<60> payPrivilege;
 		int64_t costId;
 		int32_t costNum;
 		int64_t getId;
@@ -39,7 +39,7 @@ namespace proto_ff_s {
 		Sheet_godGMgodGM_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct godGMgodGM_s, 105> godGMgodGM_List;
+		NFArray<struct godGMgodGM_s, 20> godGMgodGM_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_godGMgodGM & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_godGMgodGM & msg);

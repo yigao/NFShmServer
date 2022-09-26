@@ -298,8 +298,10 @@ void starastrology_s::write_to_pbmsg(::proto_ff::starastrology & msg) const {
 	msg.set_time((int32_t)time);
 	msg.set_cointye((int32_t)coinTye);
 	msg.set_number((int32_t)number);
+	for(int32_t i = 0; i < (int32_t)gailv.GetSize() && i < gailv.GetMaxSize(); ++i) {
 		msg.add_gailv((int32_t)gailv[i]);
 	}
+	for(int32_t i = 0; i < (int32_t)probability.GetSize() && i < probability.GetMaxSize(); ++i) {
 		msg.add_probability((int32_t)probability[i]);
 	}
 }
@@ -314,8 +316,12 @@ void starastrology_s::read_from_pbmsg(const ::proto_ff::starastrology & msg) {
 	time = msg.time();
 	coinTye = msg.cointye();
 	number = msg.number();
+	gailv.SetSize(msg.gailv_size() > gailv.GetMaxSize() ? gailv.GetMaxSize() : msg.gailv_size());
+	for(int32_t i = 0; i < (int32_t)gailv.GetSize(); ++i) {
 		gailv[i] = msg.gailv(i);
 	}
+	probability.SetSize(msg.probability_size() > probability.GetMaxSize() ? probability.GetMaxSize() : msg.probability_size());
+	for(int32_t i = 0; i < (int32_t)probability.GetSize(); ++i) {
 		probability[i] = msg.probability(i);
 	}
 }

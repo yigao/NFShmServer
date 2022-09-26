@@ -15,8 +15,8 @@ message mallmall
 	optional int32 price = 8[(yd_fieldoptions.field_cname) = "价格"];
 	optional int32 discount = 9[(yd_fieldoptions.field_cname) = "折扣"];
 	optional int32 daily = 10[(yd_fieldoptions.field_cname) = "日可购买数量"];
-	optional string buyAmount = 11[(yd_fieldoptions.field_cname) = "可购买数量", (yd_fieldoptions.field_bufsize) = 32];
-	optional string vipLimit = 12[(yd_fieldoptions.field_cname) = "VIP等级限制", (yd_fieldoptions.field_bufsize) = 32];
+	optional string buyAmount = 11[(yd_fieldoptions.field_cname) = "可购买数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional string vipLimit = 12[(yd_fieldoptions.field_cname) = "VIP等级限制", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isClose = 13[(yd_fieldoptions.field_cname) = "是否下架"];
 	optional int32 cantBuy = 14[(yd_fieldoptions.field_cname) = "下架情况下是否能购买"];
 	optional int32 isMarkBind = 15[(yd_fieldoptions.field_cname) = "是否标记为已绑定"];
@@ -27,14 +27,14 @@ message mallmall
 
 message Sheet_mallmall
 {
-	repeated mallmall mallmall_List = 1[(yd_fieldoptions.field_arysize)=290];
+	repeated mallmall mallmall_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message mallmalltype
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "组ID"];
-	optional string title = 2[(yd_fieldoptions.field_cname) = "商店名", (yd_fieldoptions.field_bufsize) = 32];
-	optional string tab = 3[(yd_fieldoptions.field_cname) = "页签名", (yd_fieldoptions.field_bufsize) = 32];
+	optional string title = 2[(yd_fieldoptions.field_cname) = "商店名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string tab = 3[(yd_fieldoptions.field_cname) = "页签名", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 groupType = 4[(yd_fieldoptions.field_cname) = "组类型"];
 	optional int32 priority = 5[(yd_fieldoptions.field_cname) = "优先级"];
 	optional int32 logicType = 6[(yd_fieldoptions.field_cname) = "逻辑类型"];
@@ -44,5 +44,5 @@ message mallmalltype
 
 message Sheet_mallmalltype
 {
-	repeated mallmalltype mallmalltype_List = 1[(yd_fieldoptions.field_arysize)=114];
+	repeated mallmalltype mallmalltype_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

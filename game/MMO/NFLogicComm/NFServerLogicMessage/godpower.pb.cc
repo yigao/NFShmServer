@@ -187,7 +187,7 @@ void protobuf_AddDesc_godpower_2eproto() {
     "\004 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254\241\346\225\260\022\034\n\006unlock\030\005 \001(\005B"
     "\014\302\377\024\010\350\247\243\351\224\201ID\"Y\n\026Sheet_godpowergodpower\022"
     "\?\n\025godpowergodpower_List\030\001 \003(\0132\032.proto_f"
-    "f.godpowergodpowerB\004\210\301\024q\"P\n godpowerskil"
+    "f.godpowergodpowerB\004\210\301\024\024\"P\n godpowerskil"
     "lupdateattributeDesc\022\024\n\004type\030\001 \001(\005B\006\302\377\024\002"
     "ID\022\026\n\005value\030\002 \001(\003B\007\302\377\024\003\345\200\274\"\342\002\n\023godpowers"
     "killupdate\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\035\n\007tableI"
@@ -201,7 +201,7 @@ void protobuf_AddDesc_godpower_2eproto() {
     "cB\024\302\377\024\014\351\242\235\345\244\226\345\261\236\346\200\247\210\301\024\002\"c\n\031Sheet_godpowe"
     "rskillupdate\022F\n\030godpowerskillupdate_List"
     "\030\001 \003(\0132\035.proto_ff.godpowerskillupdateB\005\210"
-    "\301\024\344\002", 844);
+    "\301\024\254\002", 844);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "godpower.proto", &protobuf_RegisterTypes);
   godpowergodpower::default_instance_ = new godpowergodpower();

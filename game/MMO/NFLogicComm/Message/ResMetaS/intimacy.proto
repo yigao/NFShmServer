@@ -20,7 +20,7 @@ message intimacyintimacy
 
 message Sheet_intimacyintimacy
 {
-	repeated intimacyintimacy intimacyintimacy_List = 1[(yd_fieldoptions.field_arysize)=115];
+	repeated intimacyintimacy intimacyintimacy_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message intimacygift
@@ -34,5 +34,5 @@ message intimacygift
 
 message Sheet_intimacygift
 {
-	repeated intimacygift intimacygift_List = 1[(yd_fieldoptions.field_arysize)=105];
+	repeated intimacygift intimacygift_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
