@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-boxequipDesc_s::boxequipDesc_s() {
+boxboxequipDesc_s::boxboxequipDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,7 +10,7 @@ boxequipDesc_s::boxequipDesc_s() {
 	}
 }
 
-int boxequipDesc_s::CreateInit() {
+int boxboxequipDesc_s::CreateInit() {
 	rand = (int32_t)0;
 	minNum = (int32_t)0;
 	isbind = (int32_t)0;
@@ -18,11 +18,11 @@ int boxequipDesc_s::CreateInit() {
 	return 0;
 }
 
-int boxequipDesc_s::ResumeInit() {
+int boxboxequipDesc_s::ResumeInit() {
 	return 0;
 }
 
-void boxequipDesc_s::write_to_pbmsg(::proto_ff::boxequipDesc & msg) const {
+void boxboxequipDesc_s::write_to_pbmsg(::proto_ff::boxboxequipDesc & msg) const {
 	msg.set_rand((int32_t)rand);
 	msg.set_minnum((int32_t)minNum);
 	msg.set_isbind((int32_t)isbind);
@@ -30,8 +30,8 @@ void boxequipDesc_s::write_to_pbmsg(::proto_ff::boxequipDesc & msg) const {
 	msg.set_id((const char*)id.Get());
 }
 
-void boxequipDesc_s::read_from_pbmsg(const ::proto_ff::boxequipDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct boxequipDesc_s));
+void boxboxequipDesc_s::read_from_pbmsg(const ::proto_ff::boxboxequipDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct boxboxequipDesc_s));
 	rand = msg.rand();
 	minNum = msg.minnum();
 	isbind = msg.isbind();
@@ -39,7 +39,7 @@ void boxequipDesc_s::read_from_pbmsg(const ::proto_ff::boxequipDesc & msg) {
 	id.Copy(msg.id());
 }
 
-boxitemDesc_s::boxitemDesc_s() {
+boxboxitemDesc_s::boxboxitemDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -47,18 +47,18 @@ boxitemDesc_s::boxitemDesc_s() {
 	}
 }
 
-int boxitemDesc_s::CreateInit() {
+int boxboxitemDesc_s::CreateInit() {
 	maxNum = (int32_t)0;
 	rarerand = (int32_t)0;
 	minNum = (int32_t)0;
 	return 0;
 }
 
-int boxitemDesc_s::ResumeInit() {
+int boxboxitemDesc_s::ResumeInit() {
 	return 0;
 }
 
-void boxitemDesc_s::write_to_pbmsg(::proto_ff::boxitemDesc & msg) const {
+void boxboxitemDesc_s::write_to_pbmsg(::proto_ff::boxboxitemDesc & msg) const {
 	msg.set_rand((const char*)rand.Get());
 	msg.set_maxnum((int32_t)maxNum);
 	msg.set_rarerand((int32_t)rarerand);
@@ -67,8 +67,8 @@ void boxitemDesc_s::write_to_pbmsg(::proto_ff::boxitemDesc & msg) const {
 	msg.set_id((const char*)id.Get());
 }
 
-void boxitemDesc_s::read_from_pbmsg(const ::proto_ff::boxitemDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct boxitemDesc_s));
+void boxboxitemDesc_s::read_from_pbmsg(const ::proto_ff::boxboxitemDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct boxboxitemDesc_s));
 	rand.Copy(msg.rand());
 	maxNum = msg.maxnum();
 	rarerand = msg.rarerand();
@@ -124,11 +124,11 @@ void boxbox_s::write_to_pbmsg(::proto_ff::boxbox & msg) const {
 	msg.set_godjewelrand((int32_t)godjewelrand);
 	msg.set_eq_profession((const char*)eq_profession.Get());
 	for(int32_t i = 0; i < (int32_t)equip.GetSize() && i < equip.GetMaxSize(); ++i) {
-		::proto_ff::boxequipDesc* temp_equip = msg.add_equip();
+		::proto_ff::boxboxequipDesc* temp_equip = msg.add_equip();
 		equip[i].write_to_pbmsg(*temp_equip);
 	}
 	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
-		::proto_ff::boxitemDesc* temp_item = msg.add_item();
+		::proto_ff::boxboxitemDesc* temp_item = msg.add_item();
 		item[i].write_to_pbmsg(*temp_item);
 	}
 }
@@ -152,12 +152,12 @@ void boxbox_s::read_from_pbmsg(const ::proto_ff::boxbox & msg) {
 	eq_profession.Copy(msg.eq_profession());
 	equip.SetSize(msg.equip_size() > equip.GetMaxSize() ? equip.GetMaxSize() : msg.equip_size());
 	for(int32_t i = 0; i < (int32_t)equip.GetSize(); ++i) {
-		const ::proto_ff::boxequipDesc & temp_equip = msg.equip(i);
+		const ::proto_ff::boxboxequipDesc & temp_equip = msg.equip(i);
 		equip[i].read_from_pbmsg(temp_equip);
 	}
 	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
 	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
-		const ::proto_ff::boxitemDesc & temp_item = msg.item(i);
+		const ::proto_ff::boxboxitemDesc & temp_item = msg.item(i);
 		item[i].read_from_pbmsg(temp_item);
 	}
 }

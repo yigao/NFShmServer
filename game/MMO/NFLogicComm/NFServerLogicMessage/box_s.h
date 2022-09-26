@@ -10,8 +10,8 @@
 
 namespace proto_ff_s {
 
-	struct boxequipDesc_s : public NFDescStoreSeqOP {
-		boxequipDesc_s();
+	struct boxboxequipDesc_s : public NFDescStoreSeqOP {
+		boxboxequipDesc_s();
 		int CreateInit();
 		int ResumeInit();
 		int32_t rand;
@@ -20,15 +20,15 @@ namespace proto_ff_s {
 		int32_t maxNum;
 		NFSizeString<47> id;
 
-		virtual void write_to_pbmsg(::proto_ff::boxequipDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxequipDesc & msg);
-		static ::proto_ff::boxequipDesc* new_pbmsg(){ return new ::proto_ff::boxequipDesc(); }
-		static ::proto_ff::boxequipDesc make_pbmsg(){ return ::proto_ff::boxequipDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::boxboxequipDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::boxboxequipDesc & msg);
+		static ::proto_ff::boxboxequipDesc* new_pbmsg(){ return new ::proto_ff::boxboxequipDesc(); }
+		static ::proto_ff::boxboxequipDesc make_pbmsg(){ return ::proto_ff::boxboxequipDesc(); }
 	};
-	typedef struct boxequipDesc_s boxequipDesc_t;
+	typedef struct boxboxequipDesc_s boxboxequipDesc_t;
 
-	struct boxitemDesc_s : public NFDescStoreSeqOP {
-		boxitemDesc_s();
+	struct boxboxitemDesc_s : public NFDescStoreSeqOP {
+		boxboxitemDesc_s();
 		int CreateInit();
 		int ResumeInit();
 		NFSizeString<303> rand;
@@ -38,12 +38,12 @@ namespace proto_ff_s {
 		NFSizeString<127> isbind;
 		NFSizeString<767> id;
 
-		virtual void write_to_pbmsg(::proto_ff::boxitemDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxitemDesc & msg);
-		static ::proto_ff::boxitemDesc* new_pbmsg(){ return new ::proto_ff::boxitemDesc(); }
-		static ::proto_ff::boxitemDesc make_pbmsg(){ return ::proto_ff::boxitemDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::boxboxitemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::boxboxitemDesc & msg);
+		static ::proto_ff::boxboxitemDesc* new_pbmsg(){ return new ::proto_ff::boxboxitemDesc(); }
+		static ::proto_ff::boxboxitemDesc make_pbmsg(){ return ::proto_ff::boxboxitemDesc(); }
 	};
-	typedef struct boxitemDesc_s boxitemDesc_t;
+	typedef struct boxboxitemDesc_s boxboxitemDesc_t;
 
 	struct boxbox_s : public NFDescStoreSeqOP {
 		boxbox_s();
@@ -64,8 +64,8 @@ namespace proto_ff_s {
 		int32_t godjewelmaxNum;
 		int32_t godjewelrand;
 		NFSizeString<32> eq_profession;
-		NFArray<struct boxequipDesc_s, 8> equip;
-		NFArray<struct boxitemDesc_s, 50> item;
+		NFArray<struct boxboxequipDesc_s, 8> equip;
+		NFArray<struct boxboxitemDesc_s, 50> item;
 
 		virtual void write_to_pbmsg(::proto_ff::boxbox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::boxbox & msg);

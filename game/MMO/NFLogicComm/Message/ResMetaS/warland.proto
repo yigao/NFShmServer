@@ -1,0 +1,62 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message warlandconstant
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 winscore = 2[(yd_fieldoptions.field_cname) = "获胜积分"];
+	optional int64 scoreareaID = 3[(yd_fieldoptions.field_cname) = "得分区域ID"];
+	optional int32 OccupyScore = 4[(yd_fieldoptions.field_cname) = "在积分区域每次增加的贡献"];
+	optional int32 OccupyContribution = 5[(yd_fieldoptions.field_cname) = "在积分区域每次增加的积分"];
+	optional int32 KillArea = 6[(yd_fieldoptions.field_cname) = "击杀增加的积分"];
+	optional int32 KillContribution = 7[(yd_fieldoptions.field_cname) = "击杀增加的贡献"];
+	optional int32 KillRangeContribution = 8[(yd_fieldoptions.field_cname) = "击杀范围增加的贡献"];
+	optional int32 KillRange = 9[(yd_fieldoptions.field_cname) = "击杀贡献范围"];
+	optional int64 SkillIdA = 10[(yd_fieldoptions.field_cname) = "一层守护增加skillid"];
+	optional int64 SkillIdB = 11[(yd_fieldoptions.field_cname) = "二层守护增加的skillid"];
+	optional int64 GuardskillId = 12[(yd_fieldoptions.field_cname) = "驻守守护的skillID"];
+	optional string ContinuousKillBuffId = 13[(yd_fieldoptions.field_cname) = "连杀的buffID", (yd_fieldoptions.field_bufsize) = 44];
+	optional string WinReward = 14[(yd_fieldoptions.field_cname) = "结算时胜利方的奖励", (yd_fieldoptions.field_bufsize) = 44];
+	optional string LoseReward = 15[(yd_fieldoptions.field_cname) = "结算时失败方的奖励", (yd_fieldoptions.field_bufsize) = 43];
+	optional int64 PrepareBuff = 16[(yd_fieldoptions.field_cname) = "准备阶段skillid"];
+	optional int32 PrepareTime = 17[(yd_fieldoptions.field_cname) = "准备阶段时长（位于活动开始前，单位秒）"];
+	optional int64 invincibleSkillId = 18[(yd_fieldoptions.field_cname) = "弱鸡玩家无敌BUFF"];
+	optional int64 allplayerSkillId = 19[(yd_fieldoptions.field_cname) = "所有玩家减伤BUFF"];
+	optional int32 killHelpPoint = 20[(yd_fieldoptions.field_cname) = "助攻获得的贡献"];
+}
+
+
+message Sheet_warlandconstant
+{
+	repeated warlandconstant warlandconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+}
+
+message warlandmultiKill
+{
+	optional int32 multiKillNum = 1[(yd_fieldoptions.field_cname) = "连杀数"];
+	optional string multiKillIcon = 2[(yd_fieldoptions.field_cname) = "连杀称号图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 endMultiKillscore = 3[(yd_fieldoptions.field_cname) = "终结连杀积分"];
+	optional int32 endMultiKillPoint = 4[(yd_fieldoptions.field_cname) = "终结连杀贡献"];
+}
+
+
+message Sheet_warlandmultiKill
+{
+	repeated warlandmultiKill warlandmultiKill_List = 1[(yd_fieldoptions.field_arysize)=109];
+}
+
+message warlandrankreward
+{
+	optional int32 stageId = 1[(yd_fieldoptions.field_cname) = "阵营战排名奖励"];
+	optional int32 MinRanking = 2[(yd_fieldoptions.field_cname) = "最低排名值"];
+	optional int32 MaxRanking = 3[(yd_fieldoptions.field_cname) = "最高排名值"];
+	optional string Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品（物品ID，数量；物品id，数量…..）", (yd_fieldoptions.field_bufsize) = 72];
+}
+
+
+message Sheet_warlandrankreward
+{
+	repeated warlandrankreward warlandrankreward_List = 1[(yd_fieldoptions.field_arysize)=112];
+}

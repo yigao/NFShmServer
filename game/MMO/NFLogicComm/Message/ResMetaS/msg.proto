@@ -1,0 +1,17 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message msgphpmsg
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string content = 2[(yd_fieldoptions.field_cname) = "显示信息", (yd_fieldoptions.field_bufsize) = 87];
+	optional string note = 3[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_msgphpmsg
+{
+	repeated msgphpmsg msgphpmsg_List = 1[(yd_fieldoptions.field_arysize)=228];
+}

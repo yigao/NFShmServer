@@ -20,9 +20,9 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* achievementitemRewardDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* achievementachievementitemRewardDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  achievementitemRewardDesc_reflection_ = NULL;
+  achievementachievementitemRewardDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* achievementachievement_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   achievementachievement_reflection_ = NULL;
@@ -35,12 +35,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_achievementachievementreward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_achievementachievementreward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* achievementachievenName_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  achievementachievenName_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_achievementachievenName_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_achievementachievenName_reflection_ = NULL;
 
 }  // namespace
 
@@ -51,22 +45,22 @@ void protobuf_AssignDesc_achievement_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "achievement.proto");
   GOOGLE_CHECK(file != NULL);
-  achievementitemRewardDesc_descriptor_ = file->message_type(0);
-  static const int achievementitemRewardDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementitemRewardDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementitemRewardDesc, value_),
+  achievementachievementitemRewardDesc_descriptor_ = file->message_type(0);
+  static const int achievementachievementitemRewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievementitemRewardDesc, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievementitemRewardDesc, value_),
   };
-  achievementitemRewardDesc_reflection_ =
+  achievementachievementitemRewardDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      achievementitemRewardDesc_descriptor_,
-      achievementitemRewardDesc::default_instance_,
-      achievementitemRewardDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementitemRewardDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementitemRewardDesc, _unknown_fields_),
+      achievementachievementitemRewardDesc_descriptor_,
+      achievementachievementitemRewardDesc::default_instance_,
+      achievementachievementitemRewardDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievementitemRewardDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievementitemRewardDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(achievementitemRewardDesc));
+      sizeof(achievementachievementitemRewardDesc));
   achievementachievement_descriptor_ = file->message_type(1);
   static const int achievementachievement_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievement, achievementid_),
@@ -143,35 +137,6 @@ void protobuf_AssignDesc_achievement_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_achievementachievementreward));
-  achievementachievenName_descriptor_ = file->message_type(5);
-  static const int achievementachievenName_offsets_[1] = {
-  };
-  achievementachievenName_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      achievementachievenName_descriptor_,
-      achievementachievenName::default_instance_,
-      achievementachievenName_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievenName, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(achievementachievenName, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(achievementachievenName));
-  Sheet_achievementachievenName_descriptor_ = file->message_type(6);
-  static const int Sheet_achievementachievenName_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_achievementachievenName, achievementachievenname_list_),
-  };
-  Sheet_achievementachievenName_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_achievementachievenName_descriptor_,
-      Sheet_achievementachievenName::default_instance_,
-      Sheet_achievementachievenName_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_achievementachievenName, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_achievementachievenName, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_achievementachievenName));
 }
 
 namespace {
@@ -185,7 +150,7 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    achievementitemRewardDesc_descriptor_, &achievementitemRewardDesc::default_instance());
+    achievementachievementitemRewardDesc_descriptor_, &achievementachievementitemRewardDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     achievementachievement_descriptor_, &achievementachievement::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -194,17 +159,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
     achievementachievementreward_descriptor_, &achievementachievementreward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_achievementachievementreward_descriptor_, &Sheet_achievementachievementreward::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    achievementachievenName_descriptor_, &achievementachievenName::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_achievementachievenName_descriptor_, &Sheet_achievementachievenName::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_achievement_2eproto() {
-  delete achievementitemRewardDesc::default_instance_;
-  delete achievementitemRewardDesc_reflection_;
+  delete achievementachievementitemRewardDesc::default_instance_;
+  delete achievementachievementitemRewardDesc_reflection_;
   delete achievementachievement::default_instance_;
   delete achievementachievement_reflection_;
   delete Sheet_achievementachievement::default_instance_;
@@ -213,10 +174,6 @@ void protobuf_ShutdownFile_achievement_2eproto() {
   delete achievementachievementreward_reflection_;
   delete Sheet_achievementachievementreward::default_instance_;
   delete Sheet_achievementachievementreward_reflection_;
-  delete achievementachievenName::default_instance_;
-  delete achievementachievenName_reflection_;
-  delete Sheet_achievementachievenName::default_instance_;
-  delete Sheet_achievementachievenName_reflection_;
 }
 
 void protobuf_AddDesc_achievement_2eproto() {
@@ -228,58 +185,51 @@ void protobuf_AddDesc_achievement_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021achievement.proto\022\010proto_ff\032\025yd_fieldo"
-    "ptions.proto\"J\n\031achievementitemRewardDes"
-    "c\022\022\n\002ID\030\001 \001(\003B\006\302\377\024\002ID\022\031\n\005Value\030\002 \001(\005B\n\302\377"
-    "\024\006\346\225\260\351\207\217\"\247\005\n\026achievementachievement\022#\n\ra"
-    "chievementId\030\001 \001(\003B\014\302\377\024\010\346\210\220\345\260\261ID\0220\n\020achi"
-    "evementLevel\030\002 \001(\005B\026\302\377\024\022\346\210\220\345\260\261\350\247\246\345\217\221\347\255\211\347"
-    "\272\247\022(\n\016achievementDTP\030\003 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\345\244"
-    "\247\347\261\273\022)\n\017achievementType\030\004 \001(\005B\020\302\377\024\014\346\210\220\345\260"
-    "\261\347\261\273\345\236\213\022,\n\022achievementSubType\030\005 \001(\005B\020\302\377\024"
-    "\014\344\272\213\344\273\266\347\261\273\345\236\213\022/\n\023achievementObjectID\030\006 \001"
-    "(\003B\022\302\377\024\016\344\272\213\344\273\266\347\233\256\346\240\207ID\022\?\n\031achievementObj"
-    "ectIDString\030\007 \001(\tB\034\302\377\024\024\344\272\213\344\273\266\347\233\256\346\240\207Idstr"
-    "ing\220\301\024 \0229\n\026achievementObjectValue\030\010 \001(\005B"
-    "\031\302\377\024\025\344\272\213\344\273\266\347\233\256\346\240\207\345\256\214\346\210\220\345\200\274\0224\n\016achievemen"
-    "tDia\030\t \001(\005B\034\302\377\024\030\350\216\267\345\276\227\347\273\221\345\256\232\351\222\273\347\237\263\346\225\260\351\207\217"
-    "\022.\n\016achievementGod\030\n \001(\005B\026\302\377\024\022\350\216\267\345\276\227\351\207\221\345"
-    "\270\201\346\225\260\351\207\217\0223\n\020achievementPoint\030\013 \001(\005B\031\302\377\024\025"
-    "\350\216\267\345\217\226\346\210\220\345\260\261\347\202\271\346\225\260\351\207\217\022\034\n\006linkID\030\014 \001(\005B\014\302"
-    "\377\024\010\345\211\215\345\276\200ID\022M\n\nitemReward\030\r \003(\0132#.proto_"
-    "ff.achievementitemRewardDescB\024\302\377\024\014\350\216\267\345\276\227"
-    "\347\211\251\345\223\201\210\301\024\002\"l\n\034Sheet_achievementachieveme"
-    "nt\022L\n\033achievementachievement_List\030\001 \003(\0132"
-    " .proto_ff.achievementachievementB\005\210\301\024\255\003"
-    "\"\223\002\n\034achievementachievementreward\022.\n\022ach"
-    "ievementPrizeId\030\001 \001(\003B\022\302\377\024\016\346\210\220\345\260\261\345\245\226\345\212\261I"
-    "D\022)\n\017achievementType\030\002 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\347\261"
-    "\273\345\236\213\0225\n\025achievementPointValue\030\003 \001(\005B\026\302\377\024"
-    "\022\346\211\200\351\234\200\346\210\220\345\260\261\347\202\271\345\200\274\022+\n\017achievementSkil\030\004"
-    " \001(\003B\022\302\377\024\016\346\210\220\345\260\261\346\212\200\350\203\275id\0224\n\016achievementD"
-    "ia\030\005 \001(\005B\034\302\377\024\030\350\216\267\345\276\227\347\273\221\345\256\232\351\222\273\347\237\263\346\225\260\351\207\217\"}"
-    "\n\"Sheet_achievementachievementreward\022W\n!"
-    "achievementachievementreward_List\030\001 \003(\0132"
-    "&.proto_ff.achievementachievementrewardB"
-    "\004\210\301\024n\"\031\n\027achievementachievenName\"n\n\035Shee"
-    "t_achievementachievenName\022M\n\034achievement"
-    "achievenName_List\030\001 \003(\0132!.proto_ff.achie"
-    "vementachievenNameB\004\210\301\024w", 1464);
+    "ptions.proto\"U\n$achievementachievementit"
+    "emRewardDesc\022\022\n\002ID\030\001 \001(\003B\006\302\377\024\002ID\022\031\n\005Valu"
+    "e\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\262\005\n\026achievementachie"
+    "vement\022#\n\rachievementId\030\001 \001(\003B\014\302\377\024\010\346\210\220\345\260"
+    "\261ID\0220\n\020achievementLevel\030\002 \001(\005B\026\302\377\024\022\346\210\220\345\260"
+    "\261\350\247\246\345\217\221\347\255\211\347\272\247\022(\n\016achievementDTP\030\003 \001(\005B\020\302"
+    "\377\024\014\346\210\220\345\260\261\345\244\247\347\261\273\022)\n\017achievementType\030\004 \001(\005"
+    "B\020\302\377\024\014\346\210\220\345\260\261\347\261\273\345\236\213\022,\n\022achievementSubType"
+    "\030\005 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022/\n\023achievementO"
+    "bjectID\030\006 \001(\003B\022\302\377\024\016\344\272\213\344\273\266\347\233\256\346\240\207ID\022\?\n\031ach"
+    "ievementObjectIDString\030\007 \001(\tB\034\302\377\024\024\344\272\213\344\273\266"
+    "\347\233\256\346\240\207Idstring\220\301\024 \0229\n\026achievementObjectV"
+    "alue\030\010 \001(\005B\031\302\377\024\025\344\272\213\344\273\266\347\233\256\346\240\207\345\256\214\346\210\220\345\200\274\0224\n"
+    "\016achievementDia\030\t \001(\005B\034\302\377\024\030\350\216\267\345\276\227\347\273\221\345\256\232\351"
+    "\222\273\347\237\263\346\225\260\351\207\217\022.\n\016achievementGod\030\n \001(\005B\026\302\377\024"
+    "\022\350\216\267\345\276\227\351\207\221\345\270\201\346\225\260\351\207\217\0223\n\020achievementPoint\030"
+    "\013 \001(\005B\031\302\377\024\025\350\216\267\345\217\226\346\210\220\345\260\261\347\202\271\346\225\260\351\207\217\022\034\n\006link"
+    "ID\030\014 \001(\005B\014\302\377\024\010\345\211\215\345\276\200ID\022X\n\nitemReward\030\r \003"
+    "(\0132..proto_ff.achievementachievementitem"
+    "RewardDescB\024\302\377\024\014\350\216\267\345\276\227\347\211\251\345\223\201\210\301\024\002\"l\n\034Shee"
+    "t_achievementachievement\022L\n\033achievementa"
+    "chievement_List\030\001 \003(\0132 .proto_ff.achieve"
+    "mentachievementB\005\210\301\024\255\003\"\223\002\n\034achievementac"
+    "hievementreward\022.\n\022achievementPrizeId\030\001 "
+    "\001(\003B\022\302\377\024\016\346\210\220\345\260\261\345\245\226\345\212\261ID\022)\n\017achievementTy"
+    "pe\030\002 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\347\261\273\345\236\213\0225\n\025achievemen"
+    "tPointValue\030\003 \001(\005B\026\302\377\024\022\346\211\200\351\234\200\346\210\220\345\260\261\347\202\271\345\200"
+    "\274\022+\n\017achievementSkil\030\004 \001(\003B\022\302\377\024\016\346\210\220\345\260\261\346\212"
+    "\200\350\203\275id\0224\n\016achievementDia\030\005 \001(\005B\034\302\377\024\030\350\216\267\345"
+    "\276\227\347\273\221\345\256\232\351\222\273\347\237\263\346\225\260\351\207\217\"}\n\"Sheet_achievemen"
+    "tachievementreward\022W\n!achievementachieve"
+    "mentreward_List\030\001 \003(\0132&.proto_ff.achieve"
+    "mentachievementrewardB\004\210\301\024n", 1347);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "achievement.proto", &protobuf_RegisterTypes);
-  achievementitemRewardDesc::default_instance_ = new achievementitemRewardDesc();
+  achievementachievementitemRewardDesc::default_instance_ = new achievementachievementitemRewardDesc();
   achievementachievement::default_instance_ = new achievementachievement();
   Sheet_achievementachievement::default_instance_ = new Sheet_achievementachievement();
   achievementachievementreward::default_instance_ = new achievementachievementreward();
   Sheet_achievementachievementreward::default_instance_ = new Sheet_achievementachievementreward();
-  achievementachievenName::default_instance_ = new achievementachievenName();
-  Sheet_achievementachievenName::default_instance_ = new Sheet_achievementachievenName();
-  achievementitemRewardDesc::default_instance_->InitAsDefaultInstance();
+  achievementachievementitemRewardDesc::default_instance_->InitAsDefaultInstance();
   achievementachievement::default_instance_->InitAsDefaultInstance();
   Sheet_achievementachievement::default_instance_->InitAsDefaultInstance();
   achievementachievementreward::default_instance_->InitAsDefaultInstance();
   Sheet_achievementachievementreward::default_instance_->InitAsDefaultInstance();
-  achievementachievenName::default_instance_->InitAsDefaultInstance();
-  Sheet_achievementachievenName::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_achievement_2eproto);
 }
 
@@ -293,62 +243,62 @@ struct StaticDescriptorInitializer_achievement_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int achievementitemRewardDesc::kIDFieldNumber;
-const int achievementitemRewardDesc::kValueFieldNumber;
+const int achievementachievementitemRewardDesc::kIDFieldNumber;
+const int achievementachievementitemRewardDesc::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-achievementitemRewardDesc::achievementitemRewardDesc()
+achievementachievementitemRewardDesc::achievementachievementitemRewardDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void achievementitemRewardDesc::InitAsDefaultInstance() {
+void achievementachievementitemRewardDesc::InitAsDefaultInstance() {
 }
 
-achievementitemRewardDesc::achievementitemRewardDesc(const achievementitemRewardDesc& from)
+achievementachievementitemRewardDesc::achievementachievementitemRewardDesc(const achievementachievementitemRewardDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void achievementitemRewardDesc::SharedCtor() {
+void achievementachievementitemRewardDesc::SharedCtor() {
   _cached_size_ = 0;
   id_ = GOOGLE_LONGLONG(0);
   value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-achievementitemRewardDesc::~achievementitemRewardDesc() {
+achievementachievementitemRewardDesc::~achievementachievementitemRewardDesc() {
   SharedDtor();
 }
 
-void achievementitemRewardDesc::SharedDtor() {
+void achievementachievementitemRewardDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void achievementitemRewardDesc::SetCachedSize(int size) const {
+void achievementachievementitemRewardDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* achievementitemRewardDesc::descriptor() {
+const ::google::protobuf::Descriptor* achievementachievementitemRewardDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return achievementitemRewardDesc_descriptor_;
+  return achievementachievementitemRewardDesc_descriptor_;
 }
 
-const achievementitemRewardDesc& achievementitemRewardDesc::default_instance() {
+const achievementachievementitemRewardDesc& achievementachievementitemRewardDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_achievement_2eproto();
   return *default_instance_;
 }
 
-achievementitemRewardDesc* achievementitemRewardDesc::default_instance_ = NULL;
+achievementachievementitemRewardDesc* achievementachievementitemRewardDesc::default_instance_ = NULL;
 
-achievementitemRewardDesc* achievementitemRewardDesc::New() const {
-  return new achievementitemRewardDesc;
+achievementachievementitemRewardDesc* achievementachievementitemRewardDesc::New() const {
+  return new achievementachievementitemRewardDesc;
 }
 
-void achievementitemRewardDesc::Clear() {
+void achievementachievementitemRewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = GOOGLE_LONGLONG(0);
     value_ = 0;
@@ -357,7 +307,7 @@ void achievementitemRewardDesc::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool achievementitemRewardDesc::MergePartialFromCodedStream(
+bool achievementachievementitemRewardDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -410,7 +360,7 @@ bool achievementitemRewardDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void achievementitemRewardDesc::SerializeWithCachedSizes(
+void achievementachievementitemRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int64 ID = 1;
   if (has_id()) {
@@ -428,7 +378,7 @@ void achievementitemRewardDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* achievementitemRewardDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* achievementachievementitemRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int64 ID = 1;
   if (has_id()) {
@@ -447,7 +397,7 @@ void achievementitemRewardDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int achievementitemRewardDesc::ByteSize() const {
+int achievementachievementitemRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -477,10 +427,10 @@ int achievementitemRewardDesc::ByteSize() const {
   return total_size;
 }
 
-void achievementitemRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void achievementachievementitemRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const achievementitemRewardDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const achievementitemRewardDesc*>(
+  const achievementachievementitemRewardDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const achievementachievementitemRewardDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -489,7 +439,7 @@ void achievementitemRewardDesc::MergeFrom(const ::google::protobuf::Message& fro
   }
 }
 
-void achievementitemRewardDesc::MergeFrom(const achievementitemRewardDesc& from) {
+void achievementachievementitemRewardDesc::MergeFrom(const achievementachievementitemRewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -502,24 +452,24 @@ void achievementitemRewardDesc::MergeFrom(const achievementitemRewardDesc& from)
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void achievementitemRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void achievementachievementitemRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void achievementitemRewardDesc::CopyFrom(const achievementitemRewardDesc& from) {
+void achievementachievementitemRewardDesc::CopyFrom(const achievementachievementitemRewardDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool achievementitemRewardDesc::IsInitialized() const {
+bool achievementachievementitemRewardDesc::IsInitialized() const {
 
   return true;
 }
 
-void achievementitemRewardDesc::Swap(achievementitemRewardDesc* other) {
+void achievementachievementitemRewardDesc::Swap(achievementachievementitemRewardDesc* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(value_, other->value_);
@@ -529,11 +479,11 @@ void achievementitemRewardDesc::Swap(achievementitemRewardDesc* other) {
   }
 }
 
-::google::protobuf::Metadata achievementitemRewardDesc::GetMetadata() const {
+::google::protobuf::Metadata achievementachievementitemRewardDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = achievementitemRewardDesc_descriptor_;
-  metadata.reflection = achievementitemRewardDesc_reflection_;
+  metadata.descriptor = achievementachievementitemRewardDesc_descriptor_;
+  metadata.reflection = achievementachievementitemRewardDesc_reflection_;
   return metadata;
 }
 
@@ -844,7 +794,7 @@ bool achievementachievement::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+      // repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -941,7 +891,7 @@ void achievementachievement::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->linkid(), output);
   }
 
-  // repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+  // repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
   for (int i = 0; i < this->itemreward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       13, this->itemreward(i), output);
@@ -1020,7 +970,7 @@ void achievementachievement::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->linkid(), target);
   }
 
-  // repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+  // repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
   for (int i = 0; i < this->itemreward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1125,7 +1075,7 @@ int achievementachievement::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+  // repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
   total_size += 1 * this->itemreward_size();
   for (int i = 0; i < this->itemreward_size(); i++) {
     total_size +=
@@ -2019,365 +1969,6 @@ void Sheet_achievementachievementreward::Swap(Sheet_achievementachievementreward
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_achievementachievementreward_descriptor_;
   metadata.reflection = Sheet_achievementachievementreward_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-#endif  // !_MSC_VER
-
-achievementachievenName::achievementachievenName()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void achievementachievenName::InitAsDefaultInstance() {
-}
-
-achievementachievenName::achievementachievenName(const achievementachievenName& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void achievementachievenName::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-achievementachievenName::~achievementachievenName() {
-  SharedDtor();
-}
-
-void achievementachievenName::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void achievementachievenName::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* achievementachievenName::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return achievementachievenName_descriptor_;
-}
-
-const achievementachievenName& achievementachievenName::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_achievement_2eproto();
-  return *default_instance_;
-}
-
-achievementachievenName* achievementachievenName::default_instance_ = NULL;
-
-achievementachievenName* achievementachievenName::New() const {
-  return new achievementachievenName;
-}
-
-void achievementachievenName::Clear() {
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool achievementachievenName::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      return true;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, mutable_unknown_fields()));
-  }
-  return true;
-#undef DO_
-}
-
-void achievementachievenName::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* achievementachievenName::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int achievementachievenName::ByteSize() const {
-  int total_size = 0;
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void achievementachievenName::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const achievementachievenName* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const achievementachievenName*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void achievementachievenName::MergeFrom(const achievementachievenName& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void achievementachievenName::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void achievementachievenName::CopyFrom(const achievementachievenName& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool achievementachievenName::IsInitialized() const {
-
-  return true;
-}
-
-void achievementachievenName::Swap(achievementachievenName* other) {
-  if (other != this) {
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata achievementachievenName::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = achievementachievenName_descriptor_;
-  metadata.reflection = achievementachievenName_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Sheet_achievementachievenName::kAchievementachievenNameListFieldNumber;
-#endif  // !_MSC_VER
-
-Sheet_achievementachievenName::Sheet_achievementachievenName()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Sheet_achievementachievenName::InitAsDefaultInstance() {
-}
-
-Sheet_achievementachievenName::Sheet_achievementachievenName(const Sheet_achievementachievenName& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Sheet_achievementachievenName::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Sheet_achievementachievenName::~Sheet_achievementachievenName() {
-  SharedDtor();
-}
-
-void Sheet_achievementachievenName::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Sheet_achievementachievenName::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Sheet_achievementachievenName::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Sheet_achievementachievenName_descriptor_;
-}
-
-const Sheet_achievementachievenName& Sheet_achievementachievenName::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_achievement_2eproto();
-  return *default_instance_;
-}
-
-Sheet_achievementachievenName* Sheet_achievementachievenName::default_instance_ = NULL;
-
-Sheet_achievementachievenName* Sheet_achievementachievenName::New() const {
-  return new Sheet_achievementachievenName;
-}
-
-void Sheet_achievementachievenName::Clear() {
-  achievementachievenname_list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Sheet_achievementachievenName::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_achievementachievenName_List:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_achievementachievenname_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_achievementachievenName_List;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Sheet_achievementachievenName::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-  for (int i = 0; i < this->achievementachievenname_list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->achievementachievenname_list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Sheet_achievementachievenName::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-  for (int i = 0; i < this->achievementachievenname_list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->achievementachievenname_list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Sheet_achievementachievenName::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-  total_size += 1 * this->achievementachievenname_list_size();
-  for (int i = 0; i < this->achievementachievenname_list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->achievementachievenname_list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Sheet_achievementachievenName::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Sheet_achievementachievenName* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_achievementachievenName*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Sheet_achievementachievenName::MergeFrom(const Sheet_achievementachievenName& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  achievementachievenname_list_.MergeFrom(from.achievementachievenname_list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Sheet_achievementachievenName::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Sheet_achievementachievenName::CopyFrom(const Sheet_achievementachievenName& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Sheet_achievementachievenName::IsInitialized() const {
-
-  return true;
-}
-
-void Sheet_achievementachievenName::Swap(Sheet_achievementachievenName* other) {
-  if (other != this) {
-    achievementachievenname_list_.Swap(&other->achievementachievenname_list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Sheet_achievementachievenName::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_achievementachievenName_descriptor_;
-  metadata.reflection = Sheet_achievementachievenName_reflection_;
   return metadata;
 }
 

@@ -1,0 +1,74 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message GMtoolsGMTools
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "内容类型"];
+	optional string typePrarm = 3[(yd_fieldoptions.field_cname) = "内容", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_GMtoolsGMTools
+{
+	repeated GMtoolsGMTools GMtoolsGMTools_List = 1[(yd_fieldoptions.field_arysize)=112];
+}
+
+message GMtoolsrecharge
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 cost = 2[(yd_fieldoptions.field_cname) = "消耗点数"];
+	optional int32 rechaarge = 3[(yd_fieldoptions.field_cname) = "对应计费点"];
+}
+
+
+message Sheet_GMtoolsrecharge
+{
+	repeated GMtoolsrecharge GMtoolsrecharge_List = 1[(yd_fieldoptions.field_arysize)=118];
+}
+
+message GMtoolsgift
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 upperLimit = 2[(yd_fieldoptions.field_cname) = "需要的上限值"];
+	optional string condition = 3[(yd_fieldoptions.field_cname) = "需要完成的扶持", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 cost = 4[(yd_fieldoptions.field_cname) = "消耗点数"];
+	optional int32 daily = 5[(yd_fieldoptions.field_cname) = "是否每日重置"];
+	optional int64 boxid = 6[(yd_fieldoptions.field_cname) = "奖励内容"];
+}
+
+
+message Sheet_GMtoolsgift
+{
+	repeated GMtoolsgift GMtoolsgift_List = 1[(yd_fieldoptions.field_arysize)=117];
+}
+
+message GMtoolsunlimit
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 upperLimit = 2[(yd_fieldoptions.field_cname) = "需要的上限值"];
+	optional int32 cost = 3[(yd_fieldoptions.field_cname) = "消耗点数"];
+	optional int64 boxid = 4[(yd_fieldoptions.field_cname) = "奖励"];
+	optional int32 dailyNum = 5[(yd_fieldoptions.field_cname) = "每日可领取数量"];
+}
+
+
+message Sheet_GMtoolsunlimit
+{
+	repeated GMtoolsunlimit GMtoolsunlimit_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message GMtoolsupperLimit
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 param = 3[(yd_fieldoptions.field_cname) = "参数"];
+}
+
+
+message Sheet_GMtoolsupperLimit
+{
+	repeated GMtoolsupperLimit GMtoolsupperLimit_List = 1[(yd_fieldoptions.field_arysize)=108];
+}

@@ -1,0 +1,185 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message partnerpartnerattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerpartner
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "契灵ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 73];
+	optional string partnerSkill = 5[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 35];
+	optional int32 realLevel = 6[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 materialID = 7[(yd_fieldoptions.field_cname) = "进阶材料ID"];
+	optional int32 materialEXP = 8[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
+	optional int32 exp = 9[(yd_fieldoptions.field_cname) = "契灵升级经验"];
+	optional int64 BreakMaterialID = 10[(yd_fieldoptions.field_cname) = "突破材料ID"];
+	optional int32 BreakMaterialCost = 11[(yd_fieldoptions.field_cname) = "突破材料数量"];
+	optional int64 skillID = 12[(yd_fieldoptions.field_cname) = "解锁技能ID"];
+	optional int64 aiId = 13[(yd_fieldoptions.field_cname) = "AI表ID"];
+	repeated partnerpartnerattributeDesc attribute = 14[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 fragmentID = 15[(yd_fieldoptions.field_cname) = "关联碎片ID"];
+}
+
+
+message Sheet_partnerpartner
+{
+	repeated partnerpartner partnerpartner_List = 1[(yd_fieldoptions.field_arysize)=584];
+}
+
+message partnerchangeattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerchange
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "契灵ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 69];
+	optional int32 quality = 5[(yd_fieldoptions.field_cname) = "品质"];
+	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 151];
+	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional string partnerSkill = 9[(yd_fieldoptions.field_cname) = "伙伴技能ID", (yd_fieldoptions.field_bufsize) = 47];
+	optional int32 starBer = 10[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
+	optional int64 occupation = 11[(yd_fieldoptions.field_cname) = "转职要求"];
+	optional int64 aiId = 12[(yd_fieldoptions.field_cname) = "AI表ID"];
+	optional int64 upAttributeId = 13[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	repeated partnerchangeattributeDesc attribute = 14[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_partnerchange
+{
+	repeated partnerchange partnerchange_List = 1[(yd_fieldoptions.field_arysize)=133];
+}
+
+message partnerstarUpupAttributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerstarUp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 upAttributeId = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 starID = 3[(yd_fieldoptions.field_cname) = "星级"];
+	repeated partnerstarUpupAttributeDesc upAttribute = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_partnerstarUp
+{
+	repeated partnerstarUp partnerstarUp_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message partnerfragmentattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerfragment
+{
+	optional int64 fragmentID = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated partnerfragmentattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_partnerfragment
+{
+	repeated partnerfragment partnerfragment_List = 1[(yd_fieldoptions.field_arysize)=107];
+}
+
+message partnerattributeattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerattribute
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 exp = 2[(yd_fieldoptions.field_cname) = "总经验值"];
+	repeated partnerattributeattributeDesc attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_partnerattribute
+{
+	repeated partnerattribute partnerattribute_List = 1[(yd_fieldoptions.field_arysize)=1604];
+}
+
+message partnerexp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
+}
+
+
+message Sheet_partnerexp
+{
+	repeated partnerexp partnerexp_List = 1[(yd_fieldoptions.field_arysize)=209];
+}
+
+message partnerequipattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message partnerequip
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional int32 position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 refineLv = 3[(yd_fieldoptions.field_cname) = "精炼等级上限"];
+	optional int32 refineNum = 4[(yd_fieldoptions.field_cname) = "精炼提升系数（万分比）"];
+	repeated partnerequipattributeDesc attribute = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_partnerequip
+{
+	repeated partnerequip partnerequip_List = 1[(yd_fieldoptions.field_arysize)=124];
+}
+
+message partnerrefine
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "精炼等级"];
+	optional int64 refineId = 2[(yd_fieldoptions.field_cname) = "精炼材料id"];
+	optional int32 refineNum = 3[(yd_fieldoptions.field_cname) = "精炼材料数量"];
+}
+
+
+message Sheet_partnerrefine
+{
+	repeated partnerrefine partnerrefine_List = 1[(yd_fieldoptions.field_arysize)=204];
+}
+
+message partnerslot
+{
+	optional int32 position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 refineLv = 2[(yd_fieldoptions.field_cname) = "精炼等级上限"];
+	optional int32 refineNum = 3[(yd_fieldoptions.field_cname) = "精炼提升系数（万分比）"];
+}
+
+
+message Sheet_partnerslot
+{
+	repeated partnerslot partnerslot_List = 1[(yd_fieldoptions.field_arysize)=108];
+}

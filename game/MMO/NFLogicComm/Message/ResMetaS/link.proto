@@ -1,0 +1,20 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message linklink
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string icon = 2[(yd_fieldoptions.field_cname) = "显示图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional string dbArgs = 3[(yd_fieldoptions.field_cname) = "主参数关联的配置表名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string argsm = 4[(yd_fieldoptions.field_cname) = "备选参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 functionUnlock = 5[(yd_fieldoptions.field_cname) = "关联功能开放"];
+	optional string linkNpc = 6[(yd_fieldoptions.field_cname) = "关联npc", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_linklink
+{
+	repeated linklink linklink_List = 1[(yd_fieldoptions.field_arysize)=371];
+}

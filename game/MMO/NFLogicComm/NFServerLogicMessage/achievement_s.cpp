@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-achievementitemRewardDesc_s::achievementitemRewardDesc_s() {
+achievementachievementitemRewardDesc_s::achievementachievementitemRewardDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,23 +10,23 @@ achievementitemRewardDesc_s::achievementitemRewardDesc_s() {
 	}
 }
 
-int achievementitemRewardDesc_s::CreateInit() {
+int achievementachievementitemRewardDesc_s::CreateInit() {
 	ID = (int64_t)0;
 	Value = (int32_t)0;
 	return 0;
 }
 
-int achievementitemRewardDesc_s::ResumeInit() {
+int achievementachievementitemRewardDesc_s::ResumeInit() {
 	return 0;
 }
 
-void achievementitemRewardDesc_s::write_to_pbmsg(::proto_ff::achievementitemRewardDesc & msg) const {
+void achievementachievementitemRewardDesc_s::write_to_pbmsg(::proto_ff::achievementachievementitemRewardDesc & msg) const {
 	msg.set_id((int64_t)ID);
 	msg.set_value((int32_t)Value);
 }
 
-void achievementitemRewardDesc_s::read_from_pbmsg(const ::proto_ff::achievementitemRewardDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct achievementitemRewardDesc_s));
+void achievementachievementitemRewardDesc_s::read_from_pbmsg(const ::proto_ff::achievementachievementitemRewardDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct achievementachievementitemRewardDesc_s));
 	ID = msg.id();
 	Value = msg.value();
 }
@@ -72,7 +72,7 @@ void achievementachievement_s::write_to_pbmsg(::proto_ff::achievementachievement
 	msg.set_achievementpoint((int32_t)achievementPoint);
 	msg.set_linkid((int32_t)linkID);
 	for(int32_t i = 0; i < (int32_t)itemReward.GetSize() && i < itemReward.GetMaxSize(); ++i) {
-		::proto_ff::achievementitemRewardDesc* temp_itemreward = msg.add_itemreward();
+		::proto_ff::achievementachievementitemRewardDesc* temp_itemreward = msg.add_itemreward();
 		itemReward[i].write_to_pbmsg(*temp_itemreward);
 	}
 }
@@ -93,7 +93,7 @@ void achievementachievement_s::read_from_pbmsg(const ::proto_ff::achievementachi
 	linkID = msg.linkid();
 	itemReward.SetSize(msg.itemreward_size() > itemReward.GetMaxSize() ? itemReward.GetMaxSize() : msg.itemreward_size());
 	for(int32_t i = 0; i < (int32_t)itemReward.GetSize(); ++i) {
-		const ::proto_ff::achievementitemRewardDesc & temp_itemreward = msg.itemreward(i);
+		const ::proto_ff::achievementachievementitemRewardDesc & temp_itemreward = msg.itemreward(i);
 		itemReward[i].read_from_pbmsg(temp_itemreward);
 	}
 }
@@ -197,61 +197,6 @@ void Sheet_achievementachievementreward_s::read_from_pbmsg(const ::proto_ff::She
 	for(int32_t i = 0; i < (int32_t)achievementachievementreward_List.GetSize(); ++i) {
 		const ::proto_ff::achievementachievementreward & temp_achievementachievementreward_list = msg.achievementachievementreward_list(i);
 		achievementachievementreward_List[i].read_from_pbmsg(temp_achievementachievementreward_list);
-	}
-}
-
-achievementachievenName_s::achievementachievenName_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int achievementachievenName_s::CreateInit() {
-	return 0;
-}
-
-int achievementachievenName_s::ResumeInit() {
-	return 0;
-}
-
-void achievementachievenName_s::write_to_pbmsg(::proto_ff::achievementachievenName & msg) const {
-}
-
-void achievementachievenName_s::read_from_pbmsg(const ::proto_ff::achievementachievenName & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct achievementachievenName_s));
-}
-
-Sheet_achievementachievenName_s::Sheet_achievementachievenName_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_achievementachievenName_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_achievementachievenName_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_achievementachievenName_s::write_to_pbmsg(::proto_ff::Sheet_achievementachievenName & msg) const {
-	for(int32_t i = 0; i < (int32_t)achievementachievenName_List.GetSize() && i < achievementachievenName_List.GetMaxSize(); ++i) {
-		::proto_ff::achievementachievenName* temp_achievementachievenname_list = msg.add_achievementachievenname_list();
-		achievementachievenName_List[i].write_to_pbmsg(*temp_achievementachievenname_list);
-	}
-}
-
-void Sheet_achievementachievenName_s::read_from_pbmsg(const ::proto_ff::Sheet_achievementachievenName & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_achievementachievenName_s));
-	achievementachievenName_List.SetSize(msg.achievementachievenname_list_size() > achievementachievenName_List.GetMaxSize() ? achievementachievenName_List.GetMaxSize() : msg.achievementachievenname_list_size());
-	for(int32_t i = 0; i < (int32_t)achievementachievenName_List.GetSize(); ++i) {
-		const ::proto_ff::achievementachievenName & temp_achievementachievenname_list = msg.achievementachievenname_list(i);
-		achievementachievenName_List[i].read_from_pbmsg(temp_achievementachievenname_list);
 	}
 }
 

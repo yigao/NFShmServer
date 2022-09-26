@@ -1,0 +1,51 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message flashflashmonsterDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message flashflash
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "刷新ID"];
+	optional int64 typeID = 2[(yd_fieldoptions.field_cname) = "类型ID"];
+	optional int32 monster_Type = 3[(yd_fieldoptions.field_cname) = "怪物类型"];
+	optional int32 isLevelDynamic = 4[(yd_fieldoptions.field_cname) = "是否动态等级"];
+	optional int32 miniLevel = 5[(yd_fieldoptions.field_cname) = "动态初始等级"];
+	optional int32 levelCheck = 6[(yd_fieldoptions.field_cname) = "动态等级校正"];
+	optional int32 monsterRefreshTime = 7[(yd_fieldoptions.field_cname) = "怪物刷新时间"];
+	optional int64 facePath = 8[(yd_fieldoptions.field_cname) = "朝向点"];
+	repeated flashflashmonsterDesc monster = 9[(yd_fieldoptions.field_cname) = "生物", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_flashflash
+{
+	repeated flashflash flashflash_List = 1[(yd_fieldoptions.field_arysize)=645];
+}
+
+message flashitemFlashmonsterDesc
+{
+	optional int64 Id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 weight = 2[(yd_fieldoptions.field_cname) = "权重"];
+}
+
+message flashitemFlash
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "刷新ID"];
+	optional string useMap = 2[(yd_fieldoptions.field_cname) = "可使用地图", (yd_fieldoptions.field_bufsize) = 155];
+	optional int32 live = 3[(yd_fieldoptions.field_cname) = "怪物存在时间"];
+	optional int32 levelwave = 4[(yd_fieldoptions.field_cname) = "是否动态等级"];
+	optional int32 flashNum = 5[(yd_fieldoptions.field_cname) = "刷新怪物数量"];
+	repeated flashitemFlashmonsterDesc monster = 6[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_arysize) = 10];
+}
+
+
+message Sheet_flashitemFlash
+{
+	repeated flashitemFlash flashitemFlash_List = 1[(yd_fieldoptions.field_arysize)=157];
+}

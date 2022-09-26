@@ -3,7 +3,7 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message boxequipDesc
+message boxboxequipDesc
 {
 	optional int32 rand = 1[(yd_fieldoptions.field_cname) = "概率百分比"];
 	optional int32 minNum = 2[(yd_fieldoptions.field_cname) = "最小数量"];
@@ -12,7 +12,7 @@ message boxequipDesc
 	optional string id = 5[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 47];
 }
 
-message boxitemDesc
+message boxboxitemDesc
 {
 	optional string rand = 1[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 303];
 	optional int32 maxNum = 2[(yd_fieldoptions.field_cname) = "最大数量"];
@@ -39,8 +39,8 @@ message boxbox
 	optional int32 godjewelmaxNum = 13[(yd_fieldoptions.field_cname) = "神钻上限"];
 	optional int32 godjewelrand = 14[(yd_fieldoptions.field_cname) = "神钻掉落率"];
 	optional string eq_profession = 15[(yd_fieldoptions.field_cname) = "装备职业限制", (yd_fieldoptions.field_bufsize) = 32];
-	repeated boxequipDesc equip = 16[(yd_fieldoptions.field_cname) = "稀有装备", (yd_fieldoptions.field_arysize) = 8];
-	repeated boxitemDesc item = 17[(yd_fieldoptions.field_cname) = "稀有物品", (yd_fieldoptions.field_arysize) = 50];
+	repeated boxboxequipDesc equip = 16[(yd_fieldoptions.field_cname) = "稀有装备", (yd_fieldoptions.field_arysize) = 8];
+	repeated boxboxitemDesc item = 17[(yd_fieldoptions.field_cname) = "稀有物品", (yd_fieldoptions.field_arysize) = 50];
 }
 
 

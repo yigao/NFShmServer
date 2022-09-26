@@ -1,0 +1,96 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message skillskillstateBagDesc
+{
+	optional int32 Target = 1[(yd_fieldoptions.field_cname) = "归属"];
+	optional int32 Point = 2[(yd_fieldoptions.field_cname) = "生效点"];
+	optional string Parameter = 3[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string Rate = 4[(yd_fieldoptions.field_cname) = "成功几率", (yd_fieldoptions.field_bufsize) = 32];
+	optional string Time = 5[(yd_fieldoptions.field_cname) = "持续时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 Type = 6[(yd_fieldoptions.field_cname) = "类型"];
+	optional int64 ID = 7[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message skillskill
+{
+	optional int64 skillID = 1[(yd_fieldoptions.field_cname) = "技能id"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 skillType = 3[(yd_fieldoptions.field_cname) = "技能类型"];
+	optional int32 specialSkill = 4[(yd_fieldoptions.field_cname) = "是否为特殊技能"];
+	optional int32 cdSkill = 5[(yd_fieldoptions.field_cname) = "CD能否减少"];
+	optional int64 Relation = 6[(yd_fieldoptions.field_cname) = "普攻关联"];
+	optional int64 AddSkill = 7[(yd_fieldoptions.field_cname) = "追加技能"];
+	optional int32 AddSkillTime = 8[(yd_fieldoptions.field_cname) = "追加技能时间"];
+	optional int32 unlockLevel = 9[(yd_fieldoptions.field_cname) = "解锁等级"];
+	optional int32 type = 10[(yd_fieldoptions.field_cname) = "目标类型"];
+	optional int32 cd = 11[(yd_fieldoptions.field_cname) = "cd"];
+	optional int32 priority = 12[(yd_fieldoptions.field_cname) = "挂机使用优先级"];
+	optional string fighting = 13[(yd_fieldoptions.field_cname) = "战斗力", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 releaseType = 14[(yd_fieldoptions.field_cname) = "释放类型"];
+	optional int32 processTypes = 15[(yd_fieldoptions.field_cname) = "过程类型"];
+	optional int32 flySpeed = 16[(yd_fieldoptions.field_cname) = "飞行速度"];
+	optional int32 readyTime = 17[(yd_fieldoptions.field_cname) = "准备时间"];
+	optional int32 attackTime = 18[(yd_fieldoptions.field_cname) = "攻击总时间"];
+	optional string damageTime = 19[(yd_fieldoptions.field_cname) = "伤害生效时间点", (yd_fieldoptions.field_bufsize) = 48];
+	optional int32 displaceTime = 20[(yd_fieldoptions.field_cname) = "位移开始时间点"];
+	optional int32 displaceSign = 21[(yd_fieldoptions.field_cname) = "位移正负标记"];
+	optional string displaceSpeed = 22[(yd_fieldoptions.field_cname) = "位移速度", (yd_fieldoptions.field_bufsize) = 32];
+	optional string disTimes = 23[(yd_fieldoptions.field_cname) = "位移时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 attackDistance = 24[(yd_fieldoptions.field_cname) = "攻击距离"];
+	optional int32 rangeType = 25[(yd_fieldoptions.field_cname) = "范围类型"];
+	optional string rangeTypeValue = 26[(yd_fieldoptions.field_cname) = "范围类型值", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 warn = 27[(yd_fieldoptions.field_cname) = "预警id"];
+	optional int32 dazeTime = 28[(yd_fieldoptions.field_cname) = "发呆时间"];
+	optional int32 warnTime = 29[(yd_fieldoptions.field_cname) = "预警时间"];
+	optional string infomationId = 30[(yd_fieldoptions.field_cname) = "提示ID", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 summonType = 31[(yd_fieldoptions.field_cname) = "召唤物位置类型"];
+	optional string summonValue = 32[(yd_fieldoptions.field_cname) = "召唤物位置值", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 attackMinDistance = 33[(yd_fieldoptions.field_cname) = "攻击最小距离"];
+	optional int32 goalMaxNum = 34[(yd_fieldoptions.field_cname) = "目标最大数量"];
+	optional int32 damageType = 35[(yd_fieldoptions.field_cname) = "伤害类型"];
+	optional string attackValue = 36[(yd_fieldoptions.field_cname) = "附加攻击力固定值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string attackRate = 37[(yd_fieldoptions.field_cname) = "附加攻击力倍率", (yd_fieldoptions.field_bufsize) = 32];
+	optional string damageValue = 38[(yd_fieldoptions.field_cname) = "附加伤害固定值", (yd_fieldoptions.field_bufsize) = 32];
+	optional string damageRate = 39[(yd_fieldoptions.field_cname) = "附加伤害倍率", (yd_fieldoptions.field_bufsize) = 53];
+	optional int32 addhitrate = 40[(yd_fieldoptions.field_cname) = "附加命中率"];
+	repeated skillskillstateBagDesc stateBag = 41[(yd_fieldoptions.field_cname) = "状态包", (yd_fieldoptions.field_arysize) = 16];
+}
+
+
+message Sheet_skillskill
+{
+	repeated skillskill skillskill_List = 1[(yd_fieldoptions.field_arysize)=1129];
+}
+
+message skillbuffeffectDesc
+{
+	optional int32 Type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional string Param = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+message skillbuff
+{
+	optional int64 stateBagID = 1[(yd_fieldoptions.field_cname) = "附加状态包id"];
+	optional string stateBagName = 2[(yd_fieldoptions.field_cname) = "状态包名称", (yd_fieldoptions.field_bufsize) = 43];
+	optional string stateBagIcon = 3[(yd_fieldoptions.field_cname) = "状态包图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional string effectResources = 4[(yd_fieldoptions.field_cname) = "特效路径", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 startType = 5[(yd_fieldoptions.field_cname) = "生效条件"];
+	optional int32 startProbability = 6[(yd_fieldoptions.field_cname) = "生效概率"];
+	optional string startTypeValue = 7[(yd_fieldoptions.field_cname) = "生效条件参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional string endType = 8[(yd_fieldoptions.field_cname) = "常规结束条件", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 save = 9[(yd_fieldoptions.field_cname) = "是否存盘"];
+	optional string stateBagRule = 10[(yd_fieldoptions.field_cname) = "同一状态包叠加规则", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 label = 11[(yd_fieldoptions.field_cname) = "状态标签"];
+	optional string stateBagCd = 12[(yd_fieldoptions.field_cname) = "状态包冷却", (yd_fieldoptions.field_bufsize) = 32];
+	repeated int32 mask = 13[(yd_fieldoptions.field_cname) = ""];
+	repeated skillbuffeffectDesc effect = 14[(yd_fieldoptions.field_cname) = "效果", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_skillbuff
+{
+	repeated skillbuff skillbuff_List = 1[(yd_fieldoptions.field_arysize)=432];
+}

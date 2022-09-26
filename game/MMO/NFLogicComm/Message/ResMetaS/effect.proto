@@ -1,0 +1,19 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message effecteffect
+{
+	optional int32 effectId = 1[(yd_fieldoptions.field_cname) = "效果id"];
+	optional int32 effectType = 2[(yd_fieldoptions.field_cname) = "效果类型"];
+	optional string eContent = 3[(yd_fieldoptions.field_cname) = "效果内容", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 effectAudio = 4[(yd_fieldoptions.field_cname) = "音效效果参数"];
+	repeated int32 eparam = 5[(yd_fieldoptions.field_cname) = "效果参数"];
+}
+
+
+message Sheet_effecteffect
+{
+	repeated effecteffect effecteffect_List = 1[(yd_fieldoptions.field_arysize)=1632];
+}

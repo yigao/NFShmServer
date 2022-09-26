@@ -1,0 +1,148 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message treasuretreasureattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message treasuretreasure
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "宝具ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 69];
+	optional int32 realLevel = 5[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 materialID = 6[(yd_fieldoptions.field_cname) = "进阶材料ID"];
+	optional int32 materialEXP = 7[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
+	optional int32 exp = 8[(yd_fieldoptions.field_cname) = "宝具升级经验"];
+	optional int64 BreakMaterialID = 9[(yd_fieldoptions.field_cname) = "突破材料ID"];
+	optional int32 BreakMaterialCost = 10[(yd_fieldoptions.field_cname) = "突破材料数量"];
+	optional int64 skill = 11[(yd_fieldoptions.field_cname) = "主动技能ID"];
+	optional int64 skillID = 12[(yd_fieldoptions.field_cname) = "解锁技能ID"];
+	repeated treasuretreasureattributeDesc attribute = 13[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 fragmentID = 14[(yd_fieldoptions.field_cname) = "关联碎片ID"];
+}
+
+
+message Sheet_treasuretreasure
+{
+	repeated treasuretreasure treasuretreasure_List = 1[(yd_fieldoptions.field_arysize)=584];
+}
+
+message treasurechangeattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message treasurechange
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "宝具ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 75];
+	optional int32 quality = 5[(yd_fieldoptions.field_cname) = "品质"];
+	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 151];
+	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 starBer = 9[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
+	optional int64 occupation = 10[(yd_fieldoptions.field_cname) = "转职要求"];
+	optional int64 skill = 11[(yd_fieldoptions.field_cname) = "主动技能ID"];
+	optional int64 upAttributeId = 12[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	repeated treasurechangeattributeDesc attribute = 13[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_treasurechange
+{
+	repeated treasurechange treasurechange_List = 1[(yd_fieldoptions.field_arysize)=110];
+}
+
+message treasurestarUpupAttributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message treasurestarUp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 upAttributeId = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 starID = 3[(yd_fieldoptions.field_cname) = "星级"];
+	repeated treasurestarUpupAttributeDesc upAttribute = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_treasurestarUp
+{
+	repeated treasurestarUp treasurestarUp_List = 1[(yd_fieldoptions.field_arysize)=116];
+}
+
+message treasurefragmentattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message treasurefragment
+{
+	optional int64 fragmentID = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated treasurefragmentattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_treasurefragment
+{
+	repeated treasurefragment treasurefragment_List = 1[(yd_fieldoptions.field_arysize)=107];
+}
+
+message treasureequipattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message treasureequip
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional int32 position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	repeated treasureequipattributeDesc attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_treasureequip
+{
+	repeated treasureequip treasureequip_List = 1[(yd_fieldoptions.field_arysize)=124];
+}
+
+message treasureslot
+{
+	optional int32 position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 refineLv = 2[(yd_fieldoptions.field_cname) = "精炼等级上限"];
+	optional int32 refineNum = 3[(yd_fieldoptions.field_cname) = "精炼提升系数（万分比）"];
+}
+
+
+message Sheet_treasureslot
+{
+	repeated treasureslot treasureslot_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message treasurerefine
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "精炼等级"];
+	optional int64 refineId = 2[(yd_fieldoptions.field_cname) = "精炼材料id"];
+	optional int32 refineNum = 3[(yd_fieldoptions.field_cname) = "精炼材料数量"];
+}
+
+
+message Sheet_treasurerefine
+{
+	repeated treasurerefine treasurerefine_List = 1[(yd_fieldoptions.field_arysize)=204];
+}

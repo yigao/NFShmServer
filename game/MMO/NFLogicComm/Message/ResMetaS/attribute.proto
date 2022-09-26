@@ -1,0 +1,51 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message attributeattribute
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 percent = 2[(yd_fieldoptions.field_cname) = "是否百分比"];
+	optional float power = 3[(yd_fieldoptions.field_cname) = "战斗力"];
+}
+
+
+message Sheet_attributeattribute
+{
+	repeated attributeattribute attributeattribute_List = 1[(yd_fieldoptions.field_arysize)=239];
+}
+
+message attributesuppress
+{
+	optional int32 lvlDiff = 1[(yd_fieldoptions.field_cname) = "等级差"];
+	optional int32 hitSupPve = 2[(yd_fieldoptions.field_cname) = "命中压制"];
+	optional int32 critSupPve = 3[(yd_fieldoptions.field_cname) = "暴击压制"];
+	optional int32 killSupPve = 4[(yd_fieldoptions.field_cname) = "必杀压制"];
+	optional int32 stateSupPve = 5[(yd_fieldoptions.field_cname) = "状态压制"];
+	optional int32 lvSupPve = 6[(yd_fieldoptions.field_cname) = "等级压制"];
+	optional int32 hitSupPvp = 7[(yd_fieldoptions.field_cname) = "命中压制"];
+	optional int32 critSupPvp = 8[(yd_fieldoptions.field_cname) = "暴击压制"];
+	optional int32 killSupPvp = 9[(yd_fieldoptions.field_cname) = "必杀压制"];
+	optional int32 stateSupPvp = 10[(yd_fieldoptions.field_cname) = "状态压制"];
+	optional int32 lvSupPvp = 11[(yd_fieldoptions.field_cname) = "等级压制"];
+}
+
+
+message Sheet_attributesuppress
+{
+	repeated attributesuppress attributesuppress_List = 1[(yd_fieldoptions.field_arysize)=605];
+}
+
+message attributepowersup
+{
+	optional int32 powerDiff = 1[(yd_fieldoptions.field_cname) = "战力差"];
+	optional int32 powerSupPve = 2[(yd_fieldoptions.field_cname) = "战力压制"];
+	optional int32 powerSupPvp = 3[(yd_fieldoptions.field_cname) = "战力压制"];
+}
+
+
+message Sheet_attributepowersup
+{
+	repeated attributepowersup attributepowersup_List = 1[(yd_fieldoptions.field_arysize)=205];
+}

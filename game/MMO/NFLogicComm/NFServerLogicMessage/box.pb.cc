@@ -20,12 +20,12 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* boxequipDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* boxboxequipDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxequipDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* boxitemDesc_descriptor_ = NULL;
+  boxboxequipDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* boxboxitemDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxitemDesc_reflection_ = NULL;
+  boxboxitemDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* boxbox_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   boxbox_reflection_ = NULL;
@@ -42,45 +42,45 @@ void protobuf_AssignDesc_box_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "box.proto");
   GOOGLE_CHECK(file != NULL);
-  boxequipDesc_descriptor_ = file->message_type(0);
-  static const int boxequipDesc_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, rand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, minnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, isbind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, maxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, id_),
+  boxboxequipDesc_descriptor_ = file->message_type(0);
+  static const int boxboxequipDesc_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, rand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, minnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, isbind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, maxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, id_),
   };
-  boxequipDesc_reflection_ =
+  boxboxequipDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxequipDesc_descriptor_,
-      boxequipDesc::default_instance_,
-      boxequipDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxequipDesc, _unknown_fields_),
+      boxboxequipDesc_descriptor_,
+      boxboxequipDesc::default_instance_,
+      boxboxequipDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxequipDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxequipDesc));
-  boxitemDesc_descriptor_ = file->message_type(1);
-  static const int boxitemDesc_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, rand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, maxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, rarerand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, minnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, isbind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, id_),
+      sizeof(boxboxequipDesc));
+  boxboxitemDesc_descriptor_ = file->message_type(1);
+  static const int boxboxitemDesc_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, rand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, maxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, rarerand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, minnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, isbind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, id_),
   };
-  boxitemDesc_reflection_ =
+  boxboxitemDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxitemDesc_descriptor_,
-      boxitemDesc::default_instance_,
-      boxitemDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxitemDesc, _unknown_fields_),
+      boxboxitemDesc_descriptor_,
+      boxboxitemDesc::default_instance_,
+      boxboxitemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxitemDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxitemDesc));
+      sizeof(boxboxitemDesc));
   boxbox_descriptor_ = file->message_type(2);
   static const int boxbox_offsets_[17] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, id_),
@@ -140,9 +140,9 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxequipDesc_descriptor_, &boxequipDesc::default_instance());
+    boxboxequipDesc_descriptor_, &boxboxequipDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxitemDesc_descriptor_, &boxitemDesc::default_instance());
+    boxboxitemDesc_descriptor_, &boxboxitemDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     boxbox_descriptor_, &boxbox::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -152,10 +152,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_box_2eproto() {
-  delete boxequipDesc::default_instance_;
-  delete boxequipDesc_reflection_;
-  delete boxitemDesc::default_instance_;
-  delete boxitemDesc_reflection_;
+  delete boxboxequipDesc::default_instance_;
+  delete boxboxequipDesc_reflection_;
+  delete boxboxitemDesc::default_instance_;
+  delete boxboxitemDesc_reflection_;
   delete boxbox::default_instance_;
   delete boxbox_reflection_;
   delete Sheet_boxbox::default_instance_;
@@ -171,44 +171,45 @@ void protobuf_AddDesc_box_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tbox.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"\251\001\n\014boxequipDesc\022!\n\004rand\030\001 \001(\005B\023\302\377\024"
-    "\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\002 \001(\005B\020\302\377\024\014\346\234"
-    "\200\345\260\217\346\225\260\351\207\217\022\032\n\006isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022 "
-    "\n\006maxNum\030\004 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\026\n\002id\030\005"
-    " \001(\tB\n\302\377\024\002id\220\301\024/\"\326\001\n\013boxitemDesc\022\035\n\004rand"
-    "\030\001 \001(\tB\017\302\377\024\006\346\235\203\351\207\215\220\301\024\257\002\022 \n\006maxNum\030\002 \001(\005B"
-    "\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022%\n\010rarerand\030\003 \001(\005B\023\302\377\024"
-    "\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\004 \001(\005B\020\302\377\024\014\346\234"
-    "\200\345\260\217\346\225\260\351\207\217\022$\n\006isbind\030\005 \001(\tB\024\302\377\024\014\346\240\207\345\256\232\346\240"
-    "\207\350\256\260\220\301\024\177\022\027\n\002id\030\006 \001(\tB\013\302\377\024\002id\220\301\024\377\005\"\337\005\n\006bo"
-    "xbox\022\033\n\002id\030\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022#\n\tdro"
-    "p_type\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022$\n\ngoldmi"
-    "nNum\030\003 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022$\n\ngoldmaxN"
-    "um\030\004 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022%\n\010goldrand\030\005"
-    " \001(\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022)\n\017bindjewelmi"
-    "nNum\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022)\n\017bindjewe"
-    "lmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022*\n\rbindj"
-    "ewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022%\n\013j"
-    "ewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022%\n\013je"
-    "welmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022&\n\tjew"
-    "elrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022(\n\016god"
-    "jewelminNum\030\014 \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\213\351\231\220\022(\n\016g"
-    "odjewelmaxNum\030\r \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\212\351\231\220\022)\n"
-    "\014godjewelrand\030\016 \001(\005B\023\302\377\024\017\347\245\236\351\222\273\346\216\211\350\220\275\347\216\207"
-    "\0221\n\req_profession\030\017 \001(\tB\032\302\377\024\022\350\243\205\345\244\207\350\201\214\344\270"
-    "\232\351\231\220\345\210\266\220\301\024 \022;\n\005equip\030\020 \003(\0132\026.proto_ff.bo"
-    "xequipDescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024\010\0229\n\004item"
-    "\030\021 \003(\0132\025.proto_ff.boxitemDescB\024\302\377\024\014\347\250\200\346\234"
-    "\211\347\211\251\345\223\201\210\301\0242\"<\n\014Sheet_boxbox\022,\n\013boxbox_Li"
-    "st\030\001 \003(\0132\020.proto_ff.boxboxB\005\210\301\024\271(", 1233);
+    "roto\"\254\001\n\017boxboxequipDesc\022!\n\004rand\030\001 \001(\005B\023"
+    "\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\002 \001(\005B\020\302\377\024"
+    "\014\346\234\200\345\260\217\346\225\260\351\207\217\022\032\n\006isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256"
+    "\232\022 \n\006maxNum\030\004 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\026\n\002i"
+    "d\030\005 \001(\tB\n\302\377\024\002id\220\301\024/\"\331\001\n\016boxboxitemDesc\022\035"
+    "\n\004rand\030\001 \001(\tB\017\302\377\024\006\346\235\203\351\207\215\220\301\024\257\002\022 \n\006maxNum\030"
+    "\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022%\n\010rarerand\030\003 \001("
+    "\005B\023\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\004 \001(\005B\020"
+    "\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022$\n\006isbind\030\005 \001(\tB\024\302\377\024\014\346\240"
+    "\207\345\256\232\346\240\207\350\256\260\220\301\024\177\022\027\n\002id\030\006 \001(\tB\013\302\377\024\002id\220\301\024\377\005\""
+    "\345\005\n\006boxbox\022\033\n\002id\030\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022"
+    "#\n\tdrop_type\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022$\n\n"
+    "goldminNum\030\003 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022$\n\ngo"
+    "ldmaxNum\030\004 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022%\n\010gold"
+    "rand\030\005 \001(\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022)\n\017bindj"
+    "ewelminNum\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022)\n\017bi"
+    "ndjewelmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022*\n"
+    "\rbindjewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216"
+    "\207\022%\n\013jewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220"
+    "\022%\n\013jewelmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022"
+    "&\n\tjewelrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022"
+    "(\n\016godjewelminNum\030\014 \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\213\351\231"
+    "\220\022(\n\016godjewelmaxNum\030\r \001(\005B\020\302\377\024\014\347\245\236\351\222\273\344\270\212"
+    "\351\231\220\022)\n\014godjewelrand\030\016 \001(\005B\023\302\377\024\017\347\245\236\351\222\273\346\216\211"
+    "\350\220\275\347\216\207\0221\n\req_profession\030\017 \001(\tB\032\302\377\024\022\350\243\205\345\244"
+    "\207\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024 \022>\n\005equip\030\020 \003(\0132\031.proto"
+    "_ff.boxboxequipDescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024"
+    "\010\022<\n\004item\030\021 \003(\0132\030.proto_ff.boxboxitemDes"
+    "cB\024\302\377\024\014\347\250\200\346\234\211\347\211\251\345\223\201\210\301\0242\"<\n\014Sheet_boxbox\022"
+    ",\n\013boxbox_List\030\001 \003(\0132\020.proto_ff.boxboxB\005"
+    "\210\301\024\271(", 1245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "box.proto", &protobuf_RegisterTypes);
-  boxequipDesc::default_instance_ = new boxequipDesc();
-  boxitemDesc::default_instance_ = new boxitemDesc();
+  boxboxequipDesc::default_instance_ = new boxboxequipDesc();
+  boxboxitemDesc::default_instance_ = new boxboxitemDesc();
   boxbox::default_instance_ = new boxbox();
   Sheet_boxbox::default_instance_ = new Sheet_boxbox();
-  boxequipDesc::default_instance_->InitAsDefaultInstance();
-  boxitemDesc::default_instance_->InitAsDefaultInstance();
+  boxboxequipDesc::default_instance_->InitAsDefaultInstance();
+  boxboxitemDesc::default_instance_->InitAsDefaultInstance();
   boxbox::default_instance_->InitAsDefaultInstance();
   Sheet_boxbox::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_box_2eproto);
@@ -224,28 +225,28 @@ struct StaticDescriptorInitializer_box_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxequipDesc::kRandFieldNumber;
-const int boxequipDesc::kMinNumFieldNumber;
-const int boxequipDesc::kIsbindFieldNumber;
-const int boxequipDesc::kMaxNumFieldNumber;
-const int boxequipDesc::kIdFieldNumber;
+const int boxboxequipDesc::kRandFieldNumber;
+const int boxboxequipDesc::kMinNumFieldNumber;
+const int boxboxequipDesc::kIsbindFieldNumber;
+const int boxboxequipDesc::kMaxNumFieldNumber;
+const int boxboxequipDesc::kIdFieldNumber;
 #endif  // !_MSC_VER
 
-boxequipDesc::boxequipDesc()
+boxboxequipDesc::boxboxequipDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxequipDesc::InitAsDefaultInstance() {
+void boxboxequipDesc::InitAsDefaultInstance() {
 }
 
-boxequipDesc::boxequipDesc(const boxequipDesc& from)
+boxboxequipDesc::boxboxequipDesc(const boxboxequipDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxequipDesc::SharedCtor() {
+void boxboxequipDesc::SharedCtor() {
   _cached_size_ = 0;
   rand_ = 0;
   minnum_ = 0;
@@ -255,11 +256,11 @@ void boxequipDesc::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxequipDesc::~boxequipDesc() {
+boxboxequipDesc::~boxboxequipDesc() {
   SharedDtor();
 }
 
-void boxequipDesc::SharedDtor() {
+void boxboxequipDesc::SharedDtor() {
   if (id_ != &::google::protobuf::internal::kEmptyString) {
     delete id_;
   }
@@ -267,28 +268,28 @@ void boxequipDesc::SharedDtor() {
   }
 }
 
-void boxequipDesc::SetCachedSize(int size) const {
+void boxboxequipDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxequipDesc::descriptor() {
+const ::google::protobuf::Descriptor* boxboxequipDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxequipDesc_descriptor_;
+  return boxboxequipDesc_descriptor_;
 }
 
-const boxequipDesc& boxequipDesc::default_instance() {
+const boxboxequipDesc& boxboxequipDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxequipDesc* boxequipDesc::default_instance_ = NULL;
+boxboxequipDesc* boxboxequipDesc::default_instance_ = NULL;
 
-boxequipDesc* boxequipDesc::New() const {
-  return new boxequipDesc;
+boxboxequipDesc* boxboxequipDesc::New() const {
+  return new boxboxequipDesc;
 }
 
-void boxequipDesc::Clear() {
+void boxboxequipDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     rand_ = 0;
     minnum_ = 0;
@@ -304,7 +305,7 @@ void boxequipDesc::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool boxequipDesc::MergePartialFromCodedStream(
+bool boxboxequipDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -406,7 +407,7 @@ bool boxequipDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxequipDesc::SerializeWithCachedSizes(
+void boxboxequipDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 rand = 1;
   if (has_rand()) {
@@ -443,7 +444,7 @@ void boxequipDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxequipDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* boxboxequipDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 rand = 1;
   if (has_rand()) {
@@ -482,7 +483,7 @@ void boxequipDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int boxequipDesc::ByteSize() const {
+int boxboxequipDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -533,10 +534,10 @@ int boxequipDesc::ByteSize() const {
   return total_size;
 }
 
-void boxequipDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void boxboxequipDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxequipDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxequipDesc*>(
+  const boxboxequipDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxequipDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -545,7 +546,7 @@ void boxequipDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxequipDesc::MergeFrom(const boxequipDesc& from) {
+void boxboxequipDesc::MergeFrom(const boxboxequipDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_rand()) {
@@ -567,24 +568,24 @@ void boxequipDesc::MergeFrom(const boxequipDesc& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxequipDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void boxboxequipDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxequipDesc::CopyFrom(const boxequipDesc& from) {
+void boxboxequipDesc::CopyFrom(const boxboxequipDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxequipDesc::IsInitialized() const {
+bool boxboxequipDesc::IsInitialized() const {
 
   return true;
 }
 
-void boxequipDesc::Swap(boxequipDesc* other) {
+void boxboxequipDesc::Swap(boxboxequipDesc* other) {
   if (other != this) {
     std::swap(rand_, other->rand_);
     std::swap(minnum_, other->minnum_);
@@ -597,11 +598,11 @@ void boxequipDesc::Swap(boxequipDesc* other) {
   }
 }
 
-::google::protobuf::Metadata boxequipDesc::GetMetadata() const {
+::google::protobuf::Metadata boxboxequipDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxequipDesc_descriptor_;
-  metadata.reflection = boxequipDesc_reflection_;
+  metadata.descriptor = boxboxequipDesc_descriptor_;
+  metadata.reflection = boxboxequipDesc_reflection_;
   return metadata;
 }
 
@@ -609,29 +610,29 @@ void boxequipDesc::Swap(boxequipDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxitemDesc::kRandFieldNumber;
-const int boxitemDesc::kMaxNumFieldNumber;
-const int boxitemDesc::kRarerandFieldNumber;
-const int boxitemDesc::kMinNumFieldNumber;
-const int boxitemDesc::kIsbindFieldNumber;
-const int boxitemDesc::kIdFieldNumber;
+const int boxboxitemDesc::kRandFieldNumber;
+const int boxboxitemDesc::kMaxNumFieldNumber;
+const int boxboxitemDesc::kRarerandFieldNumber;
+const int boxboxitemDesc::kMinNumFieldNumber;
+const int boxboxitemDesc::kIsbindFieldNumber;
+const int boxboxitemDesc::kIdFieldNumber;
 #endif  // !_MSC_VER
 
-boxitemDesc::boxitemDesc()
+boxboxitemDesc::boxboxitemDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxitemDesc::InitAsDefaultInstance() {
+void boxboxitemDesc::InitAsDefaultInstance() {
 }
 
-boxitemDesc::boxitemDesc(const boxitemDesc& from)
+boxboxitemDesc::boxboxitemDesc(const boxboxitemDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxitemDesc::SharedCtor() {
+void boxboxitemDesc::SharedCtor() {
   _cached_size_ = 0;
   rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   maxnum_ = 0;
@@ -642,11 +643,11 @@ void boxitemDesc::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxitemDesc::~boxitemDesc() {
+boxboxitemDesc::~boxboxitemDesc() {
   SharedDtor();
 }
 
-void boxitemDesc::SharedDtor() {
+void boxboxitemDesc::SharedDtor() {
   if (rand_ != &::google::protobuf::internal::kEmptyString) {
     delete rand_;
   }
@@ -660,28 +661,28 @@ void boxitemDesc::SharedDtor() {
   }
 }
 
-void boxitemDesc::SetCachedSize(int size) const {
+void boxboxitemDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxitemDesc::descriptor() {
+const ::google::protobuf::Descriptor* boxboxitemDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxitemDesc_descriptor_;
+  return boxboxitemDesc_descriptor_;
 }
 
-const boxitemDesc& boxitemDesc::default_instance() {
+const boxboxitemDesc& boxboxitemDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxitemDesc* boxitemDesc::default_instance_ = NULL;
+boxboxitemDesc* boxboxitemDesc::default_instance_ = NULL;
 
-boxitemDesc* boxitemDesc::New() const {
-  return new boxitemDesc;
+boxboxitemDesc* boxboxitemDesc::New() const {
+  return new boxboxitemDesc;
 }
 
-void boxitemDesc::Clear() {
+void boxboxitemDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_rand()) {
       if (rand_ != &::google::protobuf::internal::kEmptyString) {
@@ -706,7 +707,7 @@ void boxitemDesc::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool boxitemDesc::MergePartialFromCodedStream(
+bool boxboxitemDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -826,7 +827,7 @@ bool boxitemDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxitemDesc::SerializeWithCachedSizes(
+void boxboxitemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string rand = 1;
   if (has_rand()) {
@@ -876,7 +877,7 @@ void boxitemDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxitemDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* boxboxitemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional string rand = 1;
   if (has_rand()) {
@@ -930,7 +931,7 @@ void boxitemDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int boxitemDesc::ByteSize() const {
+int boxboxitemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -988,10 +989,10 @@ int boxitemDesc::ByteSize() const {
   return total_size;
 }
 
-void boxitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void boxboxitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxitemDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxitemDesc*>(
+  const boxboxitemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxitemDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1000,7 +1001,7 @@ void boxitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxitemDesc::MergeFrom(const boxitemDesc& from) {
+void boxboxitemDesc::MergeFrom(const boxboxitemDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_rand()) {
@@ -1025,24 +1026,24 @@ void boxitemDesc::MergeFrom(const boxitemDesc& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxitemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void boxboxitemDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxitemDesc::CopyFrom(const boxitemDesc& from) {
+void boxboxitemDesc::CopyFrom(const boxboxitemDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxitemDesc::IsInitialized() const {
+bool boxboxitemDesc::IsInitialized() const {
 
   return true;
 }
 
-void boxitemDesc::Swap(boxitemDesc* other) {
+void boxboxitemDesc::Swap(boxboxitemDesc* other) {
   if (other != this) {
     std::swap(rand_, other->rand_);
     std::swap(maxnum_, other->maxnum_);
@@ -1056,11 +1057,11 @@ void boxitemDesc::Swap(boxitemDesc* other) {
   }
 }
 
-::google::protobuf::Metadata boxitemDesc::GetMetadata() const {
+::google::protobuf::Metadata boxboxitemDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxitemDesc_descriptor_;
-  metadata.reflection = boxitemDesc_reflection_;
+  metadata.descriptor = boxboxitemDesc_descriptor_;
+  metadata.reflection = boxboxitemDesc_reflection_;
   return metadata;
 }
 
@@ -1430,7 +1431,7 @@ bool boxbox::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto_ff.boxequipDesc equip = 16;
+      // repeated .proto_ff.boxboxequipDesc equip = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1445,7 +1446,7 @@ bool boxbox::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto_ff.boxitemDesc item = 17;
+      // repeated .proto_ff.boxboxitemDesc item = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1557,13 +1558,13 @@ void boxbox::SerializeWithCachedSizes(
       15, this->eq_profession(), output);
   }
 
-  // repeated .proto_ff.boxequipDesc equip = 16;
+  // repeated .proto_ff.boxboxequipDesc equip = 16;
   for (int i = 0; i < this->equip_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       16, this->equip(i), output);
   }
 
-  // repeated .proto_ff.boxitemDesc item = 17;
+  // repeated .proto_ff.boxboxitemDesc item = 17;
   for (int i = 0; i < this->item_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       17, this->item(i), output);
@@ -1657,14 +1658,14 @@ void boxbox::SerializeWithCachedSizes(
         15, this->eq_profession(), target);
   }
 
-  // repeated .proto_ff.boxequipDesc equip = 16;
+  // repeated .proto_ff.boxboxequipDesc equip = 16;
   for (int i = 0; i < this->equip_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         16, this->equip(i), target);
   }
 
-  // repeated .proto_ff.boxitemDesc item = 17;
+  // repeated .proto_ff.boxboxitemDesc item = 17;
   for (int i = 0; i < this->item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1790,7 +1791,7 @@ int boxbox::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.boxequipDesc equip = 16;
+  // repeated .proto_ff.boxboxequipDesc equip = 16;
   total_size += 2 * this->equip_size();
   for (int i = 0; i < this->equip_size(); i++) {
     total_size +=
@@ -1798,7 +1799,7 @@ int boxbox::ByteSize() const {
         this->equip(i));
   }
 
-  // repeated .proto_ff.boxitemDesc item = 17;
+  // repeated .proto_ff.boxboxitemDesc item = 17;
   total_size += 2 * this->item_size();
   for (int i = 0; i < this->item_size(); i++) {
     total_size +=

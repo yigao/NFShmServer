@@ -1,0 +1,76 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message randomnamemanfirst
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamemanfirst
+{
+	repeated randomnamemanfirst randomnamemanfirst_List = 1[(yd_fieldoptions.field_arysize)=160];
+}
+
+message randomnamemansecond
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamemansecond
+{
+	repeated randomnamemansecond randomnamemansecond_List = 1[(yd_fieldoptions.field_arysize)=143];
+}
+
+message randomnamemanthird
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamemanthird
+{
+	repeated randomnamemanthird randomnamemanthird_List = 1[(yd_fieldoptions.field_arysize)=511];
+}
+
+message randomnamewomanfirst
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamewomanfirst
+{
+	repeated randomnamewomanfirst randomnamewomanfirst_List = 1[(yd_fieldoptions.field_arysize)=344];
+}
+
+message randomnamewomansecond
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamewomansecond
+{
+	repeated randomnamewomansecond randomnamewomansecond_List = 1[(yd_fieldoptions.field_arysize)=132];
+}
+
+message randomnamewomanthird
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_randomnamewomanthird
+{
+	repeated randomnamewomanthird randomnamewomanthird_List = 1[(yd_fieldoptions.field_arysize)=489];
+}

@@ -1,0 +1,131 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message getTreasurerareItem
+{
+	optional int64 itemID = 1[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 top = 2[(yd_fieldoptions.field_cname) = "是否置顶"];
+}
+
+
+message Sheet_getTreasurerareItem
+{
+	repeated getTreasurerareItem getTreasurerareItem_List = 1[(yd_fieldoptions.field_arysize)=475];
+}
+
+message getTreasuretimesControlgroupDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 times = 2[(yd_fieldoptions.field_cname) = "次数"];
+}
+
+message getTreasuretimesControl
+{
+	optional int32 bossType = 1[(yd_fieldoptions.field_cname) = "总类型"];
+	optional int32 mapType = 2[(yd_fieldoptions.field_cname) = "地图类型"];
+	optional int32 functionId = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
+	optional int32 duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int32 viptype = 5[(yd_fieldoptions.field_cname) = "VIP类型"];
+	optional int64 bossFlashItem = 6[(yd_fieldoptions.field_cname) = "BOSS刷新道具"];
+	optional int32 bossFlashItemNum = 7[(yd_fieldoptions.field_cname) = "刷BOSS道具消耗数量"];
+	optional int64 callingCardId = 8[(yd_fieldoptions.field_cname) = "召唤卡id"];
+	optional int32 callingCardNum = 9[(yd_fieldoptions.field_cname) = "召唤卡数量"];
+	optional int32 times = 10[(yd_fieldoptions.field_cname) = "boss次数"];
+	optional int64 costitem1 = 11[(yd_fieldoptions.field_cname) = "BOSS消耗物品"];
+	optional int32 costnum1 = 12[(yd_fieldoptions.field_cname) = "boss消耗数量"];
+	optional int32 canBuyFlag = 13[(yd_fieldoptions.field_cname) = "是否可购买"];
+	optional int32 canhelp = 14[(yd_fieldoptions.field_cname) = "是否可以援助"];
+	optional int32 skill = 15[(yd_fieldoptions.field_cname) = "纳入全服首杀"];
+	repeated getTreasuretimesControlgroupDesc group = 16[(yd_fieldoptions.field_cname) = "Boss组", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_getTreasuretimesControl
+{
+	repeated getTreasuretimesControl getTreasuretimesControl_List = 1[(yd_fieldoptions.field_arysize)=110];
+}
+
+message getTreasureArrivalBossReward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
+	optional int32 typeParam = 3[(yd_fieldoptions.field_cname) = "奖励参数"];
+	optional int64 boxID = 4[(yd_fieldoptions.field_cname) = "奖励"];
+}
+
+
+message Sheet_getTreasureArrivalBossReward
+{
+	repeated getTreasureArrivalBossReward getTreasureArrivalBossReward_List = 1[(yd_fieldoptions.field_arysize)=112];
+}
+
+message getTreasureArrivalBossControl
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 Arrival = 2[(yd_fieldoptions.field_cname) = "降临值上限"];
+	optional int64 costid = 3[(yd_fieldoptions.field_cname) = "兑换物的id"];
+	optional int64 rewardID = 4[(yd_fieldoptions.field_cname) = "奖励物品ID"];
+	optional int32 rewardNum = 5[(yd_fieldoptions.field_cname) = "奖励物品数量"];
+	optional int32 timesMax = 6[(yd_fieldoptions.field_cname) = "最高累计降临次数"];
+	optional int32 recovery = 7[(yd_fieldoptions.field_cname) = "恢复时间(分)"];
+	optional int64 duplicateGroup = 8[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int64 bossid = 9[(yd_fieldoptions.field_cname) = "bossid"];
+	optional int64 pathID = 10[(yd_fieldoptions.field_cname) = "位置点"];
+	optional string radio = 11[(yd_fieldoptions.field_cname) = "广播通知血量参数", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_getTreasureArrivalBossControl
+{
+	repeated getTreasureArrivalBossControl getTreasureArrivalBossControl_List = 1[(yd_fieldoptions.field_arysize)=105];
+}
+
+message getTreasurevipBossControl
+{
+	optional int32 floor = 1[(yd_fieldoptions.field_cname) = "层数"];
+	optional int32 minVipLvNeed = 2[(yd_fieldoptions.field_cname) = "最低VIP等级要求"];
+	optional int32 VipLvNeed = 3[(yd_fieldoptions.field_cname) = "VIP等级要求"];
+	optional int32 costnum = 4[(yd_fieldoptions.field_cname) = "代替入场消费"];
+	optional int64 costid = 5[(yd_fieldoptions.field_cname) = "消耗物品ID"];
+}
+
+
+message Sheet_getTreasurevipBossControl
+{
+	repeated getTreasurevipBossControl getTreasurevipBossControl_List = 1[(yd_fieldoptions.field_arysize)=109];
+}
+
+message getTreasureboss
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "bossID"];
+	optional int32 bossType = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
+	optional int64 monsterID = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 classOrder = 4[(yd_fieldoptions.field_cname) = "阶次"];
+	optional int32 sceneOrder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
+	optional int64 duplicateID = 6[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int64 pathID = 7[(yd_fieldoptions.field_cname) = "位置点"];
+	optional int32 group_type = 8[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 flashTime = 9[(yd_fieldoptions.field_cname) = "刷新间隔"];
+}
+
+
+message Sheet_getTreasureboss
+{
+	repeated getTreasureboss getTreasureboss_List = 1[(yd_fieldoptions.field_arysize)=863];
+}
+
+message getTreasurehelp
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "获奖等级"];
+	optional int32 down = 2[(yd_fieldoptions.field_cname) = "伤血下限（等于）"];
+	optional int32 up = 3[(yd_fieldoptions.field_cname) = "伤血上限（等于）"];
+	repeated int64 num = 4[(yd_fieldoptions.field_cname) = "奖励内容"];
+}
+
+
+message Sheet_getTreasurehelp
+{
+	repeated getTreasurehelp getTreasurehelp_List = 1[(yd_fieldoptions.field_arysize)=107];
+}

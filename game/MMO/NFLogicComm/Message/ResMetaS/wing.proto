@@ -1,0 +1,100 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message wingwingattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message wingwing
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "翅膀ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 51];
+	optional int32 realLevel = 5[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 materialID = 6[(yd_fieldoptions.field_cname) = "进阶材料ID"];
+	optional int32 materialEXP = 7[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
+	optional int32 exp = 8[(yd_fieldoptions.field_cname) = "翅膀升级经验"];
+	optional int64 skillID = 9[(yd_fieldoptions.field_cname) = "解锁技能ID"];
+	optional int64 BreakMaterialID = 10[(yd_fieldoptions.field_cname) = "突破材料ID"];
+	optional int32 BreakMaterialCost = 11[(yd_fieldoptions.field_cname) = "突破材料数量"];
+	repeated wingwingattributeDesc attribute = 12[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 fragmentID = 13[(yd_fieldoptions.field_cname) = "关联碎片ID"];
+}
+
+
+message Sheet_wingwing
+{
+	repeated wingwing wingwing_List = 1[(yd_fieldoptions.field_arysize)=584];
+}
+
+message wingchangeattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message wingchange
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "翅膀ID"];
+	optional string resource = 2[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 32];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 32];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 87];
+	optional int32 quality = 5[(yd_fieldoptions.field_cname) = "品质"];
+	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 151];
+	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 starBer = 9[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
+	optional int64 upAttributeId = 10[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	repeated wingchangeattributeDesc attribute = 11[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_wingchange
+{
+	repeated wingchange wingchange_List = 1[(yd_fieldoptions.field_arysize)=132];
+}
+
+message wingfragmentattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message wingfragment
+{
+	optional int64 fragmentID = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated wingfragmentattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_wingfragment
+{
+	repeated wingfragment wingfragment_List = 1[(yd_fieldoptions.field_arysize)=107];
+}
+
+message wingstarUpupAttributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message wingstarUp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 upAttributeId = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 starID = 3[(yd_fieldoptions.field_cname) = "星级"];
+	repeated wingstarUpupAttributeDesc upAttribute = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_wingstarUp
+{
+	repeated wingstarUp wingstarUp_List = 1[(yd_fieldoptions.field_arysize)=124];
+}

@@ -1,0 +1,83 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message soloduanweirewardDesc
+{
+	optional int32 num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 duanwei = 2[(yd_fieldoptions.field_cname) = "段位"];
+}
+
+message soloduanweidayRewardItemDesc
+{
+	optional int32 num = 1[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = "奖励ID"];
+}
+
+message soloduanwei
+{
+	optional int32 duanweiID = 1[(yd_fieldoptions.field_cname) = "段位ID"];
+	optional int32 pointMin = 2[(yd_fieldoptions.field_cname) = "升段积分"];
+	optional int32 pointWin = 3[(yd_fieldoptions.field_cname) = "胜利积分"];
+	optional int32 pointLose = 4[(yd_fieldoptions.field_cname) = "失败积分"];
+	optional int32 arenaWin = 5[(yd_fieldoptions.field_cname) = "胜利功勋"];
+	optional int32 arenaLose = 6[(yd_fieldoptions.field_cname) = "失败功勋"];
+	optional int32 pipeiPoint = 7[(yd_fieldoptions.field_cname) = "每五秒匹配正负扩大积分"];
+	optional int32 dayReward = 8[(yd_fieldoptions.field_cname) = "每日奖励功勋"];
+	optional int32 diamondNum = 9[(yd_fieldoptions.field_cname) = "段位奖励绑钻数量"];
+	repeated soloduanweirewardDesc reward = 10[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+	repeated soloduanweidayRewardItemDesc dayRewardItem = 11[(yd_fieldoptions.field_cname) = "每日道具", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_soloduanwei
+{
+	repeated soloduanwei soloduanwei_List = 1[(yd_fieldoptions.field_arysize)=125];
+}
+
+message solorankrewardDesc
+{
+	optional int32 num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 rank = 2[(yd_fieldoptions.field_cname) = "排名"];
+}
+
+message solorank
+{
+	optional int32 rankID = 1[(yd_fieldoptions.field_cname) = "排名ID"];
+	optional int32 maxRank = 2[(yd_fieldoptions.field_cname) = "最高排名"];
+	optional int32 minRank = 3[(yd_fieldoptions.field_cname) = "最低排名"];
+	optional int32 diamondNum = 4[(yd_fieldoptions.field_cname) = "排名奖励绑钻数量"];
+	repeated solorankrewardDesc reward = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_solorank
+{
+	repeated solorank solorank_List = 1[(yd_fieldoptions.field_arysize)=112];
+}
+
+message solopipei
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 num = 2[(yd_fieldoptions.field_cname) = "匹配次数"];
+	optional int64 reward = 3[(yd_fieldoptions.field_cname) = "奖励"];
+}
+
+
+message Sheet_solopipei
+{
+	repeated solopipei solopipei_List = 1[(yd_fieldoptions.field_arysize)=107];
+}
+
+message soloconstant
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional string constant = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 49];
+}
+
+
+message Sheet_soloconstant
+{
+	repeated soloconstant soloconstant_List = 1[(yd_fieldoptions.field_arysize)=139];
+}

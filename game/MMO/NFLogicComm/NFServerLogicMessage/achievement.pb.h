@@ -34,24 +34,22 @@ void  protobuf_AddDesc_achievement_2eproto();
 void protobuf_AssignDesc_achievement_2eproto();
 void protobuf_ShutdownFile_achievement_2eproto();
 
-class achievementitemRewardDesc;
+class achievementachievementitemRewardDesc;
 class achievementachievement;
 class Sheet_achievementachievement;
 class achievementachievementreward;
 class Sheet_achievementachievementreward;
-class achievementachievenName;
-class Sheet_achievementachievenName;
 
 // ===================================================================
 
-class achievementitemRewardDesc : public ::google::protobuf::Message {
+class achievementachievementitemRewardDesc : public ::google::protobuf::Message {
  public:
-  achievementitemRewardDesc();
-  virtual ~achievementitemRewardDesc();
+  achievementachievementitemRewardDesc();
+  virtual ~achievementachievementitemRewardDesc();
 
-  achievementitemRewardDesc(const achievementitemRewardDesc& from);
+  achievementachievementitemRewardDesc(const achievementachievementitemRewardDesc& from);
 
-  inline achievementitemRewardDesc& operator=(const achievementitemRewardDesc& from) {
+  inline achievementachievementitemRewardDesc& operator=(const achievementachievementitemRewardDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -65,17 +63,17 @@ class achievementitemRewardDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const achievementitemRewardDesc& default_instance();
+  static const achievementachievementitemRewardDesc& default_instance();
 
-  void Swap(achievementitemRewardDesc* other);
+  void Swap(achievementachievementitemRewardDesc* other);
 
   // implements Message ----------------------------------------------
 
-  achievementitemRewardDesc* New() const;
+  achievementachievementitemRewardDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const achievementitemRewardDesc& from);
-  void MergeFrom(const achievementitemRewardDesc& from);
+  void CopyFrom(const achievementachievementitemRewardDesc& from);
+  void MergeFrom(const achievementachievementitemRewardDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -112,7 +110,7 @@ class achievementitemRewardDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 value() const;
   inline void set_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.achievementitemRewardDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.achievementachievementitemRewardDesc)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -132,7 +130,7 @@ class achievementitemRewardDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_achievement_2eproto();
 
   void InitAsDefaultInstance();
-  static achievementitemRewardDesc* default_instance_;
+  static achievementachievementitemRewardDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -279,16 +277,16 @@ class achievementachievement : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 linkid() const;
   inline void set_linkid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+  // repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
   inline int itemreward_size() const;
   inline void clear_itemreward();
   static const int kItemRewardFieldNumber = 13;
-  inline const ::proto_ff::achievementitemRewardDesc& itemreward(int index) const;
-  inline ::proto_ff::achievementitemRewardDesc* mutable_itemreward(int index);
-  inline ::proto_ff::achievementitemRewardDesc* add_itemreward();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementitemRewardDesc >&
+  inline const ::proto_ff::achievementachievementitemRewardDesc& itemreward(int index) const;
+  inline ::proto_ff::achievementachievementitemRewardDesc* mutable_itemreward(int index);
+  inline ::proto_ff::achievementachievementitemRewardDesc* add_itemreward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementitemRewardDesc >&
       itemreward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementitemRewardDesc >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementitemRewardDesc >*
       mutable_itemreward();
 
   // @@protoc_insertion_point(class_scope:proto_ff.achievementachievement)
@@ -331,7 +329,7 @@ class achievementachievement : public ::google::protobuf::Message {
   ::google::protobuf::int32 achievementdia_;
   ::google::protobuf::int32 achievementgod_;
   ::google::protobuf::int32 achievementpoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementitemRewardDesc > itemreward_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementitemRewardDesc > itemreward_;
   ::google::protobuf::int32 linkid_;
 
   mutable int _cached_size_;
@@ -636,210 +634,53 @@ class Sheet_achievementachievementreward : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Sheet_achievementachievementreward* default_instance_;
 };
-// -------------------------------------------------------------------
-
-class achievementachievenName : public ::google::protobuf::Message {
- public:
-  achievementachievenName();
-  virtual ~achievementachievenName();
-
-  achievementachievenName(const achievementachievenName& from);
-
-  inline achievementachievenName& operator=(const achievementachievenName& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const achievementachievenName& default_instance();
-
-  void Swap(achievementachievenName* other);
-
-  // implements Message ----------------------------------------------
-
-  achievementachievenName* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const achievementachievenName& from);
-  void MergeFrom(const achievementachievenName& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:proto_ff.achievementachievenName)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[1];
-
-  friend void  protobuf_AddDesc_achievement_2eproto();
-  friend void protobuf_AssignDesc_achievement_2eproto();
-  friend void protobuf_ShutdownFile_achievement_2eproto();
-
-  void InitAsDefaultInstance();
-  static achievementachievenName* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Sheet_achievementachievenName : public ::google::protobuf::Message {
- public:
-  Sheet_achievementachievenName();
-  virtual ~Sheet_achievementachievenName();
-
-  Sheet_achievementachievenName(const Sheet_achievementachievenName& from);
-
-  inline Sheet_achievementachievenName& operator=(const Sheet_achievementachievenName& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_achievementachievenName& default_instance();
-
-  void Swap(Sheet_achievementachievenName* other);
-
-  // implements Message ----------------------------------------------
-
-  Sheet_achievementachievenName* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_achievementachievenName& from);
-  void MergeFrom(const Sheet_achievementachievenName& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-  inline int achievementachievenname_list_size() const;
-  inline void clear_achievementachievenname_list();
-  static const int kAchievementachievenNameListFieldNumber = 1;
-  inline const ::proto_ff::achievementachievenName& achievementachievenname_list(int index) const;
-  inline ::proto_ff::achievementachievenName* mutable_achievementachievenname_list(int index);
-  inline ::proto_ff::achievementachievenName* add_achievementachievenname_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievenName >&
-      achievementachievenname_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievenName >*
-      mutable_achievementachievenname_list();
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_achievementachievenName)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievenName > achievementachievenname_list_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_achievement_2eproto();
-  friend void protobuf_AssignDesc_achievement_2eproto();
-  friend void protobuf_ShutdownFile_achievement_2eproto();
-
-  void InitAsDefaultInstance();
-  static Sheet_achievementachievenName* default_instance_;
-};
 // ===================================================================
 
 
 // ===================================================================
 
-// achievementitemRewardDesc
+// achievementachievementitemRewardDesc
 
 // optional int64 ID = 1;
-inline bool achievementitemRewardDesc::has_id() const {
+inline bool achievementachievementitemRewardDesc::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void achievementitemRewardDesc::set_has_id() {
+inline void achievementachievementitemRewardDesc::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void achievementitemRewardDesc::clear_has_id() {
+inline void achievementachievementitemRewardDesc::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void achievementitemRewardDesc::clear_id() {
+inline void achievementachievementitemRewardDesc::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
   clear_has_id();
 }
-inline ::google::protobuf::int64 achievementitemRewardDesc::id() const {
+inline ::google::protobuf::int64 achievementachievementitemRewardDesc::id() const {
   return id_;
 }
-inline void achievementitemRewardDesc::set_id(::google::protobuf::int64 value) {
+inline void achievementachievementitemRewardDesc::set_id(::google::protobuf::int64 value) {
   set_has_id();
   id_ = value;
 }
 
 // optional int32 Value = 2;
-inline bool achievementitemRewardDesc::has_value() const {
+inline bool achievementachievementitemRewardDesc::has_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void achievementitemRewardDesc::set_has_value() {
+inline void achievementachievementitemRewardDesc::set_has_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void achievementitemRewardDesc::clear_has_value() {
+inline void achievementachievementitemRewardDesc::clear_has_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void achievementitemRewardDesc::clear_value() {
+inline void achievementachievementitemRewardDesc::clear_value() {
   value_ = 0;
   clear_has_value();
 }
-inline ::google::protobuf::int32 achievementitemRewardDesc::value() const {
+inline ::google::protobuf::int32 achievementachievementitemRewardDesc::value() const {
   return value_;
 }
-inline void achievementitemRewardDesc::set_value(::google::protobuf::int32 value) {
+inline void achievementachievementitemRewardDesc::set_value(::google::protobuf::int32 value) {
   set_has_value();
   value_ = value;
 }
@@ -1160,27 +1001,27 @@ inline void achievementachievement::set_linkid(::google::protobuf::int32 value) 
   linkid_ = value;
 }
 
-// repeated .proto_ff.achievementitemRewardDesc itemReward = 13;
+// repeated .proto_ff.achievementachievementitemRewardDesc itemReward = 13;
 inline int achievementachievement::itemreward_size() const {
   return itemreward_.size();
 }
 inline void achievementachievement::clear_itemreward() {
   itemreward_.Clear();
 }
-inline const ::proto_ff::achievementitemRewardDesc& achievementachievement::itemreward(int index) const {
+inline const ::proto_ff::achievementachievementitemRewardDesc& achievementachievement::itemreward(int index) const {
   return itemreward_.Get(index);
 }
-inline ::proto_ff::achievementitemRewardDesc* achievementachievement::mutable_itemreward(int index) {
+inline ::proto_ff::achievementachievementitemRewardDesc* achievementachievement::mutable_itemreward(int index) {
   return itemreward_.Mutable(index);
 }
-inline ::proto_ff::achievementitemRewardDesc* achievementachievement::add_itemreward() {
+inline ::proto_ff::achievementachievementitemRewardDesc* achievementachievement::add_itemreward() {
   return itemreward_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementitemRewardDesc >&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementitemRewardDesc >&
 achievementachievement::itemreward() const {
   return itemreward_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementitemRewardDesc >*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementitemRewardDesc >*
 achievementachievement::mutable_itemreward() {
   return &itemreward_;
 }
@@ -1355,39 +1196,6 @@ Sheet_achievementachievementreward::achievementachievementreward_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievementreward >*
 Sheet_achievementachievementreward::mutable_achievementachievementreward_list() {
   return &achievementachievementreward_list_;
-}
-
-// -------------------------------------------------------------------
-
-// achievementachievenName
-
-// -------------------------------------------------------------------
-
-// Sheet_achievementachievenName
-
-// repeated .proto_ff.achievementachievenName achievementachievenName_List = 1;
-inline int Sheet_achievementachievenName::achievementachievenname_list_size() const {
-  return achievementachievenname_list_.size();
-}
-inline void Sheet_achievementachievenName::clear_achievementachievenname_list() {
-  achievementachievenname_list_.Clear();
-}
-inline const ::proto_ff::achievementachievenName& Sheet_achievementachievenName::achievementachievenname_list(int index) const {
-  return achievementachievenname_list_.Get(index);
-}
-inline ::proto_ff::achievementachievenName* Sheet_achievementachievenName::mutable_achievementachievenname_list(int index) {
-  return achievementachievenname_list_.Mutable(index);
-}
-inline ::proto_ff::achievementachievenName* Sheet_achievementachievenName::add_achievementachievenname_list() {
-  return achievementachievenname_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievenName >&
-Sheet_achievementachievenName::achievementachievenname_list() const {
-  return achievementachievenname_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::achievementachievenName >*
-Sheet_achievementachievenName::mutable_achievementachievenname_list() {
-  return &achievementachievenname_list_;
 }
 
 

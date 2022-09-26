@@ -3,7 +3,7 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message achievementitemRewardDesc
+message achievementachievementitemRewardDesc
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int32 Value = 2[(yd_fieldoptions.field_cname) = "数量"];
@@ -23,7 +23,7 @@ message achievementachievement
 	optional int32 achievementGod = 10[(yd_fieldoptions.field_cname) = "获得金币数量"];
 	optional int32 achievementPoint = 11[(yd_fieldoptions.field_cname) = "获取成就点数量"];
 	optional int32 linkID = 12[(yd_fieldoptions.field_cname) = "前往ID"];
-	repeated achievementitemRewardDesc itemReward = 13[(yd_fieldoptions.field_cname) = "获得物品", (yd_fieldoptions.field_arysize) = 2];
+	repeated achievementachievementitemRewardDesc itemReward = 13[(yd_fieldoptions.field_cname) = "获得物品", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -45,14 +45,4 @@ message achievementachievementreward
 message Sheet_achievementachievementreward
 {
 	repeated achievementachievementreward achievementachievementreward_List = 1[(yd_fieldoptions.field_arysize)=110];
-}
-
-message achievementachievenName
-{
-}
-
-
-message Sheet_achievementachievenName
-{
-	repeated achievementachievenName achievementachievenName_List = 1[(yd_fieldoptions.field_arysize)=119];
 }

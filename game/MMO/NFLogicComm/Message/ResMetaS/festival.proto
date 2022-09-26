@@ -1,0 +1,550 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message festivalmuban_JFduihuan
+{
+	optional int32 tiaoJianId = 1[(yd_fieldoptions.field_cname) = "达成条件"];
+	optional int64 prizeId = 2[(yd_fieldoptions.field_cname) = "奖励物品"];
+	optional int32 prof = 3[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 prizeNum = 4[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int64 propId = 5[(yd_fieldoptions.field_cname) = "道具"];
+	optional int32 propNum = 6[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 times = 7[(yd_fieldoptions.field_cname) = "限购次数"];
+}
+
+
+message Sheet_festivalmuban_JFduihuan
+{
+	repeated festivalmuban_JFduihuan festivalmuban_JFduihuan_List = 1[(yd_fieldoptions.field_arysize)=120];
+}
+
+message festivalmuban_dingzhi
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string des = 2[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 mustBoxId = 3[(yd_fieldoptions.field_cname) = "必选礼包内容"];
+	optional int32 currencyType = 4[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 price = 5[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 times = 6[(yd_fieldoptions.field_cname) = "次数"];
+	repeated int64 freeBoxId = 7[(yd_fieldoptions.field_cname) = "自选礼包内容"];
+	repeated int32 freeNum = 8[(yd_fieldoptions.field_cname) = "自选数量"];
+}
+
+
+message Sheet_festivalmuban_dingzhi
+{
+	repeated festivalmuban_dingzhi festivalmuban_dingzhi_List = 1[(yd_fieldoptions.field_arysize)=110];
+}
+
+message festivalmuban_CZfanzuan
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 rechargeId = 2[(yd_fieldoptions.field_cname) = "儲值计费点"];
+	optional int32 repayType = 3[(yd_fieldoptions.field_cname) = "赠送类型"];
+	optional int32 repayNum = 4[(yd_fieldoptions.field_cname) = "返钻数量"];
+	optional int32 timesLimit = 5[(yd_fieldoptions.field_cname) = "限制次数"];
+}
+
+
+message Sheet_festivalmuban_CZfanzuan
+{
+	repeated festivalmuban_CZfanzuan festivalmuban_CZfanzuan_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message festivalmuban_lianxuCZ
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
+	optional int32 Num = 2[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional int32 remarkId = 3[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 jiangLi = 5[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_lianxuCZ
+{
+	repeated festivalmuban_lianxuCZ festivalmuban_lianxuCZ_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message festivalmuban_prerecharge
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 order = 2[(yd_fieldoptions.field_cname) = "排序"];
+	optional string des = 3[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 boxid = 4[(yd_fieldoptions.field_cname) = "奖励boxid"];
+	optional int32 rechargeId = 5[(yd_fieldoptions.field_cname) = "充值计费点"];
+	optional int32 times = 6[(yd_fieldoptions.field_cname) = "限购次数"];
+}
+
+
+message Sheet_festivalmuban_prerecharge
+{
+	repeated festivalmuban_prerecharge festivalmuban_prerecharge_List = 1[(yd_fieldoptions.field_arysize)=124];
+}
+
+message festivalmuban_doubleGift
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 gear = 2[(yd_fieldoptions.field_cname) = "档位"];
+	optional int64 boxId = 3[(yd_fieldoptions.field_cname) = "奖励id"];
+	optional int64 freeBox = 4[(yd_fieldoptions.field_cname) = "免费奖励"];
+}
+
+
+message Sheet_festivalmuban_doubleGift
+{
+	repeated festivalmuban_doubleGift festivalmuban_doubleGift_List = 1[(yd_fieldoptions.field_arysize)=107];
+}
+
+message festivalbigyanhuarecharge
+{
+	optional int32 num = 1[(yd_fieldoptions.field_cname) = "缺少数量"];
+	optional int32 recharge = 2[(yd_fieldoptions.field_cname) = "计费点"];
+}
+
+
+message Sheet_festivalbigyanhuarecharge
+{
+	repeated festivalbigyanhuarecharge festivalbigyanhuarecharge_List = 1[(yd_fieldoptions.field_arysize)=120];
+}
+
+message festivalbigyanhuacost
+{
+	optional int32 times = 1[(yd_fieldoptions.field_cname) = "次数"];
+	optional int32 singleCost = 2[(yd_fieldoptions.field_cname) = "需要道具数量"];
+	optional int32 allCost = 3[(yd_fieldoptions.field_cname) = "全部对应数量"];
+}
+
+
+message Sheet_festivalbigyanhuacost
+{
+	repeated festivalbigyanhuacost festivalbigyanhuacost_List = 1[(yd_fieldoptions.field_arysize)=114];
+}
+
+message festivalmuban_bigyanhua
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 itemid = 2[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 prof = 4[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 type = 5[(yd_fieldoptions.field_cname) = "奖池类型"];
+	optional int32 order = 6[(yd_fieldoptions.field_cname) = "显示排序"];
+	optional int32 probability = 7[(yd_fieldoptions.field_cname) = "掉落权重"];
+	optional int64 relation = 8[(yd_fieldoptions.field_cname) = "关联页签"];
+	optional int64 modelid = 9[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 modeltype = 10[(yd_fieldoptions.field_cname) = "模型类型"];
+	optional string scale = 11[(yd_fieldoptions.field_cname) = "偏移缩放", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_festivalmuban_bigyanhua
+{
+	repeated festivalmuban_bigyanhua festivalmuban_bigyanhua_List = 1[(yd_fieldoptions.field_arysize)=114];
+}
+
+message festivalfestival
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "节日ID"];
+	optional int32 huoDongType = 2[(yd_fieldoptions.field_cname) = "活动类型"];
+	optional int32 nameId = 3[(yd_fieldoptions.field_cname) = "活动名称id"];
+	optional string name = 4[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 37];
+	optional int32 servertype = 5[(yd_fieldoptions.field_cname) = "服务器类型"];
+	optional string timeA = 6[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeB = 7[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 timeType = 8[(yd_fieldoptions.field_cname) = "时间类型"];
+	optional int32 Level = 9[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int32 vipLevel = 10[(yd_fieldoptions.field_cname) = "vip等级要求"];
+	optional int32 rechange = 11[(yd_fieldoptions.field_cname) = "充值要求高级运营活动计数"];
+	optional int32 ifOpen = 12[(yd_fieldoptions.field_cname) = "活动开关"];
+	optional string list = 13[(yd_fieldoptions.field_cname) = "模板列表", (yd_fieldoptions.field_bufsize) = 739];
+	optional string icon = 14[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 loginPopPriority = 15[(yd_fieldoptions.field_cname) = "登陆弹出优先级"];
+	optional int32 belong = 16[(yd_fieldoptions.field_cname) = "附属ID"];
+}
+
+
+message Sheet_festivalfestival
+{
+	repeated festivalfestival festivalfestival_List = 1[(yd_fieldoptions.field_arysize)=188];
+}
+
+message festivaltemplate
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "模板ID"];
+	optional int32 muBan = 2[(yd_fieldoptions.field_cname) = "模板类型"];
+	optional int32 order = 3[(yd_fieldoptions.field_cname) = "排序"];
+	optional string list = 4[(yd_fieldoptions.field_cname) = "达成条件", (yd_fieldoptions.field_bufsize) = 593];
+	optional int32 nameId = 5[(yd_fieldoptions.field_cname) = "模板名称id"];
+	optional string Name = 6[(yd_fieldoptions.field_cname) = "模板名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string type = 7[(yd_fieldoptions.field_cname) = "模板类型", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeA = 8[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string timeB = 9[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 timeType = 10[(yd_fieldoptions.field_cname) = "时间类型"];
+	optional int32 level = 11[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int32 vipLevel = 12[(yd_fieldoptions.field_cname) = "vip等级要求"];
+	optional int32 rechange = 13[(yd_fieldoptions.field_cname) = "充值要求高级运营活动计数"];
+	optional int32 remarkId = 14[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string MiaoShu = 15[(yd_fieldoptions.field_cname) = "模板描述", (yd_fieldoptions.field_bufsize) = 120];
+	optional int64 jiangLi = 16[(yd_fieldoptions.field_cname) = "活动条件"];
+	optional string beiJing = 17[(yd_fieldoptions.field_cname) = "背景", (yd_fieldoptions.field_bufsize) = 32];
+	optional string title = 18[(yd_fieldoptions.field_cname) = "标题", (yd_fieldoptions.field_bufsize) = 32];
+	optional string desc = 19[(yd_fieldoptions.field_cname) = "标题文档", (yd_fieldoptions.field_bufsize) = 41];
+}
+
+
+message Sheet_festivaltemplate
+{
+	repeated festivaltemplate festivaltemplate_List = 1[(yd_fieldoptions.field_arysize)=2043];
+}
+
+message festivalmuban_worldboss
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 bossid = 2[(yd_fieldoptions.field_cname) = "首领ID"];
+	optional int32 sort = 3[(yd_fieldoptions.field_cname) = "排序"];
+	optional int32 conditionType = 4[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int32 condition = 5[(yd_fieldoptions.field_cname) = "条件值"];
+	optional string des = 6[(yd_fieldoptions.field_cname) = "任务描述", (yd_fieldoptions.field_bufsize) = 53];
+	optional int64 boxId = 7[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_worldboss
+{
+	repeated festivalmuban_worldboss festivalmuban_worldboss_List = 1[(yd_fieldoptions.field_arysize)=119];
+}
+
+message festivalmuban_libao
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 boxid = 2[(yd_fieldoptions.field_cname) = "礼包内容"];
+	optional int32 term = 3[(yd_fieldoptions.field_cname) = "购买时间h"];
+	optional int32 level = 4[(yd_fieldoptions.field_cname) = "购买等级"];
+	optional int32 currencyType = 5[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 price = 6[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 backType = 7[(yd_fieldoptions.field_cname) = "返还货币类型"];
+	optional int32 dayBack = 8[(yd_fieldoptions.field_cname) = "每日返还量"];
+}
+
+
+message Sheet_festivalmuban_libao
+{
+	repeated festivalmuban_libao festivalmuban_libao_List = 1[(yd_fieldoptions.field_arysize)=267];
+}
+
+message festivalmuban_double
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 gear = 2[(yd_fieldoptions.field_cname) = "档位"];
+	optional int64 boxId = 3[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_double
+{
+	repeated festivalmuban_double festivalmuban_double_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message festivalmiaoshu
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string wenzi = 2[(yd_fieldoptions.field_cname) = "文字描述", (yd_fieldoptions.field_bufsize) = 54];
+}
+
+
+message Sheet_festivalmiaoshu
+{
+	repeated festivalmiaoshu festivalmiaoshu_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message festivalmuban_denglu
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "达成条件"];
+	optional int32 Num = 2[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional int32 remarkId = 3[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 jiangLi = 5[(yd_fieldoptions.field_cname) = "奖励ID"];
+}
+
+
+message Sheet_festivalmuban_denglu
+{
+	repeated festivalmuban_denglu festivalmuban_denglu_List = 1[(yd_fieldoptions.field_arysize)=233];
+}
+
+message festivalmuban_touzi
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "投资id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "投资类型"];
+	optional int32 Num = 3[(yd_fieldoptions.field_cname) = "领取条件"];
+	optional int64 addNum = 4[(yd_fieldoptions.field_cname) = "额外参数"];
+	optional int32 remarkId = 5[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 6[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 33];
+	optional int64 jiangLi = 7[(yd_fieldoptions.field_cname) = "奖励id"];
+	optional int64 linkId = 8[(yd_fieldoptions.field_cname) = "跳转id"];
+}
+
+
+message Sheet_festivalmuban_touzi
+{
+	repeated festivalmuban_touzi festivalmuban_touzi_List = 1[(yd_fieldoptions.field_arysize)=405];
+}
+
+message festivalmuban_zhichong
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
+	optional int32 Num = 2[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional string severNum = 3[(yd_fieldoptions.field_cname) = "服务器条件参数", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 remarkId = 4[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 jiangLi = 6[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_zhichong
+{
+	repeated festivalmuban_zhichong festivalmuban_zhichong_List = 1[(yd_fieldoptions.field_arysize)=204];
+}
+
+message festivalmuban_leichong
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int32 Num = 3[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional int32 remarkId = 4[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 32];
+	optional int64 jiangLi = 6[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_leichong
+{
+	repeated festivalmuban_leichong festivalmuban_leichong_List = 1[(yd_fieldoptions.field_arysize)=822];
+}
+
+message festivalmuban_duihuan
+{
+	optional int32 tiaoJianId = 1[(yd_fieldoptions.field_cname) = "达成条件"];
+	optional int64 prizeId = 2[(yd_fieldoptions.field_cname) = "奖励物品"];
+	optional int32 prof = 3[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 prizeNum = 4[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int64 propId = 5[(yd_fieldoptions.field_cname) = "道具"];
+	optional int32 propNum = 6[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 times = 7[(yd_fieldoptions.field_cname) = "限购次数"];
+}
+
+
+message Sheet_festivalmuban_duihuan
+{
+	repeated festivalmuban_duihuan festivalmuban_duihuan_List = 1[(yd_fieldoptions.field_arysize)=571];
+}
+
+message festivald_diaoluo
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 mixLevel = 2[(yd_fieldoptions.field_cname) = "等级下限"];
+	optional int32 bossType = 3[(yd_fieldoptions.field_cname) = "boss类型"];
+	optional string dropNum = 4[(yd_fieldoptions.field_cname) = "掉落数量", (yd_fieldoptions.field_bufsize) = 32];
+	optional string dropRand = 5[(yd_fieldoptions.field_cname) = "掉落权重", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_festivald_diaoluo
+{
+	repeated festivald_diaoluo festivald_diaoluo_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message festivalmuban_leixiao
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "消费类型"];
+	optional int32 xiaoFei = 3[(yd_fieldoptions.field_cname) = "消耗钻石"];
+	optional int32 remarkId = 4[(yd_fieldoptions.field_cname) = "描述ID"];
+	optional string miaoshu = 5[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 34];
+	optional int64 jiangLi = 6[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_leixiao
+{
+	repeated festivalmuban_leixiao festivalmuban_leixiao_List = 1[(yd_fieldoptions.field_arysize)=145];
+}
+
+message festivalmuban_shouchong
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "首充id"];
+	optional int64 jiangLi = 2[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_shouchong
+{
+	repeated festivalmuban_shouchong festivalmuban_shouchong_List = 1[(yd_fieldoptions.field_arysize)=105];
+}
+
+message festivalmuban_yanhua
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 itemid = 2[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 prof = 4[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 type = 5[(yd_fieldoptions.field_cname) = "奖池类型"];
+	optional int32 order = 6[(yd_fieldoptions.field_cname) = "显示排序"];
+	optional int32 probability = 7[(yd_fieldoptions.field_cname) = "掉落权重"];
+	optional int64 relation = 8[(yd_fieldoptions.field_cname) = "关联页签"];
+	optional int64 modelid = 9[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 modeltype = 10[(yd_fieldoptions.field_cname) = "模型类型"];
+	optional string scale = 11[(yd_fieldoptions.field_cname) = "偏移缩放", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_festivalmuban_yanhua
+{
+	repeated festivalmuban_yanhua festivalmuban_yanhua_List = 1[(yd_fieldoptions.field_arysize)=2192];
+}
+
+message festivalyanhuaConstant
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "条件id"];
+	optional int64 costItem = 2[(yd_fieldoptions.field_cname) = "抽奖消耗的物id"];
+	optional int32 rewardPool = 3[(yd_fieldoptions.field_cname) = "奖励池ID"];
+	optional int32 coinTye = 4[(yd_fieldoptions.field_cname) = "消耗货币类型"];
+	optional int32 number = 5[(yd_fieldoptions.field_cname) = "货币数量"];
+}
+
+
+message Sheet_festivalyanhuaConstant
+{
+	repeated festivalyanhuaConstant festivalyanhuaConstant_List = 1[(yd_fieldoptions.field_arysize)=120];
+}
+
+message festivalmuban_shop
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "条件id"];
+	optional int64 itemid = 2[(yd_fieldoptions.field_cname) = "商品id"];
+	optional int32 prof = 3[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 priceA = 4[(yd_fieldoptions.field_cname) = "原价"];
+	optional int32 priceB = 5[(yd_fieldoptions.field_cname) = "现价"];
+	optional int32 currency = 6[(yd_fieldoptions.field_cname) = "货币单位"];
+	optional int32 discount = 7[(yd_fieldoptions.field_cname) = "折扣显示"];
+	optional int32 quantity = 8[(yd_fieldoptions.field_cname) = "个人限购数"];
+}
+
+
+message Sheet_festivalmuban_shop
+{
+	repeated festivalmuban_shop festivalmuban_shop_List = 1[(yd_fieldoptions.field_arysize)=181];
+}
+
+message festivalmuban_czjb
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "条件id"];
+	optional string RechargePoint = 2[(yd_fieldoptions.field_cname) = "计费点", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 Perc = 3[(yd_fieldoptions.field_cname) = "增加百分比"];
+	optional int32 fristpresent = 4[(yd_fieldoptions.field_cname) = "赠送数量"];
+	optional int32 presenttype = 5[(yd_fieldoptions.field_cname) = "赠送类型"];
+	optional int32 Point = 6[(yd_fieldoptions.field_cname) = "档位"];
+}
+
+
+message Sheet_festivalmuban_czjb
+{
+	repeated festivalmuban_czjb festivalmuban_czjb_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message festivalmuban_scsb
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "条件id"];
+	optional string RechargePoint = 2[(yd_fieldoptions.field_cname) = "计费点", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 fristpresent = 3[(yd_fieldoptions.field_cname) = "赠送数量"];
+	optional int32 presenttype = 4[(yd_fieldoptions.field_cname) = "赠送类型"];
+	optional int32 Point = 5[(yd_fieldoptions.field_cname) = "档位"];
+}
+
+
+message Sheet_festivalmuban_scsb
+{
+	repeated festivalmuban_scsb festivalmuban_scsb_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message festivalmuban_eggs
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 itemid = 2[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 prof = 4[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 type = 5[(yd_fieldoptions.field_cname) = "蛋的类型"];
+	optional int32 order = 6[(yd_fieldoptions.field_cname) = "显示排序"];
+	optional int32 isnote = 7[(yd_fieldoptions.field_cname) = "是否记录"];
+	optional int32 probability = 8[(yd_fieldoptions.field_cname) = "掉落权重"];
+	optional int64 relation = 9[(yd_fieldoptions.field_cname) = "关联页签"];
+}
+
+
+message Sheet_festivalmuban_eggs
+{
+	repeated festivalmuban_eggs festivalmuban_eggs_List = 1[(yd_fieldoptions.field_arysize)=206];
+}
+
+message festivaleggConstant
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "条件id"];
+	optional string exReward = 2[(yd_fieldoptions.field_cname) = "额外奖励次数与奖励数量", (yd_fieldoptions.field_bufsize) = 74];
+	optional int64 costItem = 3[(yd_fieldoptions.field_cname) = "砸蛋消耗的物id"];
+	optional int32 freeTime = 4[(yd_fieldoptions.field_cname) = "砸蛋免费抽奖的时间（时）"];
+	optional string poolChange = 5[(yd_fieldoptions.field_cname) = "蛋池转换阈值", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 specialRate = 6[(yd_fieldoptions.field_cname) = "特殊蛋的初始概率"];
+	optional int32 specialAddRate = 7[(yd_fieldoptions.field_cname) = "特殊蛋的补偿概率"];
+	optional string flashCost = 8[(yd_fieldoptions.field_cname) = "刷新消耗", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 limit = 9[(yd_fieldoptions.field_cname) = "每日限次数"];
+	optional int32 rewardPool = 10[(yd_fieldoptions.field_cname) = "奖励池ID"];
+}
+
+
+message Sheet_festivaleggConstant
+{
+	repeated festivaleggConstant festivaleggConstant_List = 1[(yd_fieldoptions.field_arysize)=106];
+}
+
+message festivalconstant
+{
+	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 70];
+}
+
+
+message Sheet_festivalconstant
+{
+	repeated festivalconstant festivalconstant_List = 1[(yd_fieldoptions.field_arysize)=110];
+}
+
+message festivalmuban_shousha
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "档位id"];
+	optional int64 bossId = 2[(yd_fieldoptions.field_cname) = "首领ID"];
+	optional int64 boxId = 3[(yd_fieldoptions.field_cname) = "奖励id"];
+	optional int64 linkid = 4[(yd_fieldoptions.field_cname) = "linkid"];
+}
+
+
+message Sheet_festivalmuban_shousha
+{
+	repeated festivalmuban_shousha festivalmuban_shousha_List = 1[(yd_fieldoptions.field_arysize)=116];
+}
+
+message festivalmuban_huoyue
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 activity = 2[(yd_fieldoptions.field_cname) = "需要活跃度"];
+	optional string desc = 3[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 40];
+	optional int64 boxId = 4[(yd_fieldoptions.field_cname) = "奖励id"];
+}
+
+
+message Sheet_festivalmuban_huoyue
+{
+	repeated festivalmuban_huoyue festivalmuban_huoyue_List = 1[(yd_fieldoptions.field_arysize)=380];
+}

@@ -10,19 +10,19 @@
 
 namespace proto_ff_s {
 
-	struct achievementitemRewardDesc_s : public NFDescStoreSeqOP {
-		achievementitemRewardDesc_s();
+	struct achievementachievementitemRewardDesc_s : public NFDescStoreSeqOP {
+		achievementachievementitemRewardDesc_s();
 		int CreateInit();
 		int ResumeInit();
 		int64_t ID;
 		int32_t Value;
 
-		virtual void write_to_pbmsg(::proto_ff::achievementitemRewardDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::achievementitemRewardDesc & msg);
-		static ::proto_ff::achievementitemRewardDesc* new_pbmsg(){ return new ::proto_ff::achievementitemRewardDesc(); }
-		static ::proto_ff::achievementitemRewardDesc make_pbmsg(){ return ::proto_ff::achievementitemRewardDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::achievementachievementitemRewardDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::achievementachievementitemRewardDesc & msg);
+		static ::proto_ff::achievementachievementitemRewardDesc* new_pbmsg(){ return new ::proto_ff::achievementachievementitemRewardDesc(); }
+		static ::proto_ff::achievementachievementitemRewardDesc make_pbmsg(){ return ::proto_ff::achievementachievementitemRewardDesc(); }
 	};
-	typedef struct achievementitemRewardDesc_s achievementitemRewardDesc_t;
+	typedef struct achievementachievementitemRewardDesc_s achievementachievementitemRewardDesc_t;
 
 	struct achievementachievement_s : public NFDescStoreSeqOP {
 		achievementachievement_s();
@@ -40,7 +40,7 @@ namespace proto_ff_s {
 		int32_t achievementGod;
 		int32_t achievementPoint;
 		int32_t linkID;
-		NFArray<struct achievementitemRewardDesc_s, 2> itemReward;
+		NFArray<struct achievementachievementitemRewardDesc_s, 2> itemReward;
 
 		virtual void write_to_pbmsg(::proto_ff::achievementachievement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::achievementachievement & msg);
@@ -91,31 +91,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_achievementachievementreward make_pbmsg(){ return ::proto_ff::Sheet_achievementachievementreward(); }
 	};
 	typedef struct Sheet_achievementachievementreward_s Sheet_achievementachievementreward_t;
-
-	struct achievementachievenName_s : public NFDescStoreSeqOP {
-		achievementachievenName_s();
-		int CreateInit();
-		int ResumeInit();
-
-		virtual void write_to_pbmsg(::proto_ff::achievementachievenName & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::achievementachievenName & msg);
-		static ::proto_ff::achievementachievenName* new_pbmsg(){ return new ::proto_ff::achievementachievenName(); }
-		static ::proto_ff::achievementachievenName make_pbmsg(){ return ::proto_ff::achievementachievenName(); }
-	};
-	typedef struct achievementachievenName_s achievementachievenName_t;
-
-	struct Sheet_achievementachievenName_s : public NFDescStoreSeqOP {
-		Sheet_achievementachievenName_s();
-		int CreateInit();
-		int ResumeInit();
-		NFArray<struct achievementachievenName_s, 119> achievementachievenName_List;
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_achievementachievenName & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_achievementachievenName & msg);
-		static ::proto_ff::Sheet_achievementachievenName* new_pbmsg(){ return new ::proto_ff::Sheet_achievementachievenName(); }
-		static ::proto_ff::Sheet_achievementachievenName make_pbmsg(){ return ::proto_ff::Sheet_achievementachievenName(); }
-	};
-	typedef struct Sheet_achievementachievenName_s Sheet_achievementachievenName_t;
 
 }
 

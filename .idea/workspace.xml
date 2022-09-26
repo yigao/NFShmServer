@@ -40,6 +40,26 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="excel proto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/achievement.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/achievement_gen.makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box_gen.makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/colPoints.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/colPoints_gen.makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelmmo_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelmmo_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,25 +120,25 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tools/excel_2_bin" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
-      <recent name="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles" />
+      <recent name="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message" />
       <recent name="$PROJECT_DIR$/game" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugjin" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
       <recent name="$PROJECT_DIR$/Install/Config/MMO/Sql" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.excel2proto">
+  <component name="RunManager" selected="Python.excel2bin_mmo">
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -264,6 +284,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -278,6 +303,27 @@
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="excel2bin_mmo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="mmo-nfshm-server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/excel_2_bin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx  --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/ResMeta.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_monstermonster  --excel_sheetname=monster  --proto_msgname=monstermonster  --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="excel2bin_new" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="NFShmServer" />
@@ -313,7 +359,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/colPoints.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/treasure.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -365,9 +411,11 @@
       <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
       <item itemvalue="Python.excel2bin_new" />
       <item itemvalue="Python.excel2proto" />
+      <item itemvalue="Python.excel2bin_mmo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.excel2bin_mmo" />
         <item itemvalue="Python.excel2proto" />
       </list>
     </recent_temporary>
@@ -445,13 +493,7 @@
       <workItem from="1663634390040" duration="11554000" />
       <workItem from="1663808742487" duration="10264000" />
       <workItem from="1663896936625" duration="22582000" />
-    </task>
-    <task id="LOCAL-00106" summary="chong gou">
-      <created>1663222645921</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1663222645921</updated>
+      <workItem from="1664153338418" duration="24298000" />
     </task>
     <task id="LOCAL-00107" summary="chong gou">
       <created>1663234255578</created>
@@ -789,7 +831,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664014472635</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="excel proto">
+      <created>1664160715993</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1664160715993</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -961,18 +1010,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>81</line>
+          <line>137</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>131</line>
-          <option name="timeStamp" value="89" />
+          <line>123</line>
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="98" />
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
+          <line>203</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

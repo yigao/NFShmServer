@@ -1,0 +1,309 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message activitydaily
+{
+	optional int64 activeId = 1[(yd_fieldoptions.field_cname) = "活动ID"];
+	optional string activeName = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 typeId = 3[(yd_fieldoptions.field_cname) = "类型ID"];
+	optional int32 Descriptiontype = 4[(yd_fieldoptions.field_cname) = "开启条件"];
+	optional int64 typeArgs = 5[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional string involveMap = 6[(yd_fieldoptions.field_cname) = "涉及地图", (yd_fieldoptions.field_bufsize) = 71];
+	optional int32 minlevel = 7[(yd_fieldoptions.field_cname) = "参与活动等级下限"];
+	optional string openCycle = 8[(yd_fieldoptions.field_cname) = "开启日期", (yd_fieldoptions.field_bufsize) = 32];
+	optional string openTime = 9[(yd_fieldoptions.field_cname) = "开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional string pushTime = 10[(yd_fieldoptions.field_cname) = "推送时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 openingTime = 11[(yd_fieldoptions.field_cname) = "开启时长"];
+	optional int32 advanceTime = 12[(yd_fieldoptions.field_cname) = "提前广播时间"];
+	optional int32 intervalTime = 13[(yd_fieldoptions.field_cname) = "广播间隔"];
+	optional string opeDay = 14[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 32];
+	optional string closeDay = 15[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 isCross = 16[(yd_fieldoptions.field_cname) = "是否跨服"];
+	optional int32 serverTime = 17[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
+	optional int32 serverdelayTime = 18[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
+	optional int32 forwordEnterTime = 19[(yd_fieldoptions.field_cname) = "提前入场时间"];
+}
+
+
+message Sheet_activitydaily
+{
+	repeated activitydaily activitydaily_List = 1[(yd_fieldoptions.field_arysize)=121];
+}
+
+message activityactivitynotice
+{
+	optional int64 activeId = 1[(yd_fieldoptions.field_cname) = "活动ID"];
+}
+
+
+message Sheet_activityactivitynotice
+{
+	repeated activityactivitynotice activityactivitynotice_List = 1[(yd_fieldoptions.field_arysize)=116];
+}
+
+message activityscufflerewardDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activityscuffle
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 typeArgs = 2[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional int32 level = 3[(yd_fieldoptions.field_cname) = "层数"];
+	optional int32 stage = 4[(yd_fieldoptions.field_cname) = "阶数"];
+	optional int64 mapID = 5[(yd_fieldoptions.field_cname) = "场景ID"];
+	optional int64 nextID = 6[(yd_fieldoptions.field_cname) = "下一ID"];
+	optional int32 maxPoints = 7[(yd_fieldoptions.field_cname) = "积分"];
+	optional int32 pvePoints = 8[(yd_fieldoptions.field_cname) = "杀怪积分"];
+	optional int32 pvpPoints = 9[(yd_fieldoptions.field_cname) = "杀人积分"];
+	optional int32 pvpHelpPoints = 10[(yd_fieldoptions.field_cname) = "助攻积分"];
+	repeated activityscufflerewardDesc reward = 11[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_activityscuffle
+{
+	repeated activityscuffle activityscuffle_List = 1[(yd_fieldoptions.field_arysize)=122];
+}
+
+message activitychaosDragonsrewardDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activitychaosDragons
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 reward_type = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
+	optional int32 reward_param = 3[(yd_fieldoptions.field_cname) = "奖励类型参数"];
+	optional int32 rankmin = 4[(yd_fieldoptions.field_cname) = "排名最小值"];
+	optional int32 rankmax = 5[(yd_fieldoptions.field_cname) = "排名最大值"];
+	optional int64 getPoint = 6[(yd_fieldoptions.field_cname) = "获得积分"];
+	repeated activitychaosDragonsrewardDesc reward = 7[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_activitychaosDragons
+{
+	repeated activitychaosDragons activitychaosDragons_List = 1[(yd_fieldoptions.field_arysize)=117];
+}
+
+message activitycircuscircusDesc
+{
+	optional int32 a = 1[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activitycircus
+{
+	optional int64 circusID = 1[(yd_fieldoptions.field_cname) = "区间ID"];
+	optional int64 powerLow = 2[(yd_fieldoptions.field_cname) = "战力下限"];
+	optional int64 powerUp = 3[(yd_fieldoptions.field_cname) = "战力上限"];
+	repeated activitycircuscircusDesc circus = 4[(yd_fieldoptions.field_cname) = "场次人数", (yd_fieldoptions.field_arysize) = 32];
+}
+
+
+message Sheet_activitycircus
+{
+	repeated activitycircus activitycircus_List = 1[(yd_fieldoptions.field_arysize)=127];
+}
+
+message activitycircusNumitemDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 Id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message activitycircusNum
+{
+	optional int32 RankID = 1[(yd_fieldoptions.field_cname) = "排名id"];
+	repeated activitycircusNumitemDesc item = 2[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_activitycircusNum
+{
+	repeated activitycircusNum activitycircusNum_List = 1[(yd_fieldoptions.field_arysize)=204];
+}
+
+message activitycircusDanitemDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 Id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message activitycircusDancircusDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 Id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message activitycircusDan
+{
+	optional int32 changCiID = 1[(yd_fieldoptions.field_cname) = "场次id"];
+	repeated activitycircusDanitemDesc item = 2[(yd_fieldoptions.field_cname) = "胜利奖励", (yd_fieldoptions.field_arysize) = 3];
+	repeated activitycircusDancircusDesc circus = 3[(yd_fieldoptions.field_cname) = "失败奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_activitycircusDan
+{
+	repeated activitycircusDan activitycircusDan_List = 1[(yd_fieldoptions.field_arysize)=136];
+}
+
+message activitymathrule
+{
+	optional int64 activeId = 1[(yd_fieldoptions.field_cname) = "索引ID"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "阶段类型"];
+	optional int64 mapId = 3[(yd_fieldoptions.field_cname) = "地图ID"];
+	optional int64 duplicateId = 4[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 time = 5[(yd_fieldoptions.field_cname) = "持续时间"];
+	optional int32 winnerPoints = 6[(yd_fieldoptions.field_cname) = "胜利积分"];
+	optional int32 loserPoints = 7[(yd_fieldoptions.field_cname) = "失败积分"];
+	optional int32 drawPoints = 8[(yd_fieldoptions.field_cname) = "平局积分"];
+	optional int32 rewardtype = 9[(yd_fieldoptions.field_cname) = "奖励类别"];
+}
+
+
+message Sheet_activitymathrule
+{
+	repeated activitymathrule activitymathrule_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message activitymathrewardrewardDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activitymathreward
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "索引编号"];
+	optional int32 rewardtype = 2[(yd_fieldoptions.field_cname) = "奖励类别"];
+	optional int32 rewardlevel = 3[(yd_fieldoptions.field_cname) = "奖励积分档次"];
+	repeated activitymathrewardrewardDesc reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_activitymathreward
+{
+	repeated activitymathreward activitymathreward_List = 1[(yd_fieldoptions.field_arysize)=116];
+}
+
+message activitygvgConst
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 59];
+}
+
+
+message Sheet_activitygvgConst
+{
+	repeated activitygvgConst activitygvgConst_List = 1[(yd_fieldoptions.field_arysize)=191];
+}
+
+message activitygvgRankRewardgMemberrewardDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message activitygvgRankRewardgLeaderrewardDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message activitygvgRankReward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 gLeaderId = 2[(yd_fieldoptions.field_cname) = "会长奖励称号"];
+	repeated activitygvgRankRewardgMemberrewardDesc gMemberreward = 3[(yd_fieldoptions.field_cname) = "物品奖励", (yd_fieldoptions.field_arysize) = 4];
+	repeated activitygvgRankRewardgLeaderrewardDesc gLeaderreward = 4[(yd_fieldoptions.field_cname) = "物品奖励", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_activitygvgRankReward
+{
+	repeated activitygvgRankReward activitygvgRankReward_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message activitygvgRewardrewardDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activitygvgRewardfinalityDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message activitygvgReward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "连胜次数"];
+	optional int64 finalityskill = 2[(yd_fieldoptions.field_cname) = "终结技能"];
+	repeated activitygvgRewardrewardDesc reward = 3[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
+	repeated activitygvgRewardfinalityDesc finality = 4[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_activitygvgReward
+{
+	repeated activitygvgReward activitygvgReward_List = 1[(yd_fieldoptions.field_arysize)=202];
+}
+
+message activityworldTreasureConst
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+}
+
+
+message Sheet_activityworldTreasureConst
+{
+	repeated activityworldTreasureConst activityworldTreasureConst_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message activityworldTreasureMap
+{
+	optional int64 mapID = 1[(yd_fieldoptions.field_cname) = "地图ID"];
+	optional string pathID = 2[(yd_fieldoptions.field_cname) = "刷怪点", (yd_fieldoptions.field_bufsize) = 599];
+}
+
+
+message Sheet_activityworldTreasureMap
+{
+	repeated activityworldTreasureMap activityworldTreasureMap_List = 1[(yd_fieldoptions.field_arysize)=106];
+}
+
+message activityworldTreasureMonster
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 monsterID = 2[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 appearWeight = 3[(yd_fieldoptions.field_cname) = "刷新权重"];
+	optional int64 skillId = 4[(yd_fieldoptions.field_cname) = "附带BUFF"];
+}
+
+
+message Sheet_activityworldTreasureMonster
+{
+	repeated activityworldTreasureMonster activityworldTreasureMonster_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message activitylosttempleConstant
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 32];
+}
+
+
+message Sheet_activitylosttempleConstant
+{
+	repeated activitylosttempleConstant activitylosttempleConstant_List = 1[(yd_fieldoptions.field_arysize)=108];
+}

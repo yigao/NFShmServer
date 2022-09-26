@@ -1,0 +1,44 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message godpowergodpower
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 boxid = 2[(yd_fieldoptions.field_cname) = "商品"];
+	optional int32 price = 3[(yd_fieldoptions.field_cname) = "购买价格"];
+	optional int32 times = 4[(yd_fieldoptions.field_cname) = "限购次数"];
+	optional int32 unlock = 5[(yd_fieldoptions.field_cname) = "解锁ID"];
+}
+
+
+message Sheet_godpowergodpower
+{
+	repeated godpowergodpower godpowergodpower_List = 1[(yd_fieldoptions.field_arysize)=113];
+}
+
+message godpowerskillupdateattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message godpowerskillupdate
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 tableID = 2[(yd_fieldoptions.field_cname) = "标签id"];
+	optional int32 lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 itemID = 4[(yd_fieldoptions.field_cname) = "消耗物ID"];
+	optional int32 itemNum = 5[(yd_fieldoptions.field_cname) = "消耗物数量"];
+	optional int64 skillID = 6[(yd_fieldoptions.field_cname) = "对应技能ID"];
+	optional int32 isBreak = 7[(yd_fieldoptions.field_cname) = "是否突破"];
+	optional int32 unlock = 8[(yd_fieldoptions.field_cname) = "解锁ID"];
+	repeated godpowerskillupdateattributeDesc attribute = 9[(yd_fieldoptions.field_cname) = "额外属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_godpowerskillupdate
+{
+	repeated godpowerskillupdate godpowerskillupdate_List = 1[(yd_fieldoptions.field_arysize)=356];
+}

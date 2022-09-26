@@ -1,0 +1,200 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message guildconstant
+{
+	optional int64 constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int32 setDiamond = 2[(yd_fieldoptions.field_cname) = "创建公会需要钻石"];
+	optional int32 offlineTime = 3[(yd_fieldoptions.field_cname) = "每日领取冥想时长"];
+	optional int32 EditRequireLV = 4[(yd_fieldoptions.field_cname) = "修改公会公告要求公告等级"];
+	optional int32 leaveCoolingtime = 5[(yd_fieldoptions.field_cname) = "再次加入公会的冷却时间"];
+	optional int32 houseLimit = 6[(yd_fieldoptions.field_cname) = "仓库物品上限"];
+	optional int64 expID = 7[(yd_fieldoptions.field_cname) = "契灵经验丹ID"];
+	optional int32 houseScore = 8[(yd_fieldoptions.field_cname) = "契灵经验丹的仓库积分"];
+	optional int32 giftCD = 9[(yd_fieldoptions.field_cname) = "红包清理时间"];
+	optional int32 autoCleanCellNum = 10[(yd_fieldoptions.field_cname) = "触发自动清理余格子数量"];
+	optional int32 dismiss = 11[(yd_fieldoptions.field_cname) = "解散公会时间"];
+	optional int32 transferGuild = 12[(yd_fieldoptions.field_cname) = "转移会长时间"];
+	repeated string initialAutoCleanQS = 13[(yd_fieldoptions.field_cname) = "默认清理的品质星级", (yd_fieldoptions.field_arysize) = 32];
+}
+
+
+message Sheet_guildconstant
+{
+	repeated guildconstant guildconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+}
+
+message guildlevel
+{
+	optional int32 guildLevel = 1[(yd_fieldoptions.field_cname) = "公会等级"];
+	optional int32 guildLevel_EXP = 2[(yd_fieldoptions.field_cname) = "公会升级经验"];
+	optional int32 guildLevel_member = 3[(yd_fieldoptions.field_cname) = "公会成员总人数"];
+	optional int32 guildLevel_VP = 4[(yd_fieldoptions.field_cname) = "公会副会长人数"];
+	optional int32 guildLevel_NP = 5[(yd_fieldoptions.field_cname) = "公会长老数"];
+}
+
+
+message Sheet_guildlevel
+{
+	repeated guildlevel guildlevel_List = 1[(yd_fieldoptions.field_arysize)=119];
+}
+
+message guildcollege
+{
+	optional int64 practiceId = 1[(yd_fieldoptions.field_cname) = "心法编号"];
+	optional int32 practiceType = 2[(yd_fieldoptions.field_cname) = "心法类型"];
+	optional int32 learningNeed = 3[(yd_fieldoptions.field_cname) = "开放学习需求公会等级"];
+	optional int32 practiceLevel = 4[(yd_fieldoptions.field_cname) = "心法等级"];
+	optional int32 playerLevelLimit = 5[(yd_fieldoptions.field_cname) = "要求玩家等级"];
+	optional int32 attributeId = 6[(yd_fieldoptions.field_cname) = "心法属性ID"];
+	optional int32 attributeGain = 7[(yd_fieldoptions.field_cname) = "心法属性增益"];
+	optional int32 CostContribute = 8[(yd_fieldoptions.field_cname) = "心法消耗贡献"];
+}
+
+
+message Sheet_guildcollege
+{
+	repeated guildcollege guildcollege_List = 1[(yd_fieldoptions.field_arysize)=5104];
+}
+
+message guildposition
+{
+	optional int64 positionId = 1[(yd_fieldoptions.field_cname) = "职位ID"];
+	optional int32 positionType = 2[(yd_fieldoptions.field_cname) = "职位类型"];
+	optional int32 allotMaterials = 3[(yd_fieldoptions.field_cname) = "分配公会战利品"];
+	optional int32 admitNewcomer = 4[(yd_fieldoptions.field_cname) = "接收新成员"];
+	optional int32 appointAndRemoveVP = 5[(yd_fieldoptions.field_cname) = "任命/解除副会长"];
+	optional int32 appointAndRemoveElder = 6[(yd_fieldoptions.field_cname) = "任命/解除长老"];
+	optional int32 expelVP = 7[(yd_fieldoptions.field_cname) = "踢出副会长"];
+	optional int32 expelElder = 8[(yd_fieldoptions.field_cname) = "踢出长老"];
+	optional int32 expelMass = 9[(yd_fieldoptions.field_cname) = "踢出普通成员"];
+	optional int32 announcementEditing = 10[(yd_fieldoptions.field_cname) = "编辑公告"];
+	optional int32 joinCondition = 11[(yd_fieldoptions.field_cname) = "设置加入方式"];
+	optional int32 guildActivity = 12[(yd_fieldoptions.field_cname) = "开启公会玩法"];
+	optional int32 dissolveAssignGuild = 13[(yd_fieldoptions.field_cname) = "解散/转让公会"];
+	optional int32 clear = 14[(yd_fieldoptions.field_cname) = "清理仓库"];
+	optional int32 changeName = 15[(yd_fieldoptions.field_cname) = "改名权限"];
+	optional int32 automaticCleanDisplay = 16[(yd_fieldoptions.field_cname) = "自动清理设置权限"];
+}
+
+
+message Sheet_guildposition
+{
+	repeated guildposition guildposition_List = 1[(yd_fieldoptions.field_arysize)=108];
+}
+
+message guildhouse
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "兑换ID"];
+	optional int32 wearQuality = 2[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 quality = 3[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 houseScore = 4[(yd_fieldoptions.field_cname) = "仓库积分"];
+}
+
+
+message Sheet_guildhouse
+{
+	repeated guildhouse guildhouse_List = 1[(yd_fieldoptions.field_arysize)=209];
+}
+
+message guildgift
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "红包ID"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "红包类型"];
+	optional int32 money = 3[(yd_fieldoptions.field_cname) = "红包金额"];
+	optional int32 num = 4[(yd_fieldoptions.field_cname) = "红包份数"];
+}
+
+
+message Sheet_guildgift
+{
+	repeated guildgift guildgift_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message guildguildance
+{
+	optional int32 guidanceId = 1[(yd_fieldoptions.field_cname) = "指引ID"];
+	optional int32 guidanceType = 2[(yd_fieldoptions.field_cname) = "指引类型"];
+	optional int32 levelLimit = 3[(yd_fieldoptions.field_cname) = "等级限制"];
+	optional int32 triggerTpye = 4[(yd_fieldoptions.field_cname) = "触发类型"];
+	optional int32 cognateNpcId = 5[(yd_fieldoptions.field_cname) = "关联NPC"];
+	optional int32 cognateUI = 6[(yd_fieldoptions.field_cname) = "关联面板"];
+	optional int32 cognateActiveId = 7[(yd_fieldoptions.field_cname) = "关联活动ID"];
+}
+
+
+message Sheet_guildguildance
+{
+	repeated guildguildance guildguildance_List = 1[(yd_fieldoptions.field_arysize)=111];
+}
+
+message guildwarconstant
+{
+	optional int64 warid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int32 signopenCycle = 2[(yd_fieldoptions.field_cname) = "公会战报名开启日期"];
+	optional string signopenTime = 3[(yd_fieldoptions.field_cname) = "公会战报名开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 signclosedCycle = 4[(yd_fieldoptions.field_cname) = "公会战报名结束日期"];
+	optional string signclosedTime = 5[(yd_fieldoptions.field_cname) = "公会战报名结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 guildPosition = 6[(yd_fieldoptions.field_cname) = "要求公会职位"];
+	optional int32 guildNum = 7[(yd_fieldoptions.field_cname) = "要求公会人数"];
+	optional int32 guildLevel = 8[(yd_fieldoptions.field_cname) = "要求公会等级"];
+	optional int32 enteropenCycle = 9[(yd_fieldoptions.field_cname) = "公会战进入开启日期"];
+	optional string enteropenTime = 10[(yd_fieldoptions.field_cname) = "公会战进入开启时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 enterclosedCycle = 11[(yd_fieldoptions.field_cname) = "公会战进入结束日期"];
+	optional string enterclosedTime = 12[(yd_fieldoptions.field_cname) = "公会战进入结束时间", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 guildwarBaseScore = 13[(yd_fieldoptions.field_cname) = "公会战初始分数"];
+	optional int32 guildwarWinScore = 14[(yd_fieldoptions.field_cname) = "公会战胜利获得分数"];
+	optional int32 guildwarLoseScore = 15[(yd_fieldoptions.field_cname) = "公会战失败获得分数"];
+	optional int32 guildwarDrawScore = 16[(yd_fieldoptions.field_cname) = "公会战平局获得分数"];
+	optional int32 maxMaterial = 17[(yd_fieldoptions.field_cname) = "物资存储上限"];
+	optional int32 soldierCostMaterial = 18[(yd_fieldoptions.field_cname) = "出兵消耗物资数量"];
+	optional int32 soldierNum = 19[(yd_fieldoptions.field_cname) = "单次出兵数量"];
+	optional int32 soldierCD = 20[(yd_fieldoptions.field_cname) = "出兵冷却时间"];
+	optional int32 renewBaseCost = 21[(yd_fieldoptions.field_cname) = "恢复基地消耗"];
+	optional int32 renewBaseHP = 22[(yd_fieldoptions.field_cname) = "恢复基地血量百分比"];
+	optional int32 renewBaseCD = 23[(yd_fieldoptions.field_cname) = "基地恢复冷却时间"];
+	optional int32 reviveCD = 24[(yd_fieldoptions.field_cname) = "角色复活等待时间"];
+	optional int64 guildwarWinItem = 25[(yd_fieldoptions.field_cname) = "公会战胜利奖励物品"];
+	optional int32 guildwarWinNum = 26[(yd_fieldoptions.field_cname) = "公会战胜利奖励数量"];
+	optional int64 guildwarLoseItem = 27[(yd_fieldoptions.field_cname) = "公会战失败奖励物品"];
+	optional int32 guildwarLoseNum = 28[(yd_fieldoptions.field_cname) = "公会战失败奖励数量"];
+	optional int64 guildwarDrawItem = 29[(yd_fieldoptions.field_cname) = "公会战平局奖励物品"];
+	optional int32 guildwarDrawNum = 30[(yd_fieldoptions.field_cname) = "公会战平局奖励数量"];
+	optional int64 MaterialId = 31[(yd_fieldoptions.field_cname) = "公会战资源ID"];
+	optional int32 MaterialConversion = 32[(yd_fieldoptions.field_cname) = "公会战资源提交比例"];
+	optional int32 GuildWarExp = 33[(yd_fieldoptions.field_cname) = "公会战奖励经验万分比"];
+}
+
+
+message Sheet_guildwarconstant
+{
+	repeated guildwarconstant guildwarconstant_List = 1[(yd_fieldoptions.field_arysize)=105];
+}
+
+message guildwarmorale
+{
+	optional int64 moraleLevel = 1[(yd_fieldoptions.field_cname) = "士气等级"];
+	optional int32 costMaterial = 2[(yd_fieldoptions.field_cname) = "消耗物资数量"];
+	optional int64 skillId = 3[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 skillLevel = 4[(yd_fieldoptions.field_cname) = "技能等级"];
+}
+
+
+message Sheet_guildwarmorale
+{
+	repeated guildwarmorale guildwarmorale_List = 1[(yd_fieldoptions.field_arysize)=114];
+}
+
+message guildwarrevive
+{
+	optional int32 reviveNum = 1[(yd_fieldoptions.field_cname) = "复活次数"];
+	optional int32 reviveCost = 2[(yd_fieldoptions.field_cname) = "付费复活消耗"];
+}
+
+
+message Sheet_guildwarrevive
+{
+	repeated guildwarrevive guildwarrevive_List = 1[(yd_fieldoptions.field_arysize)=114];
+}

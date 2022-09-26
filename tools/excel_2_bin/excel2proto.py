@@ -50,7 +50,10 @@ def sheet_cell_value(sheet, row_index, col_index):
 def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info):
 
 	for struct_en_name, struct_info in sheet_struct_info.items():
-		proto_file.write("\nmessage "+sheet_name+ struct_en_name + "Desc\n");
+		if struct_info.has_key("sub_msg") == False:
+			continue;
+
+		proto_file.write("\nmessage "+excel_name+sheet_name+ struct_en_name + "Desc\n");
 		proto_file.write("{\n");
 		index = 0
 		for sub_en_name, sub_info in struct_info["sub_msg"].items():
@@ -65,6 +68,10 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 				proto_file.write("\toptional int64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
 			elif col_type == "uint64":
 				proto_file.write("\toptional uint64 " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif col_type == "float":
+				proto_file.write("\toptional float " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
+			elif col_type == "double":
+				proto_file.write("\toptional double " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
 			elif col_type == "string":
 				proto_file.write("\toptional string " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\","+" (yd_fieldoptions.field_bufsize) = " + str(col_max_size) + "];\n");
 
@@ -84,12 +91,35 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 			proto_file.write("\toptional int64 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "uint64":
 			proto_file.write("\toptional uint64 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+		elif sheet_col_info[index]["col_type"] == "float":
+			proto_file.write("\toptional float " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+		elif sheet_col_info[index]["col_type"] == "double":
+			proto_file.write("\toptional double " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "string":
 			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(sheet_col_info[index]["col_max_size"]) + "];\n");
 
 	for struct_en_name, struct_info in sheet_struct_info.items():
 		index = index + 1
-		proto_file.write("\trepeated " + sheet_name+ struct_en_name + "Desc " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +struct_info["cn_name"] + "\","+" (yd_fieldoptions.field_arysize) = " + str(struct_info["max_num"]) + "];\n");
+		if struct_info.has_key("sub_msg"):
+			proto_file.write("\trepeated " + excel_name + sheet_name + struct_en_name + "Desc " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +struct_info["cn_name"] + "\","+" (yd_fieldoptions.field_arysize) = " + str(struct_info["max_num"]) + "];\n");
+		else:
+			cn_name = struct_info["cn_name"]
+			col_type = struct_info["col_type"]
+			col_max_size = struct_info["col_max_size"]
+			if col_type == "int" or col_type == "int32":
+				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "uint" or col_type == "uint32":
+				proto_file.write("\trepeated uint32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "int64":
+				proto_file.write("\trepeated int64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "uint64":
+				proto_file.write("\trepeated uint64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "float":
+				proto_file.write("\trepeated float " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "double":
+				proto_file.write("\trepeated double " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+			elif col_type == "string":
+				proto_file.write("\trepeated string " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(col_max_size) + "];\n");
 
 	proto_file.write("}\n");
 
@@ -107,6 +137,7 @@ def read_excel(excel_file, out_path):
 	"""
 	excel_fd = xlrd.open_workbook(excel_file)
 	sheet_map = {}
+	no_need_sheet = {}
 	#循环所有sheet
 	for sheet in excel_fd.sheets():
 		if 0 == cmp(sheet.name, "main"):
@@ -131,22 +162,6 @@ def read_excel(excel_file, out_path):
 	proto_file.write("package proto_ff;\n\n");
 	proto_file.write("import \"yd_fieldoptions.proto\";\n\n");
 
-	sheet_makefile_name = excel_file_name+"_gen.makefile"
-	makefile_file = open(sheet_makefile_name, 'w')
-	makefile_file.write("include ./define.makefile\n\n");
-	makefile_file.write(".PHONY:all\n\n");
-	makefile_file.write("all:");
-	for sheet in excel_fd.sheets():
-		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
-			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name + sheet.name + ".bin ");
-	makefile_file.write("\n\n");
-
-	for sheet in excel_fd.sheets():
-		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
-			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
-			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
-			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${GAME_DATA_PATH}/\n\n");
-
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
 			print "handle the excel:%s.xls sheet:%s" % (excel_file_name, sheet.name)
@@ -164,6 +179,10 @@ def read_excel(excel_file, out_path):
 				col_en_name = str(sheet.cell_value(0, col_index))
 				col_cn_name = str(sheet.cell_value(1, col_index))
 				col_type = str(sheet.cell_value(2, col_index))
+
+				if len(col_en_name) == 0 or len(col_cn_name) == 0 or len(col_type) == 0:
+					continue
+
 				col_sel = int(sheet_cell_value(sheet, 3, col_index))
 
 				if col_sel != 2 and col_sel != 3:
@@ -209,12 +228,42 @@ def read_excel(excel_file, out_path):
 										string_value = str(sheet.cell_value(row_index, col_index))
 										if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 											sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
-
-
+				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3:
+					sheet_struct_col_info[col_index] = 1
+					struct_num = int(col_cn_name_list[1])
+					struct_en_name = str(col_en_name_list[0])
+					struct_cn_name = str(col_cn_name_list[0])
+					if sheet_struct_info.has_key(struct_en_name) == False:
+						sheet_struct_info[struct_en_name] = {}
+						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+						sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+						sheet_struct_info[struct_en_name]["max_num"] = struct_num
+						sheet_struct_info[struct_en_name]["col_type"] = col_type
+						sheet_struct_info[struct_en_name]["col_max_size"] = 32
+						if col_type == "string":
+							for row_index in xrange(4, excel_sheet_row_count):
+								string_value = str(sheet.cell_value(row_index, col_index))
+								if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+									sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
+					else:
+						if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+							if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+								sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							if col_type == "string":
+								for row_index in xrange(4, excel_sheet_row_count):
+									string_value = str(sheet.cell_value(row_index, col_index))
+									if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+										sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
 
 			#开始按行读取
 			for col_index in xrange(0, excel_sheet_col_count):
+				col_en_name = str(sheet.cell_value(0, col_index))
+				col_cn_name = str(sheet.cell_value(1, col_index))
 				col_type = sheet.cell_value(2, col_index)
+
+				if len(col_en_name) == 0 or len(col_cn_name) == 0 or len(col_type) == 0:
+					continue
+
 				col_sel = int(sheet_cell_value(sheet, 3, col_index))
 
 				if col_sel != 2 and col_sel != 3:
@@ -236,7 +285,29 @@ def read_excel(excel_file, out_path):
 
 				sheet_col_info.append(one_col_info)
 
+			if len(sheet_col_info) == 0 and bool(sheet_struct_info) == False:
+				no_need_sheet[sheet.name] = 1
+				continue;
+
 			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info)
+
+	sheet_makefile_name = excel_file_name+"_gen.makefile"
+	makefile_file = open(sheet_makefile_name, 'w')
+	makefile_file.write("include ./define.makefile\n\n");
+	makefile_file.write(".PHONY:all\n\n");
+	makefile_file.write("all:");
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name + sheet.name + ".bin ");
+
+	makefile_file.write("\n\n");
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
+			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${GAME_DATA_PATH}/\n\n");
 
 	proto_file.close()
 	makefile_file.close()

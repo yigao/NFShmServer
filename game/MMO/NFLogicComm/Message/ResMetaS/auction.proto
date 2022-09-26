@@ -1,0 +1,36 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message auctionacquisition
+{
+	optional int64 Id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 profession = 2[(yd_fieldoptions.field_cname) = "分类"];
+	optional int32 position = 3[(yd_fieldoptions.field_cname) = "子类"];
+	optional string name = 4[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string icon = 5[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 num = 6[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+
+message Sheet_auctionacquisition
+{
+	repeated auctionacquisition auctionacquisition_List = 1[(yd_fieldoptions.field_arysize)=162];
+}
+
+message auctionpurchase
+{
+	optional int64 Id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "分类"];
+	optional int32 subType = 3[(yd_fieldoptions.field_cname) = "子类"];
+	optional string name = 4[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string itemName = 5[(yd_fieldoptions.field_cname) = "道具名称", (yd_fieldoptions.field_bufsize) = 32];
+	optional string itemId = 6[(yd_fieldoptions.field_cname) = "道具ID", (yd_fieldoptions.field_bufsize) = 35];
+}
+
+
+message Sheet_auctionpurchase
+{
+	repeated auctionpurchase auctionpurchase_List = 1[(yd_fieldoptions.field_arysize)=1404];
+}

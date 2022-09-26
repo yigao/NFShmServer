@@ -1,0 +1,34 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message lightAndShadowcons
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int64 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 47];
+}
+
+
+message Sheet_lightAndShadowcons
+{
+	repeated lightAndShadowcons lightAndShadowcons_List = 1[(yd_fieldoptions.field_arysize)=121];
+}
+
+message lightAndShadowreward
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int32 goldMin = 2[(yd_fieldoptions.field_cname) = "最低积分（不包含）"];
+	optional int32 goldMax = 3[(yd_fieldoptions.field_cname) = "最高积分（包含）"];
+	optional int64 winReward = 4[(yd_fieldoptions.field_cname) = "胜利奖励道具"];
+	optional int32 winRewardNum = 5[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int64 loseReward = 6[(yd_fieldoptions.field_cname) = "失败奖励道具"];
+	optional int32 loseRewardNum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_lightAndShadowreward
+{
+	repeated lightAndShadowreward lightAndShadowreward_List = 1[(yd_fieldoptions.field_arysize)=110];
+}

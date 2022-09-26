@@ -1,0 +1,121 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message combinecitemneedMaterialDesc
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message combinecitem
+{
+	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
+	optional int32 moneyType = 2[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 price = 3[(yd_fieldoptions.field_cname) = "货币消耗"];
+	optional int32 huobiType = 4[(yd_fieldoptions.field_cname) = "货币额外类型"];
+	optional int32 huobiPrice = 5[(yd_fieldoptions.field_cname) = "货币额外消耗"];
+	optional int32 probability = 6[(yd_fieldoptions.field_cname) = "基础成功率"];
+	optional int32 level = 7[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int32 floor = 8[(yd_fieldoptions.field_cname) = "命星塔要求"];
+	repeated combinecitemneedMaterialDesc needMaterial = 9[(yd_fieldoptions.field_cname) = "合成材料", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_combinecitem
+{
+	repeated combinecitem combinecitem_List = 1[(yd_fieldoptions.field_arysize)=537];
+}
+
+message combinestarUp
+{
+	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
+	optional int32 equipMin = 2[(yd_fieldoptions.field_cname) = "需要的最小件数"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "需要的最大件数"];
+	optional int64 needMaterial_id = 4[(yd_fieldoptions.field_cname) = "需要的固定材料ID"];
+	optional int32 needMaterial_num = 5[(yd_fieldoptions.field_cname) = "需要的固定材料数量"];
+	optional int32 star = 6[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 wearQuality = 7[(yd_fieldoptions.field_cname) = "阶级"];
+	optional int32 quality = 8[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 sameProfession = 9[(yd_fieldoptions.field_cname) = "是否相同职业"];
+	optional string samePosition = 10[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 probability = 11[(yd_fieldoptions.field_cname) = "基础成功率"];
+	optional int32 increase = 12[(yd_fieldoptions.field_cname) = "装备件数加成"];
+}
+
+
+message Sheet_combinestarUp
+{
+	repeated combinestarUp combinestarUp_List = 1[(yd_fieldoptions.field_arysize)=852];
+}
+
+message combineitemUp
+{
+	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
+	optional int32 moneyType = 2[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 price = 3[(yd_fieldoptions.field_cname) = "货币消耗"];
+	optional int64 needMaterialID = 4[(yd_fieldoptions.field_cname) = "合成材料ID"];
+	optional int32 needMaterialMin = 5[(yd_fieldoptions.field_cname) = "需要的最小件数"];
+	optional int32 needMaterialMan = 6[(yd_fieldoptions.field_cname) = "需要的最大件数"];
+	optional int32 probability = 7[(yd_fieldoptions.field_cname) = "基础成功率"];
+	optional int32 increase = 8[(yd_fieldoptions.field_cname) = "每个道具成功率加成"];
+}
+
+
+message Sheet_combineitemUp
+{
+	repeated combineitemUp combineitemUp_List = 1[(yd_fieldoptions.field_arysize)=136];
+}
+
+message combinerankUp
+{
+	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
+	optional int32 num = 2[(yd_fieldoptions.field_cname) = "需要的装备数量"];
+	optional int64 needMaterial_id = 3[(yd_fieldoptions.field_cname) = "需要的固定材料ID"];
+	optional int32 needMaterial_num = 4[(yd_fieldoptions.field_cname) = "需要的固定材料数量"];
+	optional int32 star = 5[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 wearQuality = 6[(yd_fieldoptions.field_cname) = "阶级"];
+	optional int32 quality = 7[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 sameProfession = 8[(yd_fieldoptions.field_cname) = "是否相同职业"];
+	optional string samePosition = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 probability = 10[(yd_fieldoptions.field_cname) = "成功率"];
+}
+
+
+message Sheet_combinerankUp
+{
+	repeated combinerankUp combinerankUp_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message combinequalityUpneedEqupDesc
+{
+	optional string id = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 83];
+}
+
+message combinequalityUpneedMaterialDesc
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = ""];
+}
+
+message combinequalityUp
+{
+	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
+	optional int32 num = 2[(yd_fieldoptions.field_cname) = "需要的装备数量"];
+	optional int32 needEqup_num = 3[(yd_fieldoptions.field_cname) = "需要固定装备1数量2"];
+	optional int32 star = 4[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 wearQuality = 5[(yd_fieldoptions.field_cname) = "阶级"];
+	optional int32 quality = 6[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 sameProfession = 7[(yd_fieldoptions.field_cname) = "是否相同职业"];
+	optional string samePosition = 8[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 32];
+	optional int32 probability = 9[(yd_fieldoptions.field_cname) = "基础成功率"];
+	optional int32 costType = 10[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 bindJewelCost = 11[(yd_fieldoptions.field_cname) = "合成消耗"];
+	repeated combinequalityUpneedEqupDesc needEqup = 12[(yd_fieldoptions.field_cname) = "需要固定装备", (yd_fieldoptions.field_arysize) = 1];
+	repeated combinequalityUpneedMaterialDesc needMaterial = 13[(yd_fieldoptions.field_cname) = "需要的固定材料ID", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_combinequalityUp
+{
+	repeated combinequalityUp combinequalityUp_List = 1[(yd_fieldoptions.field_arysize)=392];
+}
