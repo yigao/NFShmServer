@@ -8,6 +8,7 @@ GAME_SQL_PATH=${GAME_INSTALL_PATH}/Sql
 GAME_BUILD_PATH=${GAME_SRC_PATH}/Build/game/MMO/NFLogicComm/makefile
 
 MAKEFILE_PATH=${GAME_SRC_PATH}/game/MMO/NFLogicComm/makefiles
+MAKE_EXCELMAKEFILE_GEN=${MAKEFILE_PATH}/excelcreate_gen.makefile
 MAKE_PROTOC_GEN=${MAKEFILE_PATH}/protoc_gen.makefile
 MAKE_EXCEL_GEN=${MAKEFILE_PATH}/excel_gen.makefile
 MAKE_EXCELMMO_GEN=${MAKEFILE_PATH}/excelmmo_gen.makefile
@@ -28,6 +29,7 @@ PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
 EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
 EXCEL2PROTO=python ${TOOLS_PATH}/excel_2_bin/excel2proto.py
 EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo.py
+EXCEL2MAKEFILE=python ${TOOLS_PATH}/excel_2_bin/excel2makefile.py
 FILE_COPY_EXE=python ${TOOLS_PATH}/excel_2_bin/filecopy.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
 PROTO2STRUCT_PATH=${TOOLS_PATH}/proto_2_struct/
