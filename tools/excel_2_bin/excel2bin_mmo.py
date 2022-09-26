@@ -261,10 +261,21 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	#	  (__file__, sys._getframe().f_lineno, current_layer_typename, current_layerid, current_layer_cname)
 
 	#循环每个列
-	last_ok_col_index = 0;
+	last_ok_col_index = -1;
 	while col_index < excel_sheet_col_count:
 		#得到sheet的列名
 		column_name = sheet.cell_value(1, col_index)
+		col_type = str(sheet.cell_value(2, col_index))
+
+		if len(column_name) == 0 or len(col_type) == 0:
+			col_index = col_index + 1
+			continue
+
+		col_sel = int(sheet_cell_value(sheet, 3, col_index))
+
+		if col_sel != 2 and col_sel != 3:
+			col_index = col_index + 1
+			continue;
 
 		#print "line(%s:%d) now process excel column[%s] col_index[%d]" % (__file__, sys._getframe().f_lineno, column_name, col_index)
 		#循环查找对应名字，sheet的列名要和field的cname对应
@@ -364,7 +375,7 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	#print "line(%s:%d) fill_record record[%s] last_ok_col_index[%d] recursion_count[%d] completed---------------" % \
 	#	  (__file__, sys._getframe().f_lineno, record.DESCRIPTOR.full_name, last_ok_col_index, recursion_count)
 
-	if 0 == last_ok_col_index:
+	if -1 == last_ok_col_index:
 		print "\033[1;31;40m-------------line(%s:%d) Error!---------------\033[0m" % (__file__, sys._getframe().f_lineno)
 		sys.exit(-1)
 

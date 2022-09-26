@@ -37,6 +37,17 @@ from google.protobuf import descriptor_database
 from google.protobuf import descriptor_pool
 from google.protobuf import message_factory
 
+
+def get_max_row_num(num):
+	if num < 10:
+		return 20
+	elif num <= 100:
+		return int(num / 10) * 2
+	elif num <= 1000:
+		return int(num/100) * 100 + 100
+	else:
+		return int(num/1000) * 1000 + 1000
+
 def sheet_cell_value(sheet, row_index, col_index):
 	if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
 			sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_BLANK:
@@ -73,7 +84,7 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 			elif col_type == "double":
 				proto_file.write("\toptional double " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\"];\n")
 			elif col_type == "string":
-				proto_file.write("\toptional string " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\","+" (yd_fieldoptions.field_bufsize) = " + str(col_max_size) + "];\n");
+				proto_file.write("\toptional string " + sub_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_sub_name + "\","+" (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(col_max_size)) + "];\n");
 
 			index = index + 1
 		proto_file.write("}\n");
@@ -96,7 +107,7 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 		elif sheet_col_info[index]["col_type"] == "double":
 			proto_file.write("\toptional double " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "string":
-			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(sheet_col_info[index]["col_max_size"]) + "];\n");
+			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(sheet_col_info[index]["col_max_size"])) + "];\n");
 
 	for struct_en_name, struct_info in sheet_struct_info.items():
 		index = index + 1
@@ -105,27 +116,28 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 		else:
 			cn_name = struct_info["cn_name"]
 			col_type = struct_info["col_type"]
+			max_num = struct_info["max_num"]
 			col_max_size = struct_info["col_max_size"]
 			if col_type == "int" or col_type == "int32":
-				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + ", (yd_fieldoptions.field_arysize) = " + "" + "];\n");
 			elif col_type == "uint" or col_type == "uint32":
-				proto_file.write("\trepeated uint32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated uint32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "int64":
-				proto_file.write("\trepeated int64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated int64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "uint64":
-				proto_file.write("\trepeated uint64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated uint64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "float":
-				proto_file.write("\trepeated float " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated float " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "double":
-				proto_file.write("\trepeated double " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\"];\n")
+				proto_file.write("\trepeated double " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "string":
-				proto_file.write("\trepeated string " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(col_max_size) + "];\n");
+				proto_file.write("\trepeated string " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + ", (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(col_max_size)) + "];\n");
 
 	proto_file.write("}\n");
 
 	proto_file.write("\n\nmessage Sheet_" + excel_name+sheet_name + "\n")
 	proto_file.write("{\n");
-	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(sheet.nrows + 100) + "];\n");
+	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(get_max_row_num(sheet.nrows-4)) + "];\n");
 	proto_file.write("}\n");
 
 
@@ -171,8 +183,8 @@ def read_excel(excel_file, out_path):
 			#sheet的列数
 			excel_sheet_col_count = sheet.ncols
 			sheet_col_info = []
-			sheet_struct_info = { }
-			sheet_struct_col_info = { }
+			sheet_struct_info = {}
+			sheet_struct_col_info = {}
 
 			#开始按行读取
 			for col_index in xrange(0, excel_sheet_col_count):

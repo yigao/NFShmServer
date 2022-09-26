@@ -40,25 +40,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="excel proto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/achievement.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/achievement_gen.makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/box_gen.makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/colPoints.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/colPoints_gen.makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/achievement_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/box_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelmmo_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelmmo_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -317,7 +299,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/ExcelMMO/monster.xlsx  --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/ResMeta.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_monstermonster  --excel_sheetname=monster  --proto_msgname=monstermonster  --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
+      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/ExcelMMO/role.xlsx --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/ResMeta.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_roleborn --excel_sheetname=born --proto_msgname=roleborn --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -493,14 +475,7 @@
       <workItem from="1663634390040" duration="11554000" />
       <workItem from="1663808742487" duration="10264000" />
       <workItem from="1663896936625" duration="22582000" />
-      <workItem from="1664153338418" duration="24298000" />
-    </task>
-    <task id="LOCAL-00107" summary="chong gou">
-      <created>1663234255578</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1663234255581</updated>
+      <workItem from="1664153338418" duration="28081000" />
     </task>
     <task id="LOCAL-00108" summary="chong gou">
       <created>1663244704656</created>
@@ -838,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664160715993</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="excel proto">
+      <created>1664179605144</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1664179605144</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1010,23 +992,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>137</line>
+          <line>149</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
-          <line>123</line>
+          <line>135</line>
           <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
-          <line>197</line>
-          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
           <line>203</line>
           <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>
+          <line>367</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
