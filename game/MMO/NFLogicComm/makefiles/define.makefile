@@ -10,9 +10,11 @@ GAME_BUILD_PATH=${GAME_SRC_PATH}/Build/game/MMO/NFLogicComm/makefile
 MAKEFILE_PATH=${GAME_SRC_PATH}/game/MMO/NFLogicComm/makefiles
 MAKE_PROTOC_GEN=${MAKEFILE_PATH}/protoc_gen.makefile
 MAKE_EXCEL_GEN=${MAKEFILE_PATH}/excel_gen.makefile
+MAKE_EXCELMMO_GEN=${MAKEFILE_PATH}/excelmmo_gen.makefile
 MAKE_SQL_GEN=${MAKEFILE_PATH}/sql_gen.makefile
 
 RESDB_EXCEL_PATH=${GAME_SRC_PATH}/game/MMO/Excel
+RESDB_EXCELMMO_PATH=${GAME_SRC_PATH}/game/MMO/ExcelMMO
 PROTOCGEN_FILE_PATH=${GAME_BUILD_PATH}/temp
 
 THIRD_PARTY_PATH=${GAME_SRC_PATH}/thirdparty
@@ -24,6 +26,7 @@ THIRD_PARTY_TOOLS_PATH=${TOOLS_PATH}
 PROTOC=${THIRD_PARTY_TOOLS_PATH}/protoc
 PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
 EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
+EXCEL2PROTO=python ${TOOLS_PATH}/excel_2_bin/excel2proto.py
 EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
 PROTO2STRUCT_PATH=${TOOLS_PATH}/proto_2_struct/
@@ -103,5 +106,10 @@ MAKE_DEPENDENT_LOG=${GAME_BUILD_PATH}/make_dependent.log
 MAKE_DEPENDENT_ERROR_LOG=${GAME_BUILD_PATH}/make_dependent_error.log
 MAKE_LINK_ERROR_LOG=${GAME_BUILD_PATH}/make_link_error.log
 
-NEED_CLEAN_FILES=
-RESDB_BIN_FILE=${GAME_DATA_PATH}/ConstDesc.bin ${GAME_DATA_PATH}/NameDesc.bin
+EXCEL_MMO_FILES_LIST=achievement box colPoints
+#EXCEL_MMO_FILES_LIST=`cat ${RESDB_EXCELMMO_PATH}/list.txt`
+EXCEL_MMO_FILES=$(foreach var, ${EXCEL_MMO_FILES_LIST}, ${RESDB_EXCELMMO_PATH}/$(var).xlsx)
+EXCEL_MMO_PROTO_BIN_FILES=$(foreach var, ${EXCEL_MMO_FILES_LIST}, ${PROTOCGEN_FILE_PATH}/$(var).proto)
+EXCEL_MMO_MAKEFILE_BIN_FILES=$(foreach var, ${EXCEL_MMO_FILES_LIST}, ${PROTOCGEN_FILE_PATH}/$(var)_gen.makefile)
+
+RESDB_BIN_FILE=${EXCEL_MMO_PROTO_BIN_FILES} ${EXCEL_MMO_MAKEFILE_BIN_FILES}

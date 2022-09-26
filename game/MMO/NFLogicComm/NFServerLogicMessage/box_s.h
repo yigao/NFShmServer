@@ -64,8 +64,8 @@ namespace proto_ff_s {
 		int32_t godjewelmaxNum;
 		int32_t godjewelrand;
 		NFSizeString<32> eq_profession;
-		NFArray<struct boxequipDesc_s, 9> equip;
-		NFArray<struct boxitemDesc_s, 51> item;
+		NFArray<struct boxequipDesc_s, 8> equip;
+		NFArray<struct boxitemDesc_s, 50> item;
 
 		virtual void write_to_pbmsg(::proto_ff::boxbox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::boxbox & msg);
@@ -78,7 +78,7 @@ namespace proto_ff_s {
 		Sheet_boxbox_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct boxbox_s, 5132> boxbox_List;
+		NFArray<struct boxbox_s, 5177> boxbox_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_boxbox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_boxbox & msg);

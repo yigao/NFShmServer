@@ -39,12 +39,12 @@ message boxbox
 	optional int32 godjewelmaxNum = 13[(yd_fieldoptions.field_cname) = "神钻上限"];
 	optional int32 godjewelrand = 14[(yd_fieldoptions.field_cname) = "神钻掉落率"];
 	optional string eq_profession = 15[(yd_fieldoptions.field_cname) = "装备职业限制", (yd_fieldoptions.field_bufsize) = 32];
-	repeated boxequipDesc equip = 16[(yd_fieldoptions.field_cname) = "稀有装备", (yd_fieldoptions.field_arysize) = 9];
-	repeated boxitemDesc item = 17[(yd_fieldoptions.field_cname) = "稀有物品", (yd_fieldoptions.field_arysize) = 51];
+	repeated boxequipDesc equip = 16[(yd_fieldoptions.field_cname) = "稀有装备", (yd_fieldoptions.field_arysize) = 8];
+	repeated boxitemDesc item = 17[(yd_fieldoptions.field_cname) = "稀有物品", (yd_fieldoptions.field_arysize) = 50];
 }
 
 
 message Sheet_boxbox
 {
-	repeated boxbox boxbox_List = 1[(yd_fieldoptions.field_arysize)=5132];
+	repeated boxbox boxbox_List = 1[(yd_fieldoptions.field_arysize)=5177];
 }

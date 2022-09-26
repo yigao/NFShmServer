@@ -143,8 +143,8 @@ def read_excel(excel_file, out_path):
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name):
-			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCEL_PATH}/" + excel_src_file_name + "\n");
-			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCEL_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
 			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${GAME_DATA_PATH}/\n\n");
 
 	for sheet in excel_fd.sheets():
@@ -248,8 +248,6 @@ def read_excel(excel_file, out_path):
 		shutil.copyfile(sheet_makefile_name, out_path + sheet_makefile_name)
 		os.remove(sheet_makefile_name)
 
-	sys.exit(-1)
-
 def show_usage():
 	print """usage for excel2bin example:
 	./excel2bin --excel=x-1.xls
@@ -285,3 +283,5 @@ if __name__ == "__main__":
     #读取excel
 	for excel_file in excel_files:
 		read_excel(excel_file, out_path)
+
+	print "Success Handle Excel:\n\texcel_files[%s]\n\t" % (excel_files)
