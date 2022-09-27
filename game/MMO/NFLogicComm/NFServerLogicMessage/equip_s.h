@@ -15,7 +15,6 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t valueMin;
-		int32_t type;
 		int32_t valueMax;
 
 		virtual void write_to_pbmsg(::proto_ff::equipequipattributeDesc & msg) const;
@@ -55,6 +54,7 @@ namespace proto_ff_s {
 		int32_t Combat;
 		int32_t broadcast;
 		NFSizeString<60> meltingResult;
+		NFArray<int32_t, 2> attribute_type;
 		NFArray<struct equipequipattributeDesc_s, 2> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::equipequip & msg) const;

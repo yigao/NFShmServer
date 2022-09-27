@@ -34,181 +34,14 @@ void  protobuf_AddDesc_element_2eproto();
 void protobuf_AssignDesc_element_2eproto();
 void protobuf_ShutdownFile_element_2eproto();
 
-class elementelementattributeDesc;
-class elementelementmaterialDesc;
 class elementelement;
 class Sheet_elementelement;
-class elementfragmentattributeDesc;
 class elementfragment;
 class Sheet_elementfragment;
 class elementelementUI;
 class Sheet_elementelementUI;
 
 // ===================================================================
-
-class elementelementattributeDesc : public ::google::protobuf::Message {
- public:
-  elementelementattributeDesc();
-  virtual ~elementelementattributeDesc();
-
-  elementelementattributeDesc(const elementelementattributeDesc& from);
-
-  inline elementelementattributeDesc& operator=(const elementelementattributeDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const elementelementattributeDesc& default_instance();
-
-  void Swap(elementelementattributeDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  elementelementattributeDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const elementelementattributeDesc& from);
-  void MergeFrom(const elementelementattributeDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.elementelementattributeDesc)
- private:
-  inline void set_has_type();
-  inline void clear_has_type();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 type_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_element_2eproto();
-  friend void protobuf_AssignDesc_element_2eproto();
-  friend void protobuf_ShutdownFile_element_2eproto();
-
-  void InitAsDefaultInstance();
-  static elementelementattributeDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class elementelementmaterialDesc : public ::google::protobuf::Message {
- public:
-  elementelementmaterialDesc();
-  virtual ~elementelementmaterialDesc();
-
-  elementelementmaterialDesc(const elementelementmaterialDesc& from);
-
-  inline elementelementmaterialDesc& operator=(const elementelementmaterialDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const elementelementmaterialDesc& default_instance();
-
-  void Swap(elementelementmaterialDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  elementelementmaterialDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const elementelementmaterialDesc& from);
-  void MergeFrom(const elementelementmaterialDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.elementelementmaterialDesc)
- private:
-  inline void set_has_id();
-  inline void clear_has_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int64 id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_element_2eproto();
-  friend void protobuf_AssignDesc_element_2eproto();
-  friend void protobuf_ShutdownFile_element_2eproto();
-
-  void InitAsDefaultInstance();
-  static elementelementmaterialDesc* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class elementelement : public ::google::protobuf::Message {
  public:
@@ -311,29 +144,29 @@ class elementelement : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 skillid() const;
   inline void set_skillid(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.elementelementattributeDesc attribute = 7;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 7;
-  inline const ::proto_ff::elementelementattributeDesc& attribute(int index) const;
-  inline ::proto_ff::elementelementattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::elementelementattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementattributeDesc >*
-      mutable_attribute();
+  // repeated int32 attribute_type = 7;
+  inline int attribute_type_size() const;
+  inline void clear_attribute_type();
+  static const int kAttributeTypeFieldNumber = 7;
+  inline ::google::protobuf::int32 attribute_type(int index) const;
+  inline void set_attribute_type(int index, ::google::protobuf::int32 value);
+  inline void add_attribute_type(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      attribute_type() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_attribute_type();
 
-  // repeated .proto_ff.elementelementmaterialDesc material = 8;
-  inline int material_size() const;
-  inline void clear_material();
-  static const int kMaterialFieldNumber = 8;
-  inline const ::proto_ff::elementelementmaterialDesc& material(int index) const;
-  inline ::proto_ff::elementelementmaterialDesc* mutable_material(int index);
-  inline ::proto_ff::elementelementmaterialDesc* add_material();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementmaterialDesc >&
-      material() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementmaterialDesc >*
-      mutable_material();
+  // repeated int32 material_exp = 8;
+  inline int material_exp_size() const;
+  inline void clear_material_exp();
+  static const int kMaterialExpFieldNumber = 8;
+  inline ::google::protobuf::int32 material_exp(int index) const;
+  inline void set_material_exp(int index, ::google::protobuf::int32 value);
+  inline void add_material_exp(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      material_exp() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_material_exp();
 
   // repeated int64 fragmentID = 9;
   inline int fragmentid_size() const;
@@ -346,6 +179,30 @@ class elementelement : public ::google::protobuf::Message {
       fragmentid() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_fragmentid();
+
+  // repeated int64 material_id = 10;
+  inline int material_id_size() const;
+  inline void clear_material_id();
+  static const int kMaterialIdFieldNumber = 10;
+  inline ::google::protobuf::int64 material_id(int index) const;
+  inline void set_material_id(int index, ::google::protobuf::int64 value);
+  inline void add_material_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      material_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_material_id();
+
+  // repeated int32 attribute_value = 11;
+  inline int attribute_value_size() const;
+  inline void clear_attribute_value();
+  static const int kAttributeValueFieldNumber = 11;
+  inline ::google::protobuf::int32 attribute_value(int index) const;
+  inline void set_attribute_value(int index, ::google::protobuf::int32 value);
+  inline void add_attribute_value(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      attribute_value() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_attribute_value();
 
   // @@protoc_insertion_point(class_scope:proto_ff.elementelement)
  private:
@@ -369,13 +226,15 @@ class elementelement : public ::google::protobuf::Message {
   ::google::protobuf::int32 type_;
   ::google::protobuf::int32 level_;
   ::google::protobuf::int64 skillid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementattributeDesc > attribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementmaterialDesc > material_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_type_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > material_exp_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > fragmentid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > material_id_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_value_;
   ::google::protobuf::int32 exp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
 
   friend void  protobuf_AddDesc_element_2eproto();
   friend void protobuf_AssignDesc_element_2eproto();
@@ -471,88 +330,6 @@ class Sheet_elementelement : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class elementfragmentattributeDesc : public ::google::protobuf::Message {
- public:
-  elementfragmentattributeDesc();
-  virtual ~elementfragmentattributeDesc();
-
-  elementfragmentattributeDesc(const elementfragmentattributeDesc& from);
-
-  inline elementfragmentattributeDesc& operator=(const elementfragmentattributeDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const elementfragmentattributeDesc& default_instance();
-
-  void Swap(elementfragmentattributeDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  elementfragmentattributeDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const elementfragmentattributeDesc& from);
-  void MergeFrom(const elementfragmentattributeDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.elementfragmentattributeDesc)
- private:
-  inline void set_has_type();
-  inline void clear_has_type();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 type_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_element_2eproto();
-  friend void protobuf_AssignDesc_element_2eproto();
-  friend void protobuf_ShutdownFile_element_2eproto();
-
-  void InitAsDefaultInstance();
-  static elementfragmentattributeDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class elementfragment : public ::google::protobuf::Message {
  public:
   elementfragment();
@@ -628,17 +405,29 @@ class elementfragment : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 itemnum() const;
   inline void set_itemnum(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 4;
-  inline const ::proto_ff::elementfragmentattributeDesc& attribute(int index) const;
-  inline ::proto_ff::elementfragmentattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::elementfragmentattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementfragmentattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementfragmentattributeDesc >*
-      mutable_attribute();
+  // repeated int32 attribute_type = 4;
+  inline int attribute_type_size() const;
+  inline void clear_attribute_type();
+  static const int kAttributeTypeFieldNumber = 4;
+  inline ::google::protobuf::int32 attribute_type(int index) const;
+  inline void set_attribute_type(int index, ::google::protobuf::int32 value);
+  inline void add_attribute_type(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      attribute_type() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_attribute_type();
+
+  // repeated int32 attribute_value = 5;
+  inline int attribute_value_size() const;
+  inline void clear_attribute_value();
+  static const int kAttributeValueFieldNumber = 5;
+  inline ::google::protobuf::int32 attribute_value(int index) const;
+  inline void set_attribute_value(int index, ::google::protobuf::int32 value);
+  inline void add_attribute_value(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      attribute_value() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_attribute_value();
 
   // @@protoc_insertion_point(class_scope:proto_ff.elementfragment)
  private:
@@ -653,11 +442,12 @@ class elementfragment : public ::google::protobuf::Message {
 
   ::google::protobuf::int64 id_;
   ::google::protobuf::int64 itemid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::elementfragmentattributeDesc > attribute_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_type_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_value_;
   ::google::protobuf::int32 itemnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_element_2eproto();
   friend void protobuf_AssignDesc_element_2eproto();
@@ -938,58 +728,6 @@ class Sheet_elementelementUI : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// elementelementattributeDesc
-
-// optional int32 type = 1;
-inline bool elementelementattributeDesc::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void elementelementattributeDesc::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void elementelementattributeDesc::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void elementelementattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::google::protobuf::int32 elementelementattributeDesc::type() const {
-  return type_;
-}
-inline void elementelementattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// elementelementmaterialDesc
-
-// optional int64 id = 1;
-inline bool elementelementmaterialDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void elementelementmaterialDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void elementelementmaterialDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void elementelementmaterialDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 elementelementmaterialDesc::id() const {
-  return id_;
-}
-inline void elementelementmaterialDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // elementelement
 
 // optional int64 ID = 1;
@@ -1172,54 +910,54 @@ inline void elementelement::set_skillid(::google::protobuf::int64 value) {
   skillid_ = value;
 }
 
-// repeated .proto_ff.elementelementattributeDesc attribute = 7;
-inline int elementelement::attribute_size() const {
-  return attribute_.size();
+// repeated int32 attribute_type = 7;
+inline int elementelement::attribute_type_size() const {
+  return attribute_type_.size();
 }
-inline void elementelement::clear_attribute() {
-  attribute_.Clear();
+inline void elementelement::clear_attribute_type() {
+  attribute_type_.Clear();
 }
-inline const ::proto_ff::elementelementattributeDesc& elementelement::attribute(int index) const {
-  return attribute_.Get(index);
+inline ::google::protobuf::int32 elementelement::attribute_type(int index) const {
+  return attribute_type_.Get(index);
 }
-inline ::proto_ff::elementelementattributeDesc* elementelement::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
+inline void elementelement::set_attribute_type(int index, ::google::protobuf::int32 value) {
+  attribute_type_.Set(index, value);
 }
-inline ::proto_ff::elementelementattributeDesc* elementelement::add_attribute() {
-  return attribute_.Add();
+inline void elementelement::add_attribute_type(::google::protobuf::int32 value) {
+  attribute_type_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementattributeDesc >&
-elementelement::attribute() const {
-  return attribute_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+elementelement::attribute_type() const {
+  return attribute_type_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementattributeDesc >*
-elementelement::mutable_attribute() {
-  return &attribute_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+elementelement::mutable_attribute_type() {
+  return &attribute_type_;
 }
 
-// repeated .proto_ff.elementelementmaterialDesc material = 8;
-inline int elementelement::material_size() const {
-  return material_.size();
+// repeated int32 material_exp = 8;
+inline int elementelement::material_exp_size() const {
+  return material_exp_.size();
 }
-inline void elementelement::clear_material() {
-  material_.Clear();
+inline void elementelement::clear_material_exp() {
+  material_exp_.Clear();
 }
-inline const ::proto_ff::elementelementmaterialDesc& elementelement::material(int index) const {
-  return material_.Get(index);
+inline ::google::protobuf::int32 elementelement::material_exp(int index) const {
+  return material_exp_.Get(index);
 }
-inline ::proto_ff::elementelementmaterialDesc* elementelement::mutable_material(int index) {
-  return material_.Mutable(index);
+inline void elementelement::set_material_exp(int index, ::google::protobuf::int32 value) {
+  material_exp_.Set(index, value);
 }
-inline ::proto_ff::elementelementmaterialDesc* elementelement::add_material() {
-  return material_.Add();
+inline void elementelement::add_material_exp(::google::protobuf::int32 value) {
+  material_exp_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementmaterialDesc >&
-elementelement::material() const {
-  return material_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+elementelement::material_exp() const {
+  return material_exp_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelementmaterialDesc >*
-elementelement::mutable_material() {
-  return &material_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+elementelement::mutable_material_exp() {
+  return &material_exp_;
 }
 
 // repeated int64 fragmentID = 9;
@@ -1245,6 +983,56 @@ elementelement::fragmentid() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
 elementelement::mutable_fragmentid() {
   return &fragmentid_;
+}
+
+// repeated int64 material_id = 10;
+inline int elementelement::material_id_size() const {
+  return material_id_.size();
+}
+inline void elementelement::clear_material_id() {
+  material_id_.Clear();
+}
+inline ::google::protobuf::int64 elementelement::material_id(int index) const {
+  return material_id_.Get(index);
+}
+inline void elementelement::set_material_id(int index, ::google::protobuf::int64 value) {
+  material_id_.Set(index, value);
+}
+inline void elementelement::add_material_id(::google::protobuf::int64 value) {
+  material_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+elementelement::material_id() const {
+  return material_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+elementelement::mutable_material_id() {
+  return &material_id_;
+}
+
+// repeated int32 attribute_value = 11;
+inline int elementelement::attribute_value_size() const {
+  return attribute_value_.size();
+}
+inline void elementelement::clear_attribute_value() {
+  attribute_value_.Clear();
+}
+inline ::google::protobuf::int32 elementelement::attribute_value(int index) const {
+  return attribute_value_.Get(index);
+}
+inline void elementelement::set_attribute_value(int index, ::google::protobuf::int32 value) {
+  attribute_value_.Set(index, value);
+}
+inline void elementelement::add_attribute_value(::google::protobuf::int32 value) {
+  attribute_value_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+elementelement::attribute_value() const {
+  return attribute_value_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+elementelement::mutable_attribute_value() {
+  return &attribute_value_;
 }
 
 // -------------------------------------------------------------------
@@ -1274,32 +1062,6 @@ Sheet_elementelement::elementelement_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementelement >*
 Sheet_elementelement::mutable_elementelement_list() {
   return &elementelement_list_;
-}
-
-// -------------------------------------------------------------------
-
-// elementfragmentattributeDesc
-
-// optional int32 type = 1;
-inline bool elementfragmentattributeDesc::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void elementfragmentattributeDesc::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void elementfragmentattributeDesc::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void elementfragmentattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::google::protobuf::int32 elementfragmentattributeDesc::type() const {
-  return type_;
-}
-inline void elementfragmentattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1372,29 +1134,54 @@ inline void elementfragment::set_itemnum(::google::protobuf::int32 value) {
   itemnum_ = value;
 }
 
-// repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
-inline int elementfragment::attribute_size() const {
-  return attribute_.size();
+// repeated int32 attribute_type = 4;
+inline int elementfragment::attribute_type_size() const {
+  return attribute_type_.size();
 }
-inline void elementfragment::clear_attribute() {
-  attribute_.Clear();
+inline void elementfragment::clear_attribute_type() {
+  attribute_type_.Clear();
 }
-inline const ::proto_ff::elementfragmentattributeDesc& elementfragment::attribute(int index) const {
-  return attribute_.Get(index);
+inline ::google::protobuf::int32 elementfragment::attribute_type(int index) const {
+  return attribute_type_.Get(index);
 }
-inline ::proto_ff::elementfragmentattributeDesc* elementfragment::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
+inline void elementfragment::set_attribute_type(int index, ::google::protobuf::int32 value) {
+  attribute_type_.Set(index, value);
 }
-inline ::proto_ff::elementfragmentattributeDesc* elementfragment::add_attribute() {
-  return attribute_.Add();
+inline void elementfragment::add_attribute_type(::google::protobuf::int32 value) {
+  attribute_type_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::elementfragmentattributeDesc >&
-elementfragment::attribute() const {
-  return attribute_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+elementfragment::attribute_type() const {
+  return attribute_type_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::elementfragmentattributeDesc >*
-elementfragment::mutable_attribute() {
-  return &attribute_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+elementfragment::mutable_attribute_type() {
+  return &attribute_type_;
+}
+
+// repeated int32 attribute_value = 5;
+inline int elementfragment::attribute_value_size() const {
+  return attribute_value_.size();
+}
+inline void elementfragment::clear_attribute_value() {
+  attribute_value_.Clear();
+}
+inline ::google::protobuf::int32 elementfragment::attribute_value(int index) const {
+  return attribute_value_.Get(index);
+}
+inline void elementfragment::set_attribute_value(int index, ::google::protobuf::int32 value) {
+  attribute_value_.Set(index, value);
+}
+inline void elementfragment::add_attribute_value(::google::protobuf::int32 value) {
+  attribute_value_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+elementfragment::attribute_value() const {
+  return attribute_value_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+elementfragment::mutable_attribute_value() {
+  return &attribute_value_;
 }
 
 // -------------------------------------------------------------------

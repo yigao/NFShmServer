@@ -2,84 +2,6 @@
 
 namespace proto_ff_s {
 
-occupationoccupationattributeDesc_s::occupationoccupationattributeDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationoccupationattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	return 0;
-}
-
-int occupationoccupationattributeDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationoccupationattributeDesc_s::write_to_pbmsg(::proto_ff::occupationoccupationattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-}
-
-void occupationoccupationattributeDesc_s::read_from_pbmsg(const ::proto_ff::occupationoccupationattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationoccupationattributeDesc_s));
-	type = msg.type();
-}
-
-occupationoccupationdelSkillDesc_s::occupationoccupationdelSkillDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationoccupationdelSkillDesc_s::CreateInit() {
-	id = (int64_t)0;
-	return 0;
-}
-
-int occupationoccupationdelSkillDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationoccupationdelSkillDesc_s::write_to_pbmsg(::proto_ff::occupationoccupationdelSkillDesc & msg) const {
-	msg.set_id((int64_t)id);
-}
-
-void occupationoccupationdelSkillDesc_s::read_from_pbmsg(const ::proto_ff::occupationoccupationdelSkillDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationoccupationdelSkillDesc_s));
-	id = msg.id();
-}
-
-occupationoccupationskillDesc_s::occupationoccupationskillDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationoccupationskillDesc_s::CreateInit() {
-	id = (int64_t)0;
-	return 0;
-}
-
-int occupationoccupationskillDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationoccupationskillDesc_s::write_to_pbmsg(::proto_ff::occupationoccupationskillDesc & msg) const {
-	msg.set_id((int64_t)id);
-}
-
-void occupationoccupationskillDesc_s::read_from_pbmsg(const ::proto_ff::occupationoccupationskillDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationoccupationskillDesc_s));
-	id = msg.id();
-}
-
 occupationoccupation_s::occupationoccupation_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -111,17 +33,17 @@ void occupationoccupation_s::write_to_pbmsg(::proto_ff::occupationoccupation & m
 	msg.set_taskid((const char*)taskID.Get());
 	msg.set_equip((const char*)equip.Get());
 	msg.set_modelid((const char*)modelID.Get());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::occupationoccupationattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+	for(int32_t i = 0; i < (int32_t)delSkill_id.GetSize() && i < delSkill_id.GetMaxSize(); ++i) {
+		msg.add_delskill_id((int64_t)delSkill_id[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)delSkill.GetSize() && i < delSkill.GetMaxSize(); ++i) {
-		::proto_ff::occupationoccupationdelSkillDesc* temp_delskill = msg.add_delskill();
-		delSkill[i].write_to_pbmsg(*temp_delskill);
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize() && i < attribute_type.GetMaxSize(); ++i) {
+		msg.add_attribute_type((int32_t)attribute_type[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)skill.GetSize() && i < skill.GetMaxSize(); ++i) {
-		::proto_ff::occupationoccupationskillDesc* temp_skill = msg.add_skill();
-		skill[i].write_to_pbmsg(*temp_skill);
+	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize() && i < attribute_value.GetMaxSize(); ++i) {
+		msg.add_attribute_value((int32_t)attribute_value[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)skill_id.GetSize() && i < skill_id.GetMaxSize(); ++i) {
+		msg.add_skill_id((int64_t)skill_id[i]);
 	}
 }
 
@@ -136,20 +58,21 @@ void occupationoccupation_s::read_from_pbmsg(const ::proto_ff::occupationoccupat
 	taskID.Copy(msg.taskid());
 	equip.Copy(msg.equip());
 	modelID.Copy(msg.modelid());
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::occupationoccupationattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+	delSkill_id.SetSize(msg.delskill_id_size() > delSkill_id.GetMaxSize() ? delSkill_id.GetMaxSize() : msg.delskill_id_size());
+	for(int32_t i = 0; i < (int32_t)delSkill_id.GetSize(); ++i) {
+		delSkill_id[i] = msg.delskill_id(i);
 	}
-	delSkill.SetSize(msg.delskill_size() > delSkill.GetMaxSize() ? delSkill.GetMaxSize() : msg.delskill_size());
-	for(int32_t i = 0; i < (int32_t)delSkill.GetSize(); ++i) {
-		const ::proto_ff::occupationoccupationdelSkillDesc & temp_delskill = msg.delskill(i);
-		delSkill[i].read_from_pbmsg(temp_delskill);
+	attribute_type.SetSize(msg.attribute_type_size() > attribute_type.GetMaxSize() ? attribute_type.GetMaxSize() : msg.attribute_type_size());
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize(); ++i) {
+		attribute_type[i] = msg.attribute_type(i);
 	}
-	skill.SetSize(msg.skill_size() > skill.GetMaxSize() ? skill.GetMaxSize() : msg.skill_size());
-	for(int32_t i = 0; i < (int32_t)skill.GetSize(); ++i) {
-		const ::proto_ff::occupationoccupationskillDesc & temp_skill = msg.skill(i);
-		skill[i].read_from_pbmsg(temp_skill);
+	attribute_value.SetSize(msg.attribute_value_size() > attribute_value.GetMaxSize() ? attribute_value.GetMaxSize() : msg.attribute_value_size());
+	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize(); ++i) {
+		attribute_value[i] = msg.attribute_value(i);
+	}
+	skill_id.SetSize(msg.skill_id_size() > skill_id.GetMaxSize() ? skill_id.GetMaxSize() : msg.skill_id_size());
+	for(int32_t i = 0; i < (int32_t)skill_id.GetSize(); ++i) {
+		skill_id[i] = msg.skill_id(i);
 	}
 }
 
@@ -185,32 +108,6 @@ void Sheet_occupationoccupation_s::read_from_pbmsg(const ::proto_ff::Sheet_occup
 	}
 }
 
-occupationaptitudeattributeDesc_s::occupationaptitudeattributeDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationaptitudeattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	return 0;
-}
-
-int occupationaptitudeattributeDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationaptitudeattributeDesc_s::write_to_pbmsg(::proto_ff::occupationaptitudeattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-}
-
-void occupationaptitudeattributeDesc_s::read_from_pbmsg(const ::proto_ff::occupationaptitudeattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationaptitudeattributeDesc_s));
-	type = msg.type();
-}
-
 occupationaptitude_s::occupationaptitude_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -241,9 +138,11 @@ void occupationaptitude_s::write_to_pbmsg(::proto_ff::occupationaptitude & msg) 
 	msg.set_material((int64_t)material);
 	msg.set_num((int32_t)num);
 	msg.set_conditionid((const char*)conditionId.Get());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::occupationaptitudeattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize() && i < attribute_type.GetMaxSize(); ++i) {
+		msg.add_attribute_type((int32_t)attribute_type[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize() && i < attribute_value.GetMaxSize(); ++i) {
+		msg.add_attribute_value((int32_t)attribute_value[i]);
 	}
 }
 
@@ -256,10 +155,13 @@ void occupationaptitude_s::read_from_pbmsg(const ::proto_ff::occupationaptitude 
 	material = msg.material();
 	num = msg.num();
 	conditionId.Copy(msg.conditionid());
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::occupationaptitudeattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+	attribute_type.SetSize(msg.attribute_type_size() > attribute_type.GetMaxSize() ? attribute_type.GetMaxSize() : msg.attribute_type_size());
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize(); ++i) {
+		attribute_type[i] = msg.attribute_type(i);
+	}
+	attribute_value.SetSize(msg.attribute_value_size() > attribute_value.GetMaxSize() ? attribute_value.GetMaxSize() : msg.attribute_value_size());
+	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize(); ++i) {
+		attribute_value[i] = msg.attribute_value(i);
 	}
 }
 

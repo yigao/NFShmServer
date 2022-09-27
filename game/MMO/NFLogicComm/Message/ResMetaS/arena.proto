@@ -73,7 +73,7 @@ message arenafirstrank
 {
 	optional int32 rankDown = 1[(yd_fieldoptions.field_cname) = "下限排名"];
 	optional int32 rankUp = 2[(yd_fieldoptions.field_cname) = "上限排名"];
-	repeated float RewardONE = 3[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 1];
+	optional float RewardONE = 3[(yd_fieldoptions.field_cname) = "奖励物品1ID"];
 }
 
 

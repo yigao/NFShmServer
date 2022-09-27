@@ -58,6 +58,127 @@ def sheet_cell_value(sheet, row_index, col_index):
 
 	return sheet.cell_value(row_index, col_index)
 
+def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
+	desc_file_name = excel_name.capitalize() + sheet_name.capitalize() + "Desc.h"
+	desc_file = open(desc_file_name, 'w')
+	desc_file.write("#pragma once\n\n");
+	desc_file.write("#include \"NFServerComm/NFDescStorePlugin/NFIDescStore.h\"\n");
+	desc_file.write("#include \"NFComm/NFShmCore/NFShmMgr.h\"\n");
+	desc_file.write("#include \"NFLogicCommon/NFDescStoreTypeDefines.h\"\n");
+	desc_file.write("#include \"NFServerLogicMessage/" + excel_name + "_s.h\"\n");
+
+	desc_file.write("\n#define MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM " + str(get_max_row_num(sheet.nrows-4)) + "\n");
+
+	desc_file.write("\nclass " + excel_name.capitalize() + sheet_name.capitalize() + "Desc : public NFIDescStore\n");
+	desc_file.write("{\n")
+	desc_file.write("public:\n")
+	desc_file.write("\t" + excel_name.capitalize() + sheet_name.capitalize() + "Desc(NFIPluginManager* pPluginManager);\n")
+	desc_file.write("\tvirtual ~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
+	desc_file.write("\tconst proto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id) const;\n");
+	desc_file.write("\tproto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id);\n");
+	desc_file.write("\tconst NFShmHashMap<uint64_t, proto_ff_s::" + excel_name + sheet_name + "_s, MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM>* GetAllDesc() const { return &m_astDesc; }\n")
+	desc_file.write("\tNFShmHashMap<uint64_t, proto_ff_s::" + excel_name + sheet_name + "_s, MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM>* GetAllDesc() { return &m_astDesc; }\n")
+	desc_file.write("public:\n")
+	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::" + excel_name + sheet_name + "_s, " + excel_name + sheet_name + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
+	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
+	desc_file.write("};\n")
+	desc_file.close()
+
+	#移动到指定路径
+	if os.path.exists(out_path) and out_path != "./":
+		shutil.copyfile(desc_file_name, out_path + desc_file_name)
+		os.remove(desc_file_name)
+
+
+def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
+	desc_file_name = excel_name.capitalize() + sheet_name.capitalize() + "Desc.cpp"
+	desc_file = open(desc_file_name, 'w')
+	desc_file.write("#include \"" + excel_name.capitalize() + sheet_name.capitalize() + "Desc.h\"\n");
+	desc_file.write("#include \"NFComm/NFPluginModule/NFCheck.h\"\n\n");
+	desc_file.write("IMPLEMENT_IDCREATE_WITHTYPE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc, EOT_CONST_" + excel_name.upper() + "_" + sheet_name.upper() + "_DESC_ID, NFShmObj)\n\n")
+#//////////////////////////////////////////////////////////////
+	desc_file.write(excel_name.capitalize() + sheet_name.capitalize() + "Desc::" + excel_name.capitalize() + sheet_name.capitalize() + "Desc(NFIPluginManager* pPluginManager):NFIDescStore(pPluginManager)\n")
+	desc_file.write("{\n");
+	desc_file.write("\tif (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {\n");
+	desc_file.write("\t\tCreateInit();\n");
+	desc_file.write("\t}\n");
+	desc_file.write("\telse {\n");
+	desc_file.write("\t\tResumeInit();\n");
+	desc_file.write("\t}\n");
+	desc_file.write("}\n\n");
+#//////////////////////////////////////////////////////////////////
+	desc_file.write(excel_name.capitalize() + sheet_name.capitalize() + "Desc::~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc()\n")
+	desc_file.write("{\n")
+	desc_file.write("}\n\n")
+#///////////////////////////////////////////////////////////
+	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::CreateInit()\n")
+	desc_file.write("{\n")
+	desc_file.write("\tInitialize();\n")
+	desc_file.write("\treturn 0;\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::ResumeInit()\n")
+	desc_file.write("{\n")
+	desc_file.write("\treturn 0;\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::Load(NFResDB *pDB)\n")
+	desc_file.write("{\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"--begin--\");\n")
+	desc_file.write("\tCHECK_EXPR(pDB != NULL, -1, \"pDB == NULL\");\n")
+	desc_file.write("\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"NFConstDesc::Load() strFileName = {}\", GetFileName());\n")
+	desc_file.write("\n")
+	desc_file.write("\tproto_ff::Sheet_" + excel_name + sheet_name + " table;\n")
+	desc_file.write("\tNFResTable* pResTable = pDB->GetTable(GetFileName());\n")
+	desc_file.write("\tCHECK_EXPR(pResTable != NULL, -1, \"pTable == NULL, GetTable:{} Error\", GetFileName());\n")
+	desc_file.write("\n")
+	desc_file.write("\tint iRet = 0;\n")
+	desc_file.write("\tiRet = pResTable->FindAllRecord(GetDBName(), &table);\n")
+	desc_file.write("\tCHECK_EXPR(iRet == 0, -1, \"FindAllRecord Error:{}\", GetFileName());\n")
+	desc_file.write("\n")
+	desc_file.write("\t//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"{}\", table.Utf8DebugString());\n")
+	desc_file.write("\n")
+	desc_file.write("\tif ((table." + excel_name + sheet_name + "_list_size() < 0) || (table." + excel_name + sheet_name + "_list_size() > (int)(m_astDesc.GetSize())))\n")
+	desc_file.write("\t{\n")
+	desc_file.write("\t\tNFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"Invalid TotalNum:{}\", table." + excel_name + sheet_name + "_list_size());\n")
+	desc_file.write("\t\treturn -2;\n")
+	desc_file.write("\t}\n")
+	desc_file.write("\n")
+	desc_file.write("\tfor (int i = 0; i < table." + excel_name + sheet_name + "_list_size(); i++)\n")
+	desc_file.write("\t{\n")
+	desc_file.write("\t\tconst proto_ff::" + excel_name + sheet_name + "& desc = table." + excel_name + sheet_name + "_list(i);\n")
+	desc_file.write("\t\tauto pDesc = m_astDesc.Insert(desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
+	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc.Insert Failed desc.id:{}\", desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
+	desc_file.write("\t\tpDesc->read_from_pbmsg(desc);\n");
+	desc_file.write("\t}\n")
+	desc_file.write("\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"load {}, num={}\", iRet, table." + excel_name + sheet_name + "_list_size());\n")
+	desc_file.write("\treturn 0;\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"--end--\");\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::CheckWhenAllDataLoaded()\n")
+	desc_file.write("{\n")
+	desc_file.write("\treturn 0;\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("const proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::CetDesc(int id) const\n")
+	desc_file.write("{\n")
+	desc_file.write("\treturn m_astDesc.Find(id);\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id)\n")
+	desc_file.write("{\n")
+	desc_file.write("\treturn m_astDesc.Find(id);\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.close()
+	#移动到指定路径
+	if os.path.exists(out_path) and out_path != "./":
+		shutil.copyfile(desc_file_name, out_path + desc_file_name)
+		os.remove(desc_file_name)
+
 def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info):
 
 	for struct_en_name, struct_info in sheet_struct_info.items():
@@ -141,7 +262,6 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 	proto_file.write("}\n");
 
 
-
 def read_excel(excel_file, out_path):
 	"""
 	excel_file：文件名
@@ -202,7 +322,7 @@ def read_excel(excel_file, out_path):
 
 				col_en_name_list = col_en_name.split("_")
 				col_cn_name_list = re.split('(\d+)', col_cn_name)
-				if len(col_en_name_list) == 2 and len(col_cn_name_list) == 3:
+				if len(col_en_name_list) == 2 and len(col_cn_name_list) == 3 and len(col_en_name_list[0]) > 0 and len(col_en_name_list[1]) > 0 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) > 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
 					struct_en_name = str(col_en_name_list[0])
@@ -240,10 +360,10 @@ def read_excel(excel_file, out_path):
 										string_value = str(sheet.cell_value(row_index, col_index))
 										if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 											sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
-				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3:
+				elif len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
-					struct_en_name = str(col_en_name_list[0])
+					struct_en_name = col_en_name
 					struct_cn_name = str(col_cn_name_list[0])
 					if sheet_struct_info.has_key(struct_en_name) == False:
 						sheet_struct_info[struct_en_name] = {}
@@ -302,6 +422,8 @@ def read_excel(excel_file, out_path):
 				continue;
 
 			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info)
+			write_sheet_desc_store_h(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, out_path)
+			write_sheet_desc_store_cpp(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, out_path)
 
 	sheet_makefile_name = excel_file_name+"_gen.makefile"
 	makefile_file = open(sheet_makefile_name, 'w')
@@ -311,7 +433,7 @@ def read_excel(excel_file, out_path):
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			makefile_file.write("${PROTOCGEN_FILE_PATH}/" + excel_file_name + sheet.name + ".bin ");
+			makefile_file.write("${PROTOCGEN_FILE_PATH}/" + excel_file_name + sheet.name + ".bin " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp ");
 
 	makefile_file.write("\n\n");
 
@@ -322,6 +444,10 @@ def read_excel(excel_file, out_path):
 			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds --proto_package=proto_ff \\\n");
 			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n");
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name+sheet.name + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n")
+
+			makefile_file.write("\n${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp:${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("\tmkdir -p ${PROTOCGEN_FILE_PATH}\n")
+			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n")
 
 
 	proto_file.close()

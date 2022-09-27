@@ -176,19 +176,6 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_activitychaosDragons_s Sheet_activitychaosDragons_t;
 
-	struct activitycircuscircusDesc_s : public NFDescStoreSeqOP {
-		activitycircuscircusDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int32_t a;
-
-		virtual void write_to_pbmsg(::proto_ff::activitycircuscircusDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::activitycircuscircusDesc & msg);
-		static ::proto_ff::activitycircuscircusDesc* new_pbmsg(){ return new ::proto_ff::activitycircuscircusDesc(); }
-		static ::proto_ff::activitycircuscircusDesc make_pbmsg(){ return ::proto_ff::activitycircuscircusDesc(); }
-	};
-	typedef struct activitycircuscircusDesc_s activitycircuscircusDesc_t;
-
 	struct activitycircus_s : public NFDescStoreSeqOP {
 		activitycircus_s();
 		int CreateInit();
@@ -196,7 +183,8 @@ namespace proto_ff_s {
 		int64_t circusID;
 		int64_t powerLow;
 		int64_t powerUp;
-		NFArray<struct activitycircuscircusDesc_s, 32> circus;
+		NFArray<int32_t, 32> circus_a;
+		NFArray<int64_t, 32> circus_b;
 
 		virtual void write_to_pbmsg(::proto_ff::activitycircus & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitycircus & msg);
@@ -354,7 +342,6 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t Num;
-		int64_t ID;
 
 		virtual void write_to_pbmsg(::proto_ff::activitymathrewardrewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitymathrewardrewardDesc & msg);
@@ -371,6 +358,7 @@ namespace proto_ff_s {
 		int32_t rewardtype;
 		int32_t rewardlevel;
 		NFArray<struct activitymathrewardrewardDesc_s, 5> reward;
+		NFArray<int64_t, 5> reward_ID;
 
 		virtual void write_to_pbmsg(::proto_ff::activitymathreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitymathreward & msg);
@@ -482,7 +470,6 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t Num;
-		int64_t id;
 
 		virtual void write_to_pbmsg(::proto_ff::activitygvgRewardrewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitygvgRewardrewardDesc & msg);
@@ -496,7 +483,6 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t Num;
-		int64_t id;
 
 		virtual void write_to_pbmsg(::proto_ff::activitygvgRewardfinalityDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitygvgRewardfinalityDesc & msg);
@@ -513,6 +499,8 @@ namespace proto_ff_s {
 		int64_t finalityskill;
 		NFArray<struct activitygvgRewardrewardDesc_s, 5> reward;
 		NFArray<struct activitygvgRewardfinalityDesc_s, 5> finality;
+		NFArray<int64_t, 5> reward_id;
+		NFArray<int64_t, 5> finality_id;
 
 		virtual void write_to_pbmsg(::proto_ff::activitygvgReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::activitygvgReward & msg);

@@ -10,6 +10,19 @@
 
 namespace proto_ff_s {
 
+	struct taskrewardtaskrewardattrDesc_s : public NFDescStoreSeqOP {
+		taskrewardtaskrewardattrDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int64_t id;
+
+		virtual void write_to_pbmsg(::proto_ff::taskrewardtaskrewardattrDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::taskrewardtaskrewardattrDesc & msg);
+		static ::proto_ff::taskrewardtaskrewardattrDesc* new_pbmsg(){ return new ::proto_ff::taskrewardtaskrewardattrDesc(); }
+		static ::proto_ff::taskrewardtaskrewardattrDesc make_pbmsg(){ return ::proto_ff::taskrewardtaskrewardattrDesc(); }
+	};
+	typedef struct taskrewardtaskrewardattrDesc_s taskrewardtaskrewardattrDesc_t;
+
 	struct taskrewardtaskrewarditemDesc_s : public NFDescStoreSeqOP {
 		taskrewardtaskrewarditemDesc_s();
 		int CreateInit();
@@ -26,19 +39,6 @@ namespace proto_ff_s {
 	};
 	typedef struct taskrewardtaskrewarditemDesc_s taskrewardtaskrewarditemDesc_t;
 
-	struct taskrewardtaskrewardattrDesc_s : public NFDescStoreSeqOP {
-		taskrewardtaskrewardattrDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int64_t id;
-
-		virtual void write_to_pbmsg(::proto_ff::taskrewardtaskrewardattrDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::taskrewardtaskrewardattrDesc & msg);
-		static ::proto_ff::taskrewardtaskrewardattrDesc* new_pbmsg(){ return new ::proto_ff::taskrewardtaskrewardattrDesc(); }
-		static ::proto_ff::taskrewardtaskrewardattrDesc make_pbmsg(){ return ::proto_ff::taskrewardtaskrewardattrDesc(); }
-	};
-	typedef struct taskrewardtaskrewardattrDesc_s taskrewardtaskrewardattrDesc_t;
-
 	struct taskrewardtaskreward_s : public NFDescStoreSeqOP {
 		taskrewardtaskreward_s();
 		int CreateInit();
@@ -48,8 +48,9 @@ namespace proto_ff_s {
 		int32_t lv;
 		int32_t guildExp;
 		int32_t guildPoint;
-		NFArray<struct taskrewardtaskrewarditemDesc_s, 5> item;
+		NFArray<int64_t, 5> attr_val;
 		NFArray<struct taskrewardtaskrewardattrDesc_s, 5> attr;
+		NFArray<struct taskrewardtaskrewarditemDesc_s, 5> item;
 
 		virtual void write_to_pbmsg(::proto_ff::taskrewardtaskreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::taskrewardtaskreward & msg);

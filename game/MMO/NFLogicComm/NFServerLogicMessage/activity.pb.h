@@ -44,7 +44,6 @@ class Sheet_activityscuffle;
 class activitychaosDragonsrewardDesc;
 class activitychaosDragons;
 class Sheet_activitychaosDragons;
-class activitycircuscircusDesc;
 class activitycircus;
 class Sheet_activitycircus;
 class activitycircusNumitemDesc;
@@ -1313,88 +1312,6 @@ class Sheet_activitychaosDragons : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class activitycircuscircusDesc : public ::google::protobuf::Message {
- public:
-  activitycircuscircusDesc();
-  virtual ~activitycircuscircusDesc();
-
-  activitycircuscircusDesc(const activitycircuscircusDesc& from);
-
-  inline activitycircuscircusDesc& operator=(const activitycircuscircusDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const activitycircuscircusDesc& default_instance();
-
-  void Swap(activitycircuscircusDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  activitycircuscircusDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const activitycircuscircusDesc& from);
-  void MergeFrom(const activitycircuscircusDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 a = 1;
-  inline bool has_a() const;
-  inline void clear_a();
-  static const int kAFieldNumber = 1;
-  inline ::google::protobuf::int32 a() const;
-  inline void set_a(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.activitycircuscircusDesc)
- private:
-  inline void set_has_a();
-  inline void clear_has_a();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 a_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_activity_2eproto();
-  friend void protobuf_AssignDesc_activity_2eproto();
-  friend void protobuf_ShutdownFile_activity_2eproto();
-
-  void InitAsDefaultInstance();
-  static activitycircuscircusDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class activitycircus : public ::google::protobuf::Message {
  public:
   activitycircus();
@@ -1470,17 +1387,29 @@ class activitycircus : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 powerup() const;
   inline void set_powerup(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.activitycircuscircusDesc circus = 4;
-  inline int circus_size() const;
-  inline void clear_circus();
-  static const int kCircusFieldNumber = 4;
-  inline const ::proto_ff::activitycircuscircusDesc& circus(int index) const;
-  inline ::proto_ff::activitycircuscircusDesc* mutable_circus(int index);
-  inline ::proto_ff::activitycircuscircusDesc* add_circus();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::activitycircuscircusDesc >&
-      circus() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitycircuscircusDesc >*
-      mutable_circus();
+  // repeated int32 circus_a = 4;
+  inline int circus_a_size() const;
+  inline void clear_circus_a();
+  static const int kCircusAFieldNumber = 4;
+  inline ::google::protobuf::int32 circus_a(int index) const;
+  inline void set_circus_a(int index, ::google::protobuf::int32 value);
+  inline void add_circus_a(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      circus_a() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_circus_a();
+
+  // repeated int64 circus_b = 5;
+  inline int circus_b_size() const;
+  inline void clear_circus_b();
+  static const int kCircusBFieldNumber = 5;
+  inline ::google::protobuf::int64 circus_b(int index) const;
+  inline void set_circus_b(int index, ::google::protobuf::int64 value);
+  inline void add_circus_b(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      circus_b() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_circus_b();
 
   // @@protoc_insertion_point(class_scope:proto_ff.activitycircus)
  private:
@@ -1496,10 +1425,11 @@ class activitycircus : public ::google::protobuf::Message {
   ::google::protobuf::int64 circusid_;
   ::google::protobuf::int64 powerlow_;
   ::google::protobuf::int64 powerup_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::activitycircuscircusDesc > circus_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > circus_a_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > circus_b_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -2552,27 +2482,17 @@ class activitymathrewardrewardDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 num() const;
   inline void set_num(::google::protobuf::int32 value);
 
-  // optional int64 ID = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.activitymathrewardrewardDesc)
  private:
   inline void set_has_num();
   inline void clear_has_num();
-  inline void set_has_id();
-  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
   ::google::protobuf::int32 num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -2670,6 +2590,18 @@ class activitymathreward : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitymathrewardrewardDesc >*
       mutable_reward();
 
+  // repeated int64 reward_ID = 5;
+  inline int reward_id_size() const;
+  inline void clear_reward_id();
+  static const int kRewardIDFieldNumber = 5;
+  inline ::google::protobuf::int64 reward_id(int index) const;
+  inline void set_reward_id(int index, ::google::protobuf::int64 value);
+  inline void add_reward_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      reward_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_reward_id();
+
   // @@protoc_insertion_point(class_scope:proto_ff.activitymathreward)
  private:
   inline void set_has_id();
@@ -2684,10 +2616,11 @@ class activitymathreward : public ::google::protobuf::Message {
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 rewardtype_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::activitymathrewardrewardDesc > reward_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > reward_id_;
   ::google::protobuf::int32 rewardlevel_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -3423,27 +3356,17 @@ class activitygvgRewardrewardDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 num() const;
   inline void set_num(::google::protobuf::int32 value);
 
-  // optional int64 id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.activitygvgRewardrewardDesc)
  private:
   inline void set_has_num();
   inline void clear_has_num();
-  inline void set_has_id();
-  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
   ::google::protobuf::int32 num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -3515,27 +3438,17 @@ class activitygvgRewardfinalityDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 num() const;
   inline void set_num(::google::protobuf::int32 value);
 
-  // optional int64 id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.activitygvgRewardfinalityDesc)
  private:
   inline void set_has_num();
   inline void clear_has_num();
-  inline void set_has_id();
-  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
   ::google::protobuf::int32 num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -3638,6 +3551,30 @@ class activitygvgReward : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitygvgRewardfinalityDesc >*
       mutable_finality();
 
+  // repeated int64 reward_id = 5;
+  inline int reward_id_size() const;
+  inline void clear_reward_id();
+  static const int kRewardIdFieldNumber = 5;
+  inline ::google::protobuf::int64 reward_id(int index) const;
+  inline void set_reward_id(int index, ::google::protobuf::int64 value);
+  inline void add_reward_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      reward_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_reward_id();
+
+  // repeated int64 finality_id = 6;
+  inline int finality_id_size() const;
+  inline void clear_finality_id();
+  static const int kFinalityIdFieldNumber = 6;
+  inline ::google::protobuf::int64 finality_id(int index) const;
+  inline void set_finality_id(int index, ::google::protobuf::int64 value);
+  inline void add_finality_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      finality_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_finality_id();
+
   // @@protoc_insertion_point(class_scope:proto_ff.activitygvgReward)
  private:
   inline void set_has_id();
@@ -3650,10 +3587,12 @@ class activitygvgReward : public ::google::protobuf::Message {
   ::google::protobuf::int64 finalityskill_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::activitygvgRewardrewardDesc > reward_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::activitygvgRewardfinalityDesc > finality_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > reward_id_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > finality_id_;
   ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -5906,32 +5845,6 @@ Sheet_activitychaosDragons::mutable_activitychaosdragons_list() {
 
 // -------------------------------------------------------------------
 
-// activitycircuscircusDesc
-
-// optional int32 a = 1;
-inline bool activitycircuscircusDesc::has_a() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void activitycircuscircusDesc::set_has_a() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void activitycircuscircusDesc::clear_has_a() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void activitycircuscircusDesc::clear_a() {
-  a_ = 0;
-  clear_has_a();
-}
-inline ::google::protobuf::int32 activitycircuscircusDesc::a() const {
-  return a_;
-}
-inline void activitycircuscircusDesc::set_a(::google::protobuf::int32 value) {
-  set_has_a();
-  a_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // activitycircus
 
 // optional int64 circusID = 1;
@@ -6000,29 +5913,54 @@ inline void activitycircus::set_powerup(::google::protobuf::int64 value) {
   powerup_ = value;
 }
 
-// repeated .proto_ff.activitycircuscircusDesc circus = 4;
-inline int activitycircus::circus_size() const {
-  return circus_.size();
+// repeated int32 circus_a = 4;
+inline int activitycircus::circus_a_size() const {
+  return circus_a_.size();
 }
-inline void activitycircus::clear_circus() {
-  circus_.Clear();
+inline void activitycircus::clear_circus_a() {
+  circus_a_.Clear();
 }
-inline const ::proto_ff::activitycircuscircusDesc& activitycircus::circus(int index) const {
-  return circus_.Get(index);
+inline ::google::protobuf::int32 activitycircus::circus_a(int index) const {
+  return circus_a_.Get(index);
 }
-inline ::proto_ff::activitycircuscircusDesc* activitycircus::mutable_circus(int index) {
-  return circus_.Mutable(index);
+inline void activitycircus::set_circus_a(int index, ::google::protobuf::int32 value) {
+  circus_a_.Set(index, value);
 }
-inline ::proto_ff::activitycircuscircusDesc* activitycircus::add_circus() {
-  return circus_.Add();
+inline void activitycircus::add_circus_a(::google::protobuf::int32 value) {
+  circus_a_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::activitycircuscircusDesc >&
-activitycircus::circus() const {
-  return circus_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+activitycircus::circus_a() const {
+  return circus_a_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitycircuscircusDesc >*
-activitycircus::mutable_circus() {
-  return &circus_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+activitycircus::mutable_circus_a() {
+  return &circus_a_;
+}
+
+// repeated int64 circus_b = 5;
+inline int activitycircus::circus_b_size() const {
+  return circus_b_.size();
+}
+inline void activitycircus::clear_circus_b() {
+  circus_b_.Clear();
+}
+inline ::google::protobuf::int64 activitycircus::circus_b(int index) const {
+  return circus_b_.Get(index);
+}
+inline void activitycircus::set_circus_b(int index, ::google::protobuf::int64 value) {
+  circus_b_.Set(index, value);
+}
+inline void activitycircus::add_circus_b(::google::protobuf::int64 value) {
+  circus_b_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+activitycircus::circus_b() const {
+  return circus_b_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+activitycircus::mutable_circus_b() {
+  return &circus_b_;
 }
 
 // -------------------------------------------------------------------
@@ -6640,28 +6578,6 @@ inline void activitymathrewardrewardDesc::set_num(::google::protobuf::int32 valu
   num_ = value;
 }
 
-// optional int64 ID = 2;
-inline bool activitymathrewardrewardDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void activitymathrewardrewardDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void activitymathrewardrewardDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void activitymathrewardrewardDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 activitymathrewardrewardDesc::id() const {
-  return id_;
-}
-inline void activitymathrewardrewardDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
 // -------------------------------------------------------------------
 
 // activitymathreward
@@ -6755,6 +6671,31 @@ activitymathreward::reward() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitymathrewardrewardDesc >*
 activitymathreward::mutable_reward() {
   return &reward_;
+}
+
+// repeated int64 reward_ID = 5;
+inline int activitymathreward::reward_id_size() const {
+  return reward_id_.size();
+}
+inline void activitymathreward::clear_reward_id() {
+  reward_id_.Clear();
+}
+inline ::google::protobuf::int64 activitymathreward::reward_id(int index) const {
+  return reward_id_.Get(index);
+}
+inline void activitymathreward::set_reward_id(int index, ::google::protobuf::int64 value) {
+  reward_id_.Set(index, value);
+}
+inline void activitymathreward::add_reward_id(::google::protobuf::int64 value) {
+  reward_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+activitymathreward::reward_id() const {
+  return reward_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+activitymathreward::mutable_reward_id() {
+  return &reward_id_;
 }
 
 // -------------------------------------------------------------------
@@ -7182,28 +7123,6 @@ inline void activitygvgRewardrewardDesc::set_num(::google::protobuf::int32 value
   num_ = value;
 }
 
-// optional int64 id = 2;
-inline bool activitygvgRewardrewardDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void activitygvgRewardrewardDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void activitygvgRewardrewardDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void activitygvgRewardrewardDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 activitygvgRewardrewardDesc::id() const {
-  return id_;
-}
-inline void activitygvgRewardrewardDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
 // -------------------------------------------------------------------
 
 // activitygvgRewardfinalityDesc
@@ -7228,28 +7147,6 @@ inline ::google::protobuf::int32 activitygvgRewardfinalityDesc::num() const {
 inline void activitygvgRewardfinalityDesc::set_num(::google::protobuf::int32 value) {
   set_has_num();
   num_ = value;
-}
-
-// optional int64 id = 2;
-inline bool activitygvgRewardfinalityDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void activitygvgRewardfinalityDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void activitygvgRewardfinalityDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void activitygvgRewardfinalityDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 activitygvgRewardfinalityDesc::id() const {
-  return id_;
-}
-inline void activitygvgRewardfinalityDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -7348,6 +7245,56 @@ activitygvgReward::finality() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::activitygvgRewardfinalityDesc >*
 activitygvgReward::mutable_finality() {
   return &finality_;
+}
+
+// repeated int64 reward_id = 5;
+inline int activitygvgReward::reward_id_size() const {
+  return reward_id_.size();
+}
+inline void activitygvgReward::clear_reward_id() {
+  reward_id_.Clear();
+}
+inline ::google::protobuf::int64 activitygvgReward::reward_id(int index) const {
+  return reward_id_.Get(index);
+}
+inline void activitygvgReward::set_reward_id(int index, ::google::protobuf::int64 value) {
+  reward_id_.Set(index, value);
+}
+inline void activitygvgReward::add_reward_id(::google::protobuf::int64 value) {
+  reward_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+activitygvgReward::reward_id() const {
+  return reward_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+activitygvgReward::mutable_reward_id() {
+  return &reward_id_;
+}
+
+// repeated int64 finality_id = 6;
+inline int activitygvgReward::finality_id_size() const {
+  return finality_id_.size();
+}
+inline void activitygvgReward::clear_finality_id() {
+  finality_id_.Clear();
+}
+inline ::google::protobuf::int64 activitygvgReward::finality_id(int index) const {
+  return finality_id_.Get(index);
+}
+inline void activitygvgReward::set_finality_id(int index, ::google::protobuf::int64 value) {
+  finality_id_.Set(index, value);
+}
+inline void activitygvgReward::add_finality_id(::google::protobuf::int64 value) {
+  finality_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+activitygvgReward::finality_id() const {
+  return finality_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+activitygvgReward::mutable_finality_id() {
+  return &finality_id_;
 }
 
 // -------------------------------------------------------------------

@@ -124,8 +124,8 @@ namespace proto_ff_s {
 		int32_t save;
 		NFSizeString<60> stateBagRule;
 		int32_t label;
+		int32_t mask;
 		NFSizeString<60> stateBagCd;
-		NFArray<int32_t, 32> mask;
 		NFArray<struct skillbuffeffectDesc_s, 5> effect;
 
 		virtual void write_to_pbmsg(::proto_ff::skillbuff & msg) const;

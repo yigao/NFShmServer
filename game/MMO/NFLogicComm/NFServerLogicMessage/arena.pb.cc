@@ -386,17 +386,17 @@ void protobuf_AddDesc_arena_2eproto() {
     "\rLoseArenaCoin\030\010 \001(\005B\031\302\377\024\025\345\244\261\350\264\245\350\216\267\345\276\227\347\253"
     "\236\346\212\200\345\270\201\"T\n\024Sheet_arenaarenAward\022<\n\023arena"
     "arenAward_List\030\001 \003(\0132\030.proto_ff.arenaare"
-    "nAwardB\005\210\301\024\320\017\"\177\n\016arenafirstrank\022\"\n\010rankD"
+    "nAwardB\005\210\301\024\320\017\"~\n\016arenafirstrank\022\"\n\010rankD"
     "own\030\001 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022 \n\006rankUp\030\002 "
-    "\001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215\022\'\n\tRewardONE\030\003 \003(\002"
-    "B\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\001\"S\n\024Sheet_arenafir"
-    "strank\022;\n\023arenafirstrank_List\030\001 \003(\0132\030.pr"
-    "oto_ff.arenafirstrankB\004\210\301\024\024\"m\n\021arenabuyc"
-    "hallenge\022\037\n\005count\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254"
-    "\241\022\030\n\004cost\030\002 \001(\005B\n\302\377\024\006\350\212\261\350\264\271\022\035\n\003num\030\003 \001(\005"
-    "B\020\302\377\024\014\350\216\267\345\276\227\346\254\241\346\225\260\"\\\n\027Sheet_arenabuychal"
-    "lenge\022A\n\026arenabuychallenge_List\030\001 \003(\0132\033."
-    "proto_ff.arenabuychallengeB\004\210\301\024\024", 1952);
+    "\001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215\022&\n\tRewardONE\030\003 \001(\002"
+    "B\023\302\377\024\017\345\245\226\345\212\261\347\211\251\345\223\2011ID\"S\n\024Sheet_arenafirs"
+    "trank\022;\n\023arenafirstrank_List\030\001 \003(\0132\030.pro"
+    "to_ff.arenafirstrankB\004\210\301\024\024\"m\n\021arenabuych"
+    "allenge\022\037\n\005count\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254\241"
+    "\022\030\n\004cost\030\002 \001(\005B\n\302\377\024\006\350\212\261\350\264\271\022\035\n\003num\030\003 \001(\005B"
+    "\020\302\377\024\014\350\216\267\345\276\227\346\254\241\346\225\260\"\\\n\027Sheet_arenabuychall"
+    "enge\022A\n\026arenabuychallenge_List\030\001 \003(\0132\033.p"
+    "roto_ff.arenabuychallengeB\004\210\301\024\024", 1951);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "arena.proto", &protobuf_RegisterTypes);
   arenarobotattrDesc::default_instance_ = new arenarobotattrDesc();
@@ -3045,6 +3045,7 @@ void arenafirstrank::SharedCtor() {
   _cached_size_ = 0;
   rankdown_ = 0;
   rankup_ = 0;
+  rewardone_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3082,8 +3083,8 @@ void arenafirstrank::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     rankdown_ = 0;
     rankup_ = 0;
+    rewardone_ = 0;
   }
-  rewardone_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -3125,24 +3126,18 @@ bool arenafirstrank::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated float RewardONE = 3;
+      // optional float RewardONE = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_RewardONE:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 1, 29, input, this->mutable_rewardone())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, this->mutable_rewardone())));
+                 input, &rewardone_)));
+          set_has_rewardone();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(29)) goto parse_RewardONE;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3175,10 +3170,9 @@ void arenafirstrank::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->rankup(), output);
   }
 
-  // repeated float RewardONE = 3;
-  for (int i = 0; i < this->rewardone_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(
-      3, this->rewardone(i), output);
+  // optional float RewardONE = 3;
+  if (has_rewardone()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->rewardone(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3199,10 +3193,9 @@ void arenafirstrank::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->rankup(), target);
   }
 
-  // repeated float RewardONE = 3;
-  for (int i = 0; i < this->rewardone_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteFloatToArray(3, this->rewardone(i), target);
+  // optional float RewardONE = 3;
+  if (has_rewardone()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->rewardone(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3230,14 +3223,12 @@ int arenafirstrank::ByteSize() const {
           this->rankup());
     }
 
-  }
-  // repeated float RewardONE = 3;
-  {
-    int data_size = 0;
-    data_size = 4 * this->rewardone_size();
-    total_size += 1 * this->rewardone_size() + data_size;
-  }
+    // optional float RewardONE = 3;
+    if (has_rewardone()) {
+      total_size += 1 + 4;
+    }
 
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -3263,13 +3254,15 @@ void arenafirstrank::MergeFrom(const ::google::protobuf::Message& from) {
 
 void arenafirstrank::MergeFrom(const arenafirstrank& from) {
   GOOGLE_CHECK_NE(&from, this);
-  rewardone_.MergeFrom(from.rewardone_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_rankdown()) {
       set_rankdown(from.rankdown());
     }
     if (from.has_rankup()) {
       set_rankup(from.rankup());
+    }
+    if (from.has_rewardone()) {
+      set_rewardone(from.rewardone());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3296,7 +3289,7 @@ void arenafirstrank::Swap(arenafirstrank* other) {
   if (other != this) {
     std::swap(rankdown_, other->rankdown_);
     std::swap(rankup_, other->rankup_);
-    rewardone_.Swap(&other->rewardone_);
+    std::swap(rewardone_, other->rewardone_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

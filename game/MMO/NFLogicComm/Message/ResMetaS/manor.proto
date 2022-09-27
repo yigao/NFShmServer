@@ -34,12 +34,6 @@ message Sheet_manoritemCost
 message manormanorlistinitialMonsterDesc
 {
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 Id = 2[(yd_fieldoptions.field_cname) = ""];
-}
-
-message manormanorlistpatBeastAttackDesc
-{
-	optional int64 Path = 1[(yd_fieldoptions.field_cname) = ""];
 }
 
 message manormanorlist
@@ -67,7 +61,8 @@ message manormanorlist
 	optional int32 crossGateMaxLevel = 21[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
 	optional int64 crossGateBaseId = 22[(yd_fieldoptions.field_cname) = "祭献塔ID"];
 	repeated manormanorlistinitialMonsterDesc initialMonster = 23[(yd_fieldoptions.field_cname) = "初始中立怪物", (yd_fieldoptions.field_arysize) = 4];
-	repeated manormanorlistpatBeastAttackDesc patBeastAttack = 24[(yd_fieldoptions.field_cname) = "奇兽攻击落点", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 patBeastAttack_Path = 24[(yd_fieldoptions.field_cname) = "奇兽攻击落点", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 initialMonster_Id = 25[(yd_fieldoptions.field_cname) = "初始中立怪物", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -78,15 +73,15 @@ message Sheet_manormanorlist
 
 message manorproductproductDesc
 {
-	optional int64 Item = 1[(yd_fieldoptions.field_cname) = ""];
-	optional int32 Num = 2[(yd_fieldoptions.field_cname) = "每次维护产量"];
-	optional int32 buildLevle = 3[(yd_fieldoptions.field_cname) = "需要建筑等级"];
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "每次维护产量"];
+	optional int32 buildLevle = 2[(yd_fieldoptions.field_cname) = "需要建筑等级"];
 }
 
 message manorproduct
 {
 	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
-	repeated manorproductproductDesc product = 2[(yd_fieldoptions.field_cname) = "产品", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 product_Item = 2[(yd_fieldoptions.field_cname) = "产品", (yd_fieldoptions.field_arysize) = 3];
+	repeated manorproductproductDesc product = 3[(yd_fieldoptions.field_cname) = "产品", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -114,14 +109,14 @@ message Sheet_manorbuild
 
 message manorbuildUpbuildDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = ""];
-	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "升到该级需要经验"];
+	optional int32 exp = 1[(yd_fieldoptions.field_cname) = "升到该级需要经验"];
 }
 
 message manorbuildUp
 {
 	optional int32 level = 1[(yd_fieldoptions.field_cname) = "等级"];
-	repeated manorbuildUpbuildDesc build = 2[(yd_fieldoptions.field_cname) = "建筑", (yd_fieldoptions.field_arysize) = 5];
+	repeated int32 build_type = 2[(yd_fieldoptions.field_cname) = "建筑", (yd_fieldoptions.field_arysize) = 5];
+	repeated manorbuildUpbuildDesc build = 3[(yd_fieldoptions.field_cname) = "建筑", (yd_fieldoptions.field_arysize) = 5];
 }
 
 

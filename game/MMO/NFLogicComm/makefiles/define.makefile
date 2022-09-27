@@ -29,7 +29,7 @@ PROTOC=${THIRD_PARTY_TOOLS_PATH}/protoc
 PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
 EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
 EXCEL2PROTO=python ${TOOLS_PATH}/excel_2_bin/excel2proto.py
-EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo.py
+EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo_quick.py
 EXCEL2MAKEFILE=python ${TOOLS_PATH}/excel_2_bin/excel2makefile.py
 FILE_COPY_EXE=python ${TOOLS_PATH}/excel_2_bin/filecopy.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
@@ -53,6 +53,7 @@ PROTOCOL_SS_LOGIC_PATH=${PROTOCOL_SVR_PATH}/proto_svr
 PROTOCOL_CS_LOGIC_PATH=${PROTOCOL_SVR_PATH}/proto_cs
 RESDB_META_PATH=${PROTOCOL_SVR_PATH}/ResMetaS
 COMMON_LOGIC_META_PATH=${PROTOCOL_SVR_PATH}/common
+DESC_STORE_PATH=${GAME_SRC_PATH}/game/MMO/NFLogicComm/DescStore
 
 PROTOCOL_COMM_XML=${PROTOCOL_COMM_PATH}/proto_common.proto
 PROTOCOL_KERNEL_XML=${PROTOCOL_KERNEL_PATH}/proto_kernel.proto

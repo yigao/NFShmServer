@@ -1023,17 +1023,12 @@ class arenafirstrank : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 rankup() const;
   inline void set_rankup(::google::protobuf::int32 value);
 
-  // repeated float RewardONE = 3;
-  inline int rewardone_size() const;
+  // optional float RewardONE = 3;
+  inline bool has_rewardone() const;
   inline void clear_rewardone();
   static const int kRewardONEFieldNumber = 3;
-  inline float rewardone(int index) const;
-  inline void set_rewardone(int index, float value);
-  inline void add_rewardone(float value);
-  inline const ::google::protobuf::RepeatedField< float >&
-      rewardone() const;
-  inline ::google::protobuf::RepeatedField< float >*
-      mutable_rewardone();
+  inline float rewardone() const;
+  inline void set_rewardone(float value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.arenafirstrank)
  private:
@@ -1041,12 +1036,14 @@ class arenafirstrank : public ::google::protobuf::Message {
   inline void clear_has_rankdown();
   inline void set_has_rankup();
   inline void clear_has_rankup();
+  inline void set_has_rewardone();
+  inline void clear_has_rewardone();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 rankdown_;
   ::google::protobuf::int32 rankup_;
-  ::google::protobuf::RepeatedField< float > rewardone_;
+  float rewardone_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -2158,29 +2155,26 @@ inline void arenafirstrank::set_rankup(::google::protobuf::int32 value) {
   rankup_ = value;
 }
 
-// repeated float RewardONE = 3;
-inline int arenafirstrank::rewardone_size() const {
-  return rewardone_.size();
+// optional float RewardONE = 3;
+inline bool arenafirstrank::has_rewardone() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void arenafirstrank::set_has_rewardone() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void arenafirstrank::clear_has_rewardone() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void arenafirstrank::clear_rewardone() {
-  rewardone_.Clear();
+  rewardone_ = 0;
+  clear_has_rewardone();
 }
-inline float arenafirstrank::rewardone(int index) const {
-  return rewardone_.Get(index);
-}
-inline void arenafirstrank::set_rewardone(int index, float value) {
-  rewardone_.Set(index, value);
-}
-inline void arenafirstrank::add_rewardone(float value) {
-  rewardone_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< float >&
-arenafirstrank::rewardone() const {
+inline float arenafirstrank::rewardone() const {
   return rewardone_;
 }
-inline ::google::protobuf::RepeatedField< float >*
-arenafirstrank::mutable_rewardone() {
-  return &rewardone_;
+inline void arenafirstrank::set_rewardone(float value) {
+  set_has_rewardone();
+  rewardone_ = value;
 }
 
 // -------------------------------------------------------------------

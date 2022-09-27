@@ -6,8 +6,7 @@ import "yd_fieldoptions.proto";
 message equipequipattributeDesc
 {
 	optional int32 valueMin = 1[(yd_fieldoptions.field_cname) = "最小数值"];
-	optional int32 type = 2[(yd_fieldoptions.field_cname) = ""];
-	optional int32 valueMax = 3[(yd_fieldoptions.field_cname) = "最大数值"];
+	optional int32 valueMax = 2[(yd_fieldoptions.field_cname) = "最大数值"];
 }
 
 message equipequip
@@ -38,7 +37,8 @@ message equipequip
 	optional int32 Combat = 24[(yd_fieldoptions.field_cname) = "战斗力（不含蓝星属性）"];
 	optional int32 broadcast = 25[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
 	optional string meltingResult = 26[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 60];
-	repeated equipequipattributeDesc attribute = 27[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 attribute_type = 27[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated equipequipattributeDesc attribute = 28[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

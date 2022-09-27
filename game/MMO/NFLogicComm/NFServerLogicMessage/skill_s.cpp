@@ -257,6 +257,7 @@ int skillbuff_s::CreateInit() {
 	startProbability = (int32_t)0;
 	save = (int32_t)0;
 	label = (int32_t)0;
+	mask = (int32_t)0;
 	return 0;
 }
 
@@ -276,10 +277,8 @@ void skillbuff_s::write_to_pbmsg(::proto_ff::skillbuff & msg) const {
 	msg.set_save((int32_t)save);
 	msg.set_statebagrule((const char*)stateBagRule.Get());
 	msg.set_label((int32_t)label);
+	msg.set_mask((int32_t)mask);
 	msg.set_statebagcd((const char*)stateBagCd.Get());
-	for(int32_t i = 0; i < (int32_t)mask.GetSize() && i < mask.GetMaxSize(); ++i) {
-		msg.add_mask((int32_t)mask[i]);
-	}
 	for(int32_t i = 0; i < (int32_t)effect.GetSize() && i < effect.GetMaxSize(); ++i) {
 		::proto_ff::skillbuffeffectDesc* temp_effect = msg.add_effect();
 		effect[i].write_to_pbmsg(*temp_effect);
@@ -299,11 +298,8 @@ void skillbuff_s::read_from_pbmsg(const ::proto_ff::skillbuff & msg) {
 	save = msg.save();
 	stateBagRule.Copy(msg.statebagrule());
 	label = msg.label();
+	mask = msg.mask();
 	stateBagCd.Copy(msg.statebagcd());
-	mask.SetSize(msg.mask_size() > mask.GetMaxSize() ? mask.GetMaxSize() : msg.mask_size());
-	for(int32_t i = 0; i < (int32_t)mask.GetSize(); ++i) {
-		mask[i] = msg.mask(i);
-	}
 	effect.SetSize(msg.effect_size() > effect.GetMaxSize() ? effect.GetMaxSize() : msg.effect_size());
 	for(int32_t i = 0; i < (int32_t)effect.GetSize(); ++i) {
 		const ::proto_ff::skillbuffeffectDesc & temp_effect = msg.effect(i);

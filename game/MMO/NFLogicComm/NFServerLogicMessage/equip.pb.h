@@ -133,17 +133,10 @@ class equipequipattributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 valuemin() const;
   inline void set_valuemin(::google::protobuf::int32 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
-
-  // optional int32 valueMax = 3;
+  // optional int32 valueMax = 2;
   inline bool has_valuemax() const;
   inline void clear_valuemax();
-  static const int kValueMaxFieldNumber = 3;
+  static const int kValueMaxFieldNumber = 2;
   inline ::google::protobuf::int32 valuemax() const;
   inline void set_valuemax(::google::protobuf::int32 value);
 
@@ -151,19 +144,16 @@ class equipequipattributeDesc : public ::google::protobuf::Message {
  private:
   inline void set_has_valuemin();
   inline void clear_has_valuemin();
-  inline void set_has_type();
-  inline void clear_has_type();
   inline void set_has_valuemax();
   inline void clear_has_valuemax();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 valuemin_;
-  ::google::protobuf::int32 type_;
   ::google::protobuf::int32 valuemax_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_equip_2eproto();
   friend void protobuf_AssignDesc_equip_2eproto();
@@ -460,10 +450,22 @@ class equipequip : public ::google::protobuf::Message {
   inline ::std::string* release_meltingresult();
   inline void set_allocated_meltingresult(::std::string* meltingresult);
 
-  // repeated .proto_ff.equipequipattributeDesc attribute = 27;
+  // repeated int32 attribute_type = 27;
+  inline int attribute_type_size() const;
+  inline void clear_attribute_type();
+  static const int kAttributeTypeFieldNumber = 27;
+  inline ::google::protobuf::int32 attribute_type(int index) const;
+  inline void set_attribute_type(int index, ::google::protobuf::int32 value);
+  inline void add_attribute_type(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      attribute_type() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_attribute_type();
+
+  // repeated .proto_ff.equipequipattributeDesc attribute = 28;
   inline int attribute_size() const;
   inline void clear_attribute();
-  static const int kAttributeFieldNumber = 27;
+  static const int kAttributeFieldNumber = 28;
   inline const ::proto_ff::equipequipattributeDesc& attribute(int index) const;
   inline ::proto_ff::equipequipattributeDesc* mutable_attribute(int index);
   inline ::proto_ff::equipequipattributeDesc* add_attribute();
@@ -544,9 +546,9 @@ class equipequip : public ::google::protobuf::Message {
   ::std::string* refineattribute_valuemin_;
   ::std::string* refineattribute_valuemax_;
   ::std::string* bluestar_type_;
-  ::std::string* bluestar_lv_;
   ::google::protobuf::int32 bluestarnum_;
   ::google::protobuf::int32 iscanbind_;
+  ::std::string* bluestar_lv_;
   ::std::string* bluestar_number_;
   ::google::protobuf::int32 istradebind_;
   ::google::protobuf::int32 sellprice_;
@@ -554,11 +556,12 @@ class equipequip : public ::google::protobuf::Message {
   ::google::protobuf::int32 time_;
   ::google::protobuf::int32 combat_;
   ::std::string* meltingresult_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_type_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::equipequipattributeDesc > attribute_;
   ::google::protobuf::int32 broadcast_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(27 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(28 + 31) / 32];
 
   friend void  protobuf_AddDesc_equip_2eproto();
   friend void protobuf_AssignDesc_equip_2eproto();
@@ -4118,37 +4121,15 @@ inline void equipequipattributeDesc::set_valuemin(::google::protobuf::int32 valu
   valuemin_ = value;
 }
 
-// optional int32 type = 2;
-inline bool equipequipattributeDesc::has_type() const {
+// optional int32 valueMax = 2;
+inline bool equipequipattributeDesc::has_valuemax() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void equipequipattributeDesc::set_has_type() {
+inline void equipequipattributeDesc::set_has_valuemax() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void equipequipattributeDesc::clear_has_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void equipequipattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::google::protobuf::int32 equipequipattributeDesc::type() const {
-  return type_;
-}
-inline void equipequipattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
-}
-
-// optional int32 valueMax = 3;
-inline bool equipequipattributeDesc::has_valuemax() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void equipequipattributeDesc::set_has_valuemax() {
-  _has_bits_[0] |= 0x00000004u;
-}
 inline void equipequipattributeDesc::clear_has_valuemax() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void equipequipattributeDesc::clear_valuemax() {
   valuemax_ = 0;
@@ -5218,7 +5199,32 @@ inline void equipequip::set_allocated_meltingresult(::std::string* meltingresult
   }
 }
 
-// repeated .proto_ff.equipequipattributeDesc attribute = 27;
+// repeated int32 attribute_type = 27;
+inline int equipequip::attribute_type_size() const {
+  return attribute_type_.size();
+}
+inline void equipequip::clear_attribute_type() {
+  attribute_type_.Clear();
+}
+inline ::google::protobuf::int32 equipequip::attribute_type(int index) const {
+  return attribute_type_.Get(index);
+}
+inline void equipequip::set_attribute_type(int index, ::google::protobuf::int32 value) {
+  attribute_type_.Set(index, value);
+}
+inline void equipequip::add_attribute_type(::google::protobuf::int32 value) {
+  attribute_type_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+equipequip::attribute_type() const {
+  return attribute_type_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+equipequip::mutable_attribute_type() {
+  return &attribute_type_;
+}
+
+// repeated .proto_ff.equipequipattributeDesc attribute = 28;
 inline int equipequip::attribute_size() const {
   return attribute_.size();
 }

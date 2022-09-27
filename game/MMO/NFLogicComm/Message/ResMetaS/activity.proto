@@ -93,17 +93,13 @@ message Sheet_activitychaosDragons
 	repeated activitychaosDragons activitychaosDragons_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
-message activitycircuscircusDesc
-{
-	optional int32 a = 1[(yd_fieldoptions.field_cname) = ""];
-}
-
 message activitycircus
 {
 	optional int64 circusID = 1[(yd_fieldoptions.field_cname) = "区间ID"];
 	optional int64 powerLow = 2[(yd_fieldoptions.field_cname) = "战力下限"];
 	optional int64 powerUp = 3[(yd_fieldoptions.field_cname) = "战力上限"];
-	repeated activitycircuscircusDesc circus = 4[(yd_fieldoptions.field_cname) = "场次人数", (yd_fieldoptions.field_arysize) = 32];
+	repeated int32 circus_a = 4[(yd_fieldoptions.field_cname) = "场次人数", (yd_fieldoptions.field_arysize) = 32];
+	repeated int64 circus_b = 5[(yd_fieldoptions.field_cname) = "战力缩放", (yd_fieldoptions.field_arysize) = 32];
 }
 
 
@@ -177,7 +173,6 @@ message Sheet_activitymathrule
 message activitymathrewardrewardDesc
 {
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 ID = 2[(yd_fieldoptions.field_cname) = ""];
 }
 
 message activitymathreward
@@ -186,6 +181,7 @@ message activitymathreward
 	optional int32 rewardtype = 2[(yd_fieldoptions.field_cname) = "奖励类别"];
 	optional int32 rewardlevel = 3[(yd_fieldoptions.field_cname) = "奖励积分档次"];
 	repeated activitymathrewardrewardDesc reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+	repeated int64 reward_ID = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -236,13 +232,11 @@ message Sheet_activitygvgRankReward
 message activitygvgRewardrewardDesc
 {
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 id = 2[(yd_fieldoptions.field_cname) = ""];
 }
 
 message activitygvgRewardfinalityDesc
 {
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 id = 2[(yd_fieldoptions.field_cname) = ""];
 }
 
 message activitygvgReward
@@ -251,6 +245,8 @@ message activitygvgReward
 	optional int64 finalityskill = 2[(yd_fieldoptions.field_cname) = "终结技能"];
 	repeated activitygvgRewardrewardDesc reward = 3[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
 	repeated activitygvgRewardfinalityDesc finality = 4[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
+	repeated int64 reward_id = 5[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
+	repeated int64 finality_id = 6[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
 }
 
 

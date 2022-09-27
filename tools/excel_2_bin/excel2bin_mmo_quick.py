@@ -276,18 +276,8 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	while col_index < excel_sheet_col_count:
 		#得到sheet的列名
 		col_en_name = str(sheet.cell_value(0, col_index))
-		column_name = sheet.cell_value(0, col_index)
+		column_name = sheet.cell_value(1, col_index)
 		col_type = str(sheet.cell_value(2, col_index))
-
-		if len(column_name) == 0 or len(col_type) == 0:
-			col_index = col_index + 1
-			continue
-
-		col_sel = int(sheet_cell_value(sheet, 3, col_index))
-
-		if col_sel != 2 and col_sel != 3:
-			col_index = col_index + 1
-			continue;
 
 		#print "line(%s:%d) now process excel column[%s] col_index[%d]" % (__file__, sys._getframe().f_lineno, column_name, col_index)
 		#循环查找对应名字，sheet的列名要和field的cname对应
@@ -302,6 +292,25 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 		field_typename = ""
 
 		t_property = None
+
+		if len(column_name) == 0 or len(col_type) == 0:
+			if is_start:
+				g_step.append(is_find)
+				g_proterties_list.append(t_property)
+			g_now_step = g_now_step + 1
+			col_index = col_index + 1
+			continue
+
+		col_sel = int(sheet_cell_value(sheet, 3, col_index))
+
+		if col_sel != 2 and col_sel != 3:
+			if is_start:
+				g_step.append(is_find)
+				g_proterties_list.append(t_property)
+			g_now_step = g_now_step + 1
+			col_index = col_index + 1
+			continue;
+
 		#print "[%d] [%s]" % (col_index, current_layer_basename)
 		if is_start:
 			#找到excel对应的field，填写相关属性

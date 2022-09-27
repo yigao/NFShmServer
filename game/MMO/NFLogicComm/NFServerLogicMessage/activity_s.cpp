@@ -399,32 +399,6 @@ void Sheet_activitychaosDragons_s::read_from_pbmsg(const ::proto_ff::Sheet_activ
 	}
 }
 
-activitycircuscircusDesc_s::activitycircuscircusDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int activitycircuscircusDesc_s::CreateInit() {
-	a = (int32_t)0;
-	return 0;
-}
-
-int activitycircuscircusDesc_s::ResumeInit() {
-	return 0;
-}
-
-void activitycircuscircusDesc_s::write_to_pbmsg(::proto_ff::activitycircuscircusDesc & msg) const {
-	msg.set_a((int32_t)a);
-}
-
-void activitycircuscircusDesc_s::read_from_pbmsg(const ::proto_ff::activitycircuscircusDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitycircuscircusDesc_s));
-	a = msg.a();
-}
-
 activitycircus_s::activitycircus_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -448,9 +422,11 @@ void activitycircus_s::write_to_pbmsg(::proto_ff::activitycircus & msg) const {
 	msg.set_circusid((int64_t)circusID);
 	msg.set_powerlow((int64_t)powerLow);
 	msg.set_powerup((int64_t)powerUp);
-	for(int32_t i = 0; i < (int32_t)circus.GetSize() && i < circus.GetMaxSize(); ++i) {
-		::proto_ff::activitycircuscircusDesc* temp_circus = msg.add_circus();
-		circus[i].write_to_pbmsg(*temp_circus);
+	for(int32_t i = 0; i < (int32_t)circus_a.GetSize() && i < circus_a.GetMaxSize(); ++i) {
+		msg.add_circus_a((int32_t)circus_a[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)circus_b.GetSize() && i < circus_b.GetMaxSize(); ++i) {
+		msg.add_circus_b((int64_t)circus_b[i]);
 	}
 }
 
@@ -459,10 +435,13 @@ void activitycircus_s::read_from_pbmsg(const ::proto_ff::activitycircus & msg) {
 	circusID = msg.circusid();
 	powerLow = msg.powerlow();
 	powerUp = msg.powerup();
-	circus.SetSize(msg.circus_size() > circus.GetMaxSize() ? circus.GetMaxSize() : msg.circus_size());
-	for(int32_t i = 0; i < (int32_t)circus.GetSize(); ++i) {
-		const ::proto_ff::activitycircuscircusDesc & temp_circus = msg.circus(i);
-		circus[i].read_from_pbmsg(temp_circus);
+	circus_a.SetSize(msg.circus_a_size() > circus_a.GetMaxSize() ? circus_a.GetMaxSize() : msg.circus_a_size());
+	for(int32_t i = 0; i < (int32_t)circus_a.GetSize(); ++i) {
+		circus_a[i] = msg.circus_a(i);
+	}
+	circus_b.SetSize(msg.circus_b_size() > circus_b.GetMaxSize() ? circus_b.GetMaxSize() : msg.circus_b_size());
+	for(int32_t i = 0; i < (int32_t)circus_b.GetSize(); ++i) {
+		circus_b[i] = msg.circus_b(i);
 	}
 }
 
@@ -820,7 +799,6 @@ activitymathrewardrewardDesc_s::activitymathrewardrewardDesc_s() {
 
 int activitymathrewardrewardDesc_s::CreateInit() {
 	Num = (int32_t)0;
-	ID = (int64_t)0;
 	return 0;
 }
 
@@ -830,13 +808,11 @@ int activitymathrewardrewardDesc_s::ResumeInit() {
 
 void activitymathrewardrewardDesc_s::write_to_pbmsg(::proto_ff::activitymathrewardrewardDesc & msg) const {
 	msg.set_num((int32_t)Num);
-	msg.set_id((int64_t)ID);
 }
 
 void activitymathrewardrewardDesc_s::read_from_pbmsg(const ::proto_ff::activitymathrewardrewardDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitymathrewardrewardDesc_s));
 	Num = msg.num();
-	ID = msg.id();
 }
 
 activitymathreward_s::activitymathreward_s() {
@@ -866,6 +842,9 @@ void activitymathreward_s::write_to_pbmsg(::proto_ff::activitymathreward & msg) 
 		::proto_ff::activitymathrewardrewardDesc* temp_reward = msg.add_reward();
 		reward[i].write_to_pbmsg(*temp_reward);
 	}
+	for(int32_t i = 0; i < (int32_t)reward_ID.GetSize() && i < reward_ID.GetMaxSize(); ++i) {
+		msg.add_reward_id((int64_t)reward_ID[i]);
+	}
 }
 
 void activitymathreward_s::read_from_pbmsg(const ::proto_ff::activitymathreward & msg) {
@@ -877,6 +856,10 @@ void activitymathreward_s::read_from_pbmsg(const ::proto_ff::activitymathreward 
 	for(int32_t i = 0; i < (int32_t)reward.GetSize(); ++i) {
 		const ::proto_ff::activitymathrewardrewardDesc & temp_reward = msg.reward(i);
 		reward[i].read_from_pbmsg(temp_reward);
+	}
+	reward_ID.SetSize(msg.reward_id_size() > reward_ID.GetMaxSize() ? reward_ID.GetMaxSize() : msg.reward_id_size());
+	for(int32_t i = 0; i < (int32_t)reward_ID.GetSize(); ++i) {
+		reward_ID[i] = msg.reward_id(i);
 	}
 }
 
@@ -1122,7 +1105,6 @@ activitygvgRewardrewardDesc_s::activitygvgRewardrewardDesc_s() {
 
 int activitygvgRewardrewardDesc_s::CreateInit() {
 	Num = (int32_t)0;
-	id = (int64_t)0;
 	return 0;
 }
 
@@ -1132,13 +1114,11 @@ int activitygvgRewardrewardDesc_s::ResumeInit() {
 
 void activitygvgRewardrewardDesc_s::write_to_pbmsg(::proto_ff::activitygvgRewardrewardDesc & msg) const {
 	msg.set_num((int32_t)Num);
-	msg.set_id((int64_t)id);
 }
 
 void activitygvgRewardrewardDesc_s::read_from_pbmsg(const ::proto_ff::activitygvgRewardrewardDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitygvgRewardrewardDesc_s));
 	Num = msg.num();
-	id = msg.id();
 }
 
 activitygvgRewardfinalityDesc_s::activitygvgRewardfinalityDesc_s() {
@@ -1151,7 +1131,6 @@ activitygvgRewardfinalityDesc_s::activitygvgRewardfinalityDesc_s() {
 
 int activitygvgRewardfinalityDesc_s::CreateInit() {
 	Num = (int32_t)0;
-	id = (int64_t)0;
 	return 0;
 }
 
@@ -1161,13 +1140,11 @@ int activitygvgRewardfinalityDesc_s::ResumeInit() {
 
 void activitygvgRewardfinalityDesc_s::write_to_pbmsg(::proto_ff::activitygvgRewardfinalityDesc & msg) const {
 	msg.set_num((int32_t)Num);
-	msg.set_id((int64_t)id);
 }
 
 void activitygvgRewardfinalityDesc_s::read_from_pbmsg(const ::proto_ff::activitygvgRewardfinalityDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitygvgRewardfinalityDesc_s));
 	Num = msg.num();
-	id = msg.id();
 }
 
 activitygvgReward_s::activitygvgReward_s() {
@@ -1199,6 +1176,12 @@ void activitygvgReward_s::write_to_pbmsg(::proto_ff::activitygvgReward & msg) co
 		::proto_ff::activitygvgRewardfinalityDesc* temp_finality = msg.add_finality();
 		finality[i].write_to_pbmsg(*temp_finality);
 	}
+	for(int32_t i = 0; i < (int32_t)reward_id.GetSize() && i < reward_id.GetMaxSize(); ++i) {
+		msg.add_reward_id((int64_t)reward_id[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)finality_id.GetSize() && i < finality_id.GetMaxSize(); ++i) {
+		msg.add_finality_id((int64_t)finality_id[i]);
+	}
 }
 
 void activitygvgReward_s::read_from_pbmsg(const ::proto_ff::activitygvgReward & msg) {
@@ -1214,6 +1197,14 @@ void activitygvgReward_s::read_from_pbmsg(const ::proto_ff::activitygvgReward & 
 	for(int32_t i = 0; i < (int32_t)finality.GetSize(); ++i) {
 		const ::proto_ff::activitygvgRewardfinalityDesc & temp_finality = msg.finality(i);
 		finality[i].read_from_pbmsg(temp_finality);
+	}
+	reward_id.SetSize(msg.reward_id_size() > reward_id.GetMaxSize() ? reward_id.GetMaxSize() : msg.reward_id_size());
+	for(int32_t i = 0; i < (int32_t)reward_id.GetSize(); ++i) {
+		reward_id[i] = msg.reward_id(i);
+	}
+	finality_id.SetSize(msg.finality_id_size() > finality_id.GetMaxSize() ? finality_id.GetMaxSize() : msg.finality_id_size());
+	for(int32_t i = 0; i < (int32_t)finality_id.GetSize(); ++i) {
+		finality_id[i] = msg.finality_id(i);
 	}
 }
 

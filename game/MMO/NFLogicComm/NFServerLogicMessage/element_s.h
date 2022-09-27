@@ -10,32 +10,6 @@
 
 namespace proto_ff_s {
 
-	struct elementelementattributeDesc_s : public NFDescStoreSeqOP {
-		elementelementattributeDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int32_t type;
-
-		virtual void write_to_pbmsg(::proto_ff::elementelementattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::elementelementattributeDesc & msg);
-		static ::proto_ff::elementelementattributeDesc* new_pbmsg(){ return new ::proto_ff::elementelementattributeDesc(); }
-		static ::proto_ff::elementelementattributeDesc make_pbmsg(){ return ::proto_ff::elementelementattributeDesc(); }
-	};
-	typedef struct elementelementattributeDesc_s elementelementattributeDesc_t;
-
-	struct elementelementmaterialDesc_s : public NFDescStoreSeqOP {
-		elementelementmaterialDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int64_t id;
-
-		virtual void write_to_pbmsg(::proto_ff::elementelementmaterialDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::elementelementmaterialDesc & msg);
-		static ::proto_ff::elementelementmaterialDesc* new_pbmsg(){ return new ::proto_ff::elementelementmaterialDesc(); }
-		static ::proto_ff::elementelementmaterialDesc make_pbmsg(){ return ::proto_ff::elementelementmaterialDesc(); }
-	};
-	typedef struct elementelementmaterialDesc_s elementelementmaterialDesc_t;
-
 	struct elementelement_s : public NFDescStoreSeqOP {
 		elementelement_s();
 		int CreateInit();
@@ -46,9 +20,11 @@ namespace proto_ff_s {
 		int32_t level;
 		int32_t exp;
 		int64_t skillID;
-		NFArray<struct elementelementattributeDesc_s, 2> attribute;
-		NFArray<struct elementelementmaterialDesc_s, 3> material;
+		NFArray<int32_t, 2> attribute_type;
+		NFArray<int32_t, 3> material_exp;
 		NFArray<int64_t, 3> fragmentID;
+		NFArray<int64_t, 3> material_id;
+		NFArray<int32_t, 2> attribute_value;
 
 		virtual void write_to_pbmsg(::proto_ff::elementelement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::elementelement & msg);
@@ -70,19 +46,6 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_elementelement_s Sheet_elementelement_t;
 
-	struct elementfragmentattributeDesc_s : public NFDescStoreSeqOP {
-		elementfragmentattributeDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int32_t type;
-
-		virtual void write_to_pbmsg(::proto_ff::elementfragmentattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::elementfragmentattributeDesc & msg);
-		static ::proto_ff::elementfragmentattributeDesc* new_pbmsg(){ return new ::proto_ff::elementfragmentattributeDesc(); }
-		static ::proto_ff::elementfragmentattributeDesc make_pbmsg(){ return ::proto_ff::elementfragmentattributeDesc(); }
-	};
-	typedef struct elementfragmentattributeDesc_s elementfragmentattributeDesc_t;
-
 	struct elementfragment_s : public NFDescStoreSeqOP {
 		elementfragment_s();
 		int CreateInit();
@@ -90,7 +53,8 @@ namespace proto_ff_s {
 		int64_t ID;
 		int64_t itemID;
 		int32_t itemNum;
-		NFArray<struct elementfragmentattributeDesc_s, 3> attribute;
+		NFArray<int32_t, 3> attribute_type;
+		NFArray<int32_t, 3> attribute_value;
 
 		virtual void write_to_pbmsg(::proto_ff::elementfragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::elementfragment & msg);

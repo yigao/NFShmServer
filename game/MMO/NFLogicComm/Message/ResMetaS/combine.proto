@@ -87,16 +87,6 @@ message Sheet_combinerankUp
 	repeated combinerankUp combinerankUp_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
-message combinequalityUpneedEqupDesc
-{
-	optional string id = 1[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 160];
-}
-
-message combinequalityUpneedMaterialDesc
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = ""];
-}
-
 message combinequalityUp
 {
 	optional int64 newItem = 1[(yd_fieldoptions.field_cname) = "合成物ID"];
@@ -110,8 +100,9 @@ message combinequalityUp
 	optional int32 probability = 9[(yd_fieldoptions.field_cname) = "基础成功率"];
 	optional int32 costType = 10[(yd_fieldoptions.field_cname) = "货币类型"];
 	optional int32 bindJewelCost = 11[(yd_fieldoptions.field_cname) = "合成消耗"];
-	repeated combinequalityUpneedEqupDesc needEqup = 12[(yd_fieldoptions.field_cname) = "需要固定装备", (yd_fieldoptions.field_arysize) = 1];
-	repeated combinequalityUpneedMaterialDesc needMaterial = 13[(yd_fieldoptions.field_cname) = "需要的固定材料ID", (yd_fieldoptions.field_arysize) = 2];
+	repeated string needEqup_id = 12[(yd_fieldoptions.field_cname) = "需要固定装备", (yd_fieldoptions.field_arysize) = 1, (yd_fieldoptions.field_bufsize) = 160];
+	repeated int32 needMaterial_num = 13[(yd_fieldoptions.field_cname) = "需要的固定材料数量", (yd_fieldoptions.field_arysize) = 2];
+	repeated int64 needMaterial_id = 14[(yd_fieldoptions.field_cname) = "需要的固定材料ID", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

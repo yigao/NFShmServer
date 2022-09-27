@@ -15,12 +15,15 @@ message backback
 	optional int64 bossTypeID = 8[(yd_fieldoptions.field_cname) = "关联BOSS类型ID"];
 	optional int32 functionUnlock = 9[(yd_fieldoptions.field_cname) = "关联功能开放"];
 	optional int32 levelLimit = 10[(yd_fieldoptions.field_cname) = "等级要求下限"];
-	optional int64 itemId = 11[(yd_fieldoptions.field_cname) = "找回物品"];
-	optional string icon = 12[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 60];
-	repeated int32 backExp = 13[(yd_fieldoptions.field_cname) = "找回", (yd_fieldoptions.field_arysize) = 2];
-	repeated int32 backNum = 14[(yd_fieldoptions.field_cname) = "找回", (yd_fieldoptions.field_arysize) = 2];
-	repeated int32 param = 15[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
-	repeated int32 backExpend = 16[(yd_fieldoptions.field_cname) = "找回", (yd_fieldoptions.field_arysize) = 2];
+	optional int32 backExp = 11[(yd_fieldoptions.field_cname) = "找回1经验值"];
+	optional int32 backExp = 12[(yd_fieldoptions.field_cname) = "找回2经验值"];
+	optional int64 itemId = 13[(yd_fieldoptions.field_cname) = "找回物品"];
+	optional int32 backNum = 14[(yd_fieldoptions.field_cname) = "找回1物品数量"];
+	optional int32 backNum = 15[(yd_fieldoptions.field_cname) = "找回2物品数量"];
+	optional int32 backExpend = 16[(yd_fieldoptions.field_cname) = "找回1消耗数量"];
+	optional int32 backExpend = 17[(yd_fieldoptions.field_cname) = "找回2消耗数量"];
+	optional string icon = 18[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 param = 19[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

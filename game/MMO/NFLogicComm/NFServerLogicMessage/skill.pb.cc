@@ -168,8 +168,8 @@ void protobuf_AssignDesc_skill_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, save_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, statebagrule_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, label_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, statebagcd_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, mask_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, statebagcd_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(skillbuff, effect_),
   };
   skillbuff_reflection_ =
@@ -303,7 +303,7 @@ void protobuf_AddDesc_skill_2eproto() {
     "llskill_List\030\001 \003(\0132\024.proto_ff.skillskill"
     "B\005\210\301\024\320\017\"N\n\023skillbuffeffectDesc\022\030\n\004Type\030\001"
     " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\035\n\005Param\030\002 \001(\tB\016\302\377\024\006\345\217\202"
-    "\346\225\260\220\301\024<\"\365\004\n\tskillbuff\022)\n\nstateBagID\030\001 \001("
+    "\346\225\260\220\301\024<\"\374\004\n\tskillbuff\022)\n\nstateBagID\030\001 \001("
     "\003B\025\302\377\024\021\351\231\204\345\212\240\347\212\266\346\200\201\345\214\205id\022-\n\014stateBagName"
     "\030\002 \001(\tB\027\302\377\024\017\347\212\266\346\200\201\345\214\205\345\220\215\347\247\260\220\301\024P\022-\n\014state"
     "BagIcon\030\003 \001(\tB\027\302\377\024\017\347\212\266\346\200\201\345\214\205\345\233\276\346\240\207\220\301\024<\022-"
@@ -315,12 +315,12 @@ void protobuf_AddDesc_skill_2eproto() {
     "\022\345\270\270\350\247\204\347\273\223\346\235\237\346\235\241\344\273\266\220\301\024<\022\036\n\004save\030\t \001(\005B\020\302"
     "\377\024\014\346\230\257\345\220\246\345\255\230\347\233\230\0229\n\014stateBagRule\030\n \001(\tB#\302"
     "\377\024\033\345\220\214\344\270\200\347\212\266\346\200\201\345\214\205\345\217\240\345\212\240\350\247\204\345\210\231\220\301\024<\022\037\n\005la"
-    "bel\030\013 \001(\005B\020\302\377\024\014\347\212\266\346\200\201\346\240\207\347\255\276\022+\n\nstateBagC"
-    "d\030\014 \001(\tB\027\302\377\024\017\347\212\266\346\200\201\345\214\205\345\206\267\345\215\264\220\301\024<\022\026\n\004mask"
-    "\030\r \003(\005B\010\302\377\024\000\210\301\024 \022=\n\006effect\030\016 \003(\0132\035.proto"
-    "_ff.skillbuffeffectDescB\016\302\377\024\006\346\225\210\346\236\234\210\301\024\005\""
-    "E\n\017Sheet_skillbuff\0222\n\016skillbuff_List\030\001 \003"
-    "(\0132\023.proto_ff.skillbuffB\005\210\301\024\220\003", 2870);
+    "bel\030\013 \001(\005B\020\302\377\024\014\347\212\266\346\200\201\346\240\207\347\255\276\022\035\n\004mask\030\014 \001("
+    "\005B\017\302\377\024\01332\344\275\215\346\216\251\347\240\201\022+\n\nstateBagCd\030\r \001(\tB\027"
+    "\302\377\024\017\347\212\266\346\200\201\345\214\205\345\206\267\345\215\264\220\301\024<\022=\n\006effect\030\016 \003(\0132"
+    "\035.proto_ff.skillbuffeffectDescB\016\302\377\024\006\346\225\210\346"
+    "\236\234\210\301\024\005\"E\n\017Sheet_skillbuff\0222\n\016skillbuff_L"
+    "ist\030\001 \003(\0132\023.proto_ff.skillbuffB\005\210\301\024\220\003", 2877);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skill.proto", &protobuf_RegisterTypes);
   skillskillstateBagDesc::default_instance_ = new skillskillstateBagDesc();
@@ -3363,8 +3363,8 @@ const int skillbuff::kEndTypeFieldNumber;
 const int skillbuff::kSaveFieldNumber;
 const int skillbuff::kStateBagRuleFieldNumber;
 const int skillbuff::kLabelFieldNumber;
-const int skillbuff::kStateBagCdFieldNumber;
 const int skillbuff::kMaskFieldNumber;
+const int skillbuff::kStateBagCdFieldNumber;
 const int skillbuff::kEffectFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3395,6 +3395,7 @@ void skillbuff::SharedCtor() {
   save_ = 0;
   statebagrule_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   label_ = 0;
+  mask_ = 0;
   statebagcd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -3489,13 +3490,13 @@ void skillbuff::Clear() {
       }
     }
     label_ = 0;
+    mask_ = 0;
     if (has_statebagcd()) {
       if (statebagcd_ != &::google::protobuf::internal::kEmptyString) {
         statebagcd_->clear();
       }
     }
   }
-  mask_.Clear();
   effect_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3684,12 +3685,28 @@ bool skillbuff::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_stateBagCd;
+        if (input->ExpectTag(96)) goto parse_mask;
         break;
       }
 
-      // optional string stateBagCd = 12;
+      // optional int32 mask = 12;
       case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mask:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mask_)));
+          set_has_mask();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(106)) goto parse_stateBagCd;
+        break;
+      }
+
+      // optional string stateBagCd = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_stateBagCd:
@@ -3701,28 +3718,6 @@ bool skillbuff::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_mask;
-        break;
-      }
-
-      // repeated int32 mask = 13;
-      case 13: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mask:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 104, input, this->mutable_mask())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_mask())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(104)) goto parse_mask;
         if (input->ExpectTag(114)) goto parse_effect;
         break;
       }
@@ -3839,19 +3834,18 @@ void skillbuff::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->label(), output);
   }
 
-  // optional string stateBagCd = 12;
+  // optional int32 mask = 12;
+  if (has_mask()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->mask(), output);
+  }
+
+  // optional string stateBagCd = 13;
   if (has_statebagcd()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->statebagcd().data(), this->statebagcd().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      12, this->statebagcd(), output);
-  }
-
-  // repeated int32 mask = 13;
-  for (int i = 0; i < this->mask_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      13, this->mask(i), output);
+      13, this->statebagcd(), output);
   }
 
   // repeated .proto_ff.skillbuffeffectDesc effect = 14;
@@ -3953,20 +3947,19 @@ void skillbuff::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->label(), target);
   }
 
-  // optional string stateBagCd = 12;
+  // optional int32 mask = 12;
+  if (has_mask()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->mask(), target);
+  }
+
+  // optional string stateBagCd = 13;
   if (has_statebagcd()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->statebagcd().data(), this->statebagcd().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        12, this->statebagcd(), target);
-  }
-
-  // repeated int32 mask = 13;
-  for (int i = 0; i < this->mask_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(13, this->mask(i), target);
+        13, this->statebagcd(), target);
   }
 
   // repeated .proto_ff.skillbuffeffectDesc effect = 14;
@@ -4066,7 +4059,14 @@ int skillbuff::ByteSize() const {
           this->label());
     }
 
-    // optional string stateBagCd = 12;
+    // optional int32 mask = 12;
+    if (has_mask()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->mask());
+    }
+
+    // optional string stateBagCd = 13;
     if (has_statebagcd()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -4074,16 +4074,6 @@ int skillbuff::ByteSize() const {
     }
 
   }
-  // repeated int32 mask = 13;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->mask_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->mask(i));
-    }
-    total_size += 1 * this->mask_size() + data_size;
-  }
-
   // repeated .proto_ff.skillbuffeffectDesc effect = 14;
   total_size += 1 * this->effect_size();
   for (int i = 0; i < this->effect_size(); i++) {
@@ -4117,7 +4107,6 @@ void skillbuff::MergeFrom(const ::google::protobuf::Message& from) {
 
 void skillbuff::MergeFrom(const skillbuff& from) {
   GOOGLE_CHECK_NE(&from, this);
-  mask_.MergeFrom(from.mask_);
   effect_.MergeFrom(from.effect_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_statebagid()) {
@@ -4154,6 +4143,9 @@ void skillbuff::MergeFrom(const skillbuff& from) {
     }
     if (from.has_label()) {
       set_label(from.label());
+    }
+    if (from.has_mask()) {
+      set_mask(from.mask());
     }
     if (from.has_statebagcd()) {
       set_statebagcd(from.statebagcd());
@@ -4192,8 +4184,8 @@ void skillbuff::Swap(skillbuff* other) {
     std::swap(save_, other->save_);
     std::swap(statebagrule_, other->statebagrule_);
     std::swap(label_, other->label_);
+    std::swap(mask_, other->mask_);
     std::swap(statebagcd_, other->statebagcd_);
-    mask_.Swap(&other->mask_);
     effect_.Swap(&other->effect_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

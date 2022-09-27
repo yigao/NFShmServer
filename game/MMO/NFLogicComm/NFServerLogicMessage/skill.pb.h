@@ -1088,10 +1088,17 @@ class skillbuff : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 label() const;
   inline void set_label(::google::protobuf::int32 value);
 
-  // optional string stateBagCd = 12;
+  // optional int32 mask = 12;
+  inline bool has_mask() const;
+  inline void clear_mask();
+  static const int kMaskFieldNumber = 12;
+  inline ::google::protobuf::int32 mask() const;
+  inline void set_mask(::google::protobuf::int32 value);
+
+  // optional string stateBagCd = 13;
   inline bool has_statebagcd() const;
   inline void clear_statebagcd();
-  static const int kStateBagCdFieldNumber = 12;
+  static const int kStateBagCdFieldNumber = 13;
   inline const ::std::string& statebagcd() const;
   inline void set_statebagcd(const ::std::string& value);
   inline void set_statebagcd(const char* value);
@@ -1099,18 +1106,6 @@ class skillbuff : public ::google::protobuf::Message {
   inline ::std::string* mutable_statebagcd();
   inline ::std::string* release_statebagcd();
   inline void set_allocated_statebagcd(::std::string* statebagcd);
-
-  // repeated int32 mask = 13;
-  inline int mask_size() const;
-  inline void clear_mask();
-  static const int kMaskFieldNumber = 13;
-  inline ::google::protobuf::int32 mask(int index) const;
-  inline void set_mask(int index, ::google::protobuf::int32 value);
-  inline void add_mask(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      mask() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_mask();
 
   // repeated .proto_ff.skillbuffeffectDesc effect = 14;
   inline int effect_size() const;
@@ -1148,6 +1143,8 @@ class skillbuff : public ::google::protobuf::Message {
   inline void clear_has_statebagrule();
   inline void set_has_label();
   inline void clear_has_label();
+  inline void set_has_mask();
+  inline void clear_has_mask();
   inline void set_has_statebagcd();
   inline void clear_has_statebagcd();
 
@@ -1165,8 +1162,8 @@ class skillbuff : public ::google::protobuf::Message {
   ::google::protobuf::int32 save_;
   ::google::protobuf::int32 label_;
   ::std::string* statebagcd_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > mask_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::skillbuffeffectDesc > effect_;
+  ::google::protobuf::int32 mask_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
@@ -3712,15 +3709,37 @@ inline void skillbuff::set_label(::google::protobuf::int32 value) {
   label_ = value;
 }
 
-// optional string stateBagCd = 12;
-inline bool skillbuff::has_statebagcd() const {
+// optional int32 mask = 12;
+inline bool skillbuff::has_mask() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void skillbuff::set_has_statebagcd() {
+inline void skillbuff::set_has_mask() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void skillbuff::clear_has_statebagcd() {
+inline void skillbuff::clear_has_mask() {
   _has_bits_[0] &= ~0x00000800u;
+}
+inline void skillbuff::clear_mask() {
+  mask_ = 0;
+  clear_has_mask();
+}
+inline ::google::protobuf::int32 skillbuff::mask() const {
+  return mask_;
+}
+inline void skillbuff::set_mask(::google::protobuf::int32 value) {
+  set_has_mask();
+  mask_ = value;
+}
+
+// optional string stateBagCd = 13;
+inline bool skillbuff::has_statebagcd() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void skillbuff::set_has_statebagcd() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void skillbuff::clear_has_statebagcd() {
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void skillbuff::clear_statebagcd() {
   if (statebagcd_ != &::google::protobuf::internal::kEmptyString) {
@@ -3780,31 +3799,6 @@ inline void skillbuff::set_allocated_statebagcd(::std::string* statebagcd) {
     clear_has_statebagcd();
     statebagcd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
-}
-
-// repeated int32 mask = 13;
-inline int skillbuff::mask_size() const {
-  return mask_.size();
-}
-inline void skillbuff::clear_mask() {
-  mask_.Clear();
-}
-inline ::google::protobuf::int32 skillbuff::mask(int index) const {
-  return mask_.Get(index);
-}
-inline void skillbuff::set_mask(int index, ::google::protobuf::int32 value) {
-  mask_.Set(index, value);
-}
-inline void skillbuff::add_mask(::google::protobuf::int32 value) {
-  mask_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-skillbuff::mask() const {
-  return mask_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-skillbuff::mutable_mask() {
-  return &mask_;
 }
 
 // repeated .proto_ff.skillbuffeffectDesc effect = 14;

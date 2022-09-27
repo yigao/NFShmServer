@@ -12,7 +12,6 @@ equipequipattributeDesc_s::equipequipattributeDesc_s() {
 
 int equipequipattributeDesc_s::CreateInit() {
 	valueMin = (int32_t)0;
-	type = (int32_t)0;
 	valueMax = (int32_t)0;
 	return 0;
 }
@@ -23,14 +22,12 @@ int equipequipattributeDesc_s::ResumeInit() {
 
 void equipequipattributeDesc_s::write_to_pbmsg(::proto_ff::equipequipattributeDesc & msg) const {
 	msg.set_valuemin((int32_t)valueMin);
-	msg.set_type((int32_t)type);
 	msg.set_valuemax((int32_t)valueMax);
 }
 
 void equipequipattributeDesc_s::read_from_pbmsg(const ::proto_ff::equipequipattributeDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct equipequipattributeDesc_s));
 	valueMin = msg.valuemin();
-	type = msg.type();
 	valueMax = msg.valuemax();
 }
 
@@ -93,6 +90,9 @@ void equipequip_s::write_to_pbmsg(::proto_ff::equipequip & msg) const {
 	msg.set_combat((int32_t)Combat);
 	msg.set_broadcast((int32_t)broadcast);
 	msg.set_meltingresult((const char*)meltingResult.Get());
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize() && i < attribute_type.GetMaxSize(); ++i) {
+		msg.add_attribute_type((int32_t)attribute_type[i]);
+	}
 	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
 		::proto_ff::equipequipattributeDesc* temp_attribute = msg.add_attribute();
 		attribute[i].write_to_pbmsg(*temp_attribute);
@@ -127,6 +127,10 @@ void equipequip_s::read_from_pbmsg(const ::proto_ff::equipequip & msg) {
 	Combat = msg.combat();
 	broadcast = msg.broadcast();
 	meltingResult.Copy(msg.meltingresult());
+	attribute_type.SetSize(msg.attribute_type_size() > attribute_type.GetMaxSize() ? attribute_type.GetMaxSize() : msg.attribute_type_size());
+	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize(); ++i) {
+		attribute_type[i] = msg.attribute_type(i);
+	}
 	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
 	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
 		const ::proto_ff::equipequipattributeDesc & temp_attribute = msg.attribute(i);
