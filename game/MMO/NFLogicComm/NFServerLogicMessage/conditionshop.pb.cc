@@ -43,7 +43,7 @@ void protobuf_AssignDesc_conditionshop_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, boxid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, itemid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, mtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, discountprice_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, conditionparam_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(conditionshopconditionshop, conditiontype_),
@@ -110,19 +110,19 @@ void protobuf_AddDesc_conditionshop_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023conditionshop.proto\022\010proto_ff\032\025yd_fiel"
-    "doptions.proto\"\327\002\n\032conditionshopconditio"
+    "doptions.proto\"\330\002\n\032conditionshopconditio"
     "nshop\022\022\n\002Id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004Type\030\002 \001(\005B"
     "\n\302\377\024\006\347\261\273\345\236\213\022\036\n\004Time\030\003 \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266"
     "\351\227\264\022\033\n\005boxId\030\004 \001(\003B\014\302\377\024\010\345\245\226\345\212\261ID\022 \n\006item"
-    "Id\030\005 \001(\tB\020\302\377\024\010\345\245\226\345\212\261ID\220\301\024<\022\036\n\004type\030\006 \001(\005"
-    "B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022!\n\rDiscountPrice\030\007 \001("
-    "\005B\n\302\377\024\006\347\216\260\344\273\267\0226\n\016ConditionParam\030\010 \003(\tB\036\302"
-    "\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\345\217\202\346\225\260\210\301\024\003\220\301\024<\0221\n\rConditi"
-    "onType\030\t \003(\005B\032\302\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\347\261\273\345\236\213\210\301\024\003"
-    "\"w\n Sheet_conditionshopconditionshop\022S\n\037"
-    "conditionshopconditionshop_List\030\001 \003(\0132$."
-    "proto_ff.conditionshopconditionshopB\004\210\301\024"
-    "\024", 521);
+    "Id\030\005 \001(\tB\020\302\377\024\010\345\245\226\345\212\261ID\220\301\024<\022\037\n\005mtype\030\006 \001("
+    "\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022!\n\rDiscountPrice\030\007 \001"
+    "(\005B\n\302\377\024\006\347\216\260\344\273\267\0226\n\016ConditionParam\030\010 \003(\tB\036"
+    "\302\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\345\217\202\346\225\260\210\301\024\003\220\301\024<\0221\n\rCondit"
+    "ionType\030\t \003(\005B\032\302\377\024\022\350\247\246\345\217\221\346\235\241\344\273\266\347\261\273\345\236\213\210\301\024"
+    "\003\"w\n Sheet_conditionshopconditionshop\022S\n"
+    "\037conditionshopconditionshop_List\030\001 \003(\0132$"
+    ".proto_ff.conditionshopconditionshopB\004\210\301"
+    "\024\024", 522);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "conditionshop.proto", &protobuf_RegisterTypes);
   conditionshopconditionshop::default_instance_ = new conditionshopconditionshop();
@@ -147,7 +147,7 @@ const int conditionshopconditionshop::kTypeFieldNumber;
 const int conditionshopconditionshop::kTimeFieldNumber;
 const int conditionshopconditionshop::kBoxIdFieldNumber;
 const int conditionshopconditionshop::kItemIdFieldNumber;
-const int conditionshopconditionshop::kTypeFieldNumber_6;
+const int conditionshopconditionshop::kMtypeFieldNumber;
 const int conditionshopconditionshop::kDiscountPriceFieldNumber;
 const int conditionshopconditionshop::kConditionParamFieldNumber;
 const int conditionshopconditionshop::kConditionTypeFieldNumber;
@@ -174,7 +174,7 @@ void conditionshopconditionshop::SharedCtor() {
   time_ = 0;
   boxid_ = GOOGLE_LONGLONG(0);
   itemid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  type_ = 0;
+  mtype_ = 0;
   discountprice_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -223,7 +223,7 @@ void conditionshopconditionshop::Clear() {
         itemid_->clear();
       }
     }
-    type_ = 0;
+    mtype_ = 0;
     discountprice_ = 0;
   }
   conditionparam_.Clear();
@@ -314,19 +314,19 @@ bool conditionshopconditionshop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_type;
+        if (input->ExpectTag(48)) goto parse_mtype;
         break;
       }
 
-      // optional int32 type = 6;
+      // optional int32 mtype = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_mtype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &mtype_)));
+          set_has_mtype();
         } else {
           goto handle_uninterpreted;
         }
@@ -438,9 +438,9 @@ void conditionshopconditionshop::SerializeWithCachedSizes(
       5, this->itemid(), output);
   }
 
-  // optional int32 type = 6;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->type(), output);
+  // optional int32 mtype = 6;
+  if (has_mtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->mtype(), output);
   }
 
   // optional int32 DiscountPrice = 7;
@@ -501,9 +501,9 @@ void conditionshopconditionshop::SerializeWithCachedSizes(
         5, this->itemid(), target);
   }
 
-  // optional int32 type = 6;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->type(), target);
+  // optional int32 mtype = 6;
+  if (has_mtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->mtype(), target);
   }
 
   // optional int32 DiscountPrice = 7;
@@ -572,11 +572,11 @@ int conditionshopconditionshop::ByteSize() const {
           this->itemid());
     }
 
-    // optional int32 type = 6;
-    if (has_type()) {
+    // optional int32 mtype = 6;
+    if (has_mtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->mtype());
     }
 
     // optional int32 DiscountPrice = 7;
@@ -647,8 +647,8 @@ void conditionshopconditionshop::MergeFrom(const conditionshopconditionshop& fro
     if (from.has_itemid()) {
       set_itemid(from.itemid());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_mtype()) {
+      set_mtype(from.mtype());
     }
     if (from.has_discountprice()) {
       set_discountprice(from.discountprice());
@@ -681,7 +681,7 @@ void conditionshopconditionshop::Swap(conditionshopconditionshop* other) {
     std::swap(time_, other->time_);
     std::swap(boxid_, other->boxid_);
     std::swap(itemid_, other->itemid_);
-    std::swap(type_, other->type_);
+    std::swap(mtype_, other->mtype_);
     std::swap(discountprice_, other->discountprice_);
     conditionparam_.Swap(&other->conditionparam_);
     conditiontype_.Swap(&other->conditiontype_);

@@ -28,7 +28,7 @@ message Sheet_guildconstant
 
 message guildlevel
 {
-	optional int32 guildLevel = 1[(yd_fieldoptions.field_cname) = "公会等级"];
+	optional int32 guildLevelId = 1[(yd_fieldoptions.field_cname) = "公会等级"];
 	optional int32 guildLevel_EXP = 2[(yd_fieldoptions.field_cname) = "公会升级经验"];
 	optional int32 guildLevel_member = 3[(yd_fieldoptions.field_cname) = "公会成员总人数"];
 	optional int32 guildLevel_VP = 4[(yd_fieldoptions.field_cname) = "公会副会长人数"];

@@ -12,8 +12,6 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFConstDesc.h"
-#include "NFNameDesc.h"
 
 int NFCommLogicModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {

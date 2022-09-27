@@ -19,7 +19,7 @@ namespace proto_ff_s {
 		int32_t Time;
 		int64_t boxId;
 		NFSizeString<60> itemId;
-		int32_t type;
+		int32_t mtype;
 		int32_t DiscountPrice;
 		NFArray<NFSizeString<60>, 3> ConditionParam;
 		NFArray<int32_t, 3> ConditionType;

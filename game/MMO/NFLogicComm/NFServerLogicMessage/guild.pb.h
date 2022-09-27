@@ -405,12 +405,12 @@ class guildlevel : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 guildLevel = 1;
-  inline bool has_guildlevel() const;
-  inline void clear_guildlevel();
-  static const int kGuildLevelFieldNumber = 1;
-  inline ::google::protobuf::int32 guildlevel() const;
-  inline void set_guildlevel(::google::protobuf::int32 value);
+  // optional int32 guildLevelId = 1;
+  inline bool has_guildlevelid() const;
+  inline void clear_guildlevelid();
+  static const int kGuildLevelIdFieldNumber = 1;
+  inline ::google::protobuf::int32 guildlevelid() const;
+  inline void set_guildlevelid(::google::protobuf::int32 value);
 
   // optional int32 guildLevel_EXP = 2;
   inline bool has_guildlevel_exp() const;
@@ -442,8 +442,8 @@ class guildlevel : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.guildlevel)
  private:
-  inline void set_has_guildlevel();
-  inline void clear_has_guildlevel();
+  inline void set_has_guildlevelid();
+  inline void clear_has_guildlevelid();
   inline void set_has_guildlevel_exp();
   inline void clear_has_guildlevel_exp();
   inline void set_has_guildlevel_member();
@@ -455,7 +455,7 @@ class guildlevel : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 guildlevel_;
+  ::google::protobuf::int32 guildlevelid_;
   ::google::protobuf::int32 guildlevel_exp_;
   ::google::protobuf::int32 guildlevel_member_;
   ::google::protobuf::int32 guildlevel_vp_;
@@ -2960,26 +2960,26 @@ Sheet_guildconstant::mutable_guildconstant_list() {
 
 // guildlevel
 
-// optional int32 guildLevel = 1;
-inline bool guildlevel::has_guildlevel() const {
+// optional int32 guildLevelId = 1;
+inline bool guildlevel::has_guildlevelid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void guildlevel::set_has_guildlevel() {
+inline void guildlevel::set_has_guildlevelid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void guildlevel::clear_has_guildlevel() {
+inline void guildlevel::clear_has_guildlevelid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void guildlevel::clear_guildlevel() {
-  guildlevel_ = 0;
-  clear_has_guildlevel();
+inline void guildlevel::clear_guildlevelid() {
+  guildlevelid_ = 0;
+  clear_has_guildlevelid();
 }
-inline ::google::protobuf::int32 guildlevel::guildlevel() const {
-  return guildlevel_;
+inline ::google::protobuf::int32 guildlevel::guildlevelid() const {
+  return guildlevelid_;
 }
-inline void guildlevel::set_guildlevel(::google::protobuf::int32 value) {
-  set_has_guildlevel();
-  guildlevel_ = value;
+inline void guildlevel::set_guildlevelid(::google::protobuf::int32 value) {
+  set_has_guildlevelid();
+  guildlevelid_ = value;
 }
 
 // optional int32 guildLevel_EXP = 2;

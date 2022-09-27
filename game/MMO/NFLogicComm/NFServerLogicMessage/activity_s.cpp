@@ -33,7 +33,7 @@ int activitydaily_s::ResumeInit() {
 void activitydaily_s::write_to_pbmsg(::proto_ff::activitydaily & msg) const {
 	msg.set_activeid((int64_t)activeId);
 	msg.set_activename((const char*)activeName.Get());
-	msg.set_typeid((int32_t)typeId);
+	msg.set_typeid_((int32_t)typeId);
 	msg.set_descriptiontype((int32_t)Descriptiontype);
 	msg.set_typeargs((int64_t)typeArgs);
 	msg.set_involvemap((const char*)involveMap.Get());
@@ -56,7 +56,7 @@ void activitydaily_s::read_from_pbmsg(const ::proto_ff::activitydaily & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitydaily_s));
 	activeId = msg.activeid();
 	activeName.Copy(msg.activename());
-	typeId = msg.typeid();
+	typeId = msg.typeid_();
 	Descriptiontype = msg.descriptiontype();
 	typeArgs = msg.typeargs();
 	involveMap.Copy(msg.involvemap());

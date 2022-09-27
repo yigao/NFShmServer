@@ -15,7 +15,7 @@ int conditionshopconditionshop_s::CreateInit() {
 	Type = (int32_t)0;
 	Time = (int32_t)0;
 	boxId = (int64_t)0;
-	type = (int32_t)0;
+	mtype = (int32_t)0;
 	DiscountPrice = (int32_t)0;
 	return 0;
 }
@@ -30,7 +30,7 @@ void conditionshopconditionshop_s::write_to_pbmsg(::proto_ff::conditionshopcondi
 	msg.set_time((int32_t)Time);
 	msg.set_boxid((int64_t)boxId);
 	msg.set_itemid((const char*)itemId.Get());
-	msg.set_type((int32_t)type);
+	msg.set_mtype((int32_t)mtype);
 	msg.set_discountprice((int32_t)DiscountPrice);
 	for(int32_t i = 0; i < (int32_t)ConditionParam.GetSize() && i < ConditionParam.GetMaxSize(); ++i) {
 		msg.add_conditionparam((const char*)ConditionParam[i].Get());
@@ -47,7 +47,7 @@ void conditionshopconditionshop_s::read_from_pbmsg(const ::proto_ff::conditionsh
 	Time = msg.time();
 	boxId = msg.boxid();
 	itemId.Copy(msg.itemid());
-	type = msg.type();
+	mtype = msg.mtype();
 	DiscountPrice = msg.discountprice();
 	ConditionParam.SetSize(msg.conditionparam_size() > ConditionParam.GetMaxSize() ? ConditionParam.GetMaxSize() : msg.conditionparam_size());
 	for(int32_t i = 0; i < (int32_t)ConditionParam.GetSize(); ++i) {
