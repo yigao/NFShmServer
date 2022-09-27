@@ -58,7 +58,7 @@ namespace proto_ff_s {
 		int32_t bossType;
 		int32_t mapType;
 		int32_t functionId;
-		int32_t duplicateGroupID;
+		int64_t duplicateGroupID;
 		int32_t viptype;
 		int64_t bossFlashItem;
 		int32_t bossFlashItemNum;

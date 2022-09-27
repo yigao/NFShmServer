@@ -30,7 +30,7 @@ int itemitem_s::CreateInit() {
 	dayOutTime = (int32_t)0;
 	blessing = (int32_t)0;
 	invest = (int32_t)0;
-	exchange = (int32_t)0;
+	exchange = (int64_t)0;
 	return 0;
 }
 
@@ -63,7 +63,7 @@ void itemitem_s::write_to_pbmsg(::proto_ff::itemitem & msg) const {
 	msg.set_uselimit((const char*)useLimit.Get());
 	msg.set_blessing((int32_t)blessing);
 	msg.set_invest((int32_t)invest);
-	msg.set_exchange((int32_t)exchange);
+	msg.set_exchange((int64_t)exchange);
 }
 
 void itemitem_s::read_from_pbmsg(const ::proto_ff::itemitem & msg) {

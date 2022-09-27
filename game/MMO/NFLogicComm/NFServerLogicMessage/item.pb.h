@@ -286,12 +286,12 @@ class itemitem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 invest() const;
   inline void set_invest(::google::protobuf::int32 value);
 
-  // optional int32 exchange = 25;
+  // optional int64 exchange = 25;
   inline bool has_exchange() const;
   inline void clear_exchange();
   static const int kExchangeFieldNumber = 25;
-  inline ::google::protobuf::int32 exchange() const;
-  inline void set_exchange(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 exchange() const;
+  inline void set_exchange(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.itemitem)
  private:
@@ -371,8 +371,8 @@ class itemitem : public ::google::protobuf::Message {
   ::std::string* uselimit_;
   ::google::protobuf::int32 dayouttime_;
   ::google::protobuf::int32 blessing_;
+  ::google::protobuf::int64 exchange_;
   ::google::protobuf::int32 invest_;
-  ::google::protobuf::int32 exchange_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
@@ -1244,7 +1244,7 @@ inline void itemitem::set_invest(::google::protobuf::int32 value) {
   invest_ = value;
 }
 
-// optional int32 exchange = 25;
+// optional int64 exchange = 25;
 inline bool itemitem::has_exchange() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -1255,13 +1255,13 @@ inline void itemitem::clear_has_exchange() {
   _has_bits_[0] &= ~0x01000000u;
 }
 inline void itemitem::clear_exchange() {
-  exchange_ = 0;
+  exchange_ = GOOGLE_LONGLONG(0);
   clear_has_exchange();
 }
-inline ::google::protobuf::int32 itemitem::exchange() const {
+inline ::google::protobuf::int64 itemitem::exchange() const {
   return exchange_;
 }
-inline void itemitem::set_exchange(::google::protobuf::int32 value) {
+inline void itemitem::set_exchange(::google::protobuf::int64 value) {
   set_has_exchange();
   exchange_ = value;
 }

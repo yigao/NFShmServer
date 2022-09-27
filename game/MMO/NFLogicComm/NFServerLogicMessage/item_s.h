@@ -38,7 +38,7 @@ namespace proto_ff_s {
 		NFSizeString<2000> useLimit;
 		int32_t blessing;
 		int32_t invest;
-		int32_t exchange;
+		int64_t exchange;
 
 		virtual void write_to_pbmsg(::proto_ff::itemitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::itemitem & msg);

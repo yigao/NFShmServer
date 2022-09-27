@@ -444,7 +444,7 @@ void protobuf_AddDesc_getTreasure_2eproto() {
     "ssType\030\001 \001(\005B\r\302\377\024\t\346\200\273\347\261\273\345\236\213\022!\n\007mapType\030\002"
     " \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022&\n\nfunctionId\030\003 \001"
     "(\005B\022\302\377\024\016\345\212\237\350\203\275\350\247\243\351\224\201ID\022)\n\020duplicateGroup"
-    "ID\030\004 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022\036\n\007viptype\030\005 \001"
+    "ID\030\004 \001(\003B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022\036\n\007viptype\030\005 \001"
     "(\005B\r\302\377\024\tVIP\347\261\273\345\236\213\022+\n\rbossFlashItem\030\006 \001(\003"
     "B\024\302\377\024\020BOSS\345\210\267\346\226\260\351\201\223\345\205\267\0227\n\020bossFlashItemN"
     "um\030\007 \001(\005B\035\302\377\024\031\345\210\267BOSS\351\201\223\345\205\267\346\266\210\350\200\227\346\225\260\351\207\217\022"
@@ -1289,7 +1289,7 @@ void getTreasuretimesControl::SharedCtor() {
   bosstype_ = 0;
   maptype_ = 0;
   functionid_ = 0;
-  duplicategroupid_ = 0;
+  duplicategroupid_ = GOOGLE_LONGLONG(0);
   viptype_ = 0;
   bossflashitem_ = GOOGLE_LONGLONG(0);
   bossflashitemnum_ = 0;
@@ -1339,7 +1339,7 @@ void getTreasuretimesControl::Clear() {
     bosstype_ = 0;
     maptype_ = 0;
     functionid_ = 0;
-    duplicategroupid_ = 0;
+    duplicategroupid_ = GOOGLE_LONGLONG(0);
     viptype_ = 0;
     bossflashitem_ = GOOGLE_LONGLONG(0);
     bossflashitemnum_ = 0;
@@ -1412,13 +1412,13 @@ bool getTreasuretimesControl::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 duplicateGroupID = 4;
+      // optional int64 duplicateGroupID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_duplicateGroupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &duplicategroupid_)));
           set_has_duplicategroupid();
         } else {
@@ -1652,9 +1652,9 @@ void getTreasuretimesControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->functionid(), output);
   }
 
-  // optional int32 duplicateGroupID = 4;
+  // optional int64 duplicateGroupID = 4;
   if (has_duplicategroupid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->duplicategroupid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->duplicategroupid(), output);
   }
 
   // optional int32 viptype = 5;
@@ -1741,9 +1741,9 @@ void getTreasuretimesControl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->functionid(), target);
   }
 
-  // optional int32 duplicateGroupID = 4;
+  // optional int64 duplicateGroupID = 4;
   if (has_duplicategroupid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->duplicategroupid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->duplicategroupid(), target);
   }
 
   // optional int32 viptype = 5;
@@ -1840,10 +1840,10 @@ int getTreasuretimesControl::ByteSize() const {
           this->functionid());
     }
 
-    // optional int32 duplicateGroupID = 4;
+    // optional int64 duplicateGroupID = 4;
     if (has_duplicategroupid()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->duplicategroupid());
     }
 

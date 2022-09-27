@@ -104,7 +104,7 @@ int getTreasuretimesControl_s::CreateInit() {
 	bossType = (int32_t)0;
 	mapType = (int32_t)0;
 	functionId = (int32_t)0;
-	duplicateGroupID = (int32_t)0;
+	duplicateGroupID = (int64_t)0;
 	viptype = (int32_t)0;
 	bossFlashItem = (int64_t)0;
 	bossFlashItemNum = (int32_t)0;
@@ -127,7 +127,7 @@ void getTreasuretimesControl_s::write_to_pbmsg(::proto_ff::getTreasuretimesContr
 	msg.set_bosstype((int32_t)bossType);
 	msg.set_maptype((int32_t)mapType);
 	msg.set_functionid((int32_t)functionId);
-	msg.set_duplicategroupid((int32_t)duplicateGroupID);
+	msg.set_duplicategroupid((int64_t)duplicateGroupID);
 	msg.set_viptype((int32_t)viptype);
 	msg.set_bossflashitem((int64_t)bossFlashItem);
 	msg.set_bossflashitemnum((int32_t)bossFlashItemNum);

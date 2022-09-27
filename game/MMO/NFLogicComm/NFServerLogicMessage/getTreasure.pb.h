@@ -396,12 +396,12 @@ class getTreasuretimesControl : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 functionid() const;
   inline void set_functionid(::google::protobuf::int32 value);
 
-  // optional int32 duplicateGroupID = 4;
+  // optional int64 duplicateGroupID = 4;
   inline bool has_duplicategroupid() const;
   inline void clear_duplicategroupid();
   static const int kDuplicateGroupIDFieldNumber = 4;
-  inline ::google::protobuf::int32 duplicategroupid() const;
-  inline void set_duplicategroupid(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 duplicategroupid() const;
+  inline void set_duplicategroupid(::google::protobuf::int64 value);
 
   // optional int32 viptype = 5;
   inline bool has_viptype() const;
@@ -529,20 +529,20 @@ class getTreasuretimesControl : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 bosstype_;
   ::google::protobuf::int32 maptype_;
+  ::google::protobuf::int64 duplicategroupid_;
   ::google::protobuf::int32 functionid_;
-  ::google::protobuf::int32 duplicategroupid_;
-  ::google::protobuf::int64 bossflashitem_;
   ::google::protobuf::int32 viptype_;
-  ::google::protobuf::int32 bossflashitemnum_;
+  ::google::protobuf::int64 bossflashitem_;
   ::google::protobuf::int64 callingcardid_;
+  ::google::protobuf::int32 bossflashitemnum_;
   ::google::protobuf::int32 callingcardnum_;
-  ::google::protobuf::int32 times_;
   ::google::protobuf::int64 costitem1_;
+  ::google::protobuf::int32 times_;
   ::google::protobuf::int32 costnum1_;
   ::google::protobuf::int32 canbuyflag_;
   ::google::protobuf::int32 canhelp_;
-  ::google::protobuf::int32 skill_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::getTreasuretimesControlgroupDesc > group_;
+  ::google::protobuf::int32 skill_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
@@ -1960,7 +1960,7 @@ inline void getTreasuretimesControl::set_functionid(::google::protobuf::int32 va
   functionid_ = value;
 }
 
-// optional int32 duplicateGroupID = 4;
+// optional int64 duplicateGroupID = 4;
 inline bool getTreasuretimesControl::has_duplicategroupid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1971,13 +1971,13 @@ inline void getTreasuretimesControl::clear_has_duplicategroupid() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void getTreasuretimesControl::clear_duplicategroupid() {
-  duplicategroupid_ = 0;
+  duplicategroupid_ = GOOGLE_LONGLONG(0);
   clear_has_duplicategroupid();
 }
-inline ::google::protobuf::int32 getTreasuretimesControl::duplicategroupid() const {
+inline ::google::protobuf::int64 getTreasuretimesControl::duplicategroupid() const {
   return duplicategroupid_;
 }
-inline void getTreasuretimesControl::set_duplicategroupid(::google::protobuf::int32 value) {
+inline void getTreasuretimesControl::set_duplicategroupid(::google::protobuf::int64 value) {
   set_has_duplicategroupid();
   duplicategroupid_ = value;
 }

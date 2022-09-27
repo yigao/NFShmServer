@@ -27,7 +27,7 @@ int monstermonster_s::CreateInit() {
 	breedMonID = (int64_t)0;
 	breedMonLive = (int32_t)0;
 	isBornActionOn = (int32_t)0;
-	exp = (int32_t)0;
+	exp = (int64_t)0;
 	dropType = (int32_t)0;
 	isBelongToPlayer = (int32_t)0;
 	dropDefault = (int64_t)0;
@@ -63,7 +63,7 @@ void monstermonster_s::write_to_pbmsg(::proto_ff::monstermonster & msg) const {
 	msg.set_breedmonlive((int32_t)breedMonLive);
 	msg.set_itemcost((const char*)itemCost.Get());
 	msg.set_isbornactionon((int32_t)isBornActionOn);
-	msg.set_exp((int32_t)exp);
+	msg.set_exp((int64_t)exp);
 	msg.set_droptype((int32_t)dropType);
 	msg.set_isbelongtoplayer((int32_t)isBelongToPlayer);
 	msg.set_dropdefault((int64_t)dropDefault);

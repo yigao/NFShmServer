@@ -26,7 +26,7 @@ message getTreasuretimesControl
 	optional int32 bossType = 1[(yd_fieldoptions.field_cname) = "总类型"];
 	optional int32 mapType = 2[(yd_fieldoptions.field_cname) = "地图类型"];
 	optional int32 functionId = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
-	optional int32 duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int64 duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
 	optional int32 viptype = 5[(yd_fieldoptions.field_cname) = "VIP类型"];
 	optional int64 bossFlashItem = 6[(yd_fieldoptions.field_cname) = "BOSS刷新道具"];
 	optional int32 bossFlashItemNum = 7[(yd_fieldoptions.field_cname) = "刷BOSS道具消耗数量"];

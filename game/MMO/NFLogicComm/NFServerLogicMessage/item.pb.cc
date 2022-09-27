@@ -150,7 +150,7 @@ void protobuf_AddDesc_item_2eproto() {
     "\201\223\345\205\267\0220\n\010useLimit\030\026 \001(\tB\036\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201"
     "\223\345\205\267\345\234\260\345\233\276\220\301\024\320\017\022%\n\010blessing\030\027 \001(\005B\023\302\377\024\017\351"
     "\276\231\345\237\237\347\245\235\347\246\217\345\200\274\022#\n\006invest\030\030 \001(\005B\023\302\377\024\017\351\276\231\345"
-    "\237\237\346\212\225\350\265\204\345\200\274\022%\n\010exchange\030\031 \001(\005B\023\302\377\024\017\345\205\221\346\215"
+    "\237\237\346\212\225\350\265\204\345\200\274\022%\n\010exchange\030\031 \001(\003B\023\302\377\024\017\345\205\221\346\215"
     "\242\351\255\224\347\201\265\345\200\274\"B\n\016Sheet_itemitem\0220\n\ritemitem"
     "_List\030\001 \003(\0132\022.proto_ff.itemitemB\005\210\301\024\270\027", 1118);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
@@ -239,7 +239,7 @@ void itemitem::SharedCtor() {
   uselimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   blessing_ = 0;
   invest_ = 0;
-  exchange_ = 0;
+  exchange_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -340,7 +340,7 @@ void itemitem::Clear() {
     invest_ = 0;
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    exchange_ = 0;
+    exchange_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -740,13 +740,13 @@ bool itemitem::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 exchange = 25;
+      // optional int64 exchange = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_exchange:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &exchange_)));
           set_has_exchange();
         } else {
@@ -914,9 +914,9 @@ void itemitem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->invest(), output);
   }
 
-  // optional int32 exchange = 25;
+  // optional int64 exchange = 25;
   if (has_exchange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->exchange(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->exchange(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1072,9 +1072,9 @@ void itemitem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->invest(), target);
   }
 
-  // optional int32 exchange = 25;
+  // optional int64 exchange = 25;
   if (has_exchange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->exchange(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->exchange(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1262,10 +1262,10 @@ int itemitem::ByteSize() const {
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 exchange = 25;
+    // optional int64 exchange = 25;
     if (has_exchange()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->exchange());
     }
 
