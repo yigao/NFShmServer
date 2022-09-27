@@ -234,12 +234,12 @@ class monstermonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 isbornactionon() const;
   inline void set_isbornactionon(::google::protobuf::int32 value);
 
-  // optional int64 exp = 19;
+  // optional int32 exp = 19;
   inline bool has_exp() const;
   inline void clear_exp();
   static const int kExpFieldNumber = 19;
-  inline ::google::protobuf::int64 exp() const;
-  inline void set_exp(::google::protobuf::int64 value);
+  inline ::google::protobuf::int32 exp() const;
+  inline void set_exp(::google::protobuf::int32 value);
 
   // optional int32 dropType = 20;
   inline bool has_droptype() const;
@@ -373,26 +373,26 @@ class monstermonster : public ::google::protobuf::Message {
   ::google::protobuf::int32 damageaddtype_;
   ::google::protobuf::int32 monsterlv_;
   ::google::protobuf::int64 displayid_;
+  ::google::protobuf::int64 valuetype_;
   ::google::protobuf::int32 droplimit_;
   ::google::protobuf::int32 hpsectionnum_;
-  ::google::protobuf::int64 valuetype_;
   ::google::protobuf::int64 aiid_;
   ::google::protobuf::int32 showguild_;
   ::google::protobuf::int32 breedprob_;
   ::google::protobuf::int64 breedmonid_;
-  ::std::string* itemcost_;
   ::google::protobuf::int32 breedmonlive_;
   ::google::protobuf::int32 isbornactionon_;
-  ::google::protobuf::int64 exp_;
+  ::std::string* itemcost_;
+  ::google::protobuf::int32 exp_;
   ::google::protobuf::int32 droptype_;
-  ::google::protobuf::int32 isbelongtoplayer_;
   ::google::protobuf::int64 dropdefault_;
+  ::google::protobuf::int32 isbelongtoplayer_;
+  ::google::protobuf::int32 ifmultiple_;
   ::google::protobuf::int64 dropboxid_;
   ::google::protobuf::int64 droprool_;
-  ::google::protobuf::int32 ifmultiple_;
-  ::google::protobuf::int32 btnrange_;
   ::google::protobuf::int64 lastbox_;
   ::google::protobuf::int64 btnid_;
+  ::google::protobuf::int32 btnrange_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(28 + 31) / 32];
@@ -1717,7 +1717,7 @@ inline void monstermonster::set_isbornactionon(::google::protobuf::int32 value) 
   isbornactionon_ = value;
 }
 
-// optional int64 exp = 19;
+// optional int32 exp = 19;
 inline bool monstermonster::has_exp() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -1728,13 +1728,13 @@ inline void monstermonster::clear_has_exp() {
   _has_bits_[0] &= ~0x00040000u;
 }
 inline void monstermonster::clear_exp() {
-  exp_ = GOOGLE_LONGLONG(0);
+  exp_ = 0;
   clear_has_exp();
 }
-inline ::google::protobuf::int64 monstermonster::exp() const {
+inline ::google::protobuf::int32 monstermonster::exp() const {
   return exp_;
 }
-inline void monstermonster::set_exp(::google::protobuf::int64 value) {
+inline void monstermonster::set_exp(::google::protobuf::int32 value) {
   set_has_exp();
   exp_ = value;
 }

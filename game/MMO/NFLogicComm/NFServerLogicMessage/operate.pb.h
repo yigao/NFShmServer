@@ -443,6 +443,13 @@ class operatetutor : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 conditionparam1() const;
   inline void set_conditionparam1(::google::protobuf::int64 value);
 
+  // optional int64 conditionParam2 = 5;
+  inline bool has_conditionparam2() const;
+  inline void clear_conditionparam2();
+  static const int kConditionParam2FieldNumber = 5;
+  inline ::google::protobuf::int64 conditionparam2() const;
+  inline void set_conditionparam2(::google::protobuf::int64 value);
+
   // optional int64 boxId = 6;
   inline bool has_boxid() const;
   inline void clear_boxid();
@@ -467,6 +474,8 @@ class operatetutor : public ::google::protobuf::Message {
   inline void clear_has_condition();
   inline void set_has_conditionparam1();
   inline void clear_has_conditionparam1();
+  inline void set_has_conditionparam2();
+  inline void clear_has_conditionparam2();
   inline void set_has_boxid();
   inline void clear_has_boxid();
   inline void set_has_teach();
@@ -477,12 +486,13 @@ class operatetutor : public ::google::protobuf::Message {
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 type_;
   ::google::protobuf::int64 conditionparam1_;
+  ::google::protobuf::int64 conditionparam2_;
   ::google::protobuf::int32 condition_;
   ::google::protobuf::int32 teach_;
   ::google::protobuf::int64 boxid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_operate_2eproto();
   friend void protobuf_AssignDesc_operate_2eproto();
@@ -4291,15 +4301,37 @@ inline void operatetutor::set_conditionparam1(::google::protobuf::int64 value) {
   conditionparam1_ = value;
 }
 
-// optional int64 boxId = 6;
-inline bool operatetutor::has_boxid() const {
+// optional int64 conditionParam2 = 5;
+inline bool operatetutor::has_conditionparam2() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void operatetutor::set_has_boxid() {
+inline void operatetutor::set_has_conditionparam2() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void operatetutor::clear_has_boxid() {
+inline void operatetutor::clear_has_conditionparam2() {
   _has_bits_[0] &= ~0x00000010u;
+}
+inline void operatetutor::clear_conditionparam2() {
+  conditionparam2_ = GOOGLE_LONGLONG(0);
+  clear_has_conditionparam2();
+}
+inline ::google::protobuf::int64 operatetutor::conditionparam2() const {
+  return conditionparam2_;
+}
+inline void operatetutor::set_conditionparam2(::google::protobuf::int64 value) {
+  set_has_conditionparam2();
+  conditionparam2_ = value;
+}
+
+// optional int64 boxId = 6;
+inline bool operatetutor::has_boxid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void operatetutor::set_has_boxid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void operatetutor::clear_has_boxid() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void operatetutor::clear_boxid() {
   boxid_ = GOOGLE_LONGLONG(0);
@@ -4315,13 +4347,13 @@ inline void operatetutor::set_boxid(::google::protobuf::int64 value) {
 
 // optional int32 teach = 7;
 inline bool operatetutor::has_teach() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void operatetutor::set_has_teach() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void operatetutor::clear_has_teach() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void operatetutor::clear_teach() {
   teach_ = 0;

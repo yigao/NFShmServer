@@ -30,6 +30,7 @@ message operatetutor
 	optional int32 type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 condition = 3[(yd_fieldoptions.field_cname) = "条件"];
 	optional int64 conditionParam1 = 4[(yd_fieldoptions.field_cname) = "条件参数"];
+	optional int64 conditionParam2 = 5[(yd_fieldoptions.field_cname) = "条件参数"];
 	optional int64 boxId = 6[(yd_fieldoptions.field_cname) = "奖励ID"];
 	optional int32 teach = 7[(yd_fieldoptions.field_cname) = "教诲值"];
 }

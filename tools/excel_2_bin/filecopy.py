@@ -62,7 +62,7 @@ if __name__ == "__main__":
 			if len(src_file) > 0 and os.path.isfile(src_file):
 				file_name = os.path.basename(src_file)
 				out_file = dst_files + file_name
-				if os.path.isfile(out_file):
+				if os.path.exists(out_file):
 					if filecmp.cmp(src_file, out_file) == False:
 						shutil.copyfile(src_file, out_file)
 						print "dst file %s diff %s, need copy" % (out_file, src_file)

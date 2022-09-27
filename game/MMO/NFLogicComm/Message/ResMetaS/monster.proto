@@ -23,7 +23,7 @@ message monstermonster
 	optional int32 breedMonLive = 16[(yd_fieldoptions.field_cname) = "怪物存活时间"];
 	optional string itemCost = 17[(yd_fieldoptions.field_cname) = "道具消耗", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 isBornActionOn = 18[(yd_fieldoptions.field_cname) = "是否启用出生动作"];
-	optional int64 exp = 19[(yd_fieldoptions.field_cname) = "经验产出"];
+	optional int32 exp = 19[(yd_fieldoptions.field_cname) = "经验产出"];
 	optional int32 dropType = 20[(yd_fieldoptions.field_cname) = "掉落类型"];
 	optional int32 isBelongToPlayer = 21[(yd_fieldoptions.field_cname) = "怪物掉落归属是否显示"];
 	optional int64 dropDefault = 22[(yd_fieldoptions.field_cname) = "默认掉落"];

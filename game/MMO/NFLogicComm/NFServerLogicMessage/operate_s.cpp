@@ -98,6 +98,7 @@ int operatetutor_s::CreateInit() {
 	type = (int32_t)0;
 	condition = (int32_t)0;
 	conditionParam1 = (int64_t)0;
+	conditionParam2 = (int64_t)0;
 	boxId = (int64_t)0;
 	teach = (int32_t)0;
 	return 0;
@@ -112,6 +113,7 @@ void operatetutor_s::write_to_pbmsg(::proto_ff::operatetutor & msg) const {
 	msg.set_type((int32_t)type);
 	msg.set_condition((int32_t)condition);
 	msg.set_conditionparam1((int64_t)conditionParam1);
+	msg.set_conditionparam2((int64_t)conditionParam2);
 	msg.set_boxid((int64_t)boxId);
 	msg.set_teach((int32_t)teach);
 }
@@ -122,6 +124,7 @@ void operatetutor_s::read_from_pbmsg(const ::proto_ff::operatetutor & msg) {
 	type = msg.type();
 	condition = msg.condition();
 	conditionParam1 = msg.conditionparam1();
+	conditionParam2 = msg.conditionparam2();
 	boxId = msg.boxid();
 	teach = msg.teach();
 }

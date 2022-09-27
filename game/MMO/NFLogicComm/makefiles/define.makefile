@@ -9,6 +9,7 @@ GAME_BUILD_PATH=${GAME_SRC_PATH}/Build/game/MMO/NFLogicComm/makefile
 
 MAKEFILE_PATH=${GAME_SRC_PATH}/game/MMO/NFLogicComm/makefiles
 MAKE_EXCELMAKEFILE_GEN=${MAKEFILE_PATH}/excelcreate_gen.makefile
+MAKE_RESMETAS_GEN=${MAKEFILE_PATH}/resmetas_gen.makefile
 MAKE_PROTOC_GEN=${MAKEFILE_PATH}/protoc_gen.makefile
 MAKE_EXCEL_GEN=${MAKEFILE_PATH}/excel_gen.makefile
 MAKE_EXCELMMO_GEN=${MAKEFILE_PATH}/excelmmo_gen.makefile

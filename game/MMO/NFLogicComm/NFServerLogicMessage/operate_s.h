@@ -54,6 +54,7 @@ namespace proto_ff_s {
 		int32_t type;
 		int32_t condition;
 		int64_t conditionParam1;
+		int64_t conditionParam2;
 		int64_t boxId;
 		int32_t teach;
 
