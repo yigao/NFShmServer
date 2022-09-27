@@ -2,13 +2,15 @@ include ./define.makefile
 
 .PHONY:all
 
-all:${GAME_DATA_PATH}/sensitivewordsensitive_word.bin ${GAME_DATA_PATH}/sensitivewordrolesensitive.bin 
+all:${PROTOCGEN_FILE_PATH}/sensitivewordsensitive_word.bin ${PROTOCGEN_FILE_PATH}/sensitivewordrolesensitive.bin 
 
-${GAME_DATA_PATH}/sensitivewordsensitive_word.bin:${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds ${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx
+${PROTOCGEN_FILE_PATH}/sensitivewordsensitive_word.bin:${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds ${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx  --proto_ds=${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds --proto_package=proto_ff \
-		--proto_sheet_msgname=Sheet_sensitivewordsensitive_word  --excel_sheetname=sensitive_word  --proto_msgname=sensitivewordsensitive_word  --start_row=4 --out_path=${GAME_DATA_PATH}/
-
-${GAME_DATA_PATH}/sensitivewordrolesensitive.bin:${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds ${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx
+		--proto_sheet_msgname=Sheet_sensitivewordsensitive_word  --excel_sheetname=sensitive_word  --proto_msgname=sensitivewordsensitive_word  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/sensitivewordsensitive_word.bin" --dst=${GAME_DATA_PATH}/
+${PROTOCGEN_FILE_PATH}/sensitivewordrolesensitive.bin:${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds ${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/sensitiveword.xlsx  --proto_ds=${PROTOCGEN_FILE_PATH}/sensitiveword.proto.ds --proto_package=proto_ff \
-		--proto_sheet_msgname=Sheet_sensitivewordrolesensitive  --excel_sheetname=rolesensitive  --proto_msgname=sensitivewordrolesensitive  --start_row=4 --out_path=${GAME_DATA_PATH}/
-
+		--proto_sheet_msgname=Sheet_sensitivewordrolesensitive  --excel_sheetname=rolesensitive  --proto_msgname=sensitivewordrolesensitive  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/sensitivewordrolesensitive.bin" --dst=${GAME_DATA_PATH}/
