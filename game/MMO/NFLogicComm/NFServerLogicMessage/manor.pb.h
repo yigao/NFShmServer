@@ -39,7 +39,6 @@ class Sheet_manorconstants;
 class manoritemCost;
 class Sheet_manoritemCost;
 class manormanorlistinitialMonsterDesc;
-class manormanorlistpatBeastAttackDesc;
 class manormanorlist;
 class Sheet_manormanorlist;
 class manorproductproductDesc;
@@ -527,106 +526,14 @@ class manormanorlistinitialMonsterDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 num() const;
   inline void set_num(::google::protobuf::int32 value);
 
-  // optional int64 Id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.manormanorlistinitialMonsterDesc)
  private:
   inline void set_has_num();
   inline void clear_has_num();
-  inline void set_has_id();
-  inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
   ::google::protobuf::int32 num_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_manor_2eproto();
-  friend void protobuf_AssignDesc_manor_2eproto();
-  friend void protobuf_ShutdownFile_manor_2eproto();
-
-  void InitAsDefaultInstance();
-  static manormanorlistinitialMonsterDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class manormanorlistpatBeastAttackDesc : public ::google::protobuf::Message {
- public:
-  manormanorlistpatBeastAttackDesc();
-  virtual ~manormanorlistpatBeastAttackDesc();
-
-  manormanorlistpatBeastAttackDesc(const manormanorlistpatBeastAttackDesc& from);
-
-  inline manormanorlistpatBeastAttackDesc& operator=(const manormanorlistpatBeastAttackDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const manormanorlistpatBeastAttackDesc& default_instance();
-
-  void Swap(manormanorlistpatBeastAttackDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  manormanorlistpatBeastAttackDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const manormanorlistpatBeastAttackDesc& from);
-  void MergeFrom(const manormanorlistpatBeastAttackDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int64 Path = 1;
-  inline bool has_path() const;
-  inline void clear_path();
-  static const int kPathFieldNumber = 1;
-  inline ::google::protobuf::int64 path() const;
-  inline void set_path(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.manormanorlistpatBeastAttackDesc)
- private:
-  inline void set_has_path();
-  inline void clear_has_path();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int64 path_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -636,7 +543,7 @@ class manormanorlistpatBeastAttackDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_manor_2eproto();
 
   void InitAsDefaultInstance();
-  static manormanorlistpatBeastAttackDesc* default_instance_;
+  static manormanorlistinitialMonsterDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -865,17 +772,29 @@ class manormanorlist : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistinitialMonsterDesc >*
       mutable_initialmonster();
 
-  // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-  inline int patbeastattack_size() const;
-  inline void clear_patbeastattack();
-  static const int kPatBeastAttackFieldNumber = 24;
-  inline const ::proto_ff::manormanorlistpatBeastAttackDesc& patbeastattack(int index) const;
-  inline ::proto_ff::manormanorlistpatBeastAttackDesc* mutable_patbeastattack(int index);
-  inline ::proto_ff::manormanorlistpatBeastAttackDesc* add_patbeastattack();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >&
-      patbeastattack() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >*
-      mutable_patbeastattack();
+  // repeated int64 patBeastAttack_Path = 24;
+  inline int patbeastattack_path_size() const;
+  inline void clear_patbeastattack_path();
+  static const int kPatBeastAttackPathFieldNumber = 24;
+  inline ::google::protobuf::int64 patbeastattack_path(int index) const;
+  inline void set_patbeastattack_path(int index, ::google::protobuf::int64 value);
+  inline void add_patbeastattack_path(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      patbeastattack_path() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_patbeastattack_path();
+
+  // repeated int64 initialMonster_Id = 25;
+  inline int initialmonster_id_size() const;
+  inline void clear_initialmonster_id();
+  static const int kInitialMonsterIdFieldNumber = 25;
+  inline ::google::protobuf::int64 initialmonster_id(int index) const;
+  inline void set_initialmonster_id(int index, ::google::protobuf::int64 value);
+  inline void add_initialmonster_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      initialmonster_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_initialmonster_id();
 
   // @@protoc_insertion_point(class_scope:proto_ff.manormanorlist)
  private:
@@ -948,11 +867,12 @@ class manormanorlist : public ::google::protobuf::Message {
   ::google::protobuf::int64 crossgatebasepath_;
   ::google::protobuf::int64 crossgatebaseid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistinitialMonsterDesc > initialmonster_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc > patbeastattack_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > patbeastattack_path_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > initialmonster_id_;
   ::google::protobuf::int32 crossgatemaxlevel_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
 
   friend void  protobuf_AddDesc_manor_2eproto();
   friend void protobuf_AssignDesc_manor_2eproto();
@@ -1102,31 +1022,22 @@ class manorproductproductDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 Item = 1;
-  inline bool has_item() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 1;
-  inline ::google::protobuf::int64 item() const;
-  inline void set_item(::google::protobuf::int64 value);
-
-  // optional int32 Num = 2;
+  // optional int32 Num = 1;
   inline bool has_num() const;
   inline void clear_num();
-  static const int kNumFieldNumber = 2;
+  static const int kNumFieldNumber = 1;
   inline ::google::protobuf::int32 num() const;
   inline void set_num(::google::protobuf::int32 value);
 
-  // optional int32 buildLevle = 3;
+  // optional int32 buildLevle = 2;
   inline bool has_buildlevle() const;
   inline void clear_buildlevle();
-  static const int kBuildLevleFieldNumber = 3;
+  static const int kBuildLevleFieldNumber = 2;
   inline ::google::protobuf::int32 buildlevle() const;
   inline void set_buildlevle(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.manorproductproductDesc)
  private:
-  inline void set_has_item();
-  inline void clear_has_item();
   inline void set_has_num();
   inline void clear_has_num();
   inline void set_has_buildlevle();
@@ -1134,12 +1045,11 @@ class manorproductproductDesc : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 item_;
   ::google::protobuf::int32 num_;
   ::google::protobuf::int32 buildlevle_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_manor_2eproto();
   friend void protobuf_AssignDesc_manor_2eproto();
@@ -1211,10 +1121,22 @@ class manorproduct : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 id() const;
   inline void set_id(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.manorproductproductDesc product = 2;
+  // repeated int64 product_Item = 2;
+  inline int product_item_size() const;
+  inline void clear_product_item();
+  static const int kProductItemFieldNumber = 2;
+  inline ::google::protobuf::int64 product_item(int index) const;
+  inline void set_product_item(int index, ::google::protobuf::int64 value);
+  inline void add_product_item(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      product_item() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_product_item();
+
+  // repeated .proto_ff.manorproductproductDesc product = 3;
   inline int product_size() const;
   inline void clear_product();
-  static const int kProductFieldNumber = 2;
+  static const int kProductFieldNumber = 3;
   inline const ::proto_ff::manorproductproductDesc& product(int index) const;
   inline ::proto_ff::manorproductproductDesc* mutable_product(int index);
   inline ::proto_ff::manorproductproductDesc* add_product();
@@ -1230,11 +1152,12 @@ class manorproduct : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > product_item_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::manorproductproductDesc > product_;
   ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_manor_2eproto();
   friend void protobuf_AssignDesc_manor_2eproto();
@@ -1631,34 +1554,24 @@ class manorbuildUpbuildDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
-
-  // optional int32 exp = 2;
+  // optional int32 exp = 1;
   inline bool has_exp() const;
   inline void clear_exp();
-  static const int kExpFieldNumber = 2;
+  static const int kExpFieldNumber = 1;
   inline ::google::protobuf::int32 exp() const;
   inline void set_exp(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.manorbuildUpbuildDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
   inline void set_has_exp();
   inline void clear_has_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
   ::google::protobuf::int32 exp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
   friend void  protobuf_AddDesc_manor_2eproto();
   friend void protobuf_AssignDesc_manor_2eproto();
@@ -1730,10 +1643,22 @@ class manorbuildUp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 level() const;
   inline void set_level(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+  // repeated int32 build_type = 2;
+  inline int build_type_size() const;
+  inline void clear_build_type();
+  static const int kBuildTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 build_type(int index) const;
+  inline void set_build_type(int index, ::google::protobuf::int32 value);
+  inline void add_build_type(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      build_type() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_build_type();
+
+  // repeated .proto_ff.manorbuildUpbuildDesc build = 3;
   inline int build_size() const;
   inline void clear_build();
-  static const int kBuildFieldNumber = 2;
+  static const int kBuildFieldNumber = 3;
   inline const ::proto_ff::manorbuildUpbuildDesc& build(int index) const;
   inline ::proto_ff::manorbuildUpbuildDesc* mutable_build(int index);
   inline ::proto_ff::manorbuildUpbuildDesc* add_build();
@@ -1749,11 +1674,12 @@ class manorbuildUp : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > build_type_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::manorbuildUpbuildDesc > build_;
   ::google::protobuf::int32 level_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_manor_2eproto();
   friend void protobuf_AssignDesc_manor_2eproto();
@@ -3450,54 +3376,6 @@ inline void manormanorlistinitialMonsterDesc::set_num(::google::protobuf::int32 
   num_ = value;
 }
 
-// optional int64 Id = 2;
-inline bool manormanorlistinitialMonsterDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void manormanorlistinitialMonsterDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void manormanorlistinitialMonsterDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void manormanorlistinitialMonsterDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 manormanorlistinitialMonsterDesc::id() const {
-  return id_;
-}
-inline void manormanorlistinitialMonsterDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// manormanorlistpatBeastAttackDesc
-
-// optional int64 Path = 1;
-inline bool manormanorlistpatBeastAttackDesc::has_path() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void manormanorlistpatBeastAttackDesc::set_has_path() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void manormanorlistpatBeastAttackDesc::clear_has_path() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void manormanorlistpatBeastAttackDesc::clear_path() {
-  path_ = GOOGLE_LONGLONG(0);
-  clear_has_path();
-}
-inline ::google::protobuf::int64 manormanorlistpatBeastAttackDesc::path() const {
-  return path_;
-}
-inline void manormanorlistpatBeastAttackDesc::set_path(::google::protobuf::int64 value) {
-  set_has_path();
-  path_ = value;
-}
-
 // -------------------------------------------------------------------
 
 // manormanorlist
@@ -4059,29 +3937,54 @@ manormanorlist::mutable_initialmonster() {
   return &initialmonster_;
 }
 
-// repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-inline int manormanorlist::patbeastattack_size() const {
-  return patbeastattack_.size();
+// repeated int64 patBeastAttack_Path = 24;
+inline int manormanorlist::patbeastattack_path_size() const {
+  return patbeastattack_path_.size();
 }
-inline void manormanorlist::clear_patbeastattack() {
-  patbeastattack_.Clear();
+inline void manormanorlist::clear_patbeastattack_path() {
+  patbeastattack_path_.Clear();
 }
-inline const ::proto_ff::manormanorlistpatBeastAttackDesc& manormanorlist::patbeastattack(int index) const {
-  return patbeastattack_.Get(index);
+inline ::google::protobuf::int64 manormanorlist::patbeastattack_path(int index) const {
+  return patbeastattack_path_.Get(index);
 }
-inline ::proto_ff::manormanorlistpatBeastAttackDesc* manormanorlist::mutable_patbeastattack(int index) {
-  return patbeastattack_.Mutable(index);
+inline void manormanorlist::set_patbeastattack_path(int index, ::google::protobuf::int64 value) {
+  patbeastattack_path_.Set(index, value);
 }
-inline ::proto_ff::manormanorlistpatBeastAttackDesc* manormanorlist::add_patbeastattack() {
-  return patbeastattack_.Add();
+inline void manormanorlist::add_patbeastattack_path(::google::protobuf::int64 value) {
+  patbeastattack_path_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >&
-manormanorlist::patbeastattack() const {
-  return patbeastattack_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+manormanorlist::patbeastattack_path() const {
+  return patbeastattack_path_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >*
-manormanorlist::mutable_patbeastattack() {
-  return &patbeastattack_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+manormanorlist::mutable_patbeastattack_path() {
+  return &patbeastattack_path_;
+}
+
+// repeated int64 initialMonster_Id = 25;
+inline int manormanorlist::initialmonster_id_size() const {
+  return initialmonster_id_.size();
+}
+inline void manormanorlist::clear_initialmonster_id() {
+  initialmonster_id_.Clear();
+}
+inline ::google::protobuf::int64 manormanorlist::initialmonster_id(int index) const {
+  return initialmonster_id_.Get(index);
+}
+inline void manormanorlist::set_initialmonster_id(int index, ::google::protobuf::int64 value) {
+  initialmonster_id_.Set(index, value);
+}
+inline void manormanorlist::add_initialmonster_id(::google::protobuf::int64 value) {
+  initialmonster_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+manormanorlist::initialmonster_id() const {
+  return initialmonster_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+manormanorlist::mutable_initialmonster_id() {
+  return &initialmonster_id_;
 }
 
 // -------------------------------------------------------------------
@@ -4117,37 +4020,15 @@ Sheet_manormanorlist::mutable_manormanorlist_list() {
 
 // manorproductproductDesc
 
-// optional int64 Item = 1;
-inline bool manorproductproductDesc::has_item() const {
+// optional int32 Num = 1;
+inline bool manorproductproductDesc::has_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void manorproductproductDesc::set_has_item() {
+inline void manorproductproductDesc::set_has_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void manorproductproductDesc::clear_has_item() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void manorproductproductDesc::clear_item() {
-  item_ = GOOGLE_LONGLONG(0);
-  clear_has_item();
-}
-inline ::google::protobuf::int64 manorproductproductDesc::item() const {
-  return item_;
-}
-inline void manorproductproductDesc::set_item(::google::protobuf::int64 value) {
-  set_has_item();
-  item_ = value;
-}
-
-// optional int32 Num = 2;
-inline bool manorproductproductDesc::has_num() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void manorproductproductDesc::set_has_num() {
-  _has_bits_[0] |= 0x00000002u;
-}
 inline void manorproductproductDesc::clear_has_num() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void manorproductproductDesc::clear_num() {
   num_ = 0;
@@ -4161,15 +4042,15 @@ inline void manorproductproductDesc::set_num(::google::protobuf::int32 value) {
   num_ = value;
 }
 
-// optional int32 buildLevle = 3;
+// optional int32 buildLevle = 2;
 inline bool manorproductproductDesc::has_buildlevle() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void manorproductproductDesc::set_has_buildlevle() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void manorproductproductDesc::clear_has_buildlevle() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void manorproductproductDesc::clear_buildlevle() {
   buildlevle_ = 0;
@@ -4209,7 +4090,32 @@ inline void manorproduct::set_id(::google::protobuf::int32 value) {
   id_ = value;
 }
 
-// repeated .proto_ff.manorproductproductDesc product = 2;
+// repeated int64 product_Item = 2;
+inline int manorproduct::product_item_size() const {
+  return product_item_.size();
+}
+inline void manorproduct::clear_product_item() {
+  product_item_.Clear();
+}
+inline ::google::protobuf::int64 manorproduct::product_item(int index) const {
+  return product_item_.Get(index);
+}
+inline void manorproduct::set_product_item(int index, ::google::protobuf::int64 value) {
+  product_item_.Set(index, value);
+}
+inline void manorproduct::add_product_item(::google::protobuf::int64 value) {
+  product_item_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+manorproduct::product_item() const {
+  return product_item_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+manorproduct::mutable_product_item() {
+  return &product_item_;
+}
+
+// repeated .proto_ff.manorproductproductDesc product = 3;
 inline int manorproduct::product_size() const {
   return product_.size();
 }
@@ -4646,37 +4552,15 @@ Sheet_manorbuild::mutable_manorbuild_list() {
 
 // manorbuildUpbuildDesc
 
-// optional int32 type = 1;
-inline bool manorbuildUpbuildDesc::has_type() const {
+// optional int32 exp = 1;
+inline bool manorbuildUpbuildDesc::has_exp() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void manorbuildUpbuildDesc::set_has_type() {
+inline void manorbuildUpbuildDesc::set_has_exp() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void manorbuildUpbuildDesc::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void manorbuildUpbuildDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::google::protobuf::int32 manorbuildUpbuildDesc::type() const {
-  return type_;
-}
-inline void manorbuildUpbuildDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
-}
-
-// optional int32 exp = 2;
-inline bool manorbuildUpbuildDesc::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void manorbuildUpbuildDesc::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
 inline void manorbuildUpbuildDesc::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void manorbuildUpbuildDesc::clear_exp() {
   exp_ = 0;
@@ -4716,7 +4600,32 @@ inline void manorbuildUp::set_level(::google::protobuf::int32 value) {
   level_ = value;
 }
 
-// repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+// repeated int32 build_type = 2;
+inline int manorbuildUp::build_type_size() const {
+  return build_type_.size();
+}
+inline void manorbuildUp::clear_build_type() {
+  build_type_.Clear();
+}
+inline ::google::protobuf::int32 manorbuildUp::build_type(int index) const {
+  return build_type_.Get(index);
+}
+inline void manorbuildUp::set_build_type(int index, ::google::protobuf::int32 value) {
+  build_type_.Set(index, value);
+}
+inline void manorbuildUp::add_build_type(::google::protobuf::int32 value) {
+  build_type_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+manorbuildUp::build_type() const {
+  return build_type_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+manorbuildUp::mutable_build_type() {
+  return &build_type_;
+}
+
+// repeated .proto_ff.manorbuildUpbuildDesc build = 3;
 inline int manorbuildUp::build_size() const {
   return build_.size();
 }

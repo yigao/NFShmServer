@@ -10,6 +10,21 @@
 
 namespace proto_ff_s {
 
+	struct backbackbackDesc_s : public NFDescStoreSeqOP {
+		backbackbackDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int32_t Expend;
+		int32_t Num;
+		int32_t Exp;
+
+		virtual void write_to_pbmsg(::proto_ff::backbackbackDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::backbackbackDesc & msg);
+		static ::proto_ff::backbackbackDesc* new_pbmsg(){ return new ::proto_ff::backbackbackDesc(); }
+		static ::proto_ff::backbackbackDesc make_pbmsg(){ return ::proto_ff::backbackbackDesc(); }
+	};
+	typedef struct backbackbackDesc_s backbackbackDesc_t;
+
 	struct backback_s : public NFDescStoreSeqOP {
 		backback_s();
 		int CreateInit();
@@ -26,10 +41,8 @@ namespace proto_ff_s {
 		int32_t levelLimit;
 		int64_t itemId;
 		NFSizeString<60> icon;
-		NFArray<int32_t, 2> backExp;
-		NFArray<int32_t, 2> backNum;
+		NFArray<struct backbackbackDesc_s, 2> back;
 		NFArray<int32_t, 2> param;
-		NFArray<int32_t, 2> backExpend;
 
 		virtual void write_to_pbmsg(::proto_ff::backback & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::backback & msg);

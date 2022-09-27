@@ -29,14 +29,13 @@ message starstar
 	optional int32 starNum = 4[(yd_fieldoptions.field_cname) = "命星塔解锁层级"];
 	optional int32 change = 5[(yd_fieldoptions.field_cname) = "兑换所需碎片"];
 	optional int32 LvUp = 6[(yd_fieldoptions.field_cname) = "升级上限等级"];
-	optional string LvAdd = 7[(yd_fieldoptions.field_cname) = "属性1升级加成值", (yd_fieldoptions.field_bufsize) = 60];
-	optional string LvAdd = 8[(yd_fieldoptions.field_cname) = "属性2升级加成值", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 starSq = 9[(yd_fieldoptions.field_cname) = "是否可镶嵌"];
-	optional int32 starDs = 10[(yd_fieldoptions.field_cname) = "单双命星"];
-	optional int32 rock = 11[(yd_fieldoptions.field_cname) = "分解神石"];
-	optional int32 exp = 12[(yd_fieldoptions.field_cname) = "初始经验"];
-	optional int32 starType = 13[(yd_fieldoptions.field_cname) = "纹章类型"];
-	repeated starstarstarDesc star = 14[(yd_fieldoptions.field_cname) = "命星属性", (yd_fieldoptions.field_arysize) = 2];
+	optional int32 starSq = 7[(yd_fieldoptions.field_cname) = "是否可镶嵌"];
+	optional int32 starDs = 8[(yd_fieldoptions.field_cname) = "单双命星"];
+	optional int32 rock = 9[(yd_fieldoptions.field_cname) = "分解神石"];
+	optional int32 exp = 10[(yd_fieldoptions.field_cname) = "初始经验"];
+	optional int32 starType = 11[(yd_fieldoptions.field_cname) = "纹章类型"];
+	repeated string LvAdd = 12[(yd_fieldoptions.field_cname) = "属性升级加成值", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
+	repeated starstarstarDesc star = 13[(yd_fieldoptions.field_cname) = "命星属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

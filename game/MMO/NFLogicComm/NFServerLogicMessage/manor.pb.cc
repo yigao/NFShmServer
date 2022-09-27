@@ -35,9 +35,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* manormanorlistinitialMonsterDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   manormanorlistinitialMonsterDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* manormanorlistpatBeastAttackDesc_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  manormanorlistpatBeastAttackDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* manormanorlist_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   manormanorlist_reflection_ = NULL;
@@ -187,9 +184,8 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manoritemCost));
   manormanorlistinitialMonsterDesc_descriptor_ = file->message_type(4);
-  static const int manormanorlistinitialMonsterDesc_offsets_[2] = {
+  static const int manormanorlistinitialMonsterDesc_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlistinitialMonsterDesc, num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlistinitialMonsterDesc, id_),
   };
   manormanorlistinitialMonsterDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -202,23 +198,8 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manormanorlistinitialMonsterDesc));
-  manormanorlistpatBeastAttackDesc_descriptor_ = file->message_type(5);
-  static const int manormanorlistpatBeastAttackDesc_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlistpatBeastAttackDesc, path_),
-  };
-  manormanorlistpatBeastAttackDesc_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      manormanorlistpatBeastAttackDesc_descriptor_,
-      manormanorlistpatBeastAttackDesc::default_instance_,
-      manormanorlistpatBeastAttackDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlistpatBeastAttackDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlistpatBeastAttackDesc, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(manormanorlistpatBeastAttackDesc));
-  manormanorlist_descriptor_ = file->message_type(6);
-  static const int manormanorlist_offsets_[24] = {
+  manormanorlist_descriptor_ = file->message_type(5);
+  static const int manormanorlist_offsets_[25] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, manortype_),
@@ -242,7 +223,8 @@ void protobuf_AssignDesc_manor_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, crossgatemaxlevel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, crossgatebaseid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, initialmonster_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, patbeastattack_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, patbeastattack_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manormanorlist, initialmonster_id_),
   };
   manormanorlist_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -255,7 +237,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manormanorlist));
-  Sheet_manormanorlist_descriptor_ = file->message_type(7);
+  Sheet_manormanorlist_descriptor_ = file->message_type(6);
   static const int Sheet_manormanorlist_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manormanorlist, manormanorlist_list_),
   };
@@ -270,9 +252,8 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manormanorlist));
-  manorproductproductDesc_descriptor_ = file->message_type(8);
-  static const int manorproductproductDesc_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproductproductDesc, item_),
+  manorproductproductDesc_descriptor_ = file->message_type(7);
+  static const int manorproductproductDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproductproductDesc, num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproductproductDesc, buildlevle_),
   };
@@ -287,9 +268,10 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorproductproductDesc));
-  manorproduct_descriptor_ = file->message_type(9);
-  static const int manorproduct_offsets_[2] = {
+  manorproduct_descriptor_ = file->message_type(8);
+  static const int manorproduct_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproduct, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproduct, product_item_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorproduct, product_),
   };
   manorproduct_reflection_ =
@@ -303,7 +285,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorproduct));
-  Sheet_manorproduct_descriptor_ = file->message_type(10);
+  Sheet_manorproduct_descriptor_ = file->message_type(9);
   static const int Sheet_manorproduct_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorproduct, manorproduct_list_),
   };
@@ -318,7 +300,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorproduct));
-  manorbuild_descriptor_ = file->message_type(11);
+  manorbuild_descriptor_ = file->message_type(10);
   static const int manorbuild_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuild, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuild, name_),
@@ -339,7 +321,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorbuild));
-  Sheet_manorbuild_descriptor_ = file->message_type(12);
+  Sheet_manorbuild_descriptor_ = file->message_type(11);
   static const int Sheet_manorbuild_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorbuild, manorbuild_list_),
   };
@@ -354,9 +336,8 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorbuild));
-  manorbuildUpbuildDesc_descriptor_ = file->message_type(13);
-  static const int manorbuildUpbuildDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildUpbuildDesc, type_),
+  manorbuildUpbuildDesc_descriptor_ = file->message_type(12);
+  static const int manorbuildUpbuildDesc_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildUpbuildDesc, exp_),
   };
   manorbuildUpbuildDesc_reflection_ =
@@ -370,9 +351,10 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorbuildUpbuildDesc));
-  manorbuildUp_descriptor_ = file->message_type(14);
-  static const int manorbuildUp_offsets_[2] = {
+  manorbuildUp_descriptor_ = file->message_type(13);
+  static const int manorbuildUp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildUp, level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildUp, build_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildUp, build_),
   };
   manorbuildUp_reflection_ =
@@ -386,7 +368,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorbuildUp));
-  Sheet_manorbuildUp_descriptor_ = file->message_type(15);
+  Sheet_manorbuildUp_descriptor_ = file->message_type(14);
   static const int Sheet_manorbuildUp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorbuildUp, manorbuildup_list_),
   };
@@ -401,7 +383,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorbuildUp));
-  manoregg_descriptor_ = file->message_type(16);
+  manoregg_descriptor_ = file->message_type(15);
   static const int manoregg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manoregg, eggitemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manoregg, incubationtime_),
@@ -418,7 +400,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manoregg));
-  Sheet_manoregg_descriptor_ = file->message_type(17);
+  Sheet_manoregg_descriptor_ = file->message_type(16);
   static const int Sheet_manoregg_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manoregg, manoregg_list_),
   };
@@ -433,7 +415,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manoregg));
-  manorpatBeast_descriptor_ = file->message_type(18);
+  manorpatBeast_descriptor_ = file->message_type(17);
   static const int manorpatBeast_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorpatBeast, id_),
   };
@@ -448,7 +430,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorpatBeast));
-  Sheet_manorpatBeast_descriptor_ = file->message_type(19);
+  Sheet_manorpatBeast_descriptor_ = file->message_type(18);
   static const int Sheet_manorpatBeast_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorpatBeast, manorpatbeast_list_),
   };
@@ -463,7 +445,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorpatBeast));
-  manorpatBeastUP_descriptor_ = file->message_type(20);
+  manorpatBeastUP_descriptor_ = file->message_type(19);
   static const int manorpatBeastUP_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorpatBeastUP, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorpatBeastUP, exp_),
@@ -479,7 +461,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorpatBeastUP));
-  Sheet_manorpatBeastUP_descriptor_ = file->message_type(21);
+  Sheet_manorpatBeastUP_descriptor_ = file->message_type(20);
   static const int Sheet_manorpatBeastUP_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorpatBeastUP, manorpatbeastup_list_),
   };
@@ -494,7 +476,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorpatBeastUP));
-  manorbuildBuff_descriptor_ = file->message_type(22);
+  manorbuildBuff_descriptor_ = file->message_type(21);
   static const int manorbuildBuff_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildBuff, levelsum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildBuff, skillid_),
@@ -510,7 +492,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorbuildBuff));
-  Sheet_manorbuildBuff_descriptor_ = file->message_type(23);
+  Sheet_manorbuildBuff_descriptor_ = file->message_type(22);
   static const int Sheet_manorbuildBuff_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorbuildBuff, manorbuildbuff_list_),
   };
@@ -525,7 +507,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorbuildBuff));
-  manorshop_descriptor_ = file->message_type(24);
+  manorshop_descriptor_ = file->message_type(23);
   static const int manorshop_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorshop, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorshop, itemid_),
@@ -546,7 +528,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorshop));
-  Sheet_manorshop_descriptor_ = file->message_type(25);
+  Sheet_manorshop_descriptor_ = file->message_type(24);
   static const int Sheet_manorshop_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorshop, manorshop_list_),
   };
@@ -561,7 +543,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorshop));
-  manorbuildAdd_descriptor_ = file->message_type(26);
+  manorbuildAdd_descriptor_ = file->message_type(25);
   static const int manorbuildAdd_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildAdd, levelsum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorbuildAdd, addratio_),
@@ -577,7 +559,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorbuildAdd));
-  Sheet_manorbuildAdd_descriptor_ = file->message_type(27);
+  Sheet_manorbuildAdd_descriptor_ = file->message_type(26);
   static const int Sheet_manorbuildAdd_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorbuildAdd, manorbuildadd_list_),
   };
@@ -592,7 +574,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_manorbuildAdd));
-  manorlog_descriptor_ = file->message_type(28);
+  manorlog_descriptor_ = file->message_type(27);
   static const int manorlog_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(manorlog, id_),
   };
@@ -607,7 +589,7 @@ void protobuf_AssignDesc_manor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(manorlog));
-  Sheet_manorlog_descriptor_ = file->message_type(29);
+  Sheet_manorlog_descriptor_ = file->message_type(28);
   static const int Sheet_manorlog_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_manorlog, manorlog_list_),
   };
@@ -644,8 +626,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Sheet_manoritemCost_descriptor_, &Sheet_manoritemCost::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     manormanorlistinitialMonsterDesc_descriptor_, &manormanorlistinitialMonsterDesc::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    manormanorlistpatBeastAttackDesc_descriptor_, &manormanorlistpatBeastAttackDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     manormanorlist_descriptor_, &manormanorlist::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -709,8 +689,6 @@ void protobuf_ShutdownFile_manor_2eproto() {
   delete Sheet_manoritemCost_reflection_;
   delete manormanorlistinitialMonsterDesc::default_instance_;
   delete manormanorlistinitialMonsterDesc_reflection_;
-  delete manormanorlistpatBeastAttackDesc::default_instance_;
-  delete manormanorlistpatBeastAttackDesc_reflection_;
   delete manormanorlist::default_instance_;
   delete manormanorlist_reflection_;
   delete Sheet_manormanorlist::default_instance_;
@@ -781,100 +759,99 @@ void protobuf_AddDesc_manor_2eproto() {
     "\345\200\274\022\"\n\010backType\030\004 \001(\005B\020\302\377\024\014\350\277\224\345\210\251\347\261\273\345\236\213\022"
     "#\n\tbackValue\030\005 \001(\005B\020\302\377\024\014\350\277\224\345\210\251\346\225\260\351\207\217\"P\n\023"
     "Sheet_manoritemCost\0229\n\022manoritemCost_Lis"
-    "t\030\001 \003(\0132\027.proto_ff.manoritemCostB\004\210\301\024\024\"M"
+    "t\030\001 \003(\0132\027.proto_ff.manoritemCostB\004\210\301\024\024\";"
     "\n manormanorlistinitialMonsterDesc\022\027\n\003Nu"
-    "m\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002Id\030\002 \001(\003B\004\302\377\024\000\"6\n"
-    " manormanorlistpatBeastAttackDesc\022\022\n\004Pat"
-    "h\030\001 \001(\003B\004\302\377\024\000\"\216\t\n\016manormanorlist\022\026\n\002ID\030\001"
-    " \001(\003B\n\302\377\024\006\347\274\226\345\217\267\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\351\242\206\345"
-    "\234\237\345\220\215\345\255\227\220\301\024<\022#\n\tmanorType\030\003 \001(\005B\020\302\377\024\014\351\242\206"
-    "\345\234\260\347\261\273\345\236\213\0226\n\020attackBuildLevel\030\004 \001(\005B\034\302\377\024"
-    "\030\345\256\243\346\210\230\346\211\200\351\234\200\345\273\272\347\255\221\347\255\211\347\272\247\0226\n\rcoreBaseLev"
-    "el\030\005 \001(\005B\037\302\377\024\033\351\255\224\347\201\265\346\237\261\351\207\216\347\224\237\345\242\236\351\207\217\347\255\211\347\272"
-    "\247\022%\n\005mapId\030\006 \001(\003B\026\302\377\024\022\351\242\206\345\234\260\346\211\200\345\234\250\345\234\260\345\233\276"
-    "\022&\n\tproductId\030\007 \001(\005B\023\302\377\024\017\347\211\271\344\272\247\347\273\204\347\274\226\345\217\267"
-    "\022)\n\014coreBasePath\030\010 \001(\003B\023\302\377\024\017\351\255\224\347\201\265\346\237\261\344\275\215"
-    "\347\275\256\0223\n\020coreBaseMaxLevel\030\t \001(\005B\031\302\377\024\025\345\273\272\347\255"
-    "\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022#\n\ncoreBaseId\030\n \001(\003B\017\302\377"
-    "\024\013\351\255\224\347\201\265\346\237\261ID\022-\n\020hatcheryBasePath\030\013 \001(\003B"
-    "\023\302\377\024\017\345\255\265\345\214\226\345\234\272\344\275\215\347\275\256\0227\n\024hatcheryBaseMaxL"
-    "evel\030\014 \001(\005B\031\302\377\024\025\345\255\265\345\214\226\345\234\272\347\255\211\347\272\247\344\270\212\351\231\220\022\'\n"
-    "\016hatcheryBaseId\030\r \001(\003B\017\302\377\024\013\345\255\265\345\214\226\345\234\272ID\022)"
-    "\n\014buffBasePath\030\016 \001(\003B\023\302\377\024\017\345\205\211\347\216\257\346\237\261\344\275\215\347\275"
-    "\256\0223\n\020buffBaseMaxLevel\030\017 \001(\005B\031\302\377\024\025\345\273\272\347\255\221\347"
-    "\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022#\n\nbuffBaseId\030\020 \001(\003B\017\302\377\024\013"
-    "\345\205\211\347\216\257\346\237\261ID\022\"\n\010shopPath\030\021 \001(\003B\020\302\377\024\014\345\225\206\345\272"
-    "\227\344\275\215\347\275\256\022/\n\014shopMaxLevel\030\022 \001(\005B\031\302\377\024\025\345\273\272\347\255"
-    "\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022\034\n\006shopId\030\023 \001(\003B\014\302\377\024\010\345\225"
-    "\206\345\272\227ID\022.\n\021crossGateBasePath\030\024 \001(\003B\023\302\377\024\017\347"
-    "\245\255\347\214\256\345\241\224\344\275\215\347\275\256\0224\n\021crossGateMaxLevel\030\025 \001("
-    "\005B\031\302\377\024\025\345\273\272\347\255\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022(\n\017crossGat"
-    "eBaseId\030\026 \001(\003B\017\302\377\024\013\347\245\255\347\214\256\345\241\224ID\022^\n\016initia"
-    "lMonster\030\027 \003(\0132*.proto_ff.manormanorlist"
-    "initialMonsterDescB\032\302\377\024\022\345\210\235\345\247\213\344\270\255\347\253\213\346\200\252\347"
-    "\211\251\210\301\024\004\022^\n\016patBeastAttack\030\030 \003(\0132*.proto_f"
-    "f.manormanorlistpatBeastAttackDescB\032\302\377\024\022"
-    "\345\245\207\345\205\275\346\224\273\345\207\273\350\220\275\347\202\271\210\301\024\004\"S\n\024Sheet_manorman"
-    "orlist\022;\n\023manormanorlist_List\030\001 \003(\0132\030.pr"
-    "oto_ff.manormanorlistB\004\210\301\024<\"~\n\027manorprod"
-    "uctproductDesc\022\022\n\004Item\030\001 \001(\003B\004\302\377\024\000\022#\n\003Nu"
-    "m\030\002 \001(\005B\026\302\377\024\022\346\257\217\346\254\241\347\273\264\346\212\244\344\272\247\351\207\217\022*\n\nbuild"
-    "Levle\030\003 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\345\273\272\347\255\221\347\255\211\347\272\247\"j\n\014m"
-    "anorproduct\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\022B\n\007p"
-    "roduct\030\002 \003(\0132!.proto_ff.manorproductprod"
-    "uctDescB\016\302\377\024\006\344\272\247\345\223\201\210\301\024\003\"M\n\022Sheet_manorpr"
-    "oduct\0227\n\021manorproduct_List\030\001 \003(\0132\026.proto"
-    "_ff.manorproductB\004\210\301\024(\"\276\002\n\nmanorbuild\022\026\n"
-    "\002ID\030\001 \001(\003B\n\302\377\024\006\347\274\226\345\217\267\022\"\n\004name\030\002 \001(\tB\024\302\377\024"
-    "\014\345\273\272\347\255\221\345\220\215\345\255\227\220\301\024<\022&\n\014buildingType\030\003 \001(\005B"
-    "\020\302\377\024\014\345\273\272\347\255\221\347\261\273\345\236\213\022\037\n\tmonsterId\030\004 \001(\003B\014\302\377"
-    "\024\010\346\200\252\347\211\251ID\0224\n\rbuildingvalue\030\005 \001(\tB\035\302\377\024\025\345"
-    "\273\272\347\255\221\345\220\204\347\255\211\347\272\247\345\217\202\346\225\260\220\301\024<\022=\n\017buildingAddB"
-    "uff\030\006 \001(\tB$\302\377\024\033\345\220\204\347\255\211\347\272\247\347\273\231\351\255\224\347\201\265\346\237\261\345\212\240\346"
-    "\210\220\220\301\024\214\001\0226\n\017buildingConsume\030\007 \001(\tB\035\302\377\024\025\345\220"
-    "\204\347\255\211\347\272\247\351\255\224\347\201\265\346\227\245\350\200\227\220\301\024<\"G\n\020Sheet_manorbu"
-    "ild\0223\n\017manorbuild_List\030\001 \003(\0132\024.proto_ff."
-    "manorbuildB\004\210\301\024\024\"V\n\025manorbuildUpbuildDes"
-    "c\022\022\n\004type\030\001 \001(\005B\004\302\377\024\000\022)\n\003exp\030\002 \001(\005B\034\302\377\024\030"
-    "\345\215\207\345\210\260\350\257\245\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\"i\n\014manorbuildUp"
-    "\022\031\n\005level\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022>\n\005build\030\002 \003"
-    "(\0132\037.proto_ff.manorbuildUpbuildDescB\016\302\377\024"
-    "\006\345\273\272\347\255\221\210\301\024\005\"M\n\022Sheet_manorbuildUp\0227\n\021man"
-    "orbuildUp_List\030\001 \003(\0132\026.proto_ff.manorbui"
-    "ldUpB\004\210\301\024\024\"\224\001\n\010manoregg\022 \n\teggItemID\030\001 \001"
-    "(\003B\r\302\377\024\t\350\233\213\351\201\223\345\205\267\0221\n\016incubationTime\030\002 \001("
-    "\005B\031\302\377\024\025\345\255\265\345\214\226\346\227\266\351\225\277\357\274\210\347\247\222\357\274\211\0223\n\017patBeast"
-    "sProbab\030\003 \001(\tB\032\302\377\024\022\345\255\265\345\207\272\346\200\252\347\211\251\346\235\203\351\207\215\220\301\024"
-    "P\"A\n\016Sheet_manoregg\022/\n\rmanoregg_List\030\001 \003"
-    "(\0132\022.proto_ff.manoreggB\004\210\301\024\024\")\n\rmanorpat"
-    "Beast\022\030\n\002Id\030\001 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\"P\n\023Sheet"
-    "_manorpatBeast\0229\n\022manorpatBeast_List\030\001 \003"
-    "(\0132\027.proto_ff.manorpatBeastB\004\210\301\024\024\"W\n\017man"
-    "orpatBeastUP\022\031\n\005level\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022"
-    ")\n\003exp\030\002 \001(\005B\034\302\377\024\030\345\215\207\345\210\260\350\257\245\347\272\247\351\234\200\350\246\201\347\273\217\351"
-    "\252\214\"V\n\025Sheet_manorpatBeastUP\022=\n\024manorpatB"
-    "eastUP_List\030\001 \003(\0132\031.proto_ff.manorpatBea"
-    "stUPB\004\210\301\024\024\"Y\n\016manorbuildBuff\022(\n\010levelSum"
-    "\030\001 \001(\005B\026\302\377\024\022\345\273\272\347\255\221\347\255\211\347\272\247\346\200\273\345\222\214\022\035\n\007skillI"
-    "d\030\002 \001(\003B\014\302\377\024\010\346\212\200\350\203\275ID\"S\n\024Sheet_manorbuil"
-    "dBuff\022;\n\023manorbuildBuff_List\030\001 \003(\0132\030.pro"
-    "to_ff.manorbuildBuffB\004\210\301\024\024\"\205\002\n\tmanorshop"
-    "\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\022\034\n\006itemId\030\002 \001(\003"
-    "B\014\302\377\024\010\351\201\223\345\205\267ID\0223\n\nneedShopLV\030\003 \001(\005B\037\302\377\024\033"
-    "\351\234\200\346\261\202\345\225\206\345\272\227\345\273\272\347\255\221\347\255\211\347\272\247\345\222\214\022\"\n\010buyLimit\030"
-    "\004 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\227\245\351\231\220\022#\n\tmoneyCode\030\005 \001"
-    "(\005B\020\302\377\024\014\350\264\247\345\270\201\344\273\243\345\217\267\022#\n\tmoneyType\030\006 \001(\003B"
-    "\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\037\n\005Price\030\007 \001(\005B\020\302\377\024\014\350\264"
-    "\255\344\271\260\346\266\210\350\200\227\"D\n\017Sheet_manorshop\0221\n\016manorsh"
-    "op_List\030\001 \003(\0132\023.proto_ff.manorshopB\004\210\301\024\024"
-    "\"c\n\rmanorbuildAdd\022(\n\010levelSum\030\001 \001(\005B\026\302\377\024"
-    "\022\345\273\272\347\255\221\347\255\211\347\272\247\346\200\273\345\222\214\022(\n\010addRatio\030\002 \001(\005B\026\302"
-    "\377\024\022\347\245\255\347\214\256\345\212\240\346\210\220\346\257\224\344\276\213\"P\n\023Sheet_manorbuil"
-    "dAdd\0229\n\022manorbuildAdd_List\030\001 \003(\0132\027.proto"
-    "_ff.manorbuildAddB\004\210\301\024\024\"\"\n\010manorlog\022\026\n\002I"
-    "D\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\"A\n\016Sheet_manorlog\022/\n"
-    "\rmanorlog_List\030\001 \003(\0132\022.proto_ff.manorlog"
-    "B\004\210\301\024\024", 4206);
+    "m\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\236\t\n\016manormanorlist\022\026"
+    "\n\002ID\030\001 \001(\003B\n\302\377\024\006\347\274\226\345\217\267\022\"\n\004name\030\002 \001(\tB\024\302\377"
+    "\024\014\351\242\206\345\234\237\345\220\215\345\255\227\220\301\024<\022#\n\tmanorType\030\003 \001(\005B\020\302"
+    "\377\024\014\351\242\206\345\234\260\347\261\273\345\236\213\0226\n\020attackBuildLevel\030\004 \001("
+    "\005B\034\302\377\024\030\345\256\243\346\210\230\346\211\200\351\234\200\345\273\272\347\255\221\347\255\211\347\272\247\0226\n\rcoreB"
+    "aseLevel\030\005 \001(\005B\037\302\377\024\033\351\255\224\347\201\265\346\237\261\351\207\216\347\224\237\345\242\236\351\207"
+    "\217\347\255\211\347\272\247\022%\n\005mapId\030\006 \001(\003B\026\302\377\024\022\351\242\206\345\234\260\346\211\200\345\234\250"
+    "\345\234\260\345\233\276\022&\n\tproductId\030\007 \001(\005B\023\302\377\024\017\347\211\271\344\272\247\347\273\204"
+    "\347\274\226\345\217\267\022)\n\014coreBasePath\030\010 \001(\003B\023\302\377\024\017\351\255\224\347\201\265"
+    "\346\237\261\344\275\215\347\275\256\0223\n\020coreBaseMaxLevel\030\t \001(\005B\031\302\377\024"
+    "\025\345\273\272\347\255\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022#\n\ncoreBaseId\030\n \001"
+    "(\003B\017\302\377\024\013\351\255\224\347\201\265\346\237\261ID\022-\n\020hatcheryBasePath\030"
+    "\013 \001(\003B\023\302\377\024\017\345\255\265\345\214\226\345\234\272\344\275\215\347\275\256\0227\n\024hatcheryBa"
+    "seMaxLevel\030\014 \001(\005B\031\302\377\024\025\345\255\265\345\214\226\345\234\272\347\255\211\347\272\247\344\270\212"
+    "\351\231\220\022\'\n\016hatcheryBaseId\030\r \001(\003B\017\302\377\024\013\345\255\265\345\214\226\345"
+    "\234\272ID\022)\n\014buffBasePath\030\016 \001(\003B\023\302\377\024\017\345\205\211\347\216\257\346\237"
+    "\261\344\275\215\347\275\256\0223\n\020buffBaseMaxLevel\030\017 \001(\005B\031\302\377\024\025\345"
+    "\273\272\347\255\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022#\n\nbuffBaseId\030\020 \001(\003"
+    "B\017\302\377\024\013\345\205\211\347\216\257\346\237\261ID\022\"\n\010shopPath\030\021 \001(\003B\020\302\377\024"
+    "\014\345\225\206\345\272\227\344\275\215\347\275\256\022/\n\014shopMaxLevel\030\022 \001(\005B\031\302\377\024"
+    "\025\345\273\272\347\255\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022\034\n\006shopId\030\023 \001(\003B\014"
+    "\302\377\024\010\345\225\206\345\272\227ID\022.\n\021crossGateBasePath\030\024 \001(\003B"
+    "\023\302\377\024\017\347\245\255\347\214\256\345\241\224\344\275\215\347\275\256\0224\n\021crossGateMaxLeve"
+    "l\030\025 \001(\005B\031\302\377\024\025\345\273\272\347\255\221\347\211\251\347\255\211\347\272\247\344\270\212\351\231\220\022(\n\017cr"
+    "ossGateBaseId\030\026 \001(\003B\017\302\377\024\013\347\245\255\347\214\256\345\241\224ID\022^\n\016"
+    "initialMonster\030\027 \003(\0132*.proto_ff.manorman"
+    "orlistinitialMonsterDescB\032\302\377\024\022\345\210\235\345\247\213\344\270\255\347"
+    "\253\213\346\200\252\347\211\251\210\301\024\004\0227\n\023patBeastAttack_Path\030\030 \003("
+    "\003B\032\302\377\024\022\345\245\207\345\205\275\346\224\273\345\207\273\350\220\275\347\202\271\210\301\024\004\0225\n\021initial"
+    "Monster_Id\030\031 \003(\003B\032\302\377\024\022\345\210\235\345\247\213\344\270\255\347\253\213\346\200\252\347\211\251"
+    "\210\301\024\004\"S\n\024Sheet_manormanorlist\022;\n\023manorman"
+    "orlist_List\030\001 \003(\0132\030.proto_ff.manormanorl"
+    "istB\004\210\301\024<\"j\n\027manorproductproductDesc\022#\n\003"
+    "Num\030\001 \001(\005B\026\302\377\024\022\346\257\217\346\254\241\347\273\264\346\212\244\344\272\247\351\207\217\022*\n\nbui"
+    "ldLevle\030\002 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\345\273\272\347\255\221\347\255\211\347\272\247\"\220\001"
+    "\n\014manorproduct\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\022$"
+    "\n\014product_Item\030\002 \003(\003B\016\302\377\024\006\344\272\247\345\223\201\210\301\024\003\022B\n\007"
+    "product\030\003 \003(\0132!.proto_ff.manorproductpro"
+    "ductDescB\016\302\377\024\006\344\272\247\345\223\201\210\301\024\003\"M\n\022Sheet_manorp"
+    "roduct\0227\n\021manorproduct_List\030\001 \003(\0132\026.prot"
+    "o_ff.manorproductB\004\210\301\024(\"\276\002\n\nmanorbuild\022\026"
+    "\n\002ID\030\001 \001(\003B\n\302\377\024\006\347\274\226\345\217\267\022\"\n\004name\030\002 \001(\tB\024\302\377"
+    "\024\014\345\273\272\347\255\221\345\220\215\345\255\227\220\301\024<\022&\n\014buildingType\030\003 \001(\005"
+    "B\020\302\377\024\014\345\273\272\347\255\221\347\261\273\345\236\213\022\037\n\tmonsterId\030\004 \001(\003B\014\302"
+    "\377\024\010\346\200\252\347\211\251ID\0224\n\rbuildingvalue\030\005 \001(\tB\035\302\377\024\025"
+    "\345\273\272\347\255\221\345\220\204\347\255\211\347\272\247\345\217\202\346\225\260\220\301\024<\022=\n\017buildingAdd"
+    "Buff\030\006 \001(\tB$\302\377\024\033\345\220\204\347\255\211\347\272\247\347\273\231\351\255\224\347\201\265\346\237\261\345\212\240"
+    "\346\210\220\220\301\024\214\001\0226\n\017buildingConsume\030\007 \001(\tB\035\302\377\024\025\345"
+    "\220\204\347\255\211\347\272\247\351\255\224\347\201\265\346\227\245\350\200\227\220\301\024<\"G\n\020Sheet_manorb"
+    "uild\0223\n\017manorbuild_List\030\001 \003(\0132\024.proto_ff"
+    ".manorbuildB\004\210\301\024\024\"B\n\025manorbuildUpbuildDe"
+    "sc\022)\n\003exp\030\001 \001(\005B\034\302\377\024\030\345\215\207\345\210\260\350\257\245\347\272\247\351\234\200\350\246\201\347"
+    "\273\217\351\252\214\"\215\001\n\014manorbuildUp\022\031\n\005level\030\001 \001(\005B\n\302"
+    "\377\024\006\347\255\211\347\272\247\022\"\n\nbuild_type\030\002 \003(\005B\016\302\377\024\006\345\273\272\347\255"
+    "\221\210\301\024\005\022>\n\005build\030\003 \003(\0132\037.proto_ff.manorbui"
+    "ldUpbuildDescB\016\302\377\024\006\345\273\272\347\255\221\210\301\024\005\"M\n\022Sheet_m"
+    "anorbuildUp\0227\n\021manorbuildUp_List\030\001 \003(\0132\026"
+    ".proto_ff.manorbuildUpB\004\210\301\024\024\"\224\001\n\010manoreg"
+    "g\022 \n\teggItemID\030\001 \001(\003B\r\302\377\024\t\350\233\213\351\201\223\345\205\267\0221\n\016i"
+    "ncubationTime\030\002 \001(\005B\031\302\377\024\025\345\255\265\345\214\226\346\227\266\351\225\277\357\274\210"
+    "\347\247\222\357\274\211\0223\n\017patBeastsProbab\030\003 \001(\tB\032\302\377\024\022\345\255\265"
+    "\345\207\272\346\200\252\347\211\251\346\235\203\351\207\215\220\301\024P\"A\n\016Sheet_manoregg\022/\n"
+    "\rmanoregg_List\030\001 \003(\0132\022.proto_ff.manoregg"
+    "B\004\210\301\024\024\")\n\rmanorpatBeast\022\030\n\002Id\030\001 \001(\003B\014\302\377\024"
+    "\010\346\200\252\347\211\251ID\"P\n\023Sheet_manorpatBeast\0229\n\022mano"
+    "rpatBeast_List\030\001 \003(\0132\027.proto_ff.manorpat"
+    "BeastB\004\210\301\024\024\"W\n\017manorpatBeastUP\022\031\n\005level\030"
+    "\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022)\n\003exp\030\002 \001(\005B\034\302\377\024\030\345\215\207\345"
+    "\210\260\350\257\245\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\"V\n\025Sheet_manorpatBe"
+    "astUP\022=\n\024manorpatBeastUP_List\030\001 \003(\0132\031.pr"
+    "oto_ff.manorpatBeastUPB\004\210\301\024\024\"Y\n\016manorbui"
+    "ldBuff\022(\n\010levelSum\030\001 \001(\005B\026\302\377\024\022\345\273\272\347\255\221\347\255\211\347"
+    "\272\247\346\200\273\345\222\214\022\035\n\007skillId\030\002 \001(\003B\014\302\377\024\010\346\212\200\350\203\275ID\""
+    "S\n\024Sheet_manorbuildBuff\022;\n\023manorbuildBuf"
+    "f_List\030\001 \003(\0132\030.proto_ff.manorbuildBuffB\004"
+    "\210\301\024\024\"\205\002\n\tmanorshop\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345"
+    "\217\267\022\034\n\006itemId\030\002 \001(\003B\014\302\377\024\010\351\201\223\345\205\267ID\0223\n\nneed"
+    "ShopLV\030\003 \001(\005B\037\302\377\024\033\351\234\200\346\261\202\345\225\206\345\272\227\345\273\272\347\255\221\347\255\211\347"
+    "\272\247\345\222\214\022\"\n\010buyLimit\030\004 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\227\245\351\231"
+    "\220\022#\n\tmoneyCode\030\005 \001(\005B\020\302\377\024\014\350\264\247\345\270\201\344\273\243\345\217\267\022#"
+    "\n\tmoneyType\030\006 \001(\003B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\037\n\005P"
+    "rice\030\007 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\266\210\350\200\227\"D\n\017Sheet_ma"
+    "norshop\0221\n\016manorshop_List\030\001 \003(\0132\023.proto_"
+    "ff.manorshopB\004\210\301\024\024\"c\n\rmanorbuildAdd\022(\n\010l"
+    "evelSum\030\001 \001(\005B\026\302\377\024\022\345\273\272\347\255\221\347\255\211\347\272\247\346\200\273\345\222\214\022(\n"
+    "\010addRatio\030\002 \001(\005B\026\302\377\024\022\347\245\255\347\214\256\345\212\240\346\210\220\346\257\224\344\276\213\""
+    "P\n\023Sheet_manorbuildAdd\0229\n\022manorbuildAdd_"
+    "List\030\001 \003(\0132\027.proto_ff.manorbuildAddB\004\210\301\024"
+    "\024\"\"\n\010manorlog\022\026\n\002ID\030\001 \001(\005B\n\302\377\024\006\347\274\226\345\217\267\"A\n"
+    "\016Sheet_manorlog\022/\n\rmanorlog_List\030\001 \003(\0132\022"
+    ".proto_ff.manorlogB\004\210\301\024\024", 4184);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "manor.proto", &protobuf_RegisterTypes);
   manorconstants::default_instance_ = new manorconstants();
@@ -882,7 +859,6 @@ void protobuf_AddDesc_manor_2eproto() {
   manoritemCost::default_instance_ = new manoritemCost();
   Sheet_manoritemCost::default_instance_ = new Sheet_manoritemCost();
   manormanorlistinitialMonsterDesc::default_instance_ = new manormanorlistinitialMonsterDesc();
-  manormanorlistpatBeastAttackDesc::default_instance_ = new manormanorlistpatBeastAttackDesc();
   manormanorlist::default_instance_ = new manormanorlist();
   Sheet_manormanorlist::default_instance_ = new Sheet_manormanorlist();
   manorproductproductDesc::default_instance_ = new manorproductproductDesc();
@@ -912,7 +888,6 @@ void protobuf_AddDesc_manor_2eproto() {
   manoritemCost::default_instance_->InitAsDefaultInstance();
   Sheet_manoritemCost::default_instance_->InitAsDefaultInstance();
   manormanorlistinitialMonsterDesc::default_instance_->InitAsDefaultInstance();
-  manormanorlistpatBeastAttackDesc::default_instance_->InitAsDefaultInstance();
   manormanorlist::default_instance_->InitAsDefaultInstance();
   Sheet_manormanorlist::default_instance_->InitAsDefaultInstance();
   manorproductproductDesc::default_instance_->InitAsDefaultInstance();
@@ -2030,7 +2005,6 @@ void Sheet_manoritemCost::Swap(Sheet_manoritemCost* other) {
 
 #ifndef _MSC_VER
 const int manormanorlistinitialMonsterDesc::kNumFieldNumber;
-const int manormanorlistinitialMonsterDesc::kIdFieldNumber;
 #endif  // !_MSC_VER
 
 manormanorlistinitialMonsterDesc::manormanorlistinitialMonsterDesc()
@@ -2050,7 +2024,6 @@ manormanorlistinitialMonsterDesc::manormanorlistinitialMonsterDesc(const manorma
 void manormanorlistinitialMonsterDesc::SharedCtor() {
   _cached_size_ = 0;
   num_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2087,7 +2060,6 @@ manormanorlistinitialMonsterDesc* manormanorlistinitialMonsterDesc::New() const 
 void manormanorlistinitialMonsterDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     num_ = 0;
-    id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2107,22 +2079,6 @@ bool manormanorlistinitialMonsterDesc::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &num_)));
           set_has_num();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_Id;
-        break;
-      }
-
-      // optional int64 Id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -2153,11 +2109,6 @@ void manormanorlistinitialMonsterDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
   }
 
-  // optional int64 Id = 2;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2169,11 +2120,6 @@ void manormanorlistinitialMonsterDesc::SerializeWithCachedSizes(
   // optional int32 Num = 1;
   if (has_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
-  }
-
-  // optional int64 Id = 2;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2192,13 +2138,6 @@ int manormanorlistinitialMonsterDesc::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->num());
-    }
-
-    // optional int64 Id = 2;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
     }
 
   }
@@ -2231,9 +2170,6 @@ void manormanorlistinitialMonsterDesc::MergeFrom(const manormanorlistinitialMons
     if (from.has_num()) {
       set_num(from.num());
     }
-    if (from.has_id()) {
-      set_id(from.id());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2258,7 +2194,6 @@ bool manormanorlistinitialMonsterDesc::IsInitialized() const {
 void manormanorlistinitialMonsterDesc::Swap(manormanorlistinitialMonsterDesc* other) {
   if (other != this) {
     std::swap(num_, other->num_);
-    std::swap(id_, other->id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2270,214 +2205,6 @@ void manormanorlistinitialMonsterDesc::Swap(manormanorlistinitialMonsterDesc* ot
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = manormanorlistinitialMonsterDesc_descriptor_;
   metadata.reflection = manormanorlistinitialMonsterDesc_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int manormanorlistpatBeastAttackDesc::kPathFieldNumber;
-#endif  // !_MSC_VER
-
-manormanorlistpatBeastAttackDesc::manormanorlistpatBeastAttackDesc()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void manormanorlistpatBeastAttackDesc::InitAsDefaultInstance() {
-}
-
-manormanorlistpatBeastAttackDesc::manormanorlistpatBeastAttackDesc(const manormanorlistpatBeastAttackDesc& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void manormanorlistpatBeastAttackDesc::SharedCtor() {
-  _cached_size_ = 0;
-  path_ = GOOGLE_LONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-manormanorlistpatBeastAttackDesc::~manormanorlistpatBeastAttackDesc() {
-  SharedDtor();
-}
-
-void manormanorlistpatBeastAttackDesc::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void manormanorlistpatBeastAttackDesc::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* manormanorlistpatBeastAttackDesc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return manormanorlistpatBeastAttackDesc_descriptor_;
-}
-
-const manormanorlistpatBeastAttackDesc& manormanorlistpatBeastAttackDesc::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_manor_2eproto();
-  return *default_instance_;
-}
-
-manormanorlistpatBeastAttackDesc* manormanorlistpatBeastAttackDesc::default_instance_ = NULL;
-
-manormanorlistpatBeastAttackDesc* manormanorlistpatBeastAttackDesc::New() const {
-  return new manormanorlistpatBeastAttackDesc;
-}
-
-void manormanorlistpatBeastAttackDesc::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    path_ = GOOGLE_LONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool manormanorlistpatBeastAttackDesc::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 Path = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &path_)));
-          set_has_path();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void manormanorlistpatBeastAttackDesc::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 Path = 1;
-  if (has_path()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->path(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* manormanorlistpatBeastAttackDesc::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int64 Path = 1;
-  if (has_path()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->path(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int manormanorlistpatBeastAttackDesc::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 Path = 1;
-    if (has_path()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->path());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void manormanorlistpatBeastAttackDesc::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const manormanorlistpatBeastAttackDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const manormanorlistpatBeastAttackDesc*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void manormanorlistpatBeastAttackDesc::MergeFrom(const manormanorlistpatBeastAttackDesc& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_path()) {
-      set_path(from.path());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void manormanorlistpatBeastAttackDesc::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void manormanorlistpatBeastAttackDesc::CopyFrom(const manormanorlistpatBeastAttackDesc& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool manormanorlistpatBeastAttackDesc::IsInitialized() const {
-
-  return true;
-}
-
-void manormanorlistpatBeastAttackDesc::Swap(manormanorlistpatBeastAttackDesc* other) {
-  if (other != this) {
-    std::swap(path_, other->path_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata manormanorlistpatBeastAttackDesc::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = manormanorlistpatBeastAttackDesc_descriptor_;
-  metadata.reflection = manormanorlistpatBeastAttackDesc_reflection_;
   return metadata;
 }
 
@@ -2508,7 +2235,8 @@ const int manormanorlist::kCrossGateBasePathFieldNumber;
 const int manormanorlist::kCrossGateMaxLevelFieldNumber;
 const int manormanorlist::kCrossGateBaseIdFieldNumber;
 const int manormanorlist::kInitialMonsterFieldNumber;
-const int manormanorlist::kPatBeastAttackFieldNumber;
+const int manormanorlist::kPatBeastAttackPathFieldNumber;
+const int manormanorlist::kInitialMonsterIdFieldNumber;
 #endif  // !_MSC_VER
 
 manormanorlist::manormanorlist()
@@ -2619,7 +2347,8 @@ void manormanorlist::Clear() {
     crossgatebaseid_ = GOOGLE_LONGLONG(0);
   }
   initialmonster_.Clear();
-  patbeastattack_.Clear();
+  patbeastattack_path_.Clear();
+  initialmonster_id_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -2993,21 +2722,50 @@ bool manormanorlist::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(186)) goto parse_initialMonster;
-        if (input->ExpectTag(194)) goto parse_patBeastAttack;
+        if (input->ExpectTag(192)) goto parse_patBeastAttack_Path;
         break;
       }
 
-      // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
+      // repeated int64 patBeastAttack_Path = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_patBeastAttack:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_patbeastattack()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_patBeastAttack_Path:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 2, 192, input, this->mutable_patbeastattack_path())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_patbeastattack_path())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(194)) goto parse_patBeastAttack;
+        if (input->ExpectTag(192)) goto parse_patBeastAttack_Path;
+        if (input->ExpectTag(200)) goto parse_initialMonster_Id;
+        break;
+      }
+
+      // repeated int64 initialMonster_Id = 25;
+      case 25: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_initialMonster_Id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 2, 200, input, this->mutable_initialmonster_id())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_initialmonster_id())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(200)) goto parse_initialMonster_Id;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3150,10 +2908,16 @@ void manormanorlist::SerializeWithCachedSizes(
       23, this->initialmonster(i), output);
   }
 
-  // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-  for (int i = 0; i < this->patbeastattack_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      24, this->patbeastattack(i), output);
+  // repeated int64 patBeastAttack_Path = 24;
+  for (int i = 0; i < this->patbeastattack_path_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      24, this->patbeastattack_path(i), output);
+  }
+
+  // repeated int64 initialMonster_Id = 25;
+  for (int i = 0; i < this->initialmonster_id_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      25, this->initialmonster_id(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3286,11 +3050,16 @@ void manormanorlist::SerializeWithCachedSizes(
         23, this->initialmonster(i), target);
   }
 
-  // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-  for (int i = 0; i < this->patbeastattack_size(); i++) {
+  // repeated int64 patBeastAttack_Path = 24;
+  for (int i = 0; i < this->patbeastattack_path_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        24, this->patbeastattack(i), target);
+      WriteInt64ToArray(24, this->patbeastattack_path(i), target);
+  }
+
+  // repeated int64 initialMonster_Id = 25;
+  for (int i = 0; i < this->initialmonster_id_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(25, this->initialmonster_id(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3471,12 +3240,24 @@ int manormanorlist::ByteSize() const {
         this->initialmonster(i));
   }
 
-  // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-  total_size += 2 * this->patbeastattack_size();
-  for (int i = 0; i < this->patbeastattack_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->patbeastattack(i));
+  // repeated int64 patBeastAttack_Path = 24;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->patbeastattack_path_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->patbeastattack_path(i));
+    }
+    total_size += 2 * this->patbeastattack_path_size() + data_size;
+  }
+
+  // repeated int64 initialMonster_Id = 25;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->initialmonster_id_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->initialmonster_id(i));
+    }
+    total_size += 2 * this->initialmonster_id_size() + data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -3505,7 +3286,8 @@ void manormanorlist::MergeFrom(const ::google::protobuf::Message& from) {
 void manormanorlist::MergeFrom(const manormanorlist& from) {
   GOOGLE_CHECK_NE(&from, this);
   initialmonster_.MergeFrom(from.initialmonster_);
-  patbeastattack_.MergeFrom(from.patbeastattack_);
+  patbeastattack_path_.MergeFrom(from.patbeastattack_path_);
+  initialmonster_id_.MergeFrom(from.initialmonster_id_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -3623,7 +3405,8 @@ void manormanorlist::Swap(manormanorlist* other) {
     std::swap(crossgatemaxlevel_, other->crossgatemaxlevel_);
     std::swap(crossgatebaseid_, other->crossgatebaseid_);
     initialmonster_.Swap(&other->initialmonster_);
-    patbeastattack_.Swap(&other->patbeastattack_);
+    patbeastattack_path_.Swap(&other->patbeastattack_path_);
+    initialmonster_id_.Swap(&other->initialmonster_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3845,7 +3628,6 @@ void Sheet_manormanorlist::Swap(Sheet_manormanorlist* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int manorproductproductDesc::kItemFieldNumber;
 const int manorproductproductDesc::kNumFieldNumber;
 const int manorproductproductDesc::kBuildLevleFieldNumber;
 #endif  // !_MSC_VER
@@ -3866,7 +3648,6 @@ manorproductproductDesc::manorproductproductDesc(const manorproductproductDesc& 
 
 void manorproductproductDesc::SharedCtor() {
   _cached_size_ = 0;
-  item_ = GOOGLE_LONGLONG(0);
   num_ = 0;
   buildlevle_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3904,7 +3685,6 @@ manorproductproductDesc* manorproductproductDesc::New() const {
 
 void manorproductproductDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    item_ = GOOGLE_LONGLONG(0);
     num_ = 0;
     buildlevle_ = 0;
   }
@@ -3918,26 +3698,10 @@ bool manorproductproductDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 Item = 1;
+      // optional int32 Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &item_)));
-          set_has_item();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_Num;
-        break;
-      }
-
-      // optional int32 Num = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Num:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &num_)));
@@ -3945,12 +3709,12 @@ bool manorproductproductDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_buildLevle;
+        if (input->ExpectTag(16)) goto parse_buildLevle;
         break;
       }
 
-      // optional int32 buildLevle = 3;
-      case 3: {
+      // optional int32 buildLevle = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_buildLevle:
@@ -3983,19 +3747,14 @@ bool manorproductproductDesc::MergePartialFromCodedStream(
 
 void manorproductproductDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 Item = 1;
-  if (has_item()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->item(), output);
-  }
-
-  // optional int32 Num = 2;
+  // optional int32 Num = 1;
   if (has_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
   }
 
-  // optional int32 buildLevle = 3;
+  // optional int32 buildLevle = 2;
   if (has_buildlevle()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->buildlevle(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->buildlevle(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4006,19 +3765,14 @@ void manorproductproductDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* manorproductproductDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 Item = 1;
-  if (has_item()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->item(), target);
-  }
-
-  // optional int32 Num = 2;
+  // optional int32 Num = 1;
   if (has_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
   }
 
-  // optional int32 buildLevle = 3;
+  // optional int32 buildLevle = 2;
   if (has_buildlevle()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->buildlevle(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->buildlevle(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4032,21 +3786,14 @@ int manorproductproductDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 Item = 1;
-    if (has_item()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->item());
-    }
-
-    // optional int32 Num = 2;
+    // optional int32 Num = 1;
     if (has_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->num());
     }
 
-    // optional int32 buildLevle = 3;
+    // optional int32 buildLevle = 2;
     if (has_buildlevle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4080,9 +3827,6 @@ void manorproductproductDesc::MergeFrom(const ::google::protobuf::Message& from)
 void manorproductproductDesc::MergeFrom(const manorproductproductDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_item()) {
-      set_item(from.item());
-    }
     if (from.has_num()) {
       set_num(from.num());
     }
@@ -4112,7 +3856,6 @@ bool manorproductproductDesc::IsInitialized() const {
 
 void manorproductproductDesc::Swap(manorproductproductDesc* other) {
   if (other != this) {
-    std::swap(item_, other->item_);
     std::swap(num_, other->num_);
     std::swap(buildlevle_, other->buildlevle_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -4134,6 +3877,7 @@ void manorproductproductDesc::Swap(manorproductproductDesc* other) {
 
 #ifndef _MSC_VER
 const int manorproduct::kIDFieldNumber;
+const int manorproduct::kProductItemFieldNumber;
 const int manorproduct::kProductFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4191,6 +3935,7 @@ void manorproduct::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = 0;
   }
+  product_item_.Clear();
   product_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4213,12 +3958,34 @@ bool manorproduct::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_product;
+        if (input->ExpectTag(16)) goto parse_product_Item;
         break;
       }
 
-      // repeated .proto_ff.manorproductproductDesc product = 2;
+      // repeated int64 product_Item = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_product_Item:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 16, input, this->mutable_product_item())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_product_item())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_product_Item;
+        if (input->ExpectTag(26)) goto parse_product;
+        break;
+      }
+
+      // repeated .proto_ff.manorproductproductDesc product = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_product:
@@ -4227,7 +3994,7 @@ bool manorproduct::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_product;
+        if (input->ExpectTag(26)) goto parse_product;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4255,10 +4022,16 @@ void manorproduct::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
 
-  // repeated .proto_ff.manorproductproductDesc product = 2;
+  // repeated int64 product_Item = 2;
+  for (int i = 0; i < this->product_item_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      2, this->product_item(i), output);
+  }
+
+  // repeated .proto_ff.manorproductproductDesc product = 3;
   for (int i = 0; i < this->product_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->product(i), output);
+      3, this->product(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4274,11 +4047,17 @@ void manorproduct::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
 
-  // repeated .proto_ff.manorproductproductDesc product = 2;
+  // repeated int64 product_Item = 2;
+  for (int i = 0; i < this->product_item_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(2, this->product_item(i), target);
+  }
+
+  // repeated .proto_ff.manorproductproductDesc product = 3;
   for (int i = 0; i < this->product_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->product(i), target);
+        3, this->product(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4300,7 +4079,17 @@ int manorproduct::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.manorproductproductDesc product = 2;
+  // repeated int64 product_Item = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->product_item_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->product_item(i));
+    }
+    total_size += 1 * this->product_item_size() + data_size;
+  }
+
+  // repeated .proto_ff.manorproductproductDesc product = 3;
   total_size += 1 * this->product_size();
   for (int i = 0; i < this->product_size(); i++) {
     total_size +=
@@ -4333,6 +4122,7 @@ void manorproduct::MergeFrom(const ::google::protobuf::Message& from) {
 
 void manorproduct::MergeFrom(const manorproduct& from) {
   GOOGLE_CHECK_NE(&from, this);
+  product_item_.MergeFrom(from.product_item_);
   product_.MergeFrom(from.product_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -4362,6 +4152,7 @@ bool manorproduct::IsInitialized() const {
 void manorproduct::Swap(manorproduct* other) {
   if (other != this) {
     std::swap(id_, other->id_);
+    product_item_.Swap(&other->product_item_);
     product_.Swap(&other->product_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -5303,7 +5094,6 @@ void Sheet_manorbuild::Swap(Sheet_manorbuild* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int manorbuildUpbuildDesc::kTypeFieldNumber;
 const int manorbuildUpbuildDesc::kExpFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5323,7 +5113,6 @@ manorbuildUpbuildDesc::manorbuildUpbuildDesc(const manorbuildUpbuildDesc& from)
 
 void manorbuildUpbuildDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
   exp_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -5360,7 +5149,6 @@ manorbuildUpbuildDesc* manorbuildUpbuildDesc::New() const {
 
 void manorbuildUpbuildDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
     exp_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -5373,26 +5161,10 @@ bool manorbuildUpbuildDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 exp = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_exp;
-        break;
-      }
-
-      // optional int32 exp = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_exp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &exp_)));
@@ -5422,14 +5194,9 @@ bool manorbuildUpbuildDesc::MergePartialFromCodedStream(
 
 void manorbuildUpbuildDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
-  }
-
-  // optional int32 exp = 2;
+  // optional int32 exp = 1;
   if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->exp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->exp(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5440,14 +5207,9 @@ void manorbuildUpbuildDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* manorbuildUpbuildDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
-  }
-
-  // optional int32 exp = 2;
+  // optional int32 exp = 1;
   if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->exp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->exp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5461,14 +5223,7 @@ int manorbuildUpbuildDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
-    }
-
-    // optional int32 exp = 2;
+    // optional int32 exp = 1;
     if (has_exp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5502,9 +5257,6 @@ void manorbuildUpbuildDesc::MergeFrom(const ::google::protobuf::Message& from) {
 void manorbuildUpbuildDesc::MergeFrom(const manorbuildUpbuildDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
-    }
     if (from.has_exp()) {
       set_exp(from.exp());
     }
@@ -5531,7 +5283,6 @@ bool manorbuildUpbuildDesc::IsInitialized() const {
 
 void manorbuildUpbuildDesc::Swap(manorbuildUpbuildDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
     std::swap(exp_, other->exp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -5552,6 +5303,7 @@ void manorbuildUpbuildDesc::Swap(manorbuildUpbuildDesc* other) {
 
 #ifndef _MSC_VER
 const int manorbuildUp::kLevelFieldNumber;
+const int manorbuildUp::kBuildTypeFieldNumber;
 const int manorbuildUp::kBuildFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5609,6 +5361,7 @@ void manorbuildUp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     level_ = 0;
   }
+  build_type_.Clear();
   build_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -5631,12 +5384,34 @@ bool manorbuildUp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_build;
+        if (input->ExpectTag(16)) goto parse_build_type;
         break;
       }
 
-      // repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+      // repeated int32 build_type = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_build_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 16, input, this->mutable_build_type())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_build_type())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_build_type;
+        if (input->ExpectTag(26)) goto parse_build;
+        break;
+      }
+
+      // repeated .proto_ff.manorbuildUpbuildDesc build = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_build:
@@ -5645,7 +5420,7 @@ bool manorbuildUp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_build;
+        if (input->ExpectTag(26)) goto parse_build;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5673,10 +5448,16 @@ void manorbuildUp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->level(), output);
   }
 
-  // repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+  // repeated int32 build_type = 2;
+  for (int i = 0; i < this->build_type_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      2, this->build_type(i), output);
+  }
+
+  // repeated .proto_ff.manorbuildUpbuildDesc build = 3;
   for (int i = 0; i < this->build_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->build(i), output);
+      3, this->build(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5692,11 +5473,17 @@ void manorbuildUp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->level(), target);
   }
 
-  // repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+  // repeated int32 build_type = 2;
+  for (int i = 0; i < this->build_type_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(2, this->build_type(i), target);
+  }
+
+  // repeated .proto_ff.manorbuildUpbuildDesc build = 3;
   for (int i = 0; i < this->build_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->build(i), target);
+        3, this->build(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5718,7 +5505,17 @@ int manorbuildUp::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.manorbuildUpbuildDesc build = 2;
+  // repeated int32 build_type = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->build_type_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->build_type(i));
+    }
+    total_size += 1 * this->build_type_size() + data_size;
+  }
+
+  // repeated .proto_ff.manorbuildUpbuildDesc build = 3;
   total_size += 1 * this->build_size();
   for (int i = 0; i < this->build_size(); i++) {
     total_size +=
@@ -5751,6 +5548,7 @@ void manorbuildUp::MergeFrom(const ::google::protobuf::Message& from) {
 
 void manorbuildUp::MergeFrom(const manorbuildUp& from) {
   GOOGLE_CHECK_NE(&from, this);
+  build_type_.MergeFrom(from.build_type_);
   build_.MergeFrom(from.build_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_level()) {
@@ -5780,6 +5578,7 @@ bool manorbuildUp::IsInitialized() const {
 void manorbuildUp::Swap(manorbuildUp* other) {
   if (other != this) {
     std::swap(level_, other->level_);
+    build_type_.Swap(&other->build_type_);
     build_.Swap(&other->build_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

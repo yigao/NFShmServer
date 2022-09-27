@@ -43,8 +43,6 @@ class combineitemUp;
 class Sheet_combineitemUp;
 class combinerankUp;
 class Sheet_combinerankUp;
-class combinequalityUpneedEqupDesc;
-class combinequalityUpneedMaterialDesc;
 class combinequalityUp;
 class Sheet_combinequalityUp;
 
@@ -1163,175 +1161,6 @@ class Sheet_combinerankUp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class combinequalityUpneedEqupDesc : public ::google::protobuf::Message {
- public:
-  combinequalityUpneedEqupDesc();
-  virtual ~combinequalityUpneedEqupDesc();
-
-  combinequalityUpneedEqupDesc(const combinequalityUpneedEqupDesc& from);
-
-  inline combinequalityUpneedEqupDesc& operator=(const combinequalityUpneedEqupDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const combinequalityUpneedEqupDesc& default_instance();
-
-  void Swap(combinequalityUpneedEqupDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  combinequalityUpneedEqupDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const combinequalityUpneedEqupDesc& from);
-  void MergeFrom(const combinequalityUpneedEqupDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline const ::std::string& id() const;
-  inline void set_id(const ::std::string& value);
-  inline void set_id(const char* value);
-  inline void set_id(const char* value, size_t size);
-  inline ::std::string* mutable_id();
-  inline ::std::string* release_id();
-  inline void set_allocated_id(::std::string* id);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.combinequalityUpneedEqupDesc)
- private:
-  inline void set_has_id();
-  inline void clear_has_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_combine_2eproto();
-  friend void protobuf_AssignDesc_combine_2eproto();
-  friend void protobuf_ShutdownFile_combine_2eproto();
-
-  void InitAsDefaultInstance();
-  static combinequalityUpneedEqupDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class combinequalityUpneedMaterialDesc : public ::google::protobuf::Message {
- public:
-  combinequalityUpneedMaterialDesc();
-  virtual ~combinequalityUpneedMaterialDesc();
-
-  combinequalityUpneedMaterialDesc(const combinequalityUpneedMaterialDesc& from);
-
-  inline combinequalityUpneedMaterialDesc& operator=(const combinequalityUpneedMaterialDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const combinequalityUpneedMaterialDesc& default_instance();
-
-  void Swap(combinequalityUpneedMaterialDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  combinequalityUpneedMaterialDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const combinequalityUpneedMaterialDesc& from);
-  void MergeFrom(const combinequalityUpneedMaterialDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.combinequalityUpneedMaterialDesc)
- private:
-  inline void set_has_id();
-  inline void clear_has_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int64 id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_combine_2eproto();
-  friend void protobuf_AssignDesc_combine_2eproto();
-  friend void protobuf_ShutdownFile_combine_2eproto();
-
-  void InitAsDefaultInstance();
-  static combinequalityUpneedMaterialDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class combinequalityUp : public ::google::protobuf::Message {
  public:
   combinequalityUp();
@@ -1468,29 +1297,45 @@ class combinequalityUp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 bindjewelcost() const;
   inline void set_bindjewelcost(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
-  inline int needequp_size() const;
-  inline void clear_needequp();
-  static const int kNeedEqupFieldNumber = 12;
-  inline const ::proto_ff::combinequalityUpneedEqupDesc& needequp(int index) const;
-  inline ::proto_ff::combinequalityUpneedEqupDesc* mutable_needequp(int index);
-  inline ::proto_ff::combinequalityUpneedEqupDesc* add_needequp();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedEqupDesc >&
-      needequp() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedEqupDesc >*
-      mutable_needequp();
+  // repeated string needEqup_id = 12;
+  inline int needequp_id_size() const;
+  inline void clear_needequp_id();
+  static const int kNeedEqupIdFieldNumber = 12;
+  inline const ::std::string& needequp_id(int index) const;
+  inline ::std::string* mutable_needequp_id(int index);
+  inline void set_needequp_id(int index, const ::std::string& value);
+  inline void set_needequp_id(int index, const char* value);
+  inline void set_needequp_id(int index, const char* value, size_t size);
+  inline ::std::string* add_needequp_id();
+  inline void add_needequp_id(const ::std::string& value);
+  inline void add_needequp_id(const char* value);
+  inline void add_needequp_id(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& needequp_id() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_needequp_id();
 
-  // repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
-  inline int needmaterial_size() const;
-  inline void clear_needmaterial();
-  static const int kNeedMaterialFieldNumber = 13;
-  inline const ::proto_ff::combinequalityUpneedMaterialDesc& needmaterial(int index) const;
-  inline ::proto_ff::combinequalityUpneedMaterialDesc* mutable_needmaterial(int index);
-  inline ::proto_ff::combinequalityUpneedMaterialDesc* add_needmaterial();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedMaterialDesc >&
-      needmaterial() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedMaterialDesc >*
-      mutable_needmaterial();
+  // repeated int32 needMaterial_num = 13;
+  inline int needmaterial_num_size() const;
+  inline void clear_needmaterial_num();
+  static const int kNeedMaterialNumFieldNumber = 13;
+  inline ::google::protobuf::int32 needmaterial_num(int index) const;
+  inline void set_needmaterial_num(int index, ::google::protobuf::int32 value);
+  inline void add_needmaterial_num(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      needmaterial_num() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_needmaterial_num();
+
+  // repeated int64 needMaterial_id = 14;
+  inline int needmaterial_id_size() const;
+  inline void clear_needmaterial_id();
+  static const int kNeedMaterialIdFieldNumber = 14;
+  inline ::google::protobuf::int64 needmaterial_id(int index) const;
+  inline void set_needmaterial_id(int index, ::google::protobuf::int64 value);
+  inline void add_needmaterial_id(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      needmaterial_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_needmaterial_id();
 
   // @@protoc_insertion_point(class_scope:proto_ff.combinequalityUp)
  private:
@@ -1529,12 +1374,13 @@ class combinequalityUp : public ::google::protobuf::Message {
   ::std::string* sameposition_;
   ::google::protobuf::int32 probability_;
   ::google::protobuf::int32 costtype_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedEqupDesc > needequp_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedMaterialDesc > needmaterial_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> needequp_id_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > needmaterial_num_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > needmaterial_id_;
   ::google::protobuf::int32 bindjewelcost_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
 
   friend void  protobuf_AddDesc_combine_2eproto();
   friend void protobuf_AssignDesc_combine_2eproto();
@@ -2748,106 +2594,6 @@ Sheet_combinerankUp::mutable_combinerankup_list() {
 
 // -------------------------------------------------------------------
 
-// combinequalityUpneedEqupDesc
-
-// optional string id = 1;
-inline bool combinequalityUpneedEqupDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void combinequalityUpneedEqupDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void combinequalityUpneedEqupDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void combinequalityUpneedEqupDesc::clear_id() {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    id_->clear();
-  }
-  clear_has_id();
-}
-inline const ::std::string& combinequalityUpneedEqupDesc::id() const {
-  return *id_;
-}
-inline void combinequalityUpneedEqupDesc::set_id(const ::std::string& value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
-  }
-  id_->assign(value);
-}
-inline void combinequalityUpneedEqupDesc::set_id(const char* value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
-  }
-  id_->assign(value);
-}
-inline void combinequalityUpneedEqupDesc::set_id(const char* value, size_t size) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
-  }
-  id_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* combinequalityUpneedEqupDesc::mutable_id() {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
-  }
-  return id_;
-}
-inline ::std::string* combinequalityUpneedEqupDesc::release_id() {
-  clear_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = id_;
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void combinequalityUpneedEqupDesc::set_allocated_id(::std::string* id) {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    delete id_;
-  }
-  if (id) {
-    set_has_id();
-    id_ = id;
-  } else {
-    clear_has_id();
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// combinequalityUpneedMaterialDesc
-
-// optional int64 id = 1;
-inline bool combinequalityUpneedMaterialDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void combinequalityUpneedMaterialDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void combinequalityUpneedMaterialDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void combinequalityUpneedMaterialDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 combinequalityUpneedMaterialDesc::id() const {
-  return id_;
-}
-inline void combinequalityUpneedMaterialDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // combinequalityUp
 
 // optional int64 newItem = 1;
@@ -3140,54 +2886,98 @@ inline void combinequalityUp::set_bindjewelcost(::google::protobuf::int32 value)
   bindjewelcost_ = value;
 }
 
-// repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
-inline int combinequalityUp::needequp_size() const {
-  return needequp_.size();
+// repeated string needEqup_id = 12;
+inline int combinequalityUp::needequp_id_size() const {
+  return needequp_id_.size();
 }
-inline void combinequalityUp::clear_needequp() {
-  needequp_.Clear();
+inline void combinequalityUp::clear_needequp_id() {
+  needequp_id_.Clear();
 }
-inline const ::proto_ff::combinequalityUpneedEqupDesc& combinequalityUp::needequp(int index) const {
-  return needequp_.Get(index);
+inline const ::std::string& combinequalityUp::needequp_id(int index) const {
+  return needequp_id_.Get(index);
 }
-inline ::proto_ff::combinequalityUpneedEqupDesc* combinequalityUp::mutable_needequp(int index) {
-  return needequp_.Mutable(index);
+inline ::std::string* combinequalityUp::mutable_needequp_id(int index) {
+  return needequp_id_.Mutable(index);
 }
-inline ::proto_ff::combinequalityUpneedEqupDesc* combinequalityUp::add_needequp() {
-  return needequp_.Add();
+inline void combinequalityUp::set_needequp_id(int index, const ::std::string& value) {
+  needequp_id_.Mutable(index)->assign(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedEqupDesc >&
-combinequalityUp::needequp() const {
-  return needequp_;
+inline void combinequalityUp::set_needequp_id(int index, const char* value) {
+  needequp_id_.Mutable(index)->assign(value);
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedEqupDesc >*
-combinequalityUp::mutable_needequp() {
-  return &needequp_;
+inline void combinequalityUp::set_needequp_id(int index, const char* value, size_t size) {
+  needequp_id_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* combinequalityUp::add_needequp_id() {
+  return needequp_id_.Add();
+}
+inline void combinequalityUp::add_needequp_id(const ::std::string& value) {
+  needequp_id_.Add()->assign(value);
+}
+inline void combinequalityUp::add_needequp_id(const char* value) {
+  needequp_id_.Add()->assign(value);
+}
+inline void combinequalityUp::add_needequp_id(const char* value, size_t size) {
+  needequp_id_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+combinequalityUp::needequp_id() const {
+  return needequp_id_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+combinequalityUp::mutable_needequp_id() {
+  return &needequp_id_;
 }
 
-// repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
-inline int combinequalityUp::needmaterial_size() const {
-  return needmaterial_.size();
+// repeated int32 needMaterial_num = 13;
+inline int combinequalityUp::needmaterial_num_size() const {
+  return needmaterial_num_.size();
 }
-inline void combinequalityUp::clear_needmaterial() {
-  needmaterial_.Clear();
+inline void combinequalityUp::clear_needmaterial_num() {
+  needmaterial_num_.Clear();
 }
-inline const ::proto_ff::combinequalityUpneedMaterialDesc& combinequalityUp::needmaterial(int index) const {
-  return needmaterial_.Get(index);
+inline ::google::protobuf::int32 combinequalityUp::needmaterial_num(int index) const {
+  return needmaterial_num_.Get(index);
 }
-inline ::proto_ff::combinequalityUpneedMaterialDesc* combinequalityUp::mutable_needmaterial(int index) {
-  return needmaterial_.Mutable(index);
+inline void combinequalityUp::set_needmaterial_num(int index, ::google::protobuf::int32 value) {
+  needmaterial_num_.Set(index, value);
 }
-inline ::proto_ff::combinequalityUpneedMaterialDesc* combinequalityUp::add_needmaterial() {
-  return needmaterial_.Add();
+inline void combinequalityUp::add_needmaterial_num(::google::protobuf::int32 value) {
+  needmaterial_num_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedMaterialDesc >&
-combinequalityUp::needmaterial() const {
-  return needmaterial_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+combinequalityUp::needmaterial_num() const {
+  return needmaterial_num_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::combinequalityUpneedMaterialDesc >*
-combinequalityUp::mutable_needmaterial() {
-  return &needmaterial_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+combinequalityUp::mutable_needmaterial_num() {
+  return &needmaterial_num_;
+}
+
+// repeated int64 needMaterial_id = 14;
+inline int combinequalityUp::needmaterial_id_size() const {
+  return needmaterial_id_.size();
+}
+inline void combinequalityUp::clear_needmaterial_id() {
+  needmaterial_id_.Clear();
+}
+inline ::google::protobuf::int64 combinequalityUp::needmaterial_id(int index) const {
+  return needmaterial_id_.Get(index);
+}
+inline void combinequalityUp::set_needmaterial_id(int index, ::google::protobuf::int64 value) {
+  needmaterial_id_.Set(index, value);
+}
+inline void combinequalityUp::add_needmaterial_id(::google::protobuf::int64 value) {
+  needmaterial_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+combinequalityUp::needmaterial_id() const {
+  return needmaterial_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+combinequalityUp::mutable_needmaterial_id() {
+  return &needmaterial_id_;
 }
 
 // -------------------------------------------------------------------

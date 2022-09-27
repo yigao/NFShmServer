@@ -73,7 +73,6 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t Num;
-		int64_t Id;
 
 		virtual void write_to_pbmsg(::proto_ff::manormanorlistinitialMonsterDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manormanorlistinitialMonsterDesc & msg);
@@ -81,19 +80,6 @@ namespace proto_ff_s {
 		static ::proto_ff::manormanorlistinitialMonsterDesc make_pbmsg(){ return ::proto_ff::manormanorlistinitialMonsterDesc(); }
 	};
 	typedef struct manormanorlistinitialMonsterDesc_s manormanorlistinitialMonsterDesc_t;
-
-	struct manormanorlistpatBeastAttackDesc_s : public NFDescStoreSeqOP {
-		manormanorlistpatBeastAttackDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int64_t Path;
-
-		virtual void write_to_pbmsg(::proto_ff::manormanorlistpatBeastAttackDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::manormanorlistpatBeastAttackDesc & msg);
-		static ::proto_ff::manormanorlistpatBeastAttackDesc* new_pbmsg(){ return new ::proto_ff::manormanorlistpatBeastAttackDesc(); }
-		static ::proto_ff::manormanorlistpatBeastAttackDesc make_pbmsg(){ return ::proto_ff::manormanorlistpatBeastAttackDesc(); }
-	};
-	typedef struct manormanorlistpatBeastAttackDesc_s manormanorlistpatBeastAttackDesc_t;
 
 	struct manormanorlist_s : public NFDescStoreSeqOP {
 		manormanorlist_s();
@@ -122,7 +108,8 @@ namespace proto_ff_s {
 		int32_t crossGateMaxLevel;
 		int64_t crossGateBaseId;
 		NFArray<struct manormanorlistinitialMonsterDesc_s, 4> initialMonster;
-		NFArray<struct manormanorlistpatBeastAttackDesc_s, 4> patBeastAttack;
+		NFArray<int64_t, 4> patBeastAttack_Path;
+		NFArray<int64_t, 4> initialMonster_Id;
 
 		virtual void write_to_pbmsg(::proto_ff::manormanorlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manormanorlist & msg);
@@ -148,7 +135,6 @@ namespace proto_ff_s {
 		manorproductproductDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		int64_t Item;
 		int32_t Num;
 		int32_t buildLevle;
 
@@ -164,6 +150,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t ID;
+		NFArray<int64_t, 3> product_Item;
 		NFArray<struct manorproductproductDesc_s, 3> product;
 
 		virtual void write_to_pbmsg(::proto_ff::manorproduct & msg) const;
@@ -222,7 +209,6 @@ namespace proto_ff_s {
 		manorbuildUpbuildDesc_s();
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
 		int32_t exp;
 
 		virtual void write_to_pbmsg(::proto_ff::manorbuildUpbuildDesc & msg) const;
@@ -237,6 +223,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t level;
+		NFArray<int32_t, 5> build_type;
 		NFArray<struct manorbuildUpbuildDesc_s, 5> build;
 
 		virtual void write_to_pbmsg(::proto_ff::manorbuildUp & msg) const;
