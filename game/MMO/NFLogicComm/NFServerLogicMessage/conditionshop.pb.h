@@ -133,12 +133,12 @@ class conditionshopconditionshop : public ::google::protobuf::Message {
   inline ::std::string* release_itemid();
   inline void set_allocated_itemid(::std::string* itemid);
 
-  // optional int32 type = 6;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber_6 = 6;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 mtype = 6;
+  inline bool has_mtype() const;
+  inline void clear_mtype();
+  static const int kMtypeFieldNumber = 6;
+  inline ::google::protobuf::int32 mtype() const;
+  inline void set_mtype(::google::protobuf::int32 value);
 
   // optional int32 DiscountPrice = 7;
   inline bool has_discountprice() const;
@@ -187,8 +187,8 @@ class conditionshopconditionshop : public ::google::protobuf::Message {
   inline void clear_has_boxid();
   inline void set_has_itemid();
   inline void clear_has_itemid();
-  inline void set_has_type();
-  inline void clear_has_type();
+  inline void set_has_mtype();
+  inline void clear_has_mtype();
   inline void set_has_discountprice();
   inline void clear_has_discountprice();
 
@@ -198,7 +198,7 @@ class conditionshopconditionshop : public ::google::protobuf::Message {
   ::google::protobuf::int32 type_;
   ::google::protobuf::int64 boxid_;
   ::google::protobuf::int32 time_;
-  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 mtype_;
   ::std::string* itemid_;
   ::google::protobuf::RepeatedPtrField< ::std::string> conditionparam_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > conditiontype_;
@@ -464,26 +464,26 @@ inline void conditionshopconditionshop::set_allocated_itemid(::std::string* item
   }
 }
 
-// optional int32 type = 6;
-inline bool conditionshopconditionshop::has_type() const {
+// optional int32 mtype = 6;
+inline bool conditionshopconditionshop::has_mtype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void conditionshopconditionshop::set_has_type() {
+inline void conditionshopconditionshop::set_has_mtype() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void conditionshopconditionshop::clear_has_type() {
+inline void conditionshopconditionshop::clear_has_mtype() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void conditionshopconditionshop::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void conditionshopconditionshop::clear_mtype() {
+  mtype_ = 0;
+  clear_has_mtype();
 }
-inline ::google::protobuf::int32 conditionshopconditionshop::type() const {
-  return type_;
+inline ::google::protobuf::int32 conditionshopconditionshop::mtype() const {
+  return mtype_;
 }
-inline void conditionshopconditionshop::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void conditionshopconditionshop::set_mtype(::google::protobuf::int32 value) {
+  set_has_mtype();
+  mtype_ = value;
 }
 
 // optional int32 DiscountPrice = 7;

@@ -10,7 +10,7 @@ message conditionshopconditionshop
 	optional int32 Time = 3[(yd_fieldoptions.field_cname) = "持续时间"];
 	optional int64 boxId = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
 	optional string itemId = 5[(yd_fieldoptions.field_cname) = "奖励ID", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 type = 6[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 mtype = 6[(yd_fieldoptions.field_cname) = "货币类型"];
 	optional int32 DiscountPrice = 7[(yd_fieldoptions.field_cname) = "现价"];
 	repeated string ConditionParam = 8[(yd_fieldoptions.field_cname) = "触发条件参数", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 60];
 	repeated int32 ConditionType = 9[(yd_fieldoptions.field_cname) = "触发条件类型", (yd_fieldoptions.field_arysize) = 3];

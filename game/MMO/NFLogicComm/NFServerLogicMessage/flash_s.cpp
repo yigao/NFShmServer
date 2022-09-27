@@ -57,7 +57,7 @@ int flashflash_s::ResumeInit() {
 
 void flashflash_s::write_to_pbmsg(::proto_ff::flashflash & msg) const {
 	msg.set_id((int64_t)id);
-	msg.set_typeid((int64_t)typeID);
+	msg.set_typeid_((int64_t)typeID);
 	msg.set_monster_type((int32_t)monster_Type);
 	msg.set_isleveldynamic((int32_t)isLevelDynamic);
 	msg.set_minilevel((int32_t)miniLevel);
@@ -73,7 +73,7 @@ void flashflash_s::write_to_pbmsg(::proto_ff::flashflash & msg) const {
 void flashflash_s::read_from_pbmsg(const ::proto_ff::flashflash & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct flashflash_s));
 	id = msg.id();
-	typeID = msg.typeid();
+	typeID = msg.typeid_();
 	monster_Type = msg.monster_type();
 	isLevelDynamic = msg.isleveldynamic();
 	miniLevel = msg.minilevel();

@@ -12,9 +12,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
-#include "NFConstDesc.h"
-#include "NFNameDesc.h"
+#include "DescStore/achievementachievementDesc.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -60,7 +58,6 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     CHECK_EXPR(pConfig, false, "pConfig == NULL");
     CHECK_EXPR(!pConfig->DefaultDBName.empty(), false, "pConfig->DefaultDBName.empty()");
 
-    REGISTER_DESCSTORE_WITH_DBNAME(NFConstDesc, EOT_CONST_CONFIG_DESC_ID, pConfig->DefaultDBName);
-    REGISTER_DESCSTORE(NFNameDesc, EOT_NAME_CONFIG_DESC_ID);
+    REGISTER_DESCSTORE(achievementachievementDesc, EOT_CONST_achievementachievement_DESC_ID);
 	return true;
 }
