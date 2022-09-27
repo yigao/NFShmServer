@@ -317,8 +317,8 @@ def read_excel(excel_file, out_path):
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${RESDB_META_DESCRIPTOR} ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
-			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${RESDB_META_DESCRIPTOR} --proto_package=proto_ff \\\n");
+			makefile_file.write("${GAME_DATA_PATH}/" + excel_file_name+sheet.name + ".bin:${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds --proto_package=proto_ff \\\n");
 			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${GAME_DATA_PATH}/\n\n");
 
 	proto_file.close()
