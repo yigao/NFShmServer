@@ -215,7 +215,7 @@ def read_excel(excel_file, out_path):
 						sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
 						sheet_struct_info[struct_en_name]["max_num"] = struct_num
 						sheet_struct_info[struct_en_name]["sub_msg"] = {}
-						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = { }
+						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = {}
 						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
 						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
 						sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type

@@ -10,7 +10,6 @@
 #include "achievementachievementDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFSnprintf.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(achievementachievementDesc, EOT_CONST_achievementachievement_DESC_ID, NFShmObj)

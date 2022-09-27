@@ -238,7 +238,8 @@ void protobuf_AssignDesc_activity_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_activityactivitynotice));
   activityscufflerewardDesc_descriptor_ = file->message_type(4);
-  static const int activityscufflerewardDesc_offsets_[1] = {
+  static const int activityscufflerewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(activityscufflerewardDesc, num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(activityscufflerewardDesc, id_),
   };
   activityscufflerewardDesc_reflection_ =
@@ -293,7 +294,8 @@ void protobuf_AssignDesc_activity_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_activityscuffle));
   activitychaosDragonsrewardDesc_descriptor_ = file->message_type(7);
-  static const int activitychaosDragonsrewardDesc_offsets_[1] = {
+  static const int activitychaosDragonsrewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(activitychaosDragonsrewardDesc, num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(activitychaosDragonsrewardDesc, id_),
   };
   activitychaosDragonsrewardDesc_reflection_ =
@@ -1104,134 +1106,136 @@ void protobuf_AddDesc_activity_2eproto() {
     "ivitynotice\022\036\n\010activeId\030\001 \001(\003B\014\302\377\024\010\346\264\273\345\212"
     "\250ID\"k\n\034Sheet_activityactivitynotice\022K\n\033a"
     "ctivityactivitynotice_List\030\001 \003(\0132 .proto"
-    "_ff.activityactivitynoticeB\004\210\301\024\024\"-\n\031acti"
-    "vityscufflerewardDesc\022\020\n\002ID\030\001 \001(\003B\004\302\377\024\000\""
-    "\221\003\n\017activityscuffle\022\022\n\002id\030\001 \001(\003B\006\302\377\024\002id\022"
-    "\"\n\010typeArgs\030\002 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022\031\n\005l"
-    "evel\030\003 \001(\005B\n\302\377\024\006\345\261\202\346\225\260\022\031\n\005stage\030\004 \001(\005B\n\302"
-    "\377\024\006\351\230\266\346\225\260\022\033\n\005mapID\030\005 \001(\003B\014\302\377\024\010\345\234\272\346\231\257ID\022\034"
-    "\n\006nextID\030\006 \001(\003B\014\302\377\024\010\344\270\213\344\270\200ID\022\035\n\tmaxPoint"
-    "s\030\007 \001(\005B\n\302\377\024\006\347\247\257\345\210\206\022#\n\tpvePoints\030\010 \001(\005B\020"
-    "\302\377\024\014\346\235\200\346\200\252\347\247\257\345\210\206\022#\n\tpvpPoints\030\t \001(\005B\020\302\377\024"
-    "\014\346\235\200\344\272\272\347\247\257\345\210\206\022\'\n\rpvpHelpPoints\030\n \001(\005B\020\302\377"
-    "\024\014\345\212\251\346\224\273\347\247\257\345\210\206\022C\n\006reward\030\013 \003(\0132#.proto_f"
-    "f.activityscufflerewardDescB\016\302\377\024\006\345\245\226\345\212\261\210"
-    "\301\024\003\"V\n\025Sheet_activityscuffle\022=\n\024activity"
-    "scuffle_List\030\001 \003(\0132\031.proto_ff.activitysc"
-    "uffleB\004\210\301\024\024\"2\n\036activitychaosDragonsrewar"
-    "dDesc\022\020\n\002ID\030\001 \001(\003B\004\302\377\024\000\"\271\002\n\024activitychao"
-    "sDragons\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022%\n\013reward_t"
-    "ype\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\236\213\022,\n\014reward_pa"
-    "ram\030\003 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\261\273\345\236\213\345\217\202\346\225\260\022$\n\007ran"
-    "kmin\030\004 \001(\005B\023\302\377\024\017\346\216\222\345\220\215\346\234\200\345\260\217\345\200\274\022$\n\007rankm"
-    "ax\030\005 \001(\005B\023\302\377\024\017\346\216\222\345\220\215\346\234\200\345\244\247\345\200\274\022\"\n\010getPoin"
-    "t\030\006 \001(\003B\020\302\377\024\014\350\216\267\345\276\227\347\247\257\345\210\206\022H\n\006reward\030\007 \003("
-    "\0132(.proto_ff.activitychaosDragonsrewardD"
-    "escB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"e\n\032Sheet_activitycha"
-    "osDragons\022G\n\031activitychaosDragons_List\030\001"
-    " \003(\0132\036.proto_ff.activitychaosDragonsB\004\210\301"
-    "\024\024\"+\n\030activitycircuscircusDesc\022\017\n\001a\030\001 \001("
-    "\005B\004\302\377\024\000\"\301\001\n\016activitycircus\022\036\n\010circusID\030\001"
-    " \001(\003B\014\302\377\024\010\345\214\272\351\227\264ID\022\"\n\010powerLow\030\002 \001(\003B\020\302\377"
-    "\024\014\346\210\230\345\212\233\344\270\213\351\231\220\022!\n\007powerUp\030\003 \001(\003B\020\302\377\024\014\346\210\230"
-    "\345\212\233\344\270\212\351\231\220\022H\n\006circus\030\004 \003(\0132\".proto_ff.act"
-    "ivitycircuscircusDescB\024\302\377\024\014\345\234\272\346\254\241\344\272\272\346\225\260\210"
-    "\301\024 \"S\n\024Sheet_activitycircus\022;\n\023activityc"
-    "ircus_List\030\001 \003(\0132\030.proto_ff.activitycirc"
-    "usB\004\210\301\024(\"H\n\031activitycircusNumitemDesc\022\027\n"
-    "\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002Id\030\002 \001(\003B\006\302\377\024\002"
-    "ID\"t\n\021activitycircusNum\022\034\n\006RankID\030\001 \001(\005B"
-    "\014\302\377\024\010\346\216\222\345\220\215id\022A\n\004item\030\002 \003(\0132#.proto_ff.a"
-    "ctivitycircusNumitemDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003"
-    "\"]\n\027Sheet_activitycircusNum\022B\n\026activityc"
-    "ircusNum_List\030\001 \003(\0132\033.proto_ff.activityc"
-    "ircusNumB\005\210\301\024\310\001\"H\n\031activitycircusDanitem"
-    "Desc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002Id\030\002 \001("
-    "\003B\006\302\377\024\002ID\"J\n\033activitycircusDancircusDesc"
-    "\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002Id\030\002 \001(\003B\006\302"
-    "\377\024\002ID\"\312\001\n\021activitycircusDan\022\037\n\tchangCiID"
-    "\030\001 \001(\005B\014\302\377\024\010\345\234\272\346\254\241id\022G\n\004item\030\002 \003(\0132#.pro"
-    "to_ff.activitycircusDanitemDescB\024\302\377\024\014\350\203\234"
-    "\345\210\251\345\245\226\345\212\261\210\301\024\003\022K\n\006circus\030\003 \003(\0132%.proto_ff"
-    ".activitycircusDancircusDescB\024\302\377\024\014\345\244\261\350\264\245"
-    "\345\245\226\345\212\261\210\301\024\003\"\\\n\027Sheet_activitycircusDan\022A\n"
-    "\026activitycircusDan_List\030\001 \003(\0132\033.proto_ff"
-    ".activitycircusDanB\004\210\301\024<\"\315\002\n\020activitymat"
-    "hrule\022\036\n\010activeId\030\001 \001(\003B\014\302\377\024\010\347\264\242\345\274\225ID\022\036\n"
-    "\004type\030\002 \001(\005B\020\302\377\024\014\351\230\266\346\256\265\347\261\273\345\236\213\022\033\n\005mapId\030\003"
-    " \001(\003B\014\302\377\024\010\345\234\260\345\233\276ID\022!\n\013duplicateId\030\004 \001(\003B"
-    "\014\302\377\024\010\345\211\257\346\234\254ID\022\036\n\004time\030\005 \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346"
-    "\227\266\351\227\264\022&\n\014winnerPoints\030\006 \001(\005B\020\302\377\024\014\350\203\234\345\210\251\347"
-    "\247\257\345\210\206\022%\n\013loserPoints\030\007 \001(\005B\020\302\377\024\014\345\244\261\350\264\245\347\247"
-    "\257\345\210\206\022$\n\ndrawPoints\030\010 \001(\005B\020\302\377\024\014\345\271\263\345\261\200\347\247\257\345"
-    "\210\206\022$\n\nrewardtype\030\t \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\210\253"
-    "\"Y\n\026Sheet_activitymathrule\022\?\n\025activityma"
-    "thrule_List\030\001 \003(\0132\032.proto_ff.activitymat"
-    "hruleB\004\210\301\024(\"I\n\034activitymathrewardrewardD"
-    "esc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002ID\030\002 \001(\003"
-    "B\004\302\377\024\000\"\315\001\n\022activitymathreward\022\034\n\002ID\030\001 \001("
-    "\005B\020\302\377\024\014\347\264\242\345\274\225\347\274\226\345\217\267\022$\n\nrewardtype\030\002 \001(\005B"
-    "\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\210\253\022+\n\013rewardlevel\030\003 \001(\005B\026"
-    "\302\377\024\022\345\245\226\345\212\261\347\247\257\345\210\206\346\241\243\346\254\241\022F\n\006reward\030\004 \003(\0132&"
-    ".proto_ff.activitymathrewardrewardDescB\016"
-    "\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"_\n\030Sheet_activitymathrewa"
-    "rd\022C\n\027activitymathreward_List\030\001 \003(\0132\034.pr"
-    "oto_ff.activitymathrewardB\004\210\301\024\024\"u\n\020activ"
-    "itygvgConst\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022 \n\014const"
-    "antdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022+\n\nstringdata\030"
-    "\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024d\"Z\n\026Sheet_"
-    "activitygvgConst\022@\n\025activitygvgConst_Lis"
-    "t\030\001 \003(\0132\032.proto_ff.activitygvgConstB\005\210\301\024"
-    "\240\001\"U\n&activitygvgRankRewardgMemberreward"
-    "Desc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002id\030\002 \001("
-    "\003B\006\302\377\024\002ID\"U\n&activitygvgRankRewardgLeade"
-    "rrewardDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002"
-    "id\030\002 \001(\003B\006\302\377\024\002ID\"\224\002\n\025activitygvgRankRewa"
-    "rd\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022)\n\tgLeaderId\030\002 \001("
-    "\003B\026\302\377\024\022\344\274\232\351\225\277\345\245\226\345\212\261\347\247\260\345\217\267\022]\n\rgMemberrewa"
-    "rd\030\003 \003(\01320.proto_ff.activitygvgRankRewar"
-    "dgMemberrewardDescB\024\302\377\024\014\347\211\251\345\223\201\345\245\226\345\212\261\210\301\024\004"
-    "\022]\n\rgLeaderreward\030\004 \003(\01320.proto_ff.activ"
-    "itygvgRankRewardgLeaderrewardDescB\024\302\377\024\014\347"
-    "\211\251\345\223\201\345\245\226\345\212\261\210\301\024\002\"h\n\033Sheet_activitygvgRank"
-    "Reward\022I\n\032activitygvgRankReward_List\030\001 \003"
-    "(\0132\037.proto_ff.activitygvgRankRewardB\004\210\301\024"
-    "\024\"H\n\033activitygvgRewardrewardDesc\022\027\n\003Num\030"
-    "\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002id\030\002 \001(\003B\004\302\377\024\000\"J\n\035a"
-    "ctivitygvgRewardfinalityDesc\022\027\n\003Num\030\001 \001("
-    "\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002id\030\002 \001(\003B\004\302\377\024\000\"\354\001\n\021acti"
-    "vitygvgReward\022\034\n\002id\030\001 \001(\005B\020\302\377\024\014\350\277\236\350\203\234\346\254\241"
-    "\346\225\260\022\'\n\rfinalityskill\030\002 \001(\003B\020\302\377\024\014\347\273\210\347\273\223\346\212"
-    "\200\350\203\275\022E\n\006reward\030\003 \003(\0132%.proto_ff.activity"
-    "gvgRewardrewardDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\005\022I\n\010f"
-    "inality\030\004 \003(\0132\'.proto_ff.activitygvgRewa"
-    "rdfinalityDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\005\"]\n\027Sheet_"
-    "activitygvgReward\022B\n\026activitygvgReward_L"
-    "ist\030\001 \003(\0132\033.proto_ff.activitygvgRewardB\005"
-    "\210\301\024\264\001\"R\n\032activityworldTreasureConst\022\022\n\002i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022 \n\014constantdata\030\002 \001(\003B\n\302"
-    "\377\024\006\346\225\260\346\215\256\"w\n Sheet_activityworldTreasure"
-    "Const\022S\n\037activityworldTreasureConst_List"
-    "\030\001 \003(\0132$.proto_ff.activityworldTreasureC"
-    "onstB\004\210\301\024\024\"[\n\030activityworldTreasureMap\022\033"
-    "\n\005mapID\030\001 \001(\003B\014\302\377\024\010\345\234\260\345\233\276ID\022\"\n\006pathID\030\002 "
-    "\001(\tB\022\302\377\024\t\345\210\267\346\200\252\347\202\271\220\301\024\330\004\"q\n\036Sheet_activit"
-    "yworldTreasureMap\022O\n\035activityworldTreasu"
-    "reMap_List\030\001 \003(\0132\".proto_ff.activityworl"
-    "dTreasureMapB\004\210\301\024\024\"\234\001\n\034activityworldTrea"
-    "sureMonster\022\022\n\002ID\030\001 \001(\005B\006\302\377\024\002ID\022\037\n\tmonst"
-    "erID\030\002 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\022&\n\014appearWeight"
-    "\030\003 \001(\005B\020\302\377\024\014\345\210\267\346\226\260\346\235\203\351\207\215\022\037\n\007skillId\030\004 \001("
-    "\003B\016\302\377\024\n\351\231\204\345\270\246BUFF\"}\n\"Sheet_activityworld"
-    "TreasureMonster\022W\n!activityworldTreasure"
-    "Monster_List\030\001 \003(\0132&.proto_ff.activitywo"
-    "rldTreasureMonsterB\004\210\301\024\024\"\177\n\032activitylost"
-    "templeConstant\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\014co"
-    "nstantdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022+\n\nstringda"
-    "ta\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024<\"w\n She"
-    "et_activitylosttempleConstant\022S\n\037activit"
-    "ylosttempleConstant_List\030\001 \003(\0132$.proto_f"
-    "f.activitylosttempleConstantB\004\210\301\024\024", 6194);
+    "_ff.activityactivitynoticeB\004\210\301\024\024\"H\n\031acti"
+    "vityscufflerewardDesc\022\027\n\003Num\030\001 \001(\003B\n\302\377\024\006"
+    "\346\225\260\351\207\217\022\022\n\002ID\030\002 \001(\003B\006\302\377\024\002ID\"\221\003\n\017activitys"
+    "cuffle\022\022\n\002id\030\001 \001(\003B\006\302\377\024\002id\022\"\n\010typeArgs\030\002"
+    " \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022\031\n\005level\030\003 \001(\005B\n\302"
+    "\377\024\006\345\261\202\346\225\260\022\031\n\005stage\030\004 \001(\005B\n\302\377\024\006\351\230\266\346\225\260\022\033\n\005"
+    "mapID\030\005 \001(\003B\014\302\377\024\010\345\234\272\346\231\257ID\022\034\n\006nextID\030\006 \001("
+    "\003B\014\302\377\024\010\344\270\213\344\270\200ID\022\035\n\tmaxPoints\030\007 \001(\005B\n\302\377\024\006"
+    "\347\247\257\345\210\206\022#\n\tpvePoints\030\010 \001(\005B\020\302\377\024\014\346\235\200\346\200\252\347\247\257"
+    "\345\210\206\022#\n\tpvpPoints\030\t \001(\005B\020\302\377\024\014\346\235\200\344\272\272\347\247\257\345\210\206"
+    "\022\'\n\rpvpHelpPoints\030\n \001(\005B\020\302\377\024\014\345\212\251\346\224\273\347\247\257\345\210"
+    "\206\022C\n\006reward\030\013 \003(\0132#.proto_ff.activityscu"
+    "fflerewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"V\n\025Sheet_"
+    "activityscuffle\022=\n\024activityscuffle_List\030"
+    "\001 \003(\0132\031.proto_ff.activityscuffleB\004\210\301\024\024\"M"
+    "\n\036activitychaosDragonsrewardDesc\022\027\n\003Num\030"
+    "\001 \001(\003B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002ID\030\002 \001(\003B\006\302\377\024\002ID\"\271\002"
+    "\n\024activitychaosDragons\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002"
+    "id\022%\n\013reward_type\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\236"
+    "\213\022,\n\014reward_param\030\003 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\261\273\345\236"
+    "\213\345\217\202\346\225\260\022$\n\007rankmin\030\004 \001(\005B\023\302\377\024\017\346\216\222\345\220\215\346\234\200\345"
+    "\260\217\345\200\274\022$\n\007rankmax\030\005 \001(\005B\023\302\377\024\017\346\216\222\345\220\215\346\234\200\345\244\247"
+    "\345\200\274\022\"\n\010getPoint\030\006 \001(\003B\020\302\377\024\014\350\216\267\345\276\227\347\247\257\345\210\206\022"
+    "H\n\006reward\030\007 \003(\0132(.proto_ff.activitychaos"
+    "DragonsrewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"e\n\032She"
+    "et_activitychaosDragons\022G\n\031activitychaos"
+    "Dragons_List\030\001 \003(\0132\036.proto_ff.activitych"
+    "aosDragonsB\004\210\301\024\024\"+\n\030activitycircuscircus"
+    "Desc\022\017\n\001a\030\001 \001(\005B\004\302\377\024\000\"\301\001\n\016activitycircus"
+    "\022\036\n\010circusID\030\001 \001(\003B\014\302\377\024\010\345\214\272\351\227\264ID\022\"\n\010powe"
+    "rLow\030\002 \001(\003B\020\302\377\024\014\346\210\230\345\212\233\344\270\213\351\231\220\022!\n\007powerUp\030"
+    "\003 \001(\003B\020\302\377\024\014\346\210\230\345\212\233\344\270\212\351\231\220\022H\n\006circus\030\004 \003(\0132"
+    "\".proto_ff.activitycircuscircusDescB\024\302\377\024"
+    "\014\345\234\272\346\254\241\344\272\272\346\225\260\210\301\024 \"S\n\024Sheet_activitycircu"
+    "s\022;\n\023activitycircus_List\030\001 \003(\0132\030.proto_f"
+    "f.activitycircusB\004\210\301\024(\"H\n\031activitycircus"
+    "NumitemDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\022\n\002"
+    "Id\030\002 \001(\003B\006\302\377\024\002ID\"t\n\021activitycircusNum\022\034\n"
+    "\006RankID\030\001 \001(\005B\014\302\377\024\010\346\216\222\345\220\215id\022A\n\004item\030\002 \003("
+    "\0132#.proto_ff.activitycircusNumitemDescB\016"
+    "\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"]\n\027Sheet_activitycircusNu"
+    "m\022B\n\026activitycircusNum_List\030\001 \003(\0132\033.prot"
+    "o_ff.activitycircusNumB\005\210\301\024\310\001\"H\n\031activit"
+    "ycircusDanitemDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260"
+    "\351\207\217\022\022\n\002Id\030\002 \001(\003B\006\302\377\024\002ID\"J\n\033activitycircu"
+    "sDancircusDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022"
+    "\022\n\002Id\030\002 \001(\003B\006\302\377\024\002ID\"\312\001\n\021activitycircusDa"
+    "n\022\037\n\tchangCiID\030\001 \001(\005B\014\302\377\024\010\345\234\272\346\254\241id\022G\n\004it"
+    "em\030\002 \003(\0132#.proto_ff.activitycircusDanite"
+    "mDescB\024\302\377\024\014\350\203\234\345\210\251\345\245\226\345\212\261\210\301\024\003\022K\n\006circus\030\003 "
+    "\003(\0132%.proto_ff.activitycircusDancircusDe"
+    "scB\024\302\377\024\014\345\244\261\350\264\245\345\245\226\345\212\261\210\301\024\003\"\\\n\027Sheet_activi"
+    "tycircusDan\022A\n\026activitycircusDan_List\030\001 "
+    "\003(\0132\033.proto_ff.activitycircusDanB\004\210\301\024<\"\315"
+    "\002\n\020activitymathrule\022\036\n\010activeId\030\001 \001(\003B\014\302"
+    "\377\024\010\347\264\242\345\274\225ID\022\036\n\004type\030\002 \001(\005B\020\302\377\024\014\351\230\266\346\256\265\347\261\273"
+    "\345\236\213\022\033\n\005mapId\030\003 \001(\003B\014\302\377\024\010\345\234\260\345\233\276ID\022!\n\013dupl"
+    "icateId\030\004 \001(\003B\014\302\377\024\010\345\211\257\346\234\254ID\022\036\n\004time\030\005 \001("
+    "\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\022&\n\014winnerPoints\030\006 \001("
+    "\005B\020\302\377\024\014\350\203\234\345\210\251\347\247\257\345\210\206\022%\n\013loserPoints\030\007 \001(\005"
+    "B\020\302\377\024\014\345\244\261\350\264\245\347\247\257\345\210\206\022$\n\ndrawPoints\030\010 \001(\005B\020"
+    "\302\377\024\014\345\271\263\345\261\200\347\247\257\345\210\206\022$\n\nrewardtype\030\t \001(\005B\020\302\377"
+    "\024\014\345\245\226\345\212\261\347\261\273\345\210\253\"Y\n\026Sheet_activitymathrule"
+    "\022\?\n\025activitymathrule_List\030\001 \003(\0132\032.proto_"
+    "ff.activitymathruleB\004\210\301\024(\"I\n\034activitymat"
+    "hrewardrewardDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351"
+    "\207\217\022\020\n\002ID\030\002 \001(\003B\004\302\377\024\000\"\315\001\n\022activitymathrew"
+    "ard\022\034\n\002ID\030\001 \001(\005B\020\302\377\024\014\347\264\242\345\274\225\347\274\226\345\217\267\022$\n\nrew"
+    "ardtype\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\210\253\022+\n\013rewar"
+    "dlevel\030\003 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\247\257\345\210\206\346\241\243\346\254\241\022F\n\006"
+    "reward\030\004 \003(\0132&.proto_ff.activitymathrewa"
+    "rdrewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"_\n\030Sheet_ac"
+    "tivitymathreward\022C\n\027activitymathreward_L"
+    "ist\030\001 \003(\0132\034.proto_ff.activitymathrewardB"
+    "\004\210\301\024\024\"u\n\020activitygvgConst\022\022\n\002id\030\001 \001(\005B\006\302"
+    "\377\024\002id\022 \n\014constantdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022"
+    "+\n\nstringdata\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256"
+    "\220\301\024d\"Z\n\026Sheet_activitygvgConst\022@\n\025activi"
+    "tygvgConst_List\030\001 \003(\0132\032.proto_ff.activit"
+    "ygvgConstB\005\210\301\024\240\001\"U\n&activitygvgRankRewar"
+    "dgMemberrewardDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260"
+    "\351\207\217\022\022\n\002id\030\002 \001(\003B\006\302\377\024\002ID\"U\n&activitygvgRa"
+    "nkRewardgLeaderrewardDesc\022\027\n\003Num\030\001 \001(\005B\n"
+    "\302\377\024\006\346\225\260\351\207\217\022\022\n\002id\030\002 \001(\003B\006\302\377\024\002ID\"\224\002\n\025activ"
+    "itygvgRankReward\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022)\n\t"
+    "gLeaderId\030\002 \001(\003B\026\302\377\024\022\344\274\232\351\225\277\345\245\226\345\212\261\347\247\260\345\217\267\022"
+    "]\n\rgMemberreward\030\003 \003(\01320.proto_ff.activi"
+    "tygvgRankRewardgMemberrewardDescB\024\302\377\024\014\347\211"
+    "\251\345\223\201\345\245\226\345\212\261\210\301\024\004\022]\n\rgLeaderreward\030\004 \003(\01320."
+    "proto_ff.activitygvgRankRewardgLeaderrew"
+    "ardDescB\024\302\377\024\014\347\211\251\345\223\201\345\245\226\345\212\261\210\301\024\002\"h\n\033Sheet_a"
+    "ctivitygvgRankReward\022I\n\032activitygvgRankR"
+    "eward_List\030\001 \003(\0132\037.proto_ff.activitygvgR"
+    "ankRewardB\004\210\301\024\024\"H\n\033activitygvgRewardrewa"
+    "rdDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002id\030\002 "
+    "\001(\003B\004\302\377\024\000\"J\n\035activitygvgRewardfinalityDe"
+    "sc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\020\n\002id\030\002 \001(\003B"
+    "\004\302\377\024\000\"\354\001\n\021activitygvgReward\022\034\n\002id\030\001 \001(\005B"
+    "\020\302\377\024\014\350\277\236\350\203\234\346\254\241\346\225\260\022\'\n\rfinalityskill\030\002 \001(\003"
+    "B\020\302\377\024\014\347\273\210\347\273\223\346\212\200\350\203\275\022E\n\006reward\030\003 \003(\0132%.pro"
+    "to_ff.activitygvgRewardrewardDescB\016\302\377\024\006\347"
+    "\211\251\345\223\201\210\301\024\005\022I\n\010finality\030\004 \003(\0132\'.proto_ff.a"
+    "ctivitygvgRewardfinalityDescB\016\302\377\024\006\347\211\251\345\223\201"
+    "\210\301\024\005\"]\n\027Sheet_activitygvgReward\022B\n\026activ"
+    "itygvgReward_List\030\001 \003(\0132\033.proto_ff.activ"
+    "itygvgRewardB\005\210\301\024\264\001\"R\n\032activityworldTrea"
+    "sureConst\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022 \n\014constan"
+    "tdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\"w\n Sheet_activit"
+    "yworldTreasureConst\022S\n\037activityworldTrea"
+    "sureConst_List\030\001 \003(\0132$.proto_ff.activity"
+    "worldTreasureConstB\004\210\301\024\024\"[\n\030activityworl"
+    "dTreasureMap\022\033\n\005mapID\030\001 \001(\003B\014\302\377\024\010\345\234\260\345\233\276I"
+    "D\022\"\n\006pathID\030\002 \001(\tB\022\302\377\024\t\345\210\267\346\200\252\347\202\271\220\301\024\330\004\"q\n"
+    "\036Sheet_activityworldTreasureMap\022O\n\035activ"
+    "ityworldTreasureMap_List\030\001 \003(\0132\".proto_f"
+    "f.activityworldTreasureMapB\004\210\301\024\024\"\234\001\n\034act"
+    "ivityworldTreasureMonster\022\022\n\002ID\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\037\n\tmonsterID\030\002 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\022&"
+    "\n\014appearWeight\030\003 \001(\005B\020\302\377\024\014\345\210\267\346\226\260\346\235\203\351\207\215\022\037"
+    "\n\007skillId\030\004 \001(\003B\016\302\377\024\n\351\231\204\345\270\246BUFF\"}\n\"Sheet"
+    "_activityworldTreasureMonster\022W\n!activit"
+    "yworldTreasureMonster_List\030\001 \003(\0132&.proto"
+    "_ff.activityworldTreasureMonsterB\004\210\301\024\024\"\177"
+    "\n\032activitylosttempleConstant\022\022\n\002id\030\001 \001(\005"
+    "B\006\302\377\024\002ID\022 \n\014constantdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346"
+    "\215\256\022+\n\nstringdata\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260"
+    "\346\215\256\220\301\024<\"w\n Sheet_activitylosttempleConst"
+    "ant\022S\n\037activitylosttempleConstant_List\030\001"
+    " \003(\0132$.proto_ff.activitylosttempleConsta"
+    "ntB\004\210\301\024\024", 6248);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "activity.proto", &protobuf_RegisterTypes);
   activitydaily::default_instance_ = new activitydaily();
@@ -3006,6 +3010,7 @@ void Sheet_activityactivitynotice::Swap(Sheet_activityactivitynotice* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int activityscufflerewardDesc::kNumFieldNumber;
 const int activityscufflerewardDesc::kIDFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3025,6 +3030,7 @@ activityscufflerewardDesc::activityscufflerewardDesc(const activityscufflereward
 
 void activityscufflerewardDesc::SharedCtor() {
   _cached_size_ = 0;
+  num_ = GOOGLE_LONGLONG(0);
   id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -3061,6 +3067,7 @@ activityscufflerewardDesc* activityscufflerewardDesc::New() const {
 
 void activityscufflerewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    num_ = GOOGLE_LONGLONG(0);
     id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3073,10 +3080,26 @@ bool activityscufflerewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ID;
+        break;
+      }
+
+      // optional int64 ID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &id_)));
@@ -3106,9 +3129,14 @@ bool activityscufflerewardDesc::MergePartialFromCodedStream(
 
 void activityscufflerewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->num(), output);
+  }
+
+  // optional int64 ID = 2;
   if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3119,9 +3147,14 @@ void activityscufflerewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* activityscufflerewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->num(), target);
+  }
+
+  // optional int64 ID = 2;
   if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3135,7 +3168,14 @@ int activityscufflerewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
+    // optional int64 Num = 1;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->num());
+    }
+
+    // optional int64 ID = 2;
     if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3169,6 +3209,9 @@ void activityscufflerewardDesc::MergeFrom(const ::google::protobuf::Message& fro
 void activityscufflerewardDesc::MergeFrom(const activityscufflerewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_num()) {
+      set_num(from.num());
+    }
     if (from.has_id()) {
       set_id(from.id());
     }
@@ -3195,6 +3238,7 @@ bool activityscufflerewardDesc::IsInitialized() const {
 
 void activityscufflerewardDesc::Swap(activityscufflerewardDesc* other) {
   if (other != this) {
+    std::swap(num_, other->num_);
     std::swap(id_, other->id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -4031,6 +4075,7 @@ void Sheet_activityscuffle::Swap(Sheet_activityscuffle* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int activitychaosDragonsrewardDesc::kNumFieldNumber;
 const int activitychaosDragonsrewardDesc::kIDFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4050,6 +4095,7 @@ activitychaosDragonsrewardDesc::activitychaosDragonsrewardDesc(const activitycha
 
 void activitychaosDragonsrewardDesc::SharedCtor() {
   _cached_size_ = 0;
+  num_ = GOOGLE_LONGLONG(0);
   id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -4086,6 +4132,7 @@ activitychaosDragonsrewardDesc* activitychaosDragonsrewardDesc::New() const {
 
 void activitychaosDragonsrewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    num_ = GOOGLE_LONGLONG(0);
     id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4098,10 +4145,26 @@ bool activitychaosDragonsrewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ID;
+        break;
+      }
+
+      // optional int64 ID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &id_)));
@@ -4131,9 +4194,14 @@ bool activitychaosDragonsrewardDesc::MergePartialFromCodedStream(
 
 void activitychaosDragonsrewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->num(), output);
+  }
+
+  // optional int64 ID = 2;
   if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4144,9 +4212,14 @@ void activitychaosDragonsrewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* activitychaosDragonsrewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->num(), target);
+  }
+
+  // optional int64 ID = 2;
   if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4160,7 +4233,14 @@ int activitychaosDragonsrewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
+    // optional int64 Num = 1;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->num());
+    }
+
+    // optional int64 ID = 2;
     if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4194,6 +4274,9 @@ void activitychaosDragonsrewardDesc::MergeFrom(const ::google::protobuf::Message
 void activitychaosDragonsrewardDesc::MergeFrom(const activitychaosDragonsrewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_num()) {
+      set_num(from.num());
+    }
     if (from.has_id()) {
       set_id(from.id());
     }
@@ -4220,6 +4303,7 @@ bool activitychaosDragonsrewardDesc::IsInitialized() const {
 
 void activitychaosDragonsrewardDesc::Swap(activitychaosDragonsrewardDesc* other) {
   if (other != this) {
+    std::swap(num_, other->num_);
     std::swap(id_, other->id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

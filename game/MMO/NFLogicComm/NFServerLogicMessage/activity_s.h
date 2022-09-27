@@ -84,6 +84,7 @@ namespace proto_ff_s {
 		activityscufflerewardDesc_s();
 		int CreateInit();
 		int ResumeInit();
+		int64_t Num;
 		int64_t ID;
 
 		virtual void write_to_pbmsg(::proto_ff::activityscufflerewardDesc & msg) const;
@@ -133,6 +134,7 @@ namespace proto_ff_s {
 		activitychaosDragonsrewardDesc_s();
 		int CreateInit();
 		int ResumeInit();
+		int64_t Num;
 		int64_t ID;
 
 		virtual void write_to_pbmsg(::proto_ff::activitychaosDragonsrewardDesc & msg) const;

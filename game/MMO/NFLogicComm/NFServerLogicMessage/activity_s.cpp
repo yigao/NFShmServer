@@ -174,6 +174,7 @@ activityscufflerewardDesc_s::activityscufflerewardDesc_s() {
 }
 
 int activityscufflerewardDesc_s::CreateInit() {
+	Num = (int64_t)0;
 	ID = (int64_t)0;
 	return 0;
 }
@@ -183,11 +184,13 @@ int activityscufflerewardDesc_s::ResumeInit() {
 }
 
 void activityscufflerewardDesc_s::write_to_pbmsg(::proto_ff::activityscufflerewardDesc & msg) const {
+	msg.set_num((int64_t)Num);
 	msg.set_id((int64_t)ID);
 }
 
 void activityscufflerewardDesc_s::read_from_pbmsg(const ::proto_ff::activityscufflerewardDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activityscufflerewardDesc_s));
+	Num = msg.num();
 	ID = msg.id();
 }
 
@@ -294,6 +297,7 @@ activitychaosDragonsrewardDesc_s::activitychaosDragonsrewardDesc_s() {
 }
 
 int activitychaosDragonsrewardDesc_s::CreateInit() {
+	Num = (int64_t)0;
 	ID = (int64_t)0;
 	return 0;
 }
@@ -303,11 +307,13 @@ int activitychaosDragonsrewardDesc_s::ResumeInit() {
 }
 
 void activitychaosDragonsrewardDesc_s::write_to_pbmsg(::proto_ff::activitychaosDragonsrewardDesc & msg) const {
+	msg.set_num((int64_t)Num);
 	msg.set_id((int64_t)ID);
 }
 
 void activitychaosDragonsrewardDesc_s::read_from_pbmsg(const ::proto_ff::activitychaosDragonsrewardDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct activitychaosDragonsrewardDesc_s));
+	Num = msg.num();
 	ID = msg.id();
 }
 

@@ -683,24 +683,34 @@ class activityscufflerewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 1;
+  inline ::google::protobuf::int64 num() const;
+  inline void set_num(::google::protobuf::int64 value);
+
+  // optional int64 ID = 2;
   inline bool has_id() const;
   inline void clear_id();
-  static const int kIDFieldNumber = 1;
+  static const int kIDFieldNumber = 2;
   inline ::google::protobuf::int64 id() const;
   inline void set_id(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.activityscufflerewardDesc)
  private:
+  inline void set_has_num();
+  inline void clear_has_num();
   inline void set_has_id();
   inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::int64 num_;
   ::google::protobuf::int64 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -1035,24 +1045,34 @@ class activitychaosDragonsrewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 ID = 1;
+  // optional int64 Num = 1;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 1;
+  inline ::google::protobuf::int64 num() const;
+  inline void set_num(::google::protobuf::int64 value);
+
+  // optional int64 ID = 2;
   inline bool has_id() const;
   inline void clear_id();
-  static const int kIDFieldNumber = 1;
+  static const int kIDFieldNumber = 2;
   inline ::google::protobuf::int64 id() const;
   inline void set_id(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.activitychaosDragonsrewardDesc)
  private:
+  inline void set_has_num();
+  inline void clear_has_num();
   inline void set_has_id();
   inline void clear_has_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::int64 num_;
   ::google::protobuf::int64 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_activity_2eproto();
   friend void protobuf_AssignDesc_activity_2eproto();
@@ -5324,15 +5344,37 @@ Sheet_activityactivitynotice::mutable_activityactivitynotice_list() {
 
 // activityscufflerewardDesc
 
-// optional int64 ID = 1;
-inline bool activityscufflerewardDesc::has_id() const {
+// optional int64 Num = 1;
+inline bool activityscufflerewardDesc::has_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void activityscufflerewardDesc::set_has_id() {
+inline void activityscufflerewardDesc::set_has_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void activityscufflerewardDesc::clear_has_id() {
+inline void activityscufflerewardDesc::clear_has_num() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void activityscufflerewardDesc::clear_num() {
+  num_ = GOOGLE_LONGLONG(0);
+  clear_has_num();
+}
+inline ::google::protobuf::int64 activityscufflerewardDesc::num() const {
+  return num_;
+}
+inline void activityscufflerewardDesc::set_num(::google::protobuf::int64 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// optional int64 ID = 2;
+inline bool activityscufflerewardDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void activityscufflerewardDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void activityscufflerewardDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void activityscufflerewardDesc::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
@@ -5628,15 +5670,37 @@ Sheet_activityscuffle::mutable_activityscuffle_list() {
 
 // activitychaosDragonsrewardDesc
 
-// optional int64 ID = 1;
-inline bool activitychaosDragonsrewardDesc::has_id() const {
+// optional int64 Num = 1;
+inline bool activitychaosDragonsrewardDesc::has_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void activitychaosDragonsrewardDesc::set_has_id() {
+inline void activitychaosDragonsrewardDesc::set_has_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void activitychaosDragonsrewardDesc::clear_has_id() {
+inline void activitychaosDragonsrewardDesc::clear_has_num() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void activitychaosDragonsrewardDesc::clear_num() {
+  num_ = GOOGLE_LONGLONG(0);
+  clear_has_num();
+}
+inline ::google::protobuf::int64 activitychaosDragonsrewardDesc::num() const {
+  return num_;
+}
+inline void activitychaosDragonsrewardDesc::set_num(::google::protobuf::int64 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// optional int64 ID = 2;
+inline bool activitychaosDragonsrewardDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void activitychaosDragonsrewardDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void activitychaosDragonsrewardDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void activitychaosDragonsrewardDesc::clear_id() {
   id_ = GOOGLE_LONGLONG(0);

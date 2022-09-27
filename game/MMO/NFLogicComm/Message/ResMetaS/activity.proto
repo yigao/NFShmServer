@@ -45,7 +45,8 @@ message Sheet_activityactivitynotice
 
 message activityscufflerewardDesc
 {
-	optional int64 ID = 1[(yd_fieldoptions.field_cname) = ""];
+	optional int64 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message activityscuffle
@@ -71,7 +72,8 @@ message Sheet_activityscuffle
 
 message activitychaosDragonsrewardDesc
 {
-	optional int64 ID = 1[(yd_fieldoptions.field_cname) = ""];
+	optional int64 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message activitychaosDragons
