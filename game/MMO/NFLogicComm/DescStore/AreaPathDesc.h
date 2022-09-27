@@ -12,6 +12,8 @@ class AreaPathDesc : public NFIDescStore
 public:
 	AreaPathDesc(NFIPluginManager* pPluginManager);
 	virtual ~AreaPathDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::areapath_s* GetDesc(int id) const;
 	proto_ff_s::areapath_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::areapath_s, MAX_AREA_PATH_NUM>* GetAllDesc() const { return &m_astDesc; }

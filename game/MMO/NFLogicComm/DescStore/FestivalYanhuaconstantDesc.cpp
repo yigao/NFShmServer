@@ -69,7 +69,7 @@ int FestivalYanhuaconstantDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalyanhuaConstant_s * FestivalYanhuaconstantDesc::CetDesc(int id) const
+const proto_ff_s::festivalyanhuaConstant_s * FestivalYanhuaconstantDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

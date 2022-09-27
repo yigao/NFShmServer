@@ -69,7 +69,7 @@ int ManorConstantsDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::manorconstants_s * ManorConstantsDesc::CetDesc(int id) const
+const proto_ff_s::manorconstants_s * ManorConstantsDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

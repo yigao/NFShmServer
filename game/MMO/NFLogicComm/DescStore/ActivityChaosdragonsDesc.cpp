@@ -69,7 +69,7 @@ int ActivityChaosdragonsDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activitychaosDragons_s * ActivityChaosdragonsDesc::CetDesc(int id) const
+const proto_ff_s::activitychaosDragons_s * ActivityChaosdragonsDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

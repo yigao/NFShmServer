@@ -12,6 +12,8 @@ class GuildLevelDesc : public NFIDescStore
 public:
 	GuildLevelDesc(NFIPluginManager* pPluginManager);
 	virtual ~GuildLevelDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::guildlevel_s* GetDesc(int id) const;
 	proto_ff_s::guildlevel_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::guildlevel_s, MAX_GUILD_LEVEL_NUM>* GetAllDesc() const { return &m_astDesc; }

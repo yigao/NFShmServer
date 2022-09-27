@@ -12,6 +12,8 @@ class WarlandMultikillDesc : public NFIDescStore
 public:
 	WarlandMultikillDesc(NFIPluginManager* pPluginManager);
 	virtual ~WarlandMultikillDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::warlandmultiKill_s* GetDesc(int id) const;
 	proto_ff_s::warlandmultiKill_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::warlandmultiKill_s, MAX_WARLAND_MULTIKILL_NUM>* GetAllDesc() const { return &m_astDesc; }

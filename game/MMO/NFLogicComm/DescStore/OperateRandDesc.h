@@ -12,6 +12,8 @@ class OperateRandDesc : public NFIDescStore
 public:
 	OperateRandDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateRandDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operaterand_s* GetDesc(int id) const;
 	proto_ff_s::operaterand_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operaterand_s, MAX_OPERATE_RAND_NUM>* GetAllDesc() const { return &m_astDesc; }

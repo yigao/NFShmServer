@@ -12,6 +12,8 @@ class CombineStarupDesc : public NFIDescStore
 public:
 	CombineStarupDesc(NFIPluginManager* pPluginManager);
 	virtual ~CombineStarupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::combinestarUp_s* GetDesc(int id) const;
 	proto_ff_s::combinestarUp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::combinestarUp_s, MAX_COMBINE_STARUP_NUM>* GetAllDesc() const { return &m_astDesc; }

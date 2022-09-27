@@ -12,6 +12,8 @@ class MarryLevelexpDesc : public NFIDescStore
 public:
 	MarryLevelexpDesc(NFIPluginManager* pPluginManager);
 	virtual ~MarryLevelexpDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::marrylevelexp_s* GetDesc(int id) const;
 	proto_ff_s::marrylevelexp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::marrylevelexp_s, MAX_MARRY_LEVELEXP_NUM>* GetAllDesc() const { return &m_astDesc; }

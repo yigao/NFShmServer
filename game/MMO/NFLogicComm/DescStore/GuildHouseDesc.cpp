@@ -69,7 +69,7 @@ int GuildHouseDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::guildhouse_s * GuildHouseDesc::CetDesc(int id) const
+const proto_ff_s::guildhouse_s * GuildHouseDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

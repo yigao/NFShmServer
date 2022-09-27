@@ -69,7 +69,7 @@ int SkillSkillDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::skillskill_s * SkillSkillDesc::CetDesc(int id) const
+const proto_ff_s::skillskill_s * SkillSkillDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

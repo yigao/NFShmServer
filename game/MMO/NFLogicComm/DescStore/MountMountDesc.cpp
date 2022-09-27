@@ -69,7 +69,7 @@ int MountMountDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::mountmount_s * MountMountDesc::CetDesc(int id) const
+const proto_ff_s::mountmount_s * MountMountDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -12,6 +12,8 @@ class OccupationAptitudeDesc : public NFIDescStore
 public:
 	OccupationAptitudeDesc(NFIPluginManager* pPluginManager);
 	virtual ~OccupationAptitudeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::occupationaptitude_s* GetDesc(int id) const;
 	proto_ff_s::occupationaptitude_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::occupationaptitude_s, MAX_OCCUPATION_APTITUDE_NUM>* GetAllDesc() const { return &m_astDesc; }

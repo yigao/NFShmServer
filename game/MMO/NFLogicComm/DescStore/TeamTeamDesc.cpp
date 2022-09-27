@@ -69,7 +69,7 @@ int TeamTeamDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::teamteam_s * TeamTeamDesc::CetDesc(int id) const
+const proto_ff_s::teamteam_s * TeamTeamDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

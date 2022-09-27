@@ -12,6 +12,8 @@ class FestivalMuban_eggsDesc : public NFIDescStore
 public:
 	FestivalMuban_eggsDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_eggsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_eggs_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_eggs_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_eggs_s, MAX_FESTIVAL_MUBAN_EGGS_NUM>* GetAllDesc() const { return &m_astDesc; }

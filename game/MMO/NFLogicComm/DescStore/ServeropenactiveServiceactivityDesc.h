@@ -12,6 +12,8 @@ class ServeropenactiveServiceactivityDesc : public NFIDescStore
 public:
 	ServeropenactiveServiceactivityDesc(NFIPluginManager* pPluginManager);
 	virtual ~ServeropenactiveServiceactivityDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::serveropenactiveserviceActivity_s* GetDesc(int id) const;
 	proto_ff_s::serveropenactiveserviceActivity_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::serveropenactiveserviceActivity_s, MAX_SERVEROPENACTIVE_SERVICEACTIVITY_NUM>* GetAllDesc() const { return &m_astDesc; }

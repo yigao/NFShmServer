@@ -69,7 +69,7 @@ int CombineStarupDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::combinestarUp_s * CombineStarupDesc::CetDesc(int id) const
+const proto_ff_s::combinestarUp_s * CombineStarupDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

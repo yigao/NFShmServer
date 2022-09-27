@@ -69,7 +69,7 @@ int RoleMasterDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::rolemaster_s * RoleMasterDesc::CetDesc(int id) const
+const proto_ff_s::rolemaster_s * RoleMasterDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

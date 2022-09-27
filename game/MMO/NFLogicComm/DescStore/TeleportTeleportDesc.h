@@ -12,6 +12,8 @@ class TeleportTeleportDesc : public NFIDescStore
 public:
 	TeleportTeleportDesc(NFIPluginManager* pPluginManager);
 	virtual ~TeleportTeleportDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::teleportteleport_s* GetDesc(int id) const;
 	proto_ff_s::teleportteleport_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::teleportteleport_s, MAX_TELEPORT_TELEPORT_NUM>* GetAllDesc() const { return &m_astDesc; }

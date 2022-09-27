@@ -69,7 +69,7 @@ int DropDropDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::dropdrop_s * DropDropDesc::CetDesc(int id) const
+const proto_ff_s::dropdrop_s * DropDropDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

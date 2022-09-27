@@ -69,7 +69,7 @@ int ServeropenactiveServiceactivityDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::serveropenactiveserviceActivity_s * ServeropenactiveServiceactivityDesc::CetDesc(int id) const
+const proto_ff_s::serveropenactiveserviceActivity_s * ServeropenactiveServiceactivityDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

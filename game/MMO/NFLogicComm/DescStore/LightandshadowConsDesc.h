@@ -12,6 +12,8 @@ class LightandshadowConsDesc : public NFIDescStore
 public:
 	LightandshadowConsDesc(NFIPluginManager* pPluginManager);
 	virtual ~LightandshadowConsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::lightAndShadowcons_s* GetDesc(int id) const;
 	proto_ff_s::lightAndShadowcons_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::lightAndShadowcons_s, MAX_LIGHTANDSHADOW_CONS_NUM>* GetAllDesc() const { return &m_astDesc; }

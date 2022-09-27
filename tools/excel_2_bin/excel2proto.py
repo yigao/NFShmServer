@@ -74,6 +74,8 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("public:\n")
 	desc_file.write("\t" + excel_name.capitalize() + sheet_name.capitalize() + "Desc(NFIPluginManager* pPluginManager);\n")
 	desc_file.write("\tvirtual ~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
+	desc_file.write("\tint CreateInit();\n")
+	desc_file.write("\tint ResumeInit();\n")
 	desc_file.write("\tconst proto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id) const;\n");
 	desc_file.write("\tproto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id);\n");
 	desc_file.write("\tconst NFShmHashMap<uint64_t, proto_ff_s::" + excel_name + sheet_name + "_s, MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM>* GetAllDesc() const { return &m_astDesc; }\n")
@@ -163,7 +165,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
-	desc_file.write("const proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::CetDesc(int id) const\n")
+	desc_file.write("const proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id) const\n")
 	desc_file.write("{\n")
 	desc_file.write("\treturn m_astDesc.Find(id);\n")
 	desc_file.write("}\n\n")

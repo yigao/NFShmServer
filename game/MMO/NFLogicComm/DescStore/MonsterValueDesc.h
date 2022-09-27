@@ -12,6 +12,8 @@ class MonsterValueDesc : public NFIDescStore
 public:
 	MonsterValueDesc(NFIPluginManager* pPluginManager);
 	virtual ~MonsterValueDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::monstervalue_s* GetDesc(int id) const;
 	proto_ff_s::monstervalue_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::monstervalue_s, MAX_MONSTER_VALUE_NUM>* GetAllDesc() const { return &m_astDesc; }

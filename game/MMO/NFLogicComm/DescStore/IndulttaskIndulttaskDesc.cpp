@@ -69,7 +69,7 @@ int IndulttaskIndulttaskDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::indultTaskindultTask_s * IndulttaskIndulttaskDesc::CetDesc(int id) const
+const proto_ff_s::indultTaskindultTask_s * IndulttaskIndulttaskDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

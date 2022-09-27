@@ -69,7 +69,7 @@ int TreasureFragmentDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::treasurefragment_s * TreasureFragmentDesc::CetDesc(int id) const
+const proto_ff_s::treasurefragment_s * TreasureFragmentDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

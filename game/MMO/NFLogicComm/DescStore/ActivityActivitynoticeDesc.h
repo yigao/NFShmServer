@@ -12,6 +12,8 @@ class ActivityActivitynoticeDesc : public NFIDescStore
 public:
 	ActivityActivitynoticeDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityActivitynoticeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activityactivitynotice_s* GetDesc(int id) const;
 	proto_ff_s::activityactivitynotice_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activityactivitynotice_s, MAX_ACTIVITY_ACTIVITYNOTICE_NUM>* GetAllDesc() const { return &m_astDesc; }

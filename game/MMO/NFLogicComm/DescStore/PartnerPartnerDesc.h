@@ -12,6 +12,8 @@ class PartnerPartnerDesc : public NFIDescStore
 public:
 	PartnerPartnerDesc(NFIPluginManager* pPluginManager);
 	virtual ~PartnerPartnerDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::partnerpartner_s* GetDesc(int id) const;
 	proto_ff_s::partnerpartner_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::partnerpartner_s, MAX_PARTNER_PARTNER_NUM>* GetAllDesc() const { return &m_astDesc; }

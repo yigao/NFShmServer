@@ -12,6 +12,8 @@ class FestivalMuban_czjbDesc : public NFIDescStore
 public:
 	FestivalMuban_czjbDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_czjbDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_czjb_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_czjb_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_czjb_s, MAX_FESTIVAL_MUBAN_CZJB_NUM>* GetAllDesc() const { return &m_astDesc; }

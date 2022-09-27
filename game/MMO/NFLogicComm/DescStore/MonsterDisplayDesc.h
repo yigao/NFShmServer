@@ -12,6 +12,8 @@ class MonsterDisplayDesc : public NFIDescStore
 public:
 	MonsterDisplayDesc(NFIPluginManager* pPluginManager);
 	virtual ~MonsterDisplayDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::monsterdisplay_s* GetDesc(int id) const;
 	proto_ff_s::monsterdisplay_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::monsterdisplay_s, MAX_MONSTER_DISPLAY_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -69,7 +69,7 @@ int WitchAwardDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::witchaward_s * WitchAwardDesc::CetDesc(int id) const
+const proto_ff_s::witchaward_s * WitchAwardDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

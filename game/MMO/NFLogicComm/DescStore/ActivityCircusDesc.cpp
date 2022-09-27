@@ -69,7 +69,7 @@ int ActivityCircusDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activitycircus_s * ActivityCircusDesc::CetDesc(int id) const
+const proto_ff_s::activitycircus_s * ActivityCircusDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

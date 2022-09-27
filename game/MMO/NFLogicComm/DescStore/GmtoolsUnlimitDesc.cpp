@@ -69,7 +69,7 @@ int GmtoolsUnlimitDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::GMtoolsunlimit_s * GmtoolsUnlimitDesc::CetDesc(int id) const
+const proto_ff_s::GMtoolsunlimit_s * GmtoolsUnlimitDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

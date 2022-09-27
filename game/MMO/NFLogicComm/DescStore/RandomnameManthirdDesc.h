@@ -12,6 +12,8 @@ class RandomnameManthirdDesc : public NFIDescStore
 public:
 	RandomnameManthirdDesc(NFIPluginManager* pPluginManager);
 	virtual ~RandomnameManthirdDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::randomnamemanthird_s* GetDesc(int id) const;
 	proto_ff_s::randomnamemanthird_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::randomnamemanthird_s, MAX_RANDOMNAME_MANTHIRD_NUM>* GetAllDesc() const { return &m_astDesc; }

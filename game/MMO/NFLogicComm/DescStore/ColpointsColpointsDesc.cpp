@@ -69,7 +69,7 @@ int ColpointsColpointsDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::colPointscolPoints_s * ColpointsColpointsDesc::CetDesc(int id) const
+const proto_ff_s::colPointscolPoints_s * ColpointsColpointsDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

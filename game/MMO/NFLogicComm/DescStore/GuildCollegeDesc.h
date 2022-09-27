@@ -12,6 +12,8 @@ class GuildCollegeDesc : public NFIDescStore
 public:
 	GuildCollegeDesc(NFIPluginManager* pPluginManager);
 	virtual ~GuildCollegeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::guildcollege_s* GetDesc(int id) const;
 	proto_ff_s::guildcollege_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::guildcollege_s, MAX_GUILD_COLLEGE_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -69,7 +69,7 @@ int HeadportraitFrameDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::headPortraitframe_s * HeadportraitFrameDesc::CetDesc(int id) const
+const proto_ff_s::headPortraitframe_s * HeadportraitFrameDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

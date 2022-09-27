@@ -69,7 +69,7 @@ int RandomnameMansecondDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::randomnamemansecond_s * RandomnameMansecondDesc::CetDesc(int id) const
+const proto_ff_s::randomnamemansecond_s * RandomnameMansecondDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

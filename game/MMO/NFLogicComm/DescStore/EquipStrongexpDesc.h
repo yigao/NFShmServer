@@ -12,6 +12,8 @@ class EquipStrongexpDesc : public NFIDescStore
 public:
 	EquipStrongexpDesc(NFIPluginManager* pPluginManager);
 	virtual ~EquipStrongexpDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::equipstrongexp_s* GetDesc(int id) const;
 	proto_ff_s::equipstrongexp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::equipstrongexp_s, MAX_EQUIP_STRONGEXP_NUM>* GetAllDesc() const { return &m_astDesc; }

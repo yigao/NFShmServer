@@ -12,6 +12,8 @@ class RoleMasterDesc : public NFIDescStore
 public:
 	RoleMasterDesc(NFIPluginManager* pPluginManager);
 	virtual ~RoleMasterDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::rolemaster_s* GetDesc(int id) const;
 	proto_ff_s::rolemaster_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::rolemaster_s, MAX_ROLE_MASTER_NUM>* GetAllDesc() const { return &m_astDesc; }

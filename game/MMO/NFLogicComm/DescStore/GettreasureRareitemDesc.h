@@ -12,6 +12,8 @@ class GettreasureRareitemDesc : public NFIDescStore
 public:
 	GettreasureRareitemDesc(NFIPluginManager* pPluginManager);
 	virtual ~GettreasureRareitemDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::getTreasurerareItem_s* GetDesc(int id) const;
 	proto_ff_s::getTreasurerareItem_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::getTreasurerareItem_s, MAX_GETTREASURE_RAREITEM_NUM>* GetAllDesc() const { return &m_astDesc; }

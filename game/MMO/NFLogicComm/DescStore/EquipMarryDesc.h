@@ -12,6 +12,8 @@ class EquipMarryDesc : public NFIDescStore
 public:
 	EquipMarryDesc(NFIPluginManager* pPluginManager);
 	virtual ~EquipMarryDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::equipmarry_s* GetDesc(int id) const;
 	proto_ff_s::equipmarry_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::equipmarry_s, MAX_EQUIP_MARRY_NUM>* GetAllDesc() const { return &m_astDesc; }

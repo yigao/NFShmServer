@@ -12,6 +12,8 @@ class TasktrackerTasktrackerDesc : public NFIDescStore
 public:
 	TasktrackerTasktrackerDesc(NFIPluginManager* pPluginManager);
 	virtual ~TasktrackerTasktrackerDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::tasktrackertasktracker_s* GetDesc(int id) const;
 	proto_ff_s::tasktrackertasktracker_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::tasktrackertasktracker_s, MAX_TASKTRACKER_TASKTRACKER_NUM>* GetAllDesc() const { return &m_astDesc; }

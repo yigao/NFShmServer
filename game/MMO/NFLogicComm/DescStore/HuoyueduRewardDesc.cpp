@@ -69,7 +69,7 @@ int HuoyueduRewardDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::huoyuedureward_s * HuoyueduRewardDesc::CetDesc(int id) const
+const proto_ff_s::huoyuedureward_s * HuoyueduRewardDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -69,7 +69,7 @@ int DuplicateDuplicateDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::duplicateduplicate_s * DuplicateDuplicateDesc::CetDesc(int id) const
+const proto_ff_s::duplicateduplicate_s * DuplicateDuplicateDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

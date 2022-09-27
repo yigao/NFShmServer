@@ -12,6 +12,8 @@ class HeadportraitFrameDesc : public NFIDescStore
 public:
 	HeadportraitFrameDesc(NFIPluginManager* pPluginManager);
 	virtual ~HeadportraitFrameDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::headPortraitframe_s* GetDesc(int id) const;
 	proto_ff_s::headPortraitframe_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::headPortraitframe_s, MAX_HEADPORTRAIT_FRAME_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -69,7 +69,7 @@ int LightandshadowConsDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::lightAndShadowcons_s * LightandshadowConsDesc::CetDesc(int id) const
+const proto_ff_s::lightAndShadowcons_s * LightandshadowConsDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

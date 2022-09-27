@@ -12,6 +12,8 @@ class ConstantConstantDesc : public NFIDescStore
 public:
 	ConstantConstantDesc(NFIPluginManager* pPluginManager);
 	virtual ~ConstantConstantDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::constantconstant_s* GetDesc(int id) const;
 	proto_ff_s::constantconstant_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::constantconstant_s, MAX_CONSTANT_CONSTANT_NUM>* GetAllDesc() const { return &m_astDesc; }

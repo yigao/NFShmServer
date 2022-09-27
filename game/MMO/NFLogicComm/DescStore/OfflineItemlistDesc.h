@@ -12,6 +12,8 @@ class OfflineItemlistDesc : public NFIDescStore
 public:
 	OfflineItemlistDesc(NFIPluginManager* pPluginManager);
 	virtual ~OfflineItemlistDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::offlineitemlist_s* GetDesc(int id) const;
 	proto_ff_s::offlineitemlist_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::offlineitemlist_s, MAX_OFFLINE_ITEMLIST_NUM>* GetAllDesc() const { return &m_astDesc; }

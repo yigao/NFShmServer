@@ -12,6 +12,8 @@ class SkillSkillDesc : public NFIDescStore
 public:
 	SkillSkillDesc(NFIPluginManager* pPluginManager);
 	virtual ~SkillSkillDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::skillskill_s* GetDesc(int id) const;
 	proto_ff_s::skillskill_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::skillskill_s, MAX_SKILL_SKILL_NUM>* GetAllDesc() const { return &m_astDesc; }

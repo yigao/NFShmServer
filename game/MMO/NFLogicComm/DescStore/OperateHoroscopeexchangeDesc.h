@@ -12,6 +12,8 @@ class OperateHoroscopeexchangeDesc : public NFIDescStore
 public:
 	OperateHoroscopeexchangeDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateHoroscopeexchangeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operatehoroscopeExchange_s* GetDesc(int id) const;
 	proto_ff_s::operatehoroscopeExchange_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operatehoroscopeExchange_s, MAX_OPERATE_HOROSCOPEEXCHANGE_NUM>* GetAllDesc() const { return &m_astDesc; }

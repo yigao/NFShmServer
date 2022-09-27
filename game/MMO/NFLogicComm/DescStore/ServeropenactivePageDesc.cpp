@@ -69,7 +69,7 @@ int ServeropenactivePageDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::serveropenactivepage_s * ServeropenactivePageDesc::CetDesc(int id) const
+const proto_ff_s::serveropenactivepage_s * ServeropenactivePageDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

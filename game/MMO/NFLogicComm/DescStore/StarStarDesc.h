@@ -12,6 +12,8 @@ class StarStarDesc : public NFIDescStore
 public:
 	StarStarDesc(NFIPluginManager* pPluginManager);
 	virtual ~StarStarDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::starstar_s* GetDesc(int id) const;
 	proto_ff_s::starstar_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::starstar_s, MAX_STAR_STAR_NUM>* GetAllDesc() const { return &m_astDesc; }

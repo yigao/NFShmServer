@@ -12,6 +12,8 @@ class WitchSummonDesc : public NFIDescStore
 public:
 	WitchSummonDesc(NFIPluginManager* pPluginManager);
 	virtual ~WitchSummonDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::witchsummon_s* GetDesc(int id) const;
 	proto_ff_s::witchsummon_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::witchsummon_s, MAX_WITCH_SUMMON_NUM>* GetAllDesc() const { return &m_astDesc; }

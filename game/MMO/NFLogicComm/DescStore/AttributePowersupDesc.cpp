@@ -69,7 +69,7 @@ int AttributePowersupDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::attributepowersup_s * AttributePowersupDesc::CetDesc(int id) const
+const proto_ff_s::attributepowersup_s * AttributePowersupDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

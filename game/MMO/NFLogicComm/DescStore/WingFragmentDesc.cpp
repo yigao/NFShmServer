@@ -69,7 +69,7 @@ int WingFragmentDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::wingfragment_s * WingFragmentDesc::CetDesc(int id) const
+const proto_ff_s::wingfragment_s * WingFragmentDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -12,6 +12,8 @@ class SensitivewordSensitive_wordDesc : public NFIDescStore
 public:
 	SensitivewordSensitive_wordDesc(NFIPluginManager* pPluginManager);
 	virtual ~SensitivewordSensitive_wordDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::sensitivewordsensitive_word_s* GetDesc(int id) const;
 	proto_ff_s::sensitivewordsensitive_word_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::sensitivewordsensitive_word_s, MAX_SENSITIVEWORD_SENSITIVE_WORD_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class FlashFlashDesc : public NFIDescStore
 public:
 	FlashFlashDesc(NFIPluginManager* pPluginManager);
 	virtual ~FlashFlashDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::flashflash_s* GetDesc(int id) const;
 	proto_ff_s::flashflash_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::flashflash_s, MAX_FLASH_FLASH_NUM>* GetAllDesc() const { return &m_astDesc; }

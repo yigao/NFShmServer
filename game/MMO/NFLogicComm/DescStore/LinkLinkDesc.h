@@ -12,6 +12,8 @@ class LinkLinkDesc : public NFIDescStore
 public:
 	LinkLinkDesc(NFIPluginManager* pPluginManager);
 	virtual ~LinkLinkDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::linklink_s* GetDesc(int id) const;
 	proto_ff_s::linklink_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::linklink_s, MAX_LINK_LINK_NUM>* GetAllDesc() const { return &m_astDesc; }

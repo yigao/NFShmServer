@@ -69,7 +69,7 @@ int RoleAssassinDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::roleassassin_s * RoleAssassinDesc::CetDesc(int id) const
+const proto_ff_s::roleassassin_s * RoleAssassinDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

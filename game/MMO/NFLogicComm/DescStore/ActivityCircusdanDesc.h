@@ -12,6 +12,8 @@ class ActivityCircusdanDesc : public NFIDescStore
 public:
 	ActivityCircusdanDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityCircusdanDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activitycircusDan_s* GetDesc(int id) const;
 	proto_ff_s::activitycircusDan_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activitycircusDan_s, MAX_ACTIVITY_CIRCUSDAN_NUM>* GetAllDesc() const { return &m_astDesc; }

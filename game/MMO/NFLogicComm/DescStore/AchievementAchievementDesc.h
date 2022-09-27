@@ -12,6 +12,8 @@ class AchievementAchievementDesc : public NFIDescStore
 public:
 	AchievementAchievementDesc(NFIPluginManager* pPluginManager);
 	virtual ~AchievementAchievementDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::achievementachievement_s* GetDesc(int id) const;
 	proto_ff_s::achievementachievement_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::achievementachievement_s, MAX_ACHIEVEMENT_ACHIEVEMENT_NUM>* GetAllDesc() const { return &m_astDesc; }

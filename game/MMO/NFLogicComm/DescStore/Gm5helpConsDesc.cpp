@@ -69,7 +69,7 @@ int Gm5helpConsDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::gm5Helpcons_s * Gm5helpConsDesc::CetDesc(int id) const
+const proto_ff_s::gm5Helpcons_s * Gm5helpConsDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

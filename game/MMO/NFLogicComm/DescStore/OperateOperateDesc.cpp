@@ -69,7 +69,7 @@ int OperateOperateDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::operateoperate_s * OperateOperateDesc::CetDesc(int id) const
+const proto_ff_s::operateoperate_s * OperateOperateDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

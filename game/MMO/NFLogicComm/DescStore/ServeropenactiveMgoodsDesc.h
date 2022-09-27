@@ -12,6 +12,8 @@ class ServeropenactiveMgoodsDesc : public NFIDescStore
 public:
 	ServeropenactiveMgoodsDesc(NFIPluginManager* pPluginManager);
 	virtual ~ServeropenactiveMgoodsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::serveropenactivemGoods_s* GetDesc(int id) const;
 	proto_ff_s::serveropenactivemGoods_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::serveropenactivemGoods_s, MAX_SERVEROPENACTIVE_MGOODS_NUM>* GetAllDesc() const { return &m_astDesc; }

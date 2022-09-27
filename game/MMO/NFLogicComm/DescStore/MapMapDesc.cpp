@@ -69,7 +69,7 @@ int MapMapDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::mapmap_s * MapMapDesc::CetDesc(int id) const
+const proto_ff_s::mapmap_s * MapMapDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

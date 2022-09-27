@@ -12,6 +12,8 @@ class GmtoolsRechargeDesc : public NFIDescStore
 public:
 	GmtoolsRechargeDesc(NFIPluginManager* pPluginManager);
 	virtual ~GmtoolsRechargeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::GMtoolsrecharge_s* GetDesc(int id) const;
 	proto_ff_s::GMtoolsrecharge_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::GMtoolsrecharge_s, MAX_GMTOOLS_RECHARGE_NUM>* GetAllDesc() const { return &m_astDesc; }

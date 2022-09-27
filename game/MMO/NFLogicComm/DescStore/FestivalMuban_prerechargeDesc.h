@@ -12,6 +12,8 @@ class FestivalMuban_prerechargeDesc : public NFIDescStore
 public:
 	FestivalMuban_prerechargeDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_prerechargeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_prerecharge_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_prerecharge_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_prerecharge_s, MAX_FESTIVAL_MUBAN_PRERECHARGE_NUM>* GetAllDesc() const { return &m_astDesc; }

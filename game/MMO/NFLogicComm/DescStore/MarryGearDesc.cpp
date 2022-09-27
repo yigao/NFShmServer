@@ -69,7 +69,7 @@ int MarryGearDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::marrygear_s * MarryGearDesc::CetDesc(int id) const
+const proto_ff_s::marrygear_s * MarryGearDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

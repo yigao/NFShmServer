@@ -12,6 +12,8 @@ class RechargereturnTimeDesc : public NFIDescStore
 public:
 	RechargereturnTimeDesc(NFIPluginManager* pPluginManager);
 	virtual ~RechargereturnTimeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::rechargeReturntime_s* GetDesc(int id) const;
 	proto_ff_s::rechargeReturntime_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::rechargeReturntime_s, MAX_RECHARGERETURN_TIME_NUM>* GetAllDesc() const { return &m_astDesc; }

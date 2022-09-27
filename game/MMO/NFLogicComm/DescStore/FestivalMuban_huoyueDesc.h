@@ -12,6 +12,8 @@ class FestivalMuban_huoyueDesc : public NFIDescStore
 public:
 	FestivalMuban_huoyueDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_huoyueDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_huoyue_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_huoyue_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_huoyue_s, MAX_FESTIVAL_MUBAN_HUOYUE_NUM>* GetAllDesc() const { return &m_astDesc; }

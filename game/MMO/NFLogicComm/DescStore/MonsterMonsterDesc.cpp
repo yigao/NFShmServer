@@ -69,7 +69,7 @@ int MonsterMonsterDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::monstermonster_s * MonsterMonsterDesc::CetDesc(int id) const
+const proto_ff_s::monstermonster_s * MonsterMonsterDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

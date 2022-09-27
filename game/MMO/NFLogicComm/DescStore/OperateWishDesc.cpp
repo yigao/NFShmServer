@@ -69,7 +69,7 @@ int OperateWishDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::operatewish_s * OperateWishDesc::CetDesc(int id) const
+const proto_ff_s::operatewish_s * OperateWishDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

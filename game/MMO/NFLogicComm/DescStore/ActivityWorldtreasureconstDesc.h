@@ -12,6 +12,8 @@ class ActivityWorldtreasureconstDesc : public NFIDescStore
 public:
 	ActivityWorldtreasureconstDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityWorldtreasureconstDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activityworldTreasureConst_s* GetDesc(int id) const;
 	proto_ff_s::activityworldTreasureConst_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activityworldTreasureConst_s, MAX_ACTIVITY_WORLDTREASURECONST_NUM>* GetAllDesc() const { return &m_astDesc; }

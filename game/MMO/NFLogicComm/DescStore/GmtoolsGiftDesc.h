@@ -12,6 +12,8 @@ class GmtoolsGiftDesc : public NFIDescStore
 public:
 	GmtoolsGiftDesc(NFIPluginManager* pPluginManager);
 	virtual ~GmtoolsGiftDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::GMtoolsgift_s* GetDesc(int id) const;
 	proto_ff_s::GMtoolsgift_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::GMtoolsgift_s, MAX_GMTOOLS_GIFT_NUM>* GetAllDesc() const { return &m_astDesc; }

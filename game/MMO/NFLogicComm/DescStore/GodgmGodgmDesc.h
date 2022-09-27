@@ -12,6 +12,8 @@ class GodgmGodgmDesc : public NFIDescStore
 public:
 	GodgmGodgmDesc(NFIPluginManager* pPluginManager);
 	virtual ~GodgmGodgmDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::godGMgodGM_s* GetDesc(int id) const;
 	proto_ff_s::godGMgodGM_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::godGMgodGM_s, MAX_GODGM_GODGM_NUM>* GetAllDesc() const { return &m_astDesc; }

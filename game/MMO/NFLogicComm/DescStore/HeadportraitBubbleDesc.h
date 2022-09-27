@@ -12,6 +12,8 @@ class HeadportraitBubbleDesc : public NFIDescStore
 public:
 	HeadportraitBubbleDesc(NFIPluginManager* pPluginManager);
 	virtual ~HeadportraitBubbleDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::headPortraitbubble_s* GetDesc(int id) const;
 	proto_ff_s::headPortraitbubble_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::headPortraitbubble_s, MAX_HEADPORTRAIT_BUBBLE_NUM>* GetAllDesc() const { return &m_astDesc; }

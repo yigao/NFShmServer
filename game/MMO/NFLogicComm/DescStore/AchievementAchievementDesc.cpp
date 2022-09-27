@@ -69,7 +69,7 @@ int AchievementAchievementDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::achievementachievement_s * AchievementAchievementDesc::CetDesc(int id) const
+const proto_ff_s::achievementachievement_s * AchievementAchievementDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

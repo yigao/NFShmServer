@@ -12,6 +12,8 @@ class ManorBuildDesc : public NFIDescStore
 public:
 	ManorBuildDesc(NFIPluginManager* pPluginManager);
 	virtual ~ManorBuildDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::manorbuild_s* GetDesc(int id) const;
 	proto_ff_s::manorbuild_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::manorbuild_s, MAX_MANOR_BUILD_NUM>* GetAllDesc() const { return &m_astDesc; }

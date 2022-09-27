@@ -12,6 +12,8 @@ class MallMalltypeDesc : public NFIDescStore
 public:
 	MallMalltypeDesc(NFIPluginManager* pPluginManager);
 	virtual ~MallMalltypeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::mallmalltype_s* GetDesc(int id) const;
 	proto_ff_s::mallmalltype_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::mallmalltype_s, MAX_MALL_MALLTYPE_NUM>* GetAllDesc() const { return &m_astDesc; }

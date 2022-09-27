@@ -12,6 +12,8 @@ class ArenaArenawardDesc : public NFIDescStore
 public:
 	ArenaArenawardDesc(NFIPluginManager* pPluginManager);
 	virtual ~ArenaArenawardDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::arenaarenAward_s* GetDesc(int id) const;
 	proto_ff_s::arenaarenAward_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::arenaarenAward_s, MAX_ARENA_ARENAWARD_NUM>* GetAllDesc() const { return &m_astDesc; }

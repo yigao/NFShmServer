@@ -12,6 +12,8 @@ class ManorLogDesc : public NFIDescStore
 public:
 	ManorLogDesc(NFIPluginManager* pPluginManager);
 	virtual ~ManorLogDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::manorlog_s* GetDesc(int id) const;
 	proto_ff_s::manorlog_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::manorlog_s, MAX_MANOR_LOG_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class FunctionunlockFunctionunlockDesc : public NFIDescStore
 public:
 	FunctionunlockFunctionunlockDesc(NFIPluginManager* pPluginManager);
 	virtual ~FunctionunlockFunctionunlockDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::functionunlockfunctionUnlock_s* GetDesc(int id) const;
 	proto_ff_s::functionunlockfunctionUnlock_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::functionunlockfunctionUnlock_s, MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM>* GetAllDesc() const { return &m_astDesc; }

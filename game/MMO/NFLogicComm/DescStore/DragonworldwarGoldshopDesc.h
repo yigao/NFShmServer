@@ -12,6 +12,8 @@ class DragonworldwarGoldshopDesc : public NFIDescStore
 public:
 	DragonworldwarGoldshopDesc(NFIPluginManager* pPluginManager);
 	virtual ~DragonworldwarGoldshopDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::dragonWorldWargoldShop_s* GetDesc(int id) const;
 	proto_ff_s::dragonWorldWargoldShop_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::dragonWorldWargoldShop_s, MAX_DRAGONWORLDWAR_GOLDSHOP_NUM>* GetAllDesc() const { return &m_astDesc; }

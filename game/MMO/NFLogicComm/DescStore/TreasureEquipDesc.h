@@ -12,6 +12,8 @@ class TreasureEquipDesc : public NFIDescStore
 public:
 	TreasureEquipDesc(NFIPluginManager* pPluginManager);
 	virtual ~TreasureEquipDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::treasureequip_s* GetDesc(int id) const;
 	proto_ff_s::treasureequip_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::treasureequip_s, MAX_TREASURE_EQUIP_NUM>* GetAllDesc() const { return &m_astDesc; }

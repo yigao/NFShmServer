@@ -69,7 +69,7 @@ int GodhoodGodhoodDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::godHoodgodHood_s * GodhoodGodhoodDesc::CetDesc(int id) const
+const proto_ff_s::godHoodgodHood_s * GodhoodGodhoodDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

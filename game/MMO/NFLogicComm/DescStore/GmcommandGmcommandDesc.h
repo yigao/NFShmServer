@@ -12,6 +12,8 @@ class GmcommandGmcommandDesc : public NFIDescStore
 public:
 	GmcommandGmcommandDesc(NFIPluginManager* pPluginManager);
 	virtual ~GmcommandGmcommandDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::GMCommandGMCommand_s* GetDesc(int id) const;
 	proto_ff_s::GMCommandGMCommand_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::GMCommandGMCommand_s, MAX_GMCOMMAND_GMCOMMAND_NUM>* GetAllDesc() const { return &m_astDesc; }

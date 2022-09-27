@@ -12,6 +12,8 @@ class RoleAssassinDesc : public NFIDescStore
 public:
 	RoleAssassinDesc(NFIPluginManager* pPluginManager);
 	virtual ~RoleAssassinDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::roleassassin_s* GetDesc(int id) const;
 	proto_ff_s::roleassassin_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::roleassassin_s, MAX_ROLE_ASSASSIN_NUM>* GetAllDesc() const { return &m_astDesc; }

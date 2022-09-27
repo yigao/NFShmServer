@@ -12,6 +12,8 @@ class DuplicateGuildbossDesc : public NFIDescStore
 public:
 	DuplicateGuildbossDesc(NFIPluginManager* pPluginManager);
 	virtual ~DuplicateGuildbossDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::duplicateGuildboss_s* GetDesc(int id) const;
 	proto_ff_s::duplicateGuildboss_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::duplicateGuildboss_s, MAX_DUPLICATE_GUILDBOSS_NUM>* GetAllDesc() const { return &m_astDesc; }

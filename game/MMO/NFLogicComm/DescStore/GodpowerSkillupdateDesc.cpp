@@ -69,7 +69,7 @@ int GodpowerSkillupdateDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::godpowerskillupdate_s * GodpowerSkillupdateDesc::CetDesc(int id) const
+const proto_ff_s::godpowerskillupdate_s * GodpowerSkillupdateDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

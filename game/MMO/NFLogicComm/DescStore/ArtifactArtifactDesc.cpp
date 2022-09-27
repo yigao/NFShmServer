@@ -69,7 +69,7 @@ int ArtifactArtifactDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::artifactartifact_s * ArtifactArtifactDesc::CetDesc(int id) const
+const proto_ff_s::artifactartifact_s * ArtifactArtifactDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

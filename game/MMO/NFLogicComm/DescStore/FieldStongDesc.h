@@ -12,6 +12,8 @@ class FieldStongDesc : public NFIDescStore
 public:
 	FieldStongDesc(NFIPluginManager* pPluginManager);
 	virtual ~FieldStongDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::fieldstong_s* GetDesc(int id) const;
 	proto_ff_s::fieldstong_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::fieldstong_s, MAX_FIELD_STONG_NUM>* GetAllDesc() const { return &m_astDesc; }

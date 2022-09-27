@@ -12,6 +12,8 @@ class FestivalMuban_doublegiftDesc : public NFIDescStore
 public:
 	FestivalMuban_doublegiftDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_doublegiftDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_doubleGift_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_doubleGift_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_doubleGift_s, MAX_FESTIVAL_MUBAN_DOUBLEGIFT_NUM>* GetAllDesc() const { return &m_astDesc; }

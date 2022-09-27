@@ -12,6 +12,8 @@ class BackBackDesc : public NFIDescStore
 public:
 	BackBackDesc(NFIPluginManager* pPluginManager);
 	virtual ~BackBackDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::backback_s* GetDesc(int id) const;
 	proto_ff_s::backback_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::backback_s, MAX_BACK_BACK_NUM>* GetAllDesc() const { return &m_astDesc; }

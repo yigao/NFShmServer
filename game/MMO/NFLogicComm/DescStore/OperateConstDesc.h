@@ -12,6 +12,8 @@ class OperateConstDesc : public NFIDescStore
 public:
 	OperateConstDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateConstDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operateconst_s* GetDesc(int id) const;
 	proto_ff_s::operateconst_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operateconst_s, MAX_OPERATE_CONST_NUM>* GetAllDesc() const { return &m_astDesc; }

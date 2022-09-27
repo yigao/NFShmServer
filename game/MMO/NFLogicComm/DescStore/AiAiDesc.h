@@ -12,6 +12,8 @@ class AiAiDesc : public NFIDescStore
 public:
 	AiAiDesc(NFIPluginManager* pPluginManager);
 	virtual ~AiAiDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::aiai_s* GetDesc(int id) const;
 	proto_ff_s::aiai_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::aiai_s, MAX_AI_AI_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class GmtoolsUnlimitDesc : public NFIDescStore
 public:
 	GmtoolsUnlimitDesc(NFIPluginManager* pPluginManager);
 	virtual ~GmtoolsUnlimitDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::GMtoolsunlimit_s* GetDesc(int id) const;
 	proto_ff_s::GMtoolsunlimit_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::GMtoolsunlimit_s, MAX_GMTOOLS_UNLIMIT_NUM>* GetAllDesc() const { return &m_astDesc; }

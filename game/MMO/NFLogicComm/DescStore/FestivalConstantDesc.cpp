@@ -69,7 +69,7 @@ int FestivalConstantDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalconstant_s * FestivalConstantDesc::CetDesc(int id) const
+const proto_ff_s::festivalconstant_s * FestivalConstantDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

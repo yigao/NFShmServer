@@ -69,7 +69,7 @@ int EscortRewardexpDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::escortrewardExp_s * EscortRewardexpDesc::CetDesc(int id) const
+const proto_ff_s::escortrewardExp_s * EscortRewardexpDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

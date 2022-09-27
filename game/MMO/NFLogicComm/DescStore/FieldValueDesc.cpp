@@ -69,7 +69,7 @@ int FieldValueDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::fieldvalue_s * FieldValueDesc::CetDesc(int id) const
+const proto_ff_s::fieldvalue_s * FieldValueDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

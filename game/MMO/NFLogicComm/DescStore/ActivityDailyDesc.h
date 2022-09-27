@@ -12,6 +12,8 @@ class ActivityDailyDesc : public NFIDescStore
 public:
 	ActivityDailyDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityDailyDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activitydaily_s* GetDesc(int id) const;
 	proto_ff_s::activitydaily_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activitydaily_s, MAX_ACTIVITY_DAILY_NUM>* GetAllDesc() const { return &m_astDesc; }

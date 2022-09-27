@@ -12,6 +12,8 @@ class GodhoodGodhoodDesc : public NFIDescStore
 public:
 	GodhoodGodhoodDesc(NFIPluginManager* pPluginManager);
 	virtual ~GodhoodGodhoodDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::godHoodgodHood_s* GetDesc(int id) const;
 	proto_ff_s::godHoodgodHood_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::godHoodgodHood_s, MAX_GODHOOD_GODHOOD_NUM>* GetAllDesc() const { return &m_astDesc; }

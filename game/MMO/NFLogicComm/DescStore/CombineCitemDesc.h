@@ -12,6 +12,8 @@ class CombineCitemDesc : public NFIDescStore
 public:
 	CombineCitemDesc(NFIPluginManager* pPluginManager);
 	virtual ~CombineCitemDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::combinecitem_s* GetDesc(int id) const;
 	proto_ff_s::combinecitem_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::combinecitem_s, MAX_COMBINE_CITEM_NUM>* GetAllDesc() const { return &m_astDesc; }

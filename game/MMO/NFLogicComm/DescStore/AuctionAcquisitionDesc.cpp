@@ -69,7 +69,7 @@ int AuctionAcquisitionDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::auctionacquisition_s * AuctionAcquisitionDesc::CetDesc(int id) const
+const proto_ff_s::auctionacquisition_s * AuctionAcquisitionDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

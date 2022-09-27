@@ -12,6 +12,8 @@ class FestivalEggconstantDesc : public NFIDescStore
 public:
 	FestivalEggconstantDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalEggconstantDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivaleggConstant_s* GetDesc(int id) const;
 	proto_ff_s::festivaleggConstant_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivaleggConstant_s, MAX_FESTIVAL_EGGCONSTANT_NUM>* GetAllDesc() const { return &m_astDesc; }

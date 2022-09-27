@@ -12,6 +12,8 @@ class ClosetestRebateDesc : public NFIDescStore
 public:
 	ClosetestRebateDesc(NFIPluginManager* pPluginManager);
 	virtual ~ClosetestRebateDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::closetestRebate_s* GetDesc(int id) const;
 	proto_ff_s::closetestRebate_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::closetestRebate_s, MAX_CLOSETEST_REBATE_NUM>* GetAllDesc() const { return &m_astDesc; }

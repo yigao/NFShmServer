@@ -69,7 +69,7 @@ int FieldExpDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::fieldexp_s * FieldExpDesc::CetDesc(int id) const
+const proto_ff_s::fieldexp_s * FieldExpDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

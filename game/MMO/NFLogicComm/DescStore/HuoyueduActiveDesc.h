@@ -12,6 +12,8 @@ class HuoyueduActiveDesc : public NFIDescStore
 public:
 	HuoyueduActiveDesc(NFIPluginManager* pPluginManager);
 	virtual ~HuoyueduActiveDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::huoyueduactive_s* GetDesc(int id) const;
 	proto_ff_s::huoyueduactive_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::huoyueduactive_s, MAX_HUOYUEDU_ACTIVE_NUM>* GetAllDesc() const { return &m_astDesc; }

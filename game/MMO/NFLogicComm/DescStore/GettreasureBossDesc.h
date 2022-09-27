@@ -12,6 +12,8 @@ class GettreasureBossDesc : public NFIDescStore
 public:
 	GettreasureBossDesc(NFIPluginManager* pPluginManager);
 	virtual ~GettreasureBossDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::getTreasureboss_s* GetDesc(int id) const;
 	proto_ff_s::getTreasureboss_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::getTreasureboss_s, MAX_GETTREASURE_BOSS_NUM>* GetAllDesc() const { return &m_astDesc; }

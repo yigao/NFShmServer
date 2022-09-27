@@ -69,7 +69,7 @@ int PartnerChangeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::partnerchange_s * PartnerChangeDesc::CetDesc(int id) const
+const proto_ff_s::partnerchange_s * PartnerChangeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

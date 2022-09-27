@@ -12,6 +12,8 @@ class NoticeNoticeDesc : public NFIDescStore
 public:
 	NoticeNoticeDesc(NFIPluginManager* pPluginManager);
 	virtual ~NoticeNoticeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::noticenotice_s* GetDesc(int id) const;
 	proto_ff_s::noticenotice_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::noticenotice_s, MAX_NOTICE_NOTICE_NUM>* GetAllDesc() const { return &m_astDesc; }

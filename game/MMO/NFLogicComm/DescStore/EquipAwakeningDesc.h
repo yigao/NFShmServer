@@ -12,6 +12,8 @@ class EquipAwakeningDesc : public NFIDescStore
 public:
 	EquipAwakeningDesc(NFIPluginManager* pPluginManager);
 	virtual ~EquipAwakeningDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::equipawakening_s* GetDesc(int id) const;
 	proto_ff_s::equipawakening_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::equipawakening_s, MAX_EQUIP_AWAKENING_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class ChatChatDesc : public NFIDescStore
 public:
 	ChatChatDesc(NFIPluginManager* pPluginManager);
 	virtual ~ChatChatDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::chatchat_s* GetDesc(int id) const;
 	proto_ff_s::chatchat_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::chatchat_s, MAX_CHAT_CHAT_NUM>* GetAllDesc() const { return &m_astDesc; }

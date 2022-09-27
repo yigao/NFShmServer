@@ -12,6 +12,8 @@ class SoloConstantDesc : public NFIDescStore
 public:
 	SoloConstantDesc(NFIPluginManager* pPluginManager);
 	virtual ~SoloConstantDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::soloconstant_s* GetDesc(int id) const;
 	proto_ff_s::soloconstant_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::soloconstant_s, MAX_SOLO_CONSTANT_NUM>* GetAllDesc() const { return &m_astDesc; }

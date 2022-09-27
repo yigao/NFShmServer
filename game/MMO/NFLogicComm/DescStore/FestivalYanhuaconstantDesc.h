@@ -12,6 +12,8 @@ class FestivalYanhuaconstantDesc : public NFIDescStore
 public:
 	FestivalYanhuaconstantDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalYanhuaconstantDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalyanhuaConstant_s* GetDesc(int id) const;
 	proto_ff_s::festivalyanhuaConstant_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalyanhuaConstant_s, MAX_FESTIVAL_YANHUACONSTANT_NUM>* GetAllDesc() const { return &m_astDesc; }

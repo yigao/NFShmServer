@@ -69,7 +69,7 @@ int ArenaRankawardDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::arenarankaward_s * ArenaRankawardDesc::CetDesc(int id) const
+const proto_ff_s::arenarankaward_s * ArenaRankawardDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

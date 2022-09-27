@@ -69,7 +69,7 @@ int OperateJiangliDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::operatejiangli_s * OperateJiangliDesc::CetDesc(int id) const
+const proto_ff_s::operatejiangli_s * OperateJiangliDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

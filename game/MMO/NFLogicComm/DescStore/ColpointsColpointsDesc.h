@@ -12,6 +12,8 @@ class ColpointsColpointsDesc : public NFIDescStore
 public:
 	ColpointsColpointsDesc(NFIPluginManager* pPluginManager);
 	virtual ~ColpointsColpointsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::colPointscolPoints_s* GetDesc(int id) const;
 	proto_ff_s::colPointscolPoints_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::colPointscolPoints_s, MAX_COLPOINTS_COLPOINTS_NUM>* GetAllDesc() const { return &m_astDesc; }

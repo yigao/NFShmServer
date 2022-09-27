@@ -12,6 +12,8 @@ class BoxBoxDesc : public NFIDescStore
 public:
 	BoxBoxDesc(NFIPluginManager* pPluginManager);
 	virtual ~BoxBoxDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::boxbox_s* GetDesc(int id) const;
 	proto_ff_s::boxbox_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::boxbox_s, MAX_BOX_BOX_NUM>* GetAllDesc() const { return &m_astDesc; }

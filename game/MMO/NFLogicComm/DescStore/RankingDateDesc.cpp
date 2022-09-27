@@ -69,7 +69,7 @@ int RankingDateDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::rankingdate_s * RankingDateDesc::CetDesc(int id) const
+const proto_ff_s::rankingdate_s * RankingDateDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

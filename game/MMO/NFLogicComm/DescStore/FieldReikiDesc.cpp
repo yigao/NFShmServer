@@ -69,7 +69,7 @@ int FieldReikiDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::fieldreiki_s * FieldReikiDesc::CetDesc(int id) const
+const proto_ff_s::fieldreiki_s * FieldReikiDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

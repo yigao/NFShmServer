@@ -69,7 +69,7 @@ int OccupationOccupationDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::occupationoccupation_s * OccupationOccupationDesc::CetDesc(int id) const
+const proto_ff_s::occupationoccupation_s * OccupationOccupationDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

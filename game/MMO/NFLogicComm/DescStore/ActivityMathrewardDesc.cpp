@@ -69,7 +69,7 @@ int ActivityMathrewardDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activitymathreward_s * ActivityMathrewardDesc::CetDesc(int id) const
+const proto_ff_s::activitymathreward_s * ActivityMathrewardDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

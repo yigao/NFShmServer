@@ -69,7 +69,7 @@ int ManorPatbeastupDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::manorpatBeastUP_s * ManorPatbeastupDesc::CetDesc(int id) const
+const proto_ff_s::manorpatBeastUP_s * ManorPatbeastupDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

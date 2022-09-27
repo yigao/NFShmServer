@@ -69,7 +69,7 @@ int DuplicateGuildbosstimeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::duplicateGuildbosstime_s * DuplicateGuildbosstimeDesc::CetDesc(int id) const
+const proto_ff_s::duplicateGuildbosstime_s * DuplicateGuildbosstimeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

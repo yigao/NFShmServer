@@ -12,6 +12,8 @@ class ServeropenactiveMrankDesc : public NFIDescStore
 public:
 	ServeropenactiveMrankDesc(NFIPluginManager* pPluginManager);
 	virtual ~ServeropenactiveMrankDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::serveropenactivemRank_s* GetDesc(int id) const;
 	proto_ff_s::serveropenactivemRank_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::serveropenactivemRank_s, MAX_SERVEROPENACTIVE_MRANK_NUM>* GetAllDesc() const { return &m_astDesc; }

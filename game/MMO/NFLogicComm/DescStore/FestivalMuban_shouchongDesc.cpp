@@ -69,7 +69,7 @@ int FestivalMuban_shouchongDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalmuban_shouchong_s * FestivalMuban_shouchongDesc::CetDesc(int id) const
+const proto_ff_s::festivalmuban_shouchong_s * FestivalMuban_shouchongDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

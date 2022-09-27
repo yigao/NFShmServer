@@ -69,7 +69,7 @@ int ManorBuildDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::manorbuild_s * ManorBuildDesc::CetDesc(int id) const
+const proto_ff_s::manorbuild_s * ManorBuildDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

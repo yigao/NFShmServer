@@ -12,6 +12,8 @@ class ManorPatbeastupDesc : public NFIDescStore
 public:
 	ManorPatbeastupDesc(NFIPluginManager* pPluginManager);
 	virtual ~ManorPatbeastupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::manorpatBeastUP_s* GetDesc(int id) const;
 	proto_ff_s::manorpatBeastUP_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::manorpatBeastUP_s, MAX_MANOR_PATBEASTUP_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -69,7 +69,7 @@ int WitchSummonDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::witchsummon_s * WitchSummonDesc::CetDesc(int id) const
+const proto_ff_s::witchsummon_s * WitchSummonDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

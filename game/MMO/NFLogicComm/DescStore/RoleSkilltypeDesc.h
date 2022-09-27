@@ -12,6 +12,8 @@ class RoleSkilltypeDesc : public NFIDescStore
 public:
 	RoleSkilltypeDesc(NFIPluginManager* pPluginManager);
 	virtual ~RoleSkilltypeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::roleskillType_s* GetDesc(int id) const;
 	proto_ff_s::roleskillType_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::roleskillType_s, MAX_ROLE_SKILLTYPE_NUM>* GetAllDesc() const { return &m_astDesc; }

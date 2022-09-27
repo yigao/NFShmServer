@@ -69,7 +69,7 @@ int ActivityWorldtreasureconstDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activityworldTreasureConst_s * ActivityWorldtreasureconstDesc::CetDesc(int id) const
+const proto_ff_s::activityworldTreasureConst_s * ActivityWorldtreasureconstDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

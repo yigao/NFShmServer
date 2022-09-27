@@ -12,6 +12,8 @@ class ActivityGvgrewardDesc : public NFIDescStore
 public:
 	ActivityGvgrewardDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityGvgrewardDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activitygvgReward_s* GetDesc(int id) const;
 	proto_ff_s::activitygvgReward_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activitygvgReward_s, MAX_ACTIVITY_GVGREWARD_NUM>* GetAllDesc() const { return &m_astDesc; }

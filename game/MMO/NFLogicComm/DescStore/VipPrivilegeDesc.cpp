@@ -69,7 +69,7 @@ int VipPrivilegeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::vipprivilege_s * VipPrivilegeDesc::CetDesc(int id) const
+const proto_ff_s::vipprivilege_s * VipPrivilegeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

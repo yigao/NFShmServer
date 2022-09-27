@@ -12,6 +12,8 @@ class CombineRankupDesc : public NFIDescStore
 public:
 	CombineRankupDesc(NFIPluginManager* pPluginManager);
 	virtual ~CombineRankupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::combinerankUp_s* GetDesc(int id) const;
 	proto_ff_s::combinerankUp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::combinerankUp_s, MAX_COMBINE_RANKUP_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class MarryGearDesc : public NFIDescStore
 public:
 	MarryGearDesc(NFIPluginManager* pPluginManager);
 	virtual ~MarryGearDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::marrygear_s* GetDesc(int id) const;
 	proto_ff_s::marrygear_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::marrygear_s, MAX_MARRY_GEAR_NUM>* GetAllDesc() const { return &m_astDesc; }

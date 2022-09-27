@@ -69,7 +69,7 @@ int RoleSkilltypeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::roleskillType_s * RoleSkilltypeDesc::CetDesc(int id) const
+const proto_ff_s::roleskillType_s * RoleSkilltypeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

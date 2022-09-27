@@ -69,7 +69,7 @@ int FunctionunlockFunctionunlockDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::functionunlockfunctionUnlock_s * FunctionunlockFunctionunlockDesc::CetDesc(int id) const
+const proto_ff_s::functionunlockfunctionUnlock_s * FunctionunlockFunctionunlockDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -69,7 +69,7 @@ int TaskdynamicTaskdynamicDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::taskdynamictaskdynamic_s * TaskdynamicTaskdynamicDesc::CetDesc(int id) const
+const proto_ff_s::taskdynamictaskdynamic_s * TaskdynamicTaskdynamicDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

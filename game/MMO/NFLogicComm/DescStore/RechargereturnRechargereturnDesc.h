@@ -12,6 +12,8 @@ class RechargereturnRechargereturnDesc : public NFIDescStore
 public:
 	RechargereturnRechargereturnDesc(NFIPluginManager* pPluginManager);
 	virtual ~RechargereturnRechargereturnDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::rechargeReturnrechargeReturn_s* GetDesc(int id) const;
 	proto_ff_s::rechargeReturnrechargeReturn_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::rechargeReturnrechargeReturn_s, MAX_RECHARGERETURN_RECHARGERETURN_NUM>* GetAllDesc() const { return &m_astDesc; }

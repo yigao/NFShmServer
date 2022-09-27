@@ -69,7 +69,7 @@ int EquipStrongexpDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::equipstrongexp_s * EquipStrongexpDesc::CetDesc(int id) const
+const proto_ff_s::equipstrongexp_s * EquipStrongexpDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

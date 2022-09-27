@@ -12,6 +12,8 @@ class GettreasureArrivalbossrewardDesc : public NFIDescStore
 public:
 	GettreasureArrivalbossrewardDesc(NFIPluginManager* pPluginManager);
 	virtual ~GettreasureArrivalbossrewardDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::getTreasureArrivalBossReward_s* GetDesc(int id) const;
 	proto_ff_s::getTreasureArrivalBossReward_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::getTreasureArrivalBossReward_s, MAX_GETTREASURE_ARRIVALBOSSREWARD_NUM>* GetAllDesc() const { return &m_astDesc; }

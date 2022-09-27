@@ -12,6 +12,8 @@ class OperateHoroscopepoolDesc : public NFIDescStore
 public:
 	OperateHoroscopepoolDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateHoroscopepoolDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operatehoroscopePool_s* GetDesc(int id) const;
 	proto_ff_s::operatehoroscopePool_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operatehoroscopePool_s, MAX_OPERATE_HOROSCOPEPOOL_NUM>* GetAllDesc() const { return &m_astDesc; }

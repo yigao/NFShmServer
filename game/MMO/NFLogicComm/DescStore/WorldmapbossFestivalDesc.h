@@ -12,6 +12,8 @@ class WorldmapbossFestivalDesc : public NFIDescStore
 public:
 	WorldmapbossFestivalDesc(NFIPluginManager* pPluginManager);
 	virtual ~WorldmapbossFestivalDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::worldmapbossfestival_s* GetDesc(int id) const;
 	proto_ff_s::worldmapbossfestival_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::worldmapbossfestival_s, MAX_WORLDMAPBOSS_FESTIVAL_NUM>* GetAllDesc() const { return &m_astDesc; }

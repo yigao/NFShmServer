@@ -12,6 +12,8 @@ class ServerhornServerhornDesc : public NFIDescStore
 public:
 	ServerhornServerhornDesc(NFIPluginManager* pPluginManager);
 	virtual ~ServerhornServerhornDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::serverHornserverHorn_s* GetDesc(int id) const;
 	proto_ff_s::serverHornserverHorn_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::serverHornserverHorn_s, MAX_SERVERHORN_SERVERHORN_NUM>* GetAllDesc() const { return &m_astDesc; }

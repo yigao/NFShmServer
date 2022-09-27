@@ -12,6 +12,8 @@ class ManorEggDesc : public NFIDescStore
 public:
 	ManorEggDesc(NFIPluginManager* pPluginManager);
 	virtual ~ManorEggDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::manoregg_s* GetDesc(int id) const;
 	proto_ff_s::manoregg_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::manoregg_s, MAX_MANOR_EGG_NUM>* GetAllDesc() const { return &m_astDesc; }

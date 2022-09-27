@@ -69,7 +69,7 @@ int FestivalEggconstantDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivaleggConstant_s * FestivalEggconstantDesc::CetDesc(int id) const
+const proto_ff_s::festivaleggConstant_s * FestivalEggconstantDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

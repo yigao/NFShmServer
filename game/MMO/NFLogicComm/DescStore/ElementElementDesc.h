@@ -12,6 +12,8 @@ class ElementElementDesc : public NFIDescStore
 public:
 	ElementElementDesc(NFIPluginManager* pPluginManager);
 	virtual ~ElementElementDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::elementelement_s* GetDesc(int id) const;
 	proto_ff_s::elementelement_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::elementelement_s, MAX_ELEMENT_ELEMENT_NUM>* GetAllDesc() const { return &m_astDesc; }

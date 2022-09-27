@@ -69,7 +69,7 @@ int RechargereturnRechargereturnDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::rechargeReturnrechargeReturn_s * RechargereturnRechargereturnDesc::CetDesc(int id) const
+const proto_ff_s::rechargeReturnrechargeReturn_s * RechargereturnRechargereturnDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

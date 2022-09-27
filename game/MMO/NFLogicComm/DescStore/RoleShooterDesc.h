@@ -12,6 +12,8 @@ class RoleShooterDesc : public NFIDescStore
 public:
 	RoleShooterDesc(NFIPluginManager* pPluginManager);
 	virtual ~RoleShooterDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::roleshooter_s* GetDesc(int id) const;
 	proto_ff_s::roleshooter_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::roleshooter_s, MAX_ROLE_SHOOTER_NUM>* GetAllDesc() const { return &m_astDesc; }

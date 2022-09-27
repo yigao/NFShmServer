@@ -12,6 +12,8 @@ class HandbookAttrDesc : public NFIDescStore
 public:
 	HandbookAttrDesc(NFIPluginManager* pPluginManager);
 	virtual ~HandbookAttrDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::handbookattr_s* GetDesc(int id) const;
 	proto_ff_s::handbookattr_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::handbookattr_s, MAX_HANDBOOK_ATTR_NUM>* GetAllDesc() const { return &m_astDesc; }

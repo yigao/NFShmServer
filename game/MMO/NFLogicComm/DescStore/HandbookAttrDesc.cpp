@@ -69,7 +69,7 @@ int HandbookAttrDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::handbookattr_s * HandbookAttrDesc::CetDesc(int id) const
+const proto_ff_s::handbookattr_s * HandbookAttrDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -12,6 +12,8 @@ class IntimacyGiftDesc : public NFIDescStore
 public:
 	IntimacyGiftDesc(NFIPluginManager* pPluginManager);
 	virtual ~IntimacyGiftDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::intimacygift_s* GetDesc(int id) const;
 	proto_ff_s::intimacygift_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::intimacygift_s, MAX_INTIMACY_GIFT_NUM>* GetAllDesc() const { return &m_astDesc; }

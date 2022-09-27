@@ -12,6 +12,8 @@ class TitleTypeDesc : public NFIDescStore
 public:
 	TitleTypeDesc(NFIPluginManager* pPluginManager);
 	virtual ~TitleTypeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::titletype_s* GetDesc(int id) const;
 	proto_ff_s::titletype_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::titletype_s, MAX_TITLE_TYPE_NUM>* GetAllDesc() const { return &m_astDesc; }

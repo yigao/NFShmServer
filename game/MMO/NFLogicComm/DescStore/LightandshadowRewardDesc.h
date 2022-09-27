@@ -12,6 +12,8 @@ class LightandshadowRewardDesc : public NFIDescStore
 public:
 	LightandshadowRewardDesc(NFIPluginManager* pPluginManager);
 	virtual ~LightandshadowRewardDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::lightAndShadowreward_s* GetDesc(int id) const;
 	proto_ff_s::lightAndShadowreward_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::lightAndShadowreward_s, MAX_LIGHTANDSHADOW_REWARD_NUM>* GetAllDesc() const { return &m_astDesc; }

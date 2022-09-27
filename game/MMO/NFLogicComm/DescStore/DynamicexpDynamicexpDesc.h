@@ -12,6 +12,8 @@ class DynamicexpDynamicexpDesc : public NFIDescStore
 public:
 	DynamicexpDynamicexpDesc(NFIPluginManager* pPluginManager);
 	virtual ~DynamicexpDynamicexpDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::dynamicexpdynamicexp_s* GetDesc(int id) const;
 	proto_ff_s::dynamicexpdynamicexp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::dynamicexpdynamicexp_s, MAX_DYNAMICEXP_DYNAMICEXP_NUM>* GetAllDesc() const { return &m_astDesc; }

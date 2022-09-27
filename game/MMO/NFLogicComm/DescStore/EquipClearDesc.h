@@ -12,6 +12,8 @@ class EquipClearDesc : public NFIDescStore
 public:
 	EquipClearDesc(NFIPluginManager* pPluginManager);
 	virtual ~EquipClearDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::equipclear_s* GetDesc(int id) const;
 	proto_ff_s::equipclear_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::equipclear_s, MAX_EQUIP_CLEAR_NUM>* GetAllDesc() const { return &m_astDesc; }

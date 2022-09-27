@@ -12,6 +12,8 @@ class SensitivewordRolesensitiveDesc : public NFIDescStore
 public:
 	SensitivewordRolesensitiveDesc(NFIPluginManager* pPluginManager);
 	virtual ~SensitivewordRolesensitiveDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::sensitivewordrolesensitive_s* GetDesc(int id) const;
 	proto_ff_s::sensitivewordrolesensitive_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::sensitivewordrolesensitive_s, MAX_SENSITIVEWORD_ROLESENSITIVE_NUM>* GetAllDesc() const { return &m_astDesc; }

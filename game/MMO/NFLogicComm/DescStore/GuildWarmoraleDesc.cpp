@@ -69,7 +69,7 @@ int GuildWarmoraleDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::guildwarmorale_s * GuildWarmoraleDesc::CetDesc(int id) const
+const proto_ff_s::guildwarmorale_s * GuildWarmoraleDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

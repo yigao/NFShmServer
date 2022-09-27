@@ -12,6 +12,8 @@ class SoloDuanweiDesc : public NFIDescStore
 public:
 	SoloDuanweiDesc(NFIPluginManager* pPluginManager);
 	virtual ~SoloDuanweiDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::soloduanwei_s* GetDesc(int id) const;
 	proto_ff_s::soloduanwei_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::soloduanwei_s, MAX_SOLO_DUANWEI_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class TeamTeamDesc : public NFIDescStore
 public:
 	TeamTeamDesc(NFIPluginManager* pPluginManager);
 	virtual ~TeamTeamDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::teamteam_s* GetDesc(int id) const;
 	proto_ff_s::teamteam_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::teamteam_s, MAX_TEAM_TEAM_NUM>* GetAllDesc() const { return &m_astDesc; }

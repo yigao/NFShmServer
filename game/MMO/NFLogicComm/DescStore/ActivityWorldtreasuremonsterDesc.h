@@ -12,6 +12,8 @@ class ActivityWorldtreasuremonsterDesc : public NFIDescStore
 public:
 	ActivityWorldtreasuremonsterDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityWorldtreasuremonsterDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activityworldTreasureMonster_s* GetDesc(int id) const;
 	proto_ff_s::activityworldTreasureMonster_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activityworldTreasureMonster_s, MAX_ACTIVITY_WORLDTREASUREMONSTER_NUM>* GetAllDesc() const { return &m_astDesc; }

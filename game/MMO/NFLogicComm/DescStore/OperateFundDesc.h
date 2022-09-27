@@ -12,6 +12,8 @@ class OperateFundDesc : public NFIDescStore
 public:
 	OperateFundDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateFundDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operatefund_s* GetDesc(int id) const;
 	proto_ff_s::operatefund_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operatefund_s, MAX_OPERATE_FUND_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -69,7 +69,7 @@ int ActivityGvgrankrewardDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activitygvgRankReward_s * ActivityGvgrankrewardDesc::CetDesc(int id) const
+const proto_ff_s::activitygvgRankReward_s * ActivityGvgrankrewardDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

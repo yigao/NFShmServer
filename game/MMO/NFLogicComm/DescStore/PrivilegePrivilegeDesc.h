@@ -12,6 +12,8 @@ class PrivilegePrivilegeDesc : public NFIDescStore
 public:
 	PrivilegePrivilegeDesc(NFIPluginManager* pPluginManager);
 	virtual ~PrivilegePrivilegeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::privilegeprivilege_s* GetDesc(int id) const;
 	proto_ff_s::privilegeprivilege_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::privilegeprivilege_s, MAX_PRIVILEGE_PRIVILEGE_NUM>* GetAllDesc() const { return &m_astDesc; }

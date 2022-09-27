@@ -69,7 +69,7 @@ int ChoosegiftChoosegiftDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::chooseGiftchooseGift_s * ChoosegiftChoosegiftDesc::CetDesc(int id) const
+const proto_ff_s::chooseGiftchooseGift_s * ChoosegiftChoosegiftDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

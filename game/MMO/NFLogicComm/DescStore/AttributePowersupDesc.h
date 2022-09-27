@@ -12,6 +12,8 @@ class AttributePowersupDesc : public NFIDescStore
 public:
 	AttributePowersupDesc(NFIPluginManager* pPluginManager);
 	virtual ~AttributePowersupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::attributepowersup_s* GetDesc(int id) const;
 	proto_ff_s::attributepowersup_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::attributepowersup_s, MAX_ATTRIBUTE_POWERSUP_NUM>* GetAllDesc() const { return &m_astDesc; }

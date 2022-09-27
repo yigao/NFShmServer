@@ -12,6 +12,8 @@ class FestivalBigyanhuacostDesc : public NFIDescStore
 public:
 	FestivalBigyanhuacostDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalBigyanhuacostDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalbigyanhuacost_s* GetDesc(int id) const;
 	proto_ff_s::festivalbigyanhuacost_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalbigyanhuacost_s, MAX_FESTIVAL_BIGYANHUACOST_NUM>* GetAllDesc() const { return &m_astDesc; }

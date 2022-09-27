@@ -12,6 +12,8 @@ class PartnerSlotDesc : public NFIDescStore
 public:
 	PartnerSlotDesc(NFIPluginManager* pPluginManager);
 	virtual ~PartnerSlotDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::partnerslot_s* GetDesc(int id) const;
 	proto_ff_s::partnerslot_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::partnerslot_s, MAX_PARTNER_SLOT_NUM>* GetAllDesc() const { return &m_astDesc; }

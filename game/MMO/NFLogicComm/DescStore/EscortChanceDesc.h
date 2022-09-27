@@ -12,6 +12,8 @@ class EscortChanceDesc : public NFIDescStore
 public:
 	EscortChanceDesc(NFIPluginManager* pPluginManager);
 	virtual ~EscortChanceDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::escortchance_s* GetDesc(int id) const;
 	proto_ff_s::escortchance_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::escortchance_s, MAX_ESCORT_CHANCE_NUM>* GetAllDesc() const { return &m_astDesc; }

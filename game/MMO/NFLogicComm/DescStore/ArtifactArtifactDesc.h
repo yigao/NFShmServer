@@ -12,6 +12,8 @@ class ArtifactArtifactDesc : public NFIDescStore
 public:
 	ArtifactArtifactDesc(NFIPluginManager* pPluginManager);
 	virtual ~ArtifactArtifactDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::artifactartifact_s* GetDesc(int id) const;
 	proto_ff_s::artifactartifact_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::artifactartifact_s, MAX_ARTIFACT_ARTIFACT_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class GodpowerSkillupdateDesc : public NFIDescStore
 public:
 	GodpowerSkillupdateDesc(NFIPluginManager* pPluginManager);
 	virtual ~GodpowerSkillupdateDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::godpowerskillupdate_s* GetDesc(int id) const;
 	proto_ff_s::godpowerskillupdate_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::godpowerskillupdate_s, MAX_GODPOWER_SKILLUPDATE_NUM>* GetAllDesc() const { return &m_astDesc; }

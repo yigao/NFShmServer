@@ -12,6 +12,8 @@ class WorldmapbossDroplistDesc : public NFIDescStore
 public:
 	WorldmapbossDroplistDesc(NFIPluginManager* pPluginManager);
 	virtual ~WorldmapbossDroplistDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::worldmapbossdroplist_s* GetDesc(int id) const;
 	proto_ff_s::worldmapbossdroplist_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::worldmapbossdroplist_s, MAX_WORLDMAPBOSS_DROPLIST_NUM>* GetAllDesc() const { return &m_astDesc; }

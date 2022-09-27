@@ -12,6 +12,8 @@ class FestivalMuban_dengluDesc : public NFIDescStore
 public:
 	FestivalMuban_dengluDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_dengluDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_denglu_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_denglu_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_denglu_s, MAX_FESTIVAL_MUBAN_DENGLU_NUM>* GetAllDesc() const { return &m_astDesc; }

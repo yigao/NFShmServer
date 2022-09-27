@@ -69,7 +69,7 @@ int DuplicateGroupDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::duplicategroup_s * DuplicateGroupDesc::CetDesc(int id) const
+const proto_ff_s::duplicategroup_s * DuplicateGroupDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

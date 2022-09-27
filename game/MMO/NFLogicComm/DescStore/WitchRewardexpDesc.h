@@ -12,6 +12,8 @@ class WitchRewardexpDesc : public NFIDescStore
 public:
 	WitchRewardexpDesc(NFIPluginManager* pPluginManager);
 	virtual ~WitchRewardexpDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::witchrewardExp_s* GetDesc(int id) const;
 	proto_ff_s::witchrewardExp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::witchrewardExp_s, MAX_WITCH_REWARDEXP_NUM>* GetAllDesc() const { return &m_astDesc; }

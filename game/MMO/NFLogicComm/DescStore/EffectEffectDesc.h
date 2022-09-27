@@ -12,6 +12,8 @@ class EffectEffectDesc : public NFIDescStore
 public:
 	EffectEffectDesc(NFIPluginManager* pPluginManager);
 	virtual ~EffectEffectDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::effecteffect_s* GetDesc(int id) const;
 	proto_ff_s::effecteffect_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::effecteffect_s, MAX_EFFECT_EFFECT_NUM>* GetAllDesc() const { return &m_astDesc; }

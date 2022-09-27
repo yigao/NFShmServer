@@ -12,6 +12,8 @@ class DropDropDesc : public NFIDescStore
 public:
 	DropDropDesc(NFIPluginManager* pPluginManager);
 	virtual ~DropDropDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::dropdrop_s* GetDesc(int id) const;
 	proto_ff_s::dropdrop_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::dropdrop_s, MAX_DROP_DROP_NUM>* GetAllDesc() const { return &m_astDesc; }

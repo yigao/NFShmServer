@@ -69,7 +69,7 @@ int WingChangeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::wingchange_s * WingChangeDesc::CetDesc(int id) const
+const proto_ff_s::wingchange_s * WingChangeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

@@ -12,6 +12,8 @@ class FashionFashionDesc : public NFIDescStore
 public:
 	FashionFashionDesc(NFIPluginManager* pPluginManager);
 	virtual ~FashionFashionDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::fashionfashion_s* GetDesc(int id) const;
 	proto_ff_s::fashionfashion_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::fashionfashion_s, MAX_FASHION_FASHION_NUM>* GetAllDesc() const { return &m_astDesc; }

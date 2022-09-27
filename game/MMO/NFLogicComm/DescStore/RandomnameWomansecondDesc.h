@@ -12,6 +12,8 @@ class RandomnameWomansecondDesc : public NFIDescStore
 public:
 	RandomnameWomansecondDesc(NFIPluginManager* pPluginManager);
 	virtual ~RandomnameWomansecondDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::randomnamewomansecond_s* GetDesc(int id) const;
 	proto_ff_s::randomnamewomansecond_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::randomnamewomansecond_s, MAX_RANDOMNAME_WOMANSECOND_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class CombineItemupDesc : public NFIDescStore
 public:
 	CombineItemupDesc(NFIPluginManager* pPluginManager);
 	virtual ~CombineItemupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::combineitemUp_s* GetDesc(int id) const;
 	proto_ff_s::combineitemUp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::combineitemUp_s, MAX_COMBINE_ITEMUP_NUM>* GetAllDesc() const { return &m_astDesc; }

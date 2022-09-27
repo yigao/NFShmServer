@@ -69,7 +69,7 @@ int StarPointDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::starpoint_s * StarPointDesc::CetDesc(int id) const
+const proto_ff_s::starpoint_s * StarPointDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

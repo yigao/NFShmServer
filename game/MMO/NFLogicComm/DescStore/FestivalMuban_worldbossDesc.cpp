@@ -69,7 +69,7 @@ int FestivalMuban_worldbossDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalmuban_worldboss_s * FestivalMuban_worldbossDesc::CetDesc(int id) const
+const proto_ff_s::festivalmuban_worldboss_s * FestivalMuban_worldbossDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

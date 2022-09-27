@@ -12,6 +12,8 @@ class TreasureRefineDesc : public NFIDescStore
 public:
 	TreasureRefineDesc(NFIPluginManager* pPluginManager);
 	virtual ~TreasureRefineDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::treasurerefine_s* GetDesc(int id) const;
 	proto_ff_s::treasurerefine_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::treasurerefine_s, MAX_TREASURE_REFINE_NUM>* GetAllDesc() const { return &m_astDesc; }

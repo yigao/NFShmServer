@@ -69,7 +69,7 @@ int ClosetestActivityDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::closetestActivity_s * ClosetestActivityDesc::CetDesc(int id) const
+const proto_ff_s::closetestActivity_s * ClosetestActivityDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

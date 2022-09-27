@@ -69,7 +69,7 @@ int ButtonButtonDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::buttonbutton_s * ButtonButtonDesc::CetDesc(int id) const
+const proto_ff_s::buttonbutton_s * ButtonButtonDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

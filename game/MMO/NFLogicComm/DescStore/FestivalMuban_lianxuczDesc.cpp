@@ -69,7 +69,7 @@ int FestivalMuban_lianxuczDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalmuban_lianxuCZ_s * FestivalMuban_lianxuczDesc::CetDesc(int id) const
+const proto_ff_s::festivalmuban_lianxuCZ_s * FestivalMuban_lianxuczDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

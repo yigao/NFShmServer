@@ -69,7 +69,7 @@ int DuplicateEndlessmazeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::duplicateendlessMaze_s * DuplicateEndlessmazeDesc::CetDesc(int id) const
+const proto_ff_s::duplicateendlessMaze_s * DuplicateEndlessmazeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

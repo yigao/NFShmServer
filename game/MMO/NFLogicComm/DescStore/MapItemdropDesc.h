@@ -12,6 +12,8 @@ class MapItemdropDesc : public NFIDescStore
 public:
 	MapItemdropDesc(NFIPluginManager* pPluginManager);
 	virtual ~MapItemdropDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::mapitemdrop_s* GetDesc(int id) const;
 	proto_ff_s::mapitemdrop_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::mapitemdrop_s, MAX_MAP_ITEMDROP_NUM>* GetAllDesc() const { return &m_astDesc; }

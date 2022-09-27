@@ -12,6 +12,8 @@ class GuildWarmoraleDesc : public NFIDescStore
 public:
 	GuildWarmoraleDesc(NFIPluginManager* pPluginManager);
 	virtual ~GuildWarmoraleDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::guildwarmorale_s* GetDesc(int id) const;
 	proto_ff_s::guildwarmorale_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::guildwarmorale_s, MAX_GUILD_WARMORALE_NUM>* GetAllDesc() const { return &m_astDesc; }

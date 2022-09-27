@@ -12,6 +12,8 @@ class PartnerAttributeDesc : public NFIDescStore
 public:
 	PartnerAttributeDesc(NFIPluginManager* pPluginManager);
 	virtual ~PartnerAttributeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::partnerattribute_s* GetDesc(int id) const;
 	proto_ff_s::partnerattribute_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::partnerattribute_s, MAX_PARTNER_ATTRIBUTE_NUM>* GetAllDesc() const { return &m_astDesc; }

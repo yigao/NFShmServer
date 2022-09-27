@@ -12,6 +12,8 @@ class ActivityMathrewardDesc : public NFIDescStore
 public:
 	ActivityMathrewardDesc(NFIPluginManager* pPluginManager);
 	virtual ~ActivityMathrewardDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::activitymathreward_s* GetDesc(int id) const;
 	proto_ff_s::activitymathreward_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::activitymathreward_s, MAX_ACTIVITY_MATHREWARD_NUM>* GetAllDesc() const { return &m_astDesc; }

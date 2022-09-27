@@ -69,7 +69,7 @@ int HandbookFateDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::handbookfate_s * HandbookFateDesc::CetDesc(int id) const
+const proto_ff_s::handbookfate_s * HandbookFateDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

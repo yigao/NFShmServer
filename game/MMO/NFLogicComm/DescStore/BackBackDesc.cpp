@@ -69,7 +69,7 @@ int BackBackDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::backback_s * BackBackDesc::CetDesc(int id) const
+const proto_ff_s::backback_s * BackBackDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

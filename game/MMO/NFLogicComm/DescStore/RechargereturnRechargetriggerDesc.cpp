@@ -69,7 +69,7 @@ int RechargereturnRechargetriggerDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::rechargeReturnrechargeTrigger_s * RechargereturnRechargetriggerDesc::CetDesc(int id) const
+const proto_ff_s::rechargeReturnrechargeTrigger_s * RechargereturnRechargetriggerDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

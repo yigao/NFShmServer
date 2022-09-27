@@ -12,6 +12,8 @@ class TreasureSlotDesc : public NFIDescStore
 public:
 	TreasureSlotDesc(NFIPluginManager* pPluginManager);
 	virtual ~TreasureSlotDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::treasureslot_s* GetDesc(int id) const;
 	proto_ff_s::treasureslot_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::treasureslot_s, MAX_TREASURE_SLOT_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class DuplicateDuplicateDesc : public NFIDescStore
 public:
 	DuplicateDuplicateDesc(NFIPluginManager* pPluginManager);
 	virtual ~DuplicateDuplicateDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::duplicateduplicate_s* GetDesc(int id) const;
 	proto_ff_s::duplicateduplicate_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::duplicateduplicate_s, MAX_DUPLICATE_DUPLICATE_NUM>* GetAllDesc() const { return &m_astDesc; }

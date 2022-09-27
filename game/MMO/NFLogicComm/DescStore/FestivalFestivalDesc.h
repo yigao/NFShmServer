@@ -12,6 +12,8 @@ class FestivalFestivalDesc : public NFIDescStore
 public:
 	FestivalFestivalDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalFestivalDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalfestival_s* GetDesc(int id) const;
 	proto_ff_s::festivalfestival_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalfestival_s, MAX_FESTIVAL_FESTIVAL_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class OperateUnlimitedDesc : public NFIDescStore
 public:
 	OperateUnlimitedDesc(NFIPluginManager* pPluginManager);
 	virtual ~OperateUnlimitedDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::operateunlimited_s* GetDesc(int id) const;
 	proto_ff_s::operateunlimited_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::operateunlimited_s, MAX_OPERATE_UNLIMITED_NUM>* GetAllDesc() const { return &m_astDesc; }

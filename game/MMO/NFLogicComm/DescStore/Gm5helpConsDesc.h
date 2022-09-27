@@ -12,6 +12,8 @@ class Gm5helpConsDesc : public NFIDescStore
 public:
 	Gm5helpConsDesc(NFIPluginManager* pPluginManager);
 	virtual ~Gm5helpConsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::gm5Helpcons_s* GetDesc(int id) const;
 	proto_ff_s::gm5Helpcons_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::gm5Helpcons_s, MAX_GM5HELP_CONS_NUM>* GetAllDesc() const { return &m_astDesc; }

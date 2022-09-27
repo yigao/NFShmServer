@@ -69,7 +69,7 @@ int OfflineItemlistDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::offlineitemlist_s * OfflineItemlistDesc::CetDesc(int id) const
+const proto_ff_s::offlineitemlist_s * OfflineItemlistDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

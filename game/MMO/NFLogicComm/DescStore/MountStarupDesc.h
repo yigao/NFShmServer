@@ -12,6 +12,8 @@ class MountStarupDesc : public NFIDescStore
 public:
 	MountStarupDesc(NFIPluginManager* pPluginManager);
 	virtual ~MountStarupDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::mountstarUp_s* GetDesc(int id) const;
 	proto_ff_s::mountstarUp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::mountstarUp_s, MAX_MOUNT_STARUP_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class WingChangeDesc : public NFIDescStore
 public:
 	WingChangeDesc(NFIPluginManager* pPluginManager);
 	virtual ~WingChangeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::wingchange_s* GetDesc(int id) const;
 	proto_ff_s::wingchange_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::wingchange_s, MAX_WING_CHANGE_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class ItemItemDesc : public NFIDescStore
 public:
 	ItemItemDesc(NFIPluginManager* pPluginManager);
 	virtual ~ItemItemDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::itemitem_s* GetDesc(int id) const;
 	proto_ff_s::itemitem_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::itemitem_s, MAX_ITEM_ITEM_NUM>* GetAllDesc() const { return &m_astDesc; }

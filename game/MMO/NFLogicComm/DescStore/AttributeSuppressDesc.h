@@ -12,6 +12,8 @@ class AttributeSuppressDesc : public NFIDescStore
 public:
 	AttributeSuppressDesc(NFIPluginManager* pPluginManager);
 	virtual ~AttributeSuppressDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::attributesuppress_s* GetDesc(int id) const;
 	proto_ff_s::attributesuppress_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::attributesuppress_s, MAX_ATTRIBUTE_SUPPRESS_NUM>* GetAllDesc() const { return &m_astDesc; }

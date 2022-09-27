@@ -12,6 +12,8 @@ class DuplicateEndlessmazeDesc : public NFIDescStore
 public:
 	DuplicateEndlessmazeDesc(NFIPluginManager* pPluginManager);
 	virtual ~DuplicateEndlessmazeDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::duplicateendlessMaze_s* GetDesc(int id) const;
 	proto_ff_s::duplicateendlessMaze_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::duplicateendlessMaze_s, MAX_DUPLICATE_ENDLESSMAZE_NUM>* GetAllDesc() const { return &m_astDesc; }

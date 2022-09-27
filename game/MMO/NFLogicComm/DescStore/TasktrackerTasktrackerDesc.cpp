@@ -69,7 +69,7 @@ int TasktrackerTasktrackerDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::tasktrackertasktracker_s * TasktrackerTasktrackerDesc::CetDesc(int id) const
+const proto_ff_s::tasktrackertasktracker_s * TasktrackerTasktrackerDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

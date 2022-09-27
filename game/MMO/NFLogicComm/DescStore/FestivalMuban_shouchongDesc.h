@@ -12,6 +12,8 @@ class FestivalMuban_shouchongDesc : public NFIDescStore
 public:
 	FestivalMuban_shouchongDesc(NFIPluginManager* pPluginManager);
 	virtual ~FestivalMuban_shouchongDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::festivalmuban_shouchong_s* GetDesc(int id) const;
 	proto_ff_s::festivalmuban_shouchong_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::festivalmuban_shouchong_s, MAX_FESTIVAL_MUBAN_SHOUCHONG_NUM>* GetAllDesc() const { return &m_astDesc; }

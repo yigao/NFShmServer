@@ -12,6 +12,8 @@ class OccupationConditionlistDesc : public NFIDescStore
 public:
 	OccupationConditionlistDesc(NFIPluginManager* pPluginManager);
 	virtual ~OccupationConditionlistDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::occupationconditionList_s* GetDesc(int id) const;
 	proto_ff_s::occupationconditionList_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::occupationconditionList_s, MAX_OCCUPATION_CONDITIONLIST_NUM>* GetAllDesc() const { return &m_astDesc; }

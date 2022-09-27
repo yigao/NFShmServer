@@ -12,6 +12,8 @@ class TaskdynamicTaskcomcondDesc : public NFIDescStore
 public:
 	TaskdynamicTaskcomcondDesc(NFIPluginManager* pPluginManager);
 	virtual ~TaskdynamicTaskcomcondDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::taskdynamictaskcomcond_s* GetDesc(int id) const;
 	proto_ff_s::taskdynamictaskcomcond_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::taskdynamictaskcomcond_s, MAX_TASKDYNAMIC_TASKCOMCOND_NUM>* GetAllDesc() const { return &m_astDesc; }

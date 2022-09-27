@@ -69,7 +69,7 @@ int ActivityActivitynoticeDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::activityactivitynotice_s * ActivityActivitynoticeDesc::CetDesc(int id) const
+const proto_ff_s::activityactivitynotice_s * ActivityActivitynoticeDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

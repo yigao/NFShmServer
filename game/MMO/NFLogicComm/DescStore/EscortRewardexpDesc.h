@@ -12,6 +12,8 @@ class EscortRewardexpDesc : public NFIDescStore
 public:
 	EscortRewardexpDesc(NFIPluginManager* pPluginManager);
 	virtual ~EscortRewardexpDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::escortrewardExp_s* GetDesc(int id) const;
 	proto_ff_s::escortrewardExp_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::escortrewardExp_s, MAX_ESCORT_REWARDEXP_NUM>* GetAllDesc() const { return &m_astDesc; }

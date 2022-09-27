@@ -69,7 +69,7 @@ int FestivalD_diaoluoDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivald_diaoluo_s * FestivalD_diaoluoDesc::CetDesc(int id) const
+const proto_ff_s::festivald_diaoluo_s * FestivalD_diaoluoDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

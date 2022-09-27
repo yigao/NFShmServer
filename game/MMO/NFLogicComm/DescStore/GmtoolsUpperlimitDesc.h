@@ -12,6 +12,8 @@ class GmtoolsUpperlimitDesc : public NFIDescStore
 public:
 	GmtoolsUpperlimitDesc(NFIPluginManager* pPluginManager);
 	virtual ~GmtoolsUpperlimitDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::GMtoolsupperLimit_s* GetDesc(int id) const;
 	proto_ff_s::GMtoolsupperLimit_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::GMtoolsupperLimit_s, MAX_GMTOOLS_UPPERLIMIT_NUM>* GetAllDesc() const { return &m_astDesc; }

@@ -12,6 +12,8 @@ class GuildWarreviveDesc : public NFIDescStore
 public:
 	GuildWarreviveDesc(NFIPluginManager* pPluginManager);
 	virtual ~GuildWarreviveDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::guildwarrevive_s* GetDesc(int id) const;
 	proto_ff_s::guildwarrevive_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::guildwarrevive_s, MAX_GUILD_WARREVIVE_NUM>* GetAllDesc() const { return &m_astDesc; }

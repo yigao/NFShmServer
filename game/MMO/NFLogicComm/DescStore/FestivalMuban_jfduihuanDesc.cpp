@@ -69,7 +69,7 @@ int FestivalMuban_jfduihuanDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::festivalmuban_JFduihuan_s * FestivalMuban_jfduihuanDesc::CetDesc(int id) const
+const proto_ff_s::festivalmuban_JFduihuan_s * FestivalMuban_jfduihuanDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

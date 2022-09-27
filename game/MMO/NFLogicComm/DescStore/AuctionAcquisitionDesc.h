@@ -12,6 +12,8 @@ class AuctionAcquisitionDesc : public NFIDescStore
 public:
 	AuctionAcquisitionDesc(NFIPluginManager* pPluginManager);
 	virtual ~AuctionAcquisitionDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::auctionacquisition_s* GetDesc(int id) const;
 	proto_ff_s::auctionacquisition_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::auctionacquisition_s, MAX_AUCTION_ACQUISITION_NUM>* GetAllDesc() const { return &m_astDesc; }

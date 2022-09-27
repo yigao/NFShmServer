@@ -69,7 +69,7 @@ int GuildPositionDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::guildposition_s * GuildPositionDesc::CetDesc(int id) const
+const proto_ff_s::guildposition_s * GuildPositionDesc::GetDesc(int id) const
 {
 	return m_astDesc.Find(id);
 }

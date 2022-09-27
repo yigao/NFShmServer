@@ -12,6 +12,8 @@ class DragonworldwarConstantsDesc : public NFIDescStore
 public:
 	DragonworldwarConstantsDesc(NFIPluginManager* pPluginManager);
 	virtual ~DragonworldwarConstantsDesc();
+	int CreateInit();
+	int ResumeInit();
 	const proto_ff_s::dragonWorldWarconstants_s* GetDesc(int id) const;
 	proto_ff_s::dragonWorldWarconstants_s* GetDesc(int id);
 	const NFShmHashMap<uint64_t, proto_ff_s::dragonWorldWarconstants_s, MAX_DRAGONWORLDWAR_CONSTANTS_NUM>* GetAllDesc() const { return &m_astDesc; }
