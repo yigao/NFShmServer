@@ -39,7 +39,6 @@ class Sheet_manorconstants;
 class manoritemCost;
 class Sheet_manoritemCost;
 class manormanorlistinitialMonsterDesc;
-class manormanorlistpatBeastAttackDesc;
 class manormanorlist;
 class Sheet_manormanorlist;
 class manorproductproductDesc;
@@ -558,88 +557,6 @@ class manormanorlistinitialMonsterDesc : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class manormanorlistpatBeastAttackDesc : public ::google::protobuf::Message {
- public:
-  manormanorlistpatBeastAttackDesc();
-  virtual ~manormanorlistpatBeastAttackDesc();
-
-  manormanorlistpatBeastAttackDesc(const manormanorlistpatBeastAttackDesc& from);
-
-  inline manormanorlistpatBeastAttackDesc& operator=(const manormanorlistpatBeastAttackDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const manormanorlistpatBeastAttackDesc& default_instance();
-
-  void Swap(manormanorlistpatBeastAttackDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  manormanorlistpatBeastAttackDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const manormanorlistpatBeastAttackDesc& from);
-  void MergeFrom(const manormanorlistpatBeastAttackDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int64 Path = 1;
-  inline bool has_path() const;
-  inline void clear_path();
-  static const int kPathFieldNumber = 1;
-  inline ::google::protobuf::int64 path() const;
-  inline void set_path(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.manormanorlistpatBeastAttackDesc)
- private:
-  inline void set_has_path();
-  inline void clear_has_path();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int64 path_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_manor_2eproto();
-  friend void protobuf_AssignDesc_manor_2eproto();
-  friend void protobuf_ShutdownFile_manor_2eproto();
-
-  void InitAsDefaultInstance();
-  static manormanorlistpatBeastAttackDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class manormanorlist : public ::google::protobuf::Message {
  public:
   manormanorlist();
@@ -865,17 +782,17 @@ class manormanorlist : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistinitialMonsterDesc >*
       mutable_initialmonster();
 
-  // repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-  inline int patbeastattack_size() const;
-  inline void clear_patbeastattack();
-  static const int kPatBeastAttackFieldNumber = 24;
-  inline const ::proto_ff::manormanorlistpatBeastAttackDesc& patbeastattack(int index) const;
-  inline ::proto_ff::manormanorlistpatBeastAttackDesc* mutable_patbeastattack(int index);
-  inline ::proto_ff::manormanorlistpatBeastAttackDesc* add_patbeastattack();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >&
-      patbeastattack() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >*
-      mutable_patbeastattack();
+  // repeated int64 patBeastAttack_Path = 24;
+  inline int patbeastattack_path_size() const;
+  inline void clear_patbeastattack_path();
+  static const int kPatBeastAttackPathFieldNumber = 24;
+  inline ::google::protobuf::int64 patbeastattack_path(int index) const;
+  inline void set_patbeastattack_path(int index, ::google::protobuf::int64 value);
+  inline void add_patbeastattack_path(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      patbeastattack_path() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_patbeastattack_path();
 
   // @@protoc_insertion_point(class_scope:proto_ff.manormanorlist)
  private:
@@ -948,7 +865,7 @@ class manormanorlist : public ::google::protobuf::Message {
   ::google::protobuf::int64 crossgatebasepath_;
   ::google::protobuf::int64 crossgatebaseid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistinitialMonsterDesc > initialmonster_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc > patbeastattack_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > patbeastattack_path_;
   ::google::protobuf::int32 crossgatemaxlevel_;
 
   mutable int _cached_size_;
@@ -3474,32 +3391,6 @@ inline void manormanorlistinitialMonsterDesc::set_id(::google::protobuf::int64 v
 
 // -------------------------------------------------------------------
 
-// manormanorlistpatBeastAttackDesc
-
-// optional int64 Path = 1;
-inline bool manormanorlistpatBeastAttackDesc::has_path() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void manormanorlistpatBeastAttackDesc::set_has_path() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void manormanorlistpatBeastAttackDesc::clear_has_path() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void manormanorlistpatBeastAttackDesc::clear_path() {
-  path_ = GOOGLE_LONGLONG(0);
-  clear_has_path();
-}
-inline ::google::protobuf::int64 manormanorlistpatBeastAttackDesc::path() const {
-  return path_;
-}
-inline void manormanorlistpatBeastAttackDesc::set_path(::google::protobuf::int64 value) {
-  set_has_path();
-  path_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // manormanorlist
 
 // optional int64 ID = 1;
@@ -4059,29 +3950,29 @@ manormanorlist::mutable_initialmonster() {
   return &initialmonster_;
 }
 
-// repeated .proto_ff.manormanorlistpatBeastAttackDesc patBeastAttack = 24;
-inline int manormanorlist::patbeastattack_size() const {
-  return patbeastattack_.size();
+// repeated int64 patBeastAttack_Path = 24;
+inline int manormanorlist::patbeastattack_path_size() const {
+  return patbeastattack_path_.size();
 }
-inline void manormanorlist::clear_patbeastattack() {
-  patbeastattack_.Clear();
+inline void manormanorlist::clear_patbeastattack_path() {
+  patbeastattack_path_.Clear();
 }
-inline const ::proto_ff::manormanorlistpatBeastAttackDesc& manormanorlist::patbeastattack(int index) const {
-  return patbeastattack_.Get(index);
+inline ::google::protobuf::int64 manormanorlist::patbeastattack_path(int index) const {
+  return patbeastattack_path_.Get(index);
 }
-inline ::proto_ff::manormanorlistpatBeastAttackDesc* manormanorlist::mutable_patbeastattack(int index) {
-  return patbeastattack_.Mutable(index);
+inline void manormanorlist::set_patbeastattack_path(int index, ::google::protobuf::int64 value) {
+  patbeastattack_path_.Set(index, value);
 }
-inline ::proto_ff::manormanorlistpatBeastAttackDesc* manormanorlist::add_patbeastattack() {
-  return patbeastattack_.Add();
+inline void manormanorlist::add_patbeastattack_path(::google::protobuf::int64 value) {
+  patbeastattack_path_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >&
-manormanorlist::patbeastattack() const {
-  return patbeastattack_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+manormanorlist::patbeastattack_path() const {
+  return patbeastattack_path_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::manormanorlistpatBeastAttackDesc >*
-manormanorlist::mutable_patbeastattack() {
-  return &patbeastattack_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+manormanorlist::mutable_patbeastattack_path() {
+  return &patbeastattack_path_;
 }
 
 // -------------------------------------------------------------------

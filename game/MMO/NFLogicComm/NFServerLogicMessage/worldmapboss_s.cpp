@@ -2,31 +2,6 @@
 
 namespace proto_ff_s {
 
-worldmapbossworldbossbornDesc_s::worldmapbossworldbossbornDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int worldmapbossworldbossbornDesc_s::CreateInit() {
-	return 0;
-}
-
-int worldmapbossworldbossbornDesc_s::ResumeInit() {
-	return 0;
-}
-
-void worldmapbossworldbossbornDesc_s::write_to_pbmsg(::proto_ff::worldmapbossworldbossbornDesc & msg) const {
-	msg.set_time((const char*)Time.Get());
-}
-
-void worldmapbossworldbossbornDesc_s::read_from_pbmsg(const ::proto_ff::worldmapbossworldbossbornDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct worldmapbossworldbossbornDesc_s));
-	Time.Copy(msg.time());
-}
-
 worldmapbossworldboss_s::worldmapbossworldboss_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -59,9 +34,8 @@ void worldmapbossworldboss_s::write_to_pbmsg(::proto_ff::worldmapbossworldboss &
 	msg.set_pathid((const char*)pathId.Get());
 	msg.set_specnoticehp((int32_t)specNoticeHP);
 	msg.set_bornspacetime((int32_t)bornSpaceTime);
-	for(int32_t i = 0; i < (int32_t)born.GetSize() && i < born.GetMaxSize(); ++i) {
-		::proto_ff::worldmapbossworldbossbornDesc* temp_born = msg.add_born();
-		born[i].write_to_pbmsg(*temp_born);
+	for(int32_t i = 0; i < (int32_t)born_Time.GetSize() && i < born_Time.GetMaxSize(); ++i) {
+		msg.add_born_time((const char*)born_Time[i].Get());
 	}
 }
 
@@ -75,10 +49,9 @@ void worldmapbossworldboss_s::read_from_pbmsg(const ::proto_ff::worldmapbossworl
 	pathId.Copy(msg.pathid());
 	specNoticeHP = msg.specnoticehp();
 	bornSpaceTime = msg.bornspacetime();
-	born.SetSize(msg.born_size() > born.GetMaxSize() ? born.GetMaxSize() : msg.born_size());
-	for(int32_t i = 0; i < (int32_t)born.GetSize(); ++i) {
-		const ::proto_ff::worldmapbossworldbossbornDesc & temp_born = msg.born(i);
-		born[i].read_from_pbmsg(temp_born);
+	born_Time.SetSize(msg.born_time_size() > born_Time.GetMaxSize() ? born_Time.GetMaxSize() : msg.born_time_size());
+	for(int32_t i = 0; i < (int32_t)born_Time.GetSize(); ++i) {
+		born_Time[i].Copy(msg.born_time(i));
 	}
 }
 

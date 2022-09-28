@@ -9,16 +9,6 @@ message occupationoccupationattributeDesc
 	optional int32 value = 2[(yd_fieldoptions.field_cname) = "基础属性值"];
 }
 
-message occupationoccupationdelSkillDesc
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "删除技能ID"];
-}
-
-message occupationoccupationskillDesc
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "增加技能ID"];
-}
-
 message occupationoccupation
 {
 	optional int64 occupationID = 1[(yd_fieldoptions.field_cname) = "转职职业ID"];
@@ -31,8 +21,8 @@ message occupationoccupation
 	optional string equip = 8[(yd_fieldoptions.field_cname) = "武器模型", (yd_fieldoptions.field_bufsize) = 60];
 	optional string modelID = 9[(yd_fieldoptions.field_cname) = "模型路径", (yd_fieldoptions.field_bufsize) = 60];
 	repeated occupationoccupationattributeDesc attribute = 10[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 4];
-	repeated occupationoccupationdelSkillDesc delSkill = 11[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 3];
-	repeated occupationoccupationskillDesc skill = 12[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 delSkill_id = 11[(yd_fieldoptions.field_cname) = "删除技能ID", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 skill_id = 12[(yd_fieldoptions.field_cname) = "增加技能ID", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

@@ -54,6 +54,7 @@ int MonsterDisplayDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.monsterdisplay_list_size(); i++)
 	{
 		const proto_ff::monsterdisplay& desc = table.monsterdisplay_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.displayid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.displayid());
 		pDesc->read_from_pbmsg(desc);

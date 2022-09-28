@@ -37,11 +37,6 @@ message manormanorlistinitialMonsterDesc
 	optional int64 Id = 2[(yd_fieldoptions.field_cname) = ""];
 }
 
-message manormanorlistpatBeastAttackDesc
-{
-	optional int64 Path = 1[(yd_fieldoptions.field_cname) = "奇兽攻击落点"];
-}
-
 message manormanorlist
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
@@ -67,7 +62,7 @@ message manormanorlist
 	optional int32 crossGateMaxLevel = 21[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
 	optional int64 crossGateBaseId = 22[(yd_fieldoptions.field_cname) = "祭献塔ID"];
 	repeated manormanorlistinitialMonsterDesc initialMonster = 23[(yd_fieldoptions.field_cname) = "初始中立怪物", (yd_fieldoptions.field_arysize) = 4];
-	repeated manormanorlistpatBeastAttackDesc patBeastAttack = 24[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 patBeastAttack_Path = 24[(yd_fieldoptions.field_cname) = "奇兽攻击落点", (yd_fieldoptions.field_arysize) = 4];
 }
 
 

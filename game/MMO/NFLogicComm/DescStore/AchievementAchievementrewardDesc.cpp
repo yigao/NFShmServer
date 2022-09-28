@@ -54,6 +54,7 @@ int AchievementAchievementrewardDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.achievementachievementreward_list_size(); i++)
 	{
 		const proto_ff::achievementachievementreward& desc = table.achievementachievementreward_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.achievementprizeid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.achievementprizeid());
 		pDesc->read_from_pbmsg(desc);

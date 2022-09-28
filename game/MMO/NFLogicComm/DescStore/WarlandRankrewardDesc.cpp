@@ -54,6 +54,7 @@ int WarlandRankrewardDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.warlandrankreward_list_size(); i++)
 	{
 		const proto_ff::warlandrankreward& desc = table.warlandrankreward_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.stageid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.stageid());
 		pDesc->read_from_pbmsg(desc);

@@ -164,32 +164,6 @@ void manormanorlistinitialMonsterDesc_s::read_from_pbmsg(const ::proto_ff::manor
 	Id = msg.id();
 }
 
-manormanorlistpatBeastAttackDesc_s::manormanorlistpatBeastAttackDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int manormanorlistpatBeastAttackDesc_s::CreateInit() {
-	Path = (int64_t)0;
-	return 0;
-}
-
-int manormanorlistpatBeastAttackDesc_s::ResumeInit() {
-	return 0;
-}
-
-void manormanorlistpatBeastAttackDesc_s::write_to_pbmsg(::proto_ff::manormanorlistpatBeastAttackDesc & msg) const {
-	msg.set_path((int64_t)Path);
-}
-
-void manormanorlistpatBeastAttackDesc_s::read_from_pbmsg(const ::proto_ff::manormanorlistpatBeastAttackDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manormanorlistpatBeastAttackDesc_s));
-	Path = msg.path();
-}
-
 manormanorlist_s::manormanorlist_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -254,9 +228,8 @@ void manormanorlist_s::write_to_pbmsg(::proto_ff::manormanorlist & msg) const {
 		::proto_ff::manormanorlistinitialMonsterDesc* temp_initialmonster = msg.add_initialmonster();
 		initialMonster[i].write_to_pbmsg(*temp_initialmonster);
 	}
-	for(int32_t i = 0; i < (int32_t)patBeastAttack.GetSize() && i < patBeastAttack.GetMaxSize(); ++i) {
-		::proto_ff::manormanorlistpatBeastAttackDesc* temp_patbeastattack = msg.add_patbeastattack();
-		patBeastAttack[i].write_to_pbmsg(*temp_patbeastattack);
+	for(int32_t i = 0; i < (int32_t)patBeastAttack_Path.GetSize() && i < patBeastAttack_Path.GetMaxSize(); ++i) {
+		msg.add_patbeastattack_path((int64_t)patBeastAttack_Path[i]);
 	}
 }
 
@@ -289,10 +262,9 @@ void manormanorlist_s::read_from_pbmsg(const ::proto_ff::manormanorlist & msg) {
 		const ::proto_ff::manormanorlistinitialMonsterDesc & temp_initialmonster = msg.initialmonster(i);
 		initialMonster[i].read_from_pbmsg(temp_initialmonster);
 	}
-	patBeastAttack.SetSize(msg.patbeastattack_size() > patBeastAttack.GetMaxSize() ? patBeastAttack.GetMaxSize() : msg.patbeastattack_size());
-	for(int32_t i = 0; i < (int32_t)patBeastAttack.GetSize(); ++i) {
-		const ::proto_ff::manormanorlistpatBeastAttackDesc & temp_patbeastattack = msg.patbeastattack(i);
-		patBeastAttack[i].read_from_pbmsg(temp_patbeastattack);
+	patBeastAttack_Path.SetSize(msg.patbeastattack_path_size() > patBeastAttack_Path.GetMaxSize() ? patBeastAttack_Path.GetMaxSize() : msg.patbeastattack_path_size());
+	for(int32_t i = 0; i < (int32_t)patBeastAttack_Path.GetSize(); ++i) {
+		patBeastAttack_Path[i] = msg.patbeastattack_path(i);
 	}
 }
 

@@ -43,7 +43,7 @@ int ManorManorlistDesc::Load(NFResDB *pDB)
 	iRet = pResTable->FindAllRecord(GetDBName(), &table);
 	CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
+	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
 	if ((table.manormanorlist_list_size() < 0) || (table.manormanorlist_list_size() > (int)(m_astDesc.GetSize())))
 	{
@@ -54,6 +54,7 @@ int ManorManorlistDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.manormanorlist_list_size(); i++)
 	{
 		const proto_ff::manormanorlist& desc = table.manormanorlist_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);

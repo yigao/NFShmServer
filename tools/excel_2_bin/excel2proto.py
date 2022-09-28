@@ -150,6 +150,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\tfor (int i = 0; i < table." + excel_name.lower() + sheet_name.lower() + "_list_size(); i++)\n")
 	desc_file.write("\t{\n")
 	desc_file.write("\t\tconst proto_ff::" + excel_name + sheet_name + "& desc = table." + excel_name.lower() + sheet_name.lower() + "_list(i);\n")
+	desc_file.write("\t\t//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"{}\", desc.Utf8DebugString());\n")
 	desc_file.write("\t\tauto pDesc = m_astDesc.Insert(desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
 	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc.Insert Failed desc.id:{}\", desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
 	desc_file.write("\t\tpDesc->read_from_pbmsg(desc);\n");
@@ -363,8 +364,12 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 										if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 											sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
 				elif len(col_en_name_list) == 2 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
-					has_col = False;
-					for col_index_temp in xrange(col_index+1, excel_sheet_col_count):
+					has_col = False
+					has_diff = False
+					for col_index_temp in xrange(0, excel_sheet_col_count):
+						if col_index_temp == col_index:
+							continue
+
 						col_en_name_temp = str(sheet.cell_value(0, col_index_temp))
 						col_cn_name_temp = str(sheet.cell_value(1, col_index_temp))
 						col_type_temp = str(sheet.cell_value(2, col_index_temp))
@@ -375,6 +380,11 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 								len(col_cn_name_list_temp[2]) > 0 and col_cn_name_list_temp[0] == col_cn_name_list[0]:
 							has_col = True;
 							break;
+						elif len(col_en_name_list_temp) == 2 and col_en_name_temp != col_en_name and col_en_name_temp[0] == col_en_name[0] and \
+								len(col_cn_name_list_temp) == 3 and len(col_cn_name_list_temp[0]) > 0 and len(col_cn_name_list_temp[2]) == 0 and \
+								col_cn_name_list_temp[0] != col_cn_name_list[0]:
+							has_diff = True
+							break
 
 					if has_col == True:
 						sheet_struct_col_info[col_index] = 1
@@ -414,7 +424,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 											string_value = str(sheet.cell_value(row_index, col_index))
 											if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 												sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
-					else:
+					elif has_diff == True:
 						sheet_struct_col_info[col_index] = 1
 						struct_num = int(col_cn_name_list[1])
 						struct_en_name = str(col_en_name_list[0])
@@ -452,6 +462,32 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 											string_value = str(sheet.cell_value(row_index, col_index))
 											if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 												sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+					else:
+						sheet_struct_col_info[col_index] = 1
+						struct_num = int(col_cn_name_list[1])
+						struct_en_name = col_en_name
+						struct_cn_name = str(col_cn_name_list[0])
+						if sheet_struct_info.has_key(struct_en_name) == False:
+							sheet_struct_info[struct_en_name] = {}
+							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+							sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+							sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							sheet_struct_info[struct_en_name]["col_type"] = col_type
+							sheet_struct_info[struct_en_name]["col_max_size"] = 32
+							if col_type == "string":
+								for row_index in xrange(4, excel_sheet_row_count):
+									string_value = str(sheet.cell_value(row_index, col_index))
+									if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+										sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
+						else:
+							if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+								if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+									sheet_struct_info[struct_en_name]["max_num"] = struct_num
+								if col_type == "string":
+									for row_index in xrange(4, excel_sheet_row_count):
+										string_value = str(sheet.cell_value(row_index, col_index))
+										if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+											sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
 				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])

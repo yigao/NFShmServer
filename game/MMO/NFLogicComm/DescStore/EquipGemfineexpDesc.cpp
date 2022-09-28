@@ -54,6 +54,7 @@ int EquipGemfineexpDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.equipgemfineexp_list_size(); i++)
 	{
 		const proto_ff::equipgemfineexp& desc = table.equipgemfineexp_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.lv());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.lv());
 		pDesc->read_from_pbmsg(desc);

@@ -31,58 +31,6 @@ void occupationoccupationattributeDesc_s::read_from_pbmsg(const ::proto_ff::occu
 	value = msg.value();
 }
 
-occupationoccupationdelSkillDesc_s::occupationoccupationdelSkillDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationoccupationdelSkillDesc_s::CreateInit() {
-	id = (int64_t)0;
-	return 0;
-}
-
-int occupationoccupationdelSkillDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationoccupationdelSkillDesc_s::write_to_pbmsg(::proto_ff::occupationoccupationdelSkillDesc & msg) const {
-	msg.set_id((int64_t)id);
-}
-
-void occupationoccupationdelSkillDesc_s::read_from_pbmsg(const ::proto_ff::occupationoccupationdelSkillDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationoccupationdelSkillDesc_s));
-	id = msg.id();
-}
-
-occupationoccupationskillDesc_s::occupationoccupationskillDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int occupationoccupationskillDesc_s::CreateInit() {
-	id = (int64_t)0;
-	return 0;
-}
-
-int occupationoccupationskillDesc_s::ResumeInit() {
-	return 0;
-}
-
-void occupationoccupationskillDesc_s::write_to_pbmsg(::proto_ff::occupationoccupationskillDesc & msg) const {
-	msg.set_id((int64_t)id);
-}
-
-void occupationoccupationskillDesc_s::read_from_pbmsg(const ::proto_ff::occupationoccupationskillDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct occupationoccupationskillDesc_s));
-	id = msg.id();
-}
-
 occupationoccupation_s::occupationoccupation_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -118,13 +66,11 @@ void occupationoccupation_s::write_to_pbmsg(::proto_ff::occupationoccupation & m
 		::proto_ff::occupationoccupationattributeDesc* temp_attribute = msg.add_attribute();
 		attribute[i].write_to_pbmsg(*temp_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)delSkill.GetSize() && i < delSkill.GetMaxSize(); ++i) {
-		::proto_ff::occupationoccupationdelSkillDesc* temp_delskill = msg.add_delskill();
-		delSkill[i].write_to_pbmsg(*temp_delskill);
+	for(int32_t i = 0; i < (int32_t)delSkill_id.GetSize() && i < delSkill_id.GetMaxSize(); ++i) {
+		msg.add_delskill_id((int64_t)delSkill_id[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)skill.GetSize() && i < skill.GetMaxSize(); ++i) {
-		::proto_ff::occupationoccupationskillDesc* temp_skill = msg.add_skill();
-		skill[i].write_to_pbmsg(*temp_skill);
+	for(int32_t i = 0; i < (int32_t)skill_id.GetSize() && i < skill_id.GetMaxSize(); ++i) {
+		msg.add_skill_id((int64_t)skill_id[i]);
 	}
 }
 
@@ -144,15 +90,13 @@ void occupationoccupation_s::read_from_pbmsg(const ::proto_ff::occupationoccupat
 		const ::proto_ff::occupationoccupationattributeDesc & temp_attribute = msg.attribute(i);
 		attribute[i].read_from_pbmsg(temp_attribute);
 	}
-	delSkill.SetSize(msg.delskill_size() > delSkill.GetMaxSize() ? delSkill.GetMaxSize() : msg.delskill_size());
-	for(int32_t i = 0; i < (int32_t)delSkill.GetSize(); ++i) {
-		const ::proto_ff::occupationoccupationdelSkillDesc & temp_delskill = msg.delskill(i);
-		delSkill[i].read_from_pbmsg(temp_delskill);
+	delSkill_id.SetSize(msg.delskill_id_size() > delSkill_id.GetMaxSize() ? delSkill_id.GetMaxSize() : msg.delskill_id_size());
+	for(int32_t i = 0; i < (int32_t)delSkill_id.GetSize(); ++i) {
+		delSkill_id[i] = msg.delskill_id(i);
 	}
-	skill.SetSize(msg.skill_size() > skill.GetMaxSize() ? skill.GetMaxSize() : msg.skill_size());
-	for(int32_t i = 0; i < (int32_t)skill.GetSize(); ++i) {
-		const ::proto_ff::occupationoccupationskillDesc & temp_skill = msg.skill(i);
-		skill[i].read_from_pbmsg(temp_skill);
+	skill_id.SetSize(msg.skill_id_size() > skill_id.GetMaxSize() ? skill_id.GetMaxSize() : msg.skill_id_size());
+	for(int32_t i = 0; i < (int32_t)skill_id.GetSize(); ++i) {
+		skill_id[i] = msg.skill_id(i);
 	}
 }
 

@@ -82,19 +82,6 @@ namespace proto_ff_s {
 	};
 	typedef struct manormanorlistinitialMonsterDesc_s manormanorlistinitialMonsterDesc_t;
 
-	struct manormanorlistpatBeastAttackDesc_s : public NFDescStoreSeqOP {
-		manormanorlistpatBeastAttackDesc_s();
-		int CreateInit();
-		int ResumeInit();
-		int64_t Path;
-
-		virtual void write_to_pbmsg(::proto_ff::manormanorlistpatBeastAttackDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::manormanorlistpatBeastAttackDesc & msg);
-		static ::proto_ff::manormanorlistpatBeastAttackDesc* new_pbmsg(){ return new ::proto_ff::manormanorlistpatBeastAttackDesc(); }
-		static ::proto_ff::manormanorlistpatBeastAttackDesc make_pbmsg(){ return ::proto_ff::manormanorlistpatBeastAttackDesc(); }
-	};
-	typedef struct manormanorlistpatBeastAttackDesc_s manormanorlistpatBeastAttackDesc_t;
-
 	struct manormanorlist_s : public NFDescStoreSeqOP {
 		manormanorlist_s();
 		int CreateInit();
@@ -122,7 +109,7 @@ namespace proto_ff_s {
 		int32_t crossGateMaxLevel;
 		int64_t crossGateBaseId;
 		NFArray<struct manormanorlistinitialMonsterDesc_s, 4> initialMonster;
-		NFArray<struct manormanorlistpatBeastAttackDesc_s, 4> patBeastAttack;
+		NFArray<int64_t, 4> patBeastAttack_Path;
 
 		virtual void write_to_pbmsg(::proto_ff::manormanorlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::manormanorlist & msg);

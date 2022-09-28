@@ -54,6 +54,7 @@ int RankingDateDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.rankingdate_list_size(); i++)
 	{
 		const proto_ff::rankingdate& desc = table.rankingdate_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.dateid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.dateid());
 		pDesc->read_from_pbmsg(desc);

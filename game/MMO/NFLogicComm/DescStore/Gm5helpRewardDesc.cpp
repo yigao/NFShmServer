@@ -54,6 +54,7 @@ int Gm5helpRewardDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.gm5helpreward_list_size(); i++)
 	{
 		const proto_ff::gm5Helpreward& desc = table.gm5helpreward_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);

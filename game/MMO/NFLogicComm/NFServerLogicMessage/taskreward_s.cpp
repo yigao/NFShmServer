@@ -2,6 +2,32 @@
 
 namespace proto_ff_s {
 
+taskrewardtaskrewardattrDesc_s::taskrewardtaskrewardattrDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int taskrewardtaskrewardattrDesc_s::CreateInit() {
+	id = (int64_t)0;
+	return 0;
+}
+
+int taskrewardtaskrewardattrDesc_s::ResumeInit() {
+	return 0;
+}
+
+void taskrewardtaskrewardattrDesc_s::write_to_pbmsg(::proto_ff::taskrewardtaskrewardattrDesc & msg) const {
+	msg.set_id((int64_t)id);
+}
+
+void taskrewardtaskrewardattrDesc_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskrewardattrDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtaskrewardattrDesc_s));
+	id = msg.id();
+}
+
 taskrewardtaskrewarditemDesc_s::taskrewardtaskrewarditemDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -37,32 +63,6 @@ void taskrewardtaskrewarditemDesc_s::read_from_pbmsg(const ::proto_ff::taskrewar
 	prof = msg.prof();
 }
 
-taskrewardtaskrewardattrDesc_s::taskrewardtaskrewardattrDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int taskrewardtaskrewardattrDesc_s::CreateInit() {
-	id = (int64_t)0;
-	return 0;
-}
-
-int taskrewardtaskrewardattrDesc_s::ResumeInit() {
-	return 0;
-}
-
-void taskrewardtaskrewardattrDesc_s::write_to_pbmsg(::proto_ff::taskrewardtaskrewardattrDesc & msg) const {
-	msg.set_id((int64_t)id);
-}
-
-void taskrewardtaskrewardattrDesc_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskrewardattrDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtaskrewardattrDesc_s));
-	id = msg.id();
-}
-
 taskrewardtaskreward_s::taskrewardtaskreward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -90,13 +90,16 @@ void taskrewardtaskreward_s::write_to_pbmsg(::proto_ff::taskrewardtaskreward & m
 	msg.set_lv((int32_t)lv);
 	msg.set_guildexp((int32_t)guildExp);
 	msg.set_guildpoint((int32_t)guildPoint);
-	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
-		::proto_ff::taskrewardtaskrewarditemDesc* temp_item = msg.add_item();
-		item[i].write_to_pbmsg(*temp_item);
+	for(int32_t i = 0; i < (int32_t)attr_val.GetSize() && i < attr_val.GetMaxSize(); ++i) {
+		msg.add_attr_val((int64_t)attr_val[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)attr.GetSize() && i < attr.GetMaxSize(); ++i) {
 		::proto_ff::taskrewardtaskrewardattrDesc* temp_attr = msg.add_attr();
 		attr[i].write_to_pbmsg(*temp_attr);
+	}
+	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
+		::proto_ff::taskrewardtaskrewarditemDesc* temp_item = msg.add_item();
+		item[i].write_to_pbmsg(*temp_item);
 	}
 }
 
@@ -107,15 +110,19 @@ void taskrewardtaskreward_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskrew
 	lv = msg.lv();
 	guildExp = msg.guildexp();
 	guildPoint = msg.guildpoint();
-	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
-	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
-		const ::proto_ff::taskrewardtaskrewarditemDesc & temp_item = msg.item(i);
-		item[i].read_from_pbmsg(temp_item);
+	attr_val.SetSize(msg.attr_val_size() > attr_val.GetMaxSize() ? attr_val.GetMaxSize() : msg.attr_val_size());
+	for(int32_t i = 0; i < (int32_t)attr_val.GetSize(); ++i) {
+		attr_val[i] = msg.attr_val(i);
 	}
 	attr.SetSize(msg.attr_size() > attr.GetMaxSize() ? attr.GetMaxSize() : msg.attr_size());
 	for(int32_t i = 0; i < (int32_t)attr.GetSize(); ++i) {
 		const ::proto_ff::taskrewardtaskrewardattrDesc & temp_attr = msg.attr(i);
 		attr[i].read_from_pbmsg(temp_attr);
+	}
+	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
+	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
+		const ::proto_ff::taskrewardtaskrewarditemDesc & temp_item = msg.item(i);
+		item[i].read_from_pbmsg(temp_item);
 	}
 }
 

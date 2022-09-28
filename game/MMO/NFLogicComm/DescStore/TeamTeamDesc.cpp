@@ -54,6 +54,7 @@ int TeamTeamDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.teamteam_list_size(); i++)
 	{
 		const proto_ff::teamteam& desc = table.teamteam_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.teamobjectid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.teamobjectid());
 		pDesc->read_from_pbmsg(desc);

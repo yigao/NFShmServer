@@ -54,6 +54,7 @@ int PartnerFragmentDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.partnerfragment_list_size(); i++)
 	{
 		const proto_ff::partnerfragment& desc = table.partnerfragment_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.fragmentid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.fragmentid());
 		pDesc->read_from_pbmsg(desc);

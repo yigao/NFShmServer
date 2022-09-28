@@ -20,9 +20,6 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* worldmapbossworldbossbornDesc_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  worldmapbossworldbossbornDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* worldmapbossworldboss_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   worldmapbossworldboss_reflection_ = NULL;
@@ -51,22 +48,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "worldmapboss.proto");
   GOOGLE_CHECK(file != NULL);
-  worldmapbossworldbossbornDesc_descriptor_ = file->message_type(0);
-  static const int worldmapbossworldbossbornDesc_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldbossbornDesc, time_),
-  };
-  worldmapbossworldbossbornDesc_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      worldmapbossworldbossbornDesc_descriptor_,
-      worldmapbossworldbossbornDesc::default_instance_,
-      worldmapbossworldbossbornDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldbossbornDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldbossbornDesc, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(worldmapbossworldbossbornDesc));
-  worldmapbossworldboss_descriptor_ = file->message_type(1);
+  worldmapbossworldboss_descriptor_ = file->message_type(0);
   static const int worldmapbossworldboss_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, bossid_),
@@ -76,7 +58,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, pathid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, specnoticehp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, bornspacetime_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, born_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossworldboss, born_time_),
   };
   worldmapbossworldboss_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -89,7 +71,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(worldmapbossworldboss));
-  Sheet_worldmapbossworldboss_descriptor_ = file->message_type(2);
+  Sheet_worldmapbossworldboss_descriptor_ = file->message_type(1);
   static const int Sheet_worldmapbossworldboss_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_worldmapbossworldboss, worldmapbossworldboss_list_),
   };
@@ -104,7 +86,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_worldmapbossworldboss));
-  worldmapbossdroplist_descriptor_ = file->message_type(3);
+  worldmapbossdroplist_descriptor_ = file->message_type(2);
   static const int worldmapbossdroplist_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossdroplist, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossdroplist, monsterid_),
@@ -122,7 +104,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(worldmapbossdroplist));
-  Sheet_worldmapbossdroplist_descriptor_ = file->message_type(4);
+  Sheet_worldmapbossdroplist_descriptor_ = file->message_type(3);
   static const int Sheet_worldmapbossdroplist_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_worldmapbossdroplist, worldmapbossdroplist_list_),
   };
@@ -137,7 +119,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_worldmapbossdroplist));
-  worldmapbossfestival_descriptor_ = file->message_type(5);
+  worldmapbossfestival_descriptor_ = file->message_type(4);
   static const int worldmapbossfestival_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossfestival, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(worldmapbossfestival, bossid_),
@@ -154,7 +136,7 @@ void protobuf_AssignDesc_worldmapboss_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(worldmapbossfestival));
-  Sheet_worldmapbossfestival_descriptor_ = file->message_type(6);
+  Sheet_worldmapbossfestival_descriptor_ = file->message_type(5);
   static const int Sheet_worldmapbossfestival_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_worldmapbossfestival, worldmapbossfestival_list_),
   };
@@ -182,8 +164,6 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    worldmapbossworldbossbornDesc_descriptor_, &worldmapbossworldbossbornDesc::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     worldmapbossworldboss_descriptor_, &worldmapbossworldboss::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_worldmapbossworldboss_descriptor_, &Sheet_worldmapbossworldboss::default_instance());
@@ -200,8 +180,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_worldmapboss_2eproto() {
-  delete worldmapbossworldbossbornDesc::default_instance_;
-  delete worldmapbossworldbossbornDesc_reflection_;
   delete worldmapbossworldboss::default_instance_;
   delete worldmapbossworldboss_reflection_;
   delete Sheet_worldmapbossworldboss::default_instance_;
@@ -225,43 +203,39 @@ void protobuf_AddDesc_worldmapboss_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\022worldmapboss.proto\022\010proto_ff\032\025yd_field"
-    "options.proto\"F\n\035worldmapbossworldbossbo"
-    "rnDesc\022%\n\004Time\030\001 \001(\tB\027\302\377\024\017\345\210\267\346\226\260\346\227\266\351\227\264\347\202"
-    "\271\220\301\024<\"\242\003\n\025worldmapbossworldboss\022\022\n\002id\030\001 "
+    "options.proto\"\215\003\n\025worldmapbossworldboss\022"
+    "\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\032\n\006bossId\030\002 \001(\003B\n\302\377\024"
+    "\006BOSSID\022)\n\tminiLevel\030\003 \001(\005B\026\302\377\024\022\345\210\267\346\226\260\345\210"
+    "\235\345\247\213\347\255\211\347\272\247\022%\n\013unLockLevel\030\004 \001(\005B\020\302\377\024\014\350\247\243"
+    "\351\224\201\347\255\211\347\272\247\022*\n\nlevelCheck\030\005 \001(\005B\026\302\377\024\022\345\212\250\346\200"
+    "\201\347\255\211\347\272\247\346\240\241\346\255\243\022\'\n\006pathId\030\006 \001(\tB\027\302\377\024\017\345\210\267\346\226"
+    "\260\345\234\260\347\202\271\345\272\223\220\301\024<\0225\n\014specNoticeHP\030\007 \001(\005B\037\302\377"
+    "\024\033\347\211\271\346\256\212\350\267\221\351\251\254\347\201\257\350\247\246\345\217\221\350\241\200\351\207\217\0226\n\rbornSpa"
+    "ceTime\030\010 \001(\005B\037\302\377\024\033\346\255\273\344\272\241\351\207\215\347\224\237\351\227\264\351\232\224\357\274\210\347"
+    "\247\222\357\274\211\022.\n\tborn_Time\030\t \003(\tB\033\302\377\024\017\345\210\267\346\226\260\346\227\266\351"
+    "\227\264\347\202\271\210\301\024\006\220\301\024<\"i\n\033Sheet_worldmapbossworld"
+    "boss\022J\n\032worldmapbossworldboss_List\030\001 \003(\013"
+    "2\037.proto_ff.worldmapbossworldbossB\005\210\301\024\254\002"
+    "\"\214\001\n\024worldmapbossdroplist\022\022\n\002id\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\037\n\tmonsterId\030\002 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\022!"
+    "\n\tbossLevel\030\003 \001(\005B\016\302\377\024\nBOSS\347\255\211\347\272\247\022\034\n\006dro"
+    "pId\030\004 \001(\003B\014\302\377\024\010\346\216\211\350\220\275ID\"f\n\032Sheet_worldma"
+    "pbossdroplist\022H\n\031worldmapbossdroplist_Li"
+    "st\030\001 \003(\0132\036.proto_ff.worldmapbossdroplist"
+    "B\005\210\301\024\240\037\"h\n\024worldmapbossfestival\022\022\n\002id\030\001 "
     "\001(\005B\006\302\377\024\002ID\022\032\n\006bossId\030\002 \001(\003B\n\302\377\024\006BOSSID\022"
-    ")\n\tminiLevel\030\003 \001(\005B\026\302\377\024\022\345\210\267\346\226\260\345\210\235\345\247\213\347\255\211\347"
-    "\272\247\022%\n\013unLockLevel\030\004 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\347\255\211\347\272"
-    "\247\022*\n\nlevelCheck\030\005 \001(\005B\026\302\377\024\022\345\212\250\346\200\201\347\255\211\347\272\247\346"
-    "\240\241\346\255\243\022\'\n\006pathId\030\006 \001(\tB\027\302\377\024\017\345\210\267\346\226\260\345\234\260\347\202\271\345"
-    "\272\223\220\301\024<\0225\n\014specNoticeHP\030\007 \001(\005B\037\302\377\024\033\347\211\271\346\256\212"
-    "\350\267\221\351\251\254\347\201\257\350\247\246\345\217\221\350\241\200\351\207\217\0226\n\rbornSpaceTime\030\010"
-    " \001(\005B\037\302\377\024\033\346\255\273\344\272\241\351\207\215\347\224\237\351\227\264\351\232\224\357\274\210\347\247\222\357\274\211\022C\n"
-    "\004born\030\t \003(\0132\'.proto_ff.worldmapbossworld"
-    "bossbornDescB\014\302\377\024\004$$$$\210\301\024\006\"i\n\033Sheet_worl"
-    "dmapbossworldboss\022J\n\032worldmapbossworldbo"
-    "ss_List\030\001 \003(\0132\037.proto_ff.worldmapbosswor"
-    "ldbossB\005\210\301\024\254\002\"\214\001\n\024worldmapbossdroplist\022\022"
-    "\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\037\n\tmonsterId\030\002 \001(\003B\014\302"
-    "\377\024\010\346\200\252\347\211\251ID\022!\n\tbossLevel\030\003 \001(\005B\016\302\377\024\nBOSS"
-    "\347\255\211\347\272\247\022\034\n\006dropId\030\004 \001(\003B\014\302\377\024\010\346\216\211\350\220\275ID\"f\n\032"
-    "Sheet_worldmapbossdroplist\022H\n\031worldmapbo"
-    "ssdroplist_List\030\001 \003(\0132\036.proto_ff.worldma"
-    "pbossdroplistB\005\210\301\024\240\037\"h\n\024worldmapbossfest"
-    "ival\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\032\n\006bossId\030\002 \001(\003"
-    "B\n\302\377\024\006BOSSID\022 \n\006across\030\003 \001(\005B\020\302\377\024\014\350\267\250\346\234\215"
-    "\346\240\207\350\256\260\"f\n\032Sheet_worldmapbossfestival\022H\n\031"
-    "worldmapbossfestival_List\030\001 \003(\0132\036.proto_"
-    "ff.worldmapbossfestivalB\005\210\301\024\254\002", 1110);
+    " \n\006across\030\003 \001(\005B\020\302\377\024\014\350\267\250\346\234\215\346\240\207\350\256\260\"f\n\032She"
+    "et_worldmapbossfestival\022H\n\031worldmapbossf"
+    "estival_List\030\001 \003(\0132\036.proto_ff.worldmapbo"
+    "ssfestivalB\005\210\301\024\254\002", 1017);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "worldmapboss.proto", &protobuf_RegisterTypes);
-  worldmapbossworldbossbornDesc::default_instance_ = new worldmapbossworldbossbornDesc();
   worldmapbossworldboss::default_instance_ = new worldmapbossworldboss();
   Sheet_worldmapbossworldboss::default_instance_ = new Sheet_worldmapbossworldboss();
   worldmapbossdroplist::default_instance_ = new worldmapbossdroplist();
   Sheet_worldmapbossdroplist::default_instance_ = new Sheet_worldmapbossdroplist();
   worldmapbossfestival::default_instance_ = new worldmapbossfestival();
   Sheet_worldmapbossfestival::default_instance_ = new Sheet_worldmapbossfestival();
-  worldmapbossworldbossbornDesc::default_instance_->InitAsDefaultInstance();
   worldmapbossworldboss::default_instance_->InitAsDefaultInstance();
   Sheet_worldmapbossworldboss::default_instance_->InitAsDefaultInstance();
   worldmapbossdroplist::default_instance_->InitAsDefaultInstance();
@@ -281,231 +255,6 @@ struct StaticDescriptorInitializer_worldmapboss_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int worldmapbossworldbossbornDesc::kTimeFieldNumber;
-#endif  // !_MSC_VER
-
-worldmapbossworldbossbornDesc::worldmapbossworldbossbornDesc()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void worldmapbossworldbossbornDesc::InitAsDefaultInstance() {
-}
-
-worldmapbossworldbossbornDesc::worldmapbossworldbossbornDesc(const worldmapbossworldbossbornDesc& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void worldmapbossworldbossbornDesc::SharedCtor() {
-  _cached_size_ = 0;
-  time_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-worldmapbossworldbossbornDesc::~worldmapbossworldbossbornDesc() {
-  SharedDtor();
-}
-
-void worldmapbossworldbossbornDesc::SharedDtor() {
-  if (time_ != &::google::protobuf::internal::kEmptyString) {
-    delete time_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void worldmapbossworldbossbornDesc::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* worldmapbossworldbossbornDesc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return worldmapbossworldbossbornDesc_descriptor_;
-}
-
-const worldmapbossworldbossbornDesc& worldmapbossworldbossbornDesc::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_worldmapboss_2eproto();
-  return *default_instance_;
-}
-
-worldmapbossworldbossbornDesc* worldmapbossworldbossbornDesc::default_instance_ = NULL;
-
-worldmapbossworldbossbornDesc* worldmapbossworldbossbornDesc::New() const {
-  return new worldmapbossworldbossbornDesc;
-}
-
-void worldmapbossworldbossbornDesc::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_time()) {
-      if (time_ != &::google::protobuf::internal::kEmptyString) {
-        time_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool worldmapbossworldbossbornDesc::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string Time = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_time()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->time().data(), this->time().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void worldmapbossworldbossbornDesc::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string Time = 1;
-  if (has_time()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->time().data(), this->time().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->time(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* worldmapbossworldbossbornDesc::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional string Time = 1;
-  if (has_time()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->time().data(), this->time().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->time(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int worldmapbossworldbossbornDesc::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string Time = 1;
-    if (has_time()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->time());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void worldmapbossworldbossbornDesc::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const worldmapbossworldbossbornDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const worldmapbossworldbossbornDesc*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void worldmapbossworldbossbornDesc::MergeFrom(const worldmapbossworldbossbornDesc& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_time()) {
-      set_time(from.time());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void worldmapbossworldbossbornDesc::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void worldmapbossworldbossbornDesc::CopyFrom(const worldmapbossworldbossbornDesc& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool worldmapbossworldbossbornDesc::IsInitialized() const {
-
-  return true;
-}
-
-void worldmapbossworldbossbornDesc::Swap(worldmapbossworldbossbornDesc* other) {
-  if (other != this) {
-    std::swap(time_, other->time_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata worldmapbossworldbossbornDesc::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = worldmapbossworldbossbornDesc_descriptor_;
-  metadata.reflection = worldmapbossworldbossbornDesc_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
 const int worldmapbossworldboss::kIdFieldNumber;
 const int worldmapbossworldboss::kBossIdFieldNumber;
 const int worldmapbossworldboss::kMiniLevelFieldNumber;
@@ -514,7 +263,7 @@ const int worldmapbossworldboss::kLevelCheckFieldNumber;
 const int worldmapbossworldboss::kPathIdFieldNumber;
 const int worldmapbossworldboss::kSpecNoticeHPFieldNumber;
 const int worldmapbossworldboss::kBornSpaceTimeFieldNumber;
-const int worldmapbossworldboss::kBornFieldNumber;
+const int worldmapbossworldboss::kBornTimeFieldNumber;
 #endif  // !_MSC_VER
 
 worldmapbossworldboss::worldmapbossworldboss()
@@ -592,7 +341,7 @@ void worldmapbossworldboss::Clear() {
     specnoticehp_ = 0;
     bornspacetime_ = 0;
   }
-  born_.Clear();
+  born_time_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -727,21 +476,25 @@ bool worldmapbossworldboss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_born;
+        if (input->ExpectTag(74)) goto parse_born_Time;
         break;
       }
 
-      // repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
+      // repeated string born_Time = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_born:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_born()));
+         parse_born_Time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_born_time()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->born_time(this->born_time_size() - 1).data(),
+            this->born_time(this->born_time_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_born;
+        if (input->ExpectTag(74)) goto parse_born_Time;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -808,10 +561,13 @@ void worldmapbossworldboss::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->bornspacetime(), output);
   }
 
-  // repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
-  for (int i = 0; i < this->born_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->born(i), output);
+  // repeated string born_Time = 9;
+  for (int i = 0; i < this->born_time_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->born_time(i).data(), this->born_time(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      9, this->born_time(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -867,11 +623,13 @@ void worldmapbossworldboss::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->bornspacetime(), target);
   }
 
-  // repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
-  for (int i = 0; i < this->born_size(); i++) {
+  // repeated string born_Time = 9;
+  for (int i = 0; i < this->born_time_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->born_time(i).data(), this->born_time(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        9, this->born(i), target);
+      WriteStringToArray(9, this->born_time(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -942,12 +700,11 @@ int worldmapbossworldboss::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
-  total_size += 1 * this->born_size();
-  for (int i = 0; i < this->born_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->born(i));
+  // repeated string born_Time = 9;
+  total_size += 1 * this->born_time_size();
+  for (int i = 0; i < this->born_time_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->born_time(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -975,7 +732,7 @@ void worldmapbossworldboss::MergeFrom(const ::google::protobuf::Message& from) {
 
 void worldmapbossworldboss::MergeFrom(const worldmapbossworldboss& from) {
   GOOGLE_CHECK_NE(&from, this);
-  born_.MergeFrom(from.born_);
+  born_time_.MergeFrom(from.born_time_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1032,7 +789,7 @@ void worldmapbossworldboss::Swap(worldmapbossworldboss* other) {
     std::swap(pathid_, other->pathid_);
     std::swap(specnoticehp_, other->specnoticehp_);
     std::swap(bornspacetime_, other->bornspacetime_);
-    born_.Swap(&other->born_);
+    born_time_.Swap(&other->born_time_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

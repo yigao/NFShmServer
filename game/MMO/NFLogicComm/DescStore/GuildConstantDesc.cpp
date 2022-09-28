@@ -54,6 +54,7 @@ int GuildConstantDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.guildconstant_list_size(); i++)
 	{
 		const proto_ff::guildconstant& desc = table.guildconstant_list(i);
+		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.constantid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.constantid());
 		pDesc->read_from_pbmsg(desc);
