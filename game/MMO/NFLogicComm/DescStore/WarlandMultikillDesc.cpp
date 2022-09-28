@@ -45,23 +45,23 @@ int WarlandMultikillDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.warlandmultiKill_list_size() < 0) || (table.warlandmultiKill_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.warlandmultikill_list_size() < 0) || (table.warlandmultikill_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.warlandmultiKill_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.warlandmultikill_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.warlandmultiKill_list_size(); i++)
+	for (int i = 0; i < table.warlandmultikill_list_size(); i++)
 	{
-		const proto_ff::warlandmultiKill& desc = table.warlandmultiKill_list(i);
+		const proto_ff::warlandmultiKill& desc = table.warlandmultikill_list(i);
 		auto pDesc = m_astDesc.Insert(desc.multikillnum());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.multikillnum());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.warlandmultiKill_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.warlandmultikill_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int WarlandMultikillDesc::CheckWhenAllDataLoaded()

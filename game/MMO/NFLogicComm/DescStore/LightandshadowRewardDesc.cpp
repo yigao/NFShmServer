@@ -45,23 +45,23 @@ int LightandshadowRewardDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.lightAndShadowreward_list_size() < 0) || (table.lightAndShadowreward_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.lightandshadowreward_list_size() < 0) || (table.lightandshadowreward_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.lightAndShadowreward_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.lightandshadowreward_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.lightAndShadowreward_list_size(); i++)
+	for (int i = 0; i < table.lightandshadowreward_list_size(); i++)
 	{
-		const proto_ff::lightAndShadowreward& desc = table.lightAndShadowreward_list(i);
+		const proto_ff::lightAndShadowreward& desc = table.lightandshadowreward_list(i);
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.lightAndShadowreward_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.lightandshadowreward_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int LightandshadowRewardDesc::CheckWhenAllDataLoaded()

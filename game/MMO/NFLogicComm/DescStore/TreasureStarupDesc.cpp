@@ -45,23 +45,23 @@ int TreasureStarupDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.treasurestarUp_list_size() < 0) || (table.treasurestarUp_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.treasurestarup_list_size() < 0) || (table.treasurestarup_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.treasurestarUp_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.treasurestarup_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.treasurestarUp_list_size(); i++)
+	for (int i = 0; i < table.treasurestarup_list_size(); i++)
 	{
-		const proto_ff::treasurestarUp& desc = table.treasurestarUp_list(i);
+		const proto_ff::treasurestarUp& desc = table.treasurestarup_list(i);
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.treasurestarUp_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.treasurestarup_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int TreasureStarupDesc::CheckWhenAllDataLoaded()

@@ -45,23 +45,23 @@ int HeadportraitHeadDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.headPortraithead_list_size() < 0) || (table.headPortraithead_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.headportraithead_list_size() < 0) || (table.headportraithead_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.headPortraithead_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.headportraithead_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.headPortraithead_list_size(); i++)
+	for (int i = 0; i < table.headportraithead_list_size(); i++)
 	{
-		const proto_ff::headPortraithead& desc = table.headPortraithead_list(i);
+		const proto_ff::headPortraithead& desc = table.headportraithead_list(i);
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.headPortraithead_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.headportraithead_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int HeadportraitHeadDesc::CheckWhenAllDataLoaded()

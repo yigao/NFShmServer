@@ -60,8 +60,8 @@ int RankingPkconsDesc::Load(NFResDB *pDB)
 	}
 
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.rankingpkcons_list_size());
-	return 0;
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int RankingPkconsDesc::CheckWhenAllDataLoaded()

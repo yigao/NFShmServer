@@ -45,23 +45,23 @@ int ManorItemcostDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.manoritemCost_list_size() < 0) || (table.manoritemCost_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.manoritemcost_list_size() < 0) || (table.manoritemcost_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.manoritemCost_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.manoritemcost_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.manoritemCost_list_size(); i++)
+	for (int i = 0; i < table.manoritemcost_list_size(); i++)
 	{
-		const proto_ff::manoritemCost& desc = table.manoritemCost_list(i);
+		const proto_ff::manoritemCost& desc = table.manoritemcost_list(i);
 		auto pDesc = m_astDesc.Insert(desc.itemid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.itemid());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.manoritemCost_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.manoritemcost_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int ManorItemcostDesc::CheckWhenAllDataLoaded()

@@ -45,23 +45,23 @@ int ElementElementuiDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.elementelementUI_list_size() < 0) || (table.elementelementUI_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.elementelementui_list_size() < 0) || (table.elementelementui_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.elementelementUI_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.elementelementui_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.elementelementUI_list_size(); i++)
+	for (int i = 0; i < table.elementelementui_list_size(); i++)
 	{
-		const proto_ff::elementelementUI& desc = table.elementelementUI_list(i);
+		const proto_ff::elementelementUI& desc = table.elementelementui_list(i);
 		auto pDesc = m_astDesc.Insert(desc.type());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.type());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.elementelementUI_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.elementelementui_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int ElementElementuiDesc::CheckWhenAllDataLoaded()

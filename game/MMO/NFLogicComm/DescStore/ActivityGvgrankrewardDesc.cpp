@@ -45,23 +45,23 @@ int ActivityGvgrankrewardDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.activitygvgRankReward_list_size() < 0) || (table.activitygvgRankReward_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.activitygvgrankreward_list_size() < 0) || (table.activitygvgrankreward_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.activitygvgRankReward_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.activitygvgrankreward_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.activitygvgRankReward_list_size(); i++)
+	for (int i = 0; i < table.activitygvgrankreward_list_size(); i++)
 	{
-		const proto_ff::activitygvgRankReward& desc = table.activitygvgRankReward_list(i);
+		const proto_ff::activitygvgRankReward& desc = table.activitygvgrankreward_list(i);
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.activitygvgRankReward_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.activitygvgrankreward_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int ActivityGvgrankrewardDesc::CheckWhenAllDataLoaded()

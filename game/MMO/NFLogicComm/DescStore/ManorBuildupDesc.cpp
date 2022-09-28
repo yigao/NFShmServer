@@ -45,23 +45,23 @@ int ManorBuildupDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.manorbuildUp_list_size() < 0) || (table.manorbuildUp_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.manorbuildup_list_size() < 0) || (table.manorbuildup_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.manorbuildUp_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.manorbuildup_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.manorbuildUp_list_size(); i++)
+	for (int i = 0; i < table.manorbuildup_list_size(); i++)
 	{
-		const proto_ff::manorbuildUp& desc = table.manorbuildUp_list(i);
+		const proto_ff::manorbuildUp& desc = table.manorbuildup_list(i);
 		auto pDesc = m_astDesc.Insert(desc.level());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.level());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.manorbuildUp_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.manorbuildup_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int ManorBuildupDesc::CheckWhenAllDataLoaded()

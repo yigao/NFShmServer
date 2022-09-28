@@ -45,23 +45,23 @@ int ActivityCircusnumDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.activitycircusNum_list_size() < 0) || (table.activitycircusNum_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.activitycircusnum_list_size() < 0) || (table.activitycircusnum_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.activitycircusNum_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.activitycircusnum_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.activitycircusNum_list_size(); i++)
+	for (int i = 0; i < table.activitycircusnum_list_size(); i++)
 	{
-		const proto_ff::activitycircusNum& desc = table.activitycircusNum_list(i);
+		const proto_ff::activitycircusNum& desc = table.activitycircusnum_list(i);
 		auto pDesc = m_astDesc.Insert(desc.rankid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.rankid());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.activitycircusNum_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.activitycircusnum_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int ActivityCircusnumDesc::CheckWhenAllDataLoaded()

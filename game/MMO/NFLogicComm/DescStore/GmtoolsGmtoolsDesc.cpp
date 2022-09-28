@@ -45,23 +45,23 @@ int GmtoolsGmtoolsDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
-	if ((table.GMtoolsGMTools_list_size() < 0) || (table.GMtoolsGMTools_list_size() > (int)(m_astDesc.GetSize())))
+	if ((table.gmtoolsgmtools_list_size() < 0) || (table.gmtoolsgmtools_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.GMtoolsGMTools_list_size());
+		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.gmtoolsgmtools_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < table.GMtoolsGMTools_list_size(); i++)
+	for (int i = 0; i < table.gmtoolsgmtools_list_size(); i++)
 	{
-		const proto_ff::GMtoolsGMTools& desc = table.GMtoolsGMTools_list(i);
+		const proto_ff::GMtoolsGMTools& desc = table.gmtoolsgmtools_list(i);
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.GMtoolsGMTools_list_size());
-	return 0;
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.gmtoolsgmtools_list_size());
 	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	return 0;
 }
 
 int GmtoolsGmtoolsDesc::CheckWhenAllDataLoaded()
