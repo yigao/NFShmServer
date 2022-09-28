@@ -37,9 +37,10 @@ public:
 
 	virtual int InitDestStoreDB(const std::string &serverId, const std::string& hostip, int port, const std::string& dbname, const std::string& user, const std::string& pass) override;
 
-	virtual int Initialize() override;
+	virtual int Initialize();
 
-	virtual int LoadDestSotre() override;
+	virtual int LoadFileDestSotre();
+    virtual int LoadDBDestSotre();
 
 	virtual void AddDescStore(const std::string& strDescName, NFIDescStore* pDesc);
 
@@ -54,7 +55,8 @@ public:
 	virtual int InitDescStore(const std::string& descClass, NFIDescStore* pDescStore);
 	virtual int ExtraInitializeWhenRecover();
 
-	virtual int Load();
+    virtual int LoadFile();
+    virtual int LoadDB();
 	virtual int Reload();
 
 	virtual bool IsAllDescStoreLoad() override;;

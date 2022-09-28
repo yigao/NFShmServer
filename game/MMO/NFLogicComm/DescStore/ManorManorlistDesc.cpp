@@ -43,7 +43,7 @@ int ManorManorlistDesc::Load(NFResDB *pDB)
 	iRet = pResTable->FindAllRecord(GetDBName(), &table);
 	CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
 
-	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
+	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
 
 	if ((table.manormanorlist_list_size() < 0) || (table.manormanorlist_list_size() > (int)(m_astDesc.GetSize())))
 	{
