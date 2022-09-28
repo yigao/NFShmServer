@@ -52,7 +52,7 @@ namespace proto_ff_s {
 		guildlevel_s();
 		int CreateInit();
 		int ResumeInit();
-		int32_t guildLevelId;
+		int32_t guildLevel_Id;
 		int32_t guildLevel_EXP;
 		int32_t guildLevel_member;
 		int32_t guildLevel_VP;

@@ -143,7 +143,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t rankDown;
 		int32_t rankUp;
-		float RewardONE;
+		NFArray<float, 1> RewardONE;
 
 		virtual void write_to_pbmsg(::proto_ff::arenafirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::arenafirstrank & msg);

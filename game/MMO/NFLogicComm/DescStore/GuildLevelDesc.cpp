@@ -54,8 +54,8 @@ int GuildLevelDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < table.guildlevel_list_size(); i++)
 	{
 		const proto_ff::guildlevel& desc = table.guildlevel_list(i);
-		auto pDesc = m_astDesc.Insert(desc.guildlevelid());
-		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.guildlevelid());
+		auto pDesc = m_astDesc.Insert(desc.guildlevel_id());
+		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.guildlevel_id());
 		pDesc->read_from_pbmsg(desc);
 	}
 

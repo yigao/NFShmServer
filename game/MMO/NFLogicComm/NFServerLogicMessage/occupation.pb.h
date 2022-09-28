@@ -34,14 +34,274 @@ void  protobuf_AddDesc_occupation_2eproto();
 void protobuf_AssignDesc_occupation_2eproto();
 void protobuf_ShutdownFile_occupation_2eproto();
 
+class occupationoccupationattributeDesc;
+class occupationoccupationdelSkillDesc;
+class occupationoccupationskillDesc;
 class occupationoccupation;
 class Sheet_occupationoccupation;
+class occupationaptitudeattributeDesc;
 class occupationaptitude;
 class Sheet_occupationaptitude;
 class occupationconditionList;
 class Sheet_occupationconditionList;
 
 // ===================================================================
+
+class occupationoccupationattributeDesc : public ::google::protobuf::Message {
+ public:
+  occupationoccupationattributeDesc();
+  virtual ~occupationoccupationattributeDesc();
+
+  occupationoccupationattributeDesc(const occupationoccupationattributeDesc& from);
+
+  inline occupationoccupationattributeDesc& operator=(const occupationoccupationattributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const occupationoccupationattributeDesc& default_instance();
+
+  void Swap(occupationoccupationattributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  occupationoccupationattributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const occupationoccupationattributeDesc& from);
+  void MergeFrom(const occupationoccupationattributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::int32 value() const;
+  inline void set_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.occupationoccupationattributeDesc)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_occupation_2eproto();
+  friend void protobuf_AssignDesc_occupation_2eproto();
+  friend void protobuf_ShutdownFile_occupation_2eproto();
+
+  void InitAsDefaultInstance();
+  static occupationoccupationattributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class occupationoccupationdelSkillDesc : public ::google::protobuf::Message {
+ public:
+  occupationoccupationdelSkillDesc();
+  virtual ~occupationoccupationdelSkillDesc();
+
+  occupationoccupationdelSkillDesc(const occupationoccupationdelSkillDesc& from);
+
+  inline occupationoccupationdelSkillDesc& operator=(const occupationoccupationdelSkillDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const occupationoccupationdelSkillDesc& default_instance();
+
+  void Swap(occupationoccupationdelSkillDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  occupationoccupationdelSkillDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const occupationoccupationdelSkillDesc& from);
+  void MergeFrom(const occupationoccupationdelSkillDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int64 id() const;
+  inline void set_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.occupationoccupationdelSkillDesc)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_occupation_2eproto();
+  friend void protobuf_AssignDesc_occupation_2eproto();
+  friend void protobuf_ShutdownFile_occupation_2eproto();
+
+  void InitAsDefaultInstance();
+  static occupationoccupationdelSkillDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class occupationoccupationskillDesc : public ::google::protobuf::Message {
+ public:
+  occupationoccupationskillDesc();
+  virtual ~occupationoccupationskillDesc();
+
+  occupationoccupationskillDesc(const occupationoccupationskillDesc& from);
+
+  inline occupationoccupationskillDesc& operator=(const occupationoccupationskillDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const occupationoccupationskillDesc& default_instance();
+
+  void Swap(occupationoccupationskillDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  occupationoccupationskillDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const occupationoccupationskillDesc& from);
+  void MergeFrom(const occupationoccupationskillDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int64 id() const;
+  inline void set_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.occupationoccupationskillDesc)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_occupation_2eproto();
+  friend void protobuf_AssignDesc_occupation_2eproto();
+  friend void protobuf_ShutdownFile_occupation_2eproto();
+
+  void InitAsDefaultInstance();
+  static occupationoccupationskillDesc* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class occupationoccupation : public ::google::protobuf::Message {
  public:
@@ -180,53 +440,41 @@ class occupationoccupation : public ::google::protobuf::Message {
   inline ::std::string* release_modelid();
   inline void set_allocated_modelid(::std::string* modelid);
 
-  // repeated int64 delSkill_id = 10;
-  inline int delskill_id_size() const;
-  inline void clear_delskill_id();
-  static const int kDelSkillIdFieldNumber = 10;
-  inline ::google::protobuf::int64 delskill_id(int index) const;
-  inline void set_delskill_id(int index, ::google::protobuf::int64 value);
-  inline void add_delskill_id(::google::protobuf::int64 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      delskill_id() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_delskill_id();
+  // repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
+  inline int attribute_size() const;
+  inline void clear_attribute();
+  static const int kAttributeFieldNumber = 10;
+  inline const ::proto_ff::occupationoccupationattributeDesc& attribute(int index) const;
+  inline ::proto_ff::occupationoccupationattributeDesc* mutable_attribute(int index);
+  inline ::proto_ff::occupationoccupationattributeDesc* add_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationattributeDesc >&
+      attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationattributeDesc >*
+      mutable_attribute();
 
-  // repeated int32 attribute_type = 11;
-  inline int attribute_type_size() const;
-  inline void clear_attribute_type();
-  static const int kAttributeTypeFieldNumber = 11;
-  inline ::google::protobuf::int32 attribute_type(int index) const;
-  inline void set_attribute_type(int index, ::google::protobuf::int32 value);
-  inline void add_attribute_type(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      attribute_type() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_attribute_type();
+  // repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
+  inline int delskill_size() const;
+  inline void clear_delskill();
+  static const int kDelSkillFieldNumber = 11;
+  inline const ::proto_ff::occupationoccupationdelSkillDesc& delskill(int index) const;
+  inline ::proto_ff::occupationoccupationdelSkillDesc* mutable_delskill(int index);
+  inline ::proto_ff::occupationoccupationdelSkillDesc* add_delskill();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationdelSkillDesc >&
+      delskill() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationdelSkillDesc >*
+      mutable_delskill();
 
-  // repeated int32 attribute_value = 12;
-  inline int attribute_value_size() const;
-  inline void clear_attribute_value();
-  static const int kAttributeValueFieldNumber = 12;
-  inline ::google::protobuf::int32 attribute_value(int index) const;
-  inline void set_attribute_value(int index, ::google::protobuf::int32 value);
-  inline void add_attribute_value(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      attribute_value() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_attribute_value();
-
-  // repeated int64 skill_id = 13;
-  inline int skill_id_size() const;
-  inline void clear_skill_id();
-  static const int kSkillIdFieldNumber = 13;
-  inline ::google::protobuf::int64 skill_id(int index) const;
-  inline void set_skill_id(int index, ::google::protobuf::int64 value);
-  inline void add_skill_id(::google::protobuf::int64 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      skill_id() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_skill_id();
+  // repeated .proto_ff.occupationoccupationskillDesc skill = 12;
+  inline int skill_size() const;
+  inline void clear_skill();
+  static const int kSkillFieldNumber = 12;
+  inline const ::proto_ff::occupationoccupationskillDesc& skill(int index) const;
+  inline ::proto_ff::occupationoccupationskillDesc* mutable_skill(int index);
+  inline ::proto_ff::occupationoccupationskillDesc* add_skill();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationskillDesc >&
+      skill() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationskillDesc >*
+      mutable_skill();
 
   // @@protoc_insertion_point(class_scope:proto_ff.occupationoccupation)
  private:
@@ -259,14 +507,13 @@ class occupationoccupation : public ::google::protobuf::Message {
   ::std::string* taskid_;
   ::std::string* equip_;
   ::std::string* modelid_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > delskill_id_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_type_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_value_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > skill_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationattributeDesc > attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationdelSkillDesc > delskill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationskillDesc > skill_;
   ::google::protobuf::int32 level_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_occupation_2eproto();
   friend void protobuf_AssignDesc_occupation_2eproto();
@@ -359,6 +606,98 @@ class Sheet_occupationoccupation : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_occupationoccupation* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class occupationaptitudeattributeDesc : public ::google::protobuf::Message {
+ public:
+  occupationaptitudeattributeDesc();
+  virtual ~occupationaptitudeattributeDesc();
+
+  occupationaptitudeattributeDesc(const occupationaptitudeattributeDesc& from);
+
+  inline occupationaptitudeattributeDesc& operator=(const occupationaptitudeattributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const occupationaptitudeattributeDesc& default_instance();
+
+  void Swap(occupationaptitudeattributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  occupationaptitudeattributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const occupationaptitudeattributeDesc& from);
+  void MergeFrom(const occupationaptitudeattributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::int32 value() const;
+  inline void set_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.occupationaptitudeattributeDesc)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_occupation_2eproto();
+  friend void protobuf_AssignDesc_occupation_2eproto();
+  friend void protobuf_ShutdownFile_occupation_2eproto();
+
+  void InitAsDefaultInstance();
+  static occupationaptitudeattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -470,29 +809,17 @@ class occupationaptitude : public ::google::protobuf::Message {
   inline ::std::string* release_conditionid();
   inline void set_allocated_conditionid(::std::string* conditionid);
 
-  // repeated int32 attribute_type = 8;
-  inline int attribute_type_size() const;
-  inline void clear_attribute_type();
-  static const int kAttributeTypeFieldNumber = 8;
-  inline ::google::protobuf::int32 attribute_type(int index) const;
-  inline void set_attribute_type(int index, ::google::protobuf::int32 value);
-  inline void add_attribute_type(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      attribute_type() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_attribute_type();
-
-  // repeated int32 attribute_value = 9;
-  inline int attribute_value_size() const;
-  inline void clear_attribute_value();
-  static const int kAttributeValueFieldNumber = 9;
-  inline ::google::protobuf::int32 attribute_value(int index) const;
-  inline void set_attribute_value(int index, ::google::protobuf::int32 value);
-  inline void add_attribute_value(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      attribute_value() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_attribute_value();
+  // repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
+  inline int attribute_size() const;
+  inline void clear_attribute();
+  static const int kAttributeFieldNumber = 8;
+  inline const ::proto_ff::occupationaptitudeattributeDesc& attribute(int index) const;
+  inline ::proto_ff::occupationaptitudeattributeDesc* mutable_attribute(int index);
+  inline ::proto_ff::occupationaptitudeattributeDesc* add_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationaptitudeattributeDesc >&
+      attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationaptitudeattributeDesc >*
+      mutable_attribute();
 
   // @@protoc_insertion_point(class_scope:proto_ff.occupationaptitude)
  private:
@@ -519,12 +846,11 @@ class occupationaptitude : public ::google::protobuf::Message {
   ::google::protobuf::int64 requirement_;
   ::google::protobuf::int64 material_;
   ::std::string* conditionid_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_type_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > attribute_value_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationaptitudeattributeDesc > attribute_;
   ::google::protobuf::int32 num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_occupation_2eproto();
   friend void protobuf_AssignDesc_occupation_2eproto();
@@ -819,6 +1145,106 @@ class Sheet_occupationconditionList : public ::google::protobuf::Message {
 
 
 // ===================================================================
+
+// occupationoccupationattributeDesc
+
+// optional int32 type = 1;
+inline bool occupationoccupationattributeDesc::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void occupationoccupationattributeDesc::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void occupationoccupationattributeDesc::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void occupationoccupationattributeDesc::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 occupationoccupationattributeDesc::type() const {
+  return type_;
+}
+inline void occupationoccupationattributeDesc::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 value = 2;
+inline bool occupationoccupationattributeDesc::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void occupationoccupationattributeDesc::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void occupationoccupationattributeDesc::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void occupationoccupationattributeDesc::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline ::google::protobuf::int32 occupationoccupationattributeDesc::value() const {
+  return value_;
+}
+inline void occupationoccupationattributeDesc::set_value(::google::protobuf::int32 value) {
+  set_has_value();
+  value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// occupationoccupationdelSkillDesc
+
+// optional int64 id = 1;
+inline bool occupationoccupationdelSkillDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void occupationoccupationdelSkillDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void occupationoccupationdelSkillDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void occupationoccupationdelSkillDesc::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 occupationoccupationdelSkillDesc::id() const {
+  return id_;
+}
+inline void occupationoccupationdelSkillDesc::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// occupationoccupationskillDesc
+
+// optional int64 id = 1;
+inline bool occupationoccupationskillDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void occupationoccupationskillDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void occupationoccupationskillDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void occupationoccupationskillDesc::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 occupationoccupationskillDesc::id() const {
+  return id_;
+}
+inline void occupationoccupationskillDesc::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
 
 // occupationoccupation
 
@@ -1212,104 +1638,79 @@ inline void occupationoccupation::set_allocated_modelid(::std::string* modelid) 
   }
 }
 
-// repeated int64 delSkill_id = 10;
-inline int occupationoccupation::delskill_id_size() const {
-  return delskill_id_.size();
+// repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
+inline int occupationoccupation::attribute_size() const {
+  return attribute_.size();
 }
-inline void occupationoccupation::clear_delskill_id() {
-  delskill_id_.Clear();
+inline void occupationoccupation::clear_attribute() {
+  attribute_.Clear();
 }
-inline ::google::protobuf::int64 occupationoccupation::delskill_id(int index) const {
-  return delskill_id_.Get(index);
+inline const ::proto_ff::occupationoccupationattributeDesc& occupationoccupation::attribute(int index) const {
+  return attribute_.Get(index);
 }
-inline void occupationoccupation::set_delskill_id(int index, ::google::protobuf::int64 value) {
-  delskill_id_.Set(index, value);
+inline ::proto_ff::occupationoccupationattributeDesc* occupationoccupation::mutable_attribute(int index) {
+  return attribute_.Mutable(index);
 }
-inline void occupationoccupation::add_delskill_id(::google::protobuf::int64 value) {
-  delskill_id_.Add(value);
+inline ::proto_ff::occupationoccupationattributeDesc* occupationoccupation::add_attribute() {
+  return attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-occupationoccupation::delskill_id() const {
-  return delskill_id_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationattributeDesc >&
+occupationoccupation::attribute() const {
+  return attribute_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-occupationoccupation::mutable_delskill_id() {
-  return &delskill_id_;
-}
-
-// repeated int32 attribute_type = 11;
-inline int occupationoccupation::attribute_type_size() const {
-  return attribute_type_.size();
-}
-inline void occupationoccupation::clear_attribute_type() {
-  attribute_type_.Clear();
-}
-inline ::google::protobuf::int32 occupationoccupation::attribute_type(int index) const {
-  return attribute_type_.Get(index);
-}
-inline void occupationoccupation::set_attribute_type(int index, ::google::protobuf::int32 value) {
-  attribute_type_.Set(index, value);
-}
-inline void occupationoccupation::add_attribute_type(::google::protobuf::int32 value) {
-  attribute_type_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-occupationoccupation::attribute_type() const {
-  return attribute_type_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-occupationoccupation::mutable_attribute_type() {
-  return &attribute_type_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationattributeDesc >*
+occupationoccupation::mutable_attribute() {
+  return &attribute_;
 }
 
-// repeated int32 attribute_value = 12;
-inline int occupationoccupation::attribute_value_size() const {
-  return attribute_value_.size();
+// repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
+inline int occupationoccupation::delskill_size() const {
+  return delskill_.size();
 }
-inline void occupationoccupation::clear_attribute_value() {
-  attribute_value_.Clear();
+inline void occupationoccupation::clear_delskill() {
+  delskill_.Clear();
 }
-inline ::google::protobuf::int32 occupationoccupation::attribute_value(int index) const {
-  return attribute_value_.Get(index);
+inline const ::proto_ff::occupationoccupationdelSkillDesc& occupationoccupation::delskill(int index) const {
+  return delskill_.Get(index);
 }
-inline void occupationoccupation::set_attribute_value(int index, ::google::protobuf::int32 value) {
-  attribute_value_.Set(index, value);
+inline ::proto_ff::occupationoccupationdelSkillDesc* occupationoccupation::mutable_delskill(int index) {
+  return delskill_.Mutable(index);
 }
-inline void occupationoccupation::add_attribute_value(::google::protobuf::int32 value) {
-  attribute_value_.Add(value);
+inline ::proto_ff::occupationoccupationdelSkillDesc* occupationoccupation::add_delskill() {
+  return delskill_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-occupationoccupation::attribute_value() const {
-  return attribute_value_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationdelSkillDesc >&
+occupationoccupation::delskill() const {
+  return delskill_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-occupationoccupation::mutable_attribute_value() {
-  return &attribute_value_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationdelSkillDesc >*
+occupationoccupation::mutable_delskill() {
+  return &delskill_;
 }
 
-// repeated int64 skill_id = 13;
-inline int occupationoccupation::skill_id_size() const {
-  return skill_id_.size();
+// repeated .proto_ff.occupationoccupationskillDesc skill = 12;
+inline int occupationoccupation::skill_size() const {
+  return skill_.size();
 }
-inline void occupationoccupation::clear_skill_id() {
-  skill_id_.Clear();
+inline void occupationoccupation::clear_skill() {
+  skill_.Clear();
 }
-inline ::google::protobuf::int64 occupationoccupation::skill_id(int index) const {
-  return skill_id_.Get(index);
+inline const ::proto_ff::occupationoccupationskillDesc& occupationoccupation::skill(int index) const {
+  return skill_.Get(index);
 }
-inline void occupationoccupation::set_skill_id(int index, ::google::protobuf::int64 value) {
-  skill_id_.Set(index, value);
+inline ::proto_ff::occupationoccupationskillDesc* occupationoccupation::mutable_skill(int index) {
+  return skill_.Mutable(index);
 }
-inline void occupationoccupation::add_skill_id(::google::protobuf::int64 value) {
-  skill_id_.Add(value);
+inline ::proto_ff::occupationoccupationskillDesc* occupationoccupation::add_skill() {
+  return skill_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-occupationoccupation::skill_id() const {
-  return skill_id_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationskillDesc >&
+occupationoccupation::skill() const {
+  return skill_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-occupationoccupation::mutable_skill_id() {
-  return &skill_id_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupationskillDesc >*
+occupationoccupation::mutable_skill() {
+  return &skill_;
 }
 
 // -------------------------------------------------------------------
@@ -1339,6 +1740,54 @@ Sheet_occupationoccupation::occupationoccupation_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationoccupation >*
 Sheet_occupationoccupation::mutable_occupationoccupation_list() {
   return &occupationoccupation_list_;
+}
+
+// -------------------------------------------------------------------
+
+// occupationaptitudeattributeDesc
+
+// optional int32 type = 1;
+inline bool occupationaptitudeattributeDesc::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void occupationaptitudeattributeDesc::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void occupationaptitudeattributeDesc::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void occupationaptitudeattributeDesc::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 occupationaptitudeattributeDesc::type() const {
+  return type_;
+}
+inline void occupationaptitudeattributeDesc::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 value = 2;
+inline bool occupationaptitudeattributeDesc::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void occupationaptitudeattributeDesc::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void occupationaptitudeattributeDesc::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void occupationaptitudeattributeDesc::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline ::google::protobuf::int32 occupationaptitudeattributeDesc::value() const {
+  return value_;
+}
+inline void occupationaptitudeattributeDesc::set_value(::google::protobuf::int32 value) {
+  set_has_value();
+  value_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1547,54 +1996,29 @@ inline void occupationaptitude::set_allocated_conditionid(::std::string* conditi
   }
 }
 
-// repeated int32 attribute_type = 8;
-inline int occupationaptitude::attribute_type_size() const {
-  return attribute_type_.size();
+// repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
+inline int occupationaptitude::attribute_size() const {
+  return attribute_.size();
 }
-inline void occupationaptitude::clear_attribute_type() {
-  attribute_type_.Clear();
+inline void occupationaptitude::clear_attribute() {
+  attribute_.Clear();
 }
-inline ::google::protobuf::int32 occupationaptitude::attribute_type(int index) const {
-  return attribute_type_.Get(index);
+inline const ::proto_ff::occupationaptitudeattributeDesc& occupationaptitude::attribute(int index) const {
+  return attribute_.Get(index);
 }
-inline void occupationaptitude::set_attribute_type(int index, ::google::protobuf::int32 value) {
-  attribute_type_.Set(index, value);
+inline ::proto_ff::occupationaptitudeattributeDesc* occupationaptitude::mutable_attribute(int index) {
+  return attribute_.Mutable(index);
 }
-inline void occupationaptitude::add_attribute_type(::google::protobuf::int32 value) {
-  attribute_type_.Add(value);
+inline ::proto_ff::occupationaptitudeattributeDesc* occupationaptitude::add_attribute() {
+  return attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-occupationaptitude::attribute_type() const {
-  return attribute_type_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationaptitudeattributeDesc >&
+occupationaptitude::attribute() const {
+  return attribute_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-occupationaptitude::mutable_attribute_type() {
-  return &attribute_type_;
-}
-
-// repeated int32 attribute_value = 9;
-inline int occupationaptitude::attribute_value_size() const {
-  return attribute_value_.size();
-}
-inline void occupationaptitude::clear_attribute_value() {
-  attribute_value_.Clear();
-}
-inline ::google::protobuf::int32 occupationaptitude::attribute_value(int index) const {
-  return attribute_value_.Get(index);
-}
-inline void occupationaptitude::set_attribute_value(int index, ::google::protobuf::int32 value) {
-  attribute_value_.Set(index, value);
-}
-inline void occupationaptitude::add_attribute_value(::google::protobuf::int32 value) {
-  attribute_value_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-occupationaptitude::attribute_value() const {
-  return attribute_value_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-occupationaptitude::mutable_attribute_value() {
-  return &attribute_value_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::occupationaptitudeattributeDesc >*
+occupationaptitude::mutable_attribute() {
+  return &attribute_;
 }
 
 // -------------------------------------------------------------------

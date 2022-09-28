@@ -34,6 +34,7 @@ void  protobuf_AddDesc_worldmapboss_2eproto();
 void protobuf_AssignDesc_worldmapboss_2eproto();
 void protobuf_ShutdownFile_worldmapboss_2eproto();
 
+class worldmapbossworldbossbornDesc;
 class worldmapbossworldboss;
 class Sheet_worldmapbossworldboss;
 class worldmapbossdroplist;
@@ -42,6 +43,93 @@ class worldmapbossfestival;
 class Sheet_worldmapbossfestival;
 
 // ===================================================================
+
+class worldmapbossworldbossbornDesc : public ::google::protobuf::Message {
+ public:
+  worldmapbossworldbossbornDesc();
+  virtual ~worldmapbossworldbossbornDesc();
+
+  worldmapbossworldbossbornDesc(const worldmapbossworldbossbornDesc& from);
+
+  inline worldmapbossworldbossbornDesc& operator=(const worldmapbossworldbossbornDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const worldmapbossworldbossbornDesc& default_instance();
+
+  void Swap(worldmapbossworldbossbornDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  worldmapbossworldbossbornDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const worldmapbossworldbossbornDesc& from);
+  void MergeFrom(const worldmapbossworldbossbornDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string Time = 1;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 1;
+  inline const ::std::string& time() const;
+  inline void set_time(const ::std::string& value);
+  inline void set_time(const char* value);
+  inline void set_time(const char* value, size_t size);
+  inline ::std::string* mutable_time();
+  inline ::std::string* release_time();
+  inline void set_allocated_time(::std::string* time);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.worldmapbossworldbossbornDesc)
+ private:
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_worldmapboss_2eproto();
+  friend void protobuf_AssignDesc_worldmapboss_2eproto();
+  friend void protobuf_ShutdownFile_worldmapboss_2eproto();
+
+  void InitAsDefaultInstance();
+  static worldmapbossworldbossbornDesc* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class worldmapbossworldboss : public ::google::protobuf::Message {
  public:
@@ -158,21 +246,17 @@ class worldmapbossworldboss : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 bornspacetime() const;
   inline void set_bornspacetime(::google::protobuf::int32 value);
 
-  // repeated string born_Time = 9;
-  inline int born_time_size() const;
-  inline void clear_born_time();
-  static const int kBornTimeFieldNumber = 9;
-  inline const ::std::string& born_time(int index) const;
-  inline ::std::string* mutable_born_time(int index);
-  inline void set_born_time(int index, const ::std::string& value);
-  inline void set_born_time(int index, const char* value);
-  inline void set_born_time(int index, const char* value, size_t size);
-  inline ::std::string* add_born_time();
-  inline void add_born_time(const ::std::string& value);
-  inline void add_born_time(const char* value);
-  inline void add_born_time(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& born_time() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_born_time();
+  // repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
+  inline int born_size() const;
+  inline void clear_born();
+  static const int kBornFieldNumber = 9;
+  inline const ::proto_ff::worldmapbossworldbossbornDesc& born(int index) const;
+  inline ::proto_ff::worldmapbossworldbossbornDesc* mutable_born(int index);
+  inline ::proto_ff::worldmapbossworldbossbornDesc* add_born();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::worldmapbossworldbossbornDesc >&
+      born() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::worldmapbossworldbossbornDesc >*
+      mutable_born();
 
   // @@protoc_insertion_point(class_scope:proto_ff.worldmapbossworldboss)
  private:
@@ -203,7 +287,7 @@ class worldmapbossworldboss : public ::google::protobuf::Message {
   ::std::string* pathid_;
   ::google::protobuf::int32 specnoticehp_;
   ::google::protobuf::int32 bornspacetime_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> born_time_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::worldmapbossworldbossbornDesc > born_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -689,6 +773,80 @@ class Sheet_worldmapbossfestival : public ::google::protobuf::Message {
 
 // ===================================================================
 
+// worldmapbossworldbossbornDesc
+
+// optional string Time = 1;
+inline bool worldmapbossworldbossbornDesc::has_time() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void worldmapbossworldbossbornDesc::set_has_time() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void worldmapbossworldbossbornDesc::clear_has_time() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void worldmapbossworldbossbornDesc::clear_time() {
+  if (time_ != &::google::protobuf::internal::kEmptyString) {
+    time_->clear();
+  }
+  clear_has_time();
+}
+inline const ::std::string& worldmapbossworldbossbornDesc::time() const {
+  return *time_;
+}
+inline void worldmapbossworldbossbornDesc::set_time(const ::std::string& value) {
+  set_has_time();
+  if (time_ == &::google::protobuf::internal::kEmptyString) {
+    time_ = new ::std::string;
+  }
+  time_->assign(value);
+}
+inline void worldmapbossworldbossbornDesc::set_time(const char* value) {
+  set_has_time();
+  if (time_ == &::google::protobuf::internal::kEmptyString) {
+    time_ = new ::std::string;
+  }
+  time_->assign(value);
+}
+inline void worldmapbossworldbossbornDesc::set_time(const char* value, size_t size) {
+  set_has_time();
+  if (time_ == &::google::protobuf::internal::kEmptyString) {
+    time_ = new ::std::string;
+  }
+  time_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* worldmapbossworldbossbornDesc::mutable_time() {
+  set_has_time();
+  if (time_ == &::google::protobuf::internal::kEmptyString) {
+    time_ = new ::std::string;
+  }
+  return time_;
+}
+inline ::std::string* worldmapbossworldbossbornDesc::release_time() {
+  clear_has_time();
+  if (time_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = time_;
+    time_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void worldmapbossworldbossbornDesc::set_allocated_time(::std::string* time) {
+  if (time_ != &::google::protobuf::internal::kEmptyString) {
+    delete time_;
+  }
+  if (time) {
+    set_has_time();
+    time_ = time;
+  } else {
+    clear_has_time();
+    time_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
 // worldmapbossworldboss
 
 // optional int32 id = 1;
@@ -915,48 +1073,29 @@ inline void worldmapbossworldboss::set_bornspacetime(::google::protobuf::int32 v
   bornspacetime_ = value;
 }
 
-// repeated string born_Time = 9;
-inline int worldmapbossworldboss::born_time_size() const {
-  return born_time_.size();
+// repeated .proto_ff.worldmapbossworldbossbornDesc born = 9;
+inline int worldmapbossworldboss::born_size() const {
+  return born_.size();
 }
-inline void worldmapbossworldboss::clear_born_time() {
-  born_time_.Clear();
+inline void worldmapbossworldboss::clear_born() {
+  born_.Clear();
 }
-inline const ::std::string& worldmapbossworldboss::born_time(int index) const {
-  return born_time_.Get(index);
+inline const ::proto_ff::worldmapbossworldbossbornDesc& worldmapbossworldboss::born(int index) const {
+  return born_.Get(index);
 }
-inline ::std::string* worldmapbossworldboss::mutable_born_time(int index) {
-  return born_time_.Mutable(index);
+inline ::proto_ff::worldmapbossworldbossbornDesc* worldmapbossworldboss::mutable_born(int index) {
+  return born_.Mutable(index);
 }
-inline void worldmapbossworldboss::set_born_time(int index, const ::std::string& value) {
-  born_time_.Mutable(index)->assign(value);
+inline ::proto_ff::worldmapbossworldbossbornDesc* worldmapbossworldboss::add_born() {
+  return born_.Add();
 }
-inline void worldmapbossworldboss::set_born_time(int index, const char* value) {
-  born_time_.Mutable(index)->assign(value);
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::worldmapbossworldbossbornDesc >&
+worldmapbossworldboss::born() const {
+  return born_;
 }
-inline void worldmapbossworldboss::set_born_time(int index, const char* value, size_t size) {
-  born_time_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* worldmapbossworldboss::add_born_time() {
-  return born_time_.Add();
-}
-inline void worldmapbossworldboss::add_born_time(const ::std::string& value) {
-  born_time_.Add()->assign(value);
-}
-inline void worldmapbossworldboss::add_born_time(const char* value) {
-  born_time_.Add()->assign(value);
-}
-inline void worldmapbossworldboss::add_born_time(const char* value, size_t size) {
-  born_time_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-worldmapbossworldboss::born_time() const {
-  return born_time_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-worldmapbossworldboss::mutable_born_time() {
-  return &born_time_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::worldmapbossworldbossbornDesc >*
+worldmapbossworldboss::mutable_born() {
+  return &born_;
 }
 
 // -------------------------------------------------------------------

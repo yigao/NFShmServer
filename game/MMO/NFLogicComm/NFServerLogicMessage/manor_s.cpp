@@ -145,6 +145,7 @@ manormanorlistinitialMonsterDesc_s::manormanorlistinitialMonsterDesc_s() {
 
 int manormanorlistinitialMonsterDesc_s::CreateInit() {
 	Num = (int32_t)0;
+	Id = (int64_t)0;
 	return 0;
 }
 
@@ -154,11 +155,39 @@ int manormanorlistinitialMonsterDesc_s::ResumeInit() {
 
 void manormanorlistinitialMonsterDesc_s::write_to_pbmsg(::proto_ff::manormanorlistinitialMonsterDesc & msg) const {
 	msg.set_num((int32_t)Num);
+	msg.set_id((int64_t)Id);
 }
 
 void manormanorlistinitialMonsterDesc_s::read_from_pbmsg(const ::proto_ff::manormanorlistinitialMonsterDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manormanorlistinitialMonsterDesc_s));
 	Num = msg.num();
+	Id = msg.id();
+}
+
+manormanorlistpatBeastAttackDesc_s::manormanorlistpatBeastAttackDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int manormanorlistpatBeastAttackDesc_s::CreateInit() {
+	Path = (int64_t)0;
+	return 0;
+}
+
+int manormanorlistpatBeastAttackDesc_s::ResumeInit() {
+	return 0;
+}
+
+void manormanorlistpatBeastAttackDesc_s::write_to_pbmsg(::proto_ff::manormanorlistpatBeastAttackDesc & msg) const {
+	msg.set_path((int64_t)Path);
+}
+
+void manormanorlistpatBeastAttackDesc_s::read_from_pbmsg(const ::proto_ff::manormanorlistpatBeastAttackDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manormanorlistpatBeastAttackDesc_s));
+	Path = msg.path();
 }
 
 manormanorlist_s::manormanorlist_s() {
@@ -225,11 +254,9 @@ void manormanorlist_s::write_to_pbmsg(::proto_ff::manormanorlist & msg) const {
 		::proto_ff::manormanorlistinitialMonsterDesc* temp_initialmonster = msg.add_initialmonster();
 		initialMonster[i].write_to_pbmsg(*temp_initialmonster);
 	}
-	for(int32_t i = 0; i < (int32_t)patBeastAttack_Path.GetSize() && i < patBeastAttack_Path.GetMaxSize(); ++i) {
-		msg.add_patbeastattack_path((int64_t)patBeastAttack_Path[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)initialMonster_Id.GetSize() && i < initialMonster_Id.GetMaxSize(); ++i) {
-		msg.add_initialmonster_id((int64_t)initialMonster_Id[i]);
+	for(int32_t i = 0; i < (int32_t)patBeastAttack.GetSize() && i < patBeastAttack.GetMaxSize(); ++i) {
+		::proto_ff::manormanorlistpatBeastAttackDesc* temp_patbeastattack = msg.add_patbeastattack();
+		patBeastAttack[i].write_to_pbmsg(*temp_patbeastattack);
 	}
 }
 
@@ -262,13 +289,10 @@ void manormanorlist_s::read_from_pbmsg(const ::proto_ff::manormanorlist & msg) {
 		const ::proto_ff::manormanorlistinitialMonsterDesc & temp_initialmonster = msg.initialmonster(i);
 		initialMonster[i].read_from_pbmsg(temp_initialmonster);
 	}
-	patBeastAttack_Path.SetSize(msg.patbeastattack_path_size() > patBeastAttack_Path.GetMaxSize() ? patBeastAttack_Path.GetMaxSize() : msg.patbeastattack_path_size());
-	for(int32_t i = 0; i < (int32_t)patBeastAttack_Path.GetSize(); ++i) {
-		patBeastAttack_Path[i] = msg.patbeastattack_path(i);
-	}
-	initialMonster_Id.SetSize(msg.initialmonster_id_size() > initialMonster_Id.GetMaxSize() ? initialMonster_Id.GetMaxSize() : msg.initialmonster_id_size());
-	for(int32_t i = 0; i < (int32_t)initialMonster_Id.GetSize(); ++i) {
-		initialMonster_Id[i] = msg.initialmonster_id(i);
+	patBeastAttack.SetSize(msg.patbeastattack_size() > patBeastAttack.GetMaxSize() ? patBeastAttack.GetMaxSize() : msg.patbeastattack_size());
+	for(int32_t i = 0; i < (int32_t)patBeastAttack.GetSize(); ++i) {
+		const ::proto_ff::manormanorlistpatBeastAttackDesc & temp_patbeastattack = msg.patbeastattack(i);
+		patBeastAttack[i].read_from_pbmsg(temp_patbeastattack);
 	}
 }
 
@@ -313,6 +337,7 @@ manorproductproductDesc_s::manorproductproductDesc_s() {
 }
 
 int manorproductproductDesc_s::CreateInit() {
+	Item = (int64_t)0;
 	Num = (int32_t)0;
 	buildLevle = (int32_t)0;
 	return 0;
@@ -323,12 +348,14 @@ int manorproductproductDesc_s::ResumeInit() {
 }
 
 void manorproductproductDesc_s::write_to_pbmsg(::proto_ff::manorproductproductDesc & msg) const {
+	msg.set_item((int64_t)Item);
 	msg.set_num((int32_t)Num);
 	msg.set_buildlevle((int32_t)buildLevle);
 }
 
 void manorproductproductDesc_s::read_from_pbmsg(const ::proto_ff::manorproductproductDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manorproductproductDesc_s));
+	Item = msg.item();
 	Num = msg.num();
 	buildLevle = msg.buildlevle();
 }
@@ -352,9 +379,6 @@ int manorproduct_s::ResumeInit() {
 
 void manorproduct_s::write_to_pbmsg(::proto_ff::manorproduct & msg) const {
 	msg.set_id((int32_t)ID);
-	for(int32_t i = 0; i < (int32_t)product_Item.GetSize() && i < product_Item.GetMaxSize(); ++i) {
-		msg.add_product_item((int64_t)product_Item[i]);
-	}
 	for(int32_t i = 0; i < (int32_t)product.GetSize() && i < product.GetMaxSize(); ++i) {
 		::proto_ff::manorproductproductDesc* temp_product = msg.add_product();
 		product[i].write_to_pbmsg(*temp_product);
@@ -364,10 +388,6 @@ void manorproduct_s::write_to_pbmsg(::proto_ff::manorproduct & msg) const {
 void manorproduct_s::read_from_pbmsg(const ::proto_ff::manorproduct & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manorproduct_s));
 	ID = msg.id();
-	product_Item.SetSize(msg.product_item_size() > product_Item.GetMaxSize() ? product_Item.GetMaxSize() : msg.product_item_size());
-	for(int32_t i = 0; i < (int32_t)product_Item.GetSize(); ++i) {
-		product_Item[i] = msg.product_item(i);
-	}
 	product.SetSize(msg.product_size() > product.GetMaxSize() ? product.GetMaxSize() : msg.product_size());
 	for(int32_t i = 0; i < (int32_t)product.GetSize(); ++i) {
 		const ::proto_ff::manorproductproductDesc & temp_product = msg.product(i);
@@ -488,6 +508,7 @@ manorbuildUpbuildDesc_s::manorbuildUpbuildDesc_s() {
 }
 
 int manorbuildUpbuildDesc_s::CreateInit() {
+	type = (int32_t)0;
 	exp = (int32_t)0;
 	return 0;
 }
@@ -497,11 +518,13 @@ int manorbuildUpbuildDesc_s::ResumeInit() {
 }
 
 void manorbuildUpbuildDesc_s::write_to_pbmsg(::proto_ff::manorbuildUpbuildDesc & msg) const {
+	msg.set_type((int32_t)type);
 	msg.set_exp((int32_t)exp);
 }
 
 void manorbuildUpbuildDesc_s::read_from_pbmsg(const ::proto_ff::manorbuildUpbuildDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manorbuildUpbuildDesc_s));
+	type = msg.type();
 	exp = msg.exp();
 }
 
@@ -524,9 +547,6 @@ int manorbuildUp_s::ResumeInit() {
 
 void manorbuildUp_s::write_to_pbmsg(::proto_ff::manorbuildUp & msg) const {
 	msg.set_level((int32_t)level);
-	for(int32_t i = 0; i < (int32_t)build_type.GetSize() && i < build_type.GetMaxSize(); ++i) {
-		msg.add_build_type((int32_t)build_type[i]);
-	}
 	for(int32_t i = 0; i < (int32_t)build.GetSize() && i < build.GetMaxSize(); ++i) {
 		::proto_ff::manorbuildUpbuildDesc* temp_build = msg.add_build();
 		build[i].write_to_pbmsg(*temp_build);
@@ -536,10 +556,6 @@ void manorbuildUp_s::write_to_pbmsg(::proto_ff::manorbuildUp & msg) const {
 void manorbuildUp_s::read_from_pbmsg(const ::proto_ff::manorbuildUp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct manorbuildUp_s));
 	level = msg.level();
-	build_type.SetSize(msg.build_type_size() > build_type.GetMaxSize() ? build_type.GetMaxSize() : msg.build_type_size());
-	for(int32_t i = 0; i < (int32_t)build_type.GetSize(); ++i) {
-		build_type[i] = msg.build_type(i);
-	}
 	build.SetSize(msg.build_size() > build.GetMaxSize() ? build.GetMaxSize() : msg.build_size());
 	for(int32_t i = 0; i < (int32_t)build.GetSize(); ++i) {
 		const ::proto_ff::manorbuildUpbuildDesc & temp_build = msg.build(i);

@@ -109,7 +109,7 @@ guildlevel_s::guildlevel_s() {
 }
 
 int guildlevel_s::CreateInit() {
-	guildLevelId = (int32_t)0;
+	guildLevel_Id = (int32_t)0;
 	guildLevel_EXP = (int32_t)0;
 	guildLevel_member = (int32_t)0;
 	guildLevel_VP = (int32_t)0;
@@ -122,7 +122,7 @@ int guildlevel_s::ResumeInit() {
 }
 
 void guildlevel_s::write_to_pbmsg(::proto_ff::guildlevel & msg) const {
-	msg.set_guildlevelid((int32_t)guildLevelId);
+	msg.set_guildlevel_id((int32_t)guildLevel_Id);
 	msg.set_guildlevel_exp((int32_t)guildLevel_EXP);
 	msg.set_guildlevel_member((int32_t)guildLevel_member);
 	msg.set_guildlevel_vp((int32_t)guildLevel_VP);
@@ -131,7 +131,7 @@ void guildlevel_s::write_to_pbmsg(::proto_ff::guildlevel & msg) const {
 
 void guildlevel_s::read_from_pbmsg(const ::proto_ff::guildlevel & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct guildlevel_s));
-	guildLevelId = msg.guildlevelid();
+	guildLevel_Id = msg.guildlevel_id();
 	guildLevel_EXP = msg.guildlevel_exp();
 	guildLevel_member = msg.guildlevel_member();
 	guildLevel_VP = msg.guildlevel_vp();

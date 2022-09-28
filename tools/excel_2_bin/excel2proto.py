@@ -362,11 +362,127 @@ def read_excel(excel_file, out_path):
 										string_value = str(sheet.cell_value(row_index, col_index))
 										if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
 											sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
-				elif len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
+				elif len(col_en_name_list) == 2 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
+					has_col = False;
+					for col_index_temp in xrange(col_index+1, excel_sheet_col_count):
+						col_en_name_temp = str(sheet.cell_value(0, col_index_temp))
+						col_cn_name_temp = str(sheet.cell_value(1, col_index_temp))
+						col_type_temp = str(sheet.cell_value(2, col_index_temp))
+						col_en_name_list_temp = col_en_name_temp.split("_")
+						col_cn_name_list_temp = re.split('(\d+)', col_cn_name_temp)
+						if len(col_en_name_list_temp) == 2 and col_en_name_temp != col_en_name and col_en_name_temp[0] == col_en_name[0] and\
+								len(col_cn_name_list_temp) == 3 and len(col_cn_name_list_temp[0]) > 0 and \
+								len(col_cn_name_list_temp[2]) > 0 and col_cn_name_list_temp[0] == col_cn_name_list[0]:
+							has_col = True;
+							break;
+
+					if has_col == True:
+						sheet_struct_col_info[col_index] = 1
+						struct_num = int(col_cn_name_list[1])
+						struct_en_name = str(col_en_name_list[0])
+						struct_en_sub_name = str(col_en_name_list[1])
+						struct_cn_name = str(col_cn_name_list[0])
+						struct_cn_sub_name = str(col_cn_name_list[2])
+						if sheet_struct_info.has_key(struct_en_name) == False:
+							sheet_struct_info[struct_en_name] = {}
+							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+							sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+							sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							sheet_struct_info[struct_en_name]["sub_msg"] = {}
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = {}
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+							if col_type == "string":
+								for row_index in xrange(4, excel_sheet_row_count):
+									string_value = str(sheet.cell_value(row_index, col_index))
+									if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+										sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+						else:
+							if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+								if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+									sheet_struct_info[struct_en_name]["max_num"] = struct_num
+								if sheet_struct_info[struct_en_name]["sub_msg"].has_key(struct_en_sub_name) == False:
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = { }
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+									if col_type == "string":
+										for row_index in xrange(4, excel_sheet_row_count):
+											string_value = str(sheet.cell_value(row_index, col_index))
+											if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+												sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+					else:
+						sheet_struct_col_info[col_index] = 1
+						struct_num = int(col_cn_name_list[1])
+						struct_en_name = str(col_en_name_list[0])
+						struct_en_sub_name = str(col_en_name_list[1])
+						struct_cn_name = "$$$$"
+						struct_cn_sub_name = str(col_cn_name_list[0])
+						if sheet_struct_info.has_key(struct_en_name) == False:
+							sheet_struct_info[struct_en_name] = {}
+							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+							sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+							sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							sheet_struct_info[struct_en_name]["sub_msg"] = {}
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = {}
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+							sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+							if col_type == "string":
+								for row_index in xrange(4, excel_sheet_row_count):
+									string_value = str(sheet.cell_value(row_index, col_index))
+									if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+										sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+						else:
+							if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+								if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+									sheet_struct_info[struct_en_name]["max_num"] = struct_num
+								if sheet_struct_info[struct_en_name]["sub_msg"].has_key(struct_en_sub_name) == False:
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name] = { }
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["en_sub_name"] = struct_en_sub_name
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["cn_sub_name"] = struct_cn_sub_name
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_type"] = col_type
+									sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = 32
+									if col_type == "string":
+										for row_index in xrange(4, excel_sheet_row_count):
+											string_value = str(sheet.cell_value(row_index, col_index))
+											if len(string_value) > sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"]:
+												sheet_struct_info[struct_en_name]["sub_msg"][struct_en_sub_name]["col_max_size"] = len(string_value)
+				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) == 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
 					struct_en_name = col_en_name
 					struct_cn_name = str(col_cn_name_list[0])
+					if sheet_struct_info.has_key(struct_en_name) == False:
+						sheet_struct_info[struct_en_name] = {}
+						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
+						sheet_struct_info[struct_en_name]["cn_name"] = struct_cn_name
+						sheet_struct_info[struct_en_name]["max_num"] = struct_num
+						sheet_struct_info[struct_en_name]["col_type"] = col_type
+						sheet_struct_info[struct_en_name]["col_max_size"] = 32
+						if col_type == "string":
+							for row_index in xrange(4, excel_sheet_row_count):
+								string_value = str(sheet.cell_value(row_index, col_index))
+								if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+									sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
+					else:
+						if sheet_struct_info[struct_en_name]["en_name"] == struct_en_name and sheet_struct_info[struct_en_name]["cn_name"] == struct_cn_name:
+							if struct_num > sheet_struct_info[struct_en_name]["max_num"]:
+								sheet_struct_info[struct_en_name]["max_num"] = struct_num
+							if col_type == "string":
+								for row_index in xrange(4, excel_sheet_row_count):
+									string_value = str(sheet.cell_value(row_index, col_index))
+									if len(string_value) > sheet_struct_info[struct_en_name]["col_max_size"]:
+										sheet_struct_info[struct_en_name]["col_max_size"] = len(string_value)
+				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) > 0:
+					sheet_struct_col_info[col_index] = 1
+					struct_num = int(col_cn_name_list[1])
+					struct_en_name = str(col_en_name_list[0])
+					struct_cn_name = str(col_cn_name_list[0]) + "9999" + str(col_cn_name_list[2])
 					if sheet_struct_info.has_key(struct_en_name) == False:
 						sheet_struct_info[struct_en_name] = {}
 						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -446,11 +562,7 @@ def read_excel(excel_file, out_path):
 			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds --proto_package=proto_ff \\\n");
 			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n");
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name+sheet.name + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n")
-
-			makefile_file.write("\n${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp:${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
-			makefile_file.write("\tmkdir -p ${PROTOCGEN_FILE_PATH}\n")
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n")
-
 
 	proto_file.close()
 	makefile_file.close()

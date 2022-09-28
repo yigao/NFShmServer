@@ -2,6 +2,64 @@
 
 namespace proto_ff_s {
 
+elementelementattributeDesc_s::elementelementattributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int elementelementattributeDesc_s::CreateInit() {
+	type = (int32_t)0;
+	value = (int32_t)0;
+	return 0;
+}
+
+int elementelementattributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void elementelementattributeDesc_s::write_to_pbmsg(::proto_ff::elementelementattributeDesc & msg) const {
+	msg.set_type((int32_t)type);
+	msg.set_value((int32_t)value);
+}
+
+void elementelementattributeDesc_s::read_from_pbmsg(const ::proto_ff::elementelementattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct elementelementattributeDesc_s));
+	type = msg.type();
+	value = msg.value();
+}
+
+elementelementmaterialDesc_s::elementelementmaterialDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int elementelementmaterialDesc_s::CreateInit() {
+	id = (int64_t)0;
+	exp = (int32_t)0;
+	return 0;
+}
+
+int elementelementmaterialDesc_s::ResumeInit() {
+	return 0;
+}
+
+void elementelementmaterialDesc_s::write_to_pbmsg(::proto_ff::elementelementmaterialDesc & msg) const {
+	msg.set_id((int64_t)id);
+	msg.set_exp((int32_t)exp);
+}
+
+void elementelementmaterialDesc_s::read_from_pbmsg(const ::proto_ff::elementelementmaterialDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct elementelementmaterialDesc_s));
+	id = msg.id();
+	exp = msg.exp();
+}
+
 elementelement_s::elementelement_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -30,20 +88,16 @@ void elementelement_s::write_to_pbmsg(::proto_ff::elementelement & msg) const {
 	msg.set_level((int32_t)level);
 	msg.set_exp((int32_t)exp);
 	msg.set_skillid((int64_t)skillID);
-	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize() && i < attribute_type.GetMaxSize(); ++i) {
-		msg.add_attribute_type((int32_t)attribute_type[i]);
+	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
+		::proto_ff::elementelementattributeDesc* temp_attribute = msg.add_attribute();
+		attribute[i].write_to_pbmsg(*temp_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)material_exp.GetSize() && i < material_exp.GetMaxSize(); ++i) {
-		msg.add_material_exp((int32_t)material_exp[i]);
+	for(int32_t i = 0; i < (int32_t)material.GetSize() && i < material.GetMaxSize(); ++i) {
+		::proto_ff::elementelementmaterialDesc* temp_material = msg.add_material();
+		material[i].write_to_pbmsg(*temp_material);
 	}
 	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize() && i < fragmentID.GetMaxSize(); ++i) {
 		msg.add_fragmentid((int64_t)fragmentID[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)material_id.GetSize() && i < material_id.GetMaxSize(); ++i) {
-		msg.add_material_id((int64_t)material_id[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize() && i < attribute_value.GetMaxSize(); ++i) {
-		msg.add_attribute_value((int32_t)attribute_value[i]);
 	}
 }
 
@@ -55,25 +109,19 @@ void elementelement_s::read_from_pbmsg(const ::proto_ff::elementelement & msg) {
 	level = msg.level();
 	exp = msg.exp();
 	skillID = msg.skillid();
-	attribute_type.SetSize(msg.attribute_type_size() > attribute_type.GetMaxSize() ? attribute_type.GetMaxSize() : msg.attribute_type_size());
-	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize(); ++i) {
-		attribute_type[i] = msg.attribute_type(i);
+	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
+	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
+		const ::proto_ff::elementelementattributeDesc & temp_attribute = msg.attribute(i);
+		attribute[i].read_from_pbmsg(temp_attribute);
 	}
-	material_exp.SetSize(msg.material_exp_size() > material_exp.GetMaxSize() ? material_exp.GetMaxSize() : msg.material_exp_size());
-	for(int32_t i = 0; i < (int32_t)material_exp.GetSize(); ++i) {
-		material_exp[i] = msg.material_exp(i);
+	material.SetSize(msg.material_size() > material.GetMaxSize() ? material.GetMaxSize() : msg.material_size());
+	for(int32_t i = 0; i < (int32_t)material.GetSize(); ++i) {
+		const ::proto_ff::elementelementmaterialDesc & temp_material = msg.material(i);
+		material[i].read_from_pbmsg(temp_material);
 	}
 	fragmentID.SetSize(msg.fragmentid_size() > fragmentID.GetMaxSize() ? fragmentID.GetMaxSize() : msg.fragmentid_size());
 	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize(); ++i) {
 		fragmentID[i] = msg.fragmentid(i);
-	}
-	material_id.SetSize(msg.material_id_size() > material_id.GetMaxSize() ? material_id.GetMaxSize() : msg.material_id_size());
-	for(int32_t i = 0; i < (int32_t)material_id.GetSize(); ++i) {
-		material_id[i] = msg.material_id(i);
-	}
-	attribute_value.SetSize(msg.attribute_value_size() > attribute_value.GetMaxSize() ? attribute_value.GetMaxSize() : msg.attribute_value_size());
-	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize(); ++i) {
-		attribute_value[i] = msg.attribute_value(i);
 	}
 }
 
@@ -109,6 +157,35 @@ void Sheet_elementelement_s::read_from_pbmsg(const ::proto_ff::Sheet_elementelem
 	}
 }
 
+elementfragmentattributeDesc_s::elementfragmentattributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int elementfragmentattributeDesc_s::CreateInit() {
+	type = (int32_t)0;
+	value = (int32_t)0;
+	return 0;
+}
+
+int elementfragmentattributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void elementfragmentattributeDesc_s::write_to_pbmsg(::proto_ff::elementfragmentattributeDesc & msg) const {
+	msg.set_type((int32_t)type);
+	msg.set_value((int32_t)value);
+}
+
+void elementfragmentattributeDesc_s::read_from_pbmsg(const ::proto_ff::elementfragmentattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct elementfragmentattributeDesc_s));
+	type = msg.type();
+	value = msg.value();
+}
+
 elementfragment_s::elementfragment_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -132,11 +209,9 @@ void elementfragment_s::write_to_pbmsg(::proto_ff::elementfragment & msg) const 
 	msg.set_id((int64_t)ID);
 	msg.set_itemid((int64_t)itemID);
 	msg.set_itemnum((int32_t)itemNum);
-	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize() && i < attribute_type.GetMaxSize(); ++i) {
-		msg.add_attribute_type((int32_t)attribute_type[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize() && i < attribute_value.GetMaxSize(); ++i) {
-		msg.add_attribute_value((int32_t)attribute_value[i]);
+	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
+		::proto_ff::elementfragmentattributeDesc* temp_attribute = msg.add_attribute();
+		attribute[i].write_to_pbmsg(*temp_attribute);
 	}
 }
 
@@ -145,13 +220,10 @@ void elementfragment_s::read_from_pbmsg(const ::proto_ff::elementfragment & msg)
 	ID = msg.id();
 	itemID = msg.itemid();
 	itemNum = msg.itemnum();
-	attribute_type.SetSize(msg.attribute_type_size() > attribute_type.GetMaxSize() ? attribute_type.GetMaxSize() : msg.attribute_type_size());
-	for(int32_t i = 0; i < (int32_t)attribute_type.GetSize(); ++i) {
-		attribute_type[i] = msg.attribute_type(i);
-	}
-	attribute_value.SetSize(msg.attribute_value_size() > attribute_value.GetMaxSize() ? attribute_value.GetMaxSize() : msg.attribute_value_size());
-	for(int32_t i = 0; i < (int32_t)attribute_value.GetSize(); ++i) {
-		attribute_value[i] = msg.attribute_value(i);
+	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
+	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
+		const ::proto_ff::elementfragmentattributeDesc & temp_attribute = msg.attribute(i);
+		attribute[i].read_from_pbmsg(temp_attribute);
 	}
 }
 

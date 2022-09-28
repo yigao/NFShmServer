@@ -319,7 +319,6 @@ arenafirstrank_s::arenafirstrank_s() {
 int arenafirstrank_s::CreateInit() {
 	rankDown = (int32_t)0;
 	rankUp = (int32_t)0;
-	RewardONE = (float)0;
 	return 0;
 }
 
@@ -330,14 +329,19 @@ int arenafirstrank_s::ResumeInit() {
 void arenafirstrank_s::write_to_pbmsg(::proto_ff::arenafirstrank & msg) const {
 	msg.set_rankdown((int32_t)rankDown);
 	msg.set_rankup((int32_t)rankUp);
-	msg.set_rewardone((float)RewardONE);
+	for(int32_t i = 0; i < (int32_t)RewardONE.GetSize() && i < RewardONE.GetMaxSize(); ++i) {
+		msg.add_rewardone((float)RewardONE[i]);
+	}
 }
 
 void arenafirstrank_s::read_from_pbmsg(const ::proto_ff::arenafirstrank & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct arenafirstrank_s));
 	rankDown = msg.rankdown();
 	rankUp = msg.rankup();
-	RewardONE = msg.rewardone();
+	RewardONE.SetSize(msg.rewardone_size() > RewardONE.GetMaxSize() ? RewardONE.GetMaxSize() : msg.rewardone_size());
+	for(int32_t i = 0; i < (int32_t)RewardONE.GetSize(); ++i) {
+		RewardONE[i] = msg.rewardone(i);
+	}
 }
 
 Sheet_arenafirstrank_s::Sheet_arenafirstrank_s() {

@@ -34,113 +34,10 @@ void  protobuf_AddDesc_back_2eproto();
 void protobuf_AssignDesc_back_2eproto();
 void protobuf_ShutdownFile_back_2eproto();
 
-class backbackbackDesc;
 class backback;
 class Sheet_backback;
 
 // ===================================================================
-
-class backbackbackDesc : public ::google::protobuf::Message {
- public:
-  backbackbackDesc();
-  virtual ~backbackbackDesc();
-
-  backbackbackDesc(const backbackbackDesc& from);
-
-  inline backbackbackDesc& operator=(const backbackbackDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const backbackbackDesc& default_instance();
-
-  void Swap(backbackbackDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  backbackbackDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const backbackbackDesc& from);
-  void MergeFrom(const backbackbackDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 Expend = 1;
-  inline bool has_expend() const;
-  inline void clear_expend();
-  static const int kExpendFieldNumber = 1;
-  inline ::google::protobuf::int32 expend() const;
-  inline void set_expend(::google::protobuf::int32 value);
-
-  // optional int32 Num = 2;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 2;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
-
-  // optional int32 Exp = 3;
-  inline bool has_exp() const;
-  inline void clear_exp();
-  static const int kExpFieldNumber = 3;
-  inline ::google::protobuf::int32 exp() const;
-  inline void set_exp(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.backbackbackDesc)
- private:
-  inline void set_has_expend();
-  inline void clear_has_expend();
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 expend_;
-  ::google::protobuf::int32 num_;
-  ::google::protobuf::int32 exp_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_back_2eproto();
-  friend void protobuf_AssignDesc_back_2eproto();
-  friend void protobuf_ShutdownFile_back_2eproto();
-
-  void InitAsDefaultInstance();
-  static backbackbackDesc* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class backback : public ::google::protobuf::Message {
  public:
@@ -290,22 +187,34 @@ class backback : public ::google::protobuf::Message {
   inline ::std::string* release_icon();
   inline void set_allocated_icon(::std::string* icon);
 
-  // repeated .proto_ff.backbackbackDesc back = 13;
-  inline int back_size() const;
-  inline void clear_back();
-  static const int kBackFieldNumber = 13;
-  inline const ::proto_ff::backbackbackDesc& back(int index) const;
-  inline ::proto_ff::backbackbackDesc* mutable_back(int index);
-  inline ::proto_ff::backbackbackDesc* add_back();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::backbackbackDesc >&
-      back() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::backbackbackDesc >*
-      mutable_back();
+  // repeated int32 backExp = 13;
+  inline int backexp_size() const;
+  inline void clear_backexp();
+  static const int kBackExpFieldNumber = 13;
+  inline ::google::protobuf::int32 backexp(int index) const;
+  inline void set_backexp(int index, ::google::protobuf::int32 value);
+  inline void add_backexp(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      backexp() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_backexp();
 
-  // repeated int32 param = 14;
+  // repeated int32 backNum = 14;
+  inline int backnum_size() const;
+  inline void clear_backnum();
+  static const int kBackNumFieldNumber = 14;
+  inline ::google::protobuf::int32 backnum(int index) const;
+  inline void set_backnum(int index, ::google::protobuf::int32 value);
+  inline void add_backnum(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      backnum() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_backnum();
+
+  // repeated int32 param = 15;
   inline int param_size() const;
   inline void clear_param();
-  static const int kParamFieldNumber = 14;
+  static const int kParamFieldNumber = 15;
   inline ::google::protobuf::int32 param(int index) const;
   inline void set_param(int index, ::google::protobuf::int32 value);
   inline void add_param(::google::protobuf::int32 value);
@@ -313,6 +222,18 @@ class backback : public ::google::protobuf::Message {
       param() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_param();
+
+  // repeated int32 backExpend = 16;
+  inline int backexpend_size() const;
+  inline void clear_backexpend();
+  static const int kBackExpendFieldNumber = 16;
+  inline ::google::protobuf::int32 backexpend(int index) const;
+  inline void set_backexpend(int index, ::google::protobuf::int32 value);
+  inline void add_backexpend(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      backexpend() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_backexpend();
 
   // @@protoc_insertion_point(class_scope:proto_ff.backback)
  private:
@@ -354,12 +275,14 @@ class backback : public ::google::protobuf::Message {
   ::google::protobuf::int64 bosstypeid_;
   ::google::protobuf::int64 itemid_;
   ::std::string* icon_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::backbackbackDesc > back_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > backexp_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > backnum_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > param_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > backexpend_;
   ::google::protobuf::int32 levellimit_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
 
   friend void  protobuf_AddDesc_back_2eproto();
   friend void protobuf_AssignDesc_back_2eproto();
@@ -457,76 +380,6 @@ class Sheet_backback : public ::google::protobuf::Message {
 
 
 // ===================================================================
-
-// backbackbackDesc
-
-// optional int32 Expend = 1;
-inline bool backbackbackDesc::has_expend() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void backbackbackDesc::set_has_expend() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void backbackbackDesc::clear_has_expend() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void backbackbackDesc::clear_expend() {
-  expend_ = 0;
-  clear_has_expend();
-}
-inline ::google::protobuf::int32 backbackbackDesc::expend() const {
-  return expend_;
-}
-inline void backbackbackDesc::set_expend(::google::protobuf::int32 value) {
-  set_has_expend();
-  expend_ = value;
-}
-
-// optional int32 Num = 2;
-inline bool backbackbackDesc::has_num() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void backbackbackDesc::set_has_num() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void backbackbackDesc::clear_has_num() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void backbackbackDesc::clear_num() {
-  num_ = 0;
-  clear_has_num();
-}
-inline ::google::protobuf::int32 backbackbackDesc::num() const {
-  return num_;
-}
-inline void backbackbackDesc::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
-}
-
-// optional int32 Exp = 3;
-inline bool backbackbackDesc::has_exp() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void backbackbackDesc::set_has_exp() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void backbackbackDesc::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void backbackbackDesc::clear_exp() {
-  exp_ = 0;
-  clear_has_exp();
-}
-inline ::google::protobuf::int32 backbackbackDesc::exp() const {
-  return exp_;
-}
-inline void backbackbackDesc::set_exp(::google::protobuf::int32 value) {
-  set_has_exp();
-  exp_ = value;
-}
-
-// -------------------------------------------------------------------
 
 // backback
 
@@ -890,32 +743,57 @@ inline void backback::set_allocated_icon(::std::string* icon) {
   }
 }
 
-// repeated .proto_ff.backbackbackDesc back = 13;
-inline int backback::back_size() const {
-  return back_.size();
+// repeated int32 backExp = 13;
+inline int backback::backexp_size() const {
+  return backexp_.size();
 }
-inline void backback::clear_back() {
-  back_.Clear();
+inline void backback::clear_backexp() {
+  backexp_.Clear();
 }
-inline const ::proto_ff::backbackbackDesc& backback::back(int index) const {
-  return back_.Get(index);
+inline ::google::protobuf::int32 backback::backexp(int index) const {
+  return backexp_.Get(index);
 }
-inline ::proto_ff::backbackbackDesc* backback::mutable_back(int index) {
-  return back_.Mutable(index);
+inline void backback::set_backexp(int index, ::google::protobuf::int32 value) {
+  backexp_.Set(index, value);
 }
-inline ::proto_ff::backbackbackDesc* backback::add_back() {
-  return back_.Add();
+inline void backback::add_backexp(::google::protobuf::int32 value) {
+  backexp_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::backbackbackDesc >&
-backback::back() const {
-  return back_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+backback::backexp() const {
+  return backexp_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::backbackbackDesc >*
-backback::mutable_back() {
-  return &back_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+backback::mutable_backexp() {
+  return &backexp_;
 }
 
-// repeated int32 param = 14;
+// repeated int32 backNum = 14;
+inline int backback::backnum_size() const {
+  return backnum_.size();
+}
+inline void backback::clear_backnum() {
+  backnum_.Clear();
+}
+inline ::google::protobuf::int32 backback::backnum(int index) const {
+  return backnum_.Get(index);
+}
+inline void backback::set_backnum(int index, ::google::protobuf::int32 value) {
+  backnum_.Set(index, value);
+}
+inline void backback::add_backnum(::google::protobuf::int32 value) {
+  backnum_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+backback::backnum() const {
+  return backnum_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+backback::mutable_backnum() {
+  return &backnum_;
+}
+
+// repeated int32 param = 15;
 inline int backback::param_size() const {
   return param_.size();
 }
@@ -938,6 +816,31 @@ backback::param() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 backback::mutable_param() {
   return &param_;
+}
+
+// repeated int32 backExpend = 16;
+inline int backback::backexpend_size() const {
+  return backexpend_.size();
+}
+inline void backback::clear_backexpend() {
+  backexpend_.Clear();
+}
+inline ::google::protobuf::int32 backback::backexpend(int index) const {
+  return backexpend_.Get(index);
+}
+inline void backback::set_backexpend(int index, ::google::protobuf::int32 value) {
+  backexpend_.Set(index, value);
+}
+inline void backback::add_backexpend(::google::protobuf::int32 value) {
+  backexpend_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+backback::backexpend() const {
+  return backexpend_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+backback::mutable_backexpend() {
+  return &backexpend_;
 }
 
 // -------------------------------------------------------------------

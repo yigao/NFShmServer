@@ -328,35 +328,61 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 
 				#print "[%s] [%s]" % (field_property_cname, current_layer_cname)
 
-				compare_cname = current_layer_cname + field_property_cname
-				compare_cname_len = len(compare_cname)
-				column_prefixname = column_name[:compare_cname_len]
+				field_property_cname_list = re.split('(\d+)', field_property_cname)
+				column_name_list = re.split('(\d+)', column_name)
+				col_en_name_list = re.split('(_)', col_en_name)
+				if field_property_label == descriptor.FieldDescriptor.LABEL_REPEATED and field_property_type != descriptor.FieldDescriptor.TYPE_MESSAGE and col_en_name == field_property_name and\
+					len(field_property_cname_list) == 3 and len(field_property_cname_list[0]) > 0 and len(field_property_cname_list[2]) > 0 and\
+					len(column_name_list) == 3 and len(column_name_list[0]) > 0 and len(column_name_list[2]) > 0 and \
+					field_property_cname_list[0] == column_name_list[0] and field_property_cname_list[2] == column_name_list[2] and field_belong_message_fullname == record.DESCRIPTOR.full_name:
+					is_find = True
+					last_ok_col_index = col_index;
+					t_property = field_property
+					break;
+				elif len(parent_layer_cname) == 0 and field_property_label == descriptor.FieldDescriptor.LABEL_REPEATED and field_property_type == descriptor.FieldDescriptor.TYPE_MESSAGE and \
+						field_property_cname == "$$$$" and len(column_name_list) == 3 and len(column_name_list[0]) > 0 and len(column_name_list[2]) == 0 and \
+						len(col_en_name_list) == 3 and col_en_name_list[0] == field_property_name and len(field_property_name[1]) > 0 and field_belong_message_fullname == record.DESCRIPTOR.full_name:
+					is_find = True
+					last_ok_col_index = col_index;
+					t_property = field_property
+					break;
+				elif parent_layer_cname == "$$$$" and len(column_name_list) == 3 and len(column_name_list[0]) > 0 and len(column_name_list[2]) == 0 and \
+						column_name == (field_property_cname + str(g_layertype_instancecount[current_layer_typename])) and \
+						len(col_en_name_list) == 3 and col_en_name_list[2] == field_property_name and len(field_property_name[0]) > 0:
+					is_find = True
+					last_ok_col_index = col_index;
+					t_property = field_property
+					break;
+				else:
+					compare_cname = current_layer_cname + field_property_cname
+					compare_cname_len = len(compare_cname)
+					column_prefixname = column_name[:compare_cname_len]
 
-				#还要判断后缀
-				column_postfixname = column_name[compare_cname_len:]
-				#must_strictcompare = False
-				if len(column_name) > len(compare_cname):
-					#如果有超过部分，判断是否是分层部分，不是就要严格匹配
-					col_cn_name_list = re.split('(\d+)', column_postfixname)
-					if len(col_cn_name_list) <= 1 or col_cn_name_list[1].isdigit() == False:
-						column_prefixname = column_name
+					#还要判断后缀
+					column_postfixname = column_name[compare_cname_len:]
+					#must_strictcompare = False
+					if len(column_name) > len(compare_cname):
+						#如果有超过部分，判断是否是分层部分，不是就要严格匹配
+						col_cn_name_list = re.split('(\d+)', column_postfixname)
+						if len(col_cn_name_list) <= 1 or col_cn_name_list[1].isdigit() == False:
+							column_prefixname = column_name
 
-				#print "------------compare_cname[%s] column_prefixname[%s]" % (compare_cname, column_prefixname)
+					#print "------------compare_cname[%s] column_prefixname[%s]" % (compare_cname, column_prefixname)
 
-				if compare_cname == column_prefixname and field_belong_message_fullname == record.DESCRIPTOR.full_name:
-					#print "line(%s:%d) compare_cname[%s] column_prefixname[%s] column_name[%s] find is ok!" % \
-					#	  (__file__, sys._getframe().f_lineno, compare_cname, column_prefixname, column_name)
-					if len(parent_layer_cname) == 0 and field_property_label != descriptor.FieldDescriptor.LABEL_REPEATED and field_property_type != descriptor.FieldDescriptor.TYPE_MESSAGE:
-						if col_en_name == field_property_name:
+					if compare_cname == column_prefixname and field_belong_message_fullname == record.DESCRIPTOR.full_name:
+						#print "line(%s:%d) compare_cname[%s] column_prefixname[%s] column_name[%s] find is ok!" % \
+						#	  (__file__, sys._getframe().f_lineno, compare_cname, column_prefixname, column_name)
+						if len(parent_layer_cname) == 0 and field_property_label != descriptor.FieldDescriptor.LABEL_REPEATED and field_property_type != descriptor.FieldDescriptor.TYPE_MESSAGE:
+							if col_en_name == field_property_name:
+								is_find = True
+								last_ok_col_index = col_index;
+								t_property = field_property
+								break;
+						else:
 							is_find = True
 							last_ok_col_index = col_index;
 							t_property = field_property
 							break;
-					else:
-						is_find = True
-						last_ok_col_index = col_index;
-						t_property = field_property
-						break;
 		else:
 			#print "[now step: %d]" % (g_now_step)
 			if g_step[g_now_step] == True:

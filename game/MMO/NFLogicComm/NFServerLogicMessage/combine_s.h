@@ -162,6 +162,33 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_combinerankUp_s Sheet_combinerankUp_t;
 
+	struct combinequalityUpneedEqupDesc_s : public NFDescStoreSeqOP {
+		combinequalityUpneedEqupDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		NFSizeString<160> id;
+
+		virtual void write_to_pbmsg(::proto_ff::combinequalityUpneedEqupDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::combinequalityUpneedEqupDesc & msg);
+		static ::proto_ff::combinequalityUpneedEqupDesc* new_pbmsg(){ return new ::proto_ff::combinequalityUpneedEqupDesc(); }
+		static ::proto_ff::combinequalityUpneedEqupDesc make_pbmsg(){ return ::proto_ff::combinequalityUpneedEqupDesc(); }
+	};
+	typedef struct combinequalityUpneedEqupDesc_s combinequalityUpneedEqupDesc_t;
+
+	struct combinequalityUpneedMaterialDesc_s : public NFDescStoreSeqOP {
+		combinequalityUpneedMaterialDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int32_t num;
+		int64_t id;
+
+		virtual void write_to_pbmsg(::proto_ff::combinequalityUpneedMaterialDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::combinequalityUpneedMaterialDesc & msg);
+		static ::proto_ff::combinequalityUpneedMaterialDesc* new_pbmsg(){ return new ::proto_ff::combinequalityUpneedMaterialDesc(); }
+		static ::proto_ff::combinequalityUpneedMaterialDesc make_pbmsg(){ return ::proto_ff::combinequalityUpneedMaterialDesc(); }
+	};
+	typedef struct combinequalityUpneedMaterialDesc_s combinequalityUpneedMaterialDesc_t;
+
 	struct combinequalityUp_s : public NFDescStoreSeqOP {
 		combinequalityUp_s();
 		int CreateInit();
@@ -177,9 +204,8 @@ namespace proto_ff_s {
 		int32_t probability;
 		int32_t costType;
 		int32_t bindJewelCost;
-		NFArray<NFSizeString<160>, 1> needEqup_id;
-		NFArray<int32_t, 2> needMaterial_num;
-		NFArray<int64_t, 2> needMaterial_id;
+		NFArray<struct combinequalityUpneedEqupDesc_s, 1> needEqup;
+		NFArray<struct combinequalityUpneedMaterialDesc_s, 2> needMaterial;
 
 		virtual void write_to_pbmsg(::proto_ff::combinequalityUp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::combinequalityUp & msg);

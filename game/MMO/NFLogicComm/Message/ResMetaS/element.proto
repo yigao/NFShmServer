@@ -3,6 +3,18 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
+message elementelementattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "基础属性ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "基础属性值"];
+}
+
+message elementelementmaterialDesc
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "进阶材料ID"];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "进阶材料经验值"];
+}
+
 message elementelement
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "元素ID"];
@@ -11,11 +23,9 @@ message elementelement
 	optional int32 level = 4[(yd_fieldoptions.field_cname) = "等级"];
 	optional int32 exp = 5[(yd_fieldoptions.field_cname) = "元素升级经验"];
 	optional int64 skillID = 6[(yd_fieldoptions.field_cname) = "解锁技能ID"];
-	repeated int32 attribute_type = 7[(yd_fieldoptions.field_cname) = "基础属性ID", (yd_fieldoptions.field_arysize) = 2];
-	repeated int32 material_exp = 8[(yd_fieldoptions.field_cname) = "进阶材料经验值", (yd_fieldoptions.field_arysize) = 3];
+	repeated elementelementattributeDesc attribute = 7[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 2];
+	repeated elementelementmaterialDesc material = 8[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 3];
 	repeated int64 fragmentID = 9[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
-	repeated int64 material_id = 10[(yd_fieldoptions.field_cname) = "进阶材料ID", (yd_fieldoptions.field_arysize) = 3];
-	repeated int32 attribute_value = 11[(yd_fieldoptions.field_cname) = "基础属性值", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -24,13 +34,18 @@ message Sheet_elementelement
 	repeated elementelement elementelement_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
+message elementfragmentattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "基础属性ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "基础属性值"];
+}
+
 message elementfragment
 {
 	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
 	optional int64 itemID = 2[(yd_fieldoptions.field_cname) = "物品ID"];
 	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
-	repeated int32 attribute_type = 4[(yd_fieldoptions.field_cname) = "基础属性ID", (yd_fieldoptions.field_arysize) = 3];
-	repeated int32 attribute_value = 5[(yd_fieldoptions.field_cname) = "基础属性值", (yd_fieldoptions.field_arysize) = 3];
+	repeated elementfragmentattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

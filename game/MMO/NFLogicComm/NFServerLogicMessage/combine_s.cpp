@@ -369,6 +369,60 @@ void Sheet_combinerankUp_s::read_from_pbmsg(const ::proto_ff::Sheet_combinerankU
 	}
 }
 
+combinequalityUpneedEqupDesc_s::combinequalityUpneedEqupDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int combinequalityUpneedEqupDesc_s::CreateInit() {
+	return 0;
+}
+
+int combinequalityUpneedEqupDesc_s::ResumeInit() {
+	return 0;
+}
+
+void combinequalityUpneedEqupDesc_s::write_to_pbmsg(::proto_ff::combinequalityUpneedEqupDesc & msg) const {
+	msg.set_id((const char*)id.Get());
+}
+
+void combinequalityUpneedEqupDesc_s::read_from_pbmsg(const ::proto_ff::combinequalityUpneedEqupDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct combinequalityUpneedEqupDesc_s));
+	id.Copy(msg.id());
+}
+
+combinequalityUpneedMaterialDesc_s::combinequalityUpneedMaterialDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int combinequalityUpneedMaterialDesc_s::CreateInit() {
+	num = (int32_t)0;
+	id = (int64_t)0;
+	return 0;
+}
+
+int combinequalityUpneedMaterialDesc_s::ResumeInit() {
+	return 0;
+}
+
+void combinequalityUpneedMaterialDesc_s::write_to_pbmsg(::proto_ff::combinequalityUpneedMaterialDesc & msg) const {
+	msg.set_num((int32_t)num);
+	msg.set_id((int64_t)id);
+}
+
+void combinequalityUpneedMaterialDesc_s::read_from_pbmsg(const ::proto_ff::combinequalityUpneedMaterialDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct combinequalityUpneedMaterialDesc_s));
+	num = msg.num();
+	id = msg.id();
+}
+
 combinequalityUp_s::combinequalityUp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -407,14 +461,13 @@ void combinequalityUp_s::write_to_pbmsg(::proto_ff::combinequalityUp & msg) cons
 	msg.set_probability((int32_t)probability);
 	msg.set_costtype((int32_t)costType);
 	msg.set_bindjewelcost((int32_t)bindJewelCost);
-	for(int32_t i = 0; i < (int32_t)needEqup_id.GetSize() && i < needEqup_id.GetMaxSize(); ++i) {
-		msg.add_needequp_id((const char*)needEqup_id[i].Get());
+	for(int32_t i = 0; i < (int32_t)needEqup.GetSize() && i < needEqup.GetMaxSize(); ++i) {
+		::proto_ff::combinequalityUpneedEqupDesc* temp_needequp = msg.add_needequp();
+		needEqup[i].write_to_pbmsg(*temp_needequp);
 	}
-	for(int32_t i = 0; i < (int32_t)needMaterial_num.GetSize() && i < needMaterial_num.GetMaxSize(); ++i) {
-		msg.add_needmaterial_num((int32_t)needMaterial_num[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)needMaterial_id.GetSize() && i < needMaterial_id.GetMaxSize(); ++i) {
-		msg.add_needmaterial_id((int64_t)needMaterial_id[i]);
+	for(int32_t i = 0; i < (int32_t)needMaterial.GetSize() && i < needMaterial.GetMaxSize(); ++i) {
+		::proto_ff::combinequalityUpneedMaterialDesc* temp_needmaterial = msg.add_needmaterial();
+		needMaterial[i].write_to_pbmsg(*temp_needmaterial);
 	}
 }
 
@@ -431,17 +484,15 @@ void combinequalityUp_s::read_from_pbmsg(const ::proto_ff::combinequalityUp & ms
 	probability = msg.probability();
 	costType = msg.costtype();
 	bindJewelCost = msg.bindjewelcost();
-	needEqup_id.SetSize(msg.needequp_id_size() > needEqup_id.GetMaxSize() ? needEqup_id.GetMaxSize() : msg.needequp_id_size());
-	for(int32_t i = 0; i < (int32_t)needEqup_id.GetSize(); ++i) {
-		needEqup_id[i].Copy(msg.needequp_id(i));
+	needEqup.SetSize(msg.needequp_size() > needEqup.GetMaxSize() ? needEqup.GetMaxSize() : msg.needequp_size());
+	for(int32_t i = 0; i < (int32_t)needEqup.GetSize(); ++i) {
+		const ::proto_ff::combinequalityUpneedEqupDesc & temp_needequp = msg.needequp(i);
+		needEqup[i].read_from_pbmsg(temp_needequp);
 	}
-	needMaterial_num.SetSize(msg.needmaterial_num_size() > needMaterial_num.GetMaxSize() ? needMaterial_num.GetMaxSize() : msg.needmaterial_num_size());
-	for(int32_t i = 0; i < (int32_t)needMaterial_num.GetSize(); ++i) {
-		needMaterial_num[i] = msg.needmaterial_num(i);
-	}
-	needMaterial_id.SetSize(msg.needmaterial_id_size() > needMaterial_id.GetMaxSize() ? needMaterial_id.GetMaxSize() : msg.needmaterial_id_size());
-	for(int32_t i = 0; i < (int32_t)needMaterial_id.GetSize(); ++i) {
-		needMaterial_id[i] = msg.needmaterial_id(i);
+	needMaterial.SetSize(msg.needmaterial_size() > needMaterial.GetMaxSize() ? needMaterial.GetMaxSize() : msg.needmaterial_size());
+	for(int32_t i = 0; i < (int32_t)needMaterial.GetSize(); ++i) {
+		const ::proto_ff::combinequalityUpneedMaterialDesc & temp_needmaterial = msg.needmaterial(i);
+		needMaterial[i].read_from_pbmsg(temp_needmaterial);
 	}
 }
 

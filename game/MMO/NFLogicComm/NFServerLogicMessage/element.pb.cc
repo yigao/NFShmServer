@@ -20,12 +20,21 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::Descriptor* elementelementattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  elementelementattributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* elementelementmaterialDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  elementelementmaterialDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* elementelement_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   elementelement_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Sheet_elementelement_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_elementelement_reflection_ = NULL;
+const ::google::protobuf::Descriptor* elementfragmentattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  elementfragmentattributeDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* elementfragment_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   elementfragment_reflection_ = NULL;
@@ -48,19 +57,49 @@ void protobuf_AssignDesc_element_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "element.proto");
   GOOGLE_CHECK(file != NULL);
-  elementelement_descriptor_ = file->message_type(0);
-  static const int elementelement_offsets_[11] = {
+  elementelementattributeDesc_descriptor_ = file->message_type(0);
+  static const int elementelementattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementattributeDesc, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementattributeDesc, value_),
+  };
+  elementelementattributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      elementelementattributeDesc_descriptor_,
+      elementelementattributeDesc::default_instance_,
+      elementelementattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementattributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(elementelementattributeDesc));
+  elementelementmaterialDesc_descriptor_ = file->message_type(1);
+  static const int elementelementmaterialDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementmaterialDesc, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementmaterialDesc, exp_),
+  };
+  elementelementmaterialDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      elementelementmaterialDesc_descriptor_,
+      elementelementmaterialDesc::default_instance_,
+      elementelementmaterialDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementmaterialDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementmaterialDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(elementelementmaterialDesc));
+  elementelement_descriptor_ = file->message_type(2);
+  static const int elementelement_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, resource_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, skillid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, attribute_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, material_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, attribute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, material_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, fragmentid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, material_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelement, attribute_value_),
   };
   elementelement_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -73,7 +112,7 @@ void protobuf_AssignDesc_element_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(elementelement));
-  Sheet_elementelement_descriptor_ = file->message_type(1);
+  Sheet_elementelement_descriptor_ = file->message_type(3);
   static const int Sheet_elementelement_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_elementelement, elementelement_list_),
   };
@@ -88,13 +127,28 @@ void protobuf_AssignDesc_element_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_elementelement));
-  elementfragment_descriptor_ = file->message_type(2);
-  static const int elementfragment_offsets_[5] = {
+  elementfragmentattributeDesc_descriptor_ = file->message_type(4);
+  static const int elementfragmentattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragmentattributeDesc, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragmentattributeDesc, value_),
+  };
+  elementfragmentattributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      elementfragmentattributeDesc_descriptor_,
+      elementfragmentattributeDesc::default_instance_,
+      elementfragmentattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragmentattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragmentattributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(elementfragmentattributeDesc));
+  elementfragment_descriptor_ = file->message_type(5);
+  static const int elementfragment_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, itemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, itemnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, attribute_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, attribute_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementfragment, attribute_),
   };
   elementfragment_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -107,7 +161,7 @@ void protobuf_AssignDesc_element_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(elementfragment));
-  Sheet_elementfragment_descriptor_ = file->message_type(3);
+  Sheet_elementfragment_descriptor_ = file->message_type(6);
   static const int Sheet_elementfragment_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_elementfragment, elementfragment_list_),
   };
@@ -122,7 +176,7 @@ void protobuf_AssignDesc_element_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_elementfragment));
-  elementelementUI_descriptor_ = file->message_type(4);
+  elementelementUI_descriptor_ = file->message_type(7);
   static const int elementelementUI_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementUI, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(elementelementUI, name_),
@@ -138,7 +192,7 @@ void protobuf_AssignDesc_element_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(elementelementUI));
-  Sheet_elementelementUI_descriptor_ = file->message_type(5);
+  Sheet_elementelementUI_descriptor_ = file->message_type(8);
   static const int Sheet_elementelementUI_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_elementelementUI, elementelementui_list_),
   };
@@ -166,9 +220,15 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    elementelementattributeDesc_descriptor_, &elementelementattributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    elementelementmaterialDesc_descriptor_, &elementelementmaterialDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     elementelement_descriptor_, &elementelement::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_elementelement_descriptor_, &Sheet_elementelement::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    elementfragmentattributeDesc_descriptor_, &elementfragmentattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     elementfragment_descriptor_, &elementfragment::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -182,10 +242,16 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_element_2eproto() {
+  delete elementelementattributeDesc::default_instance_;
+  delete elementelementattributeDesc_reflection_;
+  delete elementelementmaterialDesc::default_instance_;
+  delete elementelementmaterialDesc_reflection_;
   delete elementelement::default_instance_;
   delete elementelement_reflection_;
   delete Sheet_elementelement::default_instance_;
   delete Sheet_elementelement_reflection_;
+  delete elementfragmentattributeDesc::default_instance_;
+  delete elementfragmentattributeDesc_reflection_;
   delete elementfragment::default_instance_;
   delete elementfragment_reflection_;
   delete Sheet_elementfragment::default_instance_;
@@ -205,42 +271,54 @@ void protobuf_AddDesc_element_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\relement.proto\022\010proto_ff\032\025yd_fieldoptio"
-    "ns.proto\"\301\003\n\016elementelement\022\030\n\002ID\030\001 \001(\003B"
-    "\014\302\377\024\010\345\205\203\347\264\240ID\022&\n\010resource\030\002 \001(\tB\024\302\377\024\014\350\265\204"
-    "\346\272\220\345\275\242\350\261\241\220\301\024<\022\030\n\004type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022"
-    "\031\n\005level\030\004 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022#\n\003exp\030\005 \001(\005B"
-    "\026\302\377\024\022\345\205\203\347\264\240\345\215\207\347\272\247\347\273\217\351\252\214\022#\n\007skillID\030\006 \001(\003"
-    "B\022\302\377\024\016\350\247\243\351\224\201\346\212\200\350\203\275ID\022.\n\016attribute_type\030\007"
-    " \003(\005B\026\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247ID\210\301\024\002\0223\n\014material"
-    "_exp\030\010 \003(\005B\035\302\377\024\025\350\277\233\351\230\266\346\235\220\346\226\231\347\273\217\351\252\214\345\200\274\210\301\024"
-    "\003\022*\n\nfragmentID\030\t \003(\003B\026\302\377\024\016\345\205\263\350\201\224\347\242\216\347\211\207I"
-    "D\210\301\024\003\022+\n\013material_id\030\n \003(\003B\026\302\377\024\016\350\277\233\351\230\266\346\235"
-    "\220\346\226\231ID\210\301\024\003\0220\n\017attribute_value\030\013 \003(\005B\027\302\377\024"
-    "\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\210\301\024\002\"T\n\024Sheet_elementele"
-    "ment\022<\n\023elementelement_List\030\001 \003(\0132\030.prot"
-    "o_ff.elementelementB\005\210\301\024\320\017\"\324\001\n\017elementfr"
-    "agment\022\030\n\002ID\030\001 \001(\003B\014\302\377\024\010\347\242\216\347\211\207ID\022\034\n\006item"
-    "ID\030\002 \001(\003B\014\302\377\024\010\347\211\251\345\223\201ID\022\'\n\007itemNum\030\003 \001(\005B"
-    "\026\302\377\024\022\347\242\216\347\211\207\344\275\277\347\224\250\344\270\212\351\231\220\022.\n\016attribute_typ"
-    "e\030\004 \003(\005B\026\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247ID\210\301\024\003\0220\n\017attri"
-    "bute_value\030\005 \003(\005B\027\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\210\301\024"
-    "\003\"V\n\025Sheet_elementfragment\022=\n\024elementfra"
-    "gment_List\030\001 \003(\0132\031.proto_ff.elementfragm"
-    "entB\004\210\301\024\024\"P\n\020elementelementUI\022\030\n\004type\030\001 "
-    "\001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\345\205\203\347\264"
-    "\240\345\220\215\345\255\227\220\301\024<\"Y\n\026Sheet_elementelementUI\022\?\n"
-    "\025elementelementUI_List\030\001 \003(\0132\032.proto_ff."
-    "elementelementUIB\004\210\301\024\024", 1062);
+    "ns.proto\"c\n\033elementelementattributeDesc\022"
+    " \n\004type\030\001 \001(\005B\022\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247ID\022\"\n\005val"
+    "ue\030\002 \001(\005B\023\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\"d\n\032element"
+    "elementmaterialDesc\022\036\n\002id\030\001 \001(\003B\022\302\377\024\016\350\277\233"
+    "\351\230\266\346\235\220\346\226\231ID\022&\n\003exp\030\002 \001(\005B\031\302\377\024\025\350\277\233\351\230\266\346\235\220\346"
+    "\226\231\347\273\217\351\252\214\345\200\274\"\213\003\n\016elementelement\022\030\n\002ID\030\001 \001"
+    "(\003B\014\302\377\024\010\345\205\203\347\264\240ID\022&\n\010resource\030\002 \001(\tB\024\302\377\024\014"
+    "\350\265\204\346\272\220\345\275\242\350\261\241\220\301\024<\022\030\n\004type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345"
+    "\236\213\022\031\n\005level\030\004 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022#\n\003exp\030\005 \001"
+    "(\005B\026\302\377\024\022\345\205\203\347\264\240\345\215\207\347\272\247\347\273\217\351\252\214\022#\n\007skillID\030\006 "
+    "\001(\003B\022\302\377\024\016\350\247\243\351\224\201\346\212\200\350\203\275ID\022F\n\tattribute\030\007 \003"
+    "(\0132%.proto_ff.elementelementattributeDes"
+    "cB\014\302\377\024\004$$$$\210\301\024\002\022D\n\010material\030\010 \003(\0132$.prot"
+    "o_ff.elementelementmaterialDescB\014\302\377\024\004$$$"
+    "$\210\301\024\003\022*\n\nfragmentID\030\t \003(\003B\026\302\377\024\016\345\205\263\350\201\224\347\242\216"
+    "\347\211\207ID\210\301\024\003\"T\n\024Sheet_elementelement\022<\n\023ele"
+    "mentelement_List\030\001 \003(\0132\030.proto_ff.elemen"
+    "telementB\005\210\301\024\320\017\"d\n\034elementfragmentattrib"
+    "uteDesc\022 \n\004type\030\001 \001(\005B\022\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247I"
+    "D\022\"\n\005value\030\002 \001(\005B\023\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\"\273\001"
+    "\n\017elementfragment\022\030\n\002ID\030\001 \001(\003B\014\302\377\024\010\347\242\216\347\211"
+    "\207ID\022\034\n\006itemID\030\002 \001(\003B\014\302\377\024\010\347\211\251\345\223\201ID\022\'\n\007ite"
+    "mNum\030\003 \001(\005B\026\302\377\024\022\347\242\216\347\211\207\344\275\277\347\224\250\344\270\212\351\231\220\022G\n\tat"
+    "tribute\030\004 \003(\0132&.proto_ff.elementfragment"
+    "attributeDescB\014\302\377\024\004$$$$\210\301\024\003\"V\n\025Sheet_ele"
+    "mentfragment\022=\n\024elementfragment_List\030\001 \003"
+    "(\0132\031.proto_ff.elementfragmentB\004\210\301\024\024\"P\n\020e"
+    "lementelementUI\022\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236"
+    "\213\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\345\205\203\347\264\240\345\220\215\345\255\227\220\301\024<\"Y\n"
+    "\026Sheet_elementelementUI\022\?\n\025elementelemen"
+    "tUI_List\030\001 \003(\0132\032.proto_ff.elementelement"
+    "UIB\004\210\301\024\024", 1288);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "element.proto", &protobuf_RegisterTypes);
+  elementelementattributeDesc::default_instance_ = new elementelementattributeDesc();
+  elementelementmaterialDesc::default_instance_ = new elementelementmaterialDesc();
   elementelement::default_instance_ = new elementelement();
   Sheet_elementelement::default_instance_ = new Sheet_elementelement();
+  elementfragmentattributeDesc::default_instance_ = new elementfragmentattributeDesc();
   elementfragment::default_instance_ = new elementfragment();
   Sheet_elementfragment::default_instance_ = new Sheet_elementfragment();
   elementelementUI::default_instance_ = new elementelementUI();
   Sheet_elementelementUI::default_instance_ = new Sheet_elementelementUI();
+  elementelementattributeDesc::default_instance_->InitAsDefaultInstance();
+  elementelementmaterialDesc::default_instance_->InitAsDefaultInstance();
   elementelement::default_instance_->InitAsDefaultInstance();
   Sheet_elementelement::default_instance_->InitAsDefaultInstance();
+  elementfragmentattributeDesc::default_instance_->InitAsDefaultInstance();
   elementfragment::default_instance_->InitAsDefaultInstance();
   Sheet_elementfragment::default_instance_->InitAsDefaultInstance();
   elementelementUI::default_instance_->InitAsDefaultInstance();
@@ -258,17 +336,511 @@ struct StaticDescriptorInitializer_element_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int elementelementattributeDesc::kTypeFieldNumber;
+const int elementelementattributeDesc::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+elementelementattributeDesc::elementelementattributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void elementelementattributeDesc::InitAsDefaultInstance() {
+}
+
+elementelementattributeDesc::elementelementattributeDesc(const elementelementattributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void elementelementattributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+elementelementattributeDesc::~elementelementattributeDesc() {
+  SharedDtor();
+}
+
+void elementelementattributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void elementelementattributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* elementelementattributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return elementelementattributeDesc_descriptor_;
+}
+
+const elementelementattributeDesc& elementelementattributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_element_2eproto();
+  return *default_instance_;
+}
+
+elementelementattributeDesc* elementelementattributeDesc::default_instance_ = NULL;
+
+elementelementattributeDesc* elementelementattributeDesc::New() const {
+  return new elementelementattributeDesc;
+}
+
+void elementelementattributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
+    value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool elementelementattributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_value;
+        break;
+      }
+
+      // optional int32 value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void elementelementattributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* elementelementattributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int elementelementattributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional int32 value = 2;
+    if (has_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void elementelementattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const elementelementattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const elementelementattributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void elementelementattributeDesc::MergeFrom(const elementelementattributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void elementelementattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void elementelementattributeDesc::CopyFrom(const elementelementattributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool elementelementattributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void elementelementattributeDesc::Swap(elementelementattributeDesc* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata elementelementattributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = elementelementattributeDesc_descriptor_;
+  metadata.reflection = elementelementattributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int elementelementmaterialDesc::kIdFieldNumber;
+const int elementelementmaterialDesc::kExpFieldNumber;
+#endif  // !_MSC_VER
+
+elementelementmaterialDesc::elementelementmaterialDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void elementelementmaterialDesc::InitAsDefaultInstance() {
+}
+
+elementelementmaterialDesc::elementelementmaterialDesc(const elementelementmaterialDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void elementelementmaterialDesc::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  exp_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+elementelementmaterialDesc::~elementelementmaterialDesc() {
+  SharedDtor();
+}
+
+void elementelementmaterialDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void elementelementmaterialDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* elementelementmaterialDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return elementelementmaterialDesc_descriptor_;
+}
+
+const elementelementmaterialDesc& elementelementmaterialDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_element_2eproto();
+  return *default_instance_;
+}
+
+elementelementmaterialDesc* elementelementmaterialDesc::default_instance_ = NULL;
+
+elementelementmaterialDesc* elementelementmaterialDesc::New() const {
+  return new elementelementmaterialDesc;
+}
+
+void elementelementmaterialDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+    exp_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool elementelementmaterialDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_exp;
+        break;
+      }
+
+      // optional int32 exp = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_exp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exp_)));
+          set_has_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void elementelementmaterialDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  // optional int32 exp = 2;
+  if (has_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->exp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* elementelementmaterialDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  // optional int32 exp = 2;
+  if (has_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->exp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int elementelementmaterialDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+    // optional int32 exp = 2;
+    if (has_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void elementelementmaterialDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const elementelementmaterialDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const elementelementmaterialDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void elementelementmaterialDesc::MergeFrom(const elementelementmaterialDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_exp()) {
+      set_exp(from.exp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void elementelementmaterialDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void elementelementmaterialDesc::CopyFrom(const elementelementmaterialDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool elementelementmaterialDesc::IsInitialized() const {
+
+  return true;
+}
+
+void elementelementmaterialDesc::Swap(elementelementmaterialDesc* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(exp_, other->exp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata elementelementmaterialDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = elementelementmaterialDesc_descriptor_;
+  metadata.reflection = elementelementmaterialDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int elementelement::kIDFieldNumber;
 const int elementelement::kResourceFieldNumber;
 const int elementelement::kTypeFieldNumber;
 const int elementelement::kLevelFieldNumber;
 const int elementelement::kExpFieldNumber;
 const int elementelement::kSkillIDFieldNumber;
-const int elementelement::kAttributeTypeFieldNumber;
-const int elementelement::kMaterialExpFieldNumber;
+const int elementelement::kAttributeFieldNumber;
+const int elementelement::kMaterialFieldNumber;
 const int elementelement::kFragmentIDFieldNumber;
-const int elementelement::kMaterialIdFieldNumber;
-const int elementelement::kAttributeValueFieldNumber;
 #endif  // !_MSC_VER
 
 elementelement::elementelement()
@@ -342,11 +914,9 @@ void elementelement::Clear() {
     exp_ = 0;
     skillid_ = GOOGLE_LONGLONG(0);
   }
-  attribute_type_.Clear();
-  material_exp_.Clear();
+  attribute_.Clear();
+  material_.Clear();
   fragmentid_.Clear();
-  material_id_.Clear();
-  attribute_value_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -449,50 +1019,36 @@ bool elementelement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_attribute_type;
+        if (input->ExpectTag(58)) goto parse_attribute;
         break;
       }
 
-      // repeated int32 attribute_type = 7;
+      // repeated .proto_ff.elementelementattributeDesc attribute = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 56, input, this->mutable_attribute_type())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_type())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_attribute_type;
-        if (input->ExpectTag(64)) goto parse_material_exp;
+        if (input->ExpectTag(58)) goto parse_attribute;
+        if (input->ExpectTag(66)) goto parse_material;
         break;
       }
 
-      // repeated int32 material_exp = 8;
+      // repeated .proto_ff.elementelementmaterialDesc material = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_material_exp:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 64, input, this->mutable_material_exp())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_material_exp())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_material:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_material()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_material_exp;
+        if (input->ExpectTag(66)) goto parse_material;
         if (input->ExpectTag(72)) goto parse_fragmentID;
         break;
       }
@@ -515,50 +1071,6 @@ bool elementelement::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(72)) goto parse_fragmentID;
-        if (input->ExpectTag(80)) goto parse_material_id;
-        break;
-      }
-
-      // repeated int64 material_id = 10;
-      case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_material_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 80, input, this->mutable_material_id())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_material_id())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(80)) goto parse_material_id;
-        if (input->ExpectTag(88)) goto parse_attribute_value;
-        break;
-      }
-
-      // repeated int32 attribute_value = 11;
-      case 11: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 88, input, this->mutable_attribute_value())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_value())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(88)) goto parse_attribute_value;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -615,34 +1127,22 @@ void elementelement::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->skillid(), output);
   }
 
-  // repeated int32 attribute_type = 7;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      7, this->attribute_type(i), output);
+  // repeated .proto_ff.elementelementattributeDesc attribute = 7;
+  for (int i = 0; i < this->attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, this->attribute(i), output);
   }
 
-  // repeated int32 material_exp = 8;
-  for (int i = 0; i < this->material_exp_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      8, this->material_exp(i), output);
+  // repeated .proto_ff.elementelementmaterialDesc material = 8;
+  for (int i = 0; i < this->material_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->material(i), output);
   }
 
   // repeated int64 fragmentID = 9;
   for (int i = 0; i < this->fragmentid_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
       9, this->fragmentid(i), output);
-  }
-
-  // repeated int64 material_id = 10;
-  for (int i = 0; i < this->material_id_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      10, this->material_id(i), output);
-  }
-
-  // repeated int32 attribute_value = 11;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      11, this->attribute_value(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -688,34 +1188,24 @@ void elementelement::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->skillid(), target);
   }
 
-  // repeated int32 attribute_type = 7;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
+  // repeated .proto_ff.elementelementattributeDesc attribute = 7;
+  for (int i = 0; i < this->attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(7, this->attribute_type(i), target);
+      WriteMessageNoVirtualToArray(
+        7, this->attribute(i), target);
   }
 
-  // repeated int32 material_exp = 8;
-  for (int i = 0; i < this->material_exp_size(); i++) {
+  // repeated .proto_ff.elementelementmaterialDesc material = 8;
+  for (int i = 0; i < this->material_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(8, this->material_exp(i), target);
+      WriteMessageNoVirtualToArray(
+        8, this->material(i), target);
   }
 
   // repeated int64 fragmentID = 9;
   for (int i = 0; i < this->fragmentid_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt64ToArray(9, this->fragmentid(i), target);
-  }
-
-  // repeated int64 material_id = 10;
-  for (int i = 0; i < this->material_id_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(10, this->material_id(i), target);
-  }
-
-  // repeated int32 attribute_value = 11;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(11, this->attribute_value(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -772,24 +1262,20 @@ int elementelement::ByteSize() const {
     }
 
   }
-  // repeated int32 attribute_type = 7;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_type_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_type(i));
-    }
-    total_size += 1 * this->attribute_type_size() + data_size;
+  // repeated .proto_ff.elementelementattributeDesc attribute = 7;
+  total_size += 1 * this->attribute_size();
+  for (int i = 0; i < this->attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->attribute(i));
   }
 
-  // repeated int32 material_exp = 8;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->material_exp_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->material_exp(i));
-    }
-    total_size += 1 * this->material_exp_size() + data_size;
+  // repeated .proto_ff.elementelementmaterialDesc material = 8;
+  total_size += 1 * this->material_size();
+  for (int i = 0; i < this->material_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->material(i));
   }
 
   // repeated int64 fragmentID = 9;
@@ -800,26 +1286,6 @@ int elementelement::ByteSize() const {
         Int64Size(this->fragmentid(i));
     }
     total_size += 1 * this->fragmentid_size() + data_size;
-  }
-
-  // repeated int64 material_id = 10;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->material_id_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->material_id(i));
-    }
-    total_size += 1 * this->material_id_size() + data_size;
-  }
-
-  // repeated int32 attribute_value = 11;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_value_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_value(i));
-    }
-    total_size += 1 * this->attribute_value_size() + data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -847,11 +1313,9 @@ void elementelement::MergeFrom(const ::google::protobuf::Message& from) {
 
 void elementelement::MergeFrom(const elementelement& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_type_.MergeFrom(from.attribute_type_);
-  material_exp_.MergeFrom(from.material_exp_);
+  attribute_.MergeFrom(from.attribute_);
+  material_.MergeFrom(from.material_);
   fragmentid_.MergeFrom(from.fragmentid_);
-  material_id_.MergeFrom(from.material_id_);
-  attribute_value_.MergeFrom(from.attribute_value_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -900,11 +1364,9 @@ void elementelement::Swap(elementelement* other) {
     std::swap(level_, other->level_);
     std::swap(exp_, other->exp_);
     std::swap(skillid_, other->skillid_);
-    attribute_type_.Swap(&other->attribute_type_);
-    material_exp_.Swap(&other->material_exp_);
+    attribute_.Swap(&other->attribute_);
+    material_.Swap(&other->material_);
     fragmentid_.Swap(&other->fragmentid_);
-    material_id_.Swap(&other->material_id_);
-    attribute_value_.Swap(&other->attribute_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1126,11 +1588,258 @@ void Sheet_elementelement::Swap(Sheet_elementelement* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int elementfragmentattributeDesc::kTypeFieldNumber;
+const int elementfragmentattributeDesc::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+elementfragmentattributeDesc::elementfragmentattributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void elementfragmentattributeDesc::InitAsDefaultInstance() {
+}
+
+elementfragmentattributeDesc::elementfragmentattributeDesc(const elementfragmentattributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void elementfragmentattributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+elementfragmentattributeDesc::~elementfragmentattributeDesc() {
+  SharedDtor();
+}
+
+void elementfragmentattributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void elementfragmentattributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* elementfragmentattributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return elementfragmentattributeDesc_descriptor_;
+}
+
+const elementfragmentattributeDesc& elementfragmentattributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_element_2eproto();
+  return *default_instance_;
+}
+
+elementfragmentattributeDesc* elementfragmentattributeDesc::default_instance_ = NULL;
+
+elementfragmentattributeDesc* elementfragmentattributeDesc::New() const {
+  return new elementfragmentattributeDesc;
+}
+
+void elementfragmentattributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
+    value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool elementfragmentattributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_value;
+        break;
+      }
+
+      // optional int32 value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void elementfragmentattributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* elementfragmentattributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int elementfragmentattributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional int32 value = 2;
+    if (has_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void elementfragmentattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const elementfragmentattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const elementfragmentattributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void elementfragmentattributeDesc::MergeFrom(const elementfragmentattributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void elementfragmentattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void elementfragmentattributeDesc::CopyFrom(const elementfragmentattributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool elementfragmentattributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void elementfragmentattributeDesc::Swap(elementfragmentattributeDesc* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata elementfragmentattributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = elementfragmentattributeDesc_descriptor_;
+  metadata.reflection = elementfragmentattributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int elementfragment::kIDFieldNumber;
 const int elementfragment::kItemIDFieldNumber;
 const int elementfragment::kItemNumFieldNumber;
-const int elementfragment::kAttributeTypeFieldNumber;
-const int elementfragment::kAttributeValueFieldNumber;
+const int elementfragment::kAttributeFieldNumber;
 #endif  // !_MSC_VER
 
 elementfragment::elementfragment()
@@ -1191,8 +1900,7 @@ void elementfragment::Clear() {
     itemid_ = GOOGLE_LONGLONG(0);
     itemnum_ = 0;
   }
-  attribute_type_.Clear();
-  attribute_value_.Clear();
+  attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1246,50 +1954,21 @@ bool elementfragment::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_attribute_type;
+        if (input->ExpectTag(34)) goto parse_attribute;
         break;
       }
 
-      // repeated int32 attribute_type = 4;
+      // repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 32, input, this->mutable_attribute_type())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_type())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_attribute_type;
-        if (input->ExpectTag(40)) goto parse_attribute_value;
-        break;
-      }
-
-      // repeated int32 attribute_value = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 40, input, this->mutable_attribute_value())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_value())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_attribute_value;
+        if (input->ExpectTag(34)) goto parse_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1327,16 +2006,10 @@ void elementfragment::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->itemnum(), output);
   }
 
-  // repeated int32 attribute_type = 4;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      4, this->attribute_type(i), output);
-  }
-
-  // repeated int32 attribute_value = 5;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      5, this->attribute_value(i), output);
+  // repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
+  for (int i = 0; i < this->attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1362,16 +2035,11 @@ void elementfragment::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->itemnum(), target);
   }
 
-  // repeated int32 attribute_type = 4;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
+  // repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
+  for (int i = 0; i < this->attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(4, this->attribute_type(i), target);
-  }
-
-  // repeated int32 attribute_value = 5;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->attribute_value(i), target);
+      WriteMessageNoVirtualToArray(
+        4, this->attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1407,24 +2075,12 @@ int elementfragment::ByteSize() const {
     }
 
   }
-  // repeated int32 attribute_type = 4;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_type_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_type(i));
-    }
-    total_size += 1 * this->attribute_type_size() + data_size;
-  }
-
-  // repeated int32 attribute_value = 5;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_value_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_value(i));
-    }
-    total_size += 1 * this->attribute_value_size() + data_size;
+  // repeated .proto_ff.elementfragmentattributeDesc attribute = 4;
+  total_size += 1 * this->attribute_size();
+  for (int i = 0; i < this->attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1452,8 +2108,7 @@ void elementfragment::MergeFrom(const ::google::protobuf::Message& from) {
 
 void elementfragment::MergeFrom(const elementfragment& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_type_.MergeFrom(from.attribute_type_);
-  attribute_value_.MergeFrom(from.attribute_value_);
+  attribute_.MergeFrom(from.attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1490,8 +2145,7 @@ void elementfragment::Swap(elementfragment* other) {
     std::swap(id_, other->id_);
     std::swap(itemid_, other->itemid_);
     std::swap(itemnum_, other->itemnum_);
-    attribute_type_.Swap(&other->attribute_type_);
-    attribute_value_.Swap(&other->attribute_value_);
+    attribute_.Swap(&other->attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

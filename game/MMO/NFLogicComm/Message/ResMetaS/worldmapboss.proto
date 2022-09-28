@@ -3,6 +3,11 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
+message worldmapbossworldbossbornDesc
+{
+	optional string Time = 1[(yd_fieldoptions.field_cname) = "刷新时间点", (yd_fieldoptions.field_bufsize) = 60];
+}
+
 message worldmapbossworldboss
 {
 	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
@@ -13,7 +18,7 @@ message worldmapbossworldboss
 	optional string pathId = 6[(yd_fieldoptions.field_cname) = "刷新地点库", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 specNoticeHP = 7[(yd_fieldoptions.field_cname) = "特殊跑马灯触发血量"];
 	optional int32 bornSpaceTime = 8[(yd_fieldoptions.field_cname) = "死亡重生间隔（秒）"];
-	repeated string born_Time = 9[(yd_fieldoptions.field_cname) = "刷新时间点", (yd_fieldoptions.field_arysize) = 6, (yd_fieldoptions.field_bufsize) = 60];
+	repeated worldmapbossworldbossbornDesc born = 9[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 6];
 }
 
 

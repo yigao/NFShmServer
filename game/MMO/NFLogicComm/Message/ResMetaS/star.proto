@@ -34,7 +34,7 @@ message starstar
 	optional int32 rock = 9[(yd_fieldoptions.field_cname) = "分解神石"];
 	optional int32 exp = 10[(yd_fieldoptions.field_cname) = "初始经验"];
 	optional int32 starType = 11[(yd_fieldoptions.field_cname) = "纹章类型"];
-	repeated string LvAdd = 12[(yd_fieldoptions.field_cname) = "属性升级加成值", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
+	repeated string LvAdd = 12[(yd_fieldoptions.field_cname) = "属性9999升级加成值", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
 	repeated starstarstarDesc star = 13[(yd_fieldoptions.field_cname) = "命星属性", (yd_fieldoptions.field_arysize) = 2];
 }
 

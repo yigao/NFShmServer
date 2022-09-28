@@ -47,6 +47,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_combinerankUp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_combinerankUp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* combinequalityUpneedEqupDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  combinequalityUpneedEqupDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* combinequalityUpneedMaterialDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  combinequalityUpneedMaterialDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* combinequalityUp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   combinequalityUp_reflection_ = NULL;
@@ -233,8 +239,39 @@ void protobuf_AssignDesc_combine_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_combinerankUp));
-  combinequalityUp_descriptor_ = file->message_type(9);
-  static const int combinequalityUp_offsets_[14] = {
+  combinequalityUpneedEqupDesc_descriptor_ = file->message_type(9);
+  static const int combinequalityUpneedEqupDesc_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedEqupDesc, id_),
+  };
+  combinequalityUpneedEqupDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      combinequalityUpneedEqupDesc_descriptor_,
+      combinequalityUpneedEqupDesc::default_instance_,
+      combinequalityUpneedEqupDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedEqupDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedEqupDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(combinequalityUpneedEqupDesc));
+  combinequalityUpneedMaterialDesc_descriptor_ = file->message_type(10);
+  static const int combinequalityUpneedMaterialDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedMaterialDesc, num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedMaterialDesc, id_),
+  };
+  combinequalityUpneedMaterialDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      combinequalityUpneedMaterialDesc_descriptor_,
+      combinequalityUpneedMaterialDesc::default_instance_,
+      combinequalityUpneedMaterialDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedMaterialDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUpneedMaterialDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(combinequalityUpneedMaterialDesc));
+  combinequalityUp_descriptor_ = file->message_type(11);
+  static const int combinequalityUp_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, newitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needequp_num_),
@@ -246,9 +283,8 @@ void protobuf_AssignDesc_combine_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, probability_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, costtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, bindjewelcost_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needequp_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needmaterial_num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needmaterial_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needequp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(combinequalityUp, needmaterial_),
   };
   combinequalityUp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -261,7 +297,7 @@ void protobuf_AssignDesc_combine_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(combinequalityUp));
-  Sheet_combinequalityUp_descriptor_ = file->message_type(10);
+  Sheet_combinequalityUp_descriptor_ = file->message_type(12);
   static const int Sheet_combinequalityUp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_combinequalityUp, combinequalityup_list_),
   };
@@ -307,6 +343,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_combinerankUp_descriptor_, &Sheet_combinerankUp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    combinequalityUpneedEqupDesc_descriptor_, &combinequalityUpneedEqupDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    combinequalityUpneedMaterialDesc_descriptor_, &combinequalityUpneedMaterialDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     combinequalityUp_descriptor_, &combinequalityUp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_combinequalityUp_descriptor_, &Sheet_combinequalityUp::default_instance());
@@ -333,6 +373,10 @@ void protobuf_ShutdownFile_combine_2eproto() {
   delete combinerankUp_reflection_;
   delete Sheet_combinerankUp::default_instance_;
   delete Sheet_combinerankUp_reflection_;
+  delete combinequalityUpneedEqupDesc::default_instance_;
+  delete combinequalityUpneedEqupDesc_reflection_;
+  delete combinequalityUpneedMaterialDesc::default_instance_;
+  delete combinequalityUpneedMaterialDesc_reflection_;
   delete combinequalityUp::default_instance_;
   delete combinequalityUp_reflection_;
   delete Sheet_combinequalityUp::default_instance_;
@@ -399,25 +443,29 @@ void protobuf_AddDesc_combine_2eproto() {
     "\022$\n\014samePosition\030\t \001(\tB\016\302\377\024\006\351\203\250\344\275\215\220\301\024<\022\""
     "\n\013probability\030\n \001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\"P\n\023Sh"
     "eet_combinerankUp\0229\n\022combinerankUp_List\030"
-    "\001 \003(\0132\027.proto_ff.combinerankUpB\004\210\301\024(\"\346\004\n"
-    "\020combinequalityUp\022 \n\007newItem\030\001 \001(\003B\017\302\377\024\013"
-    "\345\220\210\346\210\220\347\211\251ID\022&\n\003num\030\002 \001(\005B\031\302\377\024\025\351\234\200\350\246\201\347\232\204\350"
-    "\243\205\345\244\207\346\225\260\351\207\217\0224\n\014needEqup_num\030\003 \001(\005B\036\302\377\024\032\351"
-    "\234\200\350\246\201\345\233\272\345\256\232\350\243\205\345\244\2071\346\225\260\351\207\2172\022\030\n\004star\030\004 \001(\005B"
-    "\n\302\377\024\006\346\230\237\347\272\247\022\037\n\013wearQuality\030\005 \001(\005B\n\302\377\024\006\351\230"
-    "\266\347\272\247\022\033\n\007quality\030\006 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022.\n\016sam"
-    "eProfession\030\007 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\347\233\270\345\220\214\350\201\214\344\270"
-    "\232\022$\n\014samePosition\030\010 \001(\tB\016\302\377\024\006\351\203\250\344\275\215\220\301\024<\022"
-    "(\n\013probability\030\t \001(\005B\023\302\377\024\017\345\237\272\347\241\200\346\210\220\345\212\237\347\216"
-    "\207\022\"\n\010costType\030\n \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\'\n"
-    "\rbindJewelCost\030\013 \001(\005B\020\302\377\024\014\345\220\210\346\210\220\346\266\210\350\200\227\0224"
-    "\n\013needEqup_id\030\014 \003(\tB\037\302\377\024\022\351\234\200\350\246\201\345\233\272\345\256\232\350\243\205"
-    "\345\244\207\210\301\024\001\220\301\024\240\001\022=\n\020needMaterial_num\030\r \003(\005B#"
-    "\302\377\024\033\351\234\200\350\246\201\347\232\204\345\233\272\345\256\232\346\235\220\346\226\231\346\225\260\351\207\217\210\301\024\002\0228\n\017n"
-    "eedMaterial_id\030\016 \003(\003B\037\302\377\024\027\351\234\200\350\246\201\347\232\204\345\233\272\345\256"
-    "\232\346\235\220\346\226\231ID\210\301\024\002\"Z\n\026Sheet_combinequalityUp\022"
-    "@\n\025combinequalityUp_List\030\001 \003(\0132\032.proto_f"
-    "f.combinequalityUpB\005\210\301\024\254\002", 2825);
+    "\001 \003(\0132\027.proto_ff.combinerankUpB\004\210\301\024(\"G\n\034"
+    "combinequalityUpneedEqupDesc\022\'\n\002id\030\001 \001(\t"
+    "B\033\302\377\024\022\351\234\200\350\246\201\345\233\272\345\256\232\350\243\205\345\244\207\220\301\024\240\001\"y\n combine"
+    "qualityUpneedMaterialDesc\022,\n\003num\030\001 \001(\005B\037"
+    "\302\377\024\033\351\234\200\350\246\201\347\232\204\345\233\272\345\256\232\346\235\220\346\226\231\346\225\260\351\207\217\022\'\n\002id\030\002 "
+    "\001(\003B\033\302\377\024\027\351\234\200\350\246\201\347\232\204\345\233\272\345\256\232\346\235\220\346\226\231ID\"\317\004\n\020com"
+    "binequalityUp\022 \n\007newItem\030\001 \001(\003B\017\302\377\024\013\345\220\210\346"
+    "\210\220\347\211\251ID\022&\n\003num\030\002 \001(\005B\031\302\377\024\025\351\234\200\350\246\201\347\232\204\350\243\205\345\244"
+    "\207\346\225\260\351\207\217\0224\n\014needEqup_num\030\003 \001(\005B\036\302\377\024\032\351\234\200\350\246"
+    "\201\345\233\272\345\256\232\350\243\205\345\244\2071\346\225\260\351\207\2172\022\030\n\004star\030\004 \001(\005B\n\302\377\024"
+    "\006\346\230\237\347\272\247\022\037\n\013wearQuality\030\005 \001(\005B\n\302\377\024\006\351\230\266\347\272\247"
+    "\022\033\n\007quality\030\006 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022.\n\016samePro"
+    "fession\030\007 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\347\233\270\345\220\214\350\201\214\344\270\232\022$\n"
+    "\014samePosition\030\010 \001(\tB\016\302\377\024\006\351\203\250\344\275\215\220\301\024<\022(\n\013p"
+    "robability\030\t \001(\005B\023\302\377\024\017\345\237\272\347\241\200\346\210\220\345\212\237\347\216\207\022\"\n"
+    "\010costType\030\n \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\'\n\rbin"
+    "dJewelCost\030\013 \001(\005B\020\302\377\024\014\345\220\210\346\210\220\346\266\210\350\200\227\022F\n\010ne"
+    "edEqup\030\014 \003(\0132&.proto_ff.combinequalityUp"
+    "needEqupDescB\014\302\377\024\004$$$$\210\301\024\001\022N\n\014needMateri"
+    "al\030\r \003(\0132*.proto_ff.combinequalityUpneed"
+    "MaterialDescB\014\302\377\024\004$$$$\210\301\024\002\"Z\n\026Sheet_comb"
+    "inequalityUp\022@\n\025combinequalityUp_List\030\001 "
+    "\003(\0132\032.proto_ff.combinequalityUpB\005\210\301\024\254\002", 2998);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "combine.proto", &protobuf_RegisterTypes);
   combinecitemneedMaterialDesc::default_instance_ = new combinecitemneedMaterialDesc();
@@ -429,6 +477,8 @@ void protobuf_AddDesc_combine_2eproto() {
   Sheet_combineitemUp::default_instance_ = new Sheet_combineitemUp();
   combinerankUp::default_instance_ = new combinerankUp();
   Sheet_combinerankUp::default_instance_ = new Sheet_combinerankUp();
+  combinequalityUpneedEqupDesc::default_instance_ = new combinequalityUpneedEqupDesc();
+  combinequalityUpneedMaterialDesc::default_instance_ = new combinequalityUpneedMaterialDesc();
   combinequalityUp::default_instance_ = new combinequalityUp();
   Sheet_combinequalityUp::default_instance_ = new Sheet_combinequalityUp();
   combinecitemneedMaterialDesc::default_instance_->InitAsDefaultInstance();
@@ -440,6 +490,8 @@ void protobuf_AddDesc_combine_2eproto() {
   Sheet_combineitemUp::default_instance_->InitAsDefaultInstance();
   combinerankUp::default_instance_->InitAsDefaultInstance();
   Sheet_combinerankUp::default_instance_->InitAsDefaultInstance();
+  combinequalityUpneedEqupDesc::default_instance_->InitAsDefaultInstance();
+  combinequalityUpneedMaterialDesc::default_instance_->InitAsDefaultInstance();
   combinequalityUp::default_instance_->InitAsDefaultInstance();
   Sheet_combinequalityUp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_combine_2eproto);
@@ -3753,6 +3805,479 @@ void Sheet_combinerankUp::Swap(Sheet_combinerankUp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int combinequalityUpneedEqupDesc::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+combinequalityUpneedEqupDesc::combinequalityUpneedEqupDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void combinequalityUpneedEqupDesc::InitAsDefaultInstance() {
+}
+
+combinequalityUpneedEqupDesc::combinequalityUpneedEqupDesc(const combinequalityUpneedEqupDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void combinequalityUpneedEqupDesc::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+combinequalityUpneedEqupDesc::~combinequalityUpneedEqupDesc() {
+  SharedDtor();
+}
+
+void combinequalityUpneedEqupDesc::SharedDtor() {
+  if (id_ != &::google::protobuf::internal::kEmptyString) {
+    delete id_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void combinequalityUpneedEqupDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* combinequalityUpneedEqupDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return combinequalityUpneedEqupDesc_descriptor_;
+}
+
+const combinequalityUpneedEqupDesc& combinequalityUpneedEqupDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_combine_2eproto();
+  return *default_instance_;
+}
+
+combinequalityUpneedEqupDesc* combinequalityUpneedEqupDesc::default_instance_ = NULL;
+
+combinequalityUpneedEqupDesc* combinequalityUpneedEqupDesc::New() const {
+  return new combinequalityUpneedEqupDesc;
+}
+
+void combinequalityUpneedEqupDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_id()) {
+      if (id_ != &::google::protobuf::internal::kEmptyString) {
+        id_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool combinequalityUpneedEqupDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->id().data(), this->id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void combinequalityUpneedEqupDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* combinequalityUpneedEqupDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->id().data(), this->id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int combinequalityUpneedEqupDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void combinequalityUpneedEqupDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const combinequalityUpneedEqupDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const combinequalityUpneedEqupDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void combinequalityUpneedEqupDesc::MergeFrom(const combinequalityUpneedEqupDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void combinequalityUpneedEqupDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void combinequalityUpneedEqupDesc::CopyFrom(const combinequalityUpneedEqupDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool combinequalityUpneedEqupDesc::IsInitialized() const {
+
+  return true;
+}
+
+void combinequalityUpneedEqupDesc::Swap(combinequalityUpneedEqupDesc* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata combinequalityUpneedEqupDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = combinequalityUpneedEqupDesc_descriptor_;
+  metadata.reflection = combinequalityUpneedEqupDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int combinequalityUpneedMaterialDesc::kNumFieldNumber;
+const int combinequalityUpneedMaterialDesc::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+combinequalityUpneedMaterialDesc::combinequalityUpneedMaterialDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void combinequalityUpneedMaterialDesc::InitAsDefaultInstance() {
+}
+
+combinequalityUpneedMaterialDesc::combinequalityUpneedMaterialDesc(const combinequalityUpneedMaterialDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void combinequalityUpneedMaterialDesc::SharedCtor() {
+  _cached_size_ = 0;
+  num_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+combinequalityUpneedMaterialDesc::~combinequalityUpneedMaterialDesc() {
+  SharedDtor();
+}
+
+void combinequalityUpneedMaterialDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void combinequalityUpneedMaterialDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* combinequalityUpneedMaterialDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return combinequalityUpneedMaterialDesc_descriptor_;
+}
+
+const combinequalityUpneedMaterialDesc& combinequalityUpneedMaterialDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_combine_2eproto();
+  return *default_instance_;
+}
+
+combinequalityUpneedMaterialDesc* combinequalityUpneedMaterialDesc::default_instance_ = NULL;
+
+combinequalityUpneedMaterialDesc* combinequalityUpneedMaterialDesc::New() const {
+  return new combinequalityUpneedMaterialDesc;
+}
+
+void combinequalityUpneedMaterialDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    num_ = 0;
+    id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool combinequalityUpneedMaterialDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_id;
+        break;
+      }
+
+      // optional int64 id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void combinequalityUpneedMaterialDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 num = 1;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
+  }
+
+  // optional int64 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* combinequalityUpneedMaterialDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 num = 1;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
+  }
+
+  // optional int64 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int combinequalityUpneedMaterialDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 num = 1;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+
+    // optional int64 id = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void combinequalityUpneedMaterialDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const combinequalityUpneedMaterialDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const combinequalityUpneedMaterialDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void combinequalityUpneedMaterialDesc::MergeFrom(const combinequalityUpneedMaterialDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void combinequalityUpneedMaterialDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void combinequalityUpneedMaterialDesc::CopyFrom(const combinequalityUpneedMaterialDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool combinequalityUpneedMaterialDesc::IsInitialized() const {
+
+  return true;
+}
+
+void combinequalityUpneedMaterialDesc::Swap(combinequalityUpneedMaterialDesc* other) {
+  if (other != this) {
+    std::swap(num_, other->num_);
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata combinequalityUpneedMaterialDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = combinequalityUpneedMaterialDesc_descriptor_;
+  metadata.reflection = combinequalityUpneedMaterialDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int combinequalityUp::kNewItemFieldNumber;
 const int combinequalityUp::kNumFieldNumber;
 const int combinequalityUp::kNeedEqupNumFieldNumber;
@@ -3764,9 +4289,8 @@ const int combinequalityUp::kSamePositionFieldNumber;
 const int combinequalityUp::kProbabilityFieldNumber;
 const int combinequalityUp::kCostTypeFieldNumber;
 const int combinequalityUp::kBindJewelCostFieldNumber;
-const int combinequalityUp::kNeedEqupIdFieldNumber;
-const int combinequalityUp::kNeedMaterialNumFieldNumber;
-const int combinequalityUp::kNeedMaterialIdFieldNumber;
+const int combinequalityUp::kNeedEqupFieldNumber;
+const int combinequalityUp::kNeedMaterialFieldNumber;
 #endif  // !_MSC_VER
 
 combinequalityUp::combinequalityUp()
@@ -3852,9 +4376,8 @@ void combinequalityUp::Clear() {
     costtype_ = 0;
     bindjewelcost_ = 0;
   }
-  needequp_id_.Clear();
-  needmaterial_num_.Clear();
-  needmaterial_id_.Clear();
+  needequp_.Clear();
+  needmaterial_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -4037,69 +4560,36 @@ bool combinequalityUp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_needEqup_id;
+        if (input->ExpectTag(98)) goto parse_needEqup;
         break;
       }
 
-      // repeated string needEqup_id = 12;
+      // repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_needEqup_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_needequp_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->needequp_id(this->needequp_id_size() - 1).data(),
-            this->needequp_id(this->needequp_id_size() - 1).length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+         parse_needEqup:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_needequp()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_needEqup_id;
-        if (input->ExpectTag(104)) goto parse_needMaterial_num;
+        if (input->ExpectTag(98)) goto parse_needEqup;
+        if (input->ExpectTag(106)) goto parse_needMaterial;
         break;
       }
 
-      // repeated int32 needMaterial_num = 13;
+      // repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_needMaterial_num:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 104, input, this->mutable_needmaterial_num())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_needmaterial_num())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_needMaterial:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_needmaterial()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_needMaterial_num;
-        if (input->ExpectTag(112)) goto parse_needMaterial_id;
-        break;
-      }
-
-      // repeated int64 needMaterial_id = 14;
-      case 14: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_needMaterial_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 112, input, this->mutable_needmaterial_id())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_needmaterial_id())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(112)) goto parse_needMaterial_id;
+        if (input->ExpectTag(106)) goto parse_needMaterial;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4181,25 +4671,16 @@ void combinequalityUp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->bindjewelcost(), output);
   }
 
-  // repeated string needEqup_id = 12;
-  for (int i = 0; i < this->needequp_id_size(); i++) {
-  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-    this->needequp_id(i).data(), this->needequp_id(i).length(),
-    ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      12, this->needequp_id(i), output);
+  // repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
+  for (int i = 0; i < this->needequp_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, this->needequp(i), output);
   }
 
-  // repeated int32 needMaterial_num = 13;
-  for (int i = 0; i < this->needmaterial_num_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      13, this->needmaterial_num(i), output);
-  }
-
-  // repeated int64 needMaterial_id = 14;
-  for (int i = 0; i < this->needmaterial_id_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      14, this->needmaterial_id(i), output);
+  // repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
+  for (int i = 0; i < this->needmaterial_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      13, this->needmaterial(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4270,25 +4751,18 @@ void combinequalityUp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->bindjewelcost(), target);
   }
 
-  // repeated string needEqup_id = 12;
-  for (int i = 0; i < this->needequp_id_size(); i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->needequp_id(i).data(), this->needequp_id(i).length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+  // repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
+  for (int i = 0; i < this->needequp_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(12, this->needequp_id(i), target);
+      WriteMessageNoVirtualToArray(
+        12, this->needequp(i), target);
   }
 
-  // repeated int32 needMaterial_num = 13;
-  for (int i = 0; i < this->needmaterial_num_size(); i++) {
+  // repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
+  for (int i = 0; i < this->needmaterial_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(13, this->needmaterial_num(i), target);
-  }
-
-  // repeated int64 needMaterial_id = 14;
-  for (int i = 0; i < this->needmaterial_id_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(14, this->needmaterial_id(i), target);
+      WriteMessageNoVirtualToArray(
+        13, this->needmaterial(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4382,31 +4856,20 @@ int combinequalityUp::ByteSize() const {
     }
 
   }
-  // repeated string needEqup_id = 12;
-  total_size += 1 * this->needequp_id_size();
-  for (int i = 0; i < this->needequp_id_size(); i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->needequp_id(i));
+  // repeated .proto_ff.combinequalityUpneedEqupDesc needEqup = 12;
+  total_size += 1 * this->needequp_size();
+  for (int i = 0; i < this->needequp_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->needequp(i));
   }
 
-  // repeated int32 needMaterial_num = 13;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->needmaterial_num_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->needmaterial_num(i));
-    }
-    total_size += 1 * this->needmaterial_num_size() + data_size;
-  }
-
-  // repeated int64 needMaterial_id = 14;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->needmaterial_id_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->needmaterial_id(i));
-    }
-    total_size += 1 * this->needmaterial_id_size() + data_size;
+  // repeated .proto_ff.combinequalityUpneedMaterialDesc needMaterial = 13;
+  total_size += 1 * this->needmaterial_size();
+  for (int i = 0; i < this->needmaterial_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->needmaterial(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -4434,9 +4897,8 @@ void combinequalityUp::MergeFrom(const ::google::protobuf::Message& from) {
 
 void combinequalityUp::MergeFrom(const combinequalityUp& from) {
   GOOGLE_CHECK_NE(&from, this);
-  needequp_id_.MergeFrom(from.needequp_id_);
-  needmaterial_num_.MergeFrom(from.needmaterial_num_);
-  needmaterial_id_.MergeFrom(from.needmaterial_id_);
+  needequp_.MergeFrom(from.needequp_);
+  needmaterial_.MergeFrom(from.needmaterial_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_newitem()) {
       set_newitem(from.newitem());
@@ -4507,9 +4969,8 @@ void combinequalityUp::Swap(combinequalityUp* other) {
     std::swap(probability_, other->probability_);
     std::swap(costtype_, other->costtype_);
     std::swap(bindjewelcost_, other->bindjewelcost_);
-    needequp_id_.Swap(&other->needequp_id_);
-    needmaterial_num_.Swap(&other->needmaterial_num_);
-    needmaterial_id_.Swap(&other->needmaterial_id_);
+    needequp_.Swap(&other->needequp_);
+    needmaterial_.Swap(&other->needmaterial_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

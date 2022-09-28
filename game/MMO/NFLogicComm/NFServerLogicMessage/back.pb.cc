@@ -20,9 +20,6 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* backbackbackDesc_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  backbackbackDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* backback_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   backback_reflection_ = NULL;
@@ -39,25 +36,8 @@ void protobuf_AssignDesc_back_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "back.proto");
   GOOGLE_CHECK(file != NULL);
-  backbackbackDesc_descriptor_ = file->message_type(0);
-  static const int backbackbackDesc_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backbackbackDesc, expend_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backbackbackDesc, num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backbackbackDesc, exp_),
-  };
-  backbackbackDesc_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      backbackbackDesc_descriptor_,
-      backbackbackDesc::default_instance_,
-      backbackbackDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backbackbackDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backbackbackDesc, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(backbackbackDesc));
-  backback_descriptor_ = file->message_type(1);
-  static const int backback_offsets_[14] = {
+  backback_descriptor_ = file->message_type(0);
+  static const int backback_offsets_[16] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, name_),
@@ -70,8 +50,10 @@ void protobuf_AssignDesc_back_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, levellimit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, itemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, icon_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, back_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, backexp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, backnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, param_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backback, backexpend_),
   };
   backback_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -84,7 +66,7 @@ void protobuf_AssignDesc_back_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(backback));
-  Sheet_backback_descriptor_ = file->message_type(2);
+  Sheet_backback_descriptor_ = file->message_type(1);
   static const int Sheet_backback_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_backback, backback_list_),
   };
@@ -112,8 +94,6 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    backbackbackDesc_descriptor_, &backbackbackDesc::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     backback_descriptor_, &backback::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_backback_descriptor_, &Sheet_backback::default_instance());
@@ -122,8 +102,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_back_2eproto() {
-  delete backbackbackDesc::default_instance_;
-  delete backbackbackDesc_reflection_;
   delete backback::default_instance_;
   delete backback_reflection_;
   delete Sheet_backback::default_instance_;
@@ -139,31 +117,28 @@ void protobuf_AddDesc_back_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nback.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"o\n\020backbackbackDesc\022 \n\006Expend\030\001 \001("
-    "\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022\035\n\003Num\030\002 \001(\005B\020\302\377\024\014\347\211"
-    "\251\345\223\201\346\225\260\351\207\217\022\032\n\003Exp\030\003 \001(\005B\r\302\377\024\t\347\273\217\351\252\214\345\200\274\"\225"
-    "\004\n\010backback\022\030\n\002id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022\036\n"
-    "\004type\030\002 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\347\261\273\345\236\213\022\"\n\004name\030\003 "
-    "\001(\tB\024\302\377\024\014\346\230\276\347\244\272\345\220\215\347\247\260\220\301\024<\022#\n\tbackTimes\030\004"
-    " \001(\005B\020\302\377\024\014\346\211\276\345\233\236\346\254\241\346\225\260\022$\n\007vipType\030\005 \001(\005B"
-    "\023\302\377\024\017vip\346\211\276\345\233\236\345\217\202\346\225\260\022\026\n\005group\030\006 \001(\005B\007\302\377\024"
-    "\003\347\273\204\022\'\n\013duplicateID\030\007 \001(\003B\022\302\377\024\016\345\205\263\350\201\224\345\211\257"
-    "\346\234\254ID\022*\n\nbossTypeID\030\010 \001(\003B\026\302\377\024\022\345\205\263\350\201\224BOS"
-    "S\347\261\273\345\236\213ID\022.\n\016functionUnlock\030\t \001(\005B\026\302\377\024\022\345"
-    "\205\263\350\201\224\345\212\237\350\203\275\345\274\200\346\224\276\022*\n\nlevelLimit\030\n \001(\005B\026\302"
-    "\377\024\022\347\255\211\347\272\247\350\246\201\346\261\202\344\270\213\351\231\220\022 \n\006itemId\030\013 \001(\003B\020\302"
-    "\377\024\014\346\211\276\345\233\236\347\211\251\345\223\201\022\034\n\004icon\030\014 \001(\tB\016\302\377\024\006\345\233\276\346\240"
-    "\207\220\301\024<\0228\n\004back\030\r \003(\0132\032.proto_ff.backbackb"
-    "ackDescB\016\302\377\024\006\346\211\276\345\233\236\210\301\024\002\022\035\n\005param\030\016 \003(\005B\016"
-    "\302\377\024\006\345\217\202\346\225\260\210\301\024\002\"B\n\016Sheet_backback\0220\n\rback"
-    "back_List\030\001 \003(\0132\022.proto_ff.backbackB\005\210\301\024"
-    "\240\001", 762);
+    "proto\"\356\004\n\010backback\022\030\n\002id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344"
+    "\270\200id\022\036\n\004type\030\002 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\347\261\273\345\236\213\022\"\n\004"
+    "name\030\003 \001(\tB\024\302\377\024\014\346\230\276\347\244\272\345\220\215\347\247\260\220\301\024<\022#\n\tback"
+    "Times\030\004 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\346\254\241\346\225\260\022$\n\007vipType"
+    "\030\005 \001(\005B\023\302\377\024\017vip\346\211\276\345\233\236\345\217\202\346\225\260\022\026\n\005group\030\006 \001"
+    "(\005B\007\302\377\024\003\347\273\204\022\'\n\013duplicateID\030\007 \001(\003B\022\302\377\024\016\345\205"
+    "\263\350\201\224\345\211\257\346\234\254ID\022*\n\nbossTypeID\030\010 \001(\003B\026\302\377\024\022\345\205"
+    "\263\350\201\224BOSS\347\261\273\345\236\213ID\022.\n\016functionUnlock\030\t \001(\005"
+    "B\026\302\377\024\022\345\205\263\350\201\224\345\212\237\350\203\275\345\274\200\346\224\276\022*\n\nlevelLimit\030\n"
+    " \001(\005B\026\302\377\024\022\347\255\211\347\272\247\350\246\201\346\261\202\344\270\213\351\231\220\022 \n\006itemId\030\013"
+    " \001(\003B\020\302\377\024\014\346\211\276\345\233\236\347\211\251\345\223\201\022\034\n\004icon\030\014 \001(\tB\016\302\377"
+    "\024\006\345\233\276\346\240\207\220\301\024<\022,\n\007backExp\030\r \003(\005B\033\302\377\024\023\346\211\276\345\233"
+    "\2369999\347\273\217\351\252\214\345\200\274\210\301\024\002\022/\n\007backNum\030\016 \003(\005B\036\302\377\024"
+    "\026\346\211\276\345\233\2369999\347\211\251\345\223\201\346\225\260\351\207\217\210\301\024\002\022\035\n\005param\030\017 \003"
+    "(\005B\016\302\377\024\006\345\217\202\346\225\260\210\301\024\002\0222\n\nbackExpend\030\020 \003(\005B\036"
+    "\302\377\024\026\346\211\276\345\233\2369999\346\266\210\350\200\227\346\225\260\351\207\217\210\301\024\002\"B\n\016Sheet_"
+    "backback\0220\n\rbackback_List\030\001 \003(\0132\022.proto_"
+    "ff.backbackB\005\210\301\024\240\001", 738);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "back.proto", &protobuf_RegisterTypes);
-  backbackbackDesc::default_instance_ = new backbackbackDesc();
   backback::default_instance_ = new backback();
   Sheet_backback::default_instance_ = new Sheet_backback();
-  backbackbackDesc::default_instance_->InitAsDefaultInstance();
   backback::default_instance_->InitAsDefaultInstance();
   Sheet_backback::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_back_2eproto);
@@ -175,294 +150,6 @@ struct StaticDescriptorInitializer_back_2eproto {
     protobuf_AddDesc_back_2eproto();
   }
 } static_descriptor_initializer_back_2eproto_;
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int backbackbackDesc::kExpendFieldNumber;
-const int backbackbackDesc::kNumFieldNumber;
-const int backbackbackDesc::kExpFieldNumber;
-#endif  // !_MSC_VER
-
-backbackbackDesc::backbackbackDesc()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void backbackbackDesc::InitAsDefaultInstance() {
-}
-
-backbackbackDesc::backbackbackDesc(const backbackbackDesc& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void backbackbackDesc::SharedCtor() {
-  _cached_size_ = 0;
-  expend_ = 0;
-  num_ = 0;
-  exp_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-backbackbackDesc::~backbackbackDesc() {
-  SharedDtor();
-}
-
-void backbackbackDesc::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void backbackbackDesc::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* backbackbackDesc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return backbackbackDesc_descriptor_;
-}
-
-const backbackbackDesc& backbackbackDesc::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_back_2eproto();
-  return *default_instance_;
-}
-
-backbackbackDesc* backbackbackDesc::default_instance_ = NULL;
-
-backbackbackDesc* backbackbackDesc::New() const {
-  return new backbackbackDesc;
-}
-
-void backbackbackDesc::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    expend_ = 0;
-    num_ = 0;
-    exp_ = 0;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool backbackbackDesc::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Expend = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &expend_)));
-          set_has_expend();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_Num;
-        break;
-      }
-
-      // optional int32 Num = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Num:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &num_)));
-          set_has_num();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_Exp;
-        break;
-      }
-
-      // optional int32 Exp = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Exp:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &exp_)));
-          set_has_exp();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void backbackbackDesc::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Expend = 1;
-  if (has_expend()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->expend(), output);
-  }
-
-  // optional int32 Num = 2;
-  if (has_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->num(), output);
-  }
-
-  // optional int32 Exp = 3;
-  if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->exp(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* backbackbackDesc::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int32 Expend = 1;
-  if (has_expend()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->expend(), target);
-  }
-
-  // optional int32 Num = 2;
-  if (has_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->num(), target);
-  }
-
-  // optional int32 Exp = 3;
-  if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->exp(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int backbackbackDesc::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Expend = 1;
-    if (has_expend()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->expend());
-    }
-
-    // optional int32 Num = 2;
-    if (has_num()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->num());
-    }
-
-    // optional int32 Exp = 3;
-    if (has_exp()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->exp());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void backbackbackDesc::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const backbackbackDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const backbackbackDesc*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void backbackbackDesc::MergeFrom(const backbackbackDesc& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_expend()) {
-      set_expend(from.expend());
-    }
-    if (from.has_num()) {
-      set_num(from.num());
-    }
-    if (from.has_exp()) {
-      set_exp(from.exp());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void backbackbackDesc::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void backbackbackDesc::CopyFrom(const backbackbackDesc& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool backbackbackDesc::IsInitialized() const {
-
-  return true;
-}
-
-void backbackbackDesc::Swap(backbackbackDesc* other) {
-  if (other != this) {
-    std::swap(expend_, other->expend_);
-    std::swap(num_, other->num_);
-    std::swap(exp_, other->exp_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata backbackbackDesc::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = backbackbackDesc_descriptor_;
-  metadata.reflection = backbackbackDesc_reflection_;
-  return metadata;
-}
-
 
 // ===================================================================
 
@@ -479,8 +166,10 @@ const int backback::kFunctionUnlockFieldNumber;
 const int backback::kLevelLimitFieldNumber;
 const int backback::kItemIdFieldNumber;
 const int backback::kIconFieldNumber;
-const int backback::kBackFieldNumber;
+const int backback::kBackExpFieldNumber;
+const int backback::kBackNumFieldNumber;
 const int backback::kParamFieldNumber;
+const int backback::kBackExpendFieldNumber;
 #endif  // !_MSC_VER
 
 backback::backback()
@@ -575,8 +264,10 @@ void backback::Clear() {
       }
     }
   }
-  back_.Clear();
+  backexp_.Clear();
+  backnum_.Clear();
   param_.Clear();
+  backexpend_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -776,33 +467,62 @@ bool backback::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_back;
+        if (input->ExpectTag(104)) goto parse_backExp;
         break;
       }
 
-      // repeated .proto_ff.backbackbackDesc back = 13;
+      // repeated int32 backExp = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_back:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_back()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_backExp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 104, input, this->mutable_backexp())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_backexp())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_back;
-        if (input->ExpectTag(112)) goto parse_param;
+        if (input->ExpectTag(104)) goto parse_backExp;
+        if (input->ExpectTag(112)) goto parse_backNum;
         break;
       }
 
-      // repeated int32 param = 14;
+      // repeated int32 backNum = 14;
       case 14: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_backNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 112, input, this->mutable_backnum())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_backnum())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(112)) goto parse_backNum;
+        if (input->ExpectTag(120)) goto parse_param;
+        break;
+      }
+
+      // repeated int32 param = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_param:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 112, input, this->mutable_param())));
+                 1, 120, input, this->mutable_param())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -812,7 +532,29 @@ bool backback::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_param;
+        if (input->ExpectTag(120)) goto parse_param;
+        if (input->ExpectTag(128)) goto parse_backExpend;
+        break;
+      }
+
+      // repeated int32 backExpend = 16;
+      case 16: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_backExpend:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 128, input, this->mutable_backexpend())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_backexpend())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(128)) goto parse_backExpend;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -903,16 +645,28 @@ void backback::SerializeWithCachedSizes(
       12, this->icon(), output);
   }
 
-  // repeated .proto_ff.backbackbackDesc back = 13;
-  for (int i = 0; i < this->back_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      13, this->back(i), output);
+  // repeated int32 backExp = 13;
+  for (int i = 0; i < this->backexp_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      13, this->backexp(i), output);
   }
 
-  // repeated int32 param = 14;
+  // repeated int32 backNum = 14;
+  for (int i = 0; i < this->backnum_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      14, this->backnum(i), output);
+  }
+
+  // repeated int32 param = 15;
   for (int i = 0; i < this->param_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      14, this->param(i), output);
+      15, this->param(i), output);
+  }
+
+  // repeated int32 backExpend = 16;
+  for (int i = 0; i < this->backexpend_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      16, this->backexpend(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -993,17 +747,28 @@ void backback::SerializeWithCachedSizes(
         12, this->icon(), target);
   }
 
-  // repeated .proto_ff.backbackbackDesc back = 13;
-  for (int i = 0; i < this->back_size(); i++) {
+  // repeated int32 backExp = 13;
+  for (int i = 0; i < this->backexp_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        13, this->back(i), target);
+      WriteInt32ToArray(13, this->backexp(i), target);
   }
 
-  // repeated int32 param = 14;
+  // repeated int32 backNum = 14;
+  for (int i = 0; i < this->backnum_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(14, this->backnum(i), target);
+  }
+
+  // repeated int32 param = 15;
   for (int i = 0; i < this->param_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(14, this->param(i), target);
+      WriteInt32ToArray(15, this->param(i), target);
+  }
+
+  // repeated int32 backExpend = 16;
+  for (int i = 0; i < this->backexpend_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(16, this->backexpend(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1104,15 +869,27 @@ int backback::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.backbackbackDesc back = 13;
-  total_size += 1 * this->back_size();
-  for (int i = 0; i < this->back_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->back(i));
+  // repeated int32 backExp = 13;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->backexp_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->backexp(i));
+    }
+    total_size += 1 * this->backexp_size() + data_size;
   }
 
-  // repeated int32 param = 14;
+  // repeated int32 backNum = 14;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->backnum_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->backnum(i));
+    }
+    total_size += 1 * this->backnum_size() + data_size;
+  }
+
+  // repeated int32 param = 15;
   {
     int data_size = 0;
     for (int i = 0; i < this->param_size(); i++) {
@@ -1120,6 +897,16 @@ int backback::ByteSize() const {
         Int32Size(this->param(i));
     }
     total_size += 1 * this->param_size() + data_size;
+  }
+
+  // repeated int32 backExpend = 16;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->backexpend_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->backexpend(i));
+    }
+    total_size += 2 * this->backexpend_size() + data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -1147,8 +934,10 @@ void backback::MergeFrom(const ::google::protobuf::Message& from) {
 
 void backback::MergeFrom(const backback& from) {
   GOOGLE_CHECK_NE(&from, this);
-  back_.MergeFrom(from.back_);
+  backexp_.MergeFrom(from.backexp_);
+  backnum_.MergeFrom(from.backnum_);
   param_.MergeFrom(from.param_);
+  backexpend_.MergeFrom(from.backexpend_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1223,8 +1012,10 @@ void backback::Swap(backback* other) {
     std::swap(levellimit_, other->levellimit_);
     std::swap(itemid_, other->itemid_);
     std::swap(icon_, other->icon_);
-    back_.Swap(&other->back_);
+    backexp_.Swap(&other->backexp_);
+    backnum_.Swap(&other->backnum_);
     param_.Swap(&other->param_);
+    backexpend_.Swap(&other->backexpend_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -10,6 +10,19 @@
 
 namespace proto_ff_s {
 
+	struct worldmapbossworldbossbornDesc_s : public NFDescStoreSeqOP {
+		worldmapbossworldbossbornDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		NFSizeString<60> Time;
+
+		virtual void write_to_pbmsg(::proto_ff::worldmapbossworldbossbornDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::worldmapbossworldbossbornDesc & msg);
+		static ::proto_ff::worldmapbossworldbossbornDesc* new_pbmsg(){ return new ::proto_ff::worldmapbossworldbossbornDesc(); }
+		static ::proto_ff::worldmapbossworldbossbornDesc make_pbmsg(){ return ::proto_ff::worldmapbossworldbossbornDesc(); }
+	};
+	typedef struct worldmapbossworldbossbornDesc_s worldmapbossworldbossbornDesc_t;
+
 	struct worldmapbossworldboss_s : public NFDescStoreSeqOP {
 		worldmapbossworldboss_s();
 		int CreateInit();
@@ -22,7 +35,7 @@ namespace proto_ff_s {
 		NFSizeString<60> pathId;
 		int32_t specNoticeHP;
 		int32_t bornSpaceTime;
-		NFArray<NFSizeString<60>, 6> born_Time;
+		NFArray<struct worldmapbossworldbossbornDesc_s, 6> born;
 
 		virtual void write_to_pbmsg(::proto_ff::worldmapbossworldboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::worldmapbossworldboss & msg);

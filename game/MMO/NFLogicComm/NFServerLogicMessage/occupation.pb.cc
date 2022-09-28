@@ -20,12 +20,24 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::Descriptor* occupationoccupationattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  occupationoccupationattributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* occupationoccupationdelSkillDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  occupationoccupationdelSkillDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* occupationoccupationskillDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  occupationoccupationskillDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* occupationoccupation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   occupationoccupation_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Sheet_occupationoccupation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_occupationoccupation_reflection_ = NULL;
+const ::google::protobuf::Descriptor* occupationaptitudeattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  occupationaptitudeattributeDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* occupationaptitude_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   occupationaptitude_reflection_ = NULL;
@@ -48,8 +60,54 @@ void protobuf_AssignDesc_occupation_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "occupation.proto");
   GOOGLE_CHECK(file != NULL);
-  occupationoccupation_descriptor_ = file->message_type(0);
-  static const int occupationoccupation_offsets_[13] = {
+  occupationoccupationattributeDesc_descriptor_ = file->message_type(0);
+  static const int occupationoccupationattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationattributeDesc, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationattributeDesc, value_),
+  };
+  occupationoccupationattributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      occupationoccupationattributeDesc_descriptor_,
+      occupationoccupationattributeDesc::default_instance_,
+      occupationoccupationattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationattributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(occupationoccupationattributeDesc));
+  occupationoccupationdelSkillDesc_descriptor_ = file->message_type(1);
+  static const int occupationoccupationdelSkillDesc_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationdelSkillDesc, id_),
+  };
+  occupationoccupationdelSkillDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      occupationoccupationdelSkillDesc_descriptor_,
+      occupationoccupationdelSkillDesc::default_instance_,
+      occupationoccupationdelSkillDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationdelSkillDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationdelSkillDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(occupationoccupationdelSkillDesc));
+  occupationoccupationskillDesc_descriptor_ = file->message_type(2);
+  static const int occupationoccupationskillDesc_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationskillDesc, id_),
+  };
+  occupationoccupationskillDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      occupationoccupationskillDesc_descriptor_,
+      occupationoccupationskillDesc::default_instance_,
+      occupationoccupationskillDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationskillDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupationskillDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(occupationoccupationskillDesc));
+  occupationoccupation_descriptor_ = file->message_type(3);
+  static const int occupationoccupation_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, occupationid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, grade_),
@@ -59,10 +117,9 @@ void protobuf_AssignDesc_occupation_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, equip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, modelid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, delskill_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, attribute_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, attribute_value_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, skill_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, attribute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, delskill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationoccupation, skill_),
   };
   occupationoccupation_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -75,7 +132,7 @@ void protobuf_AssignDesc_occupation_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(occupationoccupation));
-  Sheet_occupationoccupation_descriptor_ = file->message_type(1);
+  Sheet_occupationoccupation_descriptor_ = file->message_type(4);
   static const int Sheet_occupationoccupation_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_occupationoccupation, occupationoccupation_list_),
   };
@@ -90,8 +147,24 @@ void protobuf_AssignDesc_occupation_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_occupationoccupation));
-  occupationaptitude_descriptor_ = file->message_type(2);
-  static const int occupationaptitude_offsets_[9] = {
+  occupationaptitudeattributeDesc_descriptor_ = file->message_type(5);
+  static const int occupationaptitudeattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitudeattributeDesc, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitudeattributeDesc, value_),
+  };
+  occupationaptitudeattributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      occupationaptitudeattributeDesc_descriptor_,
+      occupationaptitudeattributeDesc::default_instance_,
+      occupationaptitudeattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitudeattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitudeattributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(occupationaptitudeattributeDesc));
+  occupationaptitude_descriptor_ = file->message_type(6);
+  static const int occupationaptitude_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, grade_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, level_),
@@ -99,8 +172,7 @@ void protobuf_AssignDesc_occupation_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, material_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, conditionid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, attribute_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, attribute_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationaptitude, attribute_),
   };
   occupationaptitude_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -113,7 +185,7 @@ void protobuf_AssignDesc_occupation_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(occupationaptitude));
-  Sheet_occupationaptitude_descriptor_ = file->message_type(3);
+  Sheet_occupationaptitude_descriptor_ = file->message_type(7);
   static const int Sheet_occupationaptitude_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_occupationaptitude, occupationaptitude_list_),
   };
@@ -128,7 +200,7 @@ void protobuf_AssignDesc_occupation_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_occupationaptitude));
-  occupationconditionList_descriptor_ = file->message_type(4);
+  occupationconditionList_descriptor_ = file->message_type(8);
   static const int occupationconditionList_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationconditionList, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(occupationconditionList, type_),
@@ -146,7 +218,7 @@ void protobuf_AssignDesc_occupation_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(occupationconditionList));
-  Sheet_occupationconditionList_descriptor_ = file->message_type(5);
+  Sheet_occupationconditionList_descriptor_ = file->message_type(9);
   static const int Sheet_occupationconditionList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_occupationconditionList, occupationconditionlist_list_),
   };
@@ -174,9 +246,17 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    occupationoccupationattributeDesc_descriptor_, &occupationoccupationattributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    occupationoccupationdelSkillDesc_descriptor_, &occupationoccupationdelSkillDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    occupationoccupationskillDesc_descriptor_, &occupationoccupationskillDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     occupationoccupation_descriptor_, &occupationoccupation::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_occupationoccupation_descriptor_, &Sheet_occupationoccupation::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    occupationaptitudeattributeDesc_descriptor_, &occupationaptitudeattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     occupationaptitude_descriptor_, &occupationaptitude::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -190,10 +270,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_occupation_2eproto() {
+  delete occupationoccupationattributeDesc::default_instance_;
+  delete occupationoccupationattributeDesc_reflection_;
+  delete occupationoccupationdelSkillDesc::default_instance_;
+  delete occupationoccupationdelSkillDesc_reflection_;
+  delete occupationoccupationskillDesc::default_instance_;
+  delete occupationoccupationskillDesc_reflection_;
   delete occupationoccupation::default_instance_;
   delete occupationoccupation_reflection_;
   delete Sheet_occupationoccupation::default_instance_;
   delete Sheet_occupationoccupation_reflection_;
+  delete occupationaptitudeattributeDesc::default_instance_;
+  delete occupationaptitudeattributeDesc_reflection_;
   delete occupationaptitude::default_instance_;
   delete occupationaptitude_reflection_;
   delete Sheet_occupationaptitude::default_instance_;
@@ -213,7 +301,13 @@ void protobuf_AddDesc_occupation_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020occupation.proto\022\010proto_ff\032\025yd_fieldop"
-    "tions.proto\"\225\004\n\024occupationoccupation\022(\n\014"
+    "tions.proto\"i\n!occupationoccupationattri"
+    "buteDesc\022 \n\004type\030\001 \001(\005B\022\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247"
+    "ID\022\"\n\005value\030\002 \001(\005B\023\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\"B"
+    "\n occupationoccupationdelSkillDesc\022\036\n\002id"
+    "\030\001 \001(\003B\022\302\377\024\016\345\210\240\351\231\244\346\212\200\350\203\275ID\"\?\n\035occupation"
+    "occupationskillDesc\022\036\n\002id\030\001 \001(\003B\022\302\377\024\016\345\242\236"
+    "\345\212\240\346\212\200\350\203\275ID\"\274\004\n\024occupationoccupation\022(\n\014"
     "occupationID\030\001 \001(\003B\022\302\377\024\016\350\275\254\350\201\214\350\201\214\344\270\232ID\022\033"
     "\n\002id\030\002 \001(\005B\017\302\377\024\013\344\270\273\350\201\214\344\270\232ID\022\037\n\005grade\030\003 \001"
     "(\005B\020\302\377\024\014\350\201\214\344\270\232\347\255\211\347\272\247\022)\n\nactiveDesc\030\004 \001(\t"
@@ -222,42 +316,53 @@ void protobuf_AddDesc_occupation_2eproto() {
     "\345\242\203\347\225\214\350\246\201\346\261\202\022 \n\006taskID\030\007 \001(\tB\020\302\377\024\010\344\273\273\345\212\241"
     "id\220\301\024<\022#\n\005equip\030\010 \001(\tB\024\302\377\024\014\346\255\246\345\231\250\346\250\241\345\236\213\220"
     "\301\024<\022%\n\007modelID\030\t \001(\tB\024\302\377\024\014\346\250\241\345\236\213\350\267\257\345\276\204\220\301"
-    "\024<\022+\n\013delSkill_id\030\n \003(\003B\026\302\377\024\016\345\210\240\351\231\244\346\212\200\350\203"
-    "\275ID\210\301\024\003\022.\n\016attribute_type\030\013 \003(\005B\026\302\377\024\016\345\237\272"
-    "\347\241\200\345\261\236\346\200\247ID\210\301\024\004\0220\n\017attribute_value\030\014 \003(\005"
-    "B\027\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\210\301\024\004\022(\n\010skill_id\030\r "
-    "\003(\003B\026\302\377\024\016\345\242\236\345\212\240\346\212\200\350\203\275ID\210\301\024\003\"e\n\032Sheet_occ"
-    "upationoccupation\022G\n\031occupationoccupatio"
-    "n_List\030\001 \003(\0132\036.proto_ff.occupationoccupa"
-    "tionB\004\210\301\024(\"\356\002\n\022occupationaptitude\022\030\n\002id\030"
-    "\001 \001(\003B\014\302\377\024\010\350\265\204\350\264\250ID\022!\n\005grade\030\002 \001(\005B\022\302\377\024\016"
-    "\350\201\214\344\270\232\347\255\211\347\272\247ID\022 \n\005level\030\003 \001(\005B\021\302\377\024\r \350\265\204\350"
-    "\264\250\347\255\211\347\272\247\022\037\n\013requirement\030\004 \001(\003B\n\302\377\024\006\346\210\230\345\212"
-    "\233\022$\n\010material\030\005 \001(\003B\022\302\377\024\016\350\277\233\351\230\266\346\235\220\346\226\231ID\022"
-    "#\n\003num\030\006 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\346\235\220\346\226\231\346\225\260\351\207\217\022+\n\013"
-    "conditionId\030\007 \001(\tB\026\302\377\024\016\350\275\254\350\201\214\346\235\241\344\273\266ID\220\301\024"
-    "<\022.\n\016attribute_type\030\010 \003(\005B\026\302\377\024\016\345\237\272\347\241\200\345\261\236"
-    "\346\200\247ID\210\301\024\004\0220\n\017attribute_value\030\t \003(\005B\027\302\377\024\017"
-    "\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\210\301\024\004\"_\n\030Sheet_occupationa"
-    "ptitude\022C\n\027occupationaptitude_List\030\001 \003(\013"
-    "2\034.proto_ff.occupationaptitudeB\004\210\301\024P\"\240\001\n"
-    "\027occupationconditionList\022\026\n\002ID\030\001 \001(\005B\n\302\377"
-    "\024\006\347\274\226\345\217\267\022\036\n\004type\030\002 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345\236\213"
-    "\022%\n\016conditionValue\030\003 \001(\003B\r\302\377\024\t\345\217\202\346\225\260\345\200\274\022"
-    "&\n\014conditionNum\030\004 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\""
-    "n\n\035Sheet_occupationconditionList\022M\n\034occu"
-    "pationconditionList_List\030\001 \003(\0132!.proto_f"
-    "f.occupationconditionListB\004\210\301\024d", 1431);
+    "\024<\022L\n\tattribute\030\n \003(\0132+.proto_ff.occupat"
+    "ionoccupationattributeDescB\014\302\377\024\004$$$$\210\301\024\004"
+    "\022J\n\010delSkill\030\013 \003(\0132*.proto_ff.occupation"
+    "occupationdelSkillDescB\014\302\377\024\004$$$$\210\301\024\003\022D\n\005"
+    "skill\030\014 \003(\0132\'.proto_ff.occupationoccupat"
+    "ionskillDescB\014\302\377\024\004$$$$\210\301\024\003\"e\n\032Sheet_occu"
+    "pationoccupation\022G\n\031occupationoccupation"
+    "_List\030\001 \003(\0132\036.proto_ff.occupationoccupat"
+    "ionB\004\210\301\024(\"g\n\037occupationaptitudeattribute"
+    "Desc\022 \n\004type\030\001 \001(\005B\022\302\377\024\016\345\237\272\347\241\200\345\261\236\346\200\247ID\022\""
+    "\n\005value\030\002 \001(\005B\023\302\377\024\017\345\237\272\347\241\200\345\261\236\346\200\247\345\200\274\"\330\002\n\022o"
+    "ccupationaptitude\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\350\265\204\350\264"
+    "\250ID\022!\n\005grade\030\002 \001(\005B\022\302\377\024\016\350\201\214\344\270\232\347\255\211\347\272\247ID\022 "
+    "\n\005level\030\003 \001(\005B\021\302\377\024\r \350\265\204\350\264\250\347\255\211\347\272\247\022\037\n\013requ"
+    "irement\030\004 \001(\003B\n\302\377\024\006\346\210\230\345\212\233\022$\n\010material\030\005 "
+    "\001(\003B\022\302\377\024\016\350\277\233\351\230\266\346\235\220\346\226\231ID\022#\n\003num\030\006 \001(\005B\026\302\377"
+    "\024\022\350\277\233\351\230\266\346\235\220\346\226\231\346\225\260\351\207\217\022+\n\013conditionId\030\007 \001("
+    "\tB\026\302\377\024\016\350\275\254\350\201\214\346\235\241\344\273\266ID\220\301\024<\022J\n\tattribute\030\010"
+    " \003(\0132).proto_ff.occupationaptitudeattrib"
+    "uteDescB\014\302\377\024\004$$$$\210\301\024\004\"_\n\030Sheet_occupatio"
+    "naptitude\022C\n\027occupationaptitude_List\030\001 \003"
+    "(\0132\034.proto_ff.occupationaptitudeB\004\210\301\024P\"\240"
+    "\001\n\027occupationconditionList\022\026\n\002ID\030\001 \001(\005B\n"
+    "\302\377\024\006\347\274\226\345\217\267\022\036\n\004type\030\002 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345"
+    "\236\213\022%\n\016conditionValue\030\003 \001(\003B\r\302\377\024\t\345\217\202\346\225\260\345\200"
+    "\274\022&\n\014conditionNum\030\004 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207"
+    "\217\"n\n\035Sheet_occupationconditionList\022M\n\034oc"
+    "cupationconditionList_List\030\001 \003(\0132!.proto"
+    "_ff.occupationconditionListB\004\210\301\024d", 1793);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "occupation.proto", &protobuf_RegisterTypes);
+  occupationoccupationattributeDesc::default_instance_ = new occupationoccupationattributeDesc();
+  occupationoccupationdelSkillDesc::default_instance_ = new occupationoccupationdelSkillDesc();
+  occupationoccupationskillDesc::default_instance_ = new occupationoccupationskillDesc();
   occupationoccupation::default_instance_ = new occupationoccupation();
   Sheet_occupationoccupation::default_instance_ = new Sheet_occupationoccupation();
+  occupationaptitudeattributeDesc::default_instance_ = new occupationaptitudeattributeDesc();
   occupationaptitude::default_instance_ = new occupationaptitude();
   Sheet_occupationaptitude::default_instance_ = new Sheet_occupationaptitude();
   occupationconditionList::default_instance_ = new occupationconditionList();
   Sheet_occupationconditionList::default_instance_ = new Sheet_occupationconditionList();
+  occupationoccupationattributeDesc::default_instance_->InitAsDefaultInstance();
+  occupationoccupationdelSkillDesc::default_instance_->InitAsDefaultInstance();
+  occupationoccupationskillDesc::default_instance_->InitAsDefaultInstance();
   occupationoccupation::default_instance_->InitAsDefaultInstance();
   Sheet_occupationoccupation::default_instance_->InitAsDefaultInstance();
+  occupationaptitudeattributeDesc::default_instance_->InitAsDefaultInstance();
   occupationaptitude::default_instance_->InitAsDefaultInstance();
   Sheet_occupationaptitude::default_instance_->InitAsDefaultInstance();
   occupationconditionList::default_instance_->InitAsDefaultInstance();
@@ -275,6 +380,670 @@ struct StaticDescriptorInitializer_occupation_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int occupationoccupationattributeDesc::kTypeFieldNumber;
+const int occupationoccupationattributeDesc::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+occupationoccupationattributeDesc::occupationoccupationattributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void occupationoccupationattributeDesc::InitAsDefaultInstance() {
+}
+
+occupationoccupationattributeDesc::occupationoccupationattributeDesc(const occupationoccupationattributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void occupationoccupationattributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+occupationoccupationattributeDesc::~occupationoccupationattributeDesc() {
+  SharedDtor();
+}
+
+void occupationoccupationattributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void occupationoccupationattributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* occupationoccupationattributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return occupationoccupationattributeDesc_descriptor_;
+}
+
+const occupationoccupationattributeDesc& occupationoccupationattributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_occupation_2eproto();
+  return *default_instance_;
+}
+
+occupationoccupationattributeDesc* occupationoccupationattributeDesc::default_instance_ = NULL;
+
+occupationoccupationattributeDesc* occupationoccupationattributeDesc::New() const {
+  return new occupationoccupationattributeDesc;
+}
+
+void occupationoccupationattributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
+    value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool occupationoccupationattributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_value;
+        break;
+      }
+
+      // optional int32 value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void occupationoccupationattributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* occupationoccupationattributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int occupationoccupationattributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional int32 value = 2;
+    if (has_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void occupationoccupationattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const occupationoccupationattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const occupationoccupationattributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void occupationoccupationattributeDesc::MergeFrom(const occupationoccupationattributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void occupationoccupationattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void occupationoccupationattributeDesc::CopyFrom(const occupationoccupationattributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool occupationoccupationattributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void occupationoccupationattributeDesc::Swap(occupationoccupationattributeDesc* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata occupationoccupationattributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = occupationoccupationattributeDesc_descriptor_;
+  metadata.reflection = occupationoccupationattributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int occupationoccupationdelSkillDesc::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+occupationoccupationdelSkillDesc::occupationoccupationdelSkillDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void occupationoccupationdelSkillDesc::InitAsDefaultInstance() {
+}
+
+occupationoccupationdelSkillDesc::occupationoccupationdelSkillDesc(const occupationoccupationdelSkillDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void occupationoccupationdelSkillDesc::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+occupationoccupationdelSkillDesc::~occupationoccupationdelSkillDesc() {
+  SharedDtor();
+}
+
+void occupationoccupationdelSkillDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void occupationoccupationdelSkillDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* occupationoccupationdelSkillDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return occupationoccupationdelSkillDesc_descriptor_;
+}
+
+const occupationoccupationdelSkillDesc& occupationoccupationdelSkillDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_occupation_2eproto();
+  return *default_instance_;
+}
+
+occupationoccupationdelSkillDesc* occupationoccupationdelSkillDesc::default_instance_ = NULL;
+
+occupationoccupationdelSkillDesc* occupationoccupationdelSkillDesc::New() const {
+  return new occupationoccupationdelSkillDesc;
+}
+
+void occupationoccupationdelSkillDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool occupationoccupationdelSkillDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void occupationoccupationdelSkillDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* occupationoccupationdelSkillDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int occupationoccupationdelSkillDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void occupationoccupationdelSkillDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const occupationoccupationdelSkillDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const occupationoccupationdelSkillDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void occupationoccupationdelSkillDesc::MergeFrom(const occupationoccupationdelSkillDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void occupationoccupationdelSkillDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void occupationoccupationdelSkillDesc::CopyFrom(const occupationoccupationdelSkillDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool occupationoccupationdelSkillDesc::IsInitialized() const {
+
+  return true;
+}
+
+void occupationoccupationdelSkillDesc::Swap(occupationoccupationdelSkillDesc* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata occupationoccupationdelSkillDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = occupationoccupationdelSkillDesc_descriptor_;
+  metadata.reflection = occupationoccupationdelSkillDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int occupationoccupationskillDesc::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+occupationoccupationskillDesc::occupationoccupationskillDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void occupationoccupationskillDesc::InitAsDefaultInstance() {
+}
+
+occupationoccupationskillDesc::occupationoccupationskillDesc(const occupationoccupationskillDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void occupationoccupationskillDesc::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+occupationoccupationskillDesc::~occupationoccupationskillDesc() {
+  SharedDtor();
+}
+
+void occupationoccupationskillDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void occupationoccupationskillDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* occupationoccupationskillDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return occupationoccupationskillDesc_descriptor_;
+}
+
+const occupationoccupationskillDesc& occupationoccupationskillDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_occupation_2eproto();
+  return *default_instance_;
+}
+
+occupationoccupationskillDesc* occupationoccupationskillDesc::default_instance_ = NULL;
+
+occupationoccupationskillDesc* occupationoccupationskillDesc::New() const {
+  return new occupationoccupationskillDesc;
+}
+
+void occupationoccupationskillDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool occupationoccupationskillDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void occupationoccupationskillDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* occupationoccupationskillDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int occupationoccupationskillDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void occupationoccupationskillDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const occupationoccupationskillDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const occupationoccupationskillDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void occupationoccupationskillDesc::MergeFrom(const occupationoccupationskillDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void occupationoccupationskillDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void occupationoccupationskillDesc::CopyFrom(const occupationoccupationskillDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool occupationoccupationskillDesc::IsInitialized() const {
+
+  return true;
+}
+
+void occupationoccupationskillDesc::Swap(occupationoccupationskillDesc* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata occupationoccupationskillDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = occupationoccupationskillDesc_descriptor_;
+  metadata.reflection = occupationoccupationskillDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int occupationoccupation::kOccupationIDFieldNumber;
 const int occupationoccupation::kIdFieldNumber;
 const int occupationoccupation::kGradeFieldNumber;
@@ -284,10 +1053,9 @@ const int occupationoccupation::kAptitudeFieldNumber;
 const int occupationoccupation::kTaskIDFieldNumber;
 const int occupationoccupation::kEquipFieldNumber;
 const int occupationoccupation::kModelIDFieldNumber;
-const int occupationoccupation::kDelSkillIdFieldNumber;
-const int occupationoccupation::kAttributeTypeFieldNumber;
-const int occupationoccupation::kAttributeValueFieldNumber;
-const int occupationoccupation::kSkillIdFieldNumber;
+const int occupationoccupation::kAttributeFieldNumber;
+const int occupationoccupation::kDelSkillFieldNumber;
+const int occupationoccupation::kSkillFieldNumber;
 #endif  // !_MSC_VER
 
 occupationoccupation::occupationoccupation()
@@ -390,10 +1158,9 @@ void occupationoccupation::Clear() {
       }
     }
   }
-  delskill_id_.Clear();
-  attribute_type_.Clear();
-  attribute_value_.Clear();
-  skill_id_.Clear();
+  attribute_.Clear();
+  delskill_.Clear();
+  skill_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -547,94 +1314,51 @@ bool occupationoccupation::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_delSkill_id;
+        if (input->ExpectTag(82)) goto parse_attribute;
         break;
       }
 
-      // repeated int64 delSkill_id = 10;
+      // repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_delSkill_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 80, input, this->mutable_delskill_id())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_delskill_id())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_delSkill_id;
-        if (input->ExpectTag(88)) goto parse_attribute_type;
+        if (input->ExpectTag(82)) goto parse_attribute;
+        if (input->ExpectTag(90)) goto parse_delSkill;
         break;
       }
 
-      // repeated int32 attribute_type = 11;
+      // repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 88, input, this->mutable_attribute_type())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_type())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_delSkill:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_delskill()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_attribute_type;
-        if (input->ExpectTag(96)) goto parse_attribute_value;
+        if (input->ExpectTag(90)) goto parse_delSkill;
+        if (input->ExpectTag(98)) goto parse_skill;
         break;
       }
 
-      // repeated int32 attribute_value = 12;
+      // repeated .proto_ff.occupationoccupationskillDesc skill = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 96, input, this->mutable_attribute_value())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_value())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_skill:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_skill()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_attribute_value;
-        if (input->ExpectTag(104)) goto parse_skill_id;
-        break;
-      }
-
-      // repeated int64 skill_id = 13;
-      case 13: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skill_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 104, input, this->mutable_skill_id())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_skill_id())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(104)) goto parse_skill_id;
+        if (input->ExpectTag(98)) goto parse_skill;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -718,28 +1442,22 @@ void occupationoccupation::SerializeWithCachedSizes(
       9, this->modelid(), output);
   }
 
-  // repeated int64 delSkill_id = 10;
-  for (int i = 0; i < this->delskill_id_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      10, this->delskill_id(i), output);
+  // repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
+  for (int i = 0; i < this->attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, this->attribute(i), output);
   }
 
-  // repeated int32 attribute_type = 11;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      11, this->attribute_type(i), output);
+  // repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
+  for (int i = 0; i < this->delskill_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, this->delskill(i), output);
   }
 
-  // repeated int32 attribute_value = 12;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      12, this->attribute_value(i), output);
-  }
-
-  // repeated int64 skill_id = 13;
-  for (int i = 0; i < this->skill_id_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      13, this->skill_id(i), output);
+  // repeated .proto_ff.occupationoccupationskillDesc skill = 12;
+  for (int i = 0; i < this->skill_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, this->skill(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -815,28 +1533,25 @@ void occupationoccupation::SerializeWithCachedSizes(
         9, this->modelid(), target);
   }
 
-  // repeated int64 delSkill_id = 10;
-  for (int i = 0; i < this->delskill_id_size(); i++) {
+  // repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
+  for (int i = 0; i < this->attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(10, this->delskill_id(i), target);
+      WriteMessageNoVirtualToArray(
+        10, this->attribute(i), target);
   }
 
-  // repeated int32 attribute_type = 11;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
+  // repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
+  for (int i = 0; i < this->delskill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(11, this->attribute_type(i), target);
+      WriteMessageNoVirtualToArray(
+        11, this->delskill(i), target);
   }
 
-  // repeated int32 attribute_value = 12;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
+  // repeated .proto_ff.occupationoccupationskillDesc skill = 12;
+  for (int i = 0; i < this->skill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(12, this->attribute_value(i), target);
-  }
-
-  // repeated int64 skill_id = 13;
-  for (int i = 0; i < this->skill_id_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(13, this->skill_id(i), target);
+      WriteMessageNoVirtualToArray(
+        12, this->skill(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -916,44 +1631,28 @@ int occupationoccupation::ByteSize() const {
     }
 
   }
-  // repeated int64 delSkill_id = 10;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->delskill_id_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->delskill_id(i));
-    }
-    total_size += 1 * this->delskill_id_size() + data_size;
+  // repeated .proto_ff.occupationoccupationattributeDesc attribute = 10;
+  total_size += 1 * this->attribute_size();
+  for (int i = 0; i < this->attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->attribute(i));
   }
 
-  // repeated int32 attribute_type = 11;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_type_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_type(i));
-    }
-    total_size += 1 * this->attribute_type_size() + data_size;
+  // repeated .proto_ff.occupationoccupationdelSkillDesc delSkill = 11;
+  total_size += 1 * this->delskill_size();
+  for (int i = 0; i < this->delskill_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->delskill(i));
   }
 
-  // repeated int32 attribute_value = 12;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_value_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_value(i));
-    }
-    total_size += 1 * this->attribute_value_size() + data_size;
-  }
-
-  // repeated int64 skill_id = 13;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->skill_id_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->skill_id(i));
-    }
-    total_size += 1 * this->skill_id_size() + data_size;
+  // repeated .proto_ff.occupationoccupationskillDesc skill = 12;
+  total_size += 1 * this->skill_size();
+  for (int i = 0; i < this->skill_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->skill(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -981,10 +1680,9 @@ void occupationoccupation::MergeFrom(const ::google::protobuf::Message& from) {
 
 void occupationoccupation::MergeFrom(const occupationoccupation& from) {
   GOOGLE_CHECK_NE(&from, this);
-  delskill_id_.MergeFrom(from.delskill_id_);
-  attribute_type_.MergeFrom(from.attribute_type_);
-  attribute_value_.MergeFrom(from.attribute_value_);
-  skill_id_.MergeFrom(from.skill_id_);
+  attribute_.MergeFrom(from.attribute_);
+  delskill_.MergeFrom(from.delskill_);
+  skill_.MergeFrom(from.skill_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_occupationid()) {
       set_occupationid(from.occupationid());
@@ -1047,10 +1745,9 @@ void occupationoccupation::Swap(occupationoccupation* other) {
     std::swap(taskid_, other->taskid_);
     std::swap(equip_, other->equip_);
     std::swap(modelid_, other->modelid_);
-    delskill_id_.Swap(&other->delskill_id_);
-    attribute_type_.Swap(&other->attribute_type_);
-    attribute_value_.Swap(&other->attribute_value_);
-    skill_id_.Swap(&other->skill_id_);
+    attribute_.Swap(&other->attribute_);
+    delskill_.Swap(&other->delskill_);
+    skill_.Swap(&other->skill_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1272,6 +1969,254 @@ void Sheet_occupationoccupation::Swap(Sheet_occupationoccupation* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int occupationaptitudeattributeDesc::kTypeFieldNumber;
+const int occupationaptitudeattributeDesc::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+occupationaptitudeattributeDesc::occupationaptitudeattributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void occupationaptitudeattributeDesc::InitAsDefaultInstance() {
+}
+
+occupationaptitudeattributeDesc::occupationaptitudeattributeDesc(const occupationaptitudeattributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void occupationaptitudeattributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+occupationaptitudeattributeDesc::~occupationaptitudeattributeDesc() {
+  SharedDtor();
+}
+
+void occupationaptitudeattributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void occupationaptitudeattributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* occupationaptitudeattributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return occupationaptitudeattributeDesc_descriptor_;
+}
+
+const occupationaptitudeattributeDesc& occupationaptitudeattributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_occupation_2eproto();
+  return *default_instance_;
+}
+
+occupationaptitudeattributeDesc* occupationaptitudeattributeDesc::default_instance_ = NULL;
+
+occupationaptitudeattributeDesc* occupationaptitudeattributeDesc::New() const {
+  return new occupationaptitudeattributeDesc;
+}
+
+void occupationaptitudeattributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
+    value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool occupationaptitudeattributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_value;
+        break;
+      }
+
+      // optional int32 value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void occupationaptitudeattributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* occupationaptitudeattributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  }
+
+  // optional int32 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int occupationaptitudeattributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional int32 value = 2;
+    if (has_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void occupationaptitudeattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const occupationaptitudeattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const occupationaptitudeattributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void occupationaptitudeattributeDesc::MergeFrom(const occupationaptitudeattributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void occupationaptitudeattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void occupationaptitudeattributeDesc::CopyFrom(const occupationaptitudeattributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool occupationaptitudeattributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void occupationaptitudeattributeDesc::Swap(occupationaptitudeattributeDesc* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata occupationaptitudeattributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = occupationaptitudeattributeDesc_descriptor_;
+  metadata.reflection = occupationaptitudeattributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int occupationaptitude::kIdFieldNumber;
 const int occupationaptitude::kGradeFieldNumber;
 const int occupationaptitude::kLevelFieldNumber;
@@ -1279,8 +2224,7 @@ const int occupationaptitude::kRequirementFieldNumber;
 const int occupationaptitude::kMaterialFieldNumber;
 const int occupationaptitude::kNumFieldNumber;
 const int occupationaptitude::kConditionIdFieldNumber;
-const int occupationaptitude::kAttributeTypeFieldNumber;
-const int occupationaptitude::kAttributeValueFieldNumber;
+const int occupationaptitude::kAttributeFieldNumber;
 #endif  // !_MSC_VER
 
 occupationaptitude::occupationaptitude()
@@ -1356,8 +2300,7 @@ void occupationaptitude::Clear() {
       }
     }
   }
-  attribute_type_.Clear();
-  attribute_value_.Clear();
+  attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1476,50 +2419,21 @@ bool occupationaptitude::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_attribute_type;
+        if (input->ExpectTag(66)) goto parse_attribute;
         break;
       }
 
-      // repeated int32 attribute_type = 8;
+      // repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 64, input, this->mutable_attribute_type())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_type())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_attribute_type;
-        if (input->ExpectTag(72)) goto parse_attribute_value;
-        break;
-      }
-
-      // repeated int32 attribute_value = 9;
-      case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attribute_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 72, input, this->mutable_attribute_value())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_attribute_value())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(72)) goto parse_attribute_value;
+        if (input->ExpectTag(66)) goto parse_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1581,16 +2495,10 @@ void occupationaptitude::SerializeWithCachedSizes(
       7, this->conditionid(), output);
   }
 
-  // repeated int32 attribute_type = 8;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      8, this->attribute_type(i), output);
-  }
-
-  // repeated int32 attribute_value = 9;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      9, this->attribute_value(i), output);
+  // repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
+  for (int i = 0; i < this->attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1641,16 +2549,11 @@ void occupationaptitude::SerializeWithCachedSizes(
         7, this->conditionid(), target);
   }
 
-  // repeated int32 attribute_type = 8;
-  for (int i = 0; i < this->attribute_type_size(); i++) {
+  // repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
+  for (int i = 0; i < this->attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(8, this->attribute_type(i), target);
-  }
-
-  // repeated int32 attribute_value = 9;
-  for (int i = 0; i < this->attribute_value_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(9, this->attribute_value(i), target);
+      WriteMessageNoVirtualToArray(
+        8, this->attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1714,24 +2617,12 @@ int occupationaptitude::ByteSize() const {
     }
 
   }
-  // repeated int32 attribute_type = 8;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_type_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_type(i));
-    }
-    total_size += 1 * this->attribute_type_size() + data_size;
-  }
-
-  // repeated int32 attribute_value = 9;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attribute_value_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->attribute_value(i));
-    }
-    total_size += 1 * this->attribute_value_size() + data_size;
+  // repeated .proto_ff.occupationaptitudeattributeDesc attribute = 8;
+  total_size += 1 * this->attribute_size();
+  for (int i = 0; i < this->attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1759,8 +2650,7 @@ void occupationaptitude::MergeFrom(const ::google::protobuf::Message& from) {
 
 void occupationaptitude::MergeFrom(const occupationaptitude& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_type_.MergeFrom(from.attribute_type_);
-  attribute_value_.MergeFrom(from.attribute_value_);
+  attribute_.MergeFrom(from.attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1813,8 +2703,7 @@ void occupationaptitude::Swap(occupationaptitude* other) {
     std::swap(material_, other->material_);
     std::swap(num_, other->num_);
     std::swap(conditionid_, other->conditionid_);
-    attribute_type_.Swap(&other->attribute_type_);
-    attribute_value_.Swap(&other->attribute_value_);
+    attribute_.Swap(&other->attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -34,94 +34,12 @@ void  protobuf_AddDesc_taskreward_2eproto();
 void protobuf_AssignDesc_taskreward_2eproto();
 void protobuf_ShutdownFile_taskreward_2eproto();
 
-class taskrewardtaskrewardattrDesc;
 class taskrewardtaskrewarditemDesc;
+class taskrewardtaskrewardattrDesc;
 class taskrewardtaskreward;
 class Sheet_taskrewardtaskreward;
 
 // ===================================================================
-
-class taskrewardtaskrewardattrDesc : public ::google::protobuf::Message {
- public:
-  taskrewardtaskrewardattrDesc();
-  virtual ~taskrewardtaskrewardattrDesc();
-
-  taskrewardtaskrewardattrDesc(const taskrewardtaskrewardattrDesc& from);
-
-  inline taskrewardtaskrewardattrDesc& operator=(const taskrewardtaskrewardattrDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const taskrewardtaskrewardattrDesc& default_instance();
-
-  void Swap(taskrewardtaskrewardattrDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  taskrewardtaskrewardattrDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const taskrewardtaskrewardattrDesc& from);
-  void MergeFrom(const taskrewardtaskrewardattrDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.taskrewardtaskrewardattrDesc)
- private:
-  inline void set_has_id();
-  inline void clear_has_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int64 id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_taskreward_2eproto();
-  friend void protobuf_AssignDesc_taskreward_2eproto();
-  friend void protobuf_ShutdownFile_taskreward_2eproto();
-
-  void InitAsDefaultInstance();
-  static taskrewardtaskrewardattrDesc* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class taskrewardtaskrewarditemDesc : public ::google::protobuf::Message {
  public:
@@ -235,6 +153,88 @@ class taskrewardtaskrewarditemDesc : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class taskrewardtaskrewardattrDesc : public ::google::protobuf::Message {
+ public:
+  taskrewardtaskrewardattrDesc();
+  virtual ~taskrewardtaskrewardattrDesc();
+
+  taskrewardtaskrewardattrDesc(const taskrewardtaskrewardattrDesc& from);
+
+  inline taskrewardtaskrewardattrDesc& operator=(const taskrewardtaskrewardattrDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const taskrewardtaskrewardattrDesc& default_instance();
+
+  void Swap(taskrewardtaskrewardattrDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  taskrewardtaskrewardattrDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const taskrewardtaskrewardattrDesc& from);
+  void MergeFrom(const taskrewardtaskrewardattrDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int64 id() const;
+  inline void set_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.taskrewardtaskrewardattrDesc)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_taskreward_2eproto();
+  friend void protobuf_AssignDesc_taskreward_2eproto();
+  friend void protobuf_ShutdownFile_taskreward_2eproto();
+
+  void InitAsDefaultInstance();
+  static taskrewardtaskrewardattrDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class taskrewardtaskreward : public ::google::protobuf::Message {
  public:
   taskrewardtaskreward();
@@ -324,17 +324,17 @@ class taskrewardtaskreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 guildpoint() const;
   inline void set_guildpoint(::google::protobuf::int32 value);
 
-  // repeated int64 attr_val = 6;
-  inline int attr_val_size() const;
-  inline void clear_attr_val();
-  static const int kAttrValFieldNumber = 6;
-  inline ::google::protobuf::int64 attr_val(int index) const;
-  inline void set_attr_val(int index, ::google::protobuf::int64 value);
-  inline void add_attr_val(::google::protobuf::int64 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      attr_val() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_attr_val();
+  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
+  inline int item_size() const;
+  inline void clear_item();
+  static const int kItemFieldNumber = 6;
+  inline const ::proto_ff::taskrewardtaskrewarditemDesc& item(int index) const;
+  inline ::proto_ff::taskrewardtaskrewarditemDesc* mutable_item(int index);
+  inline ::proto_ff::taskrewardtaskrewarditemDesc* add_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >&
+      item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >*
+      mutable_item();
 
   // repeated .proto_ff.taskrewardtaskrewardattrDesc attr = 7;
   inline int attr_size() const;
@@ -347,18 +347,6 @@ class taskrewardtaskreward : public ::google::protobuf::Message {
       attr() const;
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewardattrDesc >*
       mutable_attr();
-
-  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-  inline int item_size() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 8;
-  inline const ::proto_ff::taskrewardtaskrewarditemDesc& item(int index) const;
-  inline ::proto_ff::taskrewardtaskrewarditemDesc* mutable_item(int index);
-  inline ::proto_ff::taskrewardtaskrewarditemDesc* add_item();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >&
-      item() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >*
-      mutable_item();
 
   // @@protoc_insertion_point(class_scope:proto_ff.taskrewardtaskreward)
  private:
@@ -380,12 +368,11 @@ class taskrewardtaskreward : public ::google::protobuf::Message {
   ::google::protobuf::int32 lv_;
   ::google::protobuf::int32 guildexp_;
   ::google::protobuf::int32 guildpoint_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > attr_val_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewardattrDesc > attr_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc > item_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewardattrDesc > attr_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_taskreward_2eproto();
   friend void protobuf_AssignDesc_taskreward_2eproto();
@@ -484,32 +471,6 @@ class Sheet_taskrewardtaskreward : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// taskrewardtaskrewardattrDesc
-
-// optional int64 id = 1;
-inline bool taskrewardtaskrewardattrDesc::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void taskrewardtaskrewardattrDesc::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void taskrewardtaskrewardattrDesc::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void taskrewardtaskrewardattrDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
-}
-inline ::google::protobuf::int64 taskrewardtaskrewardattrDesc::id() const {
-  return id_;
-}
-inline void taskrewardtaskrewardattrDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // taskrewardtaskrewarditemDesc
 
 // optional int32 bind = 1;
@@ -598,6 +559,32 @@ inline ::google::protobuf::int32 taskrewardtaskrewarditemDesc::prof() const {
 inline void taskrewardtaskrewarditemDesc::set_prof(::google::protobuf::int32 value) {
   set_has_prof();
   prof_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// taskrewardtaskrewardattrDesc
+
+// optional int64 id = 1;
+inline bool taskrewardtaskrewardattrDesc::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void taskrewardtaskrewardattrDesc::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void taskrewardtaskrewardattrDesc::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void taskrewardtaskrewardattrDesc::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 taskrewardtaskrewardattrDesc::id() const {
+  return id_;
+}
+inline void taskrewardtaskrewardattrDesc::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -714,29 +701,29 @@ inline void taskrewardtaskreward::set_guildpoint(::google::protobuf::int32 value
   guildpoint_ = value;
 }
 
-// repeated int64 attr_val = 6;
-inline int taskrewardtaskreward::attr_val_size() const {
-  return attr_val_.size();
+// repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
+inline int taskrewardtaskreward::item_size() const {
+  return item_.size();
 }
-inline void taskrewardtaskreward::clear_attr_val() {
-  attr_val_.Clear();
+inline void taskrewardtaskreward::clear_item() {
+  item_.Clear();
 }
-inline ::google::protobuf::int64 taskrewardtaskreward::attr_val(int index) const {
-  return attr_val_.Get(index);
+inline const ::proto_ff::taskrewardtaskrewarditemDesc& taskrewardtaskreward::item(int index) const {
+  return item_.Get(index);
 }
-inline void taskrewardtaskreward::set_attr_val(int index, ::google::protobuf::int64 value) {
-  attr_val_.Set(index, value);
+inline ::proto_ff::taskrewardtaskrewarditemDesc* taskrewardtaskreward::mutable_item(int index) {
+  return item_.Mutable(index);
 }
-inline void taskrewardtaskreward::add_attr_val(::google::protobuf::int64 value) {
-  attr_val_.Add(value);
+inline ::proto_ff::taskrewardtaskrewarditemDesc* taskrewardtaskreward::add_item() {
+  return item_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-taskrewardtaskreward::attr_val() const {
-  return attr_val_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >&
+taskrewardtaskreward::item() const {
+  return item_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-taskrewardtaskreward::mutable_attr_val() {
-  return &attr_val_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >*
+taskrewardtaskreward::mutable_item() {
+  return &item_;
 }
 
 // repeated .proto_ff.taskrewardtaskrewardattrDesc attr = 7;
@@ -762,31 +749,6 @@ taskrewardtaskreward::attr() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewardattrDesc >*
 taskrewardtaskreward::mutable_attr() {
   return &attr_;
-}
-
-// repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-inline int taskrewardtaskreward::item_size() const {
-  return item_.size();
-}
-inline void taskrewardtaskreward::clear_item() {
-  item_.Clear();
-}
-inline const ::proto_ff::taskrewardtaskrewarditemDesc& taskrewardtaskreward::item(int index) const {
-  return item_.Get(index);
-}
-inline ::proto_ff::taskrewardtaskrewarditemDesc* taskrewardtaskreward::mutable_item(int index) {
-  return item_.Mutable(index);
-}
-inline ::proto_ff::taskrewardtaskrewarditemDesc* taskrewardtaskreward::add_item() {
-  return item_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >&
-taskrewardtaskreward::item() const {
-  return item_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::taskrewardtaskrewarditemDesc >*
-taskrewardtaskreward::mutable_item() {
-  return &item_;
 }
 
 // -------------------------------------------------------------------

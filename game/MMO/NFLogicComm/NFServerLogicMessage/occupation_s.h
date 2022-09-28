@@ -10,6 +10,46 @@
 
 namespace proto_ff_s {
 
+	struct occupationoccupationattributeDesc_s : public NFDescStoreSeqOP {
+		occupationoccupationattributeDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int32_t type;
+		int32_t value;
+
+		virtual void write_to_pbmsg(::proto_ff::occupationoccupationattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::occupationoccupationattributeDesc & msg);
+		static ::proto_ff::occupationoccupationattributeDesc* new_pbmsg(){ return new ::proto_ff::occupationoccupationattributeDesc(); }
+		static ::proto_ff::occupationoccupationattributeDesc make_pbmsg(){ return ::proto_ff::occupationoccupationattributeDesc(); }
+	};
+	typedef struct occupationoccupationattributeDesc_s occupationoccupationattributeDesc_t;
+
+	struct occupationoccupationdelSkillDesc_s : public NFDescStoreSeqOP {
+		occupationoccupationdelSkillDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int64_t id;
+
+		virtual void write_to_pbmsg(::proto_ff::occupationoccupationdelSkillDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::occupationoccupationdelSkillDesc & msg);
+		static ::proto_ff::occupationoccupationdelSkillDesc* new_pbmsg(){ return new ::proto_ff::occupationoccupationdelSkillDesc(); }
+		static ::proto_ff::occupationoccupationdelSkillDesc make_pbmsg(){ return ::proto_ff::occupationoccupationdelSkillDesc(); }
+	};
+	typedef struct occupationoccupationdelSkillDesc_s occupationoccupationdelSkillDesc_t;
+
+	struct occupationoccupationskillDesc_s : public NFDescStoreSeqOP {
+		occupationoccupationskillDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int64_t id;
+
+		virtual void write_to_pbmsg(::proto_ff::occupationoccupationskillDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::occupationoccupationskillDesc & msg);
+		static ::proto_ff::occupationoccupationskillDesc* new_pbmsg(){ return new ::proto_ff::occupationoccupationskillDesc(); }
+		static ::proto_ff::occupationoccupationskillDesc make_pbmsg(){ return ::proto_ff::occupationoccupationskillDesc(); }
+	};
+	typedef struct occupationoccupationskillDesc_s occupationoccupationskillDesc_t;
+
 	struct occupationoccupation_s : public NFDescStoreSeqOP {
 		occupationoccupation_s();
 		int CreateInit();
@@ -23,10 +63,9 @@ namespace proto_ff_s {
 		NFSizeString<60> taskID;
 		NFSizeString<60> equip;
 		NFSizeString<60> modelID;
-		NFArray<int64_t, 3> delSkill_id;
-		NFArray<int32_t, 4> attribute_type;
-		NFArray<int32_t, 4> attribute_value;
-		NFArray<int64_t, 3> skill_id;
+		NFArray<struct occupationoccupationattributeDesc_s, 4> attribute;
+		NFArray<struct occupationoccupationdelSkillDesc_s, 3> delSkill;
+		NFArray<struct occupationoccupationskillDesc_s, 3> skill;
 
 		virtual void write_to_pbmsg(::proto_ff::occupationoccupation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::occupationoccupation & msg);
@@ -48,6 +87,20 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_occupationoccupation_s Sheet_occupationoccupation_t;
 
+	struct occupationaptitudeattributeDesc_s : public NFDescStoreSeqOP {
+		occupationaptitudeattributeDesc_s();
+		int CreateInit();
+		int ResumeInit();
+		int32_t type;
+		int32_t value;
+
+		virtual void write_to_pbmsg(::proto_ff::occupationaptitudeattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::occupationaptitudeattributeDesc & msg);
+		static ::proto_ff::occupationaptitudeattributeDesc* new_pbmsg(){ return new ::proto_ff::occupationaptitudeattributeDesc(); }
+		static ::proto_ff::occupationaptitudeattributeDesc make_pbmsg(){ return ::proto_ff::occupationaptitudeattributeDesc(); }
+	};
+	typedef struct occupationaptitudeattributeDesc_s occupationaptitudeattributeDesc_t;
+
 	struct occupationaptitude_s : public NFDescStoreSeqOP {
 		occupationaptitude_s();
 		int CreateInit();
@@ -59,8 +112,7 @@ namespace proto_ff_s {
 		int64_t material;
 		int32_t num;
 		NFSizeString<60> conditionId;
-		NFArray<int32_t, 4> attribute_type;
-		NFArray<int32_t, 4> attribute_value;
+		NFArray<struct occupationaptitudeattributeDesc_s, 4> attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::occupationaptitude & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::occupationaptitude & msg);
