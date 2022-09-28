@@ -63,8 +63,6 @@ public:
 
 	virtual bool OnReloadPlugin() override;
 
-	virtual bool InitShmObject() override;
-
 	//////////////////////////////////////////////////////////////////////////
 
 	virtual void RegisteredStaticPlugin(const std::string& strPluginName, const CREATE_PLUGIN_FUNCTION& createFunc) override;
@@ -136,7 +134,7 @@ public:
 
 	virtual uint32_t GetIdleSleepUs() const override;
 
-	virtual void SetIdelSleepUs(uint32_t time);
+	virtual void SetIdelSleepUs(uint32_t time) override;
 
 	virtual uint64_t GetInitTime() const override;
 
@@ -193,8 +191,8 @@ protected:
 
 	bool LoadKernelPlugin();
 
-	virtual void BeginProfiler(const std::string& luaFunc);
-	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙
+	virtual void BeginProfiler(const std::string& luaFunc) override;
+	virtual uint64_t EndProfiler() override;//return this time cost time(us) 微妙
 	virtual void ClearProfiler();
 	virtual void PrintProfiler();
 

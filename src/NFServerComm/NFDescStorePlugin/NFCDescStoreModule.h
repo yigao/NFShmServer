@@ -54,15 +54,16 @@ public:
 
 	virtual int InitDescStore(const std::string& descClass, NFIDescStore* pDescStore);
 	virtual int ExtraInitializeWhenRecover();
+    virtual bool IsAllDescStoreLoad() override;;
 
     virtual int LoadFile();
     virtual int LoadDB();
 	virtual int Reload();
 
-	virtual bool IsAllDescStoreLoad() override;;
 
 	int LoadDescStore(NFIDescStore *pDescStore);
 	int ReLoadDescStore(NFIDescStore *pDescStore);
+	bool HasDBDescStore();
 
 	virtual int CheckWhenAllDataLoaded();
 

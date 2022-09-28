@@ -78,6 +78,11 @@ public:
 		return true;
 	}
 
+    virtual bool AfterOnReloadPlugin()
+    {
+        return true;
+    }
+
 	virtual bool OnDynamicPlugin()
 	{
 		return true;

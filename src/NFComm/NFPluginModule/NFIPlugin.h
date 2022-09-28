@@ -71,6 +71,8 @@ public:
 
 	virtual bool OnReloadPlugin() override;
 
+    virtual bool AfterOnReloadPlugin() override;
+
 	virtual bool InitShmObjectRegister();
 
 	virtual void Uninstall() = 0;

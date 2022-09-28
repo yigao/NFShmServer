@@ -211,6 +211,24 @@ bool NFIPlugin::OnReloadPlugin()
 	return true;
 }
 
+bool NFIPlugin::AfterOnReloadPlugin()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            bool bRet = pModule->AfterOnReloadPlugin();
+            if (!bRet)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterOnReloadPlugin failed!", pModule->m_strName);
+            }
+        }
+    }
+
+    return true;
+}
+
 bool NFIPlugin::InitShmObjectRegister()
 {
 	return true;

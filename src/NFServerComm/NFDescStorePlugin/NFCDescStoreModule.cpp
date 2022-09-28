@@ -42,6 +42,9 @@ NFCDescStoreModule::~NFCDescStoreModule() {
 bool NFCDescStoreModule::AfterInitShmMem() {
     Initialize();
     LoadFileDestSotre();
+    if (!HasDBDescStore()) {
+        CheckWhenAllDataLoaded();
+    }
     return true;
 }
 
@@ -68,6 +71,9 @@ bool NFCDescStoreModule::Execute() {
     {
         if (IsAllDescStoreLoad())
         {
+            if (HasDBDescStore()) {
+                CheckWhenAllDataLoaded();
+            }
             m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
 
             m_bFinishAllLoaded = true;
@@ -222,11 +228,6 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 
 		pDescStore->SetMD5(fileMd5.c_str());
 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End Load:{}, iRet={}, fileMd5:{}", pDescStore->GetFileName(), iRet, fileMd5);
-#if NF_PLATFORM != NF_PLATFORM_WIN
-#ifndef NF_DEBUG_MODE
-		//NFFileUtility::Remove(pDescStore->GetFilePathName());
-#endif
-#endif
 	}
 	else
     {
@@ -254,6 +255,19 @@ int NFCDescStoreModule::LoadFile() {
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
+}
+
+bool NFCDescStoreModule::HasDBDescStore() {
+    for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++) {
+        NFIDescStore *pDescStore = iter->second;
+        assert(pDescStore);
+
+        if (pDescStore->IsFileLoad())
+            continue;
+
+        return true;
+    }
+    return false;
 }
 
 int NFCDescStoreModule::LoadDB() {
@@ -321,35 +335,23 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
 
 int NFCDescStoreModule::Reload() {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-//    int iRet = 0;
     for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++) {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin Reload:{}", iter->first);
         NFIDescStore *pDescStore = iter->second;
         assert(pDescStore);
 
-        FindModule<NFICoroutineModule>()->MakeCoroutine([pDescStore, this] {
-			int ret = ReLoadDescStore(pDescStore);
-			NF_ASSERT_MSG(ret == 0, "ReLoad Desc Store Failed!");
-		});
+        if (pDescStore->IsFileLoad()) {
+            int ret = ReLoadDescStore(pDescStore);
+            NF_ASSERT_MSG(ret == 0, "ReLoad Desc Store Failed!");
+        }
+        else {
+            FindModule<NFICoroutineModule>()->MakeCoroutine([pDescStore, this] {
+                int ret = ReLoadDescStore(pDescStore);
+                NF_ASSERT_MSG(ret == 0, "ReLoad Desc Store Failed!");
+            });
+        }
     }
 
-// 	for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++)
-// 	{
-// 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin CheckWhenAllDataLoaded:{}", iter->first);
-// 		NFIDescStore* pDescStore = iter->second;
-// 		assert(pDescStore);
-//
-// 		if ((pDescStore->IsLoaded() && !pDescStore->IsChecked()) || pDescStore->IsNeedSpecialCheck())
-// 		{
-//
-// 			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Need Check:{}", iter->first);
-// 			iRet = pDescStore->CheckWhenAllDataLoaded();
-// 			CHECK_EXPR(iRet == 0, iRet, "CheckWhenAllDataLoaded Failed:{}", iter->first);
-// 			pDescStore->SetChecked(true);
-// 		}
-//
-// 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End CheckWhenAllDataLoaded:{}", iter->first);
-// 	}
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }

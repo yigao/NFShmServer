@@ -115,11 +115,6 @@ public:
 		return true;
 	}
 
-	virtual bool InitShmObject()
-	{
-		return true;
-	}
-
     template <typename T>
     T* FindModule()
     {

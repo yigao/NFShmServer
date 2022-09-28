@@ -665,35 +665,6 @@ bool NFCPluginManager::OnReloadPlugin()
 	return true;
 }
 
-bool NFCPluginManager::InitShmObject()
-{
-//	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager InitShmObjectRegister................");
-//
-//	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
-//	{
-//		itInstance->second->InitShmObjectRegister();
-//	}
-//
-//	/*
-//		分配共享内存
-//	*/
-//	NFShmMgr::Instance()->AllocShm();
-//
-//	/*
-//		初始化共享内存里的对象
-//	*/
-//	NFShmMgr::Instance()->InitializeAllObj();
-//
-//	/*
-//		创建一些全局性对象
-//	*/
-//	NFShmMgr::Instance()->InitShmObjectGlobal();
-//
-//	NFIPluginManager::Instance()->FindModule<NFIDescStoreModule>()->Initialize();
-
-	return true;
-}
-
 bool NFCPluginManager::Finalize()
 {
 	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager Finalize................");

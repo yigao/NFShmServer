@@ -166,12 +166,10 @@ void NFDescStoreTrans::OnTimer(int timeId, int callcount)
     {
         std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
-        /*
-        FindModule<NFIMessageModule>()->SendTransToStoreServer(m_eType,
-                                                         proto_ff::E_STORESVR_C2S_SELECT, proto_ff::E_TABLE_NONE, m_dbName,
+        FindModule<NFIServerMessageModule>()->SendTransToStoreServer(m_eType, 0,
+                                                         proto_ff::E_STORESVR_C2S_SELECT, 0, m_dbName,
                                                          m_tableName, vk_list, "",
-                                                         GetGlobalID(), 0, 0, GetDescStoreClsName());
-                                                         */
+                                                         GetGlobalID(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
     }
 }
 
