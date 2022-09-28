@@ -3,17 +3,18 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message taskrewardtaskrewardattrDesc
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
-}
-
 message taskrewardtaskrewarditemDesc
 {
 	optional int32 bind = 1[(yd_fieldoptions.field_cname) = "绑定"];
 	optional int64 id = 2[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 val = 3[(yd_fieldoptions.field_cname) = "数量"];
 	optional int32 prof = 4[(yd_fieldoptions.field_cname) = "职业"];
+}
+
+message taskrewardtaskrewardattrDesc
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 val = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
 message taskrewardtaskreward
@@ -23,9 +24,8 @@ message taskrewardtaskreward
 	optional int32 lv = 3[(yd_fieldoptions.field_cname) = "等级"];
 	optional int32 guildExp = 4[(yd_fieldoptions.field_cname) = "公会经验"];
 	optional int32 guildPoint = 5[(yd_fieldoptions.field_cname) = "公会贡献"];
-	repeated int64 attr_val = 6[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_arysize) = 5];
+	repeated taskrewardtaskrewarditemDesc item = 6[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
 	repeated taskrewardtaskrewardattrDesc attr = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
-	repeated taskrewardtaskrewarditemDesc item = 8[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
