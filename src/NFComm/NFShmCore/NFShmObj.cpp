@@ -47,6 +47,7 @@ NFShmObj::~NFShmObj()
 
 #endif
 	m_iGlobalID = INVALID_ID;
+	m_iObjSeq = INVALID_ID;
 }
 
 int NFShmObj::CreateInit()
