@@ -20,12 +20,12 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* taskrewardtaskrewardattrDesc_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  taskrewardtaskrewardattrDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* taskrewardtaskrewarditemDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   taskrewardtaskrewarditemDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* taskrewardtaskrewardattrDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  taskrewardtaskrewardattrDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* taskrewardtaskreward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   taskrewardtaskreward_reflection_ = NULL;
@@ -42,22 +42,7 @@ void protobuf_AssignDesc_taskreward_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "taskreward.proto");
   GOOGLE_CHECK(file != NULL);
-  taskrewardtaskrewardattrDesc_descriptor_ = file->message_type(0);
-  static const int taskrewardtaskrewardattrDesc_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, id_),
-  };
-  taskrewardtaskrewardattrDesc_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      taskrewardtaskrewardattrDesc_descriptor_,
-      taskrewardtaskrewardattrDesc::default_instance_,
-      taskrewardtaskrewardattrDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(taskrewardtaskrewardattrDesc));
-  taskrewardtaskrewarditemDesc_descriptor_ = file->message_type(1);
+  taskrewardtaskrewarditemDesc_descriptor_ = file->message_type(0);
   static const int taskrewardtaskrewarditemDesc_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewarditemDesc, bind_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewarditemDesc, id_),
@@ -75,16 +60,31 @@ void protobuf_AssignDesc_taskreward_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(taskrewardtaskrewarditemDesc));
+  taskrewardtaskrewardattrDesc_descriptor_ = file->message_type(1);
+  static const int taskrewardtaskrewardattrDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, val_),
+  };
+  taskrewardtaskrewardattrDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      taskrewardtaskrewardattrDesc_descriptor_,
+      taskrewardtaskrewardattrDesc::default_instance_,
+      taskrewardtaskrewardattrDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskrewardattrDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(taskrewardtaskrewardattrDesc));
   taskrewardtaskreward_descriptor_ = file->message_type(2);
-  static const int taskrewardtaskreward_offsets_[8] = {
+  static const int taskrewardtaskreward_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, tasktype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, lv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, guildexp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, guildpoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, attr_val_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, attr_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, item_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(taskrewardtaskreward, attr_),
   };
   taskrewardtaskreward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -125,9 +125,9 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    taskrewardtaskrewardattrDesc_descriptor_, &taskrewardtaskrewardattrDesc::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     taskrewardtaskrewarditemDesc_descriptor_, &taskrewardtaskrewarditemDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    taskrewardtaskrewardattrDesc_descriptor_, &taskrewardtaskrewardattrDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     taskrewardtaskreward_descriptor_, &taskrewardtaskreward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -137,10 +137,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_taskreward_2eproto() {
-  delete taskrewardtaskrewardattrDesc::default_instance_;
-  delete taskrewardtaskrewardattrDesc_reflection_;
   delete taskrewardtaskrewarditemDesc::default_instance_;
   delete taskrewardtaskrewarditemDesc_reflection_;
+  delete taskrewardtaskrewardattrDesc::default_instance_;
+  delete taskrewardtaskrewardattrDesc_reflection_;
   delete taskrewardtaskreward::default_instance_;
   delete taskrewardtaskreward_reflection_;
   delete Sheet_taskrewardtaskreward::default_instance_;
@@ -156,31 +156,31 @@ void protobuf_AddDesc_taskreward_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020taskreward.proto\022\010proto_ff\032\025yd_fieldop"
-    "tions.proto\"2\n\034taskrewardtaskrewardattrD"
-    "esc\022\022\n\002id\030\001 \001(\003B\006\302\377\024\002id\"\177\n\034taskrewardtas"
-    "krewarditemDesc\022\030\n\004bind\030\001 \001(\005B\n\302\377\024\006\347\273\221\345\256"
-    "\232\022\022\n\002id\030\002 \001(\003B\006\302\377\024\002id\022\027\n\003val\030\003 \001(\005B\n\302\377\024\006"
-    "\346\225\260\351\207\217\022\030\n\004prof\030\004 \001(\005B\n\302\377\024\006\350\201\214\344\270\232\"\341\002\n\024tas"
-    "krewardtaskreward\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\345\245\226\345\212"
-    "\261id\022\"\n\010taskType\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022"
-    "\026\n\002lv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\010guildExp\030\004 \001("
-    "\005B\020\302\377\024\014\345\205\254\344\274\232\347\273\217\351\252\214\022$\n\nguildPoint\030\005 \001(\005B"
-    "\020\302\377\024\014\345\205\254\344\274\232\350\264\241\347\214\256\022\035\n\010attr_val\030\006 \003(\003B\013\302\377\024"
-    "\003\345\200\274\210\301\024\005\022D\n\004attr\030\007 \003(\0132&.proto_ff.taskre"
-    "wardtaskrewardattrDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\022D"
-    "\n\004item\030\010 \003(\0132&.proto_ff.taskrewardtaskre"
-    "warditemDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\005\"f\n\032Sheet_ta"
-    "skrewardtaskreward\022H\n\031taskrewardtaskrewa"
-    "rd_List\030\001 \003(\0132\036.proto_ff.taskrewardtaskr"
-    "ewardB\005\210\301\024\240\037", 692);
+    "tions.proto\"\177\n\034taskrewardtaskrewarditemD"
+    "esc\022\030\n\004bind\030\001 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022\022\n\002id\030\002 \001("
+    "\003B\006\302\377\024\002id\022\027\n\003val\030\003 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\030\n\004pr"
+    "of\030\004 \001(\005B\n\302\377\024\006\350\201\214\344\270\232\"H\n\034taskrewardtaskre"
+    "wardattrDesc\022\022\n\002id\030\001 \001(\003B\006\302\377\024\002id\022\024\n\003val\030"
+    "\002 \001(\003B\007\302\377\024\003\345\200\274\"\302\002\n\024taskrewardtaskreward\022"
+    "\030\n\002id\030\001 \001(\003B\014\302\377\024\010\345\245\226\345\212\261id\022\"\n\010taskType\030\002 "
+    "\001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022\026\n\002lv\030\003 \001(\005B\n\302\377\024\006\347"
+    "\255\211\347\272\247\022\"\n\010guildExp\030\004 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347\273\217\351\252"
+    "\214\022$\n\nguildPoint\030\005 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\350\264\241\347\214\256\022"
+    "D\n\004item\030\006 \003(\0132&.proto_ff.taskrewardtaskr"
+    "ewarditemDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\005\022D\n\004attr\030\007 "
+    "\003(\0132&.proto_ff.taskrewardtaskrewardattrD"
+    "escB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"f\n\032Sheet_taskrewardt"
+    "askreward\022H\n\031taskrewardtaskreward_List\030\001"
+    " \003(\0132\036.proto_ff.taskrewardtaskrewardB\005\210\301"
+    "\024\240\037", 683);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "taskreward.proto", &protobuf_RegisterTypes);
-  taskrewardtaskrewardattrDesc::default_instance_ = new taskrewardtaskrewardattrDesc();
   taskrewardtaskrewarditemDesc::default_instance_ = new taskrewardtaskrewarditemDesc();
+  taskrewardtaskrewardattrDesc::default_instance_ = new taskrewardtaskrewardattrDesc();
   taskrewardtaskreward::default_instance_ = new taskrewardtaskreward();
   Sheet_taskrewardtaskreward::default_instance_ = new Sheet_taskrewardtaskreward();
-  taskrewardtaskrewardattrDesc::default_instance_->InitAsDefaultInstance();
   taskrewardtaskrewarditemDesc::default_instance_->InitAsDefaultInstance();
+  taskrewardtaskrewardattrDesc::default_instance_->InitAsDefaultInstance();
   taskrewardtaskreward::default_instance_->InitAsDefaultInstance();
   Sheet_taskrewardtaskreward::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_taskreward_2eproto);
@@ -192,214 +192,6 @@ struct StaticDescriptorInitializer_taskreward_2eproto {
     protobuf_AddDesc_taskreward_2eproto();
   }
 } static_descriptor_initializer_taskreward_2eproto_;
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int taskrewardtaskrewardattrDesc::kIdFieldNumber;
-#endif  // !_MSC_VER
-
-taskrewardtaskrewardattrDesc::taskrewardtaskrewardattrDesc()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void taskrewardtaskrewardattrDesc::InitAsDefaultInstance() {
-}
-
-taskrewardtaskrewardattrDesc::taskrewardtaskrewardattrDesc(const taskrewardtaskrewardattrDesc& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void taskrewardtaskrewardattrDesc::SharedCtor() {
-  _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-taskrewardtaskrewardattrDesc::~taskrewardtaskrewardattrDesc() {
-  SharedDtor();
-}
-
-void taskrewardtaskrewardattrDesc::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void taskrewardtaskrewardattrDesc::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* taskrewardtaskrewardattrDesc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return taskrewardtaskrewardattrDesc_descriptor_;
-}
-
-const taskrewardtaskrewardattrDesc& taskrewardtaskrewardattrDesc::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_taskreward_2eproto();
-  return *default_instance_;
-}
-
-taskrewardtaskrewardattrDesc* taskrewardtaskrewardattrDesc::default_instance_ = NULL;
-
-taskrewardtaskrewardattrDesc* taskrewardtaskrewardattrDesc::New() const {
-  return new taskrewardtaskrewardattrDesc;
-}
-
-void taskrewardtaskrewardattrDesc::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool taskrewardtaskrewardattrDesc::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void taskrewardtaskrewardattrDesc::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* taskrewardtaskrewardattrDesc::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int taskrewardtaskrewardattrDesc::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void taskrewardtaskrewardattrDesc::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const taskrewardtaskrewardattrDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const taskrewardtaskrewardattrDesc*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void taskrewardtaskrewardattrDesc::MergeFrom(const taskrewardtaskrewardattrDesc& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void taskrewardtaskrewardattrDesc::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void taskrewardtaskrewardattrDesc::CopyFrom(const taskrewardtaskrewardattrDesc& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool taskrewardtaskrewardattrDesc::IsInitialized() const {
-
-  return true;
-}
-
-void taskrewardtaskrewardattrDesc::Swap(taskrewardtaskrewardattrDesc* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata taskrewardtaskrewardattrDesc::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = taskrewardtaskrewardattrDesc_descriptor_;
-  metadata.reflection = taskrewardtaskrewardattrDesc_reflection_;
-  return metadata;
-}
-
 
 // ===================================================================
 
@@ -732,14 +524,261 @@ void taskrewardtaskrewarditemDesc::Swap(taskrewardtaskrewarditemDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int taskrewardtaskrewardattrDesc::kIdFieldNumber;
+const int taskrewardtaskrewardattrDesc::kValFieldNumber;
+#endif  // !_MSC_VER
+
+taskrewardtaskrewardattrDesc::taskrewardtaskrewardattrDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void taskrewardtaskrewardattrDesc::InitAsDefaultInstance() {
+}
+
+taskrewardtaskrewardattrDesc::taskrewardtaskrewardattrDesc(const taskrewardtaskrewardattrDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void taskrewardtaskrewardattrDesc::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  val_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+taskrewardtaskrewardattrDesc::~taskrewardtaskrewardattrDesc() {
+  SharedDtor();
+}
+
+void taskrewardtaskrewardattrDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void taskrewardtaskrewardattrDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* taskrewardtaskrewardattrDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return taskrewardtaskrewardattrDesc_descriptor_;
+}
+
+const taskrewardtaskrewardattrDesc& taskrewardtaskrewardattrDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_taskreward_2eproto();
+  return *default_instance_;
+}
+
+taskrewardtaskrewardattrDesc* taskrewardtaskrewardattrDesc::default_instance_ = NULL;
+
+taskrewardtaskrewardattrDesc* taskrewardtaskrewardattrDesc::New() const {
+  return new taskrewardtaskrewardattrDesc;
+}
+
+void taskrewardtaskrewardattrDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+    val_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool taskrewardtaskrewardattrDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_val;
+        break;
+      }
+
+      // optional int64 val = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_val:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &val_)));
+          set_has_val();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void taskrewardtaskrewardattrDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  // optional int64 val = 2;
+  if (has_val()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->val(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* taskrewardtaskrewardattrDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  // optional int64 val = 2;
+  if (has_val()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->val(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int taskrewardtaskrewardattrDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+    // optional int64 val = 2;
+    if (has_val()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->val());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void taskrewardtaskrewardattrDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const taskrewardtaskrewardattrDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const taskrewardtaskrewardattrDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void taskrewardtaskrewardattrDesc::MergeFrom(const taskrewardtaskrewardattrDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_val()) {
+      set_val(from.val());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void taskrewardtaskrewardattrDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void taskrewardtaskrewardattrDesc::CopyFrom(const taskrewardtaskrewardattrDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool taskrewardtaskrewardattrDesc::IsInitialized() const {
+
+  return true;
+}
+
+void taskrewardtaskrewardattrDesc::Swap(taskrewardtaskrewardattrDesc* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(val_, other->val_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata taskrewardtaskrewardattrDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = taskrewardtaskrewardattrDesc_descriptor_;
+  metadata.reflection = taskrewardtaskrewardattrDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int taskrewardtaskreward::kIdFieldNumber;
 const int taskrewardtaskreward::kTaskTypeFieldNumber;
 const int taskrewardtaskreward::kLvFieldNumber;
 const int taskrewardtaskreward::kGuildExpFieldNumber;
 const int taskrewardtaskreward::kGuildPointFieldNumber;
-const int taskrewardtaskreward::kAttrValFieldNumber;
-const int taskrewardtaskreward::kAttrFieldNumber;
 const int taskrewardtaskreward::kItemFieldNumber;
+const int taskrewardtaskreward::kAttrFieldNumber;
 #endif  // !_MSC_VER
 
 taskrewardtaskreward::taskrewardtaskreward()
@@ -804,9 +843,8 @@ void taskrewardtaskreward::Clear() {
     guildexp_ = 0;
     guildpoint_ = 0;
   }
-  attr_val_.Clear();
-  attr_.Clear();
   item_.Clear();
+  attr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -892,28 +930,21 @@ bool taskrewardtaskreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_attr_val;
+        if (input->ExpectTag(50)) goto parse_item;
         break;
       }
 
-      // repeated int64 attr_val = 6;
+      // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attr_val:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 48, input, this->mutable_attr_val())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_attr_val())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_item:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_item()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_attr_val;
+        if (input->ExpectTag(50)) goto parse_item;
         if (input->ExpectTag(58)) goto parse_attr;
         break;
       }
@@ -929,21 +960,6 @@ bool taskrewardtaskreward::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(58)) goto parse_attr;
-        if (input->ExpectTag(66)) goto parse_item;
-        break;
-      }
-
-      // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_item:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_item()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(66)) goto parse_item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -991,22 +1007,16 @@ void taskrewardtaskreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->guildpoint(), output);
   }
 
-  // repeated int64 attr_val = 6;
-  for (int i = 0; i < this->attr_val_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      6, this->attr_val(i), output);
+  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
+  for (int i = 0; i < this->item_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->item(i), output);
   }
 
   // repeated .proto_ff.taskrewardtaskrewardattrDesc attr = 7;
   for (int i = 0; i < this->attr_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, this->attr(i), output);
-  }
-
-  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-  for (int i = 0; i < this->item_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->item(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1042,10 +1052,11 @@ void taskrewardtaskreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->guildpoint(), target);
   }
 
-  // repeated int64 attr_val = 6;
-  for (int i = 0; i < this->attr_val_size(); i++) {
+  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
+  for (int i = 0; i < this->item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(6, this->attr_val(i), target);
+      WriteMessageNoVirtualToArray(
+        6, this->item(i), target);
   }
 
   // repeated .proto_ff.taskrewardtaskrewardattrDesc attr = 7;
@@ -1053,13 +1064,6 @@ void taskrewardtaskreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         7, this->attr(i), target);
-  }
-
-  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-  for (int i = 0; i < this->item_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        8, this->item(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1109,14 +1113,12 @@ int taskrewardtaskreward::ByteSize() const {
     }
 
   }
-  // repeated int64 attr_val = 6;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->attr_val_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->attr_val(i));
-    }
-    total_size += 1 * this->attr_val_size() + data_size;
+  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 6;
+  total_size += 1 * this->item_size();
+  for (int i = 0; i < this->item_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->item(i));
   }
 
   // repeated .proto_ff.taskrewardtaskrewardattrDesc attr = 7;
@@ -1125,14 +1127,6 @@ int taskrewardtaskreward::ByteSize() const {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         this->attr(i));
-  }
-
-  // repeated .proto_ff.taskrewardtaskrewarditemDesc item = 8;
-  total_size += 1 * this->item_size();
-  for (int i = 0; i < this->item_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->item(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1160,9 +1154,8 @@ void taskrewardtaskreward::MergeFrom(const ::google::protobuf::Message& from) {
 
 void taskrewardtaskreward::MergeFrom(const taskrewardtaskreward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attr_val_.MergeFrom(from.attr_val_);
-  attr_.MergeFrom(from.attr_);
   item_.MergeFrom(from.item_);
+  attr_.MergeFrom(from.attr_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1207,9 +1200,8 @@ void taskrewardtaskreward::Swap(taskrewardtaskreward* other) {
     std::swap(lv_, other->lv_);
     std::swap(guildexp_, other->guildexp_);
     std::swap(guildpoint_, other->guildpoint_);
-    attr_val_.Swap(&other->attr_val_);
-    attr_.Swap(&other->attr_);
     item_.Swap(&other->item_);
+    attr_.Swap(&other->attr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
