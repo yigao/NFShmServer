@@ -507,6 +507,16 @@ def read_excel(excel_file, excel_sheetname, proto_sheet_repeatedfieldname, sheet
 					if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
 							sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_BLANK or len(str(sheet.cell_value(row_index, col_index))) == 0:
 						print "\033[1;31;40mError!! excel[%s] sheet[%s] col[%s]:[%s] must be check, the key is empty!!! \033[0m" % (excel_sheetname, excel_file, row_index+1, col_index+1)
+						has_data = False
+						for col_index_temp in xrange(0, excel_sheet_col_count):
+							if sheet.cell_type(row_index, col_index_temp) == xlrd.XL_CELL_EMPTY or \
+									sheet.cell_type(row_index, col_index_temp) == xlrd.XL_CELL_BLANK or len(str(sheet.cell_value(row_index, col_index_temp))) == 0:
+								has_data = True
+								break
+
+						if has_data == False:
+							break
+
 						continue
 
 				#print "[row: %d] [start: %d]" % (row_index, is_start)
