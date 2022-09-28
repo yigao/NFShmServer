@@ -264,7 +264,7 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 	proto_file.write("}\n");
 
 
-def read_excel(excel_file, out_path):
+def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, excel_file, out_path):
 	"""
 	excel_file：文件名
 	excel_sheetname：文件sheet名
@@ -564,6 +564,18 @@ def read_excel(excel_file, out_path):
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name+sheet.name + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n")
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n")
 
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
+			desc_store_head_file.write("#include \"DescStore/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h\"\n")
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
+			desc_store_define_file.write("EOT_CONST_" + excel_file_name.upper() + "_" + sheet.name.upper() + "_DESC_ID,\n")
+
+	for sheet in excel_fd.sheets():
+		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
+			desc_store_register_file.write("REGISTER_DESCSTORE(" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc, " + "EOT_CONST_" + excel_file_name.upper() + "_" + sheet.name.upper() + "_DESC_ID);\n")
+
 	proto_file.close()
 	makefile_file.close()
 
@@ -606,8 +618,21 @@ if __name__ == "__main__":
 	print "Input parameters:\n\texcel_files[%s]\n\t" % (excel_files)
 
 
-    #读取excel
+	#读取excel
+	desc_store_head_file_name = out_path + "NFDescStoreHead.h"
+	desc_store_head_file = open(desc_store_head_file_name, 'a')
+
+	desc_store_define_file_name = out_path + "NFDescStoreDefine.h"
+	desc_store_define_file = open(desc_store_define_file_name, 'a')
+
+	desc_store_register_file_name = out_path + "NFDescStoreRegister.h"
+	desc_store_register_file = open(desc_store_register_file_name, 'a')
+
 	for excel_file in excel_files:
-		read_excel(excel_file, out_path)
+		read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, excel_file, out_path)
+
+	desc_store_head_file.close()
+	desc_store_define_file.close()
+	desc_store_register_file.close()
 
 	print "Success Handle Excel:\n\texcel_files[%s]\n\t" % (excel_files)

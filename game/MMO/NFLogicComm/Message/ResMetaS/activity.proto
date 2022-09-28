@@ -239,7 +239,7 @@ message activitygvgRewardrewardDesc
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
 	optional int64 id = 2[(yd_fieldoptions.field_cname) = ""];
 }
-1
+
 message activitygvgRewardfinalityDesc
 {
 	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
