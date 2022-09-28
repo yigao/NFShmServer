@@ -19,7 +19,7 @@ message worldmapbossworldboss
 
 message Sheet_worldmapbossworldboss
 {
-	repeated worldmapbossworldboss worldmapbossworldboss_List = 1[(yd_fieldoptions.field_arysize)=300];
+	repeated worldmapbossworldboss worldmapbossworldboss_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message worldmapbossdroplist
@@ -46,5 +46,5 @@ message worldmapbossfestival
 
 message Sheet_worldmapbossfestival
 {
-	repeated worldmapbossfestival worldmapbossfestival_List = 1[(yd_fieldoptions.field_arysize)=300];
+	repeated worldmapbossfestival worldmapbossfestival_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

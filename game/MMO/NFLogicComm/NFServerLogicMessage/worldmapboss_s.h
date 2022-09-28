@@ -35,7 +35,7 @@ namespace proto_ff_s {
 		Sheet_worldmapbossworldboss_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct worldmapbossworldboss_s, 300> worldmapbossworldboss_List;
+		NFArray<struct worldmapbossworldboss_s, 20> worldmapbossworldboss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_worldmapbossworldboss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_worldmapbossworldboss & msg);
@@ -92,7 +92,7 @@ namespace proto_ff_s {
 		Sheet_worldmapbossfestival_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct worldmapbossfestival_s, 300> worldmapbossfestival_List;
+		NFArray<struct worldmapbossfestival_s, 20> worldmapbossfestival_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_worldmapbossfestival & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_worldmapbossfestival & msg);

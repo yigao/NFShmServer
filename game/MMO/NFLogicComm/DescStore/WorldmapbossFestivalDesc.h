@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/worldmapboss_s.h"
 
-#define MAX_WORLDMAPBOSS_FESTIVAL_NUM 300
+#define MAX_WORLDMAPBOSS_FESTIVAL_NUM 20
 
 class WorldmapbossFestivalDesc : public NFIDescStore
 {
