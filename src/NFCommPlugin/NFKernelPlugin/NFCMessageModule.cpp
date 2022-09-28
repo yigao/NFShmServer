@@ -60,7 +60,7 @@ bool NFCMessageModule::Execute()
 	return true;
 }
 
-bool NFCMessageModule::OnReloadPlugin()
+bool NFCMessageModule::OnReloadConfig()
 {
 	return true;
 }

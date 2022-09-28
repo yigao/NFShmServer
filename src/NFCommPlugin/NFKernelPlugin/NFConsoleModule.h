@@ -64,7 +64,7 @@ public:
 
 	virtual bool Shut();
 
-	virtual bool OnReloadPlugin();
+	virtual bool OnReloadConfig();
 
 	virtual void OnTimer(uint32_t nTimerID);
 

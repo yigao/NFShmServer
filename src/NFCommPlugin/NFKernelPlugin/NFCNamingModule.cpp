@@ -61,9 +61,9 @@ bool NFCNamingModule::Execute()
     return true;
 }
 
-bool NFCNamingModule::OnReloadPlugin()
+bool NFCNamingModule::OnReloadConfig()
 {
-    return NFIModule::OnReloadPlugin();
+    return true;
 }
 
 proto_ff::ServerInfoReport NFCNamingModule::GetDefaultMasterInfo(NF_SERVER_TYPES eServerType)

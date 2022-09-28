@@ -193,17 +193,17 @@ bool NFIPlugin::Finalize()
 	return true;
 }
 
-bool NFIPlugin::OnReloadPlugin()
+bool NFIPlugin::OnReloadConfig()
 {
 	for (size_t i = 0; i < m_vecModule.size(); i++)
 	{
 		NFIModule* pModule = m_vecModule[i];
 		if (pModule)
 		{
-			bool bRet = pModule->OnReloadPlugin();
+			bool bRet = pModule->OnReloadConfig();
 			if (!bRet)
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnReloadPlugin failed!", pModule->m_strName);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnReloadConfig failed!", pModule->m_strName);
 			}
 		}
 	}
@@ -211,17 +211,17 @@ bool NFIPlugin::OnReloadPlugin()
 	return true;
 }
 
-bool NFIPlugin::AfterOnReloadPlugin()
+bool NFIPlugin::AfterOnReloadConfig()
 {
     for (size_t i = 0; i < m_vecModule.size(); i++)
     {
         NFIModule* pModule = m_vecModule[i];
         if (pModule)
         {
-            bool bRet = pModule->AfterOnReloadPlugin();
+            bool bRet = pModule->AfterOnReloadConfig();
             if (!bRet)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterOnReloadPlugin failed!", pModule->m_strName);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} AfterOnReloadConfig failed!", pModule->m_strName);
             }
         }
     }

@@ -110,7 +110,7 @@ public:
 		return true;
 	}
 
-	virtual bool OnReloadPlugin()
+	virtual bool OnReloadConfig()
 	{
 		return true;
 	}

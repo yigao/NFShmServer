@@ -64,7 +64,9 @@ public:
 	/**
 	* 创建共享内存
 	*/
-	virtual bool OnReloadPlugin() override;
+	virtual bool OnReloadConfig() override;
+
+    virtual bool AfterOnReloadConfig() override;
 
 	/**
 	* 分配共享内存

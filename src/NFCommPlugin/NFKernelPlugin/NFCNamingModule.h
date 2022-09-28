@@ -23,7 +23,7 @@ public:
     bool BeforeShut() override;
     bool Shut() override;
     bool Execute() override;
-    bool OnReloadPlugin() override;
+    bool OnReloadConfig() override;
 public:
 	virtual proto_ff::ServerInfoReport GetDefaultMasterInfo(NF_SERVER_TYPES eServerType);
     /// @brief 初始化zookeeper连接

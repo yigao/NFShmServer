@@ -108,9 +108,24 @@ bool NFCSharedMemModule::Finalize()
 	return true;
 }
 
-bool NFCSharedMemModule::OnReloadPlugin()
+bool NFCSharedMemModule::OnReloadConfig()
 {
 	return true;
+}
+
+bool NFCSharedMemModule::AfterOnReloadConfig()
+{
+    for (int i = 0; i < (int)m_nObjSegSwapCounter.size(); i++) {
+        NFShmObjSeg* pObjSeg = m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_pObjSeg;
+        if (pObjSeg) {
+            NFShmObj* pObj = pObjSeg->GetHeadObj();
+            while (pObj) {
+                pObj->AfterOnReloadConfig();
+                pObj = pObjSeg->GetNextObj(pObj);
+            }
+        }
+    }
+    return true;
 }
 
 int	NFCSharedMemModule::ReadRunMode()
@@ -895,7 +910,11 @@ NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
         if (iID >= 0)
         {
             pObj->SetGlobalID(iID);
-
+#ifdef NF_DEBUG_MODE
+            pObj->SetTimerObjType(iType);
+            pObj->SetTimerObjIndex(pObj->GetObjectID());
+            pObj->PrintMyself();
+#endif
             if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
             {
                 int iHashID = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashAlloc(hashKey, iID);

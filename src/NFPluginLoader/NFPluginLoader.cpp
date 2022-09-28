@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
                 if (pPluginManager->GetReloadApp())
                 {
                     pPluginManager->SetReloadApp(false);
-                    pPluginManager->OnReloadPlugin();
+                    pPluginManager->OnReloadConfig();
                 }
 
                 if (pPluginManager->GetChangeProfileApp())

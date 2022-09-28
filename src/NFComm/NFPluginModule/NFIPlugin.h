@@ -69,9 +69,9 @@ public:
 
 	virtual bool Finalize() override;
 
-	virtual bool OnReloadPlugin() override;
+	virtual bool OnReloadConfig() override;
 
-    virtual bool AfterOnReloadPlugin() override;
+    virtual bool AfterOnReloadConfig() override;
 
 	virtual bool InitShmObjectRegister();
 

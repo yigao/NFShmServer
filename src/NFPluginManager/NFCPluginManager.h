@@ -61,7 +61,7 @@ public:
 
 	virtual bool Finalize() override;
 
-	virtual bool OnReloadPlugin() override;
+	virtual bool OnReloadConfig() override;
 
 	//////////////////////////////////////////////////////////////////////////
 

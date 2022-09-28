@@ -27,6 +27,11 @@ public:
 		return 0;
 	}
 
+	virtual int AfterOnReloadConfig()
+    {
+	    return 0;
+    }
+
 	//must be virtual
 	virtual void OnTimer(int timeId, int callcount)
     {

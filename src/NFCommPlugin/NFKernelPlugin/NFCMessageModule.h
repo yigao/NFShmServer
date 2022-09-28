@@ -28,7 +28,7 @@ public:
 
     virtual bool Execute() override;
 
-    virtual bool OnReloadPlugin() override;
+    virtual bool OnReloadConfig() override;
 
     /**
      * @brief 添加服务器

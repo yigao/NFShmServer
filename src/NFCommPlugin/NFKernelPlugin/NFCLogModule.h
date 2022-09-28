@@ -25,7 +25,7 @@ public:
 	virtual ~NFCLogModule();
 
 	virtual bool Shut() override;
-	virtual bool OnReloadPlugin() override;
+	virtual bool OnReloadConfig() override;
 
 	/**
 	* @brief 初始化log系统

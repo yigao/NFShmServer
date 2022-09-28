@@ -108,7 +108,7 @@ bool  NFCConsoleModule::Execute()
 	return true;
 }
 
-bool  NFCConsoleModule::OnReloadPlugin()
+bool  NFCConsoleModule::OnReloadConfig()
 {
 	return true;
 }

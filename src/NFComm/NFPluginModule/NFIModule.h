@@ -73,12 +73,12 @@ public:
 		return true;
 	}
 
-	virtual bool OnReloadPlugin()
+	virtual bool OnReloadConfig()
 	{
 		return true;
 	}
 
-    virtual bool AfterOnReloadPlugin()
+    virtual bool AfterOnReloadConfig()
     {
         return true;
     }

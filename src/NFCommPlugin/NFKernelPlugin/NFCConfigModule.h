@@ -24,7 +24,7 @@ public:
 	bool Shut() override;
 	bool Finalize() override;
 	bool Execute() override;
-	bool OnReloadPlugin() override;
+	bool OnReloadConfig() override;
 
 	virtual bool LoadConfig() override;
 public:

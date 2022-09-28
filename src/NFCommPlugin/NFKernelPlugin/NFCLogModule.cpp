@@ -74,7 +74,7 @@ bool NFCLogModule::Shut()
 	return true;
 }
 
-bool NFCLogModule::OnReloadPlugin()
+bool NFCLogModule::OnReloadConfig()
 {
 	SetDefaultLogConfig();
 	return true;

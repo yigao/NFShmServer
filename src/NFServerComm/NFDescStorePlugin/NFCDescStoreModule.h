@@ -26,7 +26,7 @@ public:
 
     virtual bool Execute() override;
 
-	virtual bool OnReloadPlugin() override;
+	virtual bool OnReloadConfig() override;
 
 	virtual void RegisterDescStore(const std::string& strClassName, int objType, const std::string& dbName) override;
     virtual void RegisterDescStore(const std::string& strClassName, int objType) override;

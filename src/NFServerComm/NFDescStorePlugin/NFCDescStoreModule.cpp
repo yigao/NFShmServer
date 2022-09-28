@@ -83,7 +83,7 @@ bool NFCDescStoreModule::Execute() {
     return true;
 }
 
-bool NFCDescStoreModule::OnReloadPlugin() {
+bool NFCDescStoreModule::OnReloadConfig() {
     Reload();
     return true;
 }

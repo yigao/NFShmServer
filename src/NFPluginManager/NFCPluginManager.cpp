@@ -635,32 +635,24 @@ bool NFCPluginManager::Shut()
 	return true;
 }
 
-bool NFCPluginManager::OnReloadPlugin()
+bool NFCPluginManager::OnReloadConfig()
 {
-	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager OnReloadPlugin................");
+	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager OnReloadConfig................");
 
 	/*
 	加载服务器配置
 	*/
-	((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->LoadConfig();
-
-	//first kernel plugin
-	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
-	{
-		if (itInstance->first == "NFKernelPlugin")
-		{
-			itInstance->second->OnReloadPlugin();
-			break;
-		}
-	}
+	FindModule<NFIConfigModule>()->LoadConfig();
 
 	for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
 	{
-		if (itInstance->first != "NFKernelPlugin")
-		{
-			itInstance->second->OnReloadPlugin();
-		}
+        itInstance->second->OnReloadConfig();
 	}
+
+    for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
+    {
+        itInstance->second->AfterOnReloadConfig();
+    }
 
 	return true;
 }
