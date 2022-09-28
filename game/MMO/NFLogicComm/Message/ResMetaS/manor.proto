@@ -68,7 +68,7 @@ message manormanorlist
 
 message Sheet_manormanorlist
 {
-	repeated manormanorlist manormanorlist_List = 1[(yd_fieldoptions.field_arysize)=60];
+	repeated manormanorlist manormanorlist_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message manorproductproductDesc

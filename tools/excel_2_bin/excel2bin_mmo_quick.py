@@ -249,8 +249,8 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	global g_step
 	global g_now_step
 
-	print "line(%s:%d) fill_record record[%s] start row:col[%d:%d] recursion_count[%d] parent_layertype[%s] parent_layer_cname[%s]++++++++++++++++" % \
-		  (__file__, sys._getframe().f_lineno, record.DESCRIPTOR.full_name, row_index, col_index, recursion_count, parent_layertype, parent_layer_cname)
+	#print "line(%s:%d) fill_record record[%s] start row:col[%d:%d] recursion_count[%d] parent_layertype[%s] parent_layer_cname[%s]++++++++++++++++" % \
+	#	  (__file__, sys._getframe().f_lineno, record.DESCRIPTOR.full_name, row_index+1, col_index+1, recursion_count, parent_layertype, parent_layer_cname)
 
 	# example Sheet-Sheetobject-1-CommodityFactoryAddress
 	current_layer_typename = parent_layertype  + '-' + record.DESCRIPTOR.name + '-' + parent_layer_cname
@@ -275,9 +275,9 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	last_ok_col_index = -1;
 	while col_index < excel_sheet_col_count:
 		#得到sheet的列名
-		col_en_name = str(sheet.cell_value(0, col_index))
-		column_name = sheet.cell_value(1, col_index)
-		col_type = str(sheet.cell_value(2, col_index))
+		col_en_name = str(sheet.cell_value(0, col_index)).strip()
+		column_name = str(sheet.cell_value(1, col_index)).strip()
+		col_type = str(sheet.cell_value(2, col_index)).strip()
 
 		#print "line(%s:%d) now process excel column[%s] col_index[%d]" % (__file__, sys._getframe().f_lineno, column_name, col_index)
 		#循环查找对应名字，sheet的列名要和field的cname对应
@@ -411,8 +411,8 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 			#print "line(%s:%d) excel column[%s] ignore" % (__file__, sys._getframe().f_lineno, column_name)
 			continue
 
-		#print "line(%s:%d) excel excel_col[%d] field_property_index[%d] field_property_name[%s] field_property_label[%d]" % \
-		#	  (__file__, sys._getframe().f_lineno, col_index, field_property_index, field_property_name, field_property_label)
+		print "line(%s:%d) excel row[%d]:col[%d] current_layer_cname[%s] field_property_cname[%s] field_property_name[%s] value[%s]" % \
+			  (__file__, sys._getframe().f_lineno, row_index+1, col_index+1, current_layer_cname, field_property_cname, field_property_name, str(sheet.cell_value(row_index, col_index)))
 
 		#基本类型的成员
 		if field_property_label != descriptor.FieldDescriptor.LABEL_REPEATED and \
@@ -502,6 +502,12 @@ def read_excel(excel_file, excel_sheetname, proto_sheet_repeatedfieldname, sheet
 				parent_layername = sheet_object.DESCRIPTOR.name
 				is_start = row_index == start_row
 				g_now_step = 0
+
+				if is_start == False and col_index == 0:
+					if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
+							sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_BLANK or len(str(sheet.cell_value(row_index, col_index))) == 0:
+						print "\033[1;31;40mError!! excel[%s] sheet[%s] col[%s]:[%s] must be check, the key is empty!!! \033[0m" % (excel_sheetname, excel_file, row_index+1, col_index+1)
+						continue
 
 				#print "[row: %d] [start: %d]" % (row_index, is_start)
 				fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recursion_count, parent_layername, "", is_start)

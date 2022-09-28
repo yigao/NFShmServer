@@ -51,7 +51,7 @@ message monsterdisplay
 	optional int64 displayID = 1[(yd_fieldoptions.field_cname) = "资源与表现ID"];
 	optional int32 modelOffsetsX = 2[(yd_fieldoptions.field_cname) = "UI模型X坐标偏移"];
 	optional int32 modelOffsetsY = 3[(yd_fieldoptions.field_cname) = "UI模型Y坐标偏移"];
-	optional int32 modelScale = 4[(yd_fieldoptions.field_cname) = "UI模型缩放比例 "];
+	optional int32 modelScale = 4[(yd_fieldoptions.field_cname) = "UI模型缩放比例"];
 	optional int32 modelRadius = 5[(yd_fieldoptions.field_cname) = "怪物模型半径"];
 	optional int32 pathRadius = 6[(yd_fieldoptions.field_cname) = "寻路半径"];
 	optional int32 collisionRadius = 7[(yd_fieldoptions.field_cname) = "寻路半径"];

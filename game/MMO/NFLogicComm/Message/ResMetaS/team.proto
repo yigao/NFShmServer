@@ -11,7 +11,7 @@ message teamteam
 	optional int64 duplicateId = 4[(yd_fieldoptions.field_cname) = "副本ID"];
 	optional int64 activityId = 5[(yd_fieldoptions.field_cname) = "活动ID"];
 	optional int32 LowLV = 6[(yd_fieldoptions.field_cname) = "下限等级"];
-	optional int32 UpLV  = 7[(yd_fieldoptions.field_cname) = "上限等级"];
+	optional int32 UpLV = 7[(yd_fieldoptions.field_cname) = "上限等级"];
 	optional int32 isAutoMatch = 8[(yd_fieldoptions.field_cname) = "是否自动匹配"];
 	optional int32 speakChannel = 9[(yd_fieldoptions.field_cname) = "喊话频道"];
 	optional int32 teamnumber = 10[(yd_fieldoptions.field_cname) = "序列"];

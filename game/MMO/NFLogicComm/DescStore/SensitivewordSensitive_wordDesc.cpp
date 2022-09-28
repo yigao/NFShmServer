@@ -30,10 +30,10 @@ int SensitivewordSensitive_wordDesc::ResumeInit()
 
 int SensitivewordSensitive_wordDesc::Load(NFResDB *pDB)
 {
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--begin--");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
 
 	proto_ff::Sheet_sensitivewordsensitive_word table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
@@ -43,25 +43,30 @@ int SensitivewordSensitive_wordDesc::Load(NFResDB *pDB)
 	iRet = pResTable->FindAllRecord(GetDBName(), &table);
 	CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
 
-	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
+	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
 	if ((table.sensitivewordsensitive_word_list_size() < 0) || (table.sensitivewordsensitive_word_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.sensitivewordsensitive_word_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.sensitivewordsensitive_word_list_size());
 		return -2;
 	}
 
 	for (int i = 0; i < table.sensitivewordsensitive_word_list_size(); i++)
 	{
 		const proto_ff::sensitivewordsensitive_word& desc = table.sensitivewordsensitive_word_list(i);
-		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
+		if (desc.has_id() == false && desc.ByteSize() == 0)
+		{
+			NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "the desc no value, {}", desc.Utf8DebugString());
+			continue;
+		}
+		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.id());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.id());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.sensitivewordsensitive_word_list_size());
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.sensitivewordsensitive_word_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
 

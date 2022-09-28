@@ -41,7 +41,7 @@ message occupationaptitude
 {
 	optional int64 id = 1[(yd_fieldoptions.field_cname) = "资质ID"];
 	optional int32 grade = 2[(yd_fieldoptions.field_cname) = "职业等级ID"];
-	optional int32 level = 3[(yd_fieldoptions.field_cname) = " 资质等级"];
+	optional int32 level = 3[(yd_fieldoptions.field_cname) = "资质等级"];
 	optional int64 requirement = 4[(yd_fieldoptions.field_cname) = "战力"];
 	optional int64 material = 5[(yd_fieldoptions.field_cname) = "进阶材料ID"];
 	optional int32 num = 6[(yd_fieldoptions.field_cname) = "进阶材料数量"];

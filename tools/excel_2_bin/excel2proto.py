@@ -126,10 +126,10 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 #////////////////////////////////////////////////////////////////
 	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::Load(NFResDB *pDB)\n")
 	desc_file.write("{\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"--begin--\");\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"--begin--\");\n")
 	desc_file.write("\tCHECK_EXPR(pDB != NULL, -1, \"pDB == NULL\");\n")
 	desc_file.write("\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"NFConstDesc::Load() strFileName = {}\", GetFileName());\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"NFConstDesc::Load() strFileName = {}\", GetFileName());\n")
 	desc_file.write("\n")
 	desc_file.write("\tproto_ff::Sheet_" + excel_name + sheet_name + " table;\n")
 	desc_file.write("\tNFResTable* pResTable = pDB->GetTable(GetFileName());\n")
@@ -139,25 +139,30 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\tiRet = pResTable->FindAllRecord(GetDBName(), &table);\n")
 	desc_file.write("\tCHECK_EXPR(iRet == 0, -1, \"FindAllRecord Error:{}\", GetFileName());\n")
 	desc_file.write("\n")
-	desc_file.write("\t//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"{}\", table.Utf8DebugString());\n")
+	desc_file.write("\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", table.Utf8DebugString());\n")
 	desc_file.write("\n")
 	desc_file.write("\tif ((table." + excel_name.lower() + sheet_name.lower() + "_list_size() < 0) || (table." + excel_name.lower() + sheet_name.lower() + "_list_size() > (int)(m_astDesc.GetSize())))\n")
 	desc_file.write("\t{\n")
-	desc_file.write("\t\tNFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"Invalid TotalNum:{}\", table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
+	desc_file.write("\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"Invalid TotalNum:{}\", table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\t\treturn -2;\n")
 	desc_file.write("\t}\n")
 	desc_file.write("\n")
 	desc_file.write("\tfor (int i = 0; i < table." + excel_name.lower() + sheet_name.lower() + "_list_size(); i++)\n")
 	desc_file.write("\t{\n")
 	desc_file.write("\t\tconst proto_ff::" + excel_name + sheet_name + "& desc = table." + excel_name.lower() + sheet_name.lower() + "_list(i);\n")
-	desc_file.write("\t\t//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"{}\", desc.Utf8DebugString());\n")
-	desc_file.write("\t\tauto pDesc = m_astDesc.Insert(desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
+	desc_file.write("\t\tif (desc.has_" + str(sheet.cell_value(0, 0)).lower().strip() + "() == false && desc.ByteSize() == 0)\n")
+	desc_file.write("\t\t{\n")
+	desc_file.write("\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n")
+	desc_file.write("\t\t\tcontinue;\n")
+	desc_file.write("\t\t}\n")
+	desc_file.write("\t\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", desc.Utf8DebugString());\n")
+	desc_file.write("\t\tauto pDesc = m_astDesc.Insert(desc." + str(sheet.cell_value(0, 0)).lower().strip() + "());\n")
 	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc.Insert Failed desc.id:{}\", desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
 	desc_file.write("\t\tpDesc->read_from_pbmsg(desc);\n");
 	desc_file.write("\t}\n")
 	desc_file.write("\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"load {}, num={}\", iRet, table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, \"--end--\");\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"load {}, num={}\", iRet, table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"--end--\");\n")
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
@@ -311,9 +316,9 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 			#开始按行读取
 			for col_index in xrange(0, excel_sheet_col_count):
-				col_en_name = str(sheet.cell_value(0, col_index))
-				col_cn_name = str(sheet.cell_value(1, col_index))
-				col_type = str(sheet.cell_value(2, col_index))
+				col_en_name = str(sheet.cell_value(0, col_index)).strip()
+				col_cn_name = str(sheet.cell_value(1, col_index)).strip()
+				col_type = str(sheet.cell_value(2, col_index)).strip()
 
 				if len(col_en_name) == 0 or len(col_cn_name) == 0 or len(col_type) == 0:
 					continue
@@ -328,10 +333,10 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 				if len(col_en_name_list) == 2 and len(col_cn_name_list) == 3 and len(col_en_name_list[0]) > 0 and len(col_en_name_list[1]) > 0 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) > 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
-					struct_en_name = str(col_en_name_list[0])
-					struct_en_sub_name = str(col_en_name_list[1])
-					struct_cn_name = str(col_cn_name_list[0])
-					struct_cn_sub_name = str(col_cn_name_list[2])
+					struct_en_name = str(col_en_name_list[0]).strip()
+					struct_en_sub_name = str(col_en_name_list[1]).strip()
+					struct_cn_name = str(col_cn_name_list[0]).strip()
+					struct_cn_sub_name = str(col_cn_name_list[2]).strip()
 					if sheet_struct_info.has_key(struct_en_name) == False:
 						sheet_struct_info[struct_en_name] = {}
 						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -370,8 +375,8 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 						if col_index_temp == col_index:
 							continue
 
-						col_en_name_temp = str(sheet.cell_value(0, col_index_temp))
-						col_cn_name_temp = str(sheet.cell_value(1, col_index_temp))
+						col_en_name_temp = str(sheet.cell_value(0, col_index_temp)).strip()
+						col_cn_name_temp = str(sheet.cell_value(1, col_index_temp)).strip()
 						col_type_temp = str(sheet.cell_value(2, col_index_temp))
 						col_en_name_list_temp = col_en_name_temp.split("_")
 						col_cn_name_list_temp = re.split('(\d+)', col_cn_name_temp)
@@ -389,10 +394,10 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 					if has_col == True:
 						sheet_struct_col_info[col_index] = 1
 						struct_num = int(col_cn_name_list[1])
-						struct_en_name = str(col_en_name_list[0])
-						struct_en_sub_name = str(col_en_name_list[1])
-						struct_cn_name = str(col_cn_name_list[0])
-						struct_cn_sub_name = str(col_cn_name_list[2])
+						struct_en_name = str(col_en_name_list[0]).strip()
+						struct_en_sub_name = str(col_en_name_list[1]).strip()
+						struct_cn_name = str(col_cn_name_list[0]).strip()
+						struct_cn_sub_name = str(col_cn_name_list[2]).strip()
 						if sheet_struct_info.has_key(struct_en_name) == False:
 							sheet_struct_info[struct_en_name] = {}
 							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -427,10 +432,10 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 					elif has_diff == True:
 						sheet_struct_col_info[col_index] = 1
 						struct_num = int(col_cn_name_list[1])
-						struct_en_name = str(col_en_name_list[0])
-						struct_en_sub_name = str(col_en_name_list[1])
+						struct_en_name = str(col_en_name_list[0]).strip()
+						struct_en_sub_name = str(col_en_name_list[1]).strip()
 						struct_cn_name = "$$$$"
-						struct_cn_sub_name = str(col_cn_name_list[0])
+						struct_cn_sub_name = str(col_cn_name_list[0]).strip()
 						if sheet_struct_info.has_key(struct_en_name) == False:
 							sheet_struct_info[struct_en_name] = {}
 							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -466,7 +471,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 						sheet_struct_col_info[col_index] = 1
 						struct_num = int(col_cn_name_list[1])
 						struct_en_name = col_en_name
-						struct_cn_name = str(col_cn_name_list[0])
+						struct_cn_name = str(col_cn_name_list[0]).strip()
 						if sheet_struct_info.has_key(struct_en_name) == False:
 							sheet_struct_info[struct_en_name] = {}
 							sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -492,7 +497,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
 					struct_en_name = col_en_name
-					struct_cn_name = str(col_cn_name_list[0])
+					struct_cn_name = str(col_cn_name_list[0]).strip()
 					if sheet_struct_info.has_key(struct_en_name) == False:
 						sheet_struct_info[struct_en_name] = {}
 						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -517,8 +522,8 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 				elif len(col_en_name_list) == 1 and len(col_cn_name_list) == 3 and len(col_cn_name_list[0]) > 0 and len(col_cn_name_list[2]) > 0:
 					sheet_struct_col_info[col_index] = 1
 					struct_num = int(col_cn_name_list[1])
-					struct_en_name = str(col_en_name_list[0])
-					struct_cn_name = str(col_cn_name_list[0]) + "9999" + str(col_cn_name_list[2])
+					struct_en_name = str(col_en_name_list[0]).strip()
+					struct_cn_name = str(col_cn_name_list[0]).strip() + "9999" + str(col_cn_name_list[2]).strip()
 					if sheet_struct_info.has_key(struct_en_name) == False:
 						sheet_struct_info[struct_en_name] = {}
 						sheet_struct_info[struct_en_name]["en_name"] = struct_en_name
@@ -543,8 +548,8 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 			#开始按行读取
 			for col_index in xrange(0, excel_sheet_col_count):
-				col_en_name = str(sheet.cell_value(0, col_index))
-				col_cn_name = str(sheet.cell_value(1, col_index))
+				col_en_name = str(sheet.cell_value(0, col_index)).strip()
+				col_cn_name = str(sheet.cell_value(1, col_index)).strip()
 				col_type = sheet.cell_value(2, col_index)
 
 				if len(col_en_name) == 0 or len(col_cn_name) == 0 or len(col_type) == 0:
@@ -559,8 +564,8 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 					continue;
 
 				one_col_info = {}
-				one_col_info["col_en_name"] = sheet.cell_value(0, col_index)
-				one_col_info["col_cn_name"] = sheet.cell_value(1, col_index)
+				one_col_info["col_en_name"] = str(sheet.cell_value(0, col_index)).strip()
+				one_col_info["col_cn_name"] = str(sheet.cell_value(1, col_index)).strip()
 				one_col_info["col_type"] = col_type
 				one_col_info["col_max_size"] = int(32)
 				if col_type == "string":

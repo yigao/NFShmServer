@@ -122,7 +122,7 @@ namespace proto_ff_s {
 		Sheet_manormanorlist_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct manormanorlist_s, 60> manormanorlist_List;
+		NFArray<struct manormanorlist_s, 40> manormanorlist_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_manormanorlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_manormanorlist & msg);

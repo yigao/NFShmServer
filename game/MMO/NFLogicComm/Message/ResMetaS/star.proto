@@ -61,7 +61,7 @@ message Sheet_starexp
 
 message starastrology
 {
-	optional int32  astrology = 1[(yd_fieldoptions.field_cname) = "占星次数"];
+	optional int32 astrology = 1[(yd_fieldoptions.field_cname) = "占星次数"];
 	optional int64 itemId = 2[(yd_fieldoptions.field_cname) = "消耗道具id"];
 	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "消耗道具数量"];
 	optional int32 fragment = 4[(yd_fieldoptions.field_cname) = "奖励命星碎片数"];

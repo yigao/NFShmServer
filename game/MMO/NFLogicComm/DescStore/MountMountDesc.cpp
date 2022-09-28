@@ -30,10 +30,10 @@ int MountMountDesc::ResumeInit()
 
 int MountMountDesc::Load(NFResDB *pDB)
 {
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--begin--");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
 
 	proto_ff::Sheet_mountmount table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
@@ -43,25 +43,30 @@ int MountMountDesc::Load(NFResDB *pDB)
 	iRet = pResTable->FindAllRecord(GetDBName(), &table);
 	CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
 
-	//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", table.Utf8DebugString());
+	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
 	if ((table.mountmount_list_size() < 0) || (table.mountmount_list_size() > (int)(m_astDesc.GetSize())))
 	{
-		NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "Invalid TotalNum:{}", table.mountmount_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.mountmount_list_size());
 		return -2;
 	}
 
 	for (int i = 0; i < table.mountmount_list_size(); i++)
 	{
 		const proto_ff::mountmount& desc = table.mountmount_list(i);
-		//NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "{}", desc.Utf8DebugString());
+		if (desc.has_mountid() == false && desc.ByteSize() == 0)
+		{
+			NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "the desc no value, {}", desc.Utf8DebugString());
+			continue;
+		}
+		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = m_astDesc.Insert(desc.mountid());
 		CHECK_EXPR(pDesc, -1, "m_astDesc.Insert Failed desc.id:{}", desc.mountid());
 		pDesc->read_from_pbmsg(desc);
 	}
 
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "load {}, num={}", iRet, table.mountmount_list_size());
-	NFLogTrace(NF_LOG_COMM_LOGIC_PLUGIN, 0, "--end--");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.mountmount_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
 

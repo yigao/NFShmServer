@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/manor_s.h"
 
-#define MAX_MANOR_MANORLIST_NUM 60
+#define MAX_MANOR_MANORLIST_NUM 40
 
 class ManorManorlistDesc : public NFIDescStore
 {
