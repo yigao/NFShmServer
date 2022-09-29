@@ -56,7 +56,7 @@ int OperateTutorDesc::Load(NFResDB *pDB)
 		const proto_ff::operatetutor& desc = table.operatetutor_list(i);
 		if (desc.has_id() == false && desc.ByteSize() == 0)
 		{
-			NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "the desc no value, {}", desc.Utf8DebugString());
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());

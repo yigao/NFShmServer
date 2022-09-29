@@ -56,7 +56,7 @@ int SensitivewordSensitive_wordDesc::Load(NFResDB *pDB)
 		const proto_ff::sensitivewordsensitive_word& desc = table.sensitivewordsensitive_word_list(i);
 		if (desc.has_id() == false && desc.ByteSize() == 0)
 		{
-			NFLogError(NF_LOG_COMM_LOGIC_PLUGIN, 0, "the desc no value, {}", desc.Utf8DebugString());
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
