@@ -7,7 +7,7 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFProtobufCommon.h"
 
-NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false),m_reloadApp(false),m_exitApp(false),m_hotfixExitApp(false)
+NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_hotfixServer(false)
 {
 }
 
@@ -55,27 +55,27 @@ bool NFGlobalSystem::IsReloadApp() const
     return m_reloadApp;
 }
 
-void NFGlobalSystem::SetReloadApp(bool reloadApp)
+void NFGlobalSystem::SetReloadServer(bool reloadApp)
 {
     m_reloadApp = reloadApp;
 }
 
-bool NFGlobalSystem::IsExitApp() const
+bool NFGlobalSystem::IsServerStopping() const
 {
-    return m_exitApp;
+    return m_serverStopping;
 }
 
-void NFGlobalSystem::SetExitApp(bool exitApp)
+void NFGlobalSystem::SetServerStopping(bool exitApp)
 {
-    m_exitApp = exitApp;
+    m_serverStopping = exitApp;
 }
 
-bool NFGlobalSystem::IsHotfixExitApp() const
+bool NFGlobalSystem::IsHotfixServer() const
 {
-    return m_hotfixExitApp;
+    return m_hotfixServer;
 }
 
-void NFGlobalSystem::SetHotfixExitApp(bool hotfixExitApp)
+void NFGlobalSystem::SetHotfixServer(bool hotfixExitApp)
 {
-    m_hotfixExitApp = hotfixExitApp;
+    m_hotfixServer = hotfixExitApp;
 }

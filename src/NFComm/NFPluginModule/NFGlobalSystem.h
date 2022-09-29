@@ -33,27 +33,27 @@ public:
     /*
      * reload server 重新加载服务器的配置数据
      * */
-    void SetReloadApp(bool reloadApp);
+    void SetReloadServer(bool reloadApp);
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    bool IsExitApp() const;
+    bool IsServerStopping() const;
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    void SetExitApp(bool exitApp);
+    void SetServerStopping(bool exitApp);
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    bool IsHotfixExitApp() const;
+    bool IsHotfixServer() const;
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    void SetHotfixExitApp(bool hotfixExitApp);
+    void SetHotfixServer(bool hotfixExitApp);
 
 private:
     bool m_gIsMoreServer;
@@ -61,8 +61,8 @@ private:
     std::vector<NFIPluginManager *> m_gGlobalPluginManagerList;
     proto_ff::pbPluginConfig m_gAllMoreServerConfig;
     bool m_reloadApp;
-    bool m_exitApp;
-    bool m_hotfixExitApp;
+    bool m_serverStopping;
+    bool m_hotfixServer;
 public:
     bool IsMoreServer() const
     {

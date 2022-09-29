@@ -58,24 +58,24 @@ int main(int argc, char* argv[])
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
                 NFIPluginManager *pPluginManager = vecPluginManager[i];
-                pPluginManager->SetReloadApp(true);
+                pPluginManager->SetReloadServer(true);
                 pPluginManager->OnReloadConfig();
-                pPluginManager->SetReloadApp(false);
+                pPluginManager->SetReloadServer(false);
                 pPluginManager->AfterOnReloadConfig();
             }
-            NFGlobalSystem::Instance()->SetReloadApp(false);
+            NFGlobalSystem::Instance()->SetReloadServer(false);
         }
 
         /*
          * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
          * */
-        if (NFGlobalSystem::Instance()->IsExitApp())
+        if (NFGlobalSystem::Instance()->IsServerStopping())
         {
             bool bExit = true;
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
                 NFIPluginManager *pPluginManager = vecPluginManager[i];
-                pPluginManager->SetExitApp(true);
+                pPluginManager->SetServerStopping(true);
                 if (pPluginManager->StopServer() == false)
                 {
                     bExit = false;
@@ -91,14 +91,14 @@ int main(int argc, char* argv[])
         /*
          * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
          * */
-        if (NFGlobalSystem::Instance()->IsHotfixExitApp())
+        if (NFGlobalSystem::Instance()->IsHotfixServer())
         {
             bool bExit = true;
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
                 NFIPluginManager *pPluginManager = vecPluginManager[i];
-                pPluginManager->SetHotfixExitApp(true);
-                if (pPluginManager->HotfixExitApp() == false)
+                pPluginManager->SetHotfixServer(true);
+                if (pPluginManager->HotfixServer() == false)
                 {
                     bExit = false;
                 }

@@ -91,7 +91,7 @@ void NFCConsoleModule::CheckPluginThread()
 void NFCConsoleModule::CheckPluginThreadLoop()
 {
 	uint32_t count = 0;
-	while (!m_pObjPluginManager->GetExitApp())
+	while (!m_pObjPluginManager->IsServerStopping())
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
@@ -115,7 +115,7 @@ bool  NFCConsoleModule::OnReloadConfig()
 
 void NFCConsoleModule::BackThreadLoop()
 {
-	while (!m_pObjPluginManager->GetExitApp())
+	while (!m_pObjPluginManager->IsServerStopping())
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
@@ -263,7 +263,7 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 
 		if (msg.mMsgType == NFConsoleMsg_Exit)
 		{
-			m_pObjPluginManager->SetExitApp(true);
+            m_pObjPluginManager->SetServerStopping(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Profiler)
 		{
@@ -271,7 +271,7 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Reload)
 		{
-			m_pObjPluginManager->SetReloadApp(true);
+            m_pObjPluginManager->SetReloadServer(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_HotfixAllLua)
 		{

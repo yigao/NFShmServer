@@ -1192,7 +1192,7 @@ void FailureSignalHandler(int signal_number,
                           void *ucontext)
 {
     //before every thing
-    NFGlobalSystem::Instance()->GetGlobalPluginManager()->HotfixExitApp();
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->HotfixServer();
 
     // First check if we've already entered the function.  We use an atomic
     // compare and swap operation for platforms that support it.  For other
@@ -1286,14 +1286,14 @@ void HandleSignal(int signo)
          * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
          * */
         case SIGUSR1:
-            NFGlobalSystem::Instance()->SetExitApp(true);
+            NFGlobalSystem::Instance()->SetServerStopping(true);
             break;
 
         /*
          * reload server 重新加载服务器的配置数据
         * */
         case SIGUSR2:
-            NFGlobalSystem::Instance()->SetReloadApp(true);
+            NFGlobalSystem::Instance()->SetReloadServer(true);
             break;
         /*
          * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
@@ -1301,7 +1301,7 @@ void HandleSignal(int signo)
         case SIGUNUSED:
         case SIGTERM:
         {
-            NFGlobalSystem::Instance()->SetHotfixExitApp(true);
+            NFGlobalSystem::Instance()->SetHotfixServer(true);
         }
             break;
         default:

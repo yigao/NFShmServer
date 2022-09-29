@@ -273,12 +273,12 @@ public:
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    virtual bool GetExitApp() const override { return m_bExitApp; }
+    virtual bool IsServerStopping() const override { return m_bServerStopping; }
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    virtual void SetExitApp(bool exitApp) override { m_bExitApp = exitApp; }
+    virtual void SetServerStopping(bool exitApp) override { m_bServerStopping = exitApp; }
 
     /*
      * 停服之前，检查服务器是否满足停服条件
@@ -298,17 +298,17 @@ public:
     /*
      * 停服之前保存需要的数据
      * */
-    virtual bool SaveDBBeforeExitApp() override;
+    virtual bool SaveDB() override;
 
     /*
      * reload server 重新加载服务器的配置数据
      * */
-    virtual bool GetReloadApp() const override { return m_bReloadApp; }
+    virtual bool IsReloadServer() const override { return m_bReloadServer; }
 
     /*
      * reload server 重新加载服务器的配置数据
      * */
-    virtual void SetReloadApp(bool exitApp) override { m_bReloadApp = exitApp; }
+    virtual void SetReloadServer(bool exitApp) override { m_bReloadServer = exitApp; }
 
     virtual bool GetChangeProfileApp() const override { return m_bChangeProfileApp; }
 
@@ -321,27 +321,27 @@ public:
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual bool IsHotfixExitApp() const override { return m_bHotfixExitApp; }
+    virtual bool IsHotfixServer() const override { return m_bHotfixServer; }
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual void SetHotfixExitApp(bool exitApp) override { m_bHotfixExitApp = exitApp; }
+    virtual void SetHotfixServer(bool exitApp) override { m_bHotfixServer= exitApp; }
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual bool HotfixExitApp() override;
+    virtual bool HotfixServer() override;
 
 private:
     //通过console控制服务器变量
-    std::atomic_bool m_bExitApp{};
+    std::atomic_bool m_bServerStopping{};
     //通过console控制服务器变量重新加载配置
-    std::atomic_bool m_bReloadApp{};
+    std::atomic_bool m_bReloadServer{};
     //通过console控制服务器变量计算服务器效率
     std::atomic_bool m_bChangeProfileApp{};
     //通过console控制服务器, 直接关闭服务器，不做处理
-    std::atomic_bool m_bHotfixExitApp{};
+    std::atomic_bool m_bHotfixServer{};
     //是否初始化共享内存
     bool m_bInitShm;
     bool m_isKillPreApp;    //是否杀掉上一个应用程序，

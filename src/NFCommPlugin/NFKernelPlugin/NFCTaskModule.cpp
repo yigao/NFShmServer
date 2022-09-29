@@ -149,7 +149,7 @@ int NFCTaskModule::SendMsgToActor(const int nActorIndex, NFTask* pData)
 */
 int NFCTaskModule::SendMsgToActor(NFTaskActor* pActor, NFTask* pData)
 {
-	if (!m_pObjPluginManager->GetExitApp())
+	if (!m_pObjPluginManager->IsServerStopping())
 	{
 		if (pActor != nullptr && m_pMainActor != nullptr && m_pFramework != nullptr)
 		{

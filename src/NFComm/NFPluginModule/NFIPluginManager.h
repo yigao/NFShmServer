@@ -259,12 +259,12 @@ public:
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    virtual bool GetExitApp() const = 0;
+    virtual bool IsServerStopping() const = 0;
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
      * */
-    virtual void SetExitApp(bool exitApp) = 0;
+    virtual void SetServerStopping(bool exitApp) = 0;
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
@@ -284,17 +284,17 @@ public:
     /*
      * 停服之前保存需要的数据
      * */
-    virtual bool SaveDBBeforeExitApp() = 0;
+    virtual bool SaveDB() = 0;
 
     /*
      * reload server 重新加载服务器的配置数据
      * */
-    virtual bool GetReloadApp() const = 0;
+    virtual bool IsReloadServer() const = 0;
 
     /*
      * reload server 重新加载服务器的配置数据
      * */
-    virtual void SetReloadApp(bool exitApp) = 0;
+    virtual void SetReloadServer(bool exitApp) = 0;
 
     virtual bool GetChangeProfileApp() const = 0;
 
@@ -307,17 +307,17 @@ public:
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual bool IsHotfixExitApp() const = 0;
+    virtual bool IsHotfixServer() const = 0;
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual void SetHotfixExitApp(bool exitApp) = 0;
+    virtual void SetHotfixServer(bool exitApp) = 0;
 
     /*
      * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
-    virtual bool HotfixExitApp() = 0;
+    virtual bool HotfixServer() = 0;
 
     virtual bool IsInitShm() const = 0;
 

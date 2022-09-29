@@ -66,10 +66,10 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 	m_isDaemon = false;
 	m_bInitShm = false;
 	m_isKillPreApp = false;
-	m_bReloadApp = false;
-	m_bExitApp = false;
+    m_bReloadServer = false;
+    m_bServerStopping = false;
 	m_bChangeProfileApp = false;
-    m_bHotfixExitApp = false;
+    m_bHotfixServer = false;
     m_bFixedFrame = true;
 
 	m_isInited = false;
@@ -1161,7 +1161,7 @@ int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
     return 0;
 }
 
-bool NFCPluginManager::HotfixExitApp()
+bool NFCPluginManager::HotfixServer()
 {
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
@@ -1225,7 +1225,7 @@ bool NFCPluginManager::LoadKernelPlugin()
     return true;
 }
 
-bool NFCPluginManager::SaveDBBeforeExitApp()
+bool NFCPluginManager::SaveDB()
 {
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
