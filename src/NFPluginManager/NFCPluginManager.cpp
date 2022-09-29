@@ -1166,7 +1166,7 @@ bool NFCPluginManager::HotfixExitApp()
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
-        if ((*iter)->SaveDBBeforeExitApp() == false)
+        if ((*iter)->SaveDB() == false)
         {
             ret = false;
         }
@@ -1230,7 +1230,7 @@ bool NFCPluginManager::SaveDBBeforeExitApp()
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
-        if ((*iter)->SaveDBBeforeExitApp() == false)
+        if ((*iter)->SaveDB() == false)
         {
             ret = false;
         }
@@ -1239,12 +1239,12 @@ bool NFCPluginManager::SaveDBBeforeExitApp()
     return ret;
 }
 
-bool NFCPluginManager::ExitApp()
+bool NFCPluginManager::OnStopServer()
 {
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
-        if ((*iter)->ExitApp() == false)
+        if ((*iter)->OnStopServer() == false)
         {
             ret = false;
         }
@@ -1253,12 +1253,12 @@ bool NFCPluginManager::ExitApp()
     return ret;
 }
 
-bool NFCPluginManager::CheckExitApp()
+bool NFCPluginManager::CheckStopServer()
 {
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
-        if ((*iter)->ExitApp() == false)
+        if ((*iter)->OnStopServer() == false)
         {
             ret = false;
         }
@@ -1269,12 +1269,12 @@ bool NFCPluginManager::CheckExitApp()
 
 bool NFCPluginManager::StopServer()
 {
-    bool ret = CheckExitApp();
+    bool ret = CheckStopServer();
     if (ret == false)
     {
-        ExitApp();
+        OnStopServer();
         return false;
     }
 
-    return SaveDBBeforeExitApp();
+    return true;
 }

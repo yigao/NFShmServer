@@ -283,12 +283,12 @@ public:
     /*
      * 停服之前，检查服务器是否满足停服条件
      * */
-    virtual bool CheckExitApp() override;
+    virtual bool CheckStopServer() override;
 
     /*
      * 停服之前，做一些操作，满足停服条件
      * */
-    virtual bool ExitApp() override;
+    virtual bool OnStopServer() override;
 
     /*
      * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程

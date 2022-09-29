@@ -274,12 +274,12 @@ public:
     /*
      * 停服之前，检查服务器是否满足停服条件
      * */
-    virtual bool CheckExitApp() = 0;
+    virtual bool CheckStopServer() = 0;
 
     /*
      * 停服之前，做一些操作，满足停服条件
      * */
-    virtual bool ExitApp() = 0;
+    virtual bool OnStopServer() = 0;
 
     /*
      * 停服之前保存需要的数据

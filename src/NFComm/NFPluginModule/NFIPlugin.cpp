@@ -304,7 +304,7 @@ bool NFIPlugin::HotfixExitApp()
     return true;
 }
 
-bool NFIPlugin::SaveDBBeforeExitApp()
+bool NFIPlugin::SaveDB()
 {
     bool bRet = true;
     for (size_t i = 0; i < m_vecModule.size(); i++)
@@ -312,7 +312,7 @@ bool NFIPlugin::SaveDBBeforeExitApp()
         NFIModule* pModule = m_vecModule[i];
         if (pModule)
         {
-            if (pModule->SaveDBBeforeExitApp() == false)
+            if (pModule->SaveDB() == false)
             {
                 bRet = false;
             }
@@ -322,7 +322,7 @@ bool NFIPlugin::SaveDBBeforeExitApp()
     return bRet;
 }
 
-bool NFIPlugin::CheckExitApp()
+bool NFIPlugin::CheckStopServer()
 {
     bool bRet = true;
     for (size_t i = 0; i < m_vecModule.size(); i++)
@@ -330,7 +330,7 @@ bool NFIPlugin::CheckExitApp()
         NFIModule* pModule = m_vecModule[i];
         if (pModule)
         {
-            if (pModule->CheckExitApp() == false)
+            if (pModule->CheckStopServer() == false)
             {
                 bRet = false;
             }
@@ -340,7 +340,7 @@ bool NFIPlugin::CheckExitApp()
     return bRet;
 }
 
-bool NFIPlugin::ExitApp()
+bool NFIPlugin::OnStopServer()
 {
     bool bRet = true;
     for (size_t i = 0; i < m_vecModule.size(); i++)
@@ -348,7 +348,7 @@ bool NFIPlugin::ExitApp()
         NFIModule* pModule = m_vecModule[i];
         if (pModule)
         {
-            if (pModule->ExitApp() == false)
+            if (pModule->OnStopServer() == false)
             {
                 bRet = false;
             }

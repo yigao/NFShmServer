@@ -80,17 +80,17 @@ public:
     /*
      * 停服之前，检查服务器是否满足停服条件
      * */
-    virtual bool CheckExitApp() override;
+    virtual bool CheckStopServer() override;
 
     /*
      * 停服之前，做一些操作，满足停服条件
      * */
-    virtual bool ExitApp() override;
+    virtual bool OnStopServer() override;
 
     /*
      * 停服之前保存需要的数据
      * */
-    virtual bool SaveDBBeforeExitApp() override;
+    virtual bool SaveDB() override;
 
     virtual bool InitShmObjectRegister();
 
