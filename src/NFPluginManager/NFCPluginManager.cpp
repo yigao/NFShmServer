@@ -69,7 +69,7 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 	m_bReloadApp = false;
 	m_bExitApp = false;
 	m_bChangeProfileApp = false;
-	m_bShutDownApp = false;
+    m_bHotfixExitApp = false;
     m_bFixedFrame = true;
 
 	m_isInited = false;
@@ -649,12 +649,20 @@ bool NFCPluginManager::OnReloadConfig()
         itInstance->second->OnReloadConfig();
 	}
 
+	return true;
+}
+
+
+bool NFCPluginManager::AfterOnReloadConfig()
+{
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPluginManager AfterOnReloadConfig................");
+
     for (PluginInstanceMap::iterator itInstance = m_nPluginInstanceMap.begin(); itInstance != m_nPluginInstanceMap.end(); ++itInstance)
     {
         itInstance->second->AfterOnReloadConfig();
     }
 
-	return true;
+    return true;
 }
 
 bool NFCPluginManager::Finalize()
@@ -1153,9 +1161,18 @@ int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
     return 0;
 }
 
-int NFCPluginManager::ShutDownApp()
+bool NFCPluginManager::HotfixExitApp()
 {
-    return 0;
+    bool ret = true;
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        if ((*iter)->SaveDBBeforeExitApp() == false)
+        {
+            ret = false;
+        }
+    }
+
+    return ret;
 }
 
 std::list<NFIPlugin*> NFCPluginManager::GetListPlugin()
@@ -1206,4 +1223,58 @@ bool NFCPluginManager::LoadKernelPlugin()
         FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
     }
     return true;
+}
+
+bool NFCPluginManager::SaveDBBeforeExitApp()
+{
+    bool ret = true;
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        if ((*iter)->SaveDBBeforeExitApp() == false)
+        {
+            ret = false;
+        }
+    }
+
+    return ret;
+}
+
+bool NFCPluginManager::ExitApp()
+{
+    bool ret = true;
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        if ((*iter)->ExitApp() == false)
+        {
+            ret = false;
+        }
+    }
+
+    return ret;
+}
+
+bool NFCPluginManager::CheckExitApp()
+{
+    bool ret = true;
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        if ((*iter)->ExitApp() == false)
+        {
+            ret = false;
+        }
+    }
+
+    return ret;
+}
+
+bool NFCPluginManager::StopServer()
+{
+    bool ret = CheckExitApp();
+    if (ret == false)
+    {
+        ExitApp();
+        return false;
+    }
+
+    return SaveDBBeforeExitApp();
 }

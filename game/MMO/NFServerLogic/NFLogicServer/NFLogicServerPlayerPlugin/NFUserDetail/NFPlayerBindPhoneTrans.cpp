@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFPlayerBindPhoneTrans.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"

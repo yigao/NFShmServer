@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFMessageDefine/proto_common_s.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 

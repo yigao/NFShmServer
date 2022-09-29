@@ -9,13 +9,14 @@
 
 #include "NFWorldPlayerMgr.h"
 #include "NFWorldPlayer.h"
-#include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include <map>
+#include <NFComm/NFPluginModule/NFCheck.h>
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
 
-NFWorldPlayerMgr::NFWorldPlayerMgr() {
+NFWorldPlayerMgr::NFWorldPlayerMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {
@@ -53,7 +54,7 @@ void NFWorldPlayerMgr::OnTimer(int timeId, int callcount)
 int NFWorldPlayerMgr::UserTick()
 {
     std::vector<uint64_t> willRemovePlayer;
-    NFWorldPlayer* pPlayer = dynamic_cast<NFWorldPlayer *>(NFShmMgr::Instance()->GetHeadObj(EOT_WORLD_PLAYER_ID));
+    NFWorldPlayer* pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_WORLD_PLAYER_ID));
     while (pPlayer)
     {
         pPlayer->Tick();
@@ -61,7 +62,7 @@ int NFWorldPlayerMgr::UserTick()
         {
             willRemovePlayer.push_back(pPlayer->GetPlayerId());
         }
-        pPlayer = dynamic_cast<NFWorldPlayer *>(NFShmMgr::Instance()->GetNextObj(EOT_WORLD_PLAYER_ID, pPlayer));
+        pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetNextObj(EOT_WORLD_PLAYER_ID, pPlayer));
     }
 
     for(int i = 0; i < (int)willRemovePlayer.size(); i++)
@@ -79,7 +80,7 @@ int NFWorldPlayerMgr::UserTick()
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayer(uint64_t playerId)
 {
-    return dynamic_cast<NFWorldPlayer*>(NFShmMgr::Instance()->GetObjFromHashKey(playerId, EOT_WORLD_PLAYER_ID));
+    return dynamic_cast<NFWorldPlayer*>(FindModule<NFISharedMemModule>()->GetObjFromHashKey(playerId, EOT_WORLD_PLAYER_ID));
 }
 
 NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
@@ -87,7 +88,7 @@ NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
     NFWorldPlayer *pPlayer = GetPlayer(playerId);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", playerId);
 
-    pPlayer = dynamic_cast<NFWorldPlayer *>(NFShmMgr::Instance()->CreateObj(playerId, EOT_WORLD_PLAYER_ID));
+    pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateObj(playerId, EOT_WORLD_PLAYER_ID));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
 
     pPlayer->SetPlayerId(playerId);
@@ -102,7 +103,7 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 
     NFLogInfo(NF_LOG_GAME_SERVER_PLUGIN, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetPlayerId(), pPlayer->GetGlobalID());
 
-    NFShmMgr::Instance()->DestroyObj(pPlayer);
+    FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
 
     return 0;
 }

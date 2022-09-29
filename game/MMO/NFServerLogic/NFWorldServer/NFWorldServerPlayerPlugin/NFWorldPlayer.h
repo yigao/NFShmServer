@@ -11,15 +11,14 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
-#include "NFServer/NFCommHead/NFCommLogicHead.h"
-#include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFLogicCommonDefine.h"
 
 class NFWorldPlayer : public NFShmObj
 {
 public:
-    NFWorldPlayer();
-
+    NFWorldPlayer(NFIPluginManager* pPluginManager);
     virtual ~NFWorldPlayer();
 
     int CreateInit();

@@ -9,7 +9,7 @@
 
 #include "NFTransSaveSimpleDB.h"
 
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 

@@ -7,23 +7,26 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFProtobufCommon.h"
 
-NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false) {
+NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false),m_reloadApp(false),m_exitApp(false),m_hotfixExitApp(false)
+{
+}
+
+NFGlobalSystem::~NFGlobalSystem()
+{
 
 }
 
-NFGlobalSystem::~NFGlobalSystem() {
-
-}
-
-bool NFGlobalSystem::LoadConfig(const std::string& path)
+bool NFGlobalSystem::LoadConfig(const std::string &path)
 {
     TryAddPackagePath(path); //Add Search Path to Lua
 
     std::list<std::string> fileList;
     NFFileUtility::GetFiles(path, fileList, true, "*.lua");
 
-    for (auto it = fileList.begin(); it != fileList.end(); ++it) {
-        if (TryLoadScriptFile(*it) == false) {
+    for (auto it = fileList.begin(); it != fileList.end(); ++it)
+    {
+        if (TryLoadScriptFile(*it) == false)
+        {
             std::cout << "load lua file " << *it << " failed!" << std::endl;
             assert(0);
         }
@@ -45,4 +48,34 @@ bool NFGlobalSystem::LoadConfig(const std::string& path)
     }
 
     return true;
+}
+
+bool NFGlobalSystem::IsReloadApp() const
+{
+    return m_reloadApp;
+}
+
+void NFGlobalSystem::SetReloadApp(bool reloadApp)
+{
+    m_reloadApp = reloadApp;
+}
+
+bool NFGlobalSystem::IsExitApp() const
+{
+    return m_exitApp;
+}
+
+void NFGlobalSystem::SetExitApp(bool exitApp)
+{
+    m_exitApp = exitApp;
+}
+
+bool NFGlobalSystem::IsHotfixExitApp() const
+{
+    return m_hotfixExitApp;
+}
+
+void NFGlobalSystem::SetHotfixExitApp(bool hotfixExitApp)
+{
+    m_hotfixExitApp = hotfixExitApp;
 }

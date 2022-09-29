@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFOnlineUserMgr.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFOnlineUser.h"

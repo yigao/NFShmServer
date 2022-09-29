@@ -72,8 +72,27 @@ public:
 	virtual bool OnReloadConfig() override;
 
     virtual bool AfterOnReloadConfig() override;
+    /*
+     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+     * */
+    virtual bool HotfixExitApp() override;
 
-	virtual bool InitShmObjectRegister();
+    /*
+     * 停服之前，检查服务器是否满足停服条件
+     * */
+    virtual bool CheckExitApp() override;
+
+    /*
+     * 停服之前，做一些操作，满足停服条件
+     * */
+    virtual bool ExitApp() override;
+
+    /*
+     * 停服之前保存需要的数据
+     * */
+    virtual bool SaveDBBeforeExitApp() override;
+
+    virtual bool InitShmObjectRegister();
 
 	virtual void Uninstall() = 0;
 

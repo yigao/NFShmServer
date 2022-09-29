@@ -14,44 +14,88 @@
 #include <vector>
 
 class NFIPluginManager;
+
 class NFGlobalSystem : public NFSingleton<NFGlobalSystem>, public NFILuaModule
 {
 public:
     NFGlobalSystem();
+
     virtual ~NFGlobalSystem();
+
 public:
-    bool LoadConfig(const std::string& path);
+    bool LoadConfig(const std::string &path);
+public:
+    /*
+     * reload server 重新加载服务器的配置数据
+     * */
+    bool IsReloadApp() const;
+
+    /*
+     * reload server 重新加载服务器的配置数据
+     * */
+    void SetReloadApp(bool reloadApp);
+
+    /*
+     * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+     * */
+    bool IsExitApp() const;
+
+    /*
+     * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+     * */
+    void SetExitApp(bool exitApp);
+
+    /*
+     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+     * */
+    bool IsHotfixExitApp() const;
+
+    /*
+     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+     * */
+    void SetHotfixExitApp(bool hotfixExitApp);
+
 private:
     bool m_gIsMoreServer;
-    NFIPluginManager* m_gGlobalPluginManager;
-    std::vector<NFIPluginManager*> m_gGlobalPluginManagerList;
+    NFIPluginManager *m_gGlobalPluginManager;
+    std::vector<NFIPluginManager *> m_gGlobalPluginManagerList;
     proto_ff::pbPluginConfig m_gAllMoreServerConfig;
+    bool m_reloadApp;
+    bool m_exitApp;
+    bool m_hotfixExitApp;
 public:
-    bool IsMoreServer() const {
+    bool IsMoreServer() const
+    {
         return m_gIsMoreServer;
     }
 
-    void SetMoreServer(bool isMoreServer) {
+    void SetMoreServer(bool isMoreServer)
+    {
         m_gIsMoreServer = isMoreServer;
     }
 
-    NFIPluginManager* GetGlobalPluginManager() const {
+    NFIPluginManager *GetGlobalPluginManager() const
+    {
         return m_gGlobalPluginManager;
     }
 
-    void SetGlobalPluginManager(NFIPluginManager* pPluginManager) {
+    void SetGlobalPluginManager(NFIPluginManager *pPluginManager)
+    {
         m_gGlobalPluginManager = pPluginManager;
     }
 
-    void AddPluginManager(NFIPluginManager* pPluginManager) {
+    void AddPluginManager(NFIPluginManager *pPluginManager)
+    {
         m_gGlobalPluginManagerList.push_back(pPluginManager);
     }
 
-    std::vector<NFIPluginManager*> GetPluginManagerList() {
+    std::vector<NFIPluginManager *> GetPluginManagerList()
+    {
         return m_gGlobalPluginManagerList;
     }
 
-    const proto_ff::pbPluginConfig* GetAllMoreServerConfig() const {
+    const proto_ff::pbPluginConfig *GetAllMoreServerConfig() const
+    {
         return &m_gAllMoreServerConfig;
     }
 };

@@ -285,3 +285,75 @@ bool NFIPlugin::OnDynamicPlugin()
 
 	return true;
 }
+
+bool NFIPlugin::HotfixExitApp()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            bool bRet = pModule->HotfixExitApp();
+            if (!bRet)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnDynamicPlugin failed!", pModule->m_strName);
+            }
+        }
+    }
+
+    return true;
+}
+
+bool NFIPlugin::SaveDBBeforeExitApp()
+{
+    bool bRet = true;
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->SaveDBBeforeExitApp() == false)
+            {
+                bRet = false;
+            }
+        }
+    }
+
+    return bRet;
+}
+
+bool NFIPlugin::CheckExitApp()
+{
+    bool bRet = true;
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->CheckExitApp() == false)
+            {
+                bRet = false;
+            }
+        }
+    }
+
+    return bRet;
+}
+
+bool NFIPlugin::ExitApp()
+{
+    bool bRet = true;
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->ExitApp() == false)
+            {
+                bRet = false;
+            }
+        }
+    }
+
+    return bRet;
+}

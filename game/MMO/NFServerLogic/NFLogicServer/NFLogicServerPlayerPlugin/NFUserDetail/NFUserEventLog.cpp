@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFTransGetEventLog.h"
 #include "NFTransHandleEventLog.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFUserDetail.h"
 
 NFUserEventLog::NFUserEventLog() {

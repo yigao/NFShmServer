@@ -9,7 +9,7 @@
 #include "NFUserDetailModule.h"
 #include "NFUserDetail/NFTransGetUserDetail.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"

@@ -1,19 +1,18 @@
 ﻿// -------------------------------------------------------------------------
-//    @FileName         :    NFGameServerPlugin.cpp
+//    @FileName         :    NFWorldServerPlayerPlugin.cpp
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFGameServerPlugin
+//    @Module           :    NFWorldServerPlayerPlugin
 //
 // -------------------------------------------------------------------------
 
 #include "NFWorldServerPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFWorldPlayerModule.h"
-
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
-#include "NFComm/NFPluginModule/NFConfigMgr.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -25,7 +24,7 @@ NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFWorldServerPlugin)
+    DESTROY_PLUGIN(pm, NFWorldServerPlayerPlugin)
 };
 
 #endif
@@ -45,12 +44,12 @@ std::string NFWorldServerPlayerPlugin::GetPluginName()
 
 void NFWorldServerPlayerPlugin::Install()
 {
-	REGISTER_MODULE(m_pPluginManager, NFIWorldPlayerModule, NFCWorldPlayerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFCWorldPlayerModule, NFCWorldPlayerModule);
 }
 
 void NFWorldServerPlayerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pPluginManager, NFIWorldPlayerModule, NFCWorldPlayerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFCWorldPlayerModule, NFCWorldPlayerModule);
 }
 
 bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
@@ -58,7 +57,7 @@ bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     NF_ASSERT(pConfig);
 
-    uint32_t maxOnlinePlayerNum = pConfig->mMaxOnlinePlayerNum;
+    uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
 
 	REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, EOT_WORLD_PLAYER_ID, maxOnlinePlayerNum);
 	REGISTER_SHM_OBJ(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, 1);//

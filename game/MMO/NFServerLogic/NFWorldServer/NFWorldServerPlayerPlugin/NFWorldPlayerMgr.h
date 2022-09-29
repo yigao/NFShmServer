@@ -11,21 +11,18 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include <vector>
-#include <NFServer/NFCommHead/NFCommLogicHead.h>
 
 class NFWorldPlayer;
 class NFWorldPlayerMgr : public NFShmObj {
 public:
-    NFWorldPlayerMgr();
-
+    NFWorldPlayerMgr(NFIPluginManager* pPluginManager);
     virtual ~NFWorldPlayerMgr();
 
     int CreateInit();
-
     int ResumeInit();
-
 public:
     int UserTick();
     virtual void OnTimer(int timeId, int callcount) override;

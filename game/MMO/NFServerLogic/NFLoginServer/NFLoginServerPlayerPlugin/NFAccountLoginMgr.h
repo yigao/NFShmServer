@@ -13,7 +13,7 @@
 #include "NFComm/NFShmCore/NFShmHashMap.h"
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmHashObjectMgr.h"
 
 class NFAccountLogin

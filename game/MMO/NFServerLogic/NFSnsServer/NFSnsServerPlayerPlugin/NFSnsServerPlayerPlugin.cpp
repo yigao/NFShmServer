@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFOnlineUser/NFOnlineUser.h"
 #include "NFOnlineUser/NFOnlineUserMgr.h"
-#include "NFComm/NFShmCore/NFServerFrameTypeDefines.h"
+#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFOnlineModule.h"
 #include "NFUserSimple/NFSnsUserSimple.h"
 #include "NFUserSimple/NFSnsUserSimpleMgr.h"

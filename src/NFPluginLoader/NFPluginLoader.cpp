@@ -45,56 +45,70 @@ int main(int argc, char* argv[])
         pPluginManager->Begin();
     }
 
-    uint64_t nIndex = 0;
-	bool bExitApp = false;
-	while (!bExitApp)
+	while (true)
 	{
-		while (true)
-		{
-			nIndex++;
+        for(int i = 0; i < (int)vecPluginManager.size(); i++)
+        {
+            NFIPluginManager *pPluginManager = vecPluginManager[i];
+            pPluginManager->Execute();
+        }
 
-			if (bExitApp)
-			{
-				break;
-			}
-
-#if NF_PLATFORM == NF_PLATFORM_WIN
-			__try
-			{
-#endif
+        if (NFGlobalSystem::Instance()->IsReloadApp())
+        {
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
-                NFIPluginManager* pPluginManager = vecPluginManager[i];
-                pPluginManager->Execute();
-                if (pPluginManager->GetReloadApp())
-                {
-                    pPluginManager->SetReloadApp(false);
-                    pPluginManager->OnReloadConfig();
-                }
+                NFIPluginManager *pPluginManager = vecPluginManager[i];
+                pPluginManager->SetReloadApp(true);
+                pPluginManager->OnReloadConfig();
+                pPluginManager->SetReloadApp(false);
+                pPluginManager->AfterOnReloadConfig();
+            }
+            NFGlobalSystem::Instance()->SetReloadApp(false);
+        }
 
-                if (pPluginManager->GetChangeProfileApp())
+        /*
+         * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+         * */
+        if (NFGlobalSystem::Instance()->IsExitApp())
+        {
+            bool bExit = true;
+            for(int i = 0; i < (int)vecPluginManager.size(); i++)
+            {
+                NFIPluginManager *pPluginManager = vecPluginManager[i];
+                pPluginManager->SetExitApp(true);
+                if (pPluginManager->StopServer() == false)
                 {
-                    pPluginManager->SetChangeProfileApp(false);
-                    pPluginManager->SetOpenProfiler(!pPluginManager->IsOpenProfiler());
+                    bExit = false;
                 }
-
-                if (pPluginManager->GetShutDownApp())
-                {
-                    pPluginManager->ShutDownApp();
-                    NFSLEEP(1000);
-                    exit(0);
-                }
-
-                bExitApp = pPluginManager->GetExitApp();
             }
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
-			}
-			__except (ApplicationCrashHandler(GetExceptionInformation()))
-			{
-			}
-#endif
-		}
+            if (bExit)
+            {
+                break;
+            }
+        }
+
+        /*
+         * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+         * */
+        if (NFGlobalSystem::Instance()->IsHotfixExitApp())
+        {
+            bool bExit = true;
+            for(int i = 0; i < (int)vecPluginManager.size(); i++)
+            {
+                NFIPluginManager *pPluginManager = vecPluginManager[i];
+                pPluginManager->SetHotfixExitApp(true);
+                if (pPluginManager->HotfixExitApp() == false)
+                {
+                    bExit = false;
+                }
+            }
+
+            if (bExit)
+            {
+                break;
+            }
+        }
 	}
 
     for(int i = 0; i < (int)vecPluginManager.size(); i++)

@@ -12,11 +12,10 @@
 #include <server_to_client.pb.h>
 #include <client_to_server.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
-#include <NFComm/NFShmCore/NFShmHashMap.h>
+#include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include "NFProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
-#include "NFLogicCommon/NFICommLogicModule.h"
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
@@ -33,6 +32,7 @@ NFCProxyClientModule::~NFCProxyClientModule()
 
 bool NFCProxyClientModule::Awake()
 {
+    SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     //////来自客户端的协议////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_LOGIC_PING, this, &NFCProxyClientModule::OnHandleClientHeartBeat);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this, &NFCProxyClientModule::OnHandleClientCenterLogin);
@@ -95,6 +95,10 @@ bool NFCProxyClientModule::OnDynamicPlugin()
 
 void NFCProxyClientModule::OnTimer(uint32_t nTimerID)
 {
+    if (nTimerID == NF_PROXY_CLIENT_TIMER_ID)
+    {
+        HandleProxyClientTick();
+    }
 }
 
 /*
@@ -113,9 +117,10 @@ int NFCProxyClientModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
         if (pLinkInfo == nullptr)
         {
             pLinkInfo = NF_SHARE_PTR<NFProxySession>(NF_NEW NFProxySession());
-            pLinkInfo->mLinkId = unLinkId;
-            pLinkInfo->mIPAddr = ip;
-            pLinkInfo->mPort = port;
+            pLinkInfo->SetLinkId(unLinkId);
+            pLinkInfo->SetIpAddr(ip);
+            pLinkInfo->SetPort(port);
+            pLinkInfo->SetLastActiveTime(NFTime::Now().UnixSec());
             mClientLinkInfo.AddElement(unLinkId, pLinkInfo);
         }
 	}
@@ -147,28 +152,28 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         return 0;
     }
 
-    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->mPlayerId);
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->GetPlayerId());
     if (pPlayerInfo == nullptr) {
-        NFLogWarning(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "can't find the player:{} info, ip:{} packet:{}", pLinkInfo->mPlayerId, ip, packet.ToString());
+        NFLogWarning(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "can't find the player:{} info, ip:{} packet:{}", pLinkInfo->GetPlayerId(), ip, packet.ToString());
 
         return 0;
     }
 
-    if (!pPlayerInfo->mIsLogin) {
+    if (!pPlayerInfo->IsLogin()) {
         NFLogWarning(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "ip:{} not login,send packet:{}, the msg will not send",
                      ip, packet.ToString());
 
         return 0;
     }
 
-    if (pPlayerInfo->mLogicBusId > 0) {
-        NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, pPlayerInfo->mPlayerId, "recv packet = {}, transfer to logic server", packet.ToString());
+    if (pPlayerInfo->GetLogicBusId() > 0) {
+        NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to logic server", packet.ToString());
         //FindModule<NFIMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->mLogicBusId, nMsgId, msg, nLen,
         //                                         pPlayerInfo->mPlayerId);
     }
     else
     {
-        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, pPlayerInfo->mPlayerId, "recv nMsgId = {}, not transfer to logic server", packet.ToString());
+        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, pPlayerInfo->GetPlayerId(), "recv nMsgId = {}, not transfer to logic server", packet.ToString());
 
         FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
     }
@@ -181,18 +186,16 @@ int NFCProxyClientModule::OnHandleClientDisconnect(uint64_t unLinkId) {
     NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- begin --");
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
     if (pLinkInfo) {
-        if (pLinkInfo->mPlayerId > 0) {
-            NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->mPlayerId);
+        if (pLinkInfo->GetPlayerId() > 0) {
+            NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->GetPlayerId());
             if (pPlayerInfo) {
-                pPlayerInfo->mLinkId = 0;
-                pPlayerInfo->mGameId = 0;
-                pPlayerInfo->mRoomId = 0;
-                pPlayerInfo->mGameBusId = 0;
-                pPlayerInfo->mLogicBusId = 0;
-                pPlayerInfo->mOnline = false;
-                pPlayerInfo->mDisconnectTime = NFTime::Now().UnixSec();
+                pPlayerInfo->SetLinkId(0);
+                pPlayerInfo->SetGameBusId(0);
+                pPlayerInfo->SetLogicBusId(0);
+                pPlayerInfo->SetOnline(false);
+                pPlayerInfo->SetDisconnectTime(NFTime::Now().UnixSec());
 
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "player:{} link:{} disconenct.........", pLinkInfo->mPlayerId, unLinkId);
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "player:{} link:{} disconenct.........", pLinkInfo->GetPlayerId(), unLinkId);
             }
 		}
 		mClientLinkInfo.RemoveElement(unLinkId);
@@ -226,10 +229,21 @@ int NFCProxyClientModule::OnHandleOtherServerOtherMessage(uint64_t unLinkId, con
 
 int NFCProxyClientModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage& packet)
 {
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    if (pLinkInfo == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find unLinkId:{}", unLinkId);
+        FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
+        return -1;
+    }
+
+    pLinkInfo->SetLastActiveTime(NFTime::Now().UnixSec());
+
     proto_ff::PingRsp xData;
     xData.set_currentmstime(NFTime::Now().UnixMSec());
     xData.set_queuereducenum(m_loginInterPing);
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::SERVER_TO_CLIENT_PING, xData);
+
     return 0;
 }
 
@@ -240,20 +254,49 @@ int NFCProxyClientModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
-    CHECK_EXPR(pLinkInfo, -1, "pLinkInfo == NULL");
+    if (pLinkInfo == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find unLinkId:{}", unLinkId);
+        FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
+        return -1;
+    }
+
+    pLinkInfo->SetLastActiveTime(NFTime::Now().UnixSec());
 
     proto_ff::ClientToLogInfoProto* pLogInfo = xMsg.mutable_loginfo();
     if (pLogInfo)
     {
-        pLogInfo->set_ip(pLinkInfo->mIPAddr);
-        pLogInfo->set_port(pLinkInfo->mPort);
+        pLogInfo->set_ip(pLinkInfo->GetIpAddr());
+        pLogInfo->set_port(pLinkInfo->GetPort());
     }
 
-    proto_ff::ServerToClientQueue_RSP  gateInfoRsp;
-    gateInfoRsp.set_retcode(proto_ff::RET_SUCCESS);
-    gateInfoRsp.set_nnum((uint32_t)0);
-    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::EMODULE_ID_LOGIN, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_PROXY_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, xMsg, pLinkInfo->GetLinkId());
 
     NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyClientModule::HandleProxyClientTick()
+{
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL");
+
+    auto pProxyClient = mClientLinkInfo.First();
+    while(pProxyClient)
+    {
+        if (pProxyClient->GetPlayerId() <= 0 && pProxyClient->GetLastActiveTime() > 0 && NFTime::Now().UnixSec() - pProxyClient->GetLastActiveTime() >= pConfig->HeartBeatTimeout)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "check heart beat timeout........., disconnect link:{} ", pProxyClient->GetLinkId());
+            FindModule<NFIMessageModule>()->CloseLinkId(pProxyClient->GetLinkId());
+        }
+
+        if (pProxyClient->GetPlayerId() > 0 && pProxyClient->GetLastActiveTime() > 0 && NFTime::Now().UnixSec() - pProxyClient->GetLastActiveTime() >= pConfig->ClientKeepAliveTimeout)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, pProxyClient->GetPlayerId() , "check player keep alive timeout........., disconnect link:{} playerId:{}", pProxyClient->GetLinkId(), pProxyClient->GetPlayerId());
+            FindModule<NFIMessageModule>()->CloseLinkId(pProxyClient->GetLinkId());
+        }
+
+        pProxyClient = mClientLinkInfo.Next();
+    }
     return 0;
 }

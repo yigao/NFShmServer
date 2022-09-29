@@ -8,10 +8,11 @@
 // -------------------------------------------------------------------------
 
 #include "NFWorldPlayer.h"
+#include "NFComm/NFCore/NFTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayer, EOT_WORLD_PLAYER_ID, NFShmObj)
 
-NFWorldPlayer::NFWorldPlayer()
+NFWorldPlayer::NFWorldPlayer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
