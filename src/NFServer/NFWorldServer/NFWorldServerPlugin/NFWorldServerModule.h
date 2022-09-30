@@ -31,6 +31,8 @@ public:
     virtual void OnTimer(uint32_t nTimerID) override;
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+
+    virtual bool AddProxyMsgCheckCallBack(const NET_RECEIVE_FUNCTOR &functor) override;
 public:
     int OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId);
     int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
@@ -57,6 +59,7 @@ public:
     int RegisterProxyAgentServer(uint64_t unLinkId);
     int OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
     int OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+    int OnCheckWorldServerAllMessage(uint64_t unLinkId, NFDataPackage& packet);
 
 	/*
 		处理Master服务器链接事件和未注册消息
@@ -68,4 +71,6 @@ public:
 
 	////////////test server msg///////////////////////////////////////
     int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage& packet);
+private:
+    NET_RECEIVE_FUNCTOR m_allMsgCheckFunc;
 };

@@ -12,6 +12,7 @@
 #include "NFWorldPlayerModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFServerComm/NFServerCommon/NFIWorldServerModule.h"
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
 
@@ -25,6 +26,8 @@ NFCWorldPlayerModule::~NFCWorldPlayerModule() {
 bool NFCWorldPlayerModule::Awake() {
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, this, &NFCWorldPlayerModule::OnHandleClientCenterLogin);
+    //////////check proxy msg///////////////////////
+    FindModule<NFIWorldServerModule>()->AddProxyMsgCheckCallBack(this,  &NFCWorldPlayerModule::OnCheckWorldServerMsg);
 
     return true;
 }
@@ -39,6 +42,8 @@ bool NFCWorldPlayerModule::OnDynamicPlugin()
 	return true;
 }
 
+
+
 int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -47,4 +52,20 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
+}
+
+int NFCWorldPlayerModule::OnCheckWorldServerMsg(uint64_t unLinkId, NFDataPackage &packet)
+{
+    if (!m_pObjPluginManager->IsInited())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+    return 0;
 }

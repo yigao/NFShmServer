@@ -403,7 +403,7 @@ bool NFCMessageModule::DelAllCallBack(NF_SERVER_TYPES eType, uint64_t unLinkId)
 {
     if (eType < mxCallBack.size() && unLinkId > 0) {
         mxCallBack[eType].mxEventCallBack.erase(unLinkId);
-        mxCallBack[eType].mxCallBackList.erase(unLinkId);
+        mxCallBack[eType].mxOtherMsgCallBackList.erase(unLinkId);
         return true;
     }
 
@@ -435,17 +435,29 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 			}
 		}
 
-		for (auto iter = mxCallBack[i].mxCallBackList.begin(); iter != mxCallBack[i].mxCallBackList.end();)
+		for (auto iter = mxCallBack[i].mxOtherMsgCallBackList.begin(); iter != mxCallBack[i].mxOtherMsgCallBackList.end();)
 		{
 			if (iter->second.m_pTarget == pTarget)
 			{
-				iter = mxCallBack[i].mxCallBackList.erase(iter);
+				iter = mxCallBack[i].mxOtherMsgCallBackList.erase(iter);
 			}
 			else
 			{
 				iter++;
 			}
 		}
+
+        for (auto iter = mxCallBack[i].mxAllMsgCallBackList.begin(); iter != mxCallBack[i].mxAllMsgCallBackList.end();)
+        {
+            if (iter->second.m_pTarget == pTarget)
+            {
+                iter = mxCallBack[i].mxAllMsgCallBackList.erase(iter);
+            }
+            else
+            {
+                iter++;
+            }
+        }
 	}
 	return true;
 }
@@ -471,7 +483,16 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModul
 bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget,
                                         const NET_RECEIVE_FUNCTOR &cb) {
     if (eType < mxCallBack.size()) {
-        mxCallBack[eType].mxCallBackList[linkId] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxOtherMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb);
+        return true;
+    }
+    return false;
+}
+
+bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+{
+    if (eType < mxCallBack.size()) {
+        mxCallBack[eType].mxAllMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb);
         return true;
     }
     return false;
@@ -492,6 +513,18 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
 	uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
 	if (eServerType < mxCallBack.size()) {
 		uint64_t startTime = NFGetMicroSecondTime();
+        auto allIter = mxCallBack[eServerType].mxAllMsgCallBackList.find(connectionLink);
+        if (allIter != mxCallBack[eServerType].mxAllMsgCallBackList.end()) {
+            NET_RECEIVE_FUNCTOR &pFun = allIter->second.m_pFunctor;
+            if (pFun)
+            {
+                int iRet = pFun(objectLinkId, packet);
+                if (iRet != 0)
+                {
+                    return 0;
+                }
+            }
+        }
         auto it2 = mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].find(packet.nMsgId);
         if (it2 != mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].end()) {
             NET_RECEIVE_FUNCTOR &pFun = it2->second.m_pFunctor;
@@ -527,8 +560,8 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             return 0;
         }
 
-        auto iterator2 = mxCallBack[eServerType].mxCallBackList.find(connectionLink);
-        if (iterator2 != mxCallBack[eServerType].mxCallBackList.end()) {
+        auto iterator2 = mxCallBack[eServerType].mxOtherMsgCallBackList.find(connectionLink);
+        if (iterator2 != mxCallBack[eServerType].mxOtherMsgCallBackList.end()) {
             NET_RECEIVE_FUNCTOR &pFun = iterator2->second.m_pFunctor;
             if (pFun)
             {
