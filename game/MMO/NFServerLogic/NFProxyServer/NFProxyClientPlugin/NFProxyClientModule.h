@@ -53,6 +53,10 @@ public:
      * */
     int HandleProxyClientTick();
 
+    /*
+     * 踢掉玩家
+     * */
+    int KickPlayer(uint64_t unLinkId, uint32_t flag);
 public:
     /*
      * 处理心跳包

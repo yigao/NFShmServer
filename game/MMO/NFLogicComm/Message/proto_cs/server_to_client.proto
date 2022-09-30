@@ -16,4 +16,13 @@ enum ServerToClientCmd {
   LOGIN_TO_CLIENT_PING				= 6;        //客户端登陆服ping回复
   SERVER_TO_CLIENT_QUEUE_RESULT	    = 7;		//服务器返回排队消息
   SERVER_TO_CLIENT_LOGIN_END          = 20;
+  //帐号
+  SERVER_TO_CLIENT_CENTER_LOGIN_BEGIN		= 21;
+  CENTER_TO_CLIENT_LOGIN					= 22;        //登陆帐号
+  CENTER_TO_CLIENT_CREATE_CHARACTER		= 23;   	 //请求创建角色回复
+  CENTER_TO_CLIENT_DEL_CHARACTER			= 24;      //删角色回复
+
+  CENTER_TO_CLIENT_LOGINOUT				= 25;      //服务器请求客户端登出
+  CENTER_TO_CLIENT_RECONNECT_RESUTL		= 26;		//重连结果
+  CENTER_TO_CLIENT_DEL_CHARACTER_CANCEL   = 33;		//取消删角色回复
 };

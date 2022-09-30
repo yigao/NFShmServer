@@ -166,24 +166,17 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
     int count = 0;
     int interval = 0;
     uint64_t roleID = 0;
-    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->GetPlayerId());
     pLinkInfo->AddPkgStatistic(packet.nMsgId, pLinkInfo->GetPlayerId(), unLinkId);
     int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, packet.nMsgId, count, interval);
     if (ret != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count, interval, ret, packet.ToString());
-        if(pPlayerInfo)
-        {
-            //CPlayerUtil::KickPlayer(m_pPlayer, proto_ff::ERR_CODE_SEND_PACKET_FREQUENCY_FAST);
-        }
-        else
-        {
-            FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
-            return 0;
-        }
+        KickPlayer(unLinkId, proto_ff::LOGOUT_FLAG_KICK);
+        return 0;
     }
 
 
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->GetPlayerId());
     if (pPlayerInfo == nullptr)
     {
         auto pPacketConfig = m_packetConfig.GetPacketConfig(packet.nMsgId);
@@ -359,5 +352,15 @@ int NFCProxyClientModule::HandleProxyClientTick()
 
         pProxyClient = mClientLinkInfo.Next();
     }
+    return 0;
+}
+
+int NFCProxyClientModule::KickPlayer(uint64_t unLinkId, uint32_t flag)
+{
+    proto_ff::NotifyLogoutGame leave;
+    leave.set_flag((::proto_ff::LOGOUT_FLAG)flag);
+
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CENTER_TO_CLIENT_LOGINOUT, leave);
+    FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
     return 0;
 }
