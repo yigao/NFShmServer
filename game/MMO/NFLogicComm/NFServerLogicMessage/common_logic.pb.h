@@ -38,25 +38,6 @@ void protobuf_ShutdownFile_common_5flogic_2eproto();
 class PacketMsg;
 class ServerPacketMsg;
 
-enum ERetCode {
-  RET_SUCCESS = 0,
-  RET_FAIL = 1
-};
-bool ERetCode_IsValid(int value);
-const ERetCode ERetCode_MIN = RET_SUCCESS;
-const ERetCode ERetCode_MAX = RET_FAIL;
-const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
-inline const ::std::string& ERetCode_Name(ERetCode value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    ERetCode_descriptor(), value);
-}
-inline bool ERetCode_Parse(
-    const ::std::string& name, ERetCode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ERetCode>(
-    ERetCode_descriptor(), name, value);
-}
 enum EMODULE_ID {
   EMODULE_ID_NONE = 0,
   EMODULE_ID_SERV_SYS = 1,
@@ -522,10 +503,6 @@ ServerPacketMsg::mutable_packetmsg() {
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ERetCode>() {
-  return ::proto_ff::ERetCode_descriptor();
-}
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMODULE_ID>() {
   return ::proto_ff::EMODULE_ID_descriptor();

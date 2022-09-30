@@ -9,6 +9,8 @@
 
 #include <client_to_server.pb.h>
 #include <common_msg.pb.h>
+#include <ClientToServer.pb.h>
+#include <ServerToClient.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFWorldPlayerModule.h"
 

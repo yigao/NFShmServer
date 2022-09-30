@@ -5,15 +5,6 @@ package proto_ff;
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 
-//返回码（公用的返回码放到前面，模块相关的返回码放到后面）
-enum ERetCode
-{
-  option allow_alias = true;
-  //公用返回码 0 - 99
-  RET_SUCCESS = 0;  //成功
-  RET_FAIL = 1;  //失败
-}
-
 //模块ID定义
 enum EMODULE_ID
 {
