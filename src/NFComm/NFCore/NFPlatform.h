@@ -274,8 +274,8 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 //#define NF_MACRO_FUNCTION __FUNCSIG__
 #define NF_MACRO_FUNCTION __FUNCTION__
 #else
-//#define NF_MACRO_FUNCTION __PRETTY_FUNCTION__
-#define NF_MACRO_FUNCTION __FUNCTION__
+#define NF_MACRO_FUNCTION __PRETTY_FUNCTION__
+//#define NF_MACRO_FUNCTION __FUNCTION__
 #endif
 #endif
 

@@ -1638,6 +1638,13 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 clientkeepalivetimeout() const;
   inline void set_clientkeepalivetimeout(::google::protobuf::uint32 value);
 
+  // optional uint32 ClientVersion = 103;
+  inline bool has_clientversion() const;
+  inline void clear_clientversion();
+  static const int kClientVersionFieldNumber = 103;
+  inline ::google::protobuf::uint32 clientversion() const;
+  inline void set_clientversion(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.pbNFServerConfig)
  private:
   inline void set_has_serverid();
@@ -1718,6 +1725,8 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline void clear_has_heartbeattimeout();
   inline void set_has_clientkeepalivetimeout();
   inline void clear_has_clientkeepalivetimeout();
+  inline void set_has_clientversion();
+  inline void clear_has_clientversion();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1761,9 +1770,10 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::std::string* email_;
   ::google::protobuf::uint32 heartbeattimeout_;
   ::google::protobuf::uint32 clientkeepalivetimeout_;
+  ::google::protobuf::uint32 clientversion_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(40 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(41 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -5586,6 +5596,28 @@ inline ::google::protobuf::uint32 pbNFServerConfig::clientkeepalivetimeout() con
 inline void pbNFServerConfig::set_clientkeepalivetimeout(::google::protobuf::uint32 value) {
   set_has_clientkeepalivetimeout();
   clientkeepalivetimeout_ = value;
+}
+
+// optional uint32 ClientVersion = 103;
+inline bool pbNFServerConfig::has_clientversion() const {
+  return (_has_bits_[1] & 0x00000100u) != 0;
+}
+inline void pbNFServerConfig::set_has_clientversion() {
+  _has_bits_[1] |= 0x00000100u;
+}
+inline void pbNFServerConfig::clear_has_clientversion() {
+  _has_bits_[1] &= ~0x00000100u;
+}
+inline void pbNFServerConfig::clear_clientversion() {
+  clientversion_ = 0u;
+  clear_has_clientversion();
+}
+inline ::google::protobuf::uint32 pbNFServerConfig::clientversion() const {
+  return clientversion_;
+}
+inline void pbNFServerConfig::set_clientversion(::google::protobuf::uint32 value) {
+  set_has_clientversion();
+  clientversion_ = value;
 }
 
 

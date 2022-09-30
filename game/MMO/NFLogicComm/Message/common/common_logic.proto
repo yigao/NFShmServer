@@ -108,6 +108,16 @@ enum EMODULE_ID
   EMODULE_ID_GODGM		= 86;	//神权
   EMODULE_ID_ARRIVAL_BOSS = 87;	//现金BOSS
   EMODULE_ID_LIMIT		= 88;
+}
 
+message PacketMsg {
+  optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl)=true];
+  optional uint32 serverType = 2;
+  optional uint32 upper_limit = 3;
+  optional uint32 min_interval = 4;
+  optional uint32 control_time = 5;
+}
 
+message ServerPacketMsg {
+  repeated PacketMsg PacketMsg = 1[(yd_fieldoptions.field_use_stl)=true];
 }

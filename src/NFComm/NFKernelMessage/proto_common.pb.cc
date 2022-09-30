@@ -214,7 +214,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbTableConfig));
   pbNFServerConfig_descriptor_ = file->message_type(8);
-  static const int pbNFServerConfig_offsets_[40] = {
+  static const int pbNFServerConfig_offsets_[41] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -255,6 +255,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, maxonlineplayernum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, heartbeattimeout_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, clientkeepalivetimeout_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, clientversion_),
   };
   pbNFServerConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -365,7 +366,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "verType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003"
     "(\t\022/\n\nServerList\030\003 \003(\0132\033.proto_ff.pbAllS"
     "erverConfig\"<\n\rpbTableConfig\022\027\n\tTableNam"
-    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\334\006\n\020pb"
+    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\363\006\n\020pb"
     "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
     "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
     "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Link"
@@ -387,17 +388,18 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022\r\n\005E"
     "mail\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030"
     "\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAl"
-    "iveTimeout\030f \001(\r*\224\003\n\016NF_SERVER_TYPE\022\016\n\nN"
-    "F_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022\034\n\030"
-    "NF_ST_ROUTE_AGENT_SERVER\020\002\022\026\n\022NF_ST_ROUT"
-    "E_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022!\n\035NF"
-    "_ST_PROXY_SERVER_FOR_CLIENT\020\005\022\034\n\030NF_ST_P"
-    "ROXY_AGENT_SERVER\020\006\022\026\n\022NF_ST_STORE_SERVE"
-    "R\020\007\022\026\n\022NF_ST_LOGIN_SERVER\020\010\022\026\n\022NF_ST_WOR"
-    "LD_SERVER\020\t\022\026\n\022NF_ST_LOGIC_SERVER\020\n\022\025\n\021N"
-    "F_ST_GAME_SERVER\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014"
-    "\022\024\n\020NF_ST_WEB_SERVER\020\r\022\030\n\024NF_ST_MONITOR_"
-    "SERVER\020\016\022\r\n\tNF_ST_MAX\020\024", 2663);
+    "iveTimeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r*"
+    "\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF"
+    "_ST_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT"
+    "_SERVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_"
+    "ST_PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_"
+    "FOR_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER"
+    "\020\006\022\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGI"
+    "N_SERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF"
+    "_ST_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020"
+    "\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SER"
+    "VER\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST"
+    "_MAX\020\024", 2686);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -3919,6 +3921,7 @@ const int pbNFServerConfig::kEmailFieldNumber;
 const int pbNFServerConfig::kMaxOnlinePlayerNumFieldNumber;
 const int pbNFServerConfig::kHeartBeatTimeoutFieldNumber;
 const int pbNFServerConfig::kClientKeepAliveTimeoutFieldNumber;
+const int pbNFServerConfig::kClientVersionFieldNumber;
 #endif  // !_MSC_VER
 
 pbNFServerConfig::pbNFServerConfig()
@@ -3976,6 +3979,7 @@ void pbNFServerConfig::SharedCtor() {
   maxonlineplayernum_ = 0u;
   heartbeattimeout_ = 0u;
   clientkeepalivetimeout_ = 0u;
+  clientversion_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4198,6 +4202,9 @@ void pbNFServerConfig::Clear() {
     maxonlineplayernum_ = 0u;
     heartbeattimeout_ = 0u;
     clientkeepalivetimeout_ = 0u;
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    clientversion_ = 0u;
   }
   tbconflist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4864,6 +4871,22 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(824)) goto parse_ClientVersion;
+        break;
+      }
+
+      // optional uint32 ClientVersion = 103;
+      case 103: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ClientVersion:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &clientversion_)));
+          set_has_clientversion();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5165,6 +5188,11 @@ void pbNFServerConfig::SerializeWithCachedSizes(
   // optional uint32 ClientKeepAliveTimeout = 102;
   if (has_clientkeepalivetimeout()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(102, this->clientkeepalivetimeout(), output);
+  }
+
+  // optional uint32 ClientVersion = 103;
+  if (has_clientversion()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(103, this->clientversion(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5477,6 +5505,11 @@ void pbNFServerConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(102, this->clientkeepalivetimeout(), target);
   }
 
+  // optional uint32 ClientVersion = 103;
+  if (has_clientversion()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(103, this->clientversion(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -5766,6 +5799,15 @@ int pbNFServerConfig::ByteSize() const {
     }
 
   }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    // optional uint32 ClientVersion = 103;
+    if (has_clientversion()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->clientversion());
+    }
+
+  }
   // repeated .proto_ff.pbTableConfig TBConfList = 77;
   total_size += 2 * this->tbconflist_size();
   for (int i = 0; i < this->tbconflist_size(); i++) {
@@ -5927,6 +5969,11 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
       set_clientkeepalivetimeout(from.clientkeepalivetimeout());
     }
   }
+  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    if (from.has_clientversion()) {
+      set_clientversion(from.clientversion());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -5989,6 +6036,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(maxonlineplayernum_, other->maxonlineplayernum_);
     std::swap(heartbeattimeout_, other->heartbeattimeout_);
     std::swap(clientkeepalivetimeout_, other->clientkeepalivetimeout_);
+    std::swap(clientversion_, other->clientversion_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

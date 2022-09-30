@@ -193,6 +193,7 @@ namespace proto_ff_s {
 		uint32_t MaxOnlinePlayerNum;
 		uint32_t HeartBeatTimeout;
 		uint32_t ClientKeepAliveTimeout;
+		uint32_t ClientVersion;
 
 		virtual void write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg);

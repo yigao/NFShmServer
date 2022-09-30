@@ -46,11 +46,12 @@ enum ClientToServerCmd {
   CLIENT_TO_CENTER_LOGIN_BEGIN = 18,
   CLIENT_TO_CENTER_LOGIN = 19,
   CLIENT_TO_CENTER_CREATE_CHARACTER = 20,
-  CLIENT_TO_CENTER_DEL_CHARACTER = 21
+  CLIENT_TO_CENTER_DEL_CHARACTER = 21,
+  CLIENT_MAX_CMD_ID_VALUE = 5000
 };
 bool ClientToServerCmd_IsValid(int value);
 const ClientToServerCmd ClientToServerCmd_MIN = CLIENT_TO_SERVER_LOGIN_BEGIN;
-const ClientToServerCmd ClientToServerCmd_MAX = CLIENT_TO_CENTER_DEL_CHARACTER;
+const ClientToServerCmd ClientToServerCmd_MAX = CLIENT_MAX_CMD_ID_VALUE;
 const int ClientToServerCmd_ARRAYSIZE = ClientToServerCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientToServerCmd_descriptor();

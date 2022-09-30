@@ -78,3 +78,13 @@ void NFProxySession::SetTimeOut(uint32_t timeOut)
 {
     m_timeOut = timeOut;
 }
+
+int NFProxySession::CheckPkgRate(NFPackageConfig *pConfig, int iMsgID, int &count, int &interval)
+{
+    return m_packageMng.CheckPkgRate(pConfig, iMsgID, count, interval);
+}
+
+int NFProxySession::AddPkgStatistic(int iMsgID, uint64_t roleID, uint64_t linkId)
+{
+    return m_packageMng.AddPkgStatistic(iMsgID, roleID, linkId);
+}

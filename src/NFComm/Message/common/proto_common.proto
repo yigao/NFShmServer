@@ -150,4 +150,5 @@ message pbNFServerConfig
 	optional uint32 MaxOnlinePlayerNum = 100;
 	optional uint32 HeartBeatTimeout = 101;
 	optional uint32 ClientKeepAliveTimeout = 102;
+	optional uint32 ClientVersion = 103;
 }

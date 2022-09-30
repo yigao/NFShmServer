@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFPackageConfig.h>
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMap.hpp"
@@ -72,4 +73,5 @@ private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
     uint32_t m_loginInterPing;
+    NFPackageConfig m_packetConfig;
 };

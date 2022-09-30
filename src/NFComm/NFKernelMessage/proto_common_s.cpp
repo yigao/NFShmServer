@@ -300,6 +300,7 @@ int pbNFServerConfig_s::CreateInit() {
 	MaxOnlinePlayerNum = (uint32_t)0;
 	HeartBeatTimeout = (uint32_t)0;
 	ClientKeepAliveTimeout = (uint32_t)0;
+	ClientVersion = (uint32_t)0;
 	return 0;
 }
 
@@ -351,6 +352,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_maxonlineplayernum((uint32_t)MaxOnlinePlayerNum);
 	msg.set_heartbeattimeout((uint32_t)HeartBeatTimeout);
 	msg.set_clientkeepalivetimeout((uint32_t)ClientKeepAliveTimeout);
+	msg.set_clientversion((uint32_t)ClientVersion);
 }
 
 void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg) {
@@ -398,6 +400,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	MaxOnlinePlayerNum = msg.maxonlineplayernum();
 	HeartBeatTimeout = msg.heartbeattimeout();
 	ClientKeepAliveTimeout = msg.clientkeepalivetimeout();
+	ClientVersion = msg.clientversion();
 }
 
 }

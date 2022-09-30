@@ -10,6 +10,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFLogicCommon/NFPackageMng.h"
 
 //已登陆成功客户端 session 2分钟超时
 #define MAX_GATE_TIME_MSEC 120000
@@ -59,6 +60,10 @@ public:
 
     void SetTimeOut(uint32_t mTimeOut);
 
+public:
+    int CheckPkgRate(NFPackageConfig* pConfig, int iMsgID, int &count, int &interval);
+
+    int AddPkgStatistic(int iMsgID, uint64_t roleID, uint64_t linkId);
 private:
     uint64_t m_linkId;
     uint64_t m_playerId;
@@ -67,4 +72,5 @@ private:
     uint64_t m_lastHeartBeatTime;
     uint64_t m_lastActiveTime;
     uint32_t m_timeOut;
+    NFPackageMng m_packageMng;
 };

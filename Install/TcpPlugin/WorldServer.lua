@@ -24,5 +24,6 @@ WorldServer = {
       MasterIp = NF_MASTER_IP,
       MasterPort = NF_MASTER_PORT,
       DefaultDBName = NF_MYSQL_DB_NAME,
+      ClientVersion = NF_CLIENT_VERSION,
    };
 };
