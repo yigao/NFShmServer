@@ -75,7 +75,7 @@ bool NFCProxyAgentServerModule::Awake()
 	}
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
-    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_PROXY_AGENT_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 	return true;
 }
 
@@ -93,7 +93,6 @@ int NFCProxyAgentServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uin
         }
     }
 
-    Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     return 0;
 }
 
@@ -195,6 +194,8 @@ int NFCProxyAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 {
 	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
 
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_AGENT_SERVER);
+    CHECK_EXPR(pConfig, NULL, "pConfig == NULL");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		NFLogDebug(NF_LOG_PROXY_SERVER_PLUGIN, 0, "proxy agent server connect master success!");

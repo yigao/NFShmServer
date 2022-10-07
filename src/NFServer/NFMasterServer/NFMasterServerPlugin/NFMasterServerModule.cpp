@@ -120,19 +120,19 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
 		}
 		else
 		{
-			if (pServerData->mServerInfo.server_type() != xData.server_type() || pServerData->mUnlinkId != 0)
+			if (pServerData->mServerInfo.server_type() != xData.server_type() || pServerData->mUnlinkId != unLinkId)
 			{
 				//该服务器ID已经注册过, 又被别的服务器使用了
 				//服务器连接还在没有崩溃
-				FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
-				return 0;
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} connect some wrong, old server:{}", xData.server_name(), pServerData->mServerInfo.server_name());
+				FindModule<NFIMessageModule>()->CloseLinkId(pServerData->mUnlinkId);
 			}
 		}
 
 		pServerData->mUnlinkId = unLinkId;
 		pServerData->mServerInfo = xData;
         FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
-        if (xData.server_type() != NF_ST_MONITOR_SERVER)
+        if (xData.server_type() != NF_ST_MONITOR_SERVER && xData.server_state() > proto_ff::EST_INIT)
         {
 #if NF_PLATFORM == NF_PLATFORM_WIN
             SynServerToOthers(pServerData);
@@ -143,9 +143,8 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
                 SynServerToOthers(pServerData);
             }
 #endif
+            NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
         }
-
-		NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "Server Register Master Server Success, serverName:{}, busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
 	}
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;

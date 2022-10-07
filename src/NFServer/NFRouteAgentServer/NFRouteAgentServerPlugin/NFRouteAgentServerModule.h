@@ -39,7 +39,7 @@ public:
 	int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
 	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
 
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int ServerReport();
 
 	int OnHandleRouteServerReport(const proto_ff::ServerInfoReport& xData);

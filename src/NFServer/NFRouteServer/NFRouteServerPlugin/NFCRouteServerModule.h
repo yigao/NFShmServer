@@ -42,7 +42,7 @@ public:
 	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NFDataPackage& packet);
 
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int ServerReport();
 
 	int OnHandleRouteAgentRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId);

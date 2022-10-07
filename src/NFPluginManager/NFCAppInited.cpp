@@ -43,8 +43,6 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
 
         m_appObjLoadFromDBTask[eServerType].push_back(task);
         m_initOBjLoadForomDBTasks = false;
-
-
     }
 
 	return 0;
@@ -112,23 +110,27 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
 
 int NFCAppInited::CheckTaskFinished()
 {
+    std::vector<bool> vecFlag;
+    vecFlag.resize(NF_ST_MAX);
+    for(int i = 0; i < (int)vecFlag.size(); i++)
+    {
+        vecFlag[i] = true;
+    }
+
+
 	if (!m_initServerConnectTasks)
 	{
-	    bool flag = true;
-	    for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
+        bool flag = true;
+        for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
         {
 	        for(int j = 0; j < (int)m_serverConnectTasks[i].size(); j++)
             {
 	            if (m_serverConnectTasks[i][j].m_finished == false)
                 {
 	                flag = false;
+                    vecFlag[i] = false;
 	                break;
                 }
-            }
-
-            if (flag == false)
-            {
-                break;
             }
         }
 
@@ -139,7 +141,7 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Connect Task..............");
 
             proto_ff::NFEventNoneData event;
-            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
         }
 	}
 	else
@@ -154,13 +156,9 @@ int NFCAppInited::CheckTaskFinished()
                     if (m_serverLoadDestStore[i][j].m_finished == false)
                     {
                         flag = false;
+                        vecFlag[i] = false;
                         break;
                     }
-                }
-
-                if (flag == false)
-                {
-                    break;
                 }
             }
 
@@ -187,13 +185,9 @@ int NFCAppInited::CheckTaskFinished()
                         if (m_appObjLoadFromDBTask[i][j].m_finished == false)
                         {
                             flag = false;
+                            vecFlag[i] = false;
                             break;
                         }
-                    }
-
-                    if (flag == false)
-                    {
-                        break;
                     }
                 }
 
@@ -209,6 +203,22 @@ int NFCAppInited::CheckTaskFinished()
                 }
             }
         }
+    }
+
+    for(int i = 0; i < (int)vecFlag.size(); i++)
+    {
+        if (vecFlag[i] && m_fireFlag[i] == false)
+        {
+            m_fireFlag[i] = true;
+            proto_ff::NFEventNoneData event;
+            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, i, proto_ff::NF_EVENT_SERVER_TYPE, event);
+        }
+    }
+
+    if (IsInitTasked())
+    {
+        m_pObjPluginManager->SetIsInited(true);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Task, App Inited Success..............");
     }
 
 	return 0;

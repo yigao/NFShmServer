@@ -41,7 +41,7 @@ public:
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int ServerReport();
 	int OnHandleMasterServerReport(uint64_t unLinkId, NFDataPackage& packet);
     int OnHandleProxyAgentServerReport(uint64_t unLinkId, NFDataPackage& packet);
