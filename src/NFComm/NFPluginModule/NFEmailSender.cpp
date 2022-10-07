@@ -9,7 +9,6 @@
 
 #include "NFEmailSender.h"
 #include "NFLogMgr.h"
-#include "NFComm/NFCore/NFBase64.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 #include <iostream>
