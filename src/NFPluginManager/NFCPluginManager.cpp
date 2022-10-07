@@ -1171,7 +1171,7 @@ bool NFCPluginManager::HotfixServer()
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
-        if ((*iter)->SaveDB() == false)
+        if ((*iter)->HotfixServer() == false)
         {
             ret = false;
         }

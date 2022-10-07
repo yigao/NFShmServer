@@ -297,14 +297,14 @@ bool NFIPlugin::OnDynamicPlugin()
 	return true;
 }
 
-bool NFIPlugin::HotfixExitApp()
+bool NFIPlugin::HotfixServer()
 {
     for (size_t i = 0; i < m_vecModule.size(); i++)
     {
         NFIModule* pModule = m_vecModule[i];
         if (pModule)
         {
-            bool bRet = pModule->HotfixExitApp();
+            bool bRet = pModule->HotfixServer();
             if (!bRet)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "{} OnDynamicPlugin failed!", pModule->m_strName);
