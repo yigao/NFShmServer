@@ -54,7 +54,7 @@ bool NFCStoreServerModule::Awake() {
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     if (pConfig) {
-        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
+        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
 
         FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
         int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlDbName, pConfig->MysqlIp,

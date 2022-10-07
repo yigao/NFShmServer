@@ -4332,7 +4332,7 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 IdleSleepUs = 9;
+      // optional uint32 IdleSleepUS = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4960,7 +4960,7 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       8, this->url(), output);
   }
 
-  // optional uint32 IdleSleepUs = 9;
+  // optional uint32 IdleSleepUS = 9;
   if (has_idlesleepus()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->idlesleepus(), output);
   }
@@ -5258,7 +5258,7 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         8, this->url(), target);
   }
 
-  // optional uint32 IdleSleepUs = 9;
+  // optional uint32 IdleSleepUS = 9;
   if (has_idlesleepus()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->idlesleepus(), target);
   }
@@ -5570,7 +5570,7 @@ int pbNFServerConfig::ByteSize() const {
           this->url());
     }
 
-    // optional uint32 IdleSleepUs = 9;
+    // optional uint32 IdleSleepUS = 9;
     if (has_idlesleepus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(

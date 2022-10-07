@@ -52,7 +52,7 @@ bool NFCProxyServerModule::Awake()
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig) {
-        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
+        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
 
         if (!m_pObjPluginManager->IsLoadAllServer()) {
             if (pConfig->ServerType != NF_ST_PROXY_SERVER) {

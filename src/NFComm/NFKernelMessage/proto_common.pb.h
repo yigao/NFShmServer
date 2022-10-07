@@ -1322,7 +1322,7 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::std::string* release_url();
   inline void set_allocated_url(::std::string* url);
 
-  // optional uint32 IdleSleepUs = 9;
+  // optional uint32 IdleSleepUS = 9;
   inline bool has_idlesleepus() const;
   inline void clear_idlesleepus();
   static const int kIdleSleepUsFieldNumber = 9;
@@ -4101,7 +4101,7 @@ inline void pbNFServerConfig::set_allocated_url(::std::string* url) {
   }
 }
 
-// optional uint32 IdleSleepUs = 9;
+// optional uint32 IdleSleepUS = 9;
 inline bool pbNFServerConfig::has_idlesleepus() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }

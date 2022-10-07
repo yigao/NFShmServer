@@ -47,7 +47,7 @@ bool NFCRouteServerModule::Awake()
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig) {
-        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUs);
+        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_ROUTE_SERVER, pConfig->Url,
                                                                 pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (unlinkId >= 0) {
