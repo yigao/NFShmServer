@@ -114,6 +114,7 @@ bool NFCGameServerModule::Awake()
 	}
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 
 	SetTimer(GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID, 10000, 1);
 	return true;
@@ -167,6 +168,10 @@ int NFCGameServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t 
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
             SetTimer(GAME_SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
+        }
+        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
+        {
+            RegisterMasterServer(proto_ff::EST_NARMAL);
         }
     }
     return 0;
@@ -342,7 +347,7 @@ int NFCGameServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 	{
 		NFLogDebug(NF_LOG_GAME_SERVER_PLUGIN, 0, "game server connect master success!");
 
-		RegisterMasterServer();
+		RegisterMasterServer(proto_ff::EST_INIT);
 
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
@@ -372,7 +377,7 @@ int NFCGameServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPac
 	return 0;
 }
 
-int NFCGameServerModule::RegisterMasterServer()
+int NFCGameServerModule::RegisterMasterServer(uint32_t serverState)
 {
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
@@ -380,7 +385,7 @@ int NFCGameServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
         NFServerCommon::WriteServerInfo(pData, pConfig);
-		pData->set_server_state(proto_ff::EST_NARMAL);
+		pData->set_server_state(serverState);
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}

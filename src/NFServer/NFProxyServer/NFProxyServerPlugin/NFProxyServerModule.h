@@ -30,7 +30,7 @@ public:
 
     virtual void OnTimer(uint32_t nTimerID) override;
 
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 
     virtual void SetOtherServerMsgHandle(const NET_RECEIVE_FUNCTOR& func) override { m_otherServerMsgHandle = func; }
 public:

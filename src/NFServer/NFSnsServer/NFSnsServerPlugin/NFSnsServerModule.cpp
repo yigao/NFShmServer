@@ -103,6 +103,7 @@ bool NFCSnsServerModule::Awake()
 	}
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_SNS_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 
 	return true;
 }
@@ -114,6 +115,10 @@ int NFCSnsServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t b
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
             SetTimer(10000, 10000, 0);
+        }
+        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
+        {
+            RegisterMasterServer(proto_ff::EST_NARMAL);
         }
     }
 
@@ -252,7 +257,7 @@ int NFCSnsServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogDebug(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server connect master success!");
-		RegisterMasterServer();
+		RegisterMasterServer(proto_ff::EST_INIT);
 
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
@@ -311,7 +316,7 @@ int NFCSnsServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& p
 	return 0;
 }
 
-int NFCSnsServerModule::RegisterMasterServer()
+int NFCSnsServerModule::RegisterMasterServer(uint32_t serverState)
 {
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
@@ -320,7 +325,7 @@ int NFCSnsServerModule::RegisterMasterServer()
 		proto_ff::ServerInfoReportList xMsg;
 		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
         NFServerCommon::WriteServerInfo(pData, pConfig);
-		pData->set_server_state(proto_ff::EST_NARMAL);
+		pData->set_server_state(serverState);
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_SNS_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}

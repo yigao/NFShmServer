@@ -34,7 +34,7 @@ public:
 
 	int OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet);
 
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int ServerReport();
 
 	int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);

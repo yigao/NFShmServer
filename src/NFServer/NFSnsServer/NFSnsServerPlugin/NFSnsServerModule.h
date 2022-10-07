@@ -31,7 +31,7 @@ public:
 
     virtual void OnTimer(uint32_t nTimerID) override;
 
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 public:
 	int ServerReport();
 	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
@@ -50,7 +50,7 @@ public:
 		处理Master服务器链接事件和未注册消息
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int OnMasterSocketEvent(eMsgType nEvent,uint64_t unLinkId);
 	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 };

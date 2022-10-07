@@ -44,7 +44,7 @@ public:
 		处理Master服务器链接事件和未注册消息
 	*/
     int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
-	int RegisterMasterServer();
+	int RegisterMasterServer(uint32_t serverState);
 	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
