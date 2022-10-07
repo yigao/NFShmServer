@@ -132,15 +132,28 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
 		pServerData->mUnlinkId = unLinkId;
 		pServerData->mServerInfo = xData;
         FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
-        if (xData.server_type() != NF_ST_MONITOR_SERVER && xData.server_state() > proto_ff::EST_INIT)
+        if (xData.server_state() == proto_ff::EST_INIT)
         {
 #if NF_PLATFORM == NF_PLATFORM_WIN
+            SynOtherServerToServer(pServerData);
+#else
+            NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
+            if (pConfig && pConfig->NamingHost.empty())
+            {
+                SynOtherServerToServer(pServerData);
+            }
+#endif
+        }
+        else {
+#if NF_PLATFORM == NF_PLATFORM_WIN
             SynServerToOthers(pServerData);
+            SynOtherServerToServer(pServerData);
 #else
             NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
             if (pConfig && pConfig->NamingHost.empty())
             {
                 SynServerToOthers(pServerData);
+                SynOtherServerToServer(pServerData);
             }
 #endif
             NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
@@ -317,11 +330,40 @@ int NFCMasterServerModule::OnClientDisconnect(uint64_t unLinkId)
 	return 0;
 }
 
+int NFCMasterServerModule::SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pServerData)
+{
+    NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
+    proto_ff::ServerInfoReportList xData;
+
+    std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER);
+
+    for(size_t i = 0; i < vec.size(); i++)
+    {
+        NF_SHARE_PTR<NFServerData> pCurServer = vec[i];
+        if (pCurServer->mServerInfo.bus_id() != pServerData->mServerInfo.bus_id())
+        {
+            if (pCurServer->mServerInfo.server_state() > proto_ff::EST_INIT)
+            {
+                if (NFServerIDUtil::GetWorldID(pCurServer->mServerInfo.bus_id()) == NFServerIDUtil::GetWorldID(pServerData->mServerInfo.bus_id()))
+                {
+                    if (NFServerIDUtil::GetZoneID(pCurServer->mServerInfo.bus_id()) == NFServerIDUtil::GetZoneID(pServerData->mServerInfo.bus_id()))
+                    {
+                        proto_ff::ServerInfoReport* pData = xData.add_server_list();
+                        *pData = pCurServer->mServerInfo;
+                    }
+                }
+            }
+        }
+    }
+
+    FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xData, 0);
+    NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
 int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerData)
 {
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- begin --");
-	proto_ff::ServerInfoReportList xData;
-
 	proto_ff::ServerInfoReportList xSelfData;
 	proto_ff::ServerInfoReport* pSelfData = xSelfData.add_server_list();
 	*pSelfData = pServerData->mServerInfo;
@@ -335,15 +377,11 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
         {
             if (NFServerIDUtil::GetWorldID(pServerData->mServerInfo.bus_id()) == NFServerIDUtil::GetWorldID(pCurServer->mServerInfo.bus_id()))
             {
-                proto_ff::ServerInfoReport* pData = xData.add_server_list();
-                *pData = pCurServer->mServerInfo;
-
                 FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
             }
         }
     }
 
-	FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xData, 0);
 	NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
 	return 0;
 }

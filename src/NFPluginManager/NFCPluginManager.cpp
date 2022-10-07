@@ -81,7 +81,9 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 	g_GetGlobalServerTime()->Init(m_nFrame);
 
 	NFRandomSeed();
-	SetOpenProfiler(false);
+#ifdef NF_DEBUG_MODE
+	SetOpenProfiler(true);
+#endif
 }
 
 NFCPluginManager::~NFCPluginManager()
@@ -338,7 +340,7 @@ bool NFCPluginManager::Execute()
 		{
 			if (!IsLoadAllServer())
 			{
-				NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "mainthread:{} {} use time:{} ms", NFCommon::tostr(std::this_thread::get_id()), it->first + "--Loop", useTime / 1000);
+				NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "mainthread:{} use time:{} ms", it->first + "--Loop", useTime / 1000);
 			}
 		}
 	}
@@ -409,10 +411,21 @@ bool NFCPluginManager::Execute()
         }
     }
 
-	if (m_nCurFrameCount % 1000 == 0)
-	{
-		PrintProfiler();
-	}
+    if (m_bFixedFrame)
+    {
+        if (m_nCurFrameCount % 1000 == 0)
+        {
+            PrintProfiler();
+        }
+    }
+    else
+    {
+        if (m_nCurFrameCount % 1000000 == 0)
+        {
+            PrintProfiler();
+        }
+    }
+
 
 	return bRet;
 }
@@ -590,7 +603,9 @@ bool NFCPluginManager::ReadyExecute()
 	NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager ReadyExecute................");
 
 	if (!m_bFixedFrame) {
-	    m_profilerMgr.SetOpenProfiler(false);
+#ifdef NF_DEBUG_MODE
+	    m_profilerMgr.SetOpenProfiler(true);
+#endif
     }
 	
 	for (PluginInstanceMap::iterator itCheckInstance = m_nPluginInstanceMap.begin(); itCheckInstance != m_nPluginInstanceMap.end(); ++itCheckInstance)

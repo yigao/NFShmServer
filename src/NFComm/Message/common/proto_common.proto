@@ -106,7 +106,7 @@ message pbNFServerConfig
 	optional uint32 BusLength = 5; //NFBUS/TBUS共享内存通信大小
 	optional string LinkMode = 7;  //
 	optional string Url = 8;
-	optional uint32 IdleSleepUs = 9; //服务器类型
+	optional uint32 IdleSleepUS = 9; //服务器类型
 
 ////////////////////////////////////////net//////////////////////////////////////////////////////////
 	optional string ServerIp = 20; //服务器监听IP

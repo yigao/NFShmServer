@@ -126,11 +126,22 @@ bool NFIPlugin::Execute()
 		NFIModule* pModule = m_vecModule[i];
 		if (pModule)
 		{
-			bool bRet = pModule->Execute();
-			if (!bRet)
-			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Execute failed!", pModule->m_strName);
-			}
+            m_pObjPluginManager->BeginProfiler(pModule->m_strName + "--Loop");
+            bool bRet = pModule->Execute();
+            if (!bRet)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Execute failed!", pModule->m_strName);
+            }
+            uint64_t useTime = m_pObjPluginManager->EndProfiler();
+            if (useTime >= 30000) //>= 10ºÁÃë
+            {
+                if (!m_pObjPluginManager->IsLoadAllServer())
+                {
+                    NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "mainthread:{} use time:{} ms", pModule->m_strName + "--Loop", useTime / 1000);
+                }
+            }
+
+
 		}
 	}
 

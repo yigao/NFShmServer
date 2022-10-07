@@ -260,6 +260,11 @@ bool NFCConfigModule::LoadServerConfig()
                 pPbConfig->set_buslength(20971520);  //20M
             }
 
+            if (pPbConfig->idlesleepus() == 0)
+            {
+                pPbConfig->set_idlesleepus(1000);
+            }
+
             std::string linkMode = pPbConfig->linkmode();
             NFStringUtility::Trim(linkMode);
             NFStringUtility::ToLower(linkMode);

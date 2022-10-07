@@ -31,12 +31,13 @@ public:
 
 	virtual void OnTimer(uint32_t nTimerID) override;
 
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 
 	int ConnectGlobalServer();
     int ServerReport();
 
 	int SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerData);
+    int SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pServerData);
 	int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
 	int OnServerReportProcess(uint64_t unLinkId, NFDataPackage& packet);
 
