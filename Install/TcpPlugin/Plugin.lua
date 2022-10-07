@@ -100,7 +100,6 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
-			"NFShmPlugin",
 			"NFServerCommonPlugin",
 
 			"NFProxyServerPlugin",

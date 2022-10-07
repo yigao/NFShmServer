@@ -63,15 +63,18 @@ rm Alllog.sh
 echo "main()" >> Alllog.sh
 echo "{" >> Alllog.sh
 
-do_work MasterServer 1.1.1.1 ../../Config ../../TcpPlugin
-do_work RouteServer 15.100.7.1 ../../Config ../../TcpPlugin
-do_work RouteAgentServer 15.100.6.1 ../../Config ../../TcpPlugin
-do_work StoreServer 15.100.8.1 ../../Config ../../TcpPlugin
-do_work LoginServer 15.100.2.1 ../../Config ../../TcpPlugin
-do_work WorldServer 15.100.3.1 ../../Config ../../TcpPlugin
-do_work LogicServer 15.100.10.1 ../../Config ../../TcpPlugin
-do_work ProxyServer 15.100.5.1 ../../Config ../../TcpPlugin
-do_work ProxyAgentServer 15.100.13.1 ../../Config ../../TcpPlugin
+do_work MasterServer 1.9.1.1 ../../Config/MMO ../../TcpPlugin
+do_work RouteAgentServer 1.9.2.1 ../../Config/MMO ../../TcpPlugin
+do_work RouteServer 1.9.3.1 ../../Config/MMO ../../TcpPlugin
+do_work ProxyServer 1.9.4.1 ../../Config/MMO ../../TcpPlugin
+do_work ProxyAgentServer 1.9.6.1 ../../Config/MMO ../../TcpPlugin
+do_work StoreServer 1.9.7.1 ../../Config/MMO ../../TcpPlugin
+do_work LoginServer 1.9.8.1 ../../Config/MMO ../../TcpPlugin
+do_work WorldServer 1.9.9.1 ../../Config/MMO ../../TcpPlugin
+do_work LogicServer 1.9.10.1 ../../Config/MMO ../../TcpPlugin
+do_work GameServer 1.9.11.1 ../../Config/MMO ../../TcpPlugin
+do_work SnsServer 1.9.12.1 ../../Config/MMO ../../TcpPlugin
+do_work WebServer 1.9.13.1 ../../Config/MMO ../../TcpPlugin
 
 echo	"tail --follow=name --retry $log_str --max-unchanged-stats=4 -n 5 -q | awk '"'/INFO/ {print "\033[32m" $0 "\033[39m"} /DEBUG/ {print  $0 }  /WARNING/ {print "\033[33m" $0 "\033[39m"} /TRACE/ {print "\033[33m" $0 "\033[39m"} /ERROR/ {print "\033[31m" $0 "\033[39m"} '"'" >> Alllog.sh
 

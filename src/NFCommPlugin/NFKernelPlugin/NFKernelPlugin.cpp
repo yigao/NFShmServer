@@ -67,7 +67,7 @@ void NFKernelPlugin::Install()
 	REGISTER_MODULE(m_pObjPluginManager, NFIConsoleModule, NFCConsoleModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIMessageModule, NFCMessageModule);
     REGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
+    //REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
@@ -75,22 +75,22 @@ void NFKernelPlugin::Install()
 
 void NFKernelPlugin::Uninstall()
 {
-
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIMonitorModule, NFCMonitorModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIConsoleModule, NFCConsoleModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIKernelModule, NFCKernelModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIEventModule, NFCEventModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFITimerModule, NFCTimerModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFILogModule, NFCLogModule);
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIConfigModule, NFCConfigModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFIMessageModule, NFCMessageModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
 
-    UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
+    //UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
     //UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
+
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIMonitorModule, NFCMonitorModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIConsoleModule, NFCConsoleModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIKernelModule, NFCKernelModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIEventModule, NFCEventModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFITimerModule, NFCTimerModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFILogModule, NFCLogModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIConfigModule, NFCConfigModule);
 }
 
 bool NFKernelPlugin::InitShmObjectRegister()
