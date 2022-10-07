@@ -427,13 +427,13 @@ int NFCSnsServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t 
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		NFLogDebug(NF_LOG_SNS_SERVER_PLUGIN, 0, "login server connect route agent server success!");
+		NFLogDebug(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server connect route agent server success!");
 
 		RegisterRouteAgentServer(unLinkId);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "login server disconnect route agent server success");
+		NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server disconnect route agent server success");
 	}
 	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
 	return 0;

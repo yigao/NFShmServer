@@ -497,13 +497,13 @@ int NFCLogicServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_
     NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
     {
-        NFLogDebug(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "login server connect route agent server success!");
+        NFLogDebug(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "logic server connect route agent server success!");
 
         RegisterRouteAgentServer(unLinkId);
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-        NFLogError(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "login server disconnect route agent server success");
+        NFLogError(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "logic server disconnect route agent server success");
     }
     NFLogTrace(NF_LOG_LOGIC_SERVER_PLUGIN, 0, "-- end --");
     return 0;
