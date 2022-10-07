@@ -1158,11 +1158,14 @@ int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
     NFServerConfig* pConfig = ((NFIPluginManager*)this)->FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
-//    proto_ff::Proto_STMasterServerDumpInfoNtf ntf;
-//    ntf.set_dump_info(dumpInfo);
-//    ntf.set_bus_id(pConfig->mBusId);
+    proto_ff::Proto_ServerDumpInfoNtf ntf;
+    ntf.set_dump_info(dumpInfo);
+    ntf.set_bus_id(pConfig->BusId);
 
-//    FindModule<NFIMessageModule>()->SendMsgToMasterServer((NF_SERVER_TYPES)pConfig->mServerType, proto_ff::NF_STMaster_SEND_DUMP_INFO_NTF, ntf);
+    auto pServerData = FindModule<NFIMessageModule>()->GetMasterData((NF_SERVER_TYPES)pConfig->ServerType);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, eType error:{}", (int) pConfig->ServerType);
+
+    FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_STS_SEND_DUMP_INFO_NTF, ntf);
     return 0;
 }
 

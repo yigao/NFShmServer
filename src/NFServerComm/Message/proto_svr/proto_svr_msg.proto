@@ -21,12 +21,6 @@ message CommonMsgRsp
   optional int32 result = 1;
 }
 
-message Proto_STMasterServerDumpInfoNtf
-{
-  optional string dump_info = 1;
-  optional uint32 bus_id = 2;
-}
-
 message Proto_MasterTMonitorReloadReq
 {
   optional string server_name = 1;

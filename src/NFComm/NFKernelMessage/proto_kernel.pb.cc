@@ -65,6 +65,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NFEventNoneData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NFEventNoneData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_ServerDumpInfoNtf_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_ServerDumpInfoNtf_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_Kernel_CMD_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* NFROUTER_ERRCODE_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* STORESVR_CS_COMMAND_descriptor_ = NULL;
@@ -363,6 +366,22 @@ void protobuf_AssignDesc_proto_5fkernel_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NFEventNoneData));
+  Proto_ServerDumpInfoNtf_descriptor_ = file->message_type(15);
+  static const int Proto_ServerDumpInfoNtf_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ServerDumpInfoNtf, dump_info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ServerDumpInfoNtf, bus_id_),
+  };
+  Proto_ServerDumpInfoNtf_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_ServerDumpInfoNtf_descriptor_,
+      Proto_ServerDumpInfoNtf::default_instance_,
+      Proto_ServerDumpInfoNtf_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ServerDumpInfoNtf, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ServerDumpInfoNtf, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_ServerDumpInfoNtf));
   Proto_Kernel_CMD_descriptor_ = file->enum_type(0);
   NFROUTER_ERRCODE_descriptor_ = file->enum_type(1);
   STORESVR_CS_COMMAND_descriptor_ = file->enum_type(2);
@@ -414,6 +433,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     BehaviorLogHeader_descriptor_, &BehaviorLogHeader::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NFEventNoneData_descriptor_, &NFEventNoneData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_ServerDumpInfoNtf_descriptor_, &Proto_ServerDumpInfoNtf::default_instance());
 }
 
 }  // namespace
@@ -449,6 +470,8 @@ void protobuf_ShutdownFile_proto_5fkernel_2eproto() {
   delete BehaviorLogHeader_reflection_;
   delete NFEventNoneData::default_instance_;
   delete NFEventNoneData_reflection_;
+  delete Proto_ServerDumpInfoNtf::default_instance_;
+  delete Proto_ServerDumpInfoNtf_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fkernel_2eproto() {
@@ -507,169 +530,171 @@ void protobuf_AddDesc_proto_5fkernel_2eproto() {
     "\024\200\001\022\017\n\007user_id\030\005 \001(\004\022\035\n\tuser_name\030\006 \001(\tB"
     "\n\220\301\024\200\001\310\202\024\200\001\"a\n\017NFEventNoneData\022\016\n\006param1"
     "\030\001 \001(\t\022\016\n\006param2\030\002 \001(\t\022\016\n\006param3\030\003 \001(\t\022\016"
-    "\n\006param4\030\004 \001(\t\022\016\n\006param5\030\005 \001(\t*\260\r\n\020Proto"
-    "_Kernel_CMD\022\036\n\032NF_GTM_KILL_ALL_SERVER_NT"
-    "F\020\003\022\036\n\032NF_STS_KILL_ALL_SERVER_NTF\020\004\022\"\n\036N"
-    "F_STMaster_SEND_DUMP_INFO_NTF\020,\022$\n NF_Ma"
-    "sterTMonitor_RELOAD_CMD_REQ\020P\022%\n!NF_Mast"
-    "erTMonitor_RESTART_CMD_REQ\020Q\022#\n\037NF_Maste"
-    "rTMonitor_START_CMD_REQ\020R\022\"\n\036NF_MasterTM"
-    "onitor_STOP_CMD_REQ\020S\022&\n\"NF_MasterTMonit"
-    "or_STOP_ALL_CMD_REQ\020T\022(\n$NF_MasterTMonit"
-    "or_RELOAD_ALL_CMD_REQ\020U\022)\n%NF_MasterTMon"
-    "itor_RESTART_ALL_CMD_REQ\020V\022\'\n#NF_MasterT"
-    "Monitor_START_ALL_CMD_REQ\020W\022$\n NF_Monito"
-    "rTMaster_RELOAD_CMD_RSP\020Z\022%\n!NF_MonitorT"
-    "Master_RESTART_CMD_RSP\020[\022#\n\037NF_MonitorTM"
-    "aster_START_CMD_RSP\020\\\022\"\n\036NF_MonitorTMast"
-    "er_STOP_CMD_RSP\020]\022&\n\"NF_MonitorTMaster_S"
-    "TOP_ALL_CMD_RSP\020^\022(\n$NF_MonitorTMaster_R"
-    "ELOAD_ALL_CMD_RSP\020_\022)\n%NF_MonitorTMaster"
-    "_RESTART_ALL_CMD_RSP\020`\022\'\n#NF_MonitorTMas"
-    "ter_START_ALL_CMD_RSP\020a\022 \n\034NF_SERVER_TO_"
-    "SERVER_REGISTER\020d\022$\n NF_SERVER_TO_SERVER"
-    "_REGISTER_RSP\020e\022*\n&NF_MASTER_SERVER_SEND"
-    "_OTHERS_TO_SERVER\020f\022%\n!NF_SERVER_TO_MAST"
-    "ER_SERVER_REPORT\020g\022\'\n#NF_ROUTER_CMD_INTE"
-    "RNAL_C2R_REGISTER\020h\022\'\n#NF_ROUTER_CMD_INT"
-    "ERNAL_R2C_REGISTER\020i\022(\n$NF_ROUTER_CMD_IN"
-    "TERNAL_C2R_HEARTBEAT\020j\022(\n$NF_ROUTER_CMD_"
-    "INTERNAL_R2C_HEARTBEAT\020k\022\036\n\032NF_ROUTER_CM"
-    "D_DISPATCH_MOD\020l\022%\n!NF_ROUTER_CMD_DISPAT"
-    "CH_ROUNDROBIN\020m\022$\n NF_ROUTER_CMD_DISPATC"
-    "H_BROADCAST\020n\022/\n+NF_ROUTER_CMD_DISPATCH_"
-    "BROADCAST_AND_MASTER\020o\022+\n\'NF_ROUTER_CMD_"
-    "DISPATCH_BORADCAST_MASTER\020p\022*\n&NF_ROUTER"
-    "_CMD_DISPATCH_BORADCAST_SLAVE\020q\022!\n\035NF_RO"
-    "UTER_CMD_DISPATCH_DIRECT\020r\022-\n)NF_ROUTER_"
-    "CMD_INTERNAL_R2C_DISPATCHFAILED\020s\0220\n,NF_"
-    "ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSV"
-    "S\020t\022!\n\035NF_SERVER_TO_SERVER_TRANS_CMD\020x\022$"
-    "\n NF_SERVER_TO_STORE_SERVER_DB_CMD\020y\022$\n "
-    "NF_STORE_SERVER_TO_SERVER_DB_CMD\020z\022%\n!NF"
-    "_WORLD_ROUTER_CMD_TO_SUIT_LOGIC\020{\022#\n\037NF_"
-    "SNS_ROUTER_CMD_TO_SUIT_LOGIC\020|\022\"\n\036NF_STS"
-    "_BROAD_PLAYER_MSG_NOTIFY\020}\022%\n!NF_SEVER_T"
-    "O_WEB_SERVER_RSP_NOTIFY\020~*b\n\020NFROUTER_ER"
-    "RCODE\022\030\n\024NF_ROUTER_ERRCODE_OK\020\000\0224\n0NF_RO"
-    "UTER_ERRCODE_DISPATCHFAILD_DESTSVR_NOTEX"
-    "IST\020\001*\207\005\n\023STORESVR_CS_COMMAND\022\031\n\025E_STORE"
-    "SVR_C2S_SELECT\020\000\022\031\n\025E_STORESVR_S2C_SELEC"
-    "T\020\001\022\034\n\030E_STORESVR_C2S_SELECTOBJ\020\002\022\034\n\030E_S"
-    "TORESVR_S2C_SELECTOBJ\020\003\022\031\n\025E_STORESVR_C2"
-    "S_INSERT\020\004\022\031\n\025E_STORESVR_S2C_INSERT\020\005\022\031\n"
-    "\025E_STORESVR_C2S_DELETE\020\006\022\031\n\025E_STORESVR_S"
-    "2C_DELETE\020\007\022\034\n\030E_STORESVR_C2S_DELETEOBJ\020"
-    "\010\022\034\n\030E_STORESVR_S2C_DELETEOBJ\020\t\022\031\n\025E_STO"
-    "RESVR_C2S_MODIFY\020\n\022\031\n\025E_STORESVR_S2C_MOD"
-    "IFY\020\013\022\034\n\030E_STORESVR_C2S_MODIFYOBJ\020\014\022\034\n\030E"
-    "_STORESVR_S2C_MODIFYOBJ\020\r\022\031\n\025E_STORESVR_"
-    "C2S_MODINS\020\016\022\031\n\025E_STORESVR_S2C_MODINS\020\017\022"
-    "\034\n\030E_STORESVR_C2S_MODINSOBJ\020\020\022\034\n\030E_STORE"
-    "SVR_S2C_MODINSOBJ\020\021\022\034\n\030E_STORESVR_C2S_DE"
-    "SCSTORE\020\022\022\034\n\030E_STORESVR_S2C_DESCSTORE\020\023\022"
-    "\032\n\026E_STORESVR_C2S_EXECUTE\020\024\022\032\n\026E_STORESV"
-    "R_S2C_EXECUTE\020\025*\245\006\n\020STORESVR_ERRCODE\022\031\n\025"
-    "E_STORESVR_ERRCODE_OK\020\000\022\033\n\027E_STORESVR_ER"
-    "RCODE_BUSY\020\001\022\035\n\031E_STORESVR_ERRCODE_EINVA"
-    "L\020\002\022,\n(E_STORESVR_ERRCODE_PARSEFROMSTRIN"
-    "GFAILED\020\003\022/\n+E_STORESVR_ERRCODE_DBNAME_O"
-    "R_MODKEY_INVALID\020\004\022%\n!E_STORESVR_ERRCODE"
-    "_TBNAME_INVALID\020\005\022#\n\037E_STORESVR_ERRCODE_"
-    "SELECT_EMPTY\020\006\0227\n3E_STORESVR_ERRCODE_SEL"
-    "ECT_FILLMESSAGEBYRESULTFAILED\020\007\0222\n.E_STO"
-    "RESVR_ERRCODE_CANNOTCREATERECORDMSGOBJEC"
-    "T\020\010\022,\n(E_STORESVR_ERRCODE_CANNOTFINDSQLT"
-    "EMPALTE\020\t\0220\n,E_STORESVR_ERRCODE_SETPREPA"
-    "RESTATEMENTFAILED\020\n\022#\n\037E_STORESVR_ERRCOD"
-    "E_INSERTFAILED\020\013\022#\n\037E_STORESVR_ERRCODE_D"
-    "ELETEFAILED\020\014\022-\n)E_STORESVR_ERRCODE_DELE"
-    "TERECORDISNOTEXIST\020\r\022-\n)E_STORESVR_ERRCO"
-    "DE_UPDATERECORDISNOTEXIST\020\016\022*\n&E_STORESV"
-    "R_ERRCODE_UPDATENOROWAFFECTED\020\017\022#\n\037E_STO"
-    "RESVR_ERRCODE_UPDATEFAILED\020\020\022)\n%E_STORES"
-    "VR_ERRCODE_UPDATEINSERTFAILED\020\021\022\036\n\032E_STO"
-    "RESVR_ERRCODE_UNKNOWN\020\022*\223\001\n\016PacketDispTy"
-    "pe\022\024\n\020E_DISP_TYPE_NONE\020\000\022\036\n\032E_DISP_TYPE_"
-    "BY_TRANSACTION\020\001\022\031\n\025E_DISP_TYPE_BY_ROLEI"
-    "D\020\002\022\030\n\024E_DISP_TYPE_BY_MSGID\020\003\022\026\n\022E_DISP_"
-    "TYPE_BY_RPC\020\004*I\n\014EServerState\022\014\n\010EST_INI"
-    "T\020\000\022\016\n\nEST_NARMAL\020\001\022\014\n\010EST_BUSY\020\002\022\r\n\tEST"
-    "_CRASH\020\003*\261\021\n\026Proto_Kernel_ErrorCode\022\033\n\027E"
-    "RR_CODE_ZOOKEEPER_BASE\020\000\022$\n\027ERR_CODE_ZK_"
-    "SYSTEMERROR\020\377\377\377\377\377\377\377\377\377\001\022-\n ERR_CODE_ZK_RU"
-    "NTIMEINCONSISTENCY\020\376\377\377\377\377\377\377\377\377\001\022*\n\035ERR_COD"
-    "E_ZK_DATAINCONSISTENCY\020\375\377\377\377\377\377\377\377\377\001\022\'\n\032ERR"
-    "_CODE_ZK_CONNECTIONLOSS\020\374\377\377\377\377\377\377\377\377\001\022)\n\034ER"
-    "R_CODE_ZK_MARSHALLINGERROR\020\373\377\377\377\377\377\377\377\377\001\022&\n"
-    "\031ERR_CODE_ZK_UNIMPLEMENTED\020\372\377\377\377\377\377\377\377\377\001\022)\n"
-    "\034ERR_CODE_ZK_OPERATIONTIMEOUT\020\371\377\377\377\377\377\377\377\377\001"
-    "\022%\n\030ERR_CODE_ZK_BADARGUMENTS\020\370\377\377\377\377\377\377\377\377\001\022"
-    "%\n\030ERR_CODE_ZK_INVALIDSTATE\020\367\377\377\377\377\377\377\377\377\001\022$"
-    "\n\027ERR_CODE_kSM_DNSFAILURE\020\366\377\377\377\377\377\377\377\377\001\022!\n\024"
-    "ERR_CODE_ZK_APIERROR\020\234\377\377\377\377\377\377\377\377\001\022\037\n\022ERR_C"
-    "ODE_ZK_NONODE\020\233\377\377\377\377\377\377\377\377\001\022\037\n\022ERR_CODE_ZK_"
-    "NOAUTH\020\232\377\377\377\377\377\377\377\377\001\022#\n\026ERR_CODE_ZK_BADVERS"
-    "ION\020\231\377\377\377\377\377\377\377\377\001\0220\n#ERR_CODE_ZK_NOCHILDREN"
-    "FOREPHEMERALS\020\224\377\377\377\377\377\377\377\377\001\022#\n\026ERR_CODE_ZK_"
-    "NODEEXISTS\020\222\377\377\377\377\377\377\377\377\001\022!\n\024ERR_CODE_ZK_NOT"
-    "EMPTY\020\221\377\377\377\377\377\377\377\377\001\022\'\n\032ERR_CODE_ZK_SESSIONE"
-    "XPIRED\020\220\377\377\377\377\377\377\377\377\001\022(\n\033ERR_CODE_ZK_INVALID"
-    "CALLBACK\020\217\377\377\377\377\377\377\377\377\001\022#\n\026ERR_CODE_ZK_INVAL"
-    "IDACL\020\216\377\377\377\377\377\377\377\377\001\022#\n\026ERR_CODE_ZK_AUTHFAIL"
-    "ED\020\215\377\377\377\377\377\377\377\377\001\022 \n\023ERR_CODE_ZK_CLOSING\020\214\377\377"
-    "\377\377\377\377\377\377\001\022 \n\023ERR_CODE_ZK_NOTHING\020\213\377\377\377\377\377\377\377\377"
-    "\001\022%\n\030ERR_CODE_ZK_SESSIONMOVED\020\212\377\377\377\377\377\377\377\377\001"
-    "\022 \n\023ERR_CODE_ZK_NOQUOTA\020\211\377\377\377\377\377\377\377\377\001\022\'\n\032ER"
-    "R_CODE_ZK_SERVEROVERLOAD\020\210\377\377\377\377\377\377\377\377\001\022\'\n\032E"
-    "RR_CODE_ZK_NOT_SET_APPKEY\020\270\376\377\377\377\377\377\377\377\001\022&\n\031"
-    "ERR_CODE_SVR_SYSTEM_ERROR\020\377\377\377\377\377\377\377\377\377\001\022\023\n\017"
-    "ERR_CODE_SVR_OK\020\000\022\031\n\025ERR_CODE_MSG_RPC_BA"
-    "SE\020d\022\032\n\025ERR_CODE_SESSION_BASE\020\310\001\022\032\n\025ERR_"
-    "CODE_MESSAGE_BASE\020\254\002\022\031\n\024ERR_CODE_NAMING_"
-    "BASE\020\220\003\022#\n\036ERR_CODE_NAMING_NOT_SUPPORTTE"
-    "D\020\221\003\022\"\n\035ERR_CODE_NAMING_INVAILD_PARAM\020\222\003"
-    "\022#\n\036ERR_CODE_NAMING_URL_REGISTERED\020\223\003\022#\n"
-    "\036ERR_CODE_NAMING_URL_NOT_BINDED\020\224\003\022$\n\037ER"
-    "R_CODE_NAMING_REGISTER_FAILED\020\225\003\022%\n ERR_"
-    "CODE_NAMING_FACTORY_MAP_NULL\020\226\003\022$\n\037ERR_C"
-    "ODE_NAMING_FACTORY_EXISTED\020\227\003\022\031\n\024ERR_COD"
-    "E_ROUTER_BASE\020\364\003\022#\n\036ERR_CODE_ROUTER_NOT_"
-    "SUPPORTTED\020\365\003\022\"\n\035ERR_CODE_ROUTER_INVAILD"
-    "_PARAM\020\366\003\022&\n!ERR_CODE_ROUTER_NONE_VALID_"
-    "HANDLE\020\367\003\022%\n ERR_CODE_ROUTER_FACTORY_MAP"
-    "_NULL\020\370\003\022$\n\037ERR_CODE_ROUTER_FACTORY_EXIS"
-    "TED\020\371\003\022\030\n\023ERR_CODE_TIMER_BASE\020\330\004\022\027\n\022ERR_"
-    "CODE_PIPE_BASE\020\274\005\022\034\n\027ERR_CODE_COROUTINE_"
-    "BASE\020\240\006\022\036\n\031ERR_CODE_CO_INVALID_PARAM\020\241\006\022"
-    "!\n\034ERR_CODE_CO_NOT_IN_COROUTINE\020\242\006\022\034\n\027ER"
-    "R_CODE_CO_NOT_RUNNING\020\243\006\022#\n\036ERR_CODE_CO_"
-    "START_TIMER_FAILED\020\244\006\022\030\n\023ERR_CODE_CO_TIM"
-    "EOUT\020\245\006\022+\n&ERR_CODE_CO_CANNOT_RESUME_IN_"
-    "COROUTINE\020\246\006\022\"\n\035ERR_CODE_CO_COROUTINE_UN"
-    "EXIST\020\247\006\022\'\n\"ERR_CODE_CO_COROUTINE_STATUS"
-    "_ERROR\020\251\006\022\032\n\025ERR_CODE_CHANNEL_BASE\020\204\007\022 \n"
-    "\033ERR_CODE_SVR_SYSTEM_TIMEOUT\020\220N\022\'\n\"ERR_C"
-    "ODE_SVR_SYSTEM_DATABASE_ERROR\020\221N\032\002\020\001*r\n\016"
-    "NFEventSrcType\022\026\n\022NF_EVENT_NONE_TYPE\020\000\022\030"
-    "\n\024NF_EVENT_SERVER_TYPE\020\001\022\024\n\020NF_EVENT_GM_"
-    "TYPE\020\002\022\030\n\024NF_EVENT_PLAYER_TYPE\020\003*\371\004\n\rNFE"
-    "ventIdType\022\036\n\032NF_EVENT_SERVER_TYPE_BEGIN"
-    "\020\001\022\'\n#NF_EVENT_SERVER_CONNECT_TASK_FINIS"
-    "H\020\002\022#\n\037NF_EVENT_SERVER_LOAD_DESC_STORE\020\003"
-    "\022$\n NF_EVENT_SERVER_OBJ_LOAD_FROM_DB\020\004\022%"
-    "\n!NF_EVENT_SERVER_APP_FINISH_INITED\020\005\022\036\n"
-    "\032NF_EVENT_SERVER_DEAD_EVENT\020\006\022\035\n\031NF_EVEN"
-    "T_SERVER_REG_EVENT\020\007\022#\n\037NF_EVENT_GAME_SE"
-    "RVER_DUMP_EVENT\020\010\022$\n NF_EVENT_LOGIC_SERV"
-    "ER_DUMP_EVENT\020\t\022\034\n\030NF_EVENT_SERVER_TYPE_"
-    "END\020c\022\032\n\026NF_EVENT_GM_TYPE_BEGIN\020d\022\031\n\024NF_"
-    "EVENT_GM_TYPE_END\020\307\001\022\037\n\032NF_EVENT_PLAYER_"
-    "TYPE_BEGIN\020\310\001\022\"\n\035NF_EVENT_PLAYER_LOGIN_S"
-    "UCCESS\020\311\001\022!\n\034NF_EVENT_PLAYER_LOGIN_FAILE"
-    "D\020\312\001\022&\n!NF_EVENT_PLAYER_RECONNECT_SUCCES"
-    "S\020\313\001\022\037\n\032NF_EVENT_PLAYER_DISCONNECT\020\314\001\022\035\n"
-    "\030NF_EVENT_PLAYER_TYPE_END\020\253\002", 8428);
+    "\n\006param4\030\004 \001(\t\022\016\n\006param5\030\005 \001(\t\"<\n\027Proto_"
+    "ServerDumpInfoNtf\022\021\n\tdump_info\030\001 \001(\t\022\016\n\006"
+    "bus_id\030\002 \001(\r*\253\r\n\020Proto_Kernel_CMD\022\036\n\032NF_"
+    "GTM_KILL_ALL_SERVER_NTF\020\003\022\036\n\032NF_STS_KILL"
+    "_ALL_SERVER_NTF\020\004\022\035\n\031NF_STS_SEND_DUMP_IN"
+    "FO_NTF\020,\022$\n NF_MasterTMonitor_RELOAD_CMD"
+    "_REQ\020P\022%\n!NF_MasterTMonitor_RESTART_CMD_"
+    "REQ\020Q\022#\n\037NF_MasterTMonitor_START_CMD_REQ"
+    "\020R\022\"\n\036NF_MasterTMonitor_STOP_CMD_REQ\020S\022&"
+    "\n\"NF_MasterTMonitor_STOP_ALL_CMD_REQ\020T\022("
+    "\n$NF_MasterTMonitor_RELOAD_ALL_CMD_REQ\020U"
+    "\022)\n%NF_MasterTMonitor_RESTART_ALL_CMD_RE"
+    "Q\020V\022\'\n#NF_MasterTMonitor_START_ALL_CMD_R"
+    "EQ\020W\022$\n NF_MonitorTMaster_RELOAD_CMD_RSP"
+    "\020Z\022%\n!NF_MonitorTMaster_RESTART_CMD_RSP\020"
+    "[\022#\n\037NF_MonitorTMaster_START_CMD_RSP\020\\\022\""
+    "\n\036NF_MonitorTMaster_STOP_CMD_RSP\020]\022&\n\"NF"
+    "_MonitorTMaster_STOP_ALL_CMD_RSP\020^\022(\n$NF"
+    "_MonitorTMaster_RELOAD_ALL_CMD_RSP\020_\022)\n%"
+    "NF_MonitorTMaster_RESTART_ALL_CMD_RSP\020`\022"
+    "\'\n#NF_MonitorTMaster_START_ALL_CMD_RSP\020a"
+    "\022 \n\034NF_SERVER_TO_SERVER_REGISTER\020d\022$\n NF"
+    "_SERVER_TO_SERVER_REGISTER_RSP\020e\022*\n&NF_M"
+    "ASTER_SERVER_SEND_OTHERS_TO_SERVER\020f\022%\n!"
+    "NF_SERVER_TO_MASTER_SERVER_REPORT\020g\022\'\n#N"
+    "F_ROUTER_CMD_INTERNAL_C2R_REGISTER\020h\022\'\n#"
+    "NF_ROUTER_CMD_INTERNAL_R2C_REGISTER\020i\022(\n"
+    "$NF_ROUTER_CMD_INTERNAL_C2R_HEARTBEAT\020j\022"
+    "(\n$NF_ROUTER_CMD_INTERNAL_R2C_HEARTBEAT\020"
+    "k\022\036\n\032NF_ROUTER_CMD_DISPATCH_MOD\020l\022%\n!NF_"
+    "ROUTER_CMD_DISPATCH_ROUNDROBIN\020m\022$\n NF_R"
+    "OUTER_CMD_DISPATCH_BROADCAST\020n\022/\n+NF_ROU"
+    "TER_CMD_DISPATCH_BROADCAST_AND_MASTER\020o\022"
+    "+\n\'NF_ROUTER_CMD_DISPATCH_BORADCAST_MAST"
+    "ER\020p\022*\n&NF_ROUTER_CMD_DISPATCH_BORADCAST"
+    "_SLAVE\020q\022!\n\035NF_ROUTER_CMD_DISPATCH_DIREC"
+    "T\020r\022-\n)NF_ROUTER_CMD_INTERNAL_R2C_DISPAT"
+    "CHFAILED\020s\0220\n,NF_ROUTER_CMD_INTERNAL_C2R"
+    "_REG_RAASSOCAPPSVS\020t\022!\n\035NF_SERVER_TO_SER"
+    "VER_TRANS_CMD\020x\022$\n NF_SERVER_TO_STORE_SE"
+    "RVER_DB_CMD\020y\022$\n NF_STORE_SERVER_TO_SERV"
+    "ER_DB_CMD\020z\022%\n!NF_WORLD_ROUTER_CMD_TO_SU"
+    "IT_LOGIC\020{\022#\n\037NF_SNS_ROUTER_CMD_TO_SUIT_"
+    "LOGIC\020|\022\"\n\036NF_STS_BROAD_PLAYER_MSG_NOTIF"
+    "Y\020}\022%\n!NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY"
+    "\020~*b\n\020NFROUTER_ERRCODE\022\030\n\024NF_ROUTER_ERRC"
+    "ODE_OK\020\000\0224\n0NF_ROUTER_ERRCODE_DISPATCHFA"
+    "ILD_DESTSVR_NOTEXIST\020\001*\207\005\n\023STORESVR_CS_C"
+    "OMMAND\022\031\n\025E_STORESVR_C2S_SELECT\020\000\022\031\n\025E_S"
+    "TORESVR_S2C_SELECT\020\001\022\034\n\030E_STORESVR_C2S_S"
+    "ELECTOBJ\020\002\022\034\n\030E_STORESVR_S2C_SELECTOBJ\020\003"
+    "\022\031\n\025E_STORESVR_C2S_INSERT\020\004\022\031\n\025E_STORESV"
+    "R_S2C_INSERT\020\005\022\031\n\025E_STORESVR_C2S_DELETE\020"
+    "\006\022\031\n\025E_STORESVR_S2C_DELETE\020\007\022\034\n\030E_STORES"
+    "VR_C2S_DELETEOBJ\020\010\022\034\n\030E_STORESVR_S2C_DEL"
+    "ETEOBJ\020\t\022\031\n\025E_STORESVR_C2S_MODIFY\020\n\022\031\n\025E"
+    "_STORESVR_S2C_MODIFY\020\013\022\034\n\030E_STORESVR_C2S"
+    "_MODIFYOBJ\020\014\022\034\n\030E_STORESVR_S2C_MODIFYOBJ"
+    "\020\r\022\031\n\025E_STORESVR_C2S_MODINS\020\016\022\031\n\025E_STORE"
+    "SVR_S2C_MODINS\020\017\022\034\n\030E_STORESVR_C2S_MODIN"
+    "SOBJ\020\020\022\034\n\030E_STORESVR_S2C_MODINSOBJ\020\021\022\034\n\030"
+    "E_STORESVR_C2S_DESCSTORE\020\022\022\034\n\030E_STORESVR"
+    "_S2C_DESCSTORE\020\023\022\032\n\026E_STORESVR_C2S_EXECU"
+    "TE\020\024\022\032\n\026E_STORESVR_S2C_EXECUTE\020\025*\245\006\n\020STO"
+    "RESVR_ERRCODE\022\031\n\025E_STORESVR_ERRCODE_OK\020\000"
+    "\022\033\n\027E_STORESVR_ERRCODE_BUSY\020\001\022\035\n\031E_STORE"
+    "SVR_ERRCODE_EINVAL\020\002\022,\n(E_STORESVR_ERRCO"
+    "DE_PARSEFROMSTRINGFAILED\020\003\022/\n+E_STORESVR"
+    "_ERRCODE_DBNAME_OR_MODKEY_INVALID\020\004\022%\n!E"
+    "_STORESVR_ERRCODE_TBNAME_INVALID\020\005\022#\n\037E_"
+    "STORESVR_ERRCODE_SELECT_EMPTY\020\006\0227\n3E_STO"
+    "RESVR_ERRCODE_SELECT_FILLMESSAGEBYRESULT"
+    "FAILED\020\007\0222\n.E_STORESVR_ERRCODE_CANNOTCRE"
+    "ATERECORDMSGOBJECT\020\010\022,\n(E_STORESVR_ERRCO"
+    "DE_CANNOTFINDSQLTEMPALTE\020\t\0220\n,E_STORESVR"
+    "_ERRCODE_SETPREPARESTATEMENTFAILED\020\n\022#\n\037"
+    "E_STORESVR_ERRCODE_INSERTFAILED\020\013\022#\n\037E_S"
+    "TORESVR_ERRCODE_DELETEFAILED\020\014\022-\n)E_STOR"
+    "ESVR_ERRCODE_DELETERECORDISNOTEXIST\020\r\022-\n"
+    ")E_STORESVR_ERRCODE_UPDATERECORDISNOTEXI"
+    "ST\020\016\022*\n&E_STORESVR_ERRCODE_UPDATENOROWAF"
+    "FECTED\020\017\022#\n\037E_STORESVR_ERRCODE_UPDATEFAI"
+    "LED\020\020\022)\n%E_STORESVR_ERRCODE_UPDATEINSERT"
+    "FAILED\020\021\022\036\n\032E_STORESVR_ERRCODE_UNKNOWN\020\022"
+    "*\223\001\n\016PacketDispType\022\024\n\020E_DISP_TYPE_NONE\020"
+    "\000\022\036\n\032E_DISP_TYPE_BY_TRANSACTION\020\001\022\031\n\025E_D"
+    "ISP_TYPE_BY_ROLEID\020\002\022\030\n\024E_DISP_TYPE_BY_M"
+    "SGID\020\003\022\026\n\022E_DISP_TYPE_BY_RPC\020\004*I\n\014EServe"
+    "rState\022\014\n\010EST_INIT\020\000\022\016\n\nEST_NARMAL\020\001\022\014\n\010"
+    "EST_BUSY\020\002\022\r\n\tEST_CRASH\020\003*\261\021\n\026Proto_Kern"
+    "el_ErrorCode\022\033\n\027ERR_CODE_ZOOKEEPER_BASE\020"
+    "\000\022$\n\027ERR_CODE_ZK_SYSTEMERROR\020\377\377\377\377\377\377\377\377\377\001\022"
+    "-\n ERR_CODE_ZK_RUNTIMEINCONSISTENCY\020\376\377\377\377"
+    "\377\377\377\377\377\001\022*\n\035ERR_CODE_ZK_DATAINCONSISTENCY\020"
+    "\375\377\377\377\377\377\377\377\377\001\022\'\n\032ERR_CODE_ZK_CONNECTIONLOSS"
+    "\020\374\377\377\377\377\377\377\377\377\001\022)\n\034ERR_CODE_ZK_MARSHALLINGER"
+    "ROR\020\373\377\377\377\377\377\377\377\377\001\022&\n\031ERR_CODE_ZK_UNIMPLEMEN"
+    "TED\020\372\377\377\377\377\377\377\377\377\001\022)\n\034ERR_CODE_ZK_OPERATIONT"
+    "IMEOUT\020\371\377\377\377\377\377\377\377\377\001\022%\n\030ERR_CODE_ZK_BADARGU"
+    "MENTS\020\370\377\377\377\377\377\377\377\377\001\022%\n\030ERR_CODE_ZK_INVALIDS"
+    "TATE\020\367\377\377\377\377\377\377\377\377\001\022$\n\027ERR_CODE_kSM_DNSFAILU"
+    "RE\020\366\377\377\377\377\377\377\377\377\001\022!\n\024ERR_CODE_ZK_APIERROR\020\234\377"
+    "\377\377\377\377\377\377\377\001\022\037\n\022ERR_CODE_ZK_NONODE\020\233\377\377\377\377\377\377\377\377"
+    "\001\022\037\n\022ERR_CODE_ZK_NOAUTH\020\232\377\377\377\377\377\377\377\377\001\022#\n\026ER"
+    "R_CODE_ZK_BADVERSION\020\231\377\377\377\377\377\377\377\377\001\0220\n#ERR_C"
+    "ODE_ZK_NOCHILDRENFOREPHEMERALS\020\224\377\377\377\377\377\377\377\377"
+    "\001\022#\n\026ERR_CODE_ZK_NODEEXISTS\020\222\377\377\377\377\377\377\377\377\001\022!"
+    "\n\024ERR_CODE_ZK_NOTEMPTY\020\221\377\377\377\377\377\377\377\377\001\022\'\n\032ERR"
+    "_CODE_ZK_SESSIONEXPIRED\020\220\377\377\377\377\377\377\377\377\001\022(\n\033ER"
+    "R_CODE_ZK_INVALIDCALLBACK\020\217\377\377\377\377\377\377\377\377\001\022#\n\026"
+    "ERR_CODE_ZK_INVALIDACL\020\216\377\377\377\377\377\377\377\377\001\022#\n\026ERR"
+    "_CODE_ZK_AUTHFAILED\020\215\377\377\377\377\377\377\377\377\001\022 \n\023ERR_CO"
+    "DE_ZK_CLOSING\020\214\377\377\377\377\377\377\377\377\001\022 \n\023ERR_CODE_ZK_"
+    "NOTHING\020\213\377\377\377\377\377\377\377\377\001\022%\n\030ERR_CODE_ZK_SESSIO"
+    "NMOVED\020\212\377\377\377\377\377\377\377\377\001\022 \n\023ERR_CODE_ZK_NOQUOTA"
+    "\020\211\377\377\377\377\377\377\377\377\001\022\'\n\032ERR_CODE_ZK_SERVEROVERLOA"
+    "D\020\210\377\377\377\377\377\377\377\377\001\022\'\n\032ERR_CODE_ZK_NOT_SET_APPK"
+    "EY\020\270\376\377\377\377\377\377\377\377\001\022&\n\031ERR_CODE_SVR_SYSTEM_ERR"
+    "OR\020\377\377\377\377\377\377\377\377\377\001\022\023\n\017ERR_CODE_SVR_OK\020\000\022\031\n\025ER"
+    "R_CODE_MSG_RPC_BASE\020d\022\032\n\025ERR_CODE_SESSIO"
+    "N_BASE\020\310\001\022\032\n\025ERR_CODE_MESSAGE_BASE\020\254\002\022\031\n"
+    "\024ERR_CODE_NAMING_BASE\020\220\003\022#\n\036ERR_CODE_NAM"
+    "ING_NOT_SUPPORTTED\020\221\003\022\"\n\035ERR_CODE_NAMING"
+    "_INVAILD_PARAM\020\222\003\022#\n\036ERR_CODE_NAMING_URL"
+    "_REGISTERED\020\223\003\022#\n\036ERR_CODE_NAMING_URL_NO"
+    "T_BINDED\020\224\003\022$\n\037ERR_CODE_NAMING_REGISTER_"
+    "FAILED\020\225\003\022%\n ERR_CODE_NAMING_FACTORY_MAP"
+    "_NULL\020\226\003\022$\n\037ERR_CODE_NAMING_FACTORY_EXIS"
+    "TED\020\227\003\022\031\n\024ERR_CODE_ROUTER_BASE\020\364\003\022#\n\036ERR"
+    "_CODE_ROUTER_NOT_SUPPORTTED\020\365\003\022\"\n\035ERR_CO"
+    "DE_ROUTER_INVAILD_PARAM\020\366\003\022&\n!ERR_CODE_R"
+    "OUTER_NONE_VALID_HANDLE\020\367\003\022%\n ERR_CODE_R"
+    "OUTER_FACTORY_MAP_NULL\020\370\003\022$\n\037ERR_CODE_RO"
+    "UTER_FACTORY_EXISTED\020\371\003\022\030\n\023ERR_CODE_TIME"
+    "R_BASE\020\330\004\022\027\n\022ERR_CODE_PIPE_BASE\020\274\005\022\034\n\027ER"
+    "R_CODE_COROUTINE_BASE\020\240\006\022\036\n\031ERR_CODE_CO_"
+    "INVALID_PARAM\020\241\006\022!\n\034ERR_CODE_CO_NOT_IN_C"
+    "OROUTINE\020\242\006\022\034\n\027ERR_CODE_CO_NOT_RUNNING\020\243"
+    "\006\022#\n\036ERR_CODE_CO_START_TIMER_FAILED\020\244\006\022\030"
+    "\n\023ERR_CODE_CO_TIMEOUT\020\245\006\022+\n&ERR_CODE_CO_"
+    "CANNOT_RESUME_IN_COROUTINE\020\246\006\022\"\n\035ERR_COD"
+    "E_CO_COROUTINE_UNEXIST\020\247\006\022\'\n\"ERR_CODE_CO"
+    "_COROUTINE_STATUS_ERROR\020\251\006\022\032\n\025ERR_CODE_C"
+    "HANNEL_BASE\020\204\007\022 \n\033ERR_CODE_SVR_SYSTEM_TI"
+    "MEOUT\020\220N\022\'\n\"ERR_CODE_SVR_SYSTEM_DATABASE"
+    "_ERROR\020\221N\032\002\020\001*r\n\016NFEventSrcType\022\026\n\022NF_EV"
+    "ENT_NONE_TYPE\020\000\022\030\n\024NF_EVENT_SERVER_TYPE\020"
+    "\001\022\024\n\020NF_EVENT_GM_TYPE\020\002\022\030\n\024NF_EVENT_PLAY"
+    "ER_TYPE\020\003*\371\004\n\rNFEventIdType\022\036\n\032NF_EVENT_"
+    "SERVER_TYPE_BEGIN\020\001\022\'\n#NF_EVENT_SERVER_C"
+    "ONNECT_TASK_FINISH\020\002\022#\n\037NF_EVENT_SERVER_"
+    "LOAD_DESC_STORE\020\003\022$\n NF_EVENT_SERVER_OBJ"
+    "_LOAD_FROM_DB\020\004\022%\n!NF_EVENT_SERVER_APP_F"
+    "INISH_INITED\020\005\022\036\n\032NF_EVENT_SERVER_DEAD_E"
+    "VENT\020\006\022\035\n\031NF_EVENT_SERVER_REG_EVENT\020\007\022#\n"
+    "\037NF_EVENT_GAME_SERVER_DUMP_EVENT\020\010\022$\n NF"
+    "_EVENT_LOGIC_SERVER_DUMP_EVENT\020\t\022\034\n\030NF_E"
+    "VENT_SERVER_TYPE_END\020c\022\032\n\026NF_EVENT_GM_TY"
+    "PE_BEGIN\020d\022\031\n\024NF_EVENT_GM_TYPE_END\020\307\001\022\037\n"
+    "\032NF_EVENT_PLAYER_TYPE_BEGIN\020\310\001\022\"\n\035NF_EVE"
+    "NT_PLAYER_LOGIN_SUCCESS\020\311\001\022!\n\034NF_EVENT_P"
+    "LAYER_LOGIN_FAILED\020\312\001\022&\n!NF_EVENT_PLAYER"
+    "_RECONNECT_SUCCESS\020\313\001\022\037\n\032NF_EVENT_PLAYER"
+    "_DISCONNECT\020\314\001\022\035\n\030NF_EVENT_PLAYER_TYPE_E"
+    "ND\020\253\002", 8485);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_kernel.proto", &protobuf_RegisterTypes);
   Proto_DispInfo::default_instance_ = new Proto_DispInfo();
@@ -687,6 +712,7 @@ void protobuf_AddDesc_proto_5fkernel_2eproto() {
   Proto_STWebMsgRspNotify::default_instance_ = new Proto_STWebMsgRspNotify();
   BehaviorLogHeader::default_instance_ = new BehaviorLogHeader();
   NFEventNoneData::default_instance_ = new NFEventNoneData();
+  Proto_ServerDumpInfoNtf::default_instance_ = new Proto_ServerDumpInfoNtf();
   Proto_DispInfo::default_instance_->InitAsDefaultInstance();
   Proto_StoreInfo_CB::default_instance_->InitAsDefaultInstance();
   Proto_StoreInfo::default_instance_->InitAsDefaultInstance();
@@ -702,6 +728,7 @@ void protobuf_AddDesc_proto_5fkernel_2eproto() {
   Proto_STWebMsgRspNotify::default_instance_->InitAsDefaultInstance();
   BehaviorLogHeader::default_instance_->InitAsDefaultInstance();
   NFEventNoneData::default_instance_->InitAsDefaultInstance();
+  Proto_ServerDumpInfoNtf::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fkernel_2eproto);
 }
 
@@ -6757,6 +6784,271 @@ void NFEventNoneData::Swap(NFEventNoneData* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NFEventNoneData_descriptor_;
   metadata.reflection = NFEventNoneData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_ServerDumpInfoNtf::kDumpInfoFieldNumber;
+const int Proto_ServerDumpInfoNtf::kBusIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_ServerDumpInfoNtf::Proto_ServerDumpInfoNtf()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_ServerDumpInfoNtf::InitAsDefaultInstance() {
+}
+
+Proto_ServerDumpInfoNtf::Proto_ServerDumpInfoNtf(const Proto_ServerDumpInfoNtf& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_ServerDumpInfoNtf::SharedCtor() {
+  _cached_size_ = 0;
+  dump_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  bus_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_ServerDumpInfoNtf::~Proto_ServerDumpInfoNtf() {
+  SharedDtor();
+}
+
+void Proto_ServerDumpInfoNtf::SharedDtor() {
+  if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
+    delete dump_info_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_ServerDumpInfoNtf::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_ServerDumpInfoNtf::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_ServerDumpInfoNtf_descriptor_;
+}
+
+const Proto_ServerDumpInfoNtf& Proto_ServerDumpInfoNtf::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fkernel_2eproto();
+  return *default_instance_;
+}
+
+Proto_ServerDumpInfoNtf* Proto_ServerDumpInfoNtf::default_instance_ = NULL;
+
+Proto_ServerDumpInfoNtf* Proto_ServerDumpInfoNtf::New() const {
+  return new Proto_ServerDumpInfoNtf;
+}
+
+void Proto_ServerDumpInfoNtf::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_dump_info()) {
+      if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
+        dump_info_->clear();
+      }
+    }
+    bus_id_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_ServerDumpInfoNtf::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string dump_info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_dump_info()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->dump_info().data(), this->dump_info().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_bus_id;
+        break;
+      }
+
+      // optional uint32 bus_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &bus_id_)));
+          set_has_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_ServerDumpInfoNtf::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string dump_info = 1;
+  if (has_dump_info()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dump_info().data(), this->dump_info().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->dump_info(), output);
+  }
+
+  // optional uint32 bus_id = 2;
+  if (has_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->bus_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_ServerDumpInfoNtf::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string dump_info = 1;
+  if (has_dump_info()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dump_info().data(), this->dump_info().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->dump_info(), target);
+  }
+
+  // optional uint32 bus_id = 2;
+  if (has_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->bus_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_ServerDumpInfoNtf::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string dump_info = 1;
+    if (has_dump_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->dump_info());
+    }
+
+    // optional uint32 bus_id = 2;
+    if (has_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->bus_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_ServerDumpInfoNtf::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_ServerDumpInfoNtf* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_ServerDumpInfoNtf*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_ServerDumpInfoNtf::MergeFrom(const Proto_ServerDumpInfoNtf& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_dump_info()) {
+      set_dump_info(from.dump_info());
+    }
+    if (from.has_bus_id()) {
+      set_bus_id(from.bus_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_ServerDumpInfoNtf::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_ServerDumpInfoNtf::CopyFrom(const Proto_ServerDumpInfoNtf& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_ServerDumpInfoNtf::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_ServerDumpInfoNtf::Swap(Proto_ServerDumpInfoNtf* other) {
+  if (other != this) {
+    std::swap(dump_info_, other->dump_info_);
+    std::swap(bus_id_, other->bus_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_ServerDumpInfoNtf::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_ServerDumpInfoNtf_descriptor_;
+  metadata.reflection = Proto_ServerDumpInfoNtf_reflection_;
   return metadata;
 }
 

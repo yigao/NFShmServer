@@ -23,9 +23,6 @@ namespace {
 const ::google::protobuf::Descriptor* CommonMsgRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CommonMsgRsp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Proto_STMasterServerDumpInfoNtf_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_STMasterServerDumpInfoNtf_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Proto_MasterTMonitorReloadReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_MasterTMonitorReloadReq_reflection_ = NULL;
@@ -94,23 +91,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CommonMsgRsp));
-  Proto_STMasterServerDumpInfoNtf_descriptor_ = file->message_type(1);
-  static const int Proto_STMasterServerDumpInfoNtf_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STMasterServerDumpInfoNtf, dump_info_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STMasterServerDumpInfoNtf, bus_id_),
-  };
-  Proto_STMasterServerDumpInfoNtf_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_STMasterServerDumpInfoNtf_descriptor_,
-      Proto_STMasterServerDumpInfoNtf::default_instance_,
-      Proto_STMasterServerDumpInfoNtf_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STMasterServerDumpInfoNtf, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STMasterServerDumpInfoNtf, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_STMasterServerDumpInfoNtf));
-  Proto_MasterTMonitorReloadReq_descriptor_ = file->message_type(2);
+  Proto_MasterTMonitorReloadReq_descriptor_ = file->message_type(1);
   static const int Proto_MasterTMonitorReloadReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorReloadReq, server_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorReloadReq, server_id_),
@@ -126,7 +107,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MasterTMonitorReloadReq));
-  Proto_MasterTMonitorRestartReq_descriptor_ = file->message_type(3);
+  Proto_MasterTMonitorRestartReq_descriptor_ = file->message_type(2);
   static const int Proto_MasterTMonitorRestartReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorRestartReq, server_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorRestartReq, server_id_),
@@ -142,7 +123,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MasterTMonitorRestartReq));
-  Proto_MasterTMonitorStartReq_descriptor_ = file->message_type(4);
+  Proto_MasterTMonitorStartReq_descriptor_ = file->message_type(3);
   static const int Proto_MasterTMonitorStartReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorStartReq, server_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorStartReq, server_id_),
@@ -158,7 +139,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MasterTMonitorStartReq));
-  Proto_MasterTMonitorStopReq_descriptor_ = file->message_type(5);
+  Proto_MasterTMonitorStopReq_descriptor_ = file->message_type(4);
   static const int Proto_MasterTMonitorStopReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorStopReq, server_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MasterTMonitorStopReq, server_id_),
@@ -174,7 +155,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MasterTMonitorStopReq));
-  Proto_MonitorTMasterReloadRsp_descriptor_ = file->message_type(6);
+  Proto_MonitorTMasterReloadRsp_descriptor_ = file->message_type(5);
   static const int Proto_MonitorTMasterReloadRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterReloadRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterReloadRsp, server_name_),
@@ -191,7 +172,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MonitorTMasterReloadRsp));
-  Proto_MonitorTMasterRestartRsp_descriptor_ = file->message_type(7);
+  Proto_MonitorTMasterRestartRsp_descriptor_ = file->message_type(6);
   static const int Proto_MonitorTMasterRestartRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterRestartRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterRestartRsp, server_name_),
@@ -208,7 +189,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MonitorTMasterRestartRsp));
-  Proto_MonitorTMasterStartRsp_descriptor_ = file->message_type(8);
+  Proto_MonitorTMasterStartRsp_descriptor_ = file->message_type(7);
   static const int Proto_MonitorTMasterStartRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterStartRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterStartRsp, server_name_),
@@ -225,7 +206,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MonitorTMasterStartRsp));
-  Proto_MonitorTMasterStopRsp_descriptor_ = file->message_type(9);
+  Proto_MonitorTMasterStopRsp_descriptor_ = file->message_type(8);
   static const int Proto_MonitorTMasterStopRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterStopRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_MonitorTMasterStopRsp, server_name_),
@@ -242,7 +223,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_MonitorTMasterStopRsp));
-  Proto_STStoreCheckReq_descriptor_ = file->message_type(10);
+  Proto_STStoreCheckReq_descriptor_ = file->message_type(9);
   static const int Proto_STStoreCheckReq_offsets_[1] = {
   };
   Proto_STStoreCheckReq_reflection_ =
@@ -256,7 +237,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_STStoreCheckReq));
-  Proto_StoreTSCheckRsp_descriptor_ = file->message_type(11);
+  Proto_StoreTSCheckRsp_descriptor_ = file->message_type(10);
   static const int Proto_StoreTSCheckRsp_offsets_[1] = {
   };
   Proto_StoreTSCheckRsp_reflection_ =
@@ -270,7 +251,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_StoreTSCheckRsp));
-  Proto_TestSendProxyMsgToOtherServer_descriptor_ = file->message_type(12);
+  Proto_TestSendProxyMsgToOtherServer_descriptor_ = file->message_type(11);
   static const int Proto_TestSendProxyMsgToOtherServer_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendProxyMsgToOtherServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendProxyMsgToOtherServer, server_name_),
@@ -286,7 +267,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestSendProxyMsgToOtherServer));
-  Proto_TestOtherServerSendMsgToProxyServer_descriptor_ = file->message_type(13);
+  Proto_TestOtherServerSendMsgToProxyServer_descriptor_ = file->message_type(12);
   static const int Proto_TestOtherServerSendMsgToProxyServer_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerSendMsgToProxyServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerSendMsgToProxyServer, server_name_),
@@ -302,7 +283,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestOtherServerSendMsgToProxyServer));
-  Proto_TestSendWorldMsgToOtherServer_descriptor_ = file->message_type(14);
+  Proto_TestSendWorldMsgToOtherServer_descriptor_ = file->message_type(13);
   static const int Proto_TestSendWorldMsgToOtherServer_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_name_),
@@ -318,7 +299,7 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestSendWorldMsgToOtherServer));
-  Proto_TestOtherServerToWorldServer_descriptor_ = file->message_type(15);
+  Proto_TestOtherServerToWorldServer_descriptor_ = file->message_type(14);
   static const int Proto_TestOtherServerToWorldServer_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_name_),
@@ -349,8 +330,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CommonMsgRsp_descriptor_, &CommonMsgRsp::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_STMasterServerDumpInfoNtf_descriptor_, &Proto_STMasterServerDumpInfoNtf::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_MasterTMonitorReloadReq_descriptor_, &Proto_MasterTMonitorReloadReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -386,8 +365,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto() {
   delete CommonMsgRsp::default_instance_;
   delete CommonMsgRsp_reflection_;
-  delete Proto_STMasterServerDumpInfoNtf::default_instance_;
-  delete Proto_STMasterServerDumpInfoNtf_reflection_;
   delete Proto_MasterTMonitorReloadReq::default_instance_;
   delete Proto_MasterTMonitorReloadReq_reflection_;
   delete Proto_MasterTMonitorRestartReq::default_instance_;
@@ -431,45 +408,43 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
     "\n\023proto_svr_msg.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\032\022proto_common.proto\032\026prot"
     "o_svr_common.proto\"\036\n\014CommonMsgRsp\022\016\n\006re"
-    "sult\030\001 \001(\005\"D\n\037Proto_STMasterServerDumpIn"
-    "foNtf\022\021\n\tdump_info\030\001 \001(\t\022\016\n\006bus_id\030\002 \001(\r"
-    "\"G\n\035Proto_MasterTMonitorReloadReq\022\023\n\013ser"
-    "ver_name\030\001 \001(\t\022\021\n\tserver_id\030\002 \001(\t\"H\n\036Pro"
-    "to_MasterTMonitorRestartReq\022\023\n\013server_na"
-    "me\030\001 \001(\t\022\021\n\tserver_id\030\002 \001(\t\"F\n\034Proto_Mas"
-    "terTMonitorStartReq\022\023\n\013server_name\030\001 \001(\t"
-    "\022\021\n\tserver_id\030\002 \001(\t\"E\n\033Proto_MasterTMoni"
-    "torStopReq\022\023\n\013server_name\030\001 \001(\t\022\021\n\tserve"
-    "r_id\030\002 \001(\t\"W\n\035Proto_MonitorTMasterReload"
-    "Rsp\022\016\n\006result\030\001 \001(\005\022\023\n\013server_name\030\002 \001(\t"
-    "\022\021\n\tserver_id\030\003 \001(\t\"X\n\036Proto_MonitorTMas"
-    "terRestartRsp\022\016\n\006result\030\001 \001(\005\022\023\n\013server_"
-    "name\030\002 \001(\t\022\021\n\tserver_id\030\003 \001(\t\"V\n\034Proto_M"
-    "onitorTMasterStartRsp\022\016\n\006result\030\001 \001(\005\022\023\n"
-    "\013server_name\030\002 \001(\t\022\021\n\tserver_id\030\003 \001(\t\"U\n"
-    "\033Proto_MonitorTMasterStopRsp\022\016\n\006result\030\001"
-    " \001(\005\022\023\n\013server_name\030\002 \001(\t\022\021\n\tserver_id\030\003"
-    " \001(\t\"\027\n\025Proto_STStoreCheckReq\"\027\n\025Proto_S"
-    "toreTSCheckRsp\"M\n#Proto_TestSendProxyMsg"
-    "ToOtherServer\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013serv"
-    "er_name\030\002 \001(\t\"S\n)Proto_TestOtherServerSe"
-    "ndMsgToProxyServer\022\021\n\tserver_id\030\003 \001(\t\022\023\n"
-    "\013server_name\030\004 \001(\t\"M\n#Proto_TestSendWorl"
-    "dMsgToOtherServer\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013"
-    "server_name\030\002 \001(\t\"L\n\"Proto_TestOtherServ"
-    "erToWorldServer\022\021\n\tserver_id\030\003 \001(\t\022\023\n\013se"
-    "rver_name\030\004 \001(\t*\245\002\n\016Proto_SvrMsgID\022%\n!NF"
-    "_STSTORE_CHECK_STORE_SERVER_REQ\020(\022%\n!NF_"
-    "STORETS_CHECK_STORE_SERVER_RSP\020)\022.\n*NF_T"
-    "EST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ\020*"
-    "\0221\n-NF_TEST_OTHER_SERVER_SEND_MSG_TO_PRO"
-    "XY_SERVER\020+\0220\n,NF_TEST_OTHER_SERVER_MSG_"
-    "TO_WORLD_SERVER_REQ\020,\0220\n,NF_TEST_WORLD_S"
-    "ERVER_MSG_TO_OTHER_SERVER_REQ\020-", 1511);
+    "sult\030\001 \001(\005\"G\n\035Proto_MasterTMonitorReload"
+    "Req\022\023\n\013server_name\030\001 \001(\t\022\021\n\tserver_id\030\002 "
+    "\001(\t\"H\n\036Proto_MasterTMonitorRestartReq\022\023\n"
+    "\013server_name\030\001 \001(\t\022\021\n\tserver_id\030\002 \001(\t\"F\n"
+    "\034Proto_MasterTMonitorStartReq\022\023\n\013server_"
+    "name\030\001 \001(\t\022\021\n\tserver_id\030\002 \001(\t\"E\n\033Proto_M"
+    "asterTMonitorStopReq\022\023\n\013server_name\030\001 \001("
+    "\t\022\021\n\tserver_id\030\002 \001(\t\"W\n\035Proto_MonitorTMa"
+    "sterReloadRsp\022\016\n\006result\030\001 \001(\005\022\023\n\013server_"
+    "name\030\002 \001(\t\022\021\n\tserver_id\030\003 \001(\t\"X\n\036Proto_M"
+    "onitorTMasterRestartRsp\022\016\n\006result\030\001 \001(\005\022"
+    "\023\n\013server_name\030\002 \001(\t\022\021\n\tserver_id\030\003 \001(\t\""
+    "V\n\034Proto_MonitorTMasterStartRsp\022\016\n\006resul"
+    "t\030\001 \001(\005\022\023\n\013server_name\030\002 \001(\t\022\021\n\tserver_i"
+    "d\030\003 \001(\t\"U\n\033Proto_MonitorTMasterStopRsp\022\016"
+    "\n\006result\030\001 \001(\005\022\023\n\013server_name\030\002 \001(\t\022\021\n\ts"
+    "erver_id\030\003 \001(\t\"\027\n\025Proto_STStoreCheckReq\""
+    "\027\n\025Proto_StoreTSCheckRsp\"M\n#Proto_TestSe"
+    "ndProxyMsgToOtherServer\022\021\n\tserver_id\030\001 \001"
+    "(\t\022\023\n\013server_name\030\002 \001(\t\"S\n)Proto_TestOth"
+    "erServerSendMsgToProxyServer\022\021\n\tserver_i"
+    "d\030\003 \001(\t\022\023\n\013server_name\030\004 \001(\t\"M\n#Proto_Te"
+    "stSendWorldMsgToOtherServer\022\021\n\tserver_id"
+    "\030\001 \001(\t\022\023\n\013server_name\030\002 \001(\t\"L\n\"Proto_Tes"
+    "tOtherServerToWorldServer\022\021\n\tserver_id\030\003"
+    " \001(\t\022\023\n\013server_name\030\004 \001(\t*\245\002\n\016Proto_SvrM"
+    "sgID\022%\n!NF_STSTORE_CHECK_STORE_SERVER_RE"
+    "Q\020(\022%\n!NF_STORETS_CHECK_STORE_SERVER_RSP"
+    "\020)\022.\n*NF_TEST_SEND_PROXY_MSG_TO_OTHER_SE"
+    "RVER_REQ\020*\0221\n-NF_TEST_OTHER_SERVER_SEND_"
+    "MSG_TO_PROXY_SERVER\020+\0220\n,NF_TEST_OTHER_S"
+    "ERVER_MSG_TO_WORLD_SERVER_REQ\020,\0220\n,NF_TE"
+    "ST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ\020"
+    "-", 1441);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_msg.proto", &protobuf_RegisterTypes);
   CommonMsgRsp::default_instance_ = new CommonMsgRsp();
-  Proto_STMasterServerDumpInfoNtf::default_instance_ = new Proto_STMasterServerDumpInfoNtf();
   Proto_MasterTMonitorReloadReq::default_instance_ = new Proto_MasterTMonitorReloadReq();
   Proto_MasterTMonitorRestartReq::default_instance_ = new Proto_MasterTMonitorRestartReq();
   Proto_MasterTMonitorStartReq::default_instance_ = new Proto_MasterTMonitorStartReq();
@@ -485,7 +460,6 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
   Proto_TestSendWorldMsgToOtherServer::default_instance_ = new Proto_TestSendWorldMsgToOtherServer();
   Proto_TestOtherServerToWorldServer::default_instance_ = new Proto_TestOtherServerToWorldServer();
   CommonMsgRsp::default_instance_->InitAsDefaultInstance();
-  Proto_STMasterServerDumpInfoNtf::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorReloadReq::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorRestartReq::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorStartReq::default_instance_->InitAsDefaultInstance();
@@ -732,271 +706,6 @@ void CommonMsgRsp::Swap(CommonMsgRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = CommonMsgRsp_descriptor_;
   metadata.reflection = CommonMsgRsp_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Proto_STMasterServerDumpInfoNtf::kDumpInfoFieldNumber;
-const int Proto_STMasterServerDumpInfoNtf::kBusIdFieldNumber;
-#endif  // !_MSC_VER
-
-Proto_STMasterServerDumpInfoNtf::Proto_STMasterServerDumpInfoNtf()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Proto_STMasterServerDumpInfoNtf::InitAsDefaultInstance() {
-}
-
-Proto_STMasterServerDumpInfoNtf::Proto_STMasterServerDumpInfoNtf(const Proto_STMasterServerDumpInfoNtf& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Proto_STMasterServerDumpInfoNtf::SharedCtor() {
-  _cached_size_ = 0;
-  dump_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  bus_id_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Proto_STMasterServerDumpInfoNtf::~Proto_STMasterServerDumpInfoNtf() {
-  SharedDtor();
-}
-
-void Proto_STMasterServerDumpInfoNtf::SharedDtor() {
-  if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
-    delete dump_info_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void Proto_STMasterServerDumpInfoNtf::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Proto_STMasterServerDumpInfoNtf::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Proto_STMasterServerDumpInfoNtf_descriptor_;
-}
-
-const Proto_STMasterServerDumpInfoNtf& Proto_STMasterServerDumpInfoNtf::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
-  return *default_instance_;
-}
-
-Proto_STMasterServerDumpInfoNtf* Proto_STMasterServerDumpInfoNtf::default_instance_ = NULL;
-
-Proto_STMasterServerDumpInfoNtf* Proto_STMasterServerDumpInfoNtf::New() const {
-  return new Proto_STMasterServerDumpInfoNtf;
-}
-
-void Proto_STMasterServerDumpInfoNtf::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_dump_info()) {
-      if (dump_info_ != &::google::protobuf::internal::kEmptyString) {
-        dump_info_->clear();
-      }
-    }
-    bus_id_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Proto_STMasterServerDumpInfoNtf::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string dump_info = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_dump_info()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->dump_info().data(), this->dump_info().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_bus_id;
-        break;
-      }
-
-      // optional uint32 bus_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bus_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &bus_id_)));
-          set_has_bus_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Proto_STMasterServerDumpInfoNtf::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string dump_info = 1;
-  if (has_dump_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->dump_info().data(), this->dump_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->dump_info(), output);
-  }
-
-  // optional uint32 bus_id = 2;
-  if (has_bus_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->bus_id(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Proto_STMasterServerDumpInfoNtf::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional string dump_info = 1;
-  if (has_dump_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->dump_info().data(), this->dump_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->dump_info(), target);
-  }
-
-  // optional uint32 bus_id = 2;
-  if (has_bus_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->bus_id(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Proto_STMasterServerDumpInfoNtf::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string dump_info = 1;
-    if (has_dump_info()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->dump_info());
-    }
-
-    // optional uint32 bus_id = 2;
-    if (has_bus_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->bus_id());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Proto_STMasterServerDumpInfoNtf::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Proto_STMasterServerDumpInfoNtf* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_STMasterServerDumpInfoNtf*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Proto_STMasterServerDumpInfoNtf::MergeFrom(const Proto_STMasterServerDumpInfoNtf& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_dump_info()) {
-      set_dump_info(from.dump_info());
-    }
-    if (from.has_bus_id()) {
-      set_bus_id(from.bus_id());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Proto_STMasterServerDumpInfoNtf::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Proto_STMasterServerDumpInfoNtf::CopyFrom(const Proto_STMasterServerDumpInfoNtf& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Proto_STMasterServerDumpInfoNtf::IsInitialized() const {
-
-  return true;
-}
-
-void Proto_STMasterServerDumpInfoNtf::Swap(Proto_STMasterServerDumpInfoNtf* other) {
-  if (other != this) {
-    std::swap(dump_info_, other->dump_info_);
-    std::swap(bus_id_, other->bus_id_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Proto_STMasterServerDumpInfoNtf::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_STMasterServerDumpInfoNtf_descriptor_;
-  metadata.reflection = Proto_STMasterServerDumpInfoNtf_reflection_;
   return metadata;
 }
 

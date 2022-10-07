@@ -10,7 +10,7 @@ enum Proto_Kernel_CMD {
   NF_GTM_KILL_ALL_SERVER_NTF = 3;
   NF_STS_KILL_ALL_SERVER_NTF = 4;
 
-  NF_STMaster_SEND_DUMP_INFO_NTF = 44;
+  NF_STS_SEND_DUMP_INFO_NTF = 44;
 
   NF_MasterTMonitor_RELOAD_CMD_REQ = 80;
   NF_MasterTMonitor_RESTART_CMD_REQ = 81;
@@ -375,4 +375,10 @@ message NFEventNoneData
   optional string param3 = 3;
   optional string param4 = 4;
   optional string param5 = 5;
+}
+
+message Proto_ServerDumpInfoNtf
+{
+  optional string dump_info = 1;
+  optional uint32 bus_id = 2;
 }
