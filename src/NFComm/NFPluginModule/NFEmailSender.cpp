@@ -36,7 +36,7 @@ void CSmtpSendMail::SetSendName(const std::string & sendname)
     strTemp += "=?";
     strTemp += m_strCharset;
     strTemp += "?B?";
-    strTemp += base64_encode((unsigned char *)sendname.c_str(), sendname.size());
+    strTemp += NFBase64::Encode(sendname);//base64_encode((unsigned char *)sendname.c_str(), sendname.size());
     strTemp += "?=";
     m_strSendName = strTemp;
     //m_strSendName = sendname;
@@ -59,7 +59,7 @@ void CSmtpSendMail::SetSubject(const std::string & subject)
     strTemp += "=?";
     strTemp += m_strCharset;
     strTemp += "?B?";
-    strTemp += base64_encode((unsigned char *)subject.c_str(), subject.size());
+    strTemp += NFBase64::Encode(subject);//base64_encode((unsigned char *)subject.c_str(), subject.size());
     strTemp += "?=";
     m_strSubject = strTemp;
 }
@@ -145,7 +145,8 @@ bool CSmtpSendMail::SendMail()
         /* Send the message */
         res = curl_easy_perform(curl);
         CURLINFO info = CURLINFO_NONE;
-        curl_easy_getinfo(curl, info);
+        long http_version = 0;
+        curl_easy_getinfo(curl, info, &http_version);
         /* Check for errors */
         while (res != CURLE_OK)
         {
@@ -241,11 +242,11 @@ void CSmtpSendMail::CreatMessage()
         fseek(pt, 0, SEEK_SET);
         int rlen = 0;
         char buf[55];
-        for (int i = 0; i < len / 54 + 1; i++)
+        for (int j = 0; j < len / 54 + 1; j++)
         {
             memset(buf, 0, 55);
             rlen = fread(buf, sizeof(char), 54, pt);
-            m_strMessage += base64_encode((const unsigned char*)buf, rlen);
+            m_strMessage += NFBase64::Encode(std::string(buf, rlen));//base64_encode((const unsigned char*)buf, rlen);
             m_strMessage += "\r\n";
         }
         fclose(pt);
@@ -293,7 +294,7 @@ void CSmtpSendMail::SetFileName(const std::string & FileName)
     std::string EncodedFileName = "=?";
     EncodedFileName += m_strCharset;
     EncodedFileName += "?B?";//修改
-    EncodedFileName += base64_encode((unsigned char *)FileName.c_str(), FileName.size());
+    EncodedFileName += NFBase64::Encode(FileName);//base64_encode((unsigned char *)FileName.c_str(), FileName.size());
     EncodedFileName += "?=";
     m_strFileName = EncodedFileName;
 }
