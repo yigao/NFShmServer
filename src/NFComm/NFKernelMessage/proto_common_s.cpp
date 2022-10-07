@@ -284,7 +284,7 @@ int pbNFServerConfig_s::CreateInit() {
 	ServerType = (uint32_t)0;
 	BusId = (uint32_t)0;
 	BusLength = (uint32_t)0;
-    IdleSleepUS = (uint32_t)0;
+	IdleSleepUS = (uint32_t)0;
 	ServerPort = (uint32_t)0;
 	ExternalServerPort = (uint32_t)0;
 	HttpPort = (uint32_t)0;
@@ -363,7 +363,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	BusLength = msg.buslength();
 	LinkMode = msg.linkmode();
 	Url = msg.url();
-    IdleSleepUS = msg.idlesleepus();
+	IdleSleepUS = msg.idlesleepus();
 	ServerIp = msg.serverip();
 	ServerPort = msg.serverport();
 	ExternalServerIp = msg.externalserverip();

@@ -1325,7 +1325,7 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   // optional uint32 IdleSleepUS = 9;
   inline bool has_idlesleepus() const;
   inline void clear_idlesleepus();
-  static const int kIdleSleepUsFieldNumber = 9;
+  static const int kIdleSleepUSFieldNumber = 9;
   inline ::google::protobuf::uint32 idlesleepus() const;
   inline void set_idlesleepus(::google::protobuf::uint32 value);
 

@@ -230,12 +230,12 @@ inline bool PacketDispType_Parse(
 enum EServerState {
   EST_INIT = 0,
   EST_NARMAL = 1,
-  EST_CRASH = 2,
-  EST_MAINTEN = 3
+  EST_BUSY = 2,
+  EST_CRASH = 3
 };
 bool EServerState_IsValid(int value);
 const EServerState EServerState_MIN = EST_INIT;
-const EServerState EServerState_MAX = EST_MAINTEN;
+const EServerState EServerState_MAX = EST_CRASH;
 const int EServerState_ARRAYSIZE = EServerState_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EServerState_descriptor();

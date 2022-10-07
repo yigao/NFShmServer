@@ -370,7 +370,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
     "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
     "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Link"
-    "Mode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUs\030\t"
+    "Mode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUS\030\t"
     " \001(\r\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001"
     "(\r\022\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022External"
     "ServerPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMa"
@@ -3888,7 +3888,7 @@ const int pbNFServerConfig::kBusIdFieldNumber;
 const int pbNFServerConfig::kBusLengthFieldNumber;
 const int pbNFServerConfig::kLinkModeFieldNumber;
 const int pbNFServerConfig::kUrlFieldNumber;
-const int pbNFServerConfig::kIdleSleepUsFieldNumber;
+const int pbNFServerConfig::kIdleSleepUSFieldNumber;
 const int pbNFServerConfig::kServerIpFieldNumber;
 const int pbNFServerConfig::kServerPortFieldNumber;
 const int pbNFServerConfig::kExternalServerIpFieldNumber;
@@ -4328,7 +4328,7 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_IdleSleepUs;
+        if (input->ExpectTag(72)) goto parse_IdleSleepUS;
         break;
       }
 
@@ -4336,7 +4336,7 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_IdleSleepUs:
+         parse_IdleSleepUS:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &idlesleepus_)));
