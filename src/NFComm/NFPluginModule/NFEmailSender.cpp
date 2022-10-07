@@ -12,325 +12,342 @@
 #include "NFComm/NFCore/NFBase64.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-#if 0
-NFEmailSender::NFEmailSender()
+#include <iostream>
+#include <sstream>
+#include <fstream>
+ 
+CSmtpSendMail::CSmtpSendMail(const std::string & charset)
 {
-    m_strUser = "";
-    m_strPsw = "";
-    m_strSmtpServer = "";
-    m_iPort = -1;
-    m_RecipientList.clear();
-    m_strMailFrom = "";
-    m_MailContent.clear();
-    m_iMailContentPos = 0;
+    m_strCharset = charset;
+    m_vRecvMail.clear();
 }
-
-NFEmailSender::NFEmailSender(  //create sendmail object with paremeter;
-        const std::string & strUser,
-        const std::string & strPsw,
-        const std::string & strSmtpServer,
-        int iPort,
-        const std::string & strMailFrom
-)
+ 
+void CSmtpSendMail::SetSmtpServer(const std::string & username, const std::string &password, const std::string & servername, const std::string & port)
 {
-    m_strUser = strUser;
-    m_strPsw = strPsw;
-    m_strSmtpServer = strSmtpServer;
-    m_iPort = iPort;
-    m_RecipientList.clear();
-    m_strMailFrom = strMailFrom;
-    m_MailContent.clear();
-    m_iMailContentPos = 0;
+    m_strUserName = username;
+    m_strPassword = password;
+    m_strServerName = servername;
+    m_strPort = port;
 }
-
-NFEmailSender::NFEmailSender(const NFEmailSender& orig) {
-}
-
-NFEmailSender::~NFEmailSender() {
-}
-
-size_t NFEmailSender::read_callback(void* ptr, size_t size, size_t nmemb, void* userp)
+ 
+void CSmtpSendMail::SetSendName(const std::string & sendname)
 {
-    NFEmailSender * pSm = (NFEmailSender *)userp;
-
-    if(size*nmemb < 1)
-        return 0;
-    if(pSm->m_iMailContentPos < (int)pSm->m_MailContent.size())
-    {
-        size_t len;
-        len = pSm->m_MailContent[pSm->m_iMailContentPos].length();
-
-        memcpy(ptr, pSm->m_MailContent[pSm->m_iMailContentPos].c_str(), pSm->m_MailContent[pSm->m_iMailContentPos].length());
-        pSm->m_iMailContentPos++; /* advance pointer */
-        return len;
-    }
-    return 0;
+    std::string strTemp = "";
+    strTemp += "=?";
+    strTemp += m_strCharset;
+    strTemp += "?B?";
+    strTemp += base64_encode((unsigned char *)sendname.c_str(), sendname.size());
+    strTemp += "?=";
+    m_strSendName = strTemp;
+    //m_strSendName = sendname;
 }
-
-struct timeval NFEmailSender::tvnow()
+ 
+void CSmtpSendMail::SetSendMail(const std::string & sendmail)
 {
-    /*
-    ** time() returns the value of time in seconds since the Epoch.
-    */
-    struct timeval now;
-    now.tv_sec = (long)time(NULL);
-    now.tv_usec = 0;
-    return now;
+    m_strSendMail = sendmail;
 }
-
-long NFEmailSender::tvdiff(timeval newer, timeval older)
+ 
+void CSmtpSendMail::AddRecvMail(const std::string & recvmail)
 {
-    return (newer.tv_sec-older.tv_sec)*1000+
-           (newer.tv_usec-older.tv_usec)/1000;
+    m_vRecvMail.push_back(recvmail);
 }
-
-bool NFEmailSender::ConstructHead(const std::string & strSubject, const std::string & strContent)
+ 
+void CSmtpSendMail::SetSubject(const std::string & subject)
 {
-    m_MailContent.push_back("MIME-Versioin: 1.0\n");
-    std::string strTemp = "To: ";
-    for(std::list<std::string >::iterator it = m_RecipientList.begin(); it != m_RecipientList.end();)
-    {
-        strTemp += *it;
-        it++;
-        if(it != m_RecipientList.end())
-            strTemp += ",";
-    }
-    strTemp += "\n";
-    m_MailContent.push_back(strTemp);
-    if(strSubject != "")
-    {
-        strTemp = "Subject: ";
-        strTemp += strSubject;
-        strTemp += "\n";
-        m_MailContent.push_back(strTemp);
-    }
-    m_MailContent.push_back("Content-Transfer-Encoding: 8bit\n");
-    m_MailContent.push_back("Content-Type: text/html; \n Charset=\"UTF-8\"\n\n");
-    if(strContent != "")
-    {
-        m_MailContent.push_back(strContent);
-    }
-
-    return true;
+    std::string strTemp = "";
+    strTemp = "Subject: ";
+    strTemp += "=?";
+    strTemp += m_strCharset;
+    strTemp += "?B?";
+    strTemp += base64_encode((unsigned char *)subject.c_str(), subject.size());
+    strTemp += "?=";
+    m_strSubject = strTemp;
 }
-
-bool NFEmailSender::SendMail(const std::string& strSubject, const std::string& strMailBody)
+ 
+void CSmtpSendMail::SetBodyContent(const std::string & content)
 {
-    m_MailContent.clear();
-    m_iMailContentPos = 0;
-    ConstructHead(strSubject, strMailBody);
-    bool bRet = true;
+    m_strContent = content;
+}
+ 
+void CSmtpSendMail::AddAttachment(const std::string & filename)
+{
+    m_vAttachMent.push_back(filename);
+}
+ 
+bool CSmtpSendMail::SendMail()
+{
+    CreatMessage();
+    bool ret = true;
     CURL *curl;
-    CURLM *mcurl;
-    int still_running = 1;
-    struct timeval mp_start;
-    struct curl_slist* rcpt_list = NULL;
-
-    curl_global_init(CURL_GLOBAL_DEFAULT);
-
+    CURLcode res = CURLE_OK;
+    struct curl_slist *recipients = NULL;
     curl = curl_easy_init();
-    if (!curl)
+    if (curl)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Init curl failed!\n");
-        return false;
-    }
-
-    mcurl = curl_multi_init();
-    if (!mcurl)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Init mcurl failed!\n");
-        return false;
-    }
-    for(std::list<std::string >::iterator it = m_RecipientList.begin(); it != m_RecipientList.end();it++)
-    {
-        rcpt_list = curl_slist_append(rcpt_list, it->c_str());
-    }
-
-    if(m_strSmtpServer == "" || m_iPort <= 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "smtp server couldn't be empty, or port must be large than 0!\n");
-
-        curl_slist_free_all(rcpt_list);
-        curl_multi_cleanup(mcurl);
-        curl_easy_cleanup(curl);
-        curl_global_cleanup();
-        return false;
-    }
-    std::string strUrl = "smtp://" + m_strSmtpServer;
-    strUrl += ":";
-    char cPort[10];
-    memset(cPort, 0, 10);
-    sprintf(cPort, "%d", m_iPort);
-    strUrl += cPort;
-    curl_easy_setopt(curl, CURLOPT_URL, strUrl.c_str());
-
-    if(m_strUser != "")
-    {
-        curl_easy_setopt(curl, CURLOPT_USERNAME, m_strUser.c_str());
-    }
-    if(m_strPsw != "")
-    {
-        curl_easy_setopt(curl, CURLOPT_PASSWORD, m_strPsw.c_str());
-    }
-
-    curl_easy_setopt(curl, CURLOPT_READFUNCTION, &NFEmailSender::read_callback);
-
-    if(m_strMailFrom == "")
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Mail from address couldn't be empty!\n");
-
-        curl_slist_free_all(rcpt_list);
-        curl_multi_cleanup(mcurl);
-        curl_easy_cleanup(curl);
-        curl_global_cleanup();
-        return false;
-    }
-    curl_easy_setopt(curl, CURLOPT_MAIL_FROM, m_strMailFrom.c_str());
-    curl_easy_setopt(curl, CURLOPT_MAIL_RCPT, rcpt_list);
-    curl_easy_setopt(curl, CURLOPT_USE_SSL, (long) CURLUSESSL_ALL);
-//curl_easy_setopt(curl, CURLOPT_USE_SSL, (long) CURLUSESSL_NONE);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-    curl_easy_setopt(curl, CURLOPT_READDATA, this);
-    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
-    curl_easy_setopt(curl, CURLOPT_SSLVERSION, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_SESSIONID_CACHE, 0L);
-    curl_multi_add_handle(mcurl, curl);
-
-    mp_start = tvnow();
-
-    /* we start some action by calling perform right away */
-    curl_multi_perform(mcurl, &still_running);
-
-    while (still_running) {
-        struct timeval timeout;
-        int rc; /* select() return code */
-
-        fd_set fdread;
-        fd_set fdwrite;
-        fd_set fdexcep;
-        int maxfd = -1;
-
-        long curl_timeo = -1;
-
-        FD_ZERO(&fdread);
-        FD_ZERO(&fdwrite);
-        FD_ZERO(&fdexcep);
-
-        /* set a suitable timeout to play around with */
-        timeout.tv_sec = 1;
-        timeout.tv_usec = 0;
-
-        curl_multi_timeout(mcurl, &curl_timeo);
-        if (curl_timeo >= 0) {
-            timeout.tv_sec = curl_timeo / 1000;
-            if (timeout.tv_sec > 1)
-                timeout.tv_sec = 1;
-            else
-                timeout.tv_usec = (curl_timeo % 1000) * 1000;
-        }
-
-        /* get file descriptors from the transfers */
-        curl_multi_fdset(mcurl, &fdread, &fdwrite, &fdexcep, &maxfd);
-
-        /* In a real-world program you OF COURSE check the return code of the
-           function calls.  On success, the value of maxfd is guaranteed to be
-           greater or equal than -1.  We call select(maxfd + 1, ...), specially in
-           case of (maxfd == -1), we call select(0, ...), which is basically equal
-           to sleep. */
-
-        rc = select(maxfd + 1, &fdread, &fdwrite, &fdexcep, &timeout);
-
-        if (tvdiff(tvnow(), mp_start) > MULTI_PERFORM_HANG_TIMEOUT) {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ABORTING TEST, since it seems "
-                            "that it would have run forever.\n");
-            bRet = false;
-            break;
-        }
-
-        switch (rc) {
-            case -1:
-                /* select error */
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "select error\n");
-                bRet = false;
-                break;
-            case 0: /* timeout */
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "time out, retry again!\n");
-                curl_multi_perform(mcurl, &still_running);
-                break;
-            default: /* action */
-                curl_multi_perform(mcurl, &still_running);
-                break;
-        }
-    }
-
-    curl_multi_remove_handle(mcurl, curl);
-    curl_slist_free_all(rcpt_list);
-    curl_multi_cleanup(mcurl);
-    curl_easy_cleanup(curl);
-    curl_global_cleanup();
-    return bRet;
-}
-
-bool NFEmailSender::SendMail(const std::string & strSubject, const char* pMailBody, int len)
-{
-    std::string strMailContent;
-    strMailContent.append(pMailBody, len);
-
-    return SendMail(strSubject, strMailContent);
-}
-
-bool NFEmailSender::SendMail(const std::string& strUser, const std::string& strPsw, const std::string& strSmtpServer, int iPort, std::list<std::string>& recipientList, const std::string& strMailFrom, const std::string& strSubject, const std::string& strMailBody)
-{
-    m_strUser = strUser;
-    m_strPsw = strPsw;
-    m_strSmtpServer = strSmtpServer;
-    m_iPort = iPort;
-    std::copy(recipientList.begin(), recipientList.end(), m_RecipientList.begin());
-    m_strMailFrom = strMailFrom;
-
-    return SendMail(strSubject, strMailBody);
-
-}
-
-bool NFEmailSender::SendMail(const std::string& strUser, const std::string& strPsw, const std::string& strSmtpServer, int iPort, std::list<std::string>& recipientList, const std::string& strMailFrom, const std::string& strSubject, const char* pMailBody, int len)
-{
-    std::string strMailContent;
-    strMailContent.append(pMailBody, len);
-    return SendMail(strUser, strPsw, strSmtpServer, iPort, recipientList, strMailFrom, strSubject, strMailContent);
-}
-
-bool NFEmailSender::SendMail(const std::string& strUser, const std::string& strPsw, const std::string& strSmtpServer, int iPort, const std::string& strMailTo, const std::string& strMailFrom, const std::string& strSubject, const std::string& strMailBody)
-{
-    std::list<std::string> recipientList;
-    recipientList.push_back(strMailTo);
-
-    return SendMail(strUser, strPsw, strSmtpServer, iPort, recipientList, strMailFrom, strSubject, strMailBody);
-}
-
-bool NFEmailSender::SendMail(const std::string& strUser, const std::string& strPsw, const std::string& strSmtpServer, int iPort, const std::string& strMailTo, const std::string& strMailFrom, const std::string& strSubject, const char* pMailBody, int len)
-{
-    std::string strMailContent;
-    strMailContent.append(pMailBody, len);
-    return SendMail(strUser, strPsw, strSmtpServer, iPort, strMailTo, strMailFrom, strSubject, strMailContent);
-}
-
-
-int NFEmailSender::SendQQMail(const std::string& title, const std::string& content)
-{
-    std::string smtp_server = "smtp.qq.com";
-    int smtp_port = 587;
-
-    std::string from_email = ("xxxxxxxxx@xxx.xxx");
-    std::string password = ("kumvcqgkqwhcbgjc");
-
-    std::string to_email = "xxxxxxxxx@xxx.xxx";
-    std::string to_name = "xxxxx";
-
-
-    NFEmailSender email_sender;
-    email_sender.SendMail(from_email, password, smtp_server, smtp_port, to_email, to_email, "xxxxxxxxxxxxx", "yyyyyyyyyyyyyyy");
-    return 0;
-}
-
+        /* Set username and password */
+        curl_easy_setopt(curl, CURLOPT_USERNAME, m_strUserName.c_str());
+        curl_easy_setopt(curl, CURLOPT_PASSWORD, m_strPassword.c_str());
+        std::string tmp = "smtps://";
+        tmp += m_strServerName;
+        tmp += ":";
+        tmp += m_strPort;
+        // 注意不能直接传入tmp，应该带上.c_str()，否则会导致下面的
+        // curl_easy_perform调用返回CURLE_COULDNT_RESOLVE_HOST错误
+        // 码
+        curl_easy_setopt(curl, CURLOPT_URL, tmp.c_str());
+        /* If you want to connect to a site who isn't using a certificate that is
+        * signed by one of the certs in the CA bundle you have, you can skip the
+        * verification of the server's certificate. This makes the connection
+        * A LOT LESS SECURE.
+        *
+        * If you have a CA cert for the server stored someplace else than in the
+        * default bundle, then the CURLOPT_CAPATH option might come handy for
+        * you. */
+#ifdef SKIP_PEER_VERIFICATION
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
 #endif
+        /* If the site you're connecting to uses a different host name that what
+        * they have mentioned in their server certificate's commonName (or
+        * subjectAltName) fields, libcurl will refuse to connect. You can skip
+        * this check, but this will make the connection less secure. */
+#ifdef SKIP_HOSTNAME_VERIFICATION
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+#endif
+        /* Note that this option isn't strictly required, omitting it will result
+        * in libcurl sending the MAIL FROM command with empty sender data. All
+        * autoresponses should have an empty reverse-path, and should be directed
+        * to the address in the reverse-path which triggered them. Otherwise,
+        * they could cause an endless loop. See RFC 5321 Section 4.5.5 for more
+        * details.
+        */
+        curl_easy_setopt(curl, CURLOPT_MAIL_FROM, m_strSendMail.c_str());
+        /* Add two recipients, in this particular case they correspond to the
+        * To: and Cc: addressees in the header, but they could be any kind of
+        * recipient. */
+        for (size_t i = 0; i < m_vRecvMail.size(); i++)
+        {
+            recipients = curl_slist_append(recipients, m_vRecvMail[i].c_str());
+        }
+        curl_easy_setopt(curl, CURLOPT_MAIL_RCPT, recipients);
+        std::stringstream stream;
+        stream.str(m_strMessage.c_str());
+        stream.flush();
+        /* We're using a callback function to specify the payload (the headers and
+        * body of the message). You could just use the CURLOPT_READDATA option to
+        * specify a FILE pointer to read from. */
+        curl_easy_setopt(curl, CURLOPT_READFUNCTION, &CSmtpSendMail::payload_source);
+        curl_easy_setopt(curl, CURLOPT_READDATA, (void *)&stream);
+        curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
+        /* Since the traffic will be encrypted, it is very useful to turn on debug
+        * information within libcurl to see what is happening during the
+        * transfer */
+        int nTimes = 0;
+        /* Send the message */
+        res = curl_easy_perform(curl);
+        CURLINFO info = CURLINFO_NONE;
+        curl_easy_getinfo(curl, info);
+        /* Check for errors */
+        while (res != CURLE_OK)
+        {
+            nTimes++;
+            if (nTimes > 5)
+            {
+                break;
+            }
+            fprintf(stderr, "curl_easy_perform() failed: %s\n\n", curl_easy_strerror(res));
+            ret = false;
+            /*				Sleep( 100 );
+            res = curl_easy_perform(curl); */
+        }
+        /* Free the list of recipients */
+        curl_slist_free_all(recipients);
+        /* Always cleanup */
+        curl_easy_cleanup(curl);
+    }
+    return ret;
+}
+ 
+size_t CSmtpSendMail::payload_source(void *ptr, size_t size, size_t nmemb, void *stream)
+{
+    size_t num_bytes = size * nmemb;
+    char* data = (char*)ptr;
+    std::stringstream* strstream = (std::stringstream*)stream;
+    strstream->read(data, num_bytes);
+    return strstream->gcount();
+}
+ 
+void CSmtpSendMail::CreatMessage()
+{
+    m_strMessage = "From: ";
+    m_strMessage += m_strSendName + "<" + m_strSendMail + ">"/*m_strSendMail*/;
+    m_strMessage += "\r\nReply-To: ";
+    m_strMessage += m_strSendMail;
+    m_strMessage += "\r\nTo: ";
+    for (size_t i = 0; i < m_vRecvMail.size(); i++)
+    {
+        if (i > 0)
+        {
+            m_strMessage += ",";
+        }
+        m_strMessage += m_vRecvMail[i];
+    }
+    m_strMessage += "\r\n";
+    m_strMessage += m_strSubject;
+    m_strMessage += "\r\nX-Mailer: JXO Mailer V1.2";
+    m_strMessage += "\r\nMime-Version: 1.0";
+    // 	m_strMessage += "\r\nContent-Type: multipart/mixed;";
+    // 	m_strMessage += "boundary=\"simple boundary\"";
+    // 	m_strMessage += "\r\nThis is a multi-part message in MIME format.";
+    // 	m_strMessage += "\r\n--simple boundary";
+    //正文
+    m_strMessage += "\r\nContent-Type: text/html;";
+    m_strMessage += "charset=";
+    m_strMessage += "\"";
+    m_strMessage += m_strCharset;
+    m_strMessage += "\"";
+    m_strMessage += "\r\nContent-Transfer-Encoding: 7BIT";
+    m_strMessage += "\r\n\r\n";
+    m_strMessage += m_strContent;
+    //附件
+    std::string filename = "";
+    std::string filetype = "";
+    for (size_t i = 0; i < m_vAttachMent.size(); i++)
+    {
+        m_strMessage += "\r\n--simple boundary";
+        GetFileName(m_vAttachMent[i], filename);
+        GetFileType(m_vAttachMent[i], filetype);
+        SetContentType(filetype);
+        SetFileName(filename);
+        m_strMessage += "\r\nContent-Type: ";
+        m_strMessage += m_strContentType;
+        m_strMessage += "\tname=";
+        m_strMessage += "\"";
+        m_strMessage += m_strFileName;
+        m_strMessage += "\"";
+        m_strMessage += "\r\nContent-Disposition:attachment;filename=";
+        m_strMessage += "\"";
+        m_strMessage += m_strFileName;
+        m_strMessage += "\"";
+        m_strMessage += "\r\nContent-Transfer-Encoding:base64";
+        m_strMessage += "\r\n\r\n";
+        FILE *pt = NULL;
+        if ((pt = fopen(m_vAttachMent[i].c_str(), "rb")) == NULL)
+        {
+            std::cerr << "打开文件失败: " << m_vAttachMent[i] << std::endl;
+            continue;
+        }
+        fseek(pt, 0, SEEK_END);
+        int len = ftell(pt);
+        fseek(pt, 0, SEEK_SET);
+        int rlen = 0;
+        char buf[55];
+        for (int i = 0; i < len / 54 + 1; i++)
+        {
+            memset(buf, 0, 55);
+            rlen = fread(buf, sizeof(char), 54, pt);
+            m_strMessage += base64_encode((const unsigned char*)buf, rlen);
+            m_strMessage += "\r\n";
+        }
+        fclose(pt);
+        pt = NULL;
+    }
+    /*	m_strMessage += "\r\n--simple boundary--\r\n";*/
+}
+ 
+ 
+int CSmtpSendMail::GetFileType(std::string const & stype)
+{
+    if (stype == "txt")
+    {
+        return 0;
+    }
+    else if (stype == "xml")
+    {
+        return 1;
+    }
+    else if (stype == "html")
+    {
+        return 2;
+    }
+    else if (stype == "jpeg")
+    {
+        return 3;
+    }
+    else if (stype == "png")
+    {
+        return 4;
+    }
+    else if (stype == "gif")
+    {
+        return 5;
+    }
+    else if (stype == "exe")
+    {
+        return 6;
+    }
+    return -1;
+}
+ 
+void CSmtpSendMail::SetFileName(const std::string & FileName)
+{
+    std::string EncodedFileName = "=?";
+    EncodedFileName += m_strCharset;
+    EncodedFileName += "?B?";//修改
+    EncodedFileName += base64_encode((unsigned char *)FileName.c_str(), FileName.size());
+    EncodedFileName += "?=";
+    m_strFileName = EncodedFileName;
+}
+ 
+void CSmtpSendMail::SetContentType(std::string const & stype)
+{
+    int type = GetFileType(stype);
+    switch (type)
+    {
+    //
+    case 0:
+        m_strContentType = "plain/text;";
+        break;
+    case 1:
+        m_strContentType = "text/xml;";
+        break;
+    case 2:
+        m_strContentType = "text/html;";
+    case 3:
+        m_strContentType = "image/jpeg;";
+        break;
+    case 4:
+        m_strContentType = "image/png;";
+        break;
+    case 5:
+        m_strContentType = "image/gif;";
+        break;
+    case 6:
+        m_strContentType = "application/x-msdownload;";
+        break;
+    default:
+        m_strContentType = "application/octet-stream;";
+        break;
+    }
+}
+ 
+void CSmtpSendMail::GetFileName(const std::string& file, std::string& filename)
+{
+    std::string::size_type p = file.find_last_of('/');
+    if (p == std::string::npos)
+        p = file.find_last_of('\\');
+    if (p != std::string::npos)
+    {
+        p += 1; // get past folder delimeter
+        filename = file.substr(p, file.length() - p);
+    }
+}
+ 
+void CSmtpSendMail::GetFileType(const std::string & file, std::string & stype)
+{
+    std::string::size_type p = file.find_last_of('.');
+    if (p != std::string::npos)
+    {
+        p += 1; // get past folder delimeter
+        stype = file.substr(p, file.length() - p);
+    }
+}

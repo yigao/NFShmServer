@@ -13,115 +13,77 @@
 #include <vector>
 #include <utility>
 #include <list>
-#if 0
 #include "curl/curl.h"
-
-#define MULTI_PERFORM_HANG_TIMEOUT 60 * 1000
-
-class NFEmailSender
-{
+ 
+#define SKIP_PEER_VERIFICATION  
+#define SKIP_HOSTNAME_VERIFICATION  
+ 
+ 
+class CSmtpSendMail {
 public:
-    static int SendQQMail(const std::string& title, const std::string& content);
-public:
-    NFEmailSender();
-    NFEmailSender(  //create sendmail object with paremeter;
-            const std::string & strUser,
-            const std::string & strPsw,
-            const std::string & strSmtpServer,
-            int iPort,
-            const std::string & strMailFrom
-    );
-    NFEmailSender(const NFEmailSender& orig);
-    virtual ~NFEmailSender();
+	CSmtpSendMail(const std::string & charset = "UTF-8"); // 也可以传入utf
+ 
+	//设置stmp用户名、密码、服务器、端口（端口其实不用指定，libcurl默认25，但如果是smtps则默认是465）  
+	void SetSmtpServer(const std::string &username, const std::string& password, const std::string& servername, const std::string &port = "25");
+	//发送者姓名，可以不用  
+ 
+	void SetSendName(const std::string& sendname);
+ 
+	//发送者邮箱   
+	void SetSendMail(const std::string& sendmail);
+ 
+	//添加收件人  
+	void AddRecvMail(const std::string& recvmail);
+ 
+	//设置主题  
+	void SetSubject(const std::string &subject);
+ 
+	//设置正文内容  
+	void SetBodyContent(const std::string &content);
+ 
+	//添加附件  
+	void AddAttachment(const std::string &filename);
+ 
+	//发送邮件  
+	bool SendMail();
 private:
-    std::string m_strUser;			//邮箱用户名
-    std::string m_strPsw;			//邮箱密码
-    std::string m_strSmtpServer;		//邮箱SMTP服务器
-    int         m_iPort;			//邮箱SMTP服务器端口
-    std::list<std::string> m_RecipientList;  	//接收者邮件list
-    std::string m_strMailFrom;			//发送者邮箱
-    std::vector<std::string> m_MailContent;	//发送的内容队列，包括头和内容项
-    int         m_iMailContentPos;		//用于发送数据时记录发送到第几个content
+ 
+	//回调函数，将MIME协议的拼接的字符串由libcurl发出  
+	static size_t payload_source(void *ptr, size_t size, size_t nmemb, void *stream);
+ 
+	//创建邮件MIME内容  
+	void CreatMessage();
+ 
+	//获取文件类型  
+	int GetFileType(std::string const& stype);
+ 
+	//设置文件名  
+	void SetFileName(const std::string& FileName);
+ 
+	//设置文件的contenttype  
+	void SetContentType(std::string const& stype);
+ 
+	//得到文件名  
+	void GetFileName(const std::string& file, std::string& filename);
+ 
+	//得到文件类型  
+	void GetFileType(const std::string& file, std::string& stype);
+ 
 private:
-    //发送内容回调函数
-    static size_t read_callback(void *ptr, size_t size, size_t nmemb, void *userp);
-    //获取当前时间
-    static struct timeval tvnow(void);
-    //两个时间差
-    static long tvdiff(struct timeval newer, struct timeval older);
-    //创建邮件内容
-    bool ConstructHead(const std::string & strSubject/*邮件主题*/, const std::string & strContent/*邮件内容*/);
-
-public:
-
-    bool SendMail(const std::string & strSubject, const char * pMailBody, int len);
-    bool SendMail(const std::string & strSubject, const std::string & strMailBody);
-    bool SendMail(  //create sendmail object with paremeter;
-            const std::string & strUser,
-            const std::string & strPsw,
-            const std::string & strSmtpServer,
-            int iPort,
-            std::list<std::string> & recipientList,
-            const std::string & strMailFrom,
-            const std::string & strSubject,
-            const char * pMailBody,
-            int len
-    );
-    bool SendMail(  //create sendmail object with paremeter;
-            const std::string & strUser,
-            const std::string & strPsw,
-            const std::string & strSmtpServer,
-            int iPort,
-            const std::string & strMailTo,
-            const std::string & strMailFrom,
-            const std::string & strSubject,
-            const char * pMailBody,
-            int len
-    );
-    bool SendMail(  //create sendmail object with paremeter;
-            const std::string & strUser,
-            const std::string & strPsw,
-            const std::string & strSmtpServer,
-            int iPort,
-            std::list<std::string> & recipientList,
-            const std::string & strMailFrom,
-            const std::string & strSubject,
-            const std::string & strMailBody
-    );
-    bool SendMail(  //create sendmail object with paremeter;
-            const std::string & strUser,
-            const std::string & strPsw,
-            const std::string & strSmtpServer,
-            int iPort,
-            const std::string & strMailTo,
-            const std::string & strMailFrom,
-            const std::string & strSubject,
-            const std::string & strMailBody
-    );
-
-    void SetUser(const std::string & strUser) { m_strUser = strUser; }
-    std::string & GetUser() { return m_strUser; }
-
-    void SetPsw(const std::string & strPsw) { m_strPsw = strPsw; }
-    std::string & GetPsw() { return m_strPsw; }
-
-    void SetSmtpServer(const std::string & strSmtpServer) { m_strSmtpServer = strSmtpServer; }
-    std::string & GetSmtpServer() { return m_strSmtpServer; }
-
-    void SetPort(int iPort) { m_iPort = iPort; }
-    int GetPort() { return m_iPort; }
-
-    void SetMailFrom(const std::string & strMailFrom) { m_strMailFrom = strMailFrom; }
-    std::string & GetMailFrom() { return m_strMailFrom; }
-
-    //添加接收者邮箱
-    void AddRecipient(const std::string & strMailTo) { m_RecipientList.push_back(strMailTo); }
-    void AddRecipient(std::list<std::string> recipientList)
-    {
-        std::copy(recipientList.begin(), recipientList.end(), m_RecipientList.begin());
-    }
-    void ClearRecipient() { m_RecipientList.clear(); }
+	std::string m_strCharset; //邮件编码  
+	std::string m_strSubject; //邮件主题  
+	std::string m_strContent; //邮件内容  
+	std::string m_strFileName; //文件名  
+	std::string m_strMessage;// 整个MIME协议字符串  
+	std::string m_strUserName;//用户名  
+	std::string m_strPassword;//密码  
+	std::string m_strServerName;//smtp服务器  
+	std::string m_strPort;//端口  
+	std::string m_strSendName;//发送者姓名  
+	std::string m_strSendMail;//发送者邮箱  
+	std::string m_strContentType;//附件contenttype  
+	std::string m_strFileContent;//附件内容  
+ 
+	std::vector<std::string> m_vRecvMail; //收件人容器  
+	std::vector<std::string> m_vAttachMent;//附件容器  
 };
-#endif
-
-
