@@ -336,13 +336,10 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
         {
             if (NFServerIDUtil::GetWorldID(pServerData->mServerInfo.bus_id()) == NFServerIDUtil::GetWorldID(pCurServer->mServerInfo.bus_id()))
             {
-                if (pCurServer->mServerInfo.server_state() != proto_ff::EST_CRASH)
-                {
-                    proto_ff::ServerInfoReport* pData = xData.add_server_list();
-                    *pData = pCurServer->mServerInfo;
+                proto_ff::ServerInfoReport* pData = xData.add_server_list();
+                *pData = pCurServer->mServerInfo;
 
-                    FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
-                }
+                FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
             }
         }
     }

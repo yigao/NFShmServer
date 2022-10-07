@@ -228,14 +228,13 @@ inline bool PacketDispType_Parse(
     PacketDispType_descriptor(), name, value);
 }
 enum EServerState {
-  EST_CRASH = 0,
+  EST_INIT = 0,
   EST_NARMAL = 1,
-  EST_BUSY = 2,
-  EST_FIRE = 3,
-  EST_MAINTEN = 4
+  EST_CRASH = 2,
+  EST_MAINTEN = 3
 };
 bool EServerState_IsValid(int value);
-const EServerState EServerState_MIN = EST_CRASH;
+const EServerState EServerState_MIN = EST_INIT;
 const EServerState EServerState_MAX = EST_MAINTEN;
 const int EServerState_ARRAYSIZE = EServerState_MAX + 1;
 

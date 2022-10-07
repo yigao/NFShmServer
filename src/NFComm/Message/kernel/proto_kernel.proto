@@ -153,11 +153,10 @@ message Proto_SvrPkg
 
 enum EServerState
 {
-  EST_CRASH = 0;
+  EST_INIT = 0;
   EST_NARMAL = 1;
   EST_BUSY = 2;
-  EST_FIRE = 3;
-  EST_MAINTEN = 4;
+  EST_CRASH = 3;
 }
 
 message ServerInfoReport
