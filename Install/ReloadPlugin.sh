@@ -1,0 +1,1 @@
+curl -d '{"cmd":"reload","server_id":0}' 127.0.0.1:6105/gm
