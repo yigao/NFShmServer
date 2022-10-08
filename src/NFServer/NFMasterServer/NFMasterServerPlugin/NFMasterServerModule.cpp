@@ -229,10 +229,13 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     }
 
     std::string url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwb9eb989a2056ac75&corpsecret=sXpr3VeHMuBOyayPeFYYJseethjIAO_k1Fan7TJL2Z0";
+    std::map<std::string, std::string> xHeaders;
+    xHeaders.emplace("Accept", "application/json");
+    xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
 
     FindModule<NFIMessageModule>()->HttpGet(NF_ST_MASTER_SERVER, url, [](int code, const std::string& resp){
         NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
-    });
+    }, xHeaders);
 
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;
