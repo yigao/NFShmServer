@@ -1049,7 +1049,7 @@ std::string DumpTimeInfo()
     formatter.AppendString(" (unix time)");
     formatter.AppendString(" try \"date -d @");
     formatter.AppendUint64(time_in_sec, 10);
-    formatter.AppendString("\" if you are using GNU date ***\n");
+    formatter.AppendString("\" if you are using GNU date ***<br/>\n");
 
     std::string str = std::string(buf, formatter.num_bytes_written());
     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", str);
@@ -1102,7 +1102,7 @@ std::string DumpSignalInfo(int signal_number, siginfo_t *siginfo)
     formatter.AppendUint64(siginfo->si_pid, 10);
     formatter.AppendString("; ");
 #endif
-    formatter.AppendString("stack trace: ***\n");
+    formatter.AppendString("stack trace: ***<br/>\n");
 
     std::string str = std::string(buf, formatter.num_bytes_written());
     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", str);
@@ -1132,7 +1132,7 @@ std::string DumpStackFrameInfo(const char *prefix, void *pc)
     formatter.AppendHexWithPadding(reinterpret_cast<uintptr_t>(pc), width);
     formatter.AppendString(" ");
     formatter.AppendString(symbol);
-    formatter.AppendString("\n");
+    formatter.AppendString("<br/>\n");
 
     std::string str = std::string(buf, formatter.num_bytes_written());
     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", str);
@@ -1249,7 +1249,7 @@ void FailureSignalHandler(int signal_number,
     // Get the program counter from ucontext.
     void *pc = GetPC(ucontext);
     dumpInfo += DumpStackFrameInfo("PC: ", pc);
-    dumpInfo += "\n";
+    dumpInfo += "<br/>\n";
 
     // Get the stack traces.
     void *stack[32];
@@ -1261,7 +1261,7 @@ void FailureSignalHandler(int signal_number,
     for (int i = 0; i < depth; ++i)
     {
         dumpInfo += DumpStackFrameInfo("    ", stack[i]);
-        dumpInfo += "\n";
+        dumpInfo += "<br/>\n";
     }
 
     NFFileUtility::WriteFile(NFGlobalSystem::Instance()->GetGlobalPluginManager()->GetAppName() + "_" +
