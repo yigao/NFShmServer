@@ -210,7 +210,6 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(),
                pServerData->mServerInfo.server_id(), xMsg.dump_info());
 
-    /*
     CSmtpSendMail sendMail;
     sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
     sendMail.SetSendName("Server Dump Info");
@@ -228,7 +227,6 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Success", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
     }
-    */
 
     std::string url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwb9eb989a2056ac75&corpsecret=sXpr3VeHMuBOyayPeFYYJseethjIAO_k1Fan7TJL2Z0";
 

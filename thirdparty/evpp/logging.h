@@ -70,7 +70,7 @@ public:
 #define LOG_DEBUG EvppLog::GetSingletonRef()
 #define LOG_INFO  EvppLog::GetSingletonRef()
 #define LOG_WARN  EvppLog::GetSingletonRef()
-#define LOG_ERROR EvppLog::GetSingletonRef()
+#define LOG_ERROR std::cerr
 #define LOG_FATAL EvppLog::GetSingletonRef()
 #define DLOG_TRACE EvppLog::GetSingletonRef()
 #define DLOG_WARN EvppLog::GetSingletonRef()
