@@ -968,25 +968,21 @@ int GetStackTrace(void **result, int max_depth, int skip_count)
 
 // The class is used for formatting error messages.  We don't use printf()
 // as it's not async signal safe.
-class MinimalFormatter
-{
+class MinimalFormatter {
 public:
-    MinimalFormatter(char *buffer, int size)
+    MinimalFormatter(char *buffer, size_t size)
             : buffer_(buffer),
               cursor_(buffer),
-              end_(buffer + size)
-    {
+              end_(buffer + size) {
     }
 
     // Returns the number of bytes written in the buffer.
-    int num_bytes_written() const { return cursor_ - buffer_; }
+    std::size_t num_bytes_written() const { return static_cast<std::size_t>(cursor_ - buffer_); }
 
     // Appends string from "str" and updates the internal cursor.
-    void AppendString(const char *str)
-    {
-        int i = 0;
-        while (str[i] != '\0' && cursor_ + i < end_)
-        {
+    void AppendString(const char* str) {
+        ptrdiff_t i = 0;
+        while (str[i] != '\0' && cursor_ + i < end_) {
             cursor_[i] = str[i];
             ++i;
         }
@@ -995,17 +991,14 @@ public:
 
     // Formats "number" in "radix" and updates the internal cursor.
     // Lowercase letters are used for 'a' - 'z'.
-    void AppendUint64(uint64_t number, int radix)
-    {
-        int i = 0;
-        while (cursor_ + i < end_)
-        {
-            const int tmp = number % radix;
+    void AppendUint64(uint64_t number, unsigned radix) {
+        unsigned i = 0;
+        while (cursor_ + i < end_) {
+            const uint64_t tmp = number % radix;
             number /= radix;
-            cursor_[i] = (tmp < 10 ? '0' + tmp : 'a' + tmp - 10);
+            cursor_[i] = static_cast<char>(tmp < 10 ? '0' + tmp : 'a' + tmp - 10);
             ++i;
-            if (number == 0)
-            {
+            if (number == 0) {
                 break;
             }
         }
@@ -1016,15 +1009,13 @@ public:
 
     // Formats "number" as hexadecimal number, and updates the internal
     // cursor.  Padding will be added in front if needed.
-    void AppendHexWithPadding(uint64_t number, int width)
-    {
-        char *start = cursor_;
+    void AppendHexWithPadding(uint64_t number, int width) {
+        char* start = cursor_;
         AppendString("0x");
         AppendUint64(number, 16);
         // Move to right and add padding in front if needed.
-        if (cursor_ < start + width)
-        {
-            const int64_t delta = start + width - cursor_;
+        if (cursor_ < start + width) {
+            const uint64_t delta = start + width - cursor_;
             std::copy(start, cursor_, start + delta);
             std::fill(start, start + delta, ' ');
             cursor_ = start + width;
@@ -1034,7 +1025,7 @@ public:
 private:
     char *buffer_;
     char *cursor_;
-    const char *const end_;
+    const char * const end_;
 };
 
 // Dumps time information.  We don't dump human-readable time information
@@ -1045,10 +1036,10 @@ std::string DumpTimeInfo()
     char buf[256];  // Big enough for time info.
     MinimalFormatter formatter(buf, sizeof(buf));
     formatter.AppendString("*** Aborted at ");
-    formatter.AppendUint64(time_in_sec, 10);
+    formatter.AppendUint64(static_cast<uint64_t>(time_in_sec), 10);
     formatter.AppendString(" (unix time)");
     formatter.AppendString(" try \"date -d @");
-    formatter.AppendUint64(time_in_sec, 10);
+    formatter.AppendUint64(static_cast<uint64_t>(time_in_sec), 10);
     formatter.AppendString("\" if you are using GNU date ***\n");
 
     std::string str = std::string(buf, formatter.num_bytes_written());
@@ -1081,27 +1072,28 @@ std::string DumpSignalInfo(int signal_number, siginfo_t *siginfo)
         // Use the signal number if the name is unknown.  The signal name
         // should be known, but just in case.
         formatter.AppendString("Signal ");
-        formatter.AppendUint64(signal_number, 10);
+        formatter.AppendUint64(static_cast<uint64_t>(signal_number), 10);
     }
     formatter.AppendString(" (@0x");
     formatter.AppendUint64(reinterpret_cast<uintptr_t>(siginfo->si_addr), 16);
     formatter.AppendString(")");
     formatter.AppendString(" received by PID ");
-    formatter.AppendUint64(getpid(), 10);
+    formatter.AppendUint64(static_cast<uint64_t>(getpid()), 10);
     formatter.AppendString(" (TID 0x");
     // We assume pthread_t is an integral number or a pointer, rather
     // than a complex struct.  In some environments, pthread_self()
     // returns an uint64 but in some other environments pthread_self()
-    // returns a pointer.  Hence we use C-style cast here, rather than
-    // reinterpret/static_cast, to support both types of environments.
-    formatter.AppendUint64((uintptr_t) pthread_self(), 16);
+    // returns a pointer.
+    pthread_t id = pthread_self();
+    formatter.AppendUint64(
+            reinterpret_cast<uint64_t>(reinterpret_cast<const char*>(id)), 16);
     formatter.AppendString(") ");
     // Only linux has the PID of the signal sender in si_pid.
-#ifdef OS_LINUX
+//#ifdef GLOG_OS_LINUX
     formatter.AppendString("from PID ");
-    formatter.AppendUint64(siginfo->si_pid, 10);
+    formatter.AppendUint64(static_cast<uint64_t>(siginfo->si_pid), 10);
     formatter.AppendString("; ");
-#endif
+//#endif
     formatter.AppendString("stack trace: ***\n");
 
     std::string str = std::string(buf, formatter.num_bytes_written());

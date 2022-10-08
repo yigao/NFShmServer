@@ -1,6 +1,7 @@
 #pragma once
 
 #include "evpp/platform_config.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 
 #ifdef __cplusplus
 #define GOOGLE_GLOG_DLL_DECL           // 使用静态glog库时，必须定义这个
@@ -70,7 +71,7 @@ public:
 #define LOG_DEBUG EvppLog::GetSingletonRef()
 #define LOG_INFO  EvppLog::GetSingletonRef()
 #define LOG_WARN  EvppLog::GetSingletonRef()
-#define LOG_ERROR std::cerr
+#define LOG_ERROR EvppLog::GetSingletonRef()
 #define LOG_FATAL EvppLog::GetSingletonRef()
 #define DLOG_TRACE EvppLog::GetSingletonRef()
 #define DLOG_WARN EvppLog::GetSingletonRef()

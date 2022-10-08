@@ -55,6 +55,7 @@ bool Conn::Init() {
         ssl_ = SSL_new(GetSSLCtx());
         if (!ssl_) {
             LOG_ERROR << "SSL_new failed.";
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "SSL_new failed.");
             return false;
         }
         SSL_set_tlsext_host_name(ssl_, host_.c_str());
@@ -70,6 +71,7 @@ bool Conn::Init() {
     }
     if (!bufferevent_) {
         LOG_ERROR << "bufferevent creation failed.";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "bufferevent creation failed.");
         return false;
     }
     bufferevent_openssl_set_allow_dirty_shutdown(bufferevent_, 1);
@@ -79,6 +81,7 @@ bool Conn::Init() {
 #endif
     if (!evhttp_conn_) {
         LOG_ERROR << "evhttp_connection_new failed.";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "evhttp_connection_new failed.");
         return false;
     }
 

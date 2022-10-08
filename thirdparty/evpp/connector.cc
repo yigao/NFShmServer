@@ -103,6 +103,7 @@ void Connector::Connect() {
         if (rc != 0) {
             int serrno = errno;
             LOG_ERROR << "bind failed, errno=" << serrno << " " << strerror(serrno);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "bind failed, errno={} serrno={}", serrno, strerror(serrno));
             HandleError();
             return;
         }
@@ -175,6 +176,7 @@ void Connector::HandleError() {
     auto self = shared_from_this();
 
     LOG_ERROR << "this=" << this << " status=" << StatusToString() << " fd=" << fd_  << " use_count=" << self.use_count() << " errno=" << serrno << " " << strerror(serrno);
+    NFLogError(NF_LOG_SYSTEMLOG, 0,"status={}  fd={}  use_count={}  errno={} {}", StatusToString(), fd_, self.use_count(), serrno, strerror(serrno));
 
     status_ = kDisconnected;
 

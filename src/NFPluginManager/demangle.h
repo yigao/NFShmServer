@@ -74,7 +74,7 @@
 // Demangle "mangled".  On success, return true and write the
 // demangled symbol name to "out".  Otherwise, return false.
 // "out" is modified even if demangling is unsuccessful.
-extern bool Demangle(const char *mangled, char *out, int out_size);
+extern bool Demangle(const char *mangled, char *out, size_t out_size);
 
 
 #endif  // BASE_DEMANGLE_H_

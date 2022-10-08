@@ -30,6 +30,7 @@ public:
                 thread_->join();
             } catch (const std::system_error& e) {
                 LOG_ERROR << "Caught a system_error:" << e.what();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Caught a system_error:{}", e.what());
             }
         }
     }
@@ -39,6 +40,7 @@ public:
         this->fd_ = sock::CreateUDPServer(p);
         if (this->fd_ < 0) {
             LOG_ERROR << "listen error";
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "listen error");
             return false;
         }
         sock::SetTimeout(this->fd_, 500);
@@ -132,6 +134,7 @@ bool Server::Init(const std::string& listen_ports/*like "53,5353,1053"*/) {
         int i = std::atoi(s.c_str());
         if (i <= 0) {
             LOG_ERROR << "Cannot convert [" << s << "] to a integer. 'listen_ports' format wrong.";
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Cannot convert [{}] to a integer. 'listen_ports' format wrong.", s);
             return false;
         }
         v.push_back(i);
@@ -147,6 +150,8 @@ void Server::AfterFork() {
 bool Server::Start() {
     if (!message_handler_) {
         LOG_ERROR << "MessageHandler DO NOT set!";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "MessageHandler DO NOT set!");
+
         return false;
     }
 
@@ -245,6 +250,7 @@ void Server::RecvingLoop(RecvThread* thread) {
             }
 
             LOG_ERROR << "errno=" << eno << " " << strerror(eno);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "errno={} {}", eno, strerror(eno));
         }
     }
 

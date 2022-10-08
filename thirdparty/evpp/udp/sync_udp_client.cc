@@ -54,6 +54,7 @@ bool Client::Connect() {
         LOG_ERROR << "Failed to connect to remote "
                   << sock::ToIPPort(&remote_addr_)
                   << ", errno=" << errno << " " << strerror(errno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Failed to connect to remote {} , errno={} {}", sock::ToIPPort(&remote_addr_), errno, strerror(errno));
         Close();
         return false;
     }
@@ -71,6 +72,7 @@ std::string Client::DoRequest(const std::string& data, uint32_t timeout_ms) {
     if (!Send(data)) {
         int eno = errno;
         LOG_ERROR << "sent failed, errno=" << eno << " " << strerror(eno) << " , dlen=" << data.size();
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "sent failed, errno={} {} , dlen={}", eno, strerror(eno), data.size());
         return "";
     }
 
@@ -86,6 +88,7 @@ std::string Client::DoRequest(const std::string& data, uint32_t timeout_ms) {
         return std::string(msg->data(), msg->size());
     } else {
         LOG_ERROR << "errno=" << err << " " << strerror(err) << " recvfrom return -1";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "errno={} {}  recvfrom return -1", err, strerror(err));
     }
 
     return "";
