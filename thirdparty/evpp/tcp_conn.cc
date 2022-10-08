@@ -8,8 +8,6 @@
 #include "evpp/sockets.h"
 #include "evpp/invoke_timer.h"
 
-#include "NFComm/NFPluginModule/NFLogMgr.h"
-
 namespace evpp {
 TCPConn::TCPConn(EventLoop* l,
                  const std::string& n,
@@ -132,12 +130,10 @@ void TCPConn::SendInLoop(const void* data, size_t len) {
 
     // if no data in output queue, writing directly
     if (!chan_->IsWritable() && output_buffer_.length() == 0) {
-        //uint64_t startTime = NFGetTime();
         nwritten = ::send(chan_->fd(), static_cast<const char*>(data), len, MSG_NOSIGNAL);
         if (nwritten >= 0) {
             remaining = len - nwritten;
             if (remaining == 0 && write_complete_fn_) {
-                //NFLogError(NF_LOG_SYSTEMLOG, 0, "send use time:{}", NFGetTime() - startTime);
                 loop_->QueueInLoop(std::bind(write_complete_fn_, shared_from_this()));
             }
         } else {

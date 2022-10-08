@@ -210,6 +210,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(),
                pServerData->mServerInfo.server_id(), xMsg.dump_info());
 
+    /*
     CSmtpSendMail sendMail;
     sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
     sendMail.SetSendName("Server Dump Info");
@@ -227,24 +228,13 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Success", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
     }
-
-    /*
-    std::string url = pConfig->WwwUrl + "/index.php/api/emsdump/send";
-    proto_ff::emailSender sender;
-    sender.set_email(pConfig->Email);
-    sender.set_title(pServerData->mServerInfo.server_name() + "_" + pServerData->mServerInfo.server_id() + " 服务器崩溃信息");
-    sender.set_msg(xMsg.dump_info());
-    std::string json;
-    NFProtobufCommon::ProtoMessageToJson(sender, &json);
-
-    std::map<std::string, std::string> xHeaders;
-    xHeaders.emplace("Accept", "application/json");
-    xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
-
-    FindModule<NFIMessageModule>()->HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
-    }, xHeaders);
     */
+
+    std::string url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwb9eb989a2056ac75&corpsecret=sXpr3VeHMuBOyayPeFYYJseethjIAO_k1Fan7TJL2Z0";
+
+    FindModule<NFIMessageModule>()->HttpGet(NF_ST_MASTER_SERVER, url, [](int code, const std::string& resp){
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
+    });
 
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;

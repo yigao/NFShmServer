@@ -10,6 +10,7 @@ if( CMAKE_BUILD_TYPE STREQUAL "Release" )
 			-DNDEBUG
 			-Wcomment
 			-DNF_STATIC_PLUGIN
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL
 			-DLUA_COMPAT_5_1
 			-fPIC
 	)
@@ -21,6 +22,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 			-D_DEBUG
 			-Wcomment
 			-DNF_STATIC_PLUGIN
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL
 			-DLUA_COMPAT_5_1
 			-fPIC
 	)
@@ -33,6 +35,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 			-Wcomment
 			-DLUA_COMPAT_5_1
 			-DNF_DYNAMIC_PLUGIN
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL
 			-fPIC
 	)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
@@ -45,6 +48,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 			-Wcomment
 			-DLUA_COMPAT_5_1
 			-DNF_DYNAMIC_PLUGIN
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL
 			-fPIC
 	)
 endif()

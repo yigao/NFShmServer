@@ -12,11 +12,11 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_extra.a libevent.a )
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_openssl.a libevent_extra.a libevent.a  libcurl.a libssl.a libcrypto.a libz.a)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_extra.a libevent.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_openssl.a libevent_extra.a libevent.a libcurl.a libssl.a libcrypto.a libz.a)
 endif()
 
 

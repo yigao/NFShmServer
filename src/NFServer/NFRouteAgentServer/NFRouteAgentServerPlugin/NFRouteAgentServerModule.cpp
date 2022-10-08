@@ -148,7 +148,7 @@ bool NFCRouteAgentServerModule::Init()
 
         OnHandleRouteServerReport(xData);
     });
-
+    SetTimer(10000, 10000, 0);
     return true;
 }
 
@@ -170,6 +170,9 @@ void NFCRouteAgentServerModule::OnTimer(uint32_t nTimerID) {
     if (nTimerID == 10000)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
+        std::string* ptr = new std::string("ok");
+        delete ptr;
+        delete ptr;
         NFSLEEP(1000);
         exit(0);
     }

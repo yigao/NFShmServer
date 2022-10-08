@@ -52,18 +52,11 @@ const char* Context::original_uri() const {
 }
 
 void Context::AddResponseHeader(const std::string& key, const std::string& value) {
-    if (req_->output_headers)
-    {
-        evhttp_add_header(req_->output_headers, key.data(), value.data());
-    }
+    evhttp_add_header(req_->output_headers, key.data(), value.data());
 }
 
 const char* Context::FindRequestHeader(const char* key) {
-    if (req_->input_headers)
-    {
-        return evhttp_find_header(req_->input_headers, key);
-    }
-    return NULL;
+    return evhttp_find_header(req_->input_headers, key);
 }
 
 std::string Context::FindQueryFromURI(const char* uri, size_t uri_len, const char* key, size_t key_len) {

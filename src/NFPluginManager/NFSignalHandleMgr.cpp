@@ -1191,16 +1191,18 @@ void FailureSignalHandler(int signal_number,
                           siginfo_t *signal_info,
                           void *ucontext)
 {
-    //before every thing
-    std::vector<NFIPluginManager*> vecPluginManager = NFGlobalSystem::Instance()->GetPluginManagerList();
-    for(int i = 0; i < (int)vecPluginManager.size(); i++)
+    if (signal_number != SIGTRAP)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, HotfixServer before kill the server");
-        vecPluginManager[i]->HotfixServer();
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, Save DB before kill the server");
-        vecPluginManager[i]->SaveDB();
+        //before every thing
+        std::vector<NFIPluginManager*> vecPluginManager = NFGlobalSystem::Instance()->GetPluginManagerList();
+        for(int i = 0; i < (int)vecPluginManager.size(); i++)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, HotfixServer before kill the server");
+            vecPluginManager[i]->HotfixServer();
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, Save DB before kill the server");
+            vecPluginManager[i]->SaveDB();
+        }
     }
-
 
     // First check if we've already entered the function.  We use an atomic
     // compare and swap operation for platforms that support it.  For other

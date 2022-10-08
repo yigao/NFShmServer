@@ -21,7 +21,7 @@ TCPClient::TCPClient(EventLoop* l, const std::string& raddr, const std::string& 
 
 TCPClient::~TCPClient() {
     DLOG_TRACE;
-    //assert(!connector_.get());
+    assert(!connector_.get());
     auto_reconnect_.store(false);
     TCPConnPtr c = conn();
     if (c) {

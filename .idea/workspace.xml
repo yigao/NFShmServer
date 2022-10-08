@@ -40,14 +40,36 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="server dump">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua plugin">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2022_10_7_11_48____.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILuaScriptModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj.filters" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFLuaThreadScriptPlugin.vcxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFLuaThreadScriptPlugin.vcxproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/connector.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/connector.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/event_loop_thread_pool.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/event_loop_thread_pool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/http/context.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/http/context.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/http/http_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/http/http_server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/httpc/request.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/httpc/request.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/httpc/request.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/httpc/request.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/listener.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/listener.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/listener.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/listener.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/platform_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/platform_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/tcp_client.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/tcp_client.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/tcp_conn.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/tcp_conn.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/tcp_server.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/tcp_server.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent_core.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent_core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent_extra.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_debug/libevent_extra.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libevent.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_release/libevent.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libevent_core.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_release/libevent_core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libevent_extra.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_release/libevent_extra.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/openssl/Configure" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/openssl/Configure" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/openssl/config" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/openssl/config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +106,7 @@
     </option>
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFTestPlugin" />
+    <option name="configuration" value="0-DynamicDebug-evpp" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="2" />
@@ -110,7 +132,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../evpp" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
@@ -132,6 +154,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -283,11 +310,6 @@
       </method>
     </configuration>
     <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -497,13 +519,7 @@
       <workItem from="1663338610780" duration="2740000" />
       <workItem from="1664069237413" duration="26364000" />
       <workItem from="1664376452474" duration="2985000" />
-    </task>
-    <task id="LOCAL-00112" summary="chong gou">
-      <created>1663302579653</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1663302579653</updated>
+      <workItem from="1665208367446" duration="13294000" />
     </task>
     <task id="LOCAL-00113" summary="chong gou">
       <created>1663306201350</created>
@@ -841,7 +857,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665196993627</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="lua plugin">
+      <created>1665200705899</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1665200705899</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -922,7 +945,8 @@
     <MESSAGE value="check msg call back" />
     <MESSAGE value="msg handle" />
     <MESSAGE value="server dump" />
-    <option name="LAST_COMMIT_MESSAGE" value="server dump" />
+    <MESSAGE value="lua plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="lua plugin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -939,7 +963,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
-          <line>488</line>
+          <line>491</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -968,9 +992,24 @@
           <option name="timeStamp" value="345" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp</url>
-          <line>1194</line>
-          <option name="timeStamp" value="352" />
+          <url>file://$PROJECT_DIR$/thirdparty/evpp/httpc/request.cc</url>
+          <line>118</line>
+          <option name="timeStamp" value="365" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
+          <line>232</line>
+          <option name="timeStamp" value="370" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp</url>
+          <line>46</line>
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
+          <line>235</line>
+          <option name="timeStamp" value="374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>

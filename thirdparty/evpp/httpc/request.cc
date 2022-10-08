@@ -77,12 +77,11 @@ int Request::Init(const std::string& http_url, const std::string& body, Duration
     port_ = evhttp_uri_get_port(evuri);
 
 #if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
-    const char* scheme = evhttp_uri_get_scheme(evuri);
     bool enable_ssl = scheme && strcasecmp(scheme, "https") == 0;
     if (port_ < 0) {
         port_ = enable_ssl ? 443 : 80;
     }
-    conn_.reset(new Conn(loop, host_, port_, enable_ssl, timeout));
+    conn_.reset(new Conn(loop_, host_, port_, enable_ssl, timeout));
 #else
     if (port_ < 0) {
         port_ = 80;
@@ -92,7 +91,7 @@ int Request::Init(const std::string& http_url, const std::string& body, Duration
     evhttp_uri_free(evuri);
 #else
     URLParser p(http_url);
-    conn_.reset(new Conn(loop, p.host, p.port, timeout));
+    conn_.reset(new Conn(loop_, p.host, p.port, timeout));
     if (p.query.empty()) {
         uri_ = p.path;
     } else {

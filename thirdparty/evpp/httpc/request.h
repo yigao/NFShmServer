@@ -59,6 +59,7 @@ public:
         retry_interval_ = d;
     }
     void AddHeader(const std::string& header, const std::string& value);
+    Handler* GetHandler(){ return &handler_ ;}
     int GetId() const {
         return id_;
     }

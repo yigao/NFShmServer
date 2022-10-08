@@ -16,10 +16,17 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
+#include "evpp/httpc/ssl.h"
 
 NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMessageDriver(p)
 {
 	NFSocketLibFunction::InitSocket();
+#if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
+	if (!evpp::httpc::GetSSLCtx())
+    {
+        evpp::httpc::InitSSL();
+    }
+#endif
 	mNetServerArray.resize(NF_ST_MAX);
 	for (int i = 0; i < NF_SERVER_TYPES::NF_ST_MAX; ++i)
 	{
@@ -34,6 +41,12 @@ NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMes
 
 NFCNetMessageDriverModule::~NFCNetMessageDriverModule()
 {
+#if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
+    if (evpp::httpc::GetSSLCtx())
+    {
+        evpp::httpc::CleanSSL();
+    }
+#endif
 }
 
 bool NFCNetMessageDriverModule::Awake()

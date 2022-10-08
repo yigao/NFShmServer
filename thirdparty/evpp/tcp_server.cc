@@ -32,15 +32,12 @@ TCPServer::~TCPServer() {
 }
 
 bool TCPServer::Init() {
-	DLOG_TRACE;
-	assert(status_ == kNull);
-	listener_.reset(new Listener(loop_, listen_addr_));
-	if (!listener_->Listen())
-	{
-		return false;
-	}
-	status_.store(kInitialized);
-	return true;
+    DLOG_TRACE;
+    assert(status_ == kNull);
+    listener_.reset(new Listener(loop_, listen_addr_));
+    listener_->Listen();
+    status_.store(kInitialized);
+    return true;
 }
 
 void TCPServer::AfterFork() {

@@ -10,6 +10,4 @@
 #endif
 #endif
 
-#define H_HAVE_CAMERON314_CONCURRENTQUEUE
-
 #include "windows_port.h"
