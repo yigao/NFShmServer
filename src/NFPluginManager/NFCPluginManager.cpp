@@ -363,7 +363,7 @@ bool NFCPluginManager::Execute()
             {
                 if (!IsLoadAllServer())
                 {
-                    NFLogWarning(NF_LOG_PLUGIN_MANAGER, 0, "mainthread:{} frame timeout:{}", NFCommon::tostr(std::this_thread::get_id()), cost);
+                    NFLogWarning(NF_LOG_PLUGIN_MANAGER, 0, "mainthread frame timeout:{}", cost);
 
                 }
             }
@@ -371,7 +371,7 @@ bool NFCPluginManager::Execute()
             {
                 if (!IsLoadAllServer())
                 {
-                    NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "mainthread:{} frame timeout:{}, something wrong", NFCommon::tostr(std::this_thread::get_id()), cost);
+                    NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "mainthread frame timeout:{}, something wrong", cost);
                     //PrintProfiler();
                 }
             }
