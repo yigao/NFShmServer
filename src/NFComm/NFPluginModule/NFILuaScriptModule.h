@@ -15,14 +15,19 @@
 #include "NFITimerModule.h"
 #include "NFServerDefine.h"
 
-class NFIHttpHandle;
-
 class NFILuaScriptModule : public NFIModule
 {
 public:
-	NFILuaScriptModule()
-	{
-	}
+	NFILuaScriptModule(NFIPluginManager* pPluginManager) : NFIModule(pPluginManager)
+    {
+
+    }
+
+    virtual ~NFILuaScriptModule()
+    {
+
+    }
+
 public:
 	virtual void RunNetRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint32_t nMsgId, const std::string& strMsg) = 0;
 	virtual void RunNetRecvLuaFuncWithMainSub(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint16_t nMainMsgId, const uint16_t nSubMsgId, const std::string& strMsg) = 0;

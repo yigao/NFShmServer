@@ -41,8 +41,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="server dump">
-      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFILuaScriptModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.vcxproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFLuaThreadScriptPlugin.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFLuaThreadScriptPlugin.vcxproj.user" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,25 +110,25 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tools/excel_2_bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin" />
       <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
       <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommon" />
       <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles" />
       <recent name="$PROJECT_DIR$/src/NFPluginManager" />
-      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -493,20 +498,6 @@
       <workItem from="1664069237413" duration="26364000" />
       <workItem from="1664376452474" duration="2985000" />
     </task>
-    <task id="LOCAL-00110" summary="chong gou">
-      <created>1663293325650</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1663293325650</updated>
-    </task>
-    <task id="LOCAL-00111" summary="chong gou">
-      <created>1663294258242</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1663294258242</updated>
-    </task>
     <task id="LOCAL-00112" summary="chong gou">
       <created>1663302579653</created>
       <option name="number" value="00112" />
@@ -836,7 +827,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665194719495</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="server dump">
+      <created>1665195590329</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1665195590329</updated>
+    </task>
+    <task id="LOCAL-00160" summary="server dump">
+      <created>1665196993627</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1665196993627</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -961,6 +966,11 @@
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
           <line>37</line>
           <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp</url>
+          <line>1194</line>
+          <option name="timeStamp" value="352" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>

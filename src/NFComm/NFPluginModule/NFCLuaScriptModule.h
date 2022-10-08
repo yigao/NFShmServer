@@ -10,20 +10,11 @@
 
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFComm/NFPluginModule/NFILuaScriptModule.h"
-#include "NFComm/NFPluginModule/NFIScriptModule.h"
-
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFILuaModule.h"
-#include "NFComm/NFPluginModule/NFINetServerModule.h"
-#include "NFComm/NFPluginModule/NFINetClientModule.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFPluginModule/NFIHttpClientModule.h"
-#include "NFComm/NFPluginModule/NFIHttpServerModule.h"
-#include "NFComm/NFPluginModule/NFIServerNetEventModule.h"
-#include "NFComm/NFPluginModule/NFIHttpServerModule.h"
-#include "NFComm/NFPluginModule/NFIHttpClientModule.h"
 
 #include "NFComm/NFCore/NFMapEx.hpp"
 
@@ -47,7 +38,7 @@ class NFCLuaScriptModule;
 class NFLuaTimer : public NFTimerObj
 {
 public:
-	NFLuaTimer(NFCLuaScriptModule* p)
+	NFLuaTimer(NFCLuaScriptModule* p, NFIPluginManager* pPluginManager):NFTimerObj(pPluginManager)
 	{
 		Clear();
 		m_pLuaScriptModule = p;
@@ -78,29 +69,21 @@ class NFCLuaScriptModule
 	: public NFILuaScriptModule, public NFILuaModule, public NFTimerObj
 {
 public:
-    NFCLuaScriptModule(NFIPluginManager* p)
-    {
-        m_pPluginManager = p;
-		m_luaTimerIndex = 10000;
-		m_pNetServerModule = nullptr;
-		m_pNetClientModule = nullptr;
-		m_pHttpServerModule = nullptr;
-		m_pLogModule = nullptr;
-		mnTime = 0;
-    }
+    NFCLuaScriptModule(NFIPluginManager* p);
+    virtual ~NFCLuaScriptModule();
 public:
 
-    virtual bool Init();
+    virtual bool Init() override;
     virtual bool AfterInit();
-	virtual bool ReadyExecute();
+	virtual bool ReadyExecute() override;;
 
-    virtual bool Execute();
+    virtual bool Execute() override;;
 
-    virtual bool BeforeShut();
-    virtual bool Shut();
-    virtual bool Finalize();
+    virtual bool BeforeShut() override;;
+    virtual bool Shut() override;;
+    virtual bool Finalize() override;;
 
-	virtual void OnTimer(uint32_t nTimerID);
+	virtual void OnTimer(uint32_t nTimerID) override;;
 public:
 	virtual void RunNetRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint32_t nMsgId, const std::string& strMsg) override;
 	virtual void RunNetRecvLuaFuncWithMainSub(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint16_t nMainMsgId, const uint16_t nSubMsgId, const std::string& strMsg) override;
@@ -126,22 +109,6 @@ public:
 	virtual uint64_t GetMsecTime() const;
 	virtual uint64_t GetSecTime() const;
 
-	virtual void SendMsgToPlayer(uint32_t usLinkId, const uint64_t nPlayerID, const uint32_t nMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToManyPlayer(const std::vector<uint64_t>& nPlayerID, const uint32_t nMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToAllPlayer(const uint32_t nMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToMaster(uint32_t usLinkId, const uint64_t nPlayerID, const uint32_t nMsgID, const uint32_t nLen, const std::string& strData);
-
-	virtual void SendMsgToPlayer_MainSub(uint32_t usLinkId, const uint64_t nPlayerID, const uint16_t nMainMsgID, const uint16_t nSubMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToManyPlayer_MainSub(const std::vector<uint64_t>& nPlayerID, const uint16_t nMainMsgID, const uint16_t nSubMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToAllPlayer_MainSub(const uint16_t nMainMsgID, const uint16_t nSubMsgID, const uint32_t nLen, const std::string& strData);
-	virtual void SendMsgToMaster_MainSub(uint32_t usLinkId, const uint64_t nPlayerID, const uint16_t nMainMsgID, const uint16_t nSubMsgID, const uint32_t nLen, const std::string& strData);
-
-	virtual void SendMsgToHttpServer(uint32_t servertype, const uint32_t requestId, const std::string& strMsg);
-
-	virtual void SetDefaultLevel(uint32_t log_level);
-
-	virtual void SetDefaultFlush(uint32_t log_level);
-
 	virtual void LuaDebug(uint32_t logId, uint64_t guid, const std::string& str);
 
 	virtual void LuaInfo(uint32_t logId, uint64_t guid, const std::string& str);
@@ -166,19 +133,6 @@ public:
 	virtual std::string Sha256(const std::string& s);
 	virtual std::string Platfrom();
 	virtual bool IsThreadModule();
-
-	virtual void SendErrorLog(uint64_t playerId, const std::string& func_log, const std::string& errorLog);
-
-	virtual std::string HttpGet(const std::string& url);
-
-	virtual std::string HttpGetWithHead(const std::string& url, const std::map<std::string, std::string>& xHeaders);
-
-	virtual std::string HttpPost(const std::string& url, const std::string& postContent);
-
-	virtual std::string HttpPostWithHead(const std::string& url, const std::string& postContent, const std::map<std::string, std::string>& xHeaders);
-public:
-	void OnAccountEventCallBack(uint32_t nEvent, uint32_t unLinkId, NF_SHARE_PTR<PlayerGameServerInfo> pServerData);
-	NF_SHARE_PTR<PlayerGameServerInfo> GetPlayerInfo(uint64_t playerId);
 public:
     bool Register();
 	void LoadScript();
@@ -193,17 +147,10 @@ public:
 	virtual void UpdateWeek();
 	virtual void UpdateMonth();
 protected:
-	NFINetServerModule* m_pNetServerModule;
-	NFINetClientModule* m_pNetClientModule;
-	NFIHttpServerModule* m_pHttpServerModule;
-	NFILogModule* m_pLogModule;
-protected:
     int64_t mnTime;
 protected:
 	std::map<uint64_t, NFLuaTimer*> m_luaTimerMap;
 	std::list<NFLuaTimer*> m_luaTimerList;
 	uint32_t m_luaTimerIndex;
-
-	NFMapEx<uint64_t, PlayerGameServerInfo> mPlayerProxyInfoMap;
 };
 
