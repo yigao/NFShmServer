@@ -216,7 +216,9 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     sendMail.SetSendMail(pConfig->sendEmail);
     sendMail.AddRecvMail(pConfig->recvEmail);
     sendMail.SetSubject(pServerData->mServerInfo.server_name() + " Crash Message Report");
-    sendMail.SetBodyContent(xMsg.dump_info());
+    std::string dumpInfo = xMsg.dump_info();
+    NFStringUtility::Replace(dumpInfo, "\n", "<br/>");
+    sendMail.SetBodyContent(dumpInfo);
     if (!sendMail.SendMail())
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Failed", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
