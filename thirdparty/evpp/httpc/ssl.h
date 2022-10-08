@@ -4,6 +4,7 @@
 
 #include <openssl/ssl.h>
 
+class NFIPluginManager;
 namespace evpp {
 namespace httpc {
 bool InitSSL();

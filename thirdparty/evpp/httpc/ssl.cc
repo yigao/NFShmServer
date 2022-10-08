@@ -1,4 +1,5 @@
 #include "evpp/httpc/ssl.h"
+#include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
 #include "evpp/logging.h"
@@ -28,7 +29,7 @@ bool InitSSL() {
         return false;
     }
     X509_STORE* store = SSL_CTX_get_cert_store(g_ssl_ctx);
-    if (X509_STORE_set_default_paths(store) != 1) {
+    if (X509_STORE_load_locations(store, "./cacert.pem", NULL) != 1) {
         LOG_ERROR << "X509_STORE_set_default_paths failed";
         NFLogError(NF_LOG_SYSTEMLOG, 0, "X509_STORE_set_default_paths failed");
         return false;
