@@ -7,6 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
+#include <NFComm/NFPluginModule/NFEmailSender.h>
 #include "NFMasterServerModule.h"
 
 #include "NFComm/NFCore/NFMD5.h"
@@ -209,6 +210,23 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     NFLogError(NF_LOG_SYSTEMLOG, 0, "ServerName:{} serverID:{} Dump...............................\n{}", pServerData->mServerInfo.server_name(),
                pServerData->mServerInfo.server_id(), xMsg.dump_info());
 
+    CSmtpSendMail sendMail;
+    sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
+    sendMail.SetSendName("Server Dump Info");
+    sendMail.SetSendMail(pConfig->sendEmail);
+    sendMail.AddRecvMail(pConfig->recvEmail);
+    sendMail.SetSubject(pServerData->mServerInfo.server_name() + " Crash Message Report");
+    sendMail.SetBodyContent(xMsg.dump_info());
+    if (!sendMail.SendMail())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Failed", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
+    }
+    else
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Success", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
+    }
+
+    /*
     std::string url = pConfig->WwwUrl + "/index.php/api/emsdump/send";
     proto_ff::emailSender sender;
     sender.set_email(pConfig->Email);
@@ -224,6 +242,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
     FindModule<NFIMessageModule>()->HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
         NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
     }, xHeaders);
+    */
 
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;

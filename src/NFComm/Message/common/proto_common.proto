@@ -143,8 +143,11 @@ message pbNFServerConfig
 	optional string RedisPass = 82;
 
 ////////////////////////////////////other//////////////////////////////////////////////
-	optional string WwwUrl = 90;
-	optional string Email = 91;
+	optional string sendEmail = 91; //发生邮箱 QQ邮箱不行，163可用
+	optional string sendEmailPass = 92;  //发生邮箱POP3密码
+	optional string sendEmailUrl = 93; //smtp.163.com
+	optional string sendEmailPort = 94; //465
+	optional string recvEmail = 95; //可用用QQ邮箱，163，不限制
 
 ///////////////////////////////////client////////////////////////////////////////////////////
 	optional uint32 MaxOnlinePlayerNum = 100;

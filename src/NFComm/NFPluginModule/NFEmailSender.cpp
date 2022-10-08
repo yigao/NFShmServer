@@ -115,6 +115,12 @@ std::string base64_decode(std::string const& encoded_string)
  
 CSmtpSendMail::CSmtpSendMail(const std::string & charset)
 {
+    static bool curInit = false;
+    if (!curInit)
+    {
+        curl_global_init(CURL_GLOBAL_ALL);
+        curInit = true;
+    }
     m_strCharset = charset;
     m_vRecvMail.clear();
 }

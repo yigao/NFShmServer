@@ -1593,29 +1593,65 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::std::string* release_redispass();
   inline void set_allocated_redispass(::std::string* redispass);
 
-  // optional string WwwUrl = 90;
-  inline bool has_wwwurl() const;
-  inline void clear_wwwurl();
-  static const int kWwwUrlFieldNumber = 90;
-  inline const ::std::string& wwwurl() const;
-  inline void set_wwwurl(const ::std::string& value);
-  inline void set_wwwurl(const char* value);
-  inline void set_wwwurl(const char* value, size_t size);
-  inline ::std::string* mutable_wwwurl();
-  inline ::std::string* release_wwwurl();
-  inline void set_allocated_wwwurl(::std::string* wwwurl);
+  // optional string sendEmail = 91;
+  inline bool has_sendemail() const;
+  inline void clear_sendemail();
+  static const int kSendEmailFieldNumber = 91;
+  inline const ::std::string& sendemail() const;
+  inline void set_sendemail(const ::std::string& value);
+  inline void set_sendemail(const char* value);
+  inline void set_sendemail(const char* value, size_t size);
+  inline ::std::string* mutable_sendemail();
+  inline ::std::string* release_sendemail();
+  inline void set_allocated_sendemail(::std::string* sendemail);
 
-  // optional string Email = 91;
-  inline bool has_email() const;
-  inline void clear_email();
-  static const int kEmailFieldNumber = 91;
-  inline const ::std::string& email() const;
-  inline void set_email(const ::std::string& value);
-  inline void set_email(const char* value);
-  inline void set_email(const char* value, size_t size);
-  inline ::std::string* mutable_email();
-  inline ::std::string* release_email();
-  inline void set_allocated_email(::std::string* email);
+  // optional string sendEmailPass = 92;
+  inline bool has_sendemailpass() const;
+  inline void clear_sendemailpass();
+  static const int kSendEmailPassFieldNumber = 92;
+  inline const ::std::string& sendemailpass() const;
+  inline void set_sendemailpass(const ::std::string& value);
+  inline void set_sendemailpass(const char* value);
+  inline void set_sendemailpass(const char* value, size_t size);
+  inline ::std::string* mutable_sendemailpass();
+  inline ::std::string* release_sendemailpass();
+  inline void set_allocated_sendemailpass(::std::string* sendemailpass);
+
+  // optional string sendEmailUrl = 93;
+  inline bool has_sendemailurl() const;
+  inline void clear_sendemailurl();
+  static const int kSendEmailUrlFieldNumber = 93;
+  inline const ::std::string& sendemailurl() const;
+  inline void set_sendemailurl(const ::std::string& value);
+  inline void set_sendemailurl(const char* value);
+  inline void set_sendemailurl(const char* value, size_t size);
+  inline ::std::string* mutable_sendemailurl();
+  inline ::std::string* release_sendemailurl();
+  inline void set_allocated_sendemailurl(::std::string* sendemailurl);
+
+  // optional string sendEmailPort = 94;
+  inline bool has_sendemailport() const;
+  inline void clear_sendemailport();
+  static const int kSendEmailPortFieldNumber = 94;
+  inline const ::std::string& sendemailport() const;
+  inline void set_sendemailport(const ::std::string& value);
+  inline void set_sendemailport(const char* value);
+  inline void set_sendemailport(const char* value, size_t size);
+  inline ::std::string* mutable_sendemailport();
+  inline ::std::string* release_sendemailport();
+  inline void set_allocated_sendemailport(::std::string* sendemailport);
+
+  // optional string recvEmail = 95;
+  inline bool has_recvemail() const;
+  inline void clear_recvemail();
+  static const int kRecvEmailFieldNumber = 95;
+  inline const ::std::string& recvemail() const;
+  inline void set_recvemail(const ::std::string& value);
+  inline void set_recvemail(const char* value);
+  inline void set_recvemail(const char* value, size_t size);
+  inline ::std::string* mutable_recvemail();
+  inline ::std::string* release_recvemail();
+  inline void set_allocated_recvemail(::std::string* recvemail);
 
   // optional uint32 MaxOnlinePlayerNum = 100;
   inline bool has_maxonlineplayernum() const;
@@ -1715,10 +1751,16 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline void clear_has_redisport();
   inline void set_has_redispass();
   inline void clear_has_redispass();
-  inline void set_has_wwwurl();
-  inline void clear_has_wwwurl();
-  inline void set_has_email();
-  inline void clear_has_email();
+  inline void set_has_sendemail();
+  inline void clear_has_sendemail();
+  inline void set_has_sendemailpass();
+  inline void clear_has_sendemailpass();
+  inline void set_has_sendemailurl();
+  inline void clear_has_sendemailurl();
+  inline void set_has_sendemailport();
+  inline void clear_has_sendemailport();
+  inline void set_has_recvemail();
+  inline void clear_has_recvemail();
   inline void set_has_maxonlineplayernum();
   inline void clear_has_maxonlineplayernum();
   inline void set_has_heartbeattimeout();
@@ -1739,9 +1781,9 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::google::protobuf::uint32 idlesleepus_;
   ::std::string* url_;
   ::std::string* serverip_;
+  ::std::string* externalserverip_;
   ::google::protobuf::uint32 serverport_;
   ::google::protobuf::uint32 externalserverport_;
-  ::std::string* externalserverip_;
   ::google::protobuf::uint32 httpport_;
   ::google::protobuf::uint32 maxconnectnum_;
   ::google::protobuf::uint32 workthreadnum_;
@@ -1764,16 +1806,19 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::proto_ff::pbTableConfig > tbconflist_;
   ::std::string* redisip_;
   ::std::string* redispass_;
-  ::std::string* wwwurl_;
+  ::std::string* sendemail_;
+  ::std::string* sendemailpass_;
   ::google::protobuf::uint32 redisport_;
   ::google::protobuf::uint32 maxonlineplayernum_;
-  ::std::string* email_;
+  ::std::string* sendemailurl_;
+  ::std::string* sendemailport_;
+  ::std::string* recvemail_;
   ::google::protobuf::uint32 heartbeattimeout_;
   ::google::protobuf::uint32 clientkeepalivetimeout_;
   ::google::protobuf::uint32 clientversion_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(41 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(44 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -5392,155 +5437,365 @@ inline void pbNFServerConfig::set_allocated_redispass(::std::string* redispass) 
   }
 }
 
-// optional string WwwUrl = 90;
-inline bool pbNFServerConfig::has_wwwurl() const {
+// optional string sendEmail = 91;
+inline bool pbNFServerConfig::has_sendemail() const {
   return (_has_bits_[1] & 0x00000008u) != 0;
 }
-inline void pbNFServerConfig::set_has_wwwurl() {
+inline void pbNFServerConfig::set_has_sendemail() {
   _has_bits_[1] |= 0x00000008u;
 }
-inline void pbNFServerConfig::clear_has_wwwurl() {
+inline void pbNFServerConfig::clear_has_sendemail() {
   _has_bits_[1] &= ~0x00000008u;
 }
-inline void pbNFServerConfig::clear_wwwurl() {
-  if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
-    wwwurl_->clear();
+inline void pbNFServerConfig::clear_sendemail() {
+  if (sendemail_ != &::google::protobuf::internal::kEmptyString) {
+    sendemail_->clear();
   }
-  clear_has_wwwurl();
+  clear_has_sendemail();
 }
-inline const ::std::string& pbNFServerConfig::wwwurl() const {
-  return *wwwurl_;
+inline const ::std::string& pbNFServerConfig::sendemail() const {
+  return *sendemail_;
 }
-inline void pbNFServerConfig::set_wwwurl(const ::std::string& value) {
-  set_has_wwwurl();
-  if (wwwurl_ == &::google::protobuf::internal::kEmptyString) {
-    wwwurl_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemail(const ::std::string& value) {
+  set_has_sendemail();
+  if (sendemail_ == &::google::protobuf::internal::kEmptyString) {
+    sendemail_ = new ::std::string;
   }
-  wwwurl_->assign(value);
+  sendemail_->assign(value);
 }
-inline void pbNFServerConfig::set_wwwurl(const char* value) {
-  set_has_wwwurl();
-  if (wwwurl_ == &::google::protobuf::internal::kEmptyString) {
-    wwwurl_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemail(const char* value) {
+  set_has_sendemail();
+  if (sendemail_ == &::google::protobuf::internal::kEmptyString) {
+    sendemail_ = new ::std::string;
   }
-  wwwurl_->assign(value);
+  sendemail_->assign(value);
 }
-inline void pbNFServerConfig::set_wwwurl(const char* value, size_t size) {
-  set_has_wwwurl();
-  if (wwwurl_ == &::google::protobuf::internal::kEmptyString) {
-    wwwurl_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemail(const char* value, size_t size) {
+  set_has_sendemail();
+  if (sendemail_ == &::google::protobuf::internal::kEmptyString) {
+    sendemail_ = new ::std::string;
   }
-  wwwurl_->assign(reinterpret_cast<const char*>(value), size);
+  sendemail_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* pbNFServerConfig::mutable_wwwurl() {
-  set_has_wwwurl();
-  if (wwwurl_ == &::google::protobuf::internal::kEmptyString) {
-    wwwurl_ = new ::std::string;
+inline ::std::string* pbNFServerConfig::mutable_sendemail() {
+  set_has_sendemail();
+  if (sendemail_ == &::google::protobuf::internal::kEmptyString) {
+    sendemail_ = new ::std::string;
   }
-  return wwwurl_;
+  return sendemail_;
 }
-inline ::std::string* pbNFServerConfig::release_wwwurl() {
-  clear_has_wwwurl();
-  if (wwwurl_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* pbNFServerConfig::release_sendemail() {
+  clear_has_sendemail();
+  if (sendemail_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = wwwurl_;
-    wwwurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = sendemail_;
+    sendemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void pbNFServerConfig::set_allocated_wwwurl(::std::string* wwwurl) {
-  if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
-    delete wwwurl_;
+inline void pbNFServerConfig::set_allocated_sendemail(::std::string* sendemail) {
+  if (sendemail_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemail_;
   }
-  if (wwwurl) {
-    set_has_wwwurl();
-    wwwurl_ = wwwurl;
+  if (sendemail) {
+    set_has_sendemail();
+    sendemail_ = sendemail;
   } else {
-    clear_has_wwwurl();
-    wwwurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_sendemail();
+    sendemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string Email = 91;
-inline bool pbNFServerConfig::has_email() const {
+// optional string sendEmailPass = 92;
+inline bool pbNFServerConfig::has_sendemailpass() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
-inline void pbNFServerConfig::set_has_email() {
+inline void pbNFServerConfig::set_has_sendemailpass() {
   _has_bits_[1] |= 0x00000010u;
 }
-inline void pbNFServerConfig::clear_has_email() {
+inline void pbNFServerConfig::clear_has_sendemailpass() {
   _has_bits_[1] &= ~0x00000010u;
 }
-inline void pbNFServerConfig::clear_email() {
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    email_->clear();
+inline void pbNFServerConfig::clear_sendemailpass() {
+  if (sendemailpass_ != &::google::protobuf::internal::kEmptyString) {
+    sendemailpass_->clear();
   }
-  clear_has_email();
+  clear_has_sendemailpass();
 }
-inline const ::std::string& pbNFServerConfig::email() const {
-  return *email_;
+inline const ::std::string& pbNFServerConfig::sendemailpass() const {
+  return *sendemailpass_;
 }
-inline void pbNFServerConfig::set_email(const ::std::string& value) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemailpass(const ::std::string& value) {
+  set_has_sendemailpass();
+  if (sendemailpass_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailpass_ = new ::std::string;
   }
-  email_->assign(value);
+  sendemailpass_->assign(value);
 }
-inline void pbNFServerConfig::set_email(const char* value) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemailpass(const char* value) {
+  set_has_sendemailpass();
+  if (sendemailpass_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailpass_ = new ::std::string;
   }
-  email_->assign(value);
+  sendemailpass_->assign(value);
 }
-inline void pbNFServerConfig::set_email(const char* value, size_t size) {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline void pbNFServerConfig::set_sendemailpass(const char* value, size_t size) {
+  set_has_sendemailpass();
+  if (sendemailpass_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailpass_ = new ::std::string;
   }
-  email_->assign(reinterpret_cast<const char*>(value), size);
+  sendemailpass_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* pbNFServerConfig::mutable_email() {
-  set_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
-    email_ = new ::std::string;
+inline ::std::string* pbNFServerConfig::mutable_sendemailpass() {
+  set_has_sendemailpass();
+  if (sendemailpass_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailpass_ = new ::std::string;
   }
-  return email_;
+  return sendemailpass_;
 }
-inline ::std::string* pbNFServerConfig::release_email() {
-  clear_has_email();
-  if (email_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* pbNFServerConfig::release_sendemailpass() {
+  clear_has_sendemailpass();
+  if (sendemailpass_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = email_;
-    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = sendemailpass_;
+    sendemailpass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void pbNFServerConfig::set_allocated_email(::std::string* email) {
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
+inline void pbNFServerConfig::set_allocated_sendemailpass(::std::string* sendemailpass) {
+  if (sendemailpass_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailpass_;
   }
-  if (email) {
-    set_has_email();
-    email_ = email;
+  if (sendemailpass) {
+    set_has_sendemailpass();
+    sendemailpass_ = sendemailpass;
   } else {
-    clear_has_email();
-    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_sendemailpass();
+    sendemailpass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string sendEmailUrl = 93;
+inline bool pbNFServerConfig::has_sendemailurl() const {
+  return (_has_bits_[1] & 0x00000020u) != 0;
+}
+inline void pbNFServerConfig::set_has_sendemailurl() {
+  _has_bits_[1] |= 0x00000020u;
+}
+inline void pbNFServerConfig::clear_has_sendemailurl() {
+  _has_bits_[1] &= ~0x00000020u;
+}
+inline void pbNFServerConfig::clear_sendemailurl() {
+  if (sendemailurl_ != &::google::protobuf::internal::kEmptyString) {
+    sendemailurl_->clear();
+  }
+  clear_has_sendemailurl();
+}
+inline const ::std::string& pbNFServerConfig::sendemailurl() const {
+  return *sendemailurl_;
+}
+inline void pbNFServerConfig::set_sendemailurl(const ::std::string& value) {
+  set_has_sendemailurl();
+  if (sendemailurl_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailurl_ = new ::std::string;
+  }
+  sendemailurl_->assign(value);
+}
+inline void pbNFServerConfig::set_sendemailurl(const char* value) {
+  set_has_sendemailurl();
+  if (sendemailurl_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailurl_ = new ::std::string;
+  }
+  sendemailurl_->assign(value);
+}
+inline void pbNFServerConfig::set_sendemailurl(const char* value, size_t size) {
+  set_has_sendemailurl();
+  if (sendemailurl_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailurl_ = new ::std::string;
+  }
+  sendemailurl_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNFServerConfig::mutable_sendemailurl() {
+  set_has_sendemailurl();
+  if (sendemailurl_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailurl_ = new ::std::string;
+  }
+  return sendemailurl_;
+}
+inline ::std::string* pbNFServerConfig::release_sendemailurl() {
+  clear_has_sendemailurl();
+  if (sendemailurl_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sendemailurl_;
+    sendemailurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNFServerConfig::set_allocated_sendemailurl(::std::string* sendemailurl) {
+  if (sendemailurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailurl_;
+  }
+  if (sendemailurl) {
+    set_has_sendemailurl();
+    sendemailurl_ = sendemailurl;
+  } else {
+    clear_has_sendemailurl();
+    sendemailurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string sendEmailPort = 94;
+inline bool pbNFServerConfig::has_sendemailport() const {
+  return (_has_bits_[1] & 0x00000040u) != 0;
+}
+inline void pbNFServerConfig::set_has_sendemailport() {
+  _has_bits_[1] |= 0x00000040u;
+}
+inline void pbNFServerConfig::clear_has_sendemailport() {
+  _has_bits_[1] &= ~0x00000040u;
+}
+inline void pbNFServerConfig::clear_sendemailport() {
+  if (sendemailport_ != &::google::protobuf::internal::kEmptyString) {
+    sendemailport_->clear();
+  }
+  clear_has_sendemailport();
+}
+inline const ::std::string& pbNFServerConfig::sendemailport() const {
+  return *sendemailport_;
+}
+inline void pbNFServerConfig::set_sendemailport(const ::std::string& value) {
+  set_has_sendemailport();
+  if (sendemailport_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailport_ = new ::std::string;
+  }
+  sendemailport_->assign(value);
+}
+inline void pbNFServerConfig::set_sendemailport(const char* value) {
+  set_has_sendemailport();
+  if (sendemailport_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailport_ = new ::std::string;
+  }
+  sendemailport_->assign(value);
+}
+inline void pbNFServerConfig::set_sendemailport(const char* value, size_t size) {
+  set_has_sendemailport();
+  if (sendemailport_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailport_ = new ::std::string;
+  }
+  sendemailport_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNFServerConfig::mutable_sendemailport() {
+  set_has_sendemailport();
+  if (sendemailport_ == &::google::protobuf::internal::kEmptyString) {
+    sendemailport_ = new ::std::string;
+  }
+  return sendemailport_;
+}
+inline ::std::string* pbNFServerConfig::release_sendemailport() {
+  clear_has_sendemailport();
+  if (sendemailport_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sendemailport_;
+    sendemailport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNFServerConfig::set_allocated_sendemailport(::std::string* sendemailport) {
+  if (sendemailport_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailport_;
+  }
+  if (sendemailport) {
+    set_has_sendemailport();
+    sendemailport_ = sendemailport;
+  } else {
+    clear_has_sendemailport();
+    sendemailport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string recvEmail = 95;
+inline bool pbNFServerConfig::has_recvemail() const {
+  return (_has_bits_[1] & 0x00000080u) != 0;
+}
+inline void pbNFServerConfig::set_has_recvemail() {
+  _has_bits_[1] |= 0x00000080u;
+}
+inline void pbNFServerConfig::clear_has_recvemail() {
+  _has_bits_[1] &= ~0x00000080u;
+}
+inline void pbNFServerConfig::clear_recvemail() {
+  if (recvemail_ != &::google::protobuf::internal::kEmptyString) {
+    recvemail_->clear();
+  }
+  clear_has_recvemail();
+}
+inline const ::std::string& pbNFServerConfig::recvemail() const {
+  return *recvemail_;
+}
+inline void pbNFServerConfig::set_recvemail(const ::std::string& value) {
+  set_has_recvemail();
+  if (recvemail_ == &::google::protobuf::internal::kEmptyString) {
+    recvemail_ = new ::std::string;
+  }
+  recvemail_->assign(value);
+}
+inline void pbNFServerConfig::set_recvemail(const char* value) {
+  set_has_recvemail();
+  if (recvemail_ == &::google::protobuf::internal::kEmptyString) {
+    recvemail_ = new ::std::string;
+  }
+  recvemail_->assign(value);
+}
+inline void pbNFServerConfig::set_recvemail(const char* value, size_t size) {
+  set_has_recvemail();
+  if (recvemail_ == &::google::protobuf::internal::kEmptyString) {
+    recvemail_ = new ::std::string;
+  }
+  recvemail_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNFServerConfig::mutable_recvemail() {
+  set_has_recvemail();
+  if (recvemail_ == &::google::protobuf::internal::kEmptyString) {
+    recvemail_ = new ::std::string;
+  }
+  return recvemail_;
+}
+inline ::std::string* pbNFServerConfig::release_recvemail() {
+  clear_has_recvemail();
+  if (recvemail_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = recvemail_;
+    recvemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNFServerConfig::set_allocated_recvemail(::std::string* recvemail) {
+  if (recvemail_ != &::google::protobuf::internal::kEmptyString) {
+    delete recvemail_;
+  }
+  if (recvemail) {
+    set_has_recvemail();
+    recvemail_ = recvemail;
+  } else {
+    clear_has_recvemail();
+    recvemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // optional uint32 MaxOnlinePlayerNum = 100;
 inline bool pbNFServerConfig::has_maxonlineplayernum() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
+  return (_has_bits_[1] & 0x00000100u) != 0;
 }
 inline void pbNFServerConfig::set_has_maxonlineplayernum() {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000100u;
 }
 inline void pbNFServerConfig::clear_has_maxonlineplayernum() {
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000100u;
 }
 inline void pbNFServerConfig::clear_maxonlineplayernum() {
   maxonlineplayernum_ = 0u;
@@ -5556,13 +5811,13 @@ inline void pbNFServerConfig::set_maxonlineplayernum(::google::protobuf::uint32 
 
 // optional uint32 HeartBeatTimeout = 101;
 inline bool pbNFServerConfig::has_heartbeattimeout() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[1] & 0x00000200u) != 0;
 }
 inline void pbNFServerConfig::set_has_heartbeattimeout() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000200u;
 }
 inline void pbNFServerConfig::clear_has_heartbeattimeout() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline void pbNFServerConfig::clear_heartbeattimeout() {
   heartbeattimeout_ = 0u;
@@ -5578,13 +5833,13 @@ inline void pbNFServerConfig::set_heartbeattimeout(::google::protobuf::uint32 va
 
 // optional uint32 ClientKeepAliveTimeout = 102;
 inline bool pbNFServerConfig::has_clientkeepalivetimeout() const {
-  return (_has_bits_[1] & 0x00000080u) != 0;
+  return (_has_bits_[1] & 0x00000400u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientkeepalivetimeout() {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000400u;
 }
 inline void pbNFServerConfig::clear_has_clientkeepalivetimeout() {
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline void pbNFServerConfig::clear_clientkeepalivetimeout() {
   clientkeepalivetimeout_ = 0u;
@@ -5600,13 +5855,13 @@ inline void pbNFServerConfig::set_clientkeepalivetimeout(::google::protobuf::uin
 
 // optional uint32 ClientVersion = 103;
 inline bool pbNFServerConfig::has_clientversion() const {
-  return (_has_bits_[1] & 0x00000100u) != 0;
+  return (_has_bits_[1] & 0x00000800u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientversion() {
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00000800u;
 }
 inline void pbNFServerConfig::clear_has_clientversion() {
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline void pbNFServerConfig::clear_clientversion() {
   clientversion_ = 0u;

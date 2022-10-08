@@ -214,7 +214,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbTableConfig));
   pbNFServerConfig_descriptor_ = file->message_type(8);
-  static const int pbNFServerConfig_offsets_[41] = {
+  static const int pbNFServerConfig_offsets_[44] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -250,8 +250,11 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redisport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, redispass_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, wwwurl_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, email_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemail_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemailpass_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemailurl_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemailport_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, recvemail_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, maxonlineplayernum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, heartbeattimeout_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, clientkeepalivetimeout_),
@@ -366,7 +369,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "verType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003"
     "(\t\022/\n\nServerList\030\003 \003(\0132\033.proto_ff.pbAllS"
     "erverConfig\"<\n\rpbTableConfig\022\027\n\tTableNam"
-    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\363\006\n\020pb"
+    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\276\007\n\020pb"
     "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
     "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
     "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Link"
@@ -385,21 +388,23 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "efaultDBName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022"
     "+\n\nTBConfList\030M \003(\0132\027.proto_ff.pbTableCo"
     "nfig\022\017\n\007RedisIp\030P \001(\t\022\021\n\tRedisPort\030Q \001(\r"
-    "\022\021\n\tRedisPass\030R \001(\t\022\016\n\006WwwUrl\030Z \001(\t\022\r\n\005E"
-    "mail\030[ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030"
-    "\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAl"
-    "iveTimeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r*"
-    "\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF"
-    "_ST_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT"
-    "_SERVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_"
-    "ST_PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_"
-    "FOR_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER"
-    "\020\006\022\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGI"
-    "N_SERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF"
-    "_ST_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020"
-    "\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SER"
-    "VER\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST"
-    "_MAX\020\024", 2686);
+    "\022\021\n\tRedisPass\030R \001(\t\022\021\n\tsendEmail\030[ \001(\t\022\025"
+    "\n\rsendEmailPass\030\\ \001(\t\022\024\n\014sendEmailUrl\030] "
+    "\001(\t\022\025\n\rsendEmailPort\030^ \001(\t\022\021\n\trecvEmail\030"
+    "_ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020Hea"
+    "rtBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAliveTi"
+    "meout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r*\224\003\n\016N"
+    "F_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_M"
+    "ASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_SERV"
+    "ER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_ST_PR"
+    "OXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_FOR_C"
+    "LIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\006\022\026\n"
+    "\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN_SER"
+    "VER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_ST_L"
+    "OGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013\022\024\n\020"
+    "NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERVER\020\r"
+    "\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_MAX\020"
+    "\024", 2761);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -3916,8 +3921,11 @@ const int pbNFServerConfig::kTBConfListFieldNumber;
 const int pbNFServerConfig::kRedisIpFieldNumber;
 const int pbNFServerConfig::kRedisPortFieldNumber;
 const int pbNFServerConfig::kRedisPassFieldNumber;
-const int pbNFServerConfig::kWwwUrlFieldNumber;
-const int pbNFServerConfig::kEmailFieldNumber;
+const int pbNFServerConfig::kSendEmailFieldNumber;
+const int pbNFServerConfig::kSendEmailPassFieldNumber;
+const int pbNFServerConfig::kSendEmailUrlFieldNumber;
+const int pbNFServerConfig::kSendEmailPortFieldNumber;
+const int pbNFServerConfig::kRecvEmailFieldNumber;
 const int pbNFServerConfig::kMaxOnlinePlayerNumFieldNumber;
 const int pbNFServerConfig::kHeartBeatTimeoutFieldNumber;
 const int pbNFServerConfig::kClientKeepAliveTimeoutFieldNumber;
@@ -3974,8 +3982,11 @@ void pbNFServerConfig::SharedCtor() {
   redisip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   redisport_ = 0u;
   redispass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  wwwurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  sendemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  sendemailpass_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  sendemailurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  sendemailport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  recvemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   maxonlineplayernum_ = 0u;
   heartbeattimeout_ = 0u;
   clientkeepalivetimeout_ = 0u;
@@ -4042,11 +4053,20 @@ void pbNFServerConfig::SharedDtor() {
   if (redispass_ != &::google::protobuf::internal::kEmptyString) {
     delete redispass_;
   }
-  if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
-    delete wwwurl_;
+  if (sendemail_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemail_;
   }
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
+  if (sendemailpass_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailpass_;
+  }
+  if (sendemailurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailurl_;
+  }
+  if (sendemailport_ != &::google::protobuf::internal::kEmptyString) {
+    delete sendemailport_;
+  }
+  if (recvemail_ != &::google::protobuf::internal::kEmptyString) {
+    delete recvemail_;
   }
   if (this != default_instance_) {
   }
@@ -4189,21 +4209,36 @@ void pbNFServerConfig::Clear() {
         redispass_->clear();
       }
     }
-    if (has_wwwurl()) {
-      if (wwwurl_ != &::google::protobuf::internal::kEmptyString) {
-        wwwurl_->clear();
+    if (has_sendemail()) {
+      if (sendemail_ != &::google::protobuf::internal::kEmptyString) {
+        sendemail_->clear();
       }
     }
-    if (has_email()) {
-      if (email_ != &::google::protobuf::internal::kEmptyString) {
-        email_->clear();
+    if (has_sendemailpass()) {
+      if (sendemailpass_ != &::google::protobuf::internal::kEmptyString) {
+        sendemailpass_->clear();
       }
     }
+    if (has_sendemailurl()) {
+      if (sendemailurl_ != &::google::protobuf::internal::kEmptyString) {
+        sendemailurl_->clear();
+      }
+    }
+    if (has_sendemailport()) {
+      if (sendemailport_ != &::google::protobuf::internal::kEmptyString) {
+        sendemailport_->clear();
+      }
+    }
+    if (has_recvemail()) {
+      if (recvemail_ != &::google::protobuf::internal::kEmptyString) {
+        recvemail_->clear();
+      }
+    }
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     maxonlineplayernum_ = 0u;
     heartbeattimeout_ = 0u;
     clientkeepalivetimeout_ = 0u;
-  }
-  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     clientversion_ = 0u;
   }
   tbconflist_.Clear();
@@ -4789,36 +4824,87 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(722)) goto parse_WwwUrl;
+        if (input->ExpectTag(730)) goto parse_sendEmail;
         break;
       }
 
-      // optional string WwwUrl = 90;
-      case 90: {
+      // optional string sendEmail = 91;
+      case 91: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_WwwUrl:
+         parse_sendEmail:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_wwwurl()));
+                input, this->mutable_sendemail()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->wwwurl().data(), this->wwwurl().length(),
+            this->sendemail().data(), this->sendemail().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(730)) goto parse_Email;
+        if (input->ExpectTag(738)) goto parse_sendEmailPass;
         break;
       }
 
-      // optional string Email = 91;
-      case 91: {
+      // optional string sendEmailPass = 92;
+      case 92: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_Email:
+         parse_sendEmailPass:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_email()));
+                input, this->mutable_sendemailpass()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->email().data(), this->email().length(),
+            this->sendemailpass().data(), this->sendemailpass().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(746)) goto parse_sendEmailUrl;
+        break;
+      }
+
+      // optional string sendEmailUrl = 93;
+      case 93: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sendEmailUrl:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sendemailurl()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->sendemailurl().data(), this->sendemailurl().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(754)) goto parse_sendEmailPort;
+        break;
+      }
+
+      // optional string sendEmailPort = 94;
+      case 94: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sendEmailPort:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sendemailport()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->sendemailport().data(), this->sendemailport().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(762)) goto parse_recvEmail;
+        break;
+      }
+
+      // optional string recvEmail = 95;
+      case 95: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_recvEmail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_recvemail()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->recvemail().data(), this->recvemail().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -5157,22 +5243,49 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       82, this->redispass(), output);
   }
 
-  // optional string WwwUrl = 90;
-  if (has_wwwurl()) {
+  // optional string sendEmail = 91;
+  if (has_sendemail()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->wwwurl().data(), this->wwwurl().length(),
+      this->sendemail().data(), this->sendemail().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      90, this->wwwurl(), output);
+      91, this->sendemail(), output);
   }
 
-  // optional string Email = 91;
-  if (has_email()) {
+  // optional string sendEmailPass = 92;
+  if (has_sendemailpass()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
+      this->sendemailpass().data(), this->sendemailpass().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      91, this->email(), output);
+      92, this->sendemailpass(), output);
+  }
+
+  // optional string sendEmailUrl = 93;
+  if (has_sendemailurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sendemailurl().data(), this->sendemailurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      93, this->sendemailurl(), output);
+  }
+
+  // optional string sendEmailPort = 94;
+  if (has_sendemailport()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sendemailport().data(), this->sendemailport().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      94, this->sendemailport(), output);
+  }
+
+  // optional string recvEmail = 95;
+  if (has_recvemail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->recvemail().data(), this->recvemail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      95, this->recvemail(), output);
   }
 
   // optional uint32 MaxOnlinePlayerNum = 100;
@@ -5470,24 +5583,54 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         82, this->redispass(), target);
   }
 
-  // optional string WwwUrl = 90;
-  if (has_wwwurl()) {
+  // optional string sendEmail = 91;
+  if (has_sendemail()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->wwwurl().data(), this->wwwurl().length(),
+      this->sendemail().data(), this->sendemail().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        90, this->wwwurl(), target);
+        91, this->sendemail(), target);
   }
 
-  // optional string Email = 91;
-  if (has_email()) {
+  // optional string sendEmailPass = 92;
+  if (has_sendemailpass()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
+      this->sendemailpass().data(), this->sendemailpass().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        91, this->email(), target);
+        92, this->sendemailpass(), target);
+  }
+
+  // optional string sendEmailUrl = 93;
+  if (has_sendemailurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sendemailurl().data(), this->sendemailurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        93, this->sendemailurl(), target);
+  }
+
+  // optional string sendEmailPort = 94;
+  if (has_sendemailport()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sendemailport().data(), this->sendemailport().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        94, this->sendemailport(), target);
+  }
+
+  // optional string recvEmail = 95;
+  if (has_recvemail()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->recvemail().data(), this->recvemail().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        95, this->recvemail(), target);
   }
 
   // optional uint32 MaxOnlinePlayerNum = 100;
@@ -5763,20 +5906,43 @@ int pbNFServerConfig::ByteSize() const {
           this->redispass());
     }
 
-    // optional string WwwUrl = 90;
-    if (has_wwwurl()) {
+    // optional string sendEmail = 91;
+    if (has_sendemail()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->wwwurl());
+          this->sendemail());
     }
 
-    // optional string Email = 91;
-    if (has_email()) {
+    // optional string sendEmailPass = 92;
+    if (has_sendemailpass()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->email());
+          this->sendemailpass());
     }
 
+    // optional string sendEmailUrl = 93;
+    if (has_sendemailurl()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->sendemailurl());
+    }
+
+    // optional string sendEmailPort = 94;
+    if (has_sendemailport()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->sendemailport());
+    }
+
+    // optional string recvEmail = 95;
+    if (has_recvemail()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->recvemail());
+    }
+
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     // optional uint32 MaxOnlinePlayerNum = 100;
     if (has_maxonlineplayernum()) {
       total_size += 2 +
@@ -5798,8 +5964,6 @@ int pbNFServerConfig::ByteSize() const {
           this->clientkeepalivetimeout());
     }
 
-  }
-  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     // optional uint32 ClientVersion = 103;
     if (has_clientversion()) {
       total_size += 2 +
@@ -5953,12 +6117,23 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_redispass()) {
       set_redispass(from.redispass());
     }
-    if (from.has_wwwurl()) {
-      set_wwwurl(from.wwwurl());
+    if (from.has_sendemail()) {
+      set_sendemail(from.sendemail());
     }
-    if (from.has_email()) {
-      set_email(from.email());
+    if (from.has_sendemailpass()) {
+      set_sendemailpass(from.sendemailpass());
     }
+    if (from.has_sendemailurl()) {
+      set_sendemailurl(from.sendemailurl());
+    }
+    if (from.has_sendemailport()) {
+      set_sendemailport(from.sendemailport());
+    }
+    if (from.has_recvemail()) {
+      set_recvemail(from.recvemail());
+    }
+  }
+  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     if (from.has_maxonlineplayernum()) {
       set_maxonlineplayernum(from.maxonlineplayernum());
     }
@@ -5968,8 +6143,6 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_clientkeepalivetimeout()) {
       set_clientkeepalivetimeout(from.clientkeepalivetimeout());
     }
-  }
-  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     if (from.has_clientversion()) {
       set_clientversion(from.clientversion());
     }
@@ -6031,8 +6204,11 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(redisip_, other->redisip_);
     std::swap(redisport_, other->redisport_);
     std::swap(redispass_, other->redispass_);
-    std::swap(wwwurl_, other->wwwurl_);
-    std::swap(email_, other->email_);
+    std::swap(sendemail_, other->sendemail_);
+    std::swap(sendemailpass_, other->sendemailpass_);
+    std::swap(sendemailurl_, other->sendemailurl_);
+    std::swap(sendemailport_, other->sendemailport_);
+    std::swap(recvemail_, other->recvemail_);
     std::swap(maxonlineplayernum_, other->maxonlineplayernum_);
     std::swap(heartbeattimeout_, other->heartbeattimeout_);
     std::swap(clientkeepalivetimeout_, other->clientkeepalivetimeout_);

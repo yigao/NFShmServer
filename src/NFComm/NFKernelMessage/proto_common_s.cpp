@@ -347,8 +347,11 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_redisip(RedisIp);
 	msg.set_redisport((uint32_t)RedisPort);
 	msg.set_redispass(RedisPass);
-	msg.set_wwwurl(WwwUrl);
-	msg.set_email(Email);
+	msg.set_sendemail(sendEmail);
+	msg.set_sendemailpass(sendEmailPass);
+	msg.set_sendemailurl(sendEmailUrl);
+	msg.set_sendemailport(sendEmailPort);
+	msg.set_recvemail(recvEmail);
 	msg.set_maxonlineplayernum((uint32_t)MaxOnlinePlayerNum);
 	msg.set_heartbeattimeout((uint32_t)HeartBeatTimeout);
 	msg.set_clientkeepalivetimeout((uint32_t)ClientKeepAliveTimeout);
@@ -395,8 +398,11 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	RedisIp = msg.redisip();
 	RedisPort = msg.redisport();
 	RedisPass = msg.redispass();
-	WwwUrl = msg.wwwurl();
-	Email = msg.email();
+	sendEmail = msg.sendemail();
+	sendEmailPass = msg.sendemailpass();
+	sendEmailUrl = msg.sendemailurl();
+	sendEmailPort = msg.sendemailport();
+	recvEmail = msg.recvemail();
 	MaxOnlinePlayerNum = msg.maxonlineplayernum();
 	HeartBeatTimeout = msg.heartbeattimeout();
 	ClientKeepAliveTimeout = msg.clientkeepalivetimeout();

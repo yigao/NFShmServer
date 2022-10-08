@@ -188,8 +188,11 @@ namespace proto_ff_s {
 		std::string RedisIp;
 		uint32_t RedisPort;
 		std::string RedisPass;
-		std::string WwwUrl;
-		std::string Email;
+		std::string sendEmail;
+		std::string sendEmailPass;
+		std::string sendEmailUrl;
+		std::string sendEmailPort;
+		std::string recvEmail;
 		uint32_t MaxOnlinePlayerNum;
 		uint32_t HeartBeatTimeout;
 		uint32_t ClientKeepAliveTimeout;

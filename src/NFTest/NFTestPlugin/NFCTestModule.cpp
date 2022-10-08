@@ -37,6 +37,7 @@
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFShmHashMapTest.h"
+#include "NFEmailSenderTest.h"
 
 NFCTestModule::NFCTestModule(NFIPluginManager* p):NFIModule(p),NFTimerObj(p)
 {
@@ -46,10 +47,14 @@ NFCTestModule::~NFCTestModule()
 {
 }
 
+
+
 bool NFCTestModule::Init()
 {
     //²âÊÔNFShmHashMapµÄÐÔÄÜ
-    TestShmHashMap();
+    //TestShmHashMap();
+
+    //TestEmailSender();
 
 	SetTimer(1, 1000, 1);
 	return true;

@@ -22,8 +22,11 @@ MasterServer = {
         --NamingHost = NF_NAMING_HOST,
         --NamingPath = NF_NAMING_PATH,
         --WWW="http://192.168.0.62",
-        WWW="http://192.168.0.11",
-        Email="445267987@qq.com",
+        sendEmail="mangguoyi445@163.com",
+        sendEmailPass="QQLMFJBVAMYDAOQQ",
+        sendEmailUrl="smtp.163.com",
+        sendEmailPort="465",
+        recvEmail="445267987@qq.com";
         DefaultDBName = NF_MYSQL_DB_NAME,
     };
 };
