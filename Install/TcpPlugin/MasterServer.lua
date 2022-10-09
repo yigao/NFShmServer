@@ -27,6 +27,7 @@ MasterServer = {
         sendEmailUrl="smtp.163.com",
         sendEmailPort="465",
         recvEmail="445267987@qq.com";
+        wxWorkdRobot="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=3bb1a565-2fc5-41d2-8558-aa8cdf11332e",
         DefaultDBName = NF_MYSQL_DB_NAME,
     };
 };
