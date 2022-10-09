@@ -263,15 +263,15 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 
 		if (msg.mMsgType == NFConsoleMsg_Exit)
 		{
-            m_pObjPluginManager->SetServerStopping(true);
+            NFGlobalSystem::Instance()->SetServerStopping(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Profiler)
 		{
-			m_pObjPluginManager->SetChangeProfileApp(true);
+            //NFGlobalSystem::Instance()->SetChangeProfileApp(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Reload)
 		{
-            m_pObjPluginManager->SetReloadServer(true);
+            NFGlobalSystem::Instance()->SetReloadServer(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_HotfixAllLua)
 		{

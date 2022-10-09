@@ -42,12 +42,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="open ssl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/MasterServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/MasterServer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libz.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_debug/libz.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libz.a" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/lib64_release/libz.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/zlib/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/zlib/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/zlib/configure" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/zlib/configure" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFConsoleModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFConsoleModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +197,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=MasterServer --ID=1.9.1.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -499,14 +494,7 @@
       <workItem from="1664376452474" duration="2985000" />
       <workItem from="1665208367446" duration="16800000" />
       <workItem from="1665275205916" duration="50000" />
-      <workItem from="1665275284547" duration="4732000" />
-    </task>
-    <task id="LOCAL-00115" summary="chong gou">
-      <created>1663325732493</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1663325732493</updated>
+      <workItem from="1665275284547" duration="20497000" />
     </task>
     <task id="LOCAL-00116" summary="chong gou">
       <created>1663339919935</created>
@@ -844,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665278501657</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="open ssl">
+      <created>1665280362256</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1665280362256</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
