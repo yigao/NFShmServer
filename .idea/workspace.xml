@@ -9,8 +9,8 @@
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
@@ -29,8 +29,8 @@
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
-      <config projectName="ShmNFrame" targetName="NFCommLogicPlugin" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFCommLogicPlugin" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -40,11 +40,25 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="hotfix app">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="open ssl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFEmailSender.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEmailSender.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFEmailSender.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEmailSender.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/httpc/ssl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/httpc/ssl.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/httpc/ssl.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/httpc/ssl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFEmailSenderTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFEmailSenderTest.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +95,10 @@
     </option>
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFPluginLoader" />
+    <option name="configuration" value="0-DynamicDebug-evpp" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
   </component>
   <component name="ProjectId" id="1ujzzYRcDPHLLows0GpEXsI7QMX" />
   <component name="ProjectLevelVcsManager">
@@ -104,27 +121,33 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../glog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/thirdparty/openssl" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/thirdparty/openssl" />
+      <recent name="$PROJECT_DIR$/thirdparty/libevent/include" />
+      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin" />
       <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
       <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommon" />
-      <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin" />
+      <recent name="$PROJECT_DIR$/thirdparty/libevent/linux/include/event2" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
+      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles" />
-      <recent name="$PROJECT_DIR$/src/NFPluginManager" />
-      <recent name="$PROJECT_DIR$/src/NFPluginLoader" />
-      <recent name="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -280,11 +303,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -300,7 +318,7 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="excel2bin_mmo" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="excel2bin_mmo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mmo-nfshm-server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -411,6 +429,11 @@
       <item itemvalue="Python.excel2proto" />
       <item itemvalue="Python.excel2bin_mmo" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.excel2bin_mmo" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -485,6 +508,37 @@
       <workItem from="1663338610780" duration="2740000" />
       <workItem from="1664069237413" duration="26364000" />
       <workItem from="1664376452474" duration="2985000" />
+      <workItem from="1665208367446" duration="16800000" />
+      <workItem from="1665275205916" duration="50000" />
+      <workItem from="1665275284547" duration="3135000" />
+    </task>
+    <task id="LOCAL-00114" summary="chong gou">
+      <created>1663324997873</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1663324997873</updated>
+    </task>
+    <task id="LOCAL-00115" summary="chong gou">
+      <created>1663325732493</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1663325732493</updated>
+    </task>
+    <task id="LOCAL-00116" summary="chong gou">
+      <created>1663339919935</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1663339919936</updated>
+    </task>
+    <task id="LOCAL-00117" summary="chong gou">
+      <created>1663340783298</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1663340783298</updated>
     </task>
     <task id="LOCAL-00118" summary="chong gou">
       <created>1663340992248</created>
@@ -738,98 +792,70 @@
       <option name="project" value="LOCAL" />
       <updated>1664379442605</updated>
     </task>
-    <task id="LOCAL-00154" summary="excel parse">
-      <created>1665114568523</created>
+    <task id="LOCAL-00154" summary="check msg call back">
+      <created>1664508469768</created>
       <option name="number" value="00154" />
       <option name="presentableId" value="LOCAL-00154" />
       <option name="project" value="LOCAL" />
-      <updated>1665114568524</updated>
+      <updated>1664508469768</updated>
     </task>
-    <task id="LOCAL-00155" summary="server state">
-      <created>1665121838398</created>
+    <task id="LOCAL-00155" summary="check msg call back">
+      <created>1664526437253</created>
       <option name="number" value="00155" />
       <option name="presentableId" value="LOCAL-00155" />
       <option name="project" value="LOCAL" />
-      <updated>1665121838398</updated>
+      <updated>1664526437254</updated>
     </task>
-    <task id="LOCAL-00156" summary="server state">
-      <created>1665136095785</created>
+    <task id="LOCAL-00156" summary="msg handle">
+      <created>1664527652480</created>
       <option name="number" value="00156" />
       <option name="presentableId" value="LOCAL-00156" />
       <option name="project" value="LOCAL" />
-      <updated>1665136095785</updated>
+      <updated>1664527652480</updated>
     </task>
-    <task id="LOCAL-00157" summary="server state">
-      <created>1665137911591</created>
+    <task id="LOCAL-00157" summary="msg handle">
+      <created>1665193208079</created>
       <option name="number" value="00157" />
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
-      <updated>1665137911592</updated>
+      <updated>1665193208079</updated>
     </task>
-    <task id="LOCAL-00158" summary="server state">
-      <created>1665139613581</created>
+    <task id="LOCAL-00158" summary="server dump">
+      <created>1665194719495</created>
       <option name="number" value="00158" />
       <option name="presentableId" value="LOCAL-00158" />
       <option name="project" value="LOCAL" />
-      <updated>1665139613581</updated>
+      <updated>1665194719495</updated>
     </task>
-    <task id="LOCAL-00159" summary="server state">
-      <created>1665145145702</created>
+    <task id="LOCAL-00159" summary="server dump">
+      <created>1665195590329</created>
       <option name="number" value="00159" />
       <option name="presentableId" value="LOCAL-00159" />
       <option name="project" value="LOCAL" />
-      <updated>1665145145702</updated>
+      <updated>1665195590329</updated>
     </task>
-    <task id="LOCAL-00160" summary="server state">
-      <created>1665145433204</created>
+    <task id="LOCAL-00160" summary="server dump">
+      <created>1665196993627</created>
       <option name="number" value="00160" />
       <option name="presentableId" value="LOCAL-00160" />
       <option name="project" value="LOCAL" />
-      <updated>1665145433204</updated>
+      <updated>1665196993627</updated>
     </task>
-    <task id="LOCAL-00161" summary="server state">
-      <created>1665145541893</created>
+    <task id="LOCAL-00161" summary="lua plugin">
+      <created>1665200705899</created>
       <option name="number" value="00161" />
       <option name="presentableId" value="LOCAL-00161" />
       <option name="project" value="LOCAL" />
-      <updated>1665145541893</updated>
+      <updated>1665200705899</updated>
     </task>
-    <task id="LOCAL-00162" summary="server state">
-      <created>1665151692692</created>
+    <task id="LOCAL-00162" summary="lua plugin">
+      <created>1665223371149</created>
       <option name="number" value="00162" />
       <option name="presentableId" value="LOCAL-00162" />
       <option name="project" value="LOCAL" />
-      <updated>1665151692692</updated>
+      <updated>1665223371149</updated>
     </task>
-    <task id="LOCAL-00163" summary="hotfix app">
-      <created>1665152428856</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1665152428856</updated>
-    </task>
-    <task id="LOCAL-00164" summary="hotfix app">
-      <created>1665154161432</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1665154161432</updated>
-    </task>
-    <task id="LOCAL-00165" summary="hotfix app">
-      <created>1665159175364</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1665159175364</updated>
-    </task>
-    <task id="LOCAL-00166" summary="hotfix app">
-      <created>1665240617375</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1665240617379</updated>
-    </task>
-    <option name="localTasksCounter" value="167" />
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -848,59 +874,9 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="7297633c-2e5c-4443-a1a4-4e15e5c688e3">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/src/NFComm/Message/kernel" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State />
-          </value>
-        </entry>
-        <entry key="cce01296-be27-41be-b074-806a2b2f47ab">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/tools" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
           </value>
         </entry>
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e">
@@ -928,12 +904,15 @@
             </State>
           </value>
         </entry>
+        <entry key="ece55e9d-b1cf-4934-a051-26bba0db119b">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
     <option name="OPEN_GENERIC_TABS">
       <map>
-        <entry key="7297633c-2e5c-4443-a1a4-4e15e5c688e3" value="TOOL_WINDOW" />
-        <entry key="cce01296-be27-41be-b074-806a2b2f47ab" value="TOOL_WINDOW" />
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e" value="TOOL_WINDOW" />
       </map>
     </option>
@@ -954,9 +933,11 @@
     <MESSAGE value="makefile" />
     <MESSAGE value="chong gou" />
     <MESSAGE value="excel parse" />
-    <MESSAGE value="server state" />
-    <MESSAGE value="hotfix app" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotfix app" />
+    <MESSAGE value="check msg call back" />
+    <MESSAGE value="msg handle" />
+    <MESSAGE value="server dump" />
+    <MESSAGE value="lua plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="lua plugin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -970,6 +951,11 @@
           <url>file://$PROJECT_DIR$/src/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFUserMisc/NFTransBank.cpp</url>
           <line>540</line>
           <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
+          <line>491</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
@@ -987,49 +973,29 @@
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.cpp</url>
-          <line>28</line>
-          <option name="timeStamp" value="356" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
+          <line>67</line>
+          <option name="timeStamp" value="342" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.cpp</url>
-          <line>38</line>
-          <option name="timeStamp" value="357" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFPluginManager/NFSignalHandleMgr.cpp</url>
-          <line>1186</line>
-          <option name="timeStamp" value="415" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
-          <line>171</line>
-          <option name="timeStamp" value="417" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
-          <line>236</line>
-          <option name="timeStamp" value="418" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
-          <line>233</line>
-          <option name="timeStamp" value="419" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/thirdparty/evpp/httpc/request.cc</url>
-          <line>240</line>
-          <option name="timeStamp" value="422" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/thirdparty/evpp/httpc/ssl.cc</url>
-          <line>31</line>
-          <option name="timeStamp" value="423" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
+          <line>37</line>
+          <option name="timeStamp" value="345" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp</url>
-          <line>26</line>
-          <option name="timeStamp" value="424" />
+          <line>49</line>
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
+          <line>245</line>
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
+          <line>240</line>
+          <option name="timeStamp" value="376" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>

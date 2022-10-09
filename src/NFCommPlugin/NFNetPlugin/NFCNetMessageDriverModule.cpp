@@ -5,6 +5,8 @@
 //    @Module           :    NFCNetServerModule
 // -------------------------------------------------------------------------
 
+#include <NFComm/NFPluginModule/NFIConfigModule.h>
+#include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFCNetMessageDriverModule.h"
 
 #include "NFComm/NFPluginModule/NFIPlugin.h"
@@ -17,6 +19,7 @@
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "evpp/httpc/ssl.h"
+#include "NFEmailSender.h"
 
 NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMessageDriver(p)
 {
@@ -603,4 +606,30 @@ NFCNetMessageDriverModule::HttpPost(NF_SERVER_TYPES serverType, const string &st
         }
     }
     return -1;
+}
+
+int NFCNetMessageDriverModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content)
+{
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
+    CHECK_NULL(pConfig);
+
+    CSmtpSendMail sendMail;
+    sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
+    sendMail.SetSendName(title);
+    sendMail.SetSendMail(pConfig->sendEmail);
+    sendMail.AddRecvMail(pConfig->recvEmail);
+    sendMail.SetSubject(subject);
+    std::string dumpInfo = content;
+    NFStringUtility::Replace(dumpInfo, "\n", "<br/>");
+    sendMail.SetBodyContent(dumpInfo);
+    if (!sendMail.SendMail())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Message(title:{} subject:{}) To Email:{} Failed", title, subject, pConfig->recvEmail);
+        return -1;
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Message(title:{} subject:{}) To Email:{} Success", title, subject, pConfig->recvEmail);
+        return 0;
+    }
 }

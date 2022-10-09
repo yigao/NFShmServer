@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include <NFComm/NFPluginModule/NFEmailSender.h>
+#include <NFCommPlugin/NFNetPlugin/NFEmailSender.h>
 #include "NFMasterServerModule.h"
 
 #include "NFComm/NFCore/NFMD5.h"
@@ -228,11 +228,23 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Send Server:{} Crash Message To Email:{} Success", pServerData->mServerInfo.server_name(), pConfig->recvEmail);
     }
 
-    std::string url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwb9eb989a2056ac75&corpsecret=sXpr3VeHMuBOyayPeFYYJseethjIAO_k1Fan7TJL2Z0";
+    std::string url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=3bb1a565-2fc5-41d2-8558-aa8cdf11332e";
+    proto_ff::wxWorkRobotHttpPost msg;
+    msg.set_msgtype("text");
+    auto pText = msg.mutable_text();
+    std::string content = "Server:" + pServerData->mServerInfo.server_name() + " Dump Info:\n" + xMsg.dump_info();
+    pText->set_content(content);
+    pText->add_mentioned_list("@all");
+    std::string json;
+    NFProtobufCommon::ProtoMessageToJson(msg, &json, NULL);
 
-    FindModule<NFIMessageModule>()->HttpGet(NF_ST_MASTER_SERVER, url, [](int code, const std::string& resp){
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "send dump mail, code:{} rsp:{}", code, resp);
-    });
+    std::map<std::string, std::string> xHeaders;
+    xHeaders.emplace("Accept", "application/json");
+    xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
+
+    FindModule<NFIMessageModule>()->HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "send wxWork dump info, code:{} rsp:{}", code, resp);
+    }, xHeaders);
 
     NFLogTrace(NF_LOG_MASTER_SERVER_PLUGIN, 0, "-- end --");
     return 0;

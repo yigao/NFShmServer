@@ -193,6 +193,7 @@ namespace proto_ff_s {
 		std::string sendEmailUrl;
 		std::string sendEmailPort;
 		std::string recvEmail;
+		std::string wxWorkdRobot;
 		uint32_t MaxOnlinePlayerNum;
 		uint32_t HeartBeatTimeout;
 		uint32_t ClientKeepAliveTimeout;
@@ -204,6 +205,35 @@ namespace proto_ff_s {
 		static ::proto_ff::pbNFServerConfig make_pbmsg(){ return ::proto_ff::pbNFServerConfig(); }
 	};
 	typedef struct pbNFServerConfig_s pbNFServerConfig_t;
+
+	struct wxWorkRobotText_s {
+		wxWorkRobotText_s();
+		int CreateInit();
+		int ResumeInit();
+		std::string content;
+		std::vector<std::string> mentioned_list;
+		std::vector<std::string> mentioned_mobile_list;
+
+		virtual void write_to_pbmsg(::proto_ff::wxWorkRobotText & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::wxWorkRobotText & msg);
+		static ::proto_ff::wxWorkRobotText* new_pbmsg(){ return new ::proto_ff::wxWorkRobotText(); }
+		static ::proto_ff::wxWorkRobotText make_pbmsg(){ return ::proto_ff::wxWorkRobotText(); }
+	};
+	typedef struct wxWorkRobotText_s wxWorkRobotText_t;
+
+	struct wxWorkRobotHttpPost_s {
+		wxWorkRobotHttpPost_s();
+		int CreateInit();
+		int ResumeInit();
+		std::string msgtype;
+		struct wxWorkRobotText_s text;
+
+		virtual void write_to_pbmsg(::proto_ff::wxWorkRobotHttpPost & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::wxWorkRobotHttpPost & msg);
+		static ::proto_ff::wxWorkRobotHttpPost* new_pbmsg(){ return new ::proto_ff::wxWorkRobotHttpPost(); }
+		static ::proto_ff::wxWorkRobotHttpPost make_pbmsg(){ return ::proto_ff::wxWorkRobotHttpPost(); }
+	};
+	typedef struct wxWorkRobotHttpPost_s wxWorkRobotHttpPost_t;
 
 }
 

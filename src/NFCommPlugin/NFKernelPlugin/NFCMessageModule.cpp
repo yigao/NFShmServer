@@ -8,6 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFStringUtility.h>
+#include <NFComm/NFPluginModule/NFProtobufCommon.h>
 #include "NFCMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -1030,6 +1031,39 @@ int NFCMessageModule::HttpPost(NF_SERVER_TYPES serverType, const string &strUri,
         return m_driver->HttpPost(serverType, strUri, strPostData, respone, xHeaders, timeout);
     }
     return -1;
+}
+
+int NFCMessageModule::SendEmail(NF_SERVER_TYPES serverType, const string &title, const string &subject, const string &content)
+{
+    if (m_driver)
+    {
+        return m_driver->SendEmail(serverType, title, subject, content);
+    }
+    return -1;
+}
+
+int NFCMessageModule::SendWxWork(NF_SERVER_TYPES serverType, const string &content)
+{
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
+    CHECK_NULL(pConfig);
+
+    std::string url = pConfig->wxWorkdRobot;
+    proto_ff::wxWorkRobotHttpPost msg;
+    msg.set_msgtype("text");
+    auto pText = msg.mutable_text();
+    pText->set_content(content);
+    pText->add_mentioned_list("@all");
+    std::string json;
+    NFProtobufCommon::ProtoMessageToJson(msg, &json, NULL);
+
+    std::map<std::string, std::string> xHeaders;
+    xHeaders.emplace("Accept", "application/json");
+    xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
+
+    HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "send wxWork info, code:{} rsp:{}", code, resp);
+    }, xHeaders);
+    return 0;
 }
 
 

@@ -47,6 +47,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* pbNFServerConfig_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   pbNFServerConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* wxWorkRobotText_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  wxWorkRobotText_reflection_ = NULL;
+const ::google::protobuf::Descriptor* wxWorkRobotHttpPost_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  wxWorkRobotHttpPost_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* NF_SERVER_TYPE_descriptor_ = NULL;
 
 }  // namespace
@@ -214,7 +220,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbTableConfig));
   pbNFServerConfig_descriptor_ = file->message_type(8);
-  static const int pbNFServerConfig_offsets_[44] = {
+  static const int pbNFServerConfig_offsets_[45] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -255,6 +261,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemailurl_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, sendemailport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, recvemail_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, wxworkdrobot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, maxonlineplayernum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, heartbeattimeout_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, clientkeepalivetimeout_),
@@ -271,6 +278,39 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbNFServerConfig));
+  wxWorkRobotText_descriptor_ = file->message_type(9);
+  static const int wxWorkRobotText_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotText, content_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotText, mentioned_list_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotText, mentioned_mobile_list_),
+  };
+  wxWorkRobotText_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      wxWorkRobotText_descriptor_,
+      wxWorkRobotText::default_instance_,
+      wxWorkRobotText_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotText, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotText, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(wxWorkRobotText));
+  wxWorkRobotHttpPost_descriptor_ = file->message_type(10);
+  static const int wxWorkRobotHttpPost_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotHttpPost, msgtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotHttpPost, text_),
+  };
+  wxWorkRobotHttpPost_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      wxWorkRobotHttpPost_descriptor_,
+      wxWorkRobotHttpPost::default_instance_,
+      wxWorkRobotHttpPost_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotHttpPost, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(wxWorkRobotHttpPost, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(wxWorkRobotHttpPost));
   NF_SERVER_TYPE_descriptor_ = file->enum_type(0);
 }
 
@@ -302,6 +342,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     pbTableConfig_descriptor_, &pbTableConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     pbNFServerConfig_descriptor_, &pbNFServerConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    wxWorkRobotText_descriptor_, &wxWorkRobotText::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    wxWorkRobotHttpPost_descriptor_, &wxWorkRobotHttpPost::default_instance());
 }
 
 }  // namespace
@@ -325,6 +369,10 @@ void protobuf_ShutdownFile_proto_5fcommon_2eproto() {
   delete pbTableConfig_reflection_;
   delete pbNFServerConfig::default_instance_;
   delete pbNFServerConfig_reflection_;
+  delete wxWorkRobotText::default_instance_;
+  delete wxWorkRobotText_reflection_;
+  delete wxWorkRobotHttpPost::default_instance_;
+  delete wxWorkRobotHttpPost_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fcommon_2eproto() {
@@ -369,7 +417,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "verType\030\001 \001(\rB\004\240\301\024\001\022\025\n\rServerPlugins\030\002 \003"
     "(\t\022/\n\nServerList\030\003 \003(\0132\033.proto_ff.pbAllS"
     "erverConfig\"<\n\rpbTableConfig\022\027\n\tTableNam"
-    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\276\007\n\020pb"
+    "e\030\001 \001(\tB\004\240\301\024\001\022\022\n\nTableCount\030\002 \001(\r\"\324\007\n\020pb"
     "NFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022"
     "\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r"
     "\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Link"
@@ -391,20 +439,25 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\022\021\n\tRedisPass\030R \001(\t\022\021\n\tsendEmail\030[ \001(\t\022\025"
     "\n\rsendEmailPass\030\\ \001(\t\022\024\n\014sendEmailUrl\030] "
     "\001(\t\022\025\n\rsendEmailPort\030^ \001(\t\022\021\n\trecvEmail\030"
-    "_ \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020Hea"
-    "rtBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAliveTi"
-    "meout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r*\224\003\n\016N"
-    "F_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_M"
-    "ASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGENT_SERV"
-    "ER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF_ST_PR"
-    "OXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER_FOR_C"
-    "LIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\006\022\026\n"
-    "\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOGIN_SER"
-    "VER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022NF_ST_L"
-    "OGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER\020\013\022\024\n\020"
-    "NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SERVER\020\r"
-    "\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_ST_MAX\020"
-    "\024", 2761);
+    "_ \001(\t\022\024\n\014wxWorkdRobot\030` \001(\t\022\032\n\022MaxOnline"
+    "PlayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e \001("
+    "\r\022\036\n\026ClientKeepAliveTimeout\030f \001(\r\022\025\n\rCli"
+    "entVersion\030g \001(\r\"_\n\017wxWorkRobotText\022\025\n\007c"
+    "ontent\030\001 \001(\tB\004\240\301\024\001\022\026\n\016mentioned_list\030\002 \003"
+    "(\t\022\035\n\025mentioned_mobile_list\030\003 \003(\t\"U\n\023wxW"
+    "orkRobotHttpPost\022\025\n\007msgtype\030\001 \001(\tB\004\240\301\024\001\022"
+    "\'\n\004text\030\002 \001(\0132\031.proto_ff.wxWorkRobotText"
+    "*\224\003\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023N"
+    "F_ST_MASTER_SERVER\020\001\022\034\n\030NF_ST_ROUTE_AGEN"
+    "T_SERVER\020\002\022\026\n\022NF_ST_ROUTE_SERVER\020\003\022\026\n\022NF"
+    "_ST_PROXY_SERVER\020\004\022!\n\035NF_ST_PROXY_SERVER"
+    "_FOR_CLIENT\020\005\022\034\n\030NF_ST_PROXY_AGENT_SERVE"
+    "R\020\006\022\026\n\022NF_ST_STORE_SERVER\020\007\022\026\n\022NF_ST_LOG"
+    "IN_SERVER\020\010\022\026\n\022NF_ST_WORLD_SERVER\020\t\022\026\n\022N"
+    "F_ST_LOGIC_SERVER\020\n\022\025\n\021NF_ST_GAME_SERVER"
+    "\020\013\022\024\n\020NF_ST_SNS_SERVER\020\014\022\024\n\020NF_ST_WEB_SE"
+    "RVER\020\r\022\030\n\024NF_ST_MONITOR_SERVER\020\016\022\r\n\tNF_S"
+    "T_MAX\020\024", 2967);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -416,6 +469,8 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbPluginConfig::default_instance_ = new pbPluginConfig();
   pbTableConfig::default_instance_ = new pbTableConfig();
   pbNFServerConfig::default_instance_ = new pbNFServerConfig();
+  wxWorkRobotText::default_instance_ = new wxWorkRobotText();
+  wxWorkRobotHttpPost::default_instance_ = new wxWorkRobotHttpPost();
   tbServerMgr::default_instance_->InitAsDefaultInstance();
   pbMysqlConfig::default_instance_->InitAsDefaultInstance();
   pbRedisConfig::default_instance_->InitAsDefaultInstance();
@@ -425,6 +480,8 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
   pbPluginConfig::default_instance_->InitAsDefaultInstance();
   pbTableConfig::default_instance_->InitAsDefaultInstance();
   pbNFServerConfig::default_instance_->InitAsDefaultInstance();
+  wxWorkRobotText::default_instance_->InitAsDefaultInstance();
+  wxWorkRobotHttpPost::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fcommon_2eproto);
 }
 
@@ -3926,6 +3983,7 @@ const int pbNFServerConfig::kSendEmailPassFieldNumber;
 const int pbNFServerConfig::kSendEmailUrlFieldNumber;
 const int pbNFServerConfig::kSendEmailPortFieldNumber;
 const int pbNFServerConfig::kRecvEmailFieldNumber;
+const int pbNFServerConfig::kWxWorkdRobotFieldNumber;
 const int pbNFServerConfig::kMaxOnlinePlayerNumFieldNumber;
 const int pbNFServerConfig::kHeartBeatTimeoutFieldNumber;
 const int pbNFServerConfig::kClientKeepAliveTimeoutFieldNumber;
@@ -3987,6 +4045,7 @@ void pbNFServerConfig::SharedCtor() {
   sendemailurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sendemailport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   recvemail_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  wxworkdrobot_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   maxonlineplayernum_ = 0u;
   heartbeattimeout_ = 0u;
   clientkeepalivetimeout_ = 0u;
@@ -4067,6 +4126,9 @@ void pbNFServerConfig::SharedDtor() {
   }
   if (recvemail_ != &::google::protobuf::internal::kEmptyString) {
     delete recvemail_;
+  }
+  if (wxworkdrobot_ != &::google::protobuf::internal::kEmptyString) {
+    delete wxworkdrobot_;
   }
   if (this != default_instance_) {
   }
@@ -4236,6 +4298,11 @@ void pbNFServerConfig::Clear() {
     }
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    if (has_wxworkdrobot()) {
+      if (wxworkdrobot_ != &::google::protobuf::internal::kEmptyString) {
+        wxworkdrobot_->clear();
+      }
+    }
     maxonlineplayernum_ = 0u;
     heartbeattimeout_ = 0u;
     clientkeepalivetimeout_ = 0u;
@@ -4909,6 +4976,23 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(770)) goto parse_wxWorkdRobot;
+        break;
+      }
+
+      // optional string wxWorkdRobot = 96;
+      case 96: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_wxWorkdRobot:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_wxworkdrobot()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->wxworkdrobot().data(), this->wxworkdrobot().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectTag(800)) goto parse_MaxOnlinePlayerNum;
         break;
       }
@@ -5288,6 +5372,15 @@ void pbNFServerConfig::SerializeWithCachedSizes(
       95, this->recvemail(), output);
   }
 
+  // optional string wxWorkdRobot = 96;
+  if (has_wxworkdrobot()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->wxworkdrobot().data(), this->wxworkdrobot().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      96, this->wxworkdrobot(), output);
+  }
+
   // optional uint32 MaxOnlinePlayerNum = 100;
   if (has_maxonlineplayernum()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(100, this->maxonlineplayernum(), output);
@@ -5633,6 +5726,16 @@ void pbNFServerConfig::SerializeWithCachedSizes(
         95, this->recvemail(), target);
   }
 
+  // optional string wxWorkdRobot = 96;
+  if (has_wxworkdrobot()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->wxworkdrobot().data(), this->wxworkdrobot().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        96, this->wxworkdrobot(), target);
+  }
+
   // optional uint32 MaxOnlinePlayerNum = 100;
   if (has_maxonlineplayernum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(100, this->maxonlineplayernum(), target);
@@ -5943,6 +6046,13 @@ int pbNFServerConfig::ByteSize() const {
 
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    // optional string wxWorkdRobot = 96;
+    if (has_wxworkdrobot()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->wxworkdrobot());
+    }
+
     // optional uint32 MaxOnlinePlayerNum = 100;
     if (has_maxonlineplayernum()) {
       total_size += 2 +
@@ -6134,6 +6244,9 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     }
   }
   if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    if (from.has_wxworkdrobot()) {
+      set_wxworkdrobot(from.wxworkdrobot());
+    }
     if (from.has_maxonlineplayernum()) {
       set_maxonlineplayernum(from.maxonlineplayernum());
     }
@@ -6209,6 +6322,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(sendemailurl_, other->sendemailurl_);
     std::swap(sendemailport_, other->sendemailport_);
     std::swap(recvemail_, other->recvemail_);
+    std::swap(wxworkdrobot_, other->wxworkdrobot_);
     std::swap(maxonlineplayernum_, other->maxonlineplayernum_);
     std::swap(heartbeattimeout_, other->heartbeattimeout_);
     std::swap(clientkeepalivetimeout_, other->clientkeepalivetimeout_);
@@ -6225,6 +6339,597 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = pbNFServerConfig_descriptor_;
   metadata.reflection = pbNFServerConfig_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int wxWorkRobotText::kContentFieldNumber;
+const int wxWorkRobotText::kMentionedListFieldNumber;
+const int wxWorkRobotText::kMentionedMobileListFieldNumber;
+#endif  // !_MSC_VER
+
+wxWorkRobotText::wxWorkRobotText()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void wxWorkRobotText::InitAsDefaultInstance() {
+}
+
+wxWorkRobotText::wxWorkRobotText(const wxWorkRobotText& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void wxWorkRobotText::SharedCtor() {
+  _cached_size_ = 0;
+  content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+wxWorkRobotText::~wxWorkRobotText() {
+  SharedDtor();
+}
+
+void wxWorkRobotText::SharedDtor() {
+  if (content_ != &::google::protobuf::internal::kEmptyString) {
+    delete content_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void wxWorkRobotText::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* wxWorkRobotText::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return wxWorkRobotText_descriptor_;
+}
+
+const wxWorkRobotText& wxWorkRobotText::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+wxWorkRobotText* wxWorkRobotText::default_instance_ = NULL;
+
+wxWorkRobotText* wxWorkRobotText::New() const {
+  return new wxWorkRobotText;
+}
+
+void wxWorkRobotText::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_content()) {
+      if (content_ != &::google::protobuf::internal::kEmptyString) {
+        content_->clear();
+      }
+    }
+  }
+  mentioned_list_.Clear();
+  mentioned_mobile_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool wxWorkRobotText::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string content = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_content()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->content().data(), this->content().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_mentioned_list;
+        break;
+      }
+
+      // repeated string mentioned_list = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mentioned_list:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_mentioned_list()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mentioned_list(this->mentioned_list_size() - 1).data(),
+            this->mentioned_list(this->mentioned_list_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_mentioned_list;
+        if (input->ExpectTag(26)) goto parse_mentioned_mobile_list;
+        break;
+      }
+
+      // repeated string mentioned_mobile_list = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_mentioned_mobile_list:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_mentioned_mobile_list()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mentioned_mobile_list(this->mentioned_mobile_list_size() - 1).data(),
+            this->mentioned_mobile_list(this->mentioned_mobile_list_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_mentioned_mobile_list;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void wxWorkRobotText::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string content = 1;
+  if (has_content()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->content().data(), this->content().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->content(), output);
+  }
+
+  // repeated string mentioned_list = 2;
+  for (int i = 0; i < this->mentioned_list_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->mentioned_list(i).data(), this->mentioned_list(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->mentioned_list(i), output);
+  }
+
+  // repeated string mentioned_mobile_list = 3;
+  for (int i = 0; i < this->mentioned_mobile_list_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->mentioned_mobile_list(i).data(), this->mentioned_mobile_list(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->mentioned_mobile_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* wxWorkRobotText::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string content = 1;
+  if (has_content()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->content().data(), this->content().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->content(), target);
+  }
+
+  // repeated string mentioned_list = 2;
+  for (int i = 0; i < this->mentioned_list_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mentioned_list(i).data(), this->mentioned_list(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->mentioned_list(i), target);
+  }
+
+  // repeated string mentioned_mobile_list = 3;
+  for (int i = 0; i < this->mentioned_mobile_list_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mentioned_mobile_list(i).data(), this->mentioned_mobile_list(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->mentioned_mobile_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int wxWorkRobotText::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string content = 1;
+    if (has_content()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->content());
+    }
+
+  }
+  // repeated string mentioned_list = 2;
+  total_size += 1 * this->mentioned_list_size();
+  for (int i = 0; i < this->mentioned_list_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->mentioned_list(i));
+  }
+
+  // repeated string mentioned_mobile_list = 3;
+  total_size += 1 * this->mentioned_mobile_list_size();
+  for (int i = 0; i < this->mentioned_mobile_list_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->mentioned_mobile_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void wxWorkRobotText::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const wxWorkRobotText* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const wxWorkRobotText*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void wxWorkRobotText::MergeFrom(const wxWorkRobotText& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mentioned_list_.MergeFrom(from.mentioned_list_);
+  mentioned_mobile_list_.MergeFrom(from.mentioned_mobile_list_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_content()) {
+      set_content(from.content());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void wxWorkRobotText::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void wxWorkRobotText::CopyFrom(const wxWorkRobotText& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool wxWorkRobotText::IsInitialized() const {
+
+  return true;
+}
+
+void wxWorkRobotText::Swap(wxWorkRobotText* other) {
+  if (other != this) {
+    std::swap(content_, other->content_);
+    mentioned_list_.Swap(&other->mentioned_list_);
+    mentioned_mobile_list_.Swap(&other->mentioned_mobile_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata wxWorkRobotText::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = wxWorkRobotText_descriptor_;
+  metadata.reflection = wxWorkRobotText_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int wxWorkRobotHttpPost::kMsgtypeFieldNumber;
+const int wxWorkRobotHttpPost::kTextFieldNumber;
+#endif  // !_MSC_VER
+
+wxWorkRobotHttpPost::wxWorkRobotHttpPost()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void wxWorkRobotHttpPost::InitAsDefaultInstance() {
+  text_ = const_cast< ::proto_ff::wxWorkRobotText*>(&::proto_ff::wxWorkRobotText::default_instance());
+}
+
+wxWorkRobotHttpPost::wxWorkRobotHttpPost(const wxWorkRobotHttpPost& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void wxWorkRobotHttpPost::SharedCtor() {
+  _cached_size_ = 0;
+  msgtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  text_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+wxWorkRobotHttpPost::~wxWorkRobotHttpPost() {
+  SharedDtor();
+}
+
+void wxWorkRobotHttpPost::SharedDtor() {
+  if (msgtype_ != &::google::protobuf::internal::kEmptyString) {
+    delete msgtype_;
+  }
+  if (this != default_instance_) {
+    delete text_;
+  }
+}
+
+void wxWorkRobotHttpPost::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* wxWorkRobotHttpPost::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return wxWorkRobotHttpPost_descriptor_;
+}
+
+const wxWorkRobotHttpPost& wxWorkRobotHttpPost::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fcommon_2eproto();
+  return *default_instance_;
+}
+
+wxWorkRobotHttpPost* wxWorkRobotHttpPost::default_instance_ = NULL;
+
+wxWorkRobotHttpPost* wxWorkRobotHttpPost::New() const {
+  return new wxWorkRobotHttpPost;
+}
+
+void wxWorkRobotHttpPost::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_msgtype()) {
+      if (msgtype_ != &::google::protobuf::internal::kEmptyString) {
+        msgtype_->clear();
+      }
+    }
+    if (has_text()) {
+      if (text_ != NULL) text_->::proto_ff::wxWorkRobotText::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool wxWorkRobotHttpPost::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string msgtype = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_msgtype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->msgtype().data(), this->msgtype().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_text;
+        break;
+      }
+
+      // optional .proto_ff.wxWorkRobotText text = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_text:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_text()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void wxWorkRobotHttpPost::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string msgtype = 1;
+  if (has_msgtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->msgtype().data(), this->msgtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->msgtype(), output);
+  }
+
+  // optional .proto_ff.wxWorkRobotText text = 2;
+  if (has_text()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->text(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* wxWorkRobotHttpPost::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string msgtype = 1;
+  if (has_msgtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->msgtype().data(), this->msgtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->msgtype(), target);
+  }
+
+  // optional .proto_ff.wxWorkRobotText text = 2;
+  if (has_text()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->text(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int wxWorkRobotHttpPost::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string msgtype = 1;
+    if (has_msgtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->msgtype());
+    }
+
+    // optional .proto_ff.wxWorkRobotText text = 2;
+    if (has_text()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->text());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void wxWorkRobotHttpPost::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const wxWorkRobotHttpPost* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const wxWorkRobotHttpPost*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void wxWorkRobotHttpPost::MergeFrom(const wxWorkRobotHttpPost& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_msgtype()) {
+      set_msgtype(from.msgtype());
+    }
+    if (from.has_text()) {
+      mutable_text()->::proto_ff::wxWorkRobotText::MergeFrom(from.text());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void wxWorkRobotHttpPost::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void wxWorkRobotHttpPost::CopyFrom(const wxWorkRobotHttpPost& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool wxWorkRobotHttpPost::IsInitialized() const {
+
+  return true;
+}
+
+void wxWorkRobotHttpPost::Swap(wxWorkRobotHttpPost* other) {
+  if (other != this) {
+    std::swap(msgtype_, other->msgtype_);
+    std::swap(text_, other->text_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata wxWorkRobotHttpPost::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = wxWorkRobotHttpPost_descriptor_;
+  metadata.reflection = wxWorkRobotHttpPost_reflection_;
   return metadata;
 }
 

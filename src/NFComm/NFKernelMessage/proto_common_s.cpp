@@ -352,6 +352,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_sendemailurl(sendEmailUrl);
 	msg.set_sendemailport(sendEmailPort);
 	msg.set_recvemail(recvEmail);
+	msg.set_wxworkdrobot(wxWorkdRobot);
 	msg.set_maxonlineplayernum((uint32_t)MaxOnlinePlayerNum);
 	msg.set_heartbeattimeout((uint32_t)HeartBeatTimeout);
 	msg.set_clientkeepalivetimeout((uint32_t)ClientKeepAliveTimeout);
@@ -403,10 +404,69 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	sendEmailUrl = msg.sendemailurl();
 	sendEmailPort = msg.sendemailport();
 	recvEmail = msg.recvemail();
+	wxWorkdRobot = msg.wxworkdrobot();
 	MaxOnlinePlayerNum = msg.maxonlineplayernum();
 	HeartBeatTimeout = msg.heartbeattimeout();
 	ClientKeepAliveTimeout = msg.clientkeepalivetimeout();
 	ClientVersion = msg.clientversion();
+}
+
+wxWorkRobotText_s::wxWorkRobotText_s() {
+	CreateInit();
+}
+
+int wxWorkRobotText_s::CreateInit() {
+	return 0;
+}
+
+int wxWorkRobotText_s::ResumeInit() {
+	return 0;
+}
+
+void wxWorkRobotText_s::write_to_pbmsg(::proto_ff::wxWorkRobotText & msg) const {
+	msg.set_content(content);
+	for(int32_t i = 0; i < (int32_t)mentioned_list.size(); ++i) {
+		msg.add_mentioned_list(mentioned_list[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)mentioned_mobile_list.size(); ++i) {
+		msg.add_mentioned_mobile_list(mentioned_mobile_list[i]);
+	}
+}
+
+void wxWorkRobotText_s::read_from_pbmsg(const ::proto_ff::wxWorkRobotText & msg) {
+	content = msg.content();
+	mentioned_list.resize(msg.mentioned_list_size());
+	for(int32_t i = 0; i < (int32_t)mentioned_list.size(); ++i) {
+		mentioned_list[i] = msg.mentioned_list(i);
+	}
+	mentioned_mobile_list.resize(msg.mentioned_mobile_list_size());
+	for(int32_t i = 0; i < (int32_t)mentioned_mobile_list.size(); ++i) {
+		mentioned_mobile_list[i] = msg.mentioned_mobile_list(i);
+	}
+}
+
+wxWorkRobotHttpPost_s::wxWorkRobotHttpPost_s() {
+	CreateInit();
+}
+
+int wxWorkRobotHttpPost_s::CreateInit() {
+	return 0;
+}
+
+int wxWorkRobotHttpPost_s::ResumeInit() {
+	return 0;
+}
+
+void wxWorkRobotHttpPost_s::write_to_pbmsg(::proto_ff::wxWorkRobotHttpPost & msg) const {
+	msg.set_msgtype(msgtype);
+	::proto_ff::wxWorkRobotText* temp_text = msg.mutable_text();
+	text.write_to_pbmsg(*temp_text);
+}
+
+void wxWorkRobotHttpPost_s::read_from_pbmsg(const ::proto_ff::wxWorkRobotHttpPost & msg) {
+	msgtype = msg.msgtype();
+	const ::proto_ff::wxWorkRobotText & temp_text = msg.text();
+	text.read_from_pbmsg(temp_text);
 }
 
 }

@@ -32,7 +32,7 @@
 #include <atomic>
 #include "NFComm/NFPluginModule/NFProto/NFXmlMessageCodec.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
-#include "NFComm/NFPluginModule/NFEmailSender.h"
+#include "NFCommPlugin/NFNetPlugin/NFEmailSender.h"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"

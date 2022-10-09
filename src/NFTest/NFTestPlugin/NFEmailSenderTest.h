@@ -13,7 +13,7 @@
 #include <iostream>
 #include <mutex>
 #include <atomic>
-#include "NFComm/NFPluginModule/NFEmailSender.h"
+#include "NFCommPlugin/NFNetPlugin/NFEmailSender.h"
 
 void TestEmailSender()
 {

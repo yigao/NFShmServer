@@ -148,10 +148,24 @@ message pbNFServerConfig
 	optional string sendEmailUrl = 93; //smtp.163.com
 	optional string sendEmailPort = 94; //465
 	optional string recvEmail = 95; //可用用QQ邮箱，163，不限制
+	optional string wxWorkdRobot = 96; //企业微信机器人Webhook地址, 给企业微信群发消息
 
 ///////////////////////////////////client////////////////////////////////////////////////////
 	optional uint32 MaxOnlinePlayerNum = 100;
 	optional uint32 HeartBeatTimeout = 101;
 	optional uint32 ClientKeepAliveTimeout = 102;
 	optional uint32 ClientVersion = 103;
+}
+
+message wxWorkRobotText
+{
+	optional string content = 1 [(yd_fieldoptions.field_use_stl)=true];
+	repeated string mentioned_list = 2;
+	repeated string mentioned_mobile_list = 3;
+}
+
+message wxWorkRobotHttpPost
+{
+	optional string msgtype = 1 [(yd_fieldoptions.field_use_stl)=true];
+	optional wxWorkRobotText text = 2;
 }

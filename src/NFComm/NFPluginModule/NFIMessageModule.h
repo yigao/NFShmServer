@@ -350,6 +350,9 @@ public:
                          const std::map<std::string, std::string> &xHeaders = std::map<std::string, std::string>(),
                          int timeout = 3) = 0;
 
+    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content) = 0;
+
+    virtual int SendWxWork(NF_SERVER_TYPES serverType, const string &content) = 0;
 public:
     virtual bool AddHttpMsgCB(NF_SERVER_TYPES serverType, const std::string &strCommand, const NFHttpType eRequestType,
                               const HTTP_RECEIVE_FUNCTOR &cb) = 0;

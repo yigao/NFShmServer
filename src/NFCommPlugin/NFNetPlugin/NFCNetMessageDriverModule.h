@@ -193,6 +193,8 @@ public:
     virtual int HttpPost(NF_SERVER_TYPES serverType, const std::string &strUri, const std::string &strPostData, const HTTP_CLIENT_RESPONE &respone,
                          const std::map<std::string, std::string> &xHeaders = std::map<std::string, std::string>(),
                          int timeout = 3) override;
+
+    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content) override;
 protected:
 	/**
 	 * @brief 将消息编码后通过pServer发送出去

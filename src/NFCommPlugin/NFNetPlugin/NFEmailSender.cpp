@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFEmailSender.h"
-#include "NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 #include <iostream>

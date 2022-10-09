@@ -44,6 +44,8 @@ class pbAllServerConfig;
 class pbPluginConfig;
 class pbTableConfig;
 class pbNFServerConfig;
+class wxWorkRobotText;
+class wxWorkRobotHttpPost;
 
 enum NF_SERVER_TYPE {
   NF_ST_NONE = 0,
@@ -1653,6 +1655,18 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline ::std::string* release_recvemail();
   inline void set_allocated_recvemail(::std::string* recvemail);
 
+  // optional string wxWorkdRobot = 96;
+  inline bool has_wxworkdrobot() const;
+  inline void clear_wxworkdrobot();
+  static const int kWxWorkdRobotFieldNumber = 96;
+  inline const ::std::string& wxworkdrobot() const;
+  inline void set_wxworkdrobot(const ::std::string& value);
+  inline void set_wxworkdrobot(const char* value);
+  inline void set_wxworkdrobot(const char* value, size_t size);
+  inline ::std::string* mutable_wxworkdrobot();
+  inline ::std::string* release_wxworkdrobot();
+  inline void set_allocated_wxworkdrobot(::std::string* wxworkdrobot);
+
   // optional uint32 MaxOnlinePlayerNum = 100;
   inline bool has_maxonlineplayernum() const;
   inline void clear_maxonlineplayernum();
@@ -1761,6 +1775,8 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   inline void clear_has_sendemailport();
   inline void set_has_recvemail();
   inline void clear_has_recvemail();
+  inline void set_has_wxworkdrobot();
+  inline void clear_has_wxworkdrobot();
   inline void set_has_maxonlineplayernum();
   inline void clear_has_maxonlineplayernum();
   inline void set_has_heartbeattimeout();
@@ -1808,17 +1824,18 @@ class pbNFServerConfig : public ::google::protobuf::Message {
   ::std::string* redispass_;
   ::std::string* sendemail_;
   ::std::string* sendemailpass_;
+  ::std::string* sendemailurl_;
   ::google::protobuf::uint32 redisport_;
   ::google::protobuf::uint32 maxonlineplayernum_;
-  ::std::string* sendemailurl_;
   ::std::string* sendemailport_;
   ::std::string* recvemail_;
+  ::std::string* wxworkdrobot_;
   ::google::protobuf::uint32 heartbeattimeout_;
   ::google::protobuf::uint32 clientkeepalivetimeout_;
   ::google::protobuf::uint32 clientversion_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(44 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(45 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -1826,6 +1843,226 @@ class pbNFServerConfig : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static pbNFServerConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class wxWorkRobotText : public ::google::protobuf::Message {
+ public:
+  wxWorkRobotText();
+  virtual ~wxWorkRobotText();
+
+  wxWorkRobotText(const wxWorkRobotText& from);
+
+  inline wxWorkRobotText& operator=(const wxWorkRobotText& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const wxWorkRobotText& default_instance();
+
+  void Swap(wxWorkRobotText* other);
+
+  // implements Message ----------------------------------------------
+
+  wxWorkRobotText* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const wxWorkRobotText& from);
+  void MergeFrom(const wxWorkRobotText& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string content = 1;
+  inline bool has_content() const;
+  inline void clear_content();
+  static const int kContentFieldNumber = 1;
+  inline const ::std::string& content() const;
+  inline void set_content(const ::std::string& value);
+  inline void set_content(const char* value);
+  inline void set_content(const char* value, size_t size);
+  inline ::std::string* mutable_content();
+  inline ::std::string* release_content();
+  inline void set_allocated_content(::std::string* content);
+
+  // repeated string mentioned_list = 2;
+  inline int mentioned_list_size() const;
+  inline void clear_mentioned_list();
+  static const int kMentionedListFieldNumber = 2;
+  inline const ::std::string& mentioned_list(int index) const;
+  inline ::std::string* mutable_mentioned_list(int index);
+  inline void set_mentioned_list(int index, const ::std::string& value);
+  inline void set_mentioned_list(int index, const char* value);
+  inline void set_mentioned_list(int index, const char* value, size_t size);
+  inline ::std::string* add_mentioned_list();
+  inline void add_mentioned_list(const ::std::string& value);
+  inline void add_mentioned_list(const char* value);
+  inline void add_mentioned_list(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& mentioned_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_mentioned_list();
+
+  // repeated string mentioned_mobile_list = 3;
+  inline int mentioned_mobile_list_size() const;
+  inline void clear_mentioned_mobile_list();
+  static const int kMentionedMobileListFieldNumber = 3;
+  inline const ::std::string& mentioned_mobile_list(int index) const;
+  inline ::std::string* mutable_mentioned_mobile_list(int index);
+  inline void set_mentioned_mobile_list(int index, const ::std::string& value);
+  inline void set_mentioned_mobile_list(int index, const char* value);
+  inline void set_mentioned_mobile_list(int index, const char* value, size_t size);
+  inline ::std::string* add_mentioned_mobile_list();
+  inline void add_mentioned_mobile_list(const ::std::string& value);
+  inline void add_mentioned_mobile_list(const char* value);
+  inline void add_mentioned_mobile_list(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& mentioned_mobile_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_mentioned_mobile_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.wxWorkRobotText)
+ private:
+  inline void set_has_content();
+  inline void clear_has_content();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* content_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> mentioned_list_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> mentioned_mobile_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static wxWorkRobotText* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class wxWorkRobotHttpPost : public ::google::protobuf::Message {
+ public:
+  wxWorkRobotHttpPost();
+  virtual ~wxWorkRobotHttpPost();
+
+  wxWorkRobotHttpPost(const wxWorkRobotHttpPost& from);
+
+  inline wxWorkRobotHttpPost& operator=(const wxWorkRobotHttpPost& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const wxWorkRobotHttpPost& default_instance();
+
+  void Swap(wxWorkRobotHttpPost* other);
+
+  // implements Message ----------------------------------------------
+
+  wxWorkRobotHttpPost* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const wxWorkRobotHttpPost& from);
+  void MergeFrom(const wxWorkRobotHttpPost& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string msgtype = 1;
+  inline bool has_msgtype() const;
+  inline void clear_msgtype();
+  static const int kMsgtypeFieldNumber = 1;
+  inline const ::std::string& msgtype() const;
+  inline void set_msgtype(const ::std::string& value);
+  inline void set_msgtype(const char* value);
+  inline void set_msgtype(const char* value, size_t size);
+  inline ::std::string* mutable_msgtype();
+  inline ::std::string* release_msgtype();
+  inline void set_allocated_msgtype(::std::string* msgtype);
+
+  // optional .proto_ff.wxWorkRobotText text = 2;
+  inline bool has_text() const;
+  inline void clear_text();
+  static const int kTextFieldNumber = 2;
+  inline const ::proto_ff::wxWorkRobotText& text() const;
+  inline ::proto_ff::wxWorkRobotText* mutable_text();
+  inline ::proto_ff::wxWorkRobotText* release_text();
+  inline void set_allocated_text(::proto_ff::wxWorkRobotText* text);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.wxWorkRobotHttpPost)
+ private:
+  inline void set_has_msgtype();
+  inline void clear_has_msgtype();
+  inline void set_has_text();
+  inline void clear_has_text();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* msgtype_;
+  ::proto_ff::wxWorkRobotText* text_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
+  friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fcommon_2eproto();
+
+  void InitAsDefaultInstance();
+  static wxWorkRobotHttpPost* default_instance_;
 };
 // ===================================================================
 
@@ -5787,15 +6024,85 @@ inline void pbNFServerConfig::set_allocated_recvemail(::std::string* recvemail) 
   }
 }
 
-// optional uint32 MaxOnlinePlayerNum = 100;
-inline bool pbNFServerConfig::has_maxonlineplayernum() const {
+// optional string wxWorkdRobot = 96;
+inline bool pbNFServerConfig::has_wxworkdrobot() const {
   return (_has_bits_[1] & 0x00000100u) != 0;
 }
-inline void pbNFServerConfig::set_has_maxonlineplayernum() {
+inline void pbNFServerConfig::set_has_wxworkdrobot() {
   _has_bits_[1] |= 0x00000100u;
 }
-inline void pbNFServerConfig::clear_has_maxonlineplayernum() {
+inline void pbNFServerConfig::clear_has_wxworkdrobot() {
   _has_bits_[1] &= ~0x00000100u;
+}
+inline void pbNFServerConfig::clear_wxworkdrobot() {
+  if (wxworkdrobot_ != &::google::protobuf::internal::kEmptyString) {
+    wxworkdrobot_->clear();
+  }
+  clear_has_wxworkdrobot();
+}
+inline const ::std::string& pbNFServerConfig::wxworkdrobot() const {
+  return *wxworkdrobot_;
+}
+inline void pbNFServerConfig::set_wxworkdrobot(const ::std::string& value) {
+  set_has_wxworkdrobot();
+  if (wxworkdrobot_ == &::google::protobuf::internal::kEmptyString) {
+    wxworkdrobot_ = new ::std::string;
+  }
+  wxworkdrobot_->assign(value);
+}
+inline void pbNFServerConfig::set_wxworkdrobot(const char* value) {
+  set_has_wxworkdrobot();
+  if (wxworkdrobot_ == &::google::protobuf::internal::kEmptyString) {
+    wxworkdrobot_ = new ::std::string;
+  }
+  wxworkdrobot_->assign(value);
+}
+inline void pbNFServerConfig::set_wxworkdrobot(const char* value, size_t size) {
+  set_has_wxworkdrobot();
+  if (wxworkdrobot_ == &::google::protobuf::internal::kEmptyString) {
+    wxworkdrobot_ = new ::std::string;
+  }
+  wxworkdrobot_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbNFServerConfig::mutable_wxworkdrobot() {
+  set_has_wxworkdrobot();
+  if (wxworkdrobot_ == &::google::protobuf::internal::kEmptyString) {
+    wxworkdrobot_ = new ::std::string;
+  }
+  return wxworkdrobot_;
+}
+inline ::std::string* pbNFServerConfig::release_wxworkdrobot() {
+  clear_has_wxworkdrobot();
+  if (wxworkdrobot_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = wxworkdrobot_;
+    wxworkdrobot_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbNFServerConfig::set_allocated_wxworkdrobot(::std::string* wxworkdrobot) {
+  if (wxworkdrobot_ != &::google::protobuf::internal::kEmptyString) {
+    delete wxworkdrobot_;
+  }
+  if (wxworkdrobot) {
+    set_has_wxworkdrobot();
+    wxworkdrobot_ = wxworkdrobot;
+  } else {
+    clear_has_wxworkdrobot();
+    wxworkdrobot_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 MaxOnlinePlayerNum = 100;
+inline bool pbNFServerConfig::has_maxonlineplayernum() const {
+  return (_has_bits_[1] & 0x00000200u) != 0;
+}
+inline void pbNFServerConfig::set_has_maxonlineplayernum() {
+  _has_bits_[1] |= 0x00000200u;
+}
+inline void pbNFServerConfig::clear_has_maxonlineplayernum() {
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline void pbNFServerConfig::clear_maxonlineplayernum() {
   maxonlineplayernum_ = 0u;
@@ -5811,13 +6118,13 @@ inline void pbNFServerConfig::set_maxonlineplayernum(::google::protobuf::uint32 
 
 // optional uint32 HeartBeatTimeout = 101;
 inline bool pbNFServerConfig::has_heartbeattimeout() const {
-  return (_has_bits_[1] & 0x00000200u) != 0;
+  return (_has_bits_[1] & 0x00000400u) != 0;
 }
 inline void pbNFServerConfig::set_has_heartbeattimeout() {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00000400u;
 }
 inline void pbNFServerConfig::clear_has_heartbeattimeout() {
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline void pbNFServerConfig::clear_heartbeattimeout() {
   heartbeattimeout_ = 0u;
@@ -5833,13 +6140,13 @@ inline void pbNFServerConfig::set_heartbeattimeout(::google::protobuf::uint32 va
 
 // optional uint32 ClientKeepAliveTimeout = 102;
 inline bool pbNFServerConfig::has_clientkeepalivetimeout() const {
-  return (_has_bits_[1] & 0x00000400u) != 0;
+  return (_has_bits_[1] & 0x00000800u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientkeepalivetimeout() {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00000800u;
 }
 inline void pbNFServerConfig::clear_has_clientkeepalivetimeout() {
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline void pbNFServerConfig::clear_clientkeepalivetimeout() {
   clientkeepalivetimeout_ = 0u;
@@ -5855,13 +6162,13 @@ inline void pbNFServerConfig::set_clientkeepalivetimeout(::google::protobuf::uin
 
 // optional uint32 ClientVersion = 103;
 inline bool pbNFServerConfig::has_clientversion() const {
-  return (_has_bits_[1] & 0x00000800u) != 0;
+  return (_has_bits_[1] & 0x00001000u) != 0;
 }
 inline void pbNFServerConfig::set_has_clientversion() {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00001000u;
 }
 inline void pbNFServerConfig::clear_has_clientversion() {
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline void pbNFServerConfig::clear_clientversion() {
   clientversion_ = 0u;
@@ -5873,6 +6180,280 @@ inline ::google::protobuf::uint32 pbNFServerConfig::clientversion() const {
 inline void pbNFServerConfig::set_clientversion(::google::protobuf::uint32 value) {
   set_has_clientversion();
   clientversion_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// wxWorkRobotText
+
+// optional string content = 1;
+inline bool wxWorkRobotText::has_content() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void wxWorkRobotText::set_has_content() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void wxWorkRobotText::clear_has_content() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void wxWorkRobotText::clear_content() {
+  if (content_ != &::google::protobuf::internal::kEmptyString) {
+    content_->clear();
+  }
+  clear_has_content();
+}
+inline const ::std::string& wxWorkRobotText::content() const {
+  return *content_;
+}
+inline void wxWorkRobotText::set_content(const ::std::string& value) {
+  set_has_content();
+  if (content_ == &::google::protobuf::internal::kEmptyString) {
+    content_ = new ::std::string;
+  }
+  content_->assign(value);
+}
+inline void wxWorkRobotText::set_content(const char* value) {
+  set_has_content();
+  if (content_ == &::google::protobuf::internal::kEmptyString) {
+    content_ = new ::std::string;
+  }
+  content_->assign(value);
+}
+inline void wxWorkRobotText::set_content(const char* value, size_t size) {
+  set_has_content();
+  if (content_ == &::google::protobuf::internal::kEmptyString) {
+    content_ = new ::std::string;
+  }
+  content_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* wxWorkRobotText::mutable_content() {
+  set_has_content();
+  if (content_ == &::google::protobuf::internal::kEmptyString) {
+    content_ = new ::std::string;
+  }
+  return content_;
+}
+inline ::std::string* wxWorkRobotText::release_content() {
+  clear_has_content();
+  if (content_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = content_;
+    content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void wxWorkRobotText::set_allocated_content(::std::string* content) {
+  if (content_ != &::google::protobuf::internal::kEmptyString) {
+    delete content_;
+  }
+  if (content) {
+    set_has_content();
+    content_ = content;
+  } else {
+    clear_has_content();
+    content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated string mentioned_list = 2;
+inline int wxWorkRobotText::mentioned_list_size() const {
+  return mentioned_list_.size();
+}
+inline void wxWorkRobotText::clear_mentioned_list() {
+  mentioned_list_.Clear();
+}
+inline const ::std::string& wxWorkRobotText::mentioned_list(int index) const {
+  return mentioned_list_.Get(index);
+}
+inline ::std::string* wxWorkRobotText::mutable_mentioned_list(int index) {
+  return mentioned_list_.Mutable(index);
+}
+inline void wxWorkRobotText::set_mentioned_list(int index, const ::std::string& value) {
+  mentioned_list_.Mutable(index)->assign(value);
+}
+inline void wxWorkRobotText::set_mentioned_list(int index, const char* value) {
+  mentioned_list_.Mutable(index)->assign(value);
+}
+inline void wxWorkRobotText::set_mentioned_list(int index, const char* value, size_t size) {
+  mentioned_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* wxWorkRobotText::add_mentioned_list() {
+  return mentioned_list_.Add();
+}
+inline void wxWorkRobotText::add_mentioned_list(const ::std::string& value) {
+  mentioned_list_.Add()->assign(value);
+}
+inline void wxWorkRobotText::add_mentioned_list(const char* value) {
+  mentioned_list_.Add()->assign(value);
+}
+inline void wxWorkRobotText::add_mentioned_list(const char* value, size_t size) {
+  mentioned_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+wxWorkRobotText::mentioned_list() const {
+  return mentioned_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+wxWorkRobotText::mutable_mentioned_list() {
+  return &mentioned_list_;
+}
+
+// repeated string mentioned_mobile_list = 3;
+inline int wxWorkRobotText::mentioned_mobile_list_size() const {
+  return mentioned_mobile_list_.size();
+}
+inline void wxWorkRobotText::clear_mentioned_mobile_list() {
+  mentioned_mobile_list_.Clear();
+}
+inline const ::std::string& wxWorkRobotText::mentioned_mobile_list(int index) const {
+  return mentioned_mobile_list_.Get(index);
+}
+inline ::std::string* wxWorkRobotText::mutable_mentioned_mobile_list(int index) {
+  return mentioned_mobile_list_.Mutable(index);
+}
+inline void wxWorkRobotText::set_mentioned_mobile_list(int index, const ::std::string& value) {
+  mentioned_mobile_list_.Mutable(index)->assign(value);
+}
+inline void wxWorkRobotText::set_mentioned_mobile_list(int index, const char* value) {
+  mentioned_mobile_list_.Mutable(index)->assign(value);
+}
+inline void wxWorkRobotText::set_mentioned_mobile_list(int index, const char* value, size_t size) {
+  mentioned_mobile_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* wxWorkRobotText::add_mentioned_mobile_list() {
+  return mentioned_mobile_list_.Add();
+}
+inline void wxWorkRobotText::add_mentioned_mobile_list(const ::std::string& value) {
+  mentioned_mobile_list_.Add()->assign(value);
+}
+inline void wxWorkRobotText::add_mentioned_mobile_list(const char* value) {
+  mentioned_mobile_list_.Add()->assign(value);
+}
+inline void wxWorkRobotText::add_mentioned_mobile_list(const char* value, size_t size) {
+  mentioned_mobile_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+wxWorkRobotText::mentioned_mobile_list() const {
+  return mentioned_mobile_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+wxWorkRobotText::mutable_mentioned_mobile_list() {
+  return &mentioned_mobile_list_;
+}
+
+// -------------------------------------------------------------------
+
+// wxWorkRobotHttpPost
+
+// optional string msgtype = 1;
+inline bool wxWorkRobotHttpPost::has_msgtype() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void wxWorkRobotHttpPost::set_has_msgtype() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void wxWorkRobotHttpPost::clear_has_msgtype() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void wxWorkRobotHttpPost::clear_msgtype() {
+  if (msgtype_ != &::google::protobuf::internal::kEmptyString) {
+    msgtype_->clear();
+  }
+  clear_has_msgtype();
+}
+inline const ::std::string& wxWorkRobotHttpPost::msgtype() const {
+  return *msgtype_;
+}
+inline void wxWorkRobotHttpPost::set_msgtype(const ::std::string& value) {
+  set_has_msgtype();
+  if (msgtype_ == &::google::protobuf::internal::kEmptyString) {
+    msgtype_ = new ::std::string;
+  }
+  msgtype_->assign(value);
+}
+inline void wxWorkRobotHttpPost::set_msgtype(const char* value) {
+  set_has_msgtype();
+  if (msgtype_ == &::google::protobuf::internal::kEmptyString) {
+    msgtype_ = new ::std::string;
+  }
+  msgtype_->assign(value);
+}
+inline void wxWorkRobotHttpPost::set_msgtype(const char* value, size_t size) {
+  set_has_msgtype();
+  if (msgtype_ == &::google::protobuf::internal::kEmptyString) {
+    msgtype_ = new ::std::string;
+  }
+  msgtype_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* wxWorkRobotHttpPost::mutable_msgtype() {
+  set_has_msgtype();
+  if (msgtype_ == &::google::protobuf::internal::kEmptyString) {
+    msgtype_ = new ::std::string;
+  }
+  return msgtype_;
+}
+inline ::std::string* wxWorkRobotHttpPost::release_msgtype() {
+  clear_has_msgtype();
+  if (msgtype_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = msgtype_;
+    msgtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void wxWorkRobotHttpPost::set_allocated_msgtype(::std::string* msgtype) {
+  if (msgtype_ != &::google::protobuf::internal::kEmptyString) {
+    delete msgtype_;
+  }
+  if (msgtype) {
+    set_has_msgtype();
+    msgtype_ = msgtype;
+  } else {
+    clear_has_msgtype();
+    msgtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .proto_ff.wxWorkRobotText text = 2;
+inline bool wxWorkRobotHttpPost::has_text() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void wxWorkRobotHttpPost::set_has_text() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void wxWorkRobotHttpPost::clear_has_text() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void wxWorkRobotHttpPost::clear_text() {
+  if (text_ != NULL) text_->::proto_ff::wxWorkRobotText::Clear();
+  clear_has_text();
+}
+inline const ::proto_ff::wxWorkRobotText& wxWorkRobotHttpPost::text() const {
+  return text_ != NULL ? *text_ : *default_instance_->text_;
+}
+inline ::proto_ff::wxWorkRobotText* wxWorkRobotHttpPost::mutable_text() {
+  set_has_text();
+  if (text_ == NULL) text_ = new ::proto_ff::wxWorkRobotText;
+  return text_;
+}
+inline ::proto_ff::wxWorkRobotText* wxWorkRobotHttpPost::release_text() {
+  clear_has_text();
+  ::proto_ff::wxWorkRobotText* temp = text_;
+  text_ = NULL;
+  return temp;
+}
+inline void wxWorkRobotHttpPost::set_allocated_text(::proto_ff::wxWorkRobotText* text) {
+  delete text_;
+  text_ = text;
+  if (text) {
+    set_has_text();
+  } else {
+    clear_has_text();
+  }
 }
 
 
