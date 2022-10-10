@@ -10,6 +10,7 @@
 
 #include "NFMacros.h"
 #include "NFPlatformMacros.h"
+#include "common/spdlog/fmt/fmt.h"
 
 #include <stdint.h>
 #include <chrono>
@@ -19,26 +20,49 @@
 #include <string>
 #include <thread>
 
-#include "common/spdlog/fmt/fmt.h"
+///////////////////////////////////////////////////////////////
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <time.h>
+#include <sstream>
+#include <stdio.h>
+
+#ifndef _MSC_VER
+
+#include <sys/time.h>
+#include <unistd.h>
+
+#define EPOCHFILETIME 11644473600000000ULL
+#else
+#include <windows.h>
+#include <time.h>
+#include <process.h>
+#define EPOCHFILETIME 11644473600000000Ui64
+#endif
+
 
 using namespace std;
 
 #ifndef NDEBUG
+
 #include <assert.h>
-#define NF_ASSERT(condition)					if (!(condition)) NFAssertFail(__FILE__, __LINE__); else { }
-#define NF_ASSERT_MSG(condition, msg)			if (!(condition)) NFAssertFail(__FILE__, __LINE__, msg); else { }
 
-inline void NFAssertFail(const char*const file, const unsigned int line, const std::string& message = std::string())
+#define NF_ASSERT(condition)                    if (!(condition)) NFAssertFail(__FILE__, __LINE__); else { }
+#define NF_ASSERT_MSG(condition, msg)            if (!(condition)) NFAssertFail(__FILE__, __LINE__, msg); else { }
+
+inline void NFAssertFail(const char *const file, const unsigned int line, const std::string &message = std::string())
 {
-	fprintf(stderr, "FAIL in %s (%d)", file, line);
-	if (!message.empty())
-	{
-		fprintf(stderr, ": %s", message.c_str());
-	}
+    fprintf(stderr, "FAIL in %s (%d)", file, line);
+    if (!message.empty())
+    {
+        fprintf(stderr, ": %s", message.c_str());
+    }
 
-	fprintf(stderr, "\n");
-	assert(false);
+    fprintf(stderr, "\n");
+    assert(false);
 }
+
 #else
 #define NF_ASSERT(condition)
 #define NF_ASSERT_MSG(condition, msg_)
@@ -95,24 +119,7 @@ inline void NFAssertFail(const char*const file, const unsigned int line, const s
 
 //#define GOOGLE_GLOG_DLL_DECL=
 
-///////////////////////////////////////////////////////////////
-#include <string>
-#include <algorithm>
-#include <cmath>
-#include <time.h>
-#include <sstream>
-#include <stdio.h>
 
-#ifndef _MSC_VER
-#include <sys/time.h>
-#include <unistd.h>
-#define EPOCHFILETIME 11644473600000000ULL
-#else
-#include <windows.h>
-#include <time.h>
-#include <process.h>
-#define EPOCHFILETIME 11644473600000000Ui64
-#endif
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #define __WORDSIZE 64
@@ -123,13 +130,13 @@ typedef unsigned int NF_THREAD_ID;
 
 inline NF_THREAD_ID ThreadId()
 {
-	return GetCurrentThreadId();
+    return GetCurrentThreadId();
 }
 
 inline struct tm* localtime_r(const time_t* timep, struct tm* result)
 {
-	localtime_s(result, timep);
-	return result;
+    localtime_s(result, timep);
+    return result;
 }
 
 #define strcasecmp   _stricmp
@@ -140,10 +147,12 @@ inline struct tm* localtime_r(const time_t* timep, struct tm* result)
 
 #define NFGetPID() getpid()
 typedef unsigned long int NF_THREAD_ID;
+
 inline NF_THREAD_ID ThreadId()
 {
-	return pthread_self();
+    return pthread_self();
 }
+
 #endif
 
 #define NFSLEEP(us) std::this_thread::sleep_for(std::chrono::microseconds(us));
@@ -189,22 +198,22 @@ inline NF_THREAD_ID ThreadId()
 
 inline int64_t NFGetTime()
 {
-	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 inline int64_t NFGetSecondTime()
 {
-	return std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    return std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 inline int64_t NFGetMicroSecondTime()
 {
-	return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 inline int64_t NFGetNanoSeccondTime()
 {
-	return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 //
@@ -221,8 +230,8 @@ inline int64_t NFGetNanoSeccondTime()
 #ifndef NF_FILE_FUNCTION_LINE
 #define NF_FILE_FUNCTION_LINE __FILE__, __FUNCTION__, __LINE__
 #endif
-#define NF_FORMAT(my_fmt, ...)             fmt::format(my_fmt, ##__VA_ARGS__);
-#define NF_FORMAT_FUNCTION(my_fmt, ...)    fmt::format(std::string("[{}:{}]") + my_fmt, NF_FUNCTION_LINE, ##__VA_ARGS__);
+#define NF_FORMAT(my_fmt, ...)             fmt::format(my_fmt, ##__VA_ARGS__)
+#define NF_FORMAT_FUNCTION(my_fmt, ...)    fmt::format(std::string("[{}:{}]") + my_fmt, NF_FUNCTION_LINE, ##__VA_ARGS__)
 
 #define MMO_LOWORD(l)           ((uint16_t)(l))
 #define MMO_HIWORD(l)           ((uint16_t)(((uint32_t)(l) >> 16) & 0xFFFF))
@@ -234,11 +243,11 @@ inline int64_t NFGetNanoSeccondTime()
 #define MMO_MAKELONG(a, b)      ((uint32_t)(((uint16_t)(a)) | ((uint32_t)((uint16_t)(b))) << 16))
 #define MMO_MAKELONGLONG(a, b)  ((uint64_t)(((uint32_t)(a)) | ((uint64_t)((uint32_t)(b))) << 32))
 
-#define MAKE_UINT32(low, high)	((uint32_t)(((uint16_t)((uint32_t)(low) & 0xffff)) | ((uint32_t)((uint16_t)((uint32_t)(high) & 0xffff))) << 16))
+#define MAKE_UINT32(low, high)    ((uint32_t)(((uint16_t)((uint32_t)(low) & 0xffff)) | ((uint32_t)((uint16_t)((uint32_t)(high) & 0xffff))) << 16))
 #define HIGH_UINT16(l) ((uint16_t)((uint32_t)(l) >> 16))
 #define LOW_UINT16(l) ((uint16_t)((uint32_t)(l) & 0xffff))
 
-#define MAKE_UINT64(low, high)	((uint64_t)(((uint32_t)((uint64_t)(low) & 0xffffffff)) | ((uint64_t)((uint32_t)((uint64_t)(high) & 0xffffffff))) << 32))
+#define MAKE_UINT64(low, high)    ((uint64_t)(((uint32_t)((uint64_t)(low) & 0xffffffff)) | ((uint64_t)((uint32_t)((uint64_t)(high) & 0xffffffff))) << 32))
 #define HIGH_UINT32(l) ((uint32_t)((uint64_t)(l) >> 32))
 #define LOW_UINT32(l) ((uint32_t)((uint64_t)(l) & 0xffffffff))
 
@@ -247,13 +256,15 @@ inline int64_t NFGetNanoSeccondTime()
 #define SET_BITS(AWORD, BITS) ((AWORD) |= (BITS))
 #define CLR_BITS(AWORD, BITS) ((AWORD) &= ~(BITS))
 
-template <typename T, size_t N>
+template<typename T, size_t N>
 char (&ArraySizeHelper(T (&array)[N]))[N];
 
 
 #ifndef _MSC_VER
-template <typename T, size_t N>
+
+template<typename T, size_t N>
 char (&ArraySizeHelper(const T (&array)[N]))[N];
+
 #endif
 
 
@@ -284,7 +295,7 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 //时间轴刻度
 #define TIME_GRID 64
 //时间轴长度
-#define TIME_AXIS_LENGTH			120000		// 毫秒为单位的
-#define TIME_AXIS_SECLENGTH			108000		// 秒为单位的支持到30个小时
-#define INVALID_TIMER				0xffffffff  // 无效定时器
-#define INFINITY_CALL				0xffffffff	// 调用无限次
+#define TIME_AXIS_LENGTH            120000        // 毫秒为单位的
+#define TIME_AXIS_SECLENGTH            108000        // 秒为单位的支持到30个小时
+#define INVALID_TIMER                0xffffffff  // 无效定时器
+#define INFINITY_CALL                0xffffffff    // 调用无限次

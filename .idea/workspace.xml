@@ -42,6 +42,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="net">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/thirdparty/openssl" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -118,11 +119,11 @@
       <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
+      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin" />
       <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin" />
       <recent name="$PROJECT_DIR$/thirdparty/libevent/linux/include/event2" />
-      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -494,14 +495,7 @@
       <workItem from="1665208367446" duration="16800000" />
       <workItem from="1665275205916" duration="50000" />
       <workItem from="1665275284547" duration="20580000" />
-      <workItem from="1665362066297" duration="25079000" />
-    </task>
-    <task id="LOCAL-00125" summary="chong gou">
-      <created>1663424331911</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1663424331911</updated>
+      <workItem from="1665362066297" duration="34070000" />
     </task>
     <task id="LOCAL-00126" summary="chong gou">
       <created>1663424434807</created>
@@ -839,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665388538368</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="net">
+      <created>1665390928383</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1665390928383</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -981,23 +982,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp</url>
-          <line>501</line>
+          <line>507</line>
           <option name="timeStamp" value="419" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
           <line>151</line>
           <option name="timeStamp" value="423" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
-          <line>58</line>
-          <option name="timeStamp" value="424" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp</url>
-          <line>64</line>
-          <option name="timeStamp" value="425" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp</url>
