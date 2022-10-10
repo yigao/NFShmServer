@@ -43,13 +43,13 @@ bool NFEvppServer::Init()
 
 bool NFEvppServer::Shut()
 {
-    m_eventLoop->loop()->RunAfter(evpp::Duration(0.1), [this]()
+    m_eventLoop->loop()->RunAfter(100.0, [this]()
     {
         m_tcpServer->Stop();
     });
 
     while (!m_tcpServer->IsStopped()) {
-        usleep(1);
+        NFSLEEP(1);
     }
 
     m_eventLoop->Stop(true);

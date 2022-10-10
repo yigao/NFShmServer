@@ -47,6 +47,6 @@ public:
 
 	virtual bool Finalize() override;
 private:
-	evpp::EventLoopThread* m_eventLoop;
-	evpp::TCPClient* m_tcpClient;
+    std::unique_ptr<evpp::EventLoopThread> m_eventLoop;
+    std::shared_ptr<evpp::TCPClient> m_tcpClient;
 };
