@@ -95,7 +95,7 @@ size_t BufferPool::GetBufferLength(void* ptr)
 void BufferPool::AllocChunkPool()
 {
     array_num_ = GetArrayIdx(max_size_) + 1;
-    mini_mem_alloc_ = new ChunkPool*[array_num_];
+    mini_mem_alloc_ = new NFChunkPool*[array_num_];
     uint32_t chunk_size = 0;
     uint32_t chunk_count = 0;
     for (IndexType i = 0; i < array_num_; i++)
@@ -121,7 +121,7 @@ void BufferPool::AllocChunkPool()
             chunk_size += 512;
         }
         chunk_count = block_size_/chunk_size;
-        mini_mem_alloc_[i] = new ChunkPool(EXT_SIZE_BYTE, chunk_size, chunk_count, true);
+        mini_mem_alloc_[i] = new NFChunkPool(EXT_SIZE_BYTE, chunk_size, chunk_count, true);
     }
 }
 
@@ -140,7 +140,7 @@ void* BufferPool::Alloc(size_t size)
     else
     {
         IndexType idx = GetArrayIdx(need_size);
-        ChunkPool* chunk_pool = mini_mem_alloc_[idx];
+        NFChunkPool* chunk_pool = mini_mem_alloc_[idx];
         IndexType* all_buf = static_cast<IndexType*>(chunk_pool->AllocChunk());
         *(all_buf) = idx;
         return static_cast<void*>(all_buf + 1);
@@ -182,7 +182,7 @@ void BufferPool::Free(void* ptr)
     }
     else
     {
-        ChunkPool* chunk_pool = mini_mem_alloc_[idx];
+        NFChunkPool* chunk_pool = mini_mem_alloc_[idx];
         void* free_p = static_cast<void*>(all_buf);
         chunk_pool->FreeChunk(free_p);
     }
@@ -196,7 +196,7 @@ void* BufferPool::AllocTrack(size_t size,
     void* ret = Alloc(size);
     if (ret)
     {
-        MemTracker::Instance()->TrackMalloc(ret, file, func, line);
+        NFMemTracker::Instance()->TrackMalloc(ret, file, func, line);
     }
     return ret;
 }
@@ -233,6 +233,6 @@ void* BufferPool::ReallocTrack(void* ptr,
 void  BufferPool::FreeTrack(void* ptr)
 {
     assert(ptr);
-    MemTracker::Instance()->TrackFree(ptr);
+    NFMemTracker::Instance()->TrackFree(ptr);
     Free(ptr);
 }

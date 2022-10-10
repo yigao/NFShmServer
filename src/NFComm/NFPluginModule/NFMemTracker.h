@@ -14,18 +14,18 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include <unordered_map>
 
-struct TrackData
+struct NFTrackData
 {
     uint32_t line_no_;
     std::string file_name_;
     std::string func_name_;
 
-    TrackData(uint32_t line_no,
-              const char *file_name,
-              const char *func_name);
+    NFTrackData(uint32_t line_no,
+                const char *file_name,
+                const char *func_name);
 };
 
-class MemTracker : public NFSingleton<MemTracker>
+class NFMemTracker : public NFSingleton<NFMemTracker>
 {
 public:
     void PrintMemLink(const std::string& output_filename);
@@ -36,14 +36,14 @@ public:
 
 protected:
     typedef NFMutex TMutexLock;
-    typedef std::unordered_map<void *, TrackData> PtrTrackMap;
+    typedef std::unordered_map<void *, NFTrackData> PtrTrackMap;
 
     TMutexLock mutex_lock_;
     PtrTrackMap ptr_track_map_;
 
 public:
-    MemTracker();
-    virtual ~MemTracker();
+    NFMemTracker();
+    virtual ~NFMemTracker();
 };
 
 

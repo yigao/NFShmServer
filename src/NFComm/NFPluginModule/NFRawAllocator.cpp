@@ -10,47 +10,47 @@
 #include "NFRawAllocator.h"
 #include "NFMemTracker.h"
 
-RawAllocator::RawAllocator()
+NFRawAllocator::NFRawAllocator()
 {}
 
-RawAllocator::~RawAllocator()
+NFRawAllocator::~NFRawAllocator()
 {}
 
-void* RawAllocator::Alloc(size_t size)
+void* NFRawAllocator::Alloc(size_t size)
 {
     return malloc(size);
 }
 
-void* RawAllocator::Realloc(void* ptr, size_t size)
+void* NFRawAllocator::Realloc(void* ptr, size_t size)
 {
     return realloc(ptr, size);
 }
 
-void  RawAllocator::Free(void* ptr)
+void  NFRawAllocator::Free(void* ptr)
 {
     free(ptr);
 }
 
-void* RawAllocator::AllocTrack(size_t size,
-                               const char* file,
-                               const char* func,
-                               uint32_t line)
+void* NFRawAllocator::AllocTrack(size_t size,
+                                 const char* file,
+                                 const char* func,
+                                 uint32_t line)
 {
     void* ret = NULL;
     ret = Alloc(size);
 
     if (ret)
     {
-        MemTracker::Instance()->TrackMalloc(ret, file, func, line);
+        NFMemTracker::Instance()->TrackMalloc(ret, file, func, line);
     }
     return ret;
 }
 
-void* RawAllocator::ReallocTrack(void* ptr,
-                                 size_t size,
-                                 const char* file,
-                                 const char* func,
-                                 uint32_t line)
+void* NFRawAllocator::ReallocTrack(void* ptr,
+                                   size_t size,
+                                   const char* file,
+                                   const char* func,
+                                   uint32_t line)
 {
     if (ptr == NULL)
     {
@@ -59,15 +59,15 @@ void* RawAllocator::ReallocTrack(void* ptr,
     void* ret = realloc(ptr, size);
     if (ret != NULL && ret != ptr)
     {
-        MemTracker::Instance()->TrackFree(ptr);
-        MemTracker::Instance()->TrackMalloc(ret, file, func, line);
+        NFMemTracker::Instance()->TrackFree(ptr);
+        NFMemTracker::Instance()->TrackMalloc(ret, file, func, line);
     }
     return ret;
 }
 
-void RawAllocator::FreeTrack(void* ptr)
+void NFRawAllocator::FreeTrack(void* ptr)
 {
     assert(ptr != NULL);
-    MemTracker::Instance()->TrackFree(ptr);
+    NFMemTracker::Instance()->TrackFree(ptr);
     free(ptr);
 }

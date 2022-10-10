@@ -52,7 +52,7 @@ private:
     IndexType   array_num_;
     size_t      max_size_;
     uint32_t    block_size_;
-    ChunkPool** mini_mem_alloc_;
+    NFChunkPool** mini_mem_alloc_;
 };
 
 #ifdef CHECK_MEM_LEAK

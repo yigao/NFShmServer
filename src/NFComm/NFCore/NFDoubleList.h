@@ -10,23 +10,24 @@
 #pragma once
 
 #include "NFPlatform.h"
+#include "NFLikely.h"
 
-struct DoubleNode
+struct NFDoubleNode
 {
     void*       host;
-    DoubleNode* prev;
-    DoubleNode* next;
-    DoubleNode()
+    NFDoubleNode* prev;
+    NFDoubleNode* next;
+    NFDoubleNode()
     {
         Reset();
     }
 
-    ~DoubleNode()
+    ~NFDoubleNode()
     {
         Reset();
     }
 
-    explicit DoubleNode(void* h)
+    explicit NFDoubleNode(void* h)
     {
         host = h;
         ResetNode();
@@ -57,21 +58,21 @@ struct DoubleNode
     }
 };
 
-class DoubleList
+class NFDoubleList
 {
 private:
     uint32_t    count_;
-    DoubleNode* head_;
-    DoubleNode* tail_;
+    NFDoubleNode* head_;
+    NFDoubleNode* tail_;
 
 public:
-    DoubleList()
+    NFDoubleList()
     {
         count_ = 0;
         head_  = NULL;
         tail_  = NULL;
     }
-    ~DoubleList() {}
+    ~NFDoubleList() {}
 
     void Clear()
     {
@@ -85,10 +86,10 @@ public:
         return count_;
     }
 
-    void InsertTail(DoubleNode* elem)
+    void InsertTail(NFDoubleNode* elem)
     {
         NF_ASSERT(elem);
-        if (likely(tail_ != NULL))
+        if (LIKELY(tail_ != NULL))
         {
             Insert(tail_, elem);
             tail_ = elem;
@@ -101,10 +102,10 @@ public:
         ++count_;
     }
 
-    void InsertHead(DoubleNode* elem)
+    void InsertHead(NFDoubleNode* elem)
     {
         NF_ASSERT(elem);
-        if (likely(head_ != NULL))
+        if (LIKELY(head_ != NULL))
         {
             elem->next = head_;
             head_->prev = elem;
@@ -117,12 +118,12 @@ public:
         ++count_;
     }
 
-    bool Delete(DoubleNode* elem);
+    bool Delete(NFDoubleNode* elem);
     bool IsEmpty() {return head_ == NULL;}
 
-    DoubleNode* Head() {return head_;}
-    DoubleNode* Tail() {return tail_;}
-    DoubleNode* Prev(DoubleNode* cur)
+    NFDoubleNode* Head() {return head_;}
+    NFDoubleNode* Tail() {return tail_;}
+    NFDoubleNode* Prev(NFDoubleNode* cur)
     {
         NF_ASSERT(cur);
         if (cur)
@@ -134,7 +135,7 @@ public:
             return NULL;
         }
     }
-    DoubleNode* Next(DoubleNode* cur)
+    NFDoubleNode* Next(NFDoubleNode* cur)
     {
         NF_ASSERT(cur);
         if (cur)
@@ -148,7 +149,7 @@ public:
     }
 
 protected:
-    void Insert(DoubleNode* prev, DoubleNode* elem);
+    void Insert(NFDoubleNode* prev, NFDoubleNode* elem);
 };
 
 

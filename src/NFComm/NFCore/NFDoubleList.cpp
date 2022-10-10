@@ -9,11 +9,11 @@
 
 #include "NFDoubleList.h"
 
-void DoubleList::Insert(DoubleNode* prev, DoubleNode* elem)
+void NFDoubleList::Insert(NFDoubleNode* prev, NFDoubleNode* elem)
 {
     NF_ASSERT(prev);
     NF_ASSERT(elem);
-    DoubleNode* next = prev->next;
+    NFDoubleNode* next = prev->next;
     prev->next = elem;
     elem->prev = prev;
     elem->next = next;
@@ -23,7 +23,7 @@ void DoubleList::Insert(DoubleNode* prev, DoubleNode* elem)
     }
 }
 
-bool DoubleList::Delete(DoubleNode* elem)
+bool NFDoubleList::Delete(NFDoubleNode* elem)
 {
     bool result = false;
 

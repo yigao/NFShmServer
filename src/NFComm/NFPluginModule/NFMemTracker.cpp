@@ -13,23 +13,23 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 
-TrackData::TrackData(uint32_t line_no,
-                     const char* file_name,
-                     const char* func_name)
+NFTrackData::NFTrackData(uint32_t line_no,
+                         const char* file_name,
+                         const char* func_name)
 {
     line_no_   = line_no;
     file_name_ = std::string(file_name);
     func_name_ = std::string(func_name);
 }
 
-MemTracker::MemTracker() {}
+NFMemTracker::NFMemTracker() {}
 
-MemTracker::~MemTracker() {}
+NFMemTracker::~NFMemTracker() {}
 
-bool MemTracker::TrackMalloc(void* ptr,
-                             const char* file_path,
-                             const char* func_name,
-                             uint32_t line_no)
+bool NFMemTracker::TrackMalloc(void* ptr,
+                               const char* file_path,
+                               const char* func_name,
+                               uint32_t line_no)
 {
     NF_ASSERT(ptr!= NULL);
     if (ptr == NULL)
@@ -45,11 +45,11 @@ bool MemTracker::TrackMalloc(void* ptr,
         return false;
     }
     ptr_track_map_.insert(
-            PtrTrackMap::value_type(ptr, TrackData(line_no, file_name.c_str(), func_name)));
+            PtrTrackMap::value_type(ptr, NFTrackData(line_no, file_name.c_str(), func_name)));
     return true;
 }
 
-void MemTracker::TrackFree(void* ptr)
+void NFMemTracker::TrackFree(void* ptr)
 {
     NF_ASSERT(ptr != NULL);
     if (ptr == NULL)
@@ -65,7 +65,7 @@ void MemTracker::TrackFree(void* ptr)
     NF_ASSERT(num == 1);
 }
 
-void MemTracker::PrintMemLink(const std::string& output_filename)
+void NFMemTracker::PrintMemLink(const std::string& output_filename)
 {
     NFLock temp_lock(mutex_lock_);
     std::string content;
@@ -91,7 +91,7 @@ void MemTracker::PrintMemLink(const std::string& output_filename)
         PtrTrackMap::iterator iterEnd = ptr_track_map_.end();
         for (; iter != iterEnd; ++iter)
         {
-            TrackData& trackData = iter->second;
+            NFTrackData& trackData = iter->second;
             std::string temp = NF_FORMAT("{}({}) {} link memory\n", trackData.file_name_.c_str(), trackData.line_no_, trackData.func_name_.c_str());
             content += temp;
             NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", temp);

@@ -11,11 +11,11 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 
-class RawAllocator
+class NFRawAllocator
 {
 public:
-    RawAllocator();
-    ~RawAllocator();
+    NFRawAllocator();
+    ~NFRawAllocator();
 
     void* Alloc(size_t size);
     void* Realloc(void* ptr, size_t size);

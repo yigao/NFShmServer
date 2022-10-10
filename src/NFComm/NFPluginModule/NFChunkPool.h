@@ -12,14 +12,14 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFDoubleList.h"
 
-struct MemBlock
+struct NFMemBlock
 {
     uint32_t   free_idx;
     uint32_t   free_num;
     void*      free_list;
-    DoubleNode block_list;
+    NFDoubleNode block_list;
 
-    MemBlock()
+    NFMemBlock()
             : free_idx(0),
               free_num(0),
               free_list(NULL),
@@ -27,14 +27,14 @@ struct MemBlock
     {}
 };
 
-class ChunkPool
+class NFChunkPool
 {
 public:
-    ChunkPool(uint32_t reserve_size,
-              uint32_t chunk_size,
-              uint32_t chunk_count,
-              bool free_to_sys);
-    virtual ~ChunkPool();
+    NFChunkPool(uint32_t reserve_size,
+                uint32_t chunk_size,
+                uint32_t chunk_count,
+                bool free_to_sys);
+    virtual ~NFChunkPool();
 
     void* AllocChunk();
     bool  FreeChunk(void* chunk);
@@ -45,10 +45,10 @@ public:
     }
 
 protected:
-    MemBlock* AllocBlock();
-    void*  AllocChunk(MemBlock* block);
-    bool   FreeChunk(MemBlock* block, void* chunk);
-    void   FreeBlockList(DoubleList& list);
+    NFMemBlock* AllocBlock();
+    void*  AllocChunk(NFMemBlock* block);
+    bool   FreeChunk(NFMemBlock* block, void* chunk);
+    void   FreeBlockList(NFDoubleList& list);
     void*& NextOf(void* const chunk);
 
 protected:
@@ -59,9 +59,9 @@ protected:
     uint32_t    free_count_;
     uint32_t    free_threshold_;
     size_t      mem_size_;
-    DoubleList  block_list_;
-    DoubleList  empty_list_;
-    DoubleList  full_list_;
+    NFDoubleList  block_list_;
+    NFDoubleList  empty_list_;
+    NFDoubleList  full_list_;
 };
 
 #ifndef  CHECK_MEM_LEAK

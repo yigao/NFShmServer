@@ -8,11 +8,12 @@
 // -------------------------------------------------------------------------
 
 #include "NFChunkPool.h"
+#include "NFComm/NFCore/NFLikely.h"
 
-ChunkPool::ChunkPool(uint32_t reserve_size,
-                     uint32_t chunk_size,
-                     uint32_t chunk_count,
-                     bool free_to_sys)
+NFChunkPool::NFChunkPool(uint32_t reserve_size,
+                         uint32_t chunk_size,
+                         uint32_t chunk_count,
+                         bool free_to_sys)
         : block_list_(),
           empty_list_(),
           full_list_()
@@ -26,20 +27,20 @@ ChunkPool::ChunkPool(uint32_t reserve_size,
     mem_size_ = (size_t)(chunk_size_ + reserve_size_) * chunk_count_;
 }
 
-ChunkPool::~ChunkPool()
+NFChunkPool::~NFChunkPool()
 {
     FreeBlockList(block_list_);
     FreeBlockList(full_list_);
     FreeBlockList(empty_list_);
 }
 
-void* ChunkPool::AllocChunk()
+void* NFChunkPool::AllocChunk()
 {
     void*     chunk = NULL;
-    MemBlock* block = NULL;
+    NFMemBlock* block = NULL;
     if (!block_list_.IsEmpty())
     {
-        block = reinterpret_cast<MemBlock*>(block_list_.Head()->GetHost());
+        block = reinterpret_cast<NFMemBlock*>(block_list_.Head()->GetHost());
         chunk = AllocChunk(block);
         NF_ASSERT(chunk);
         if (block->free_num == 0)
@@ -50,7 +51,7 @@ void* ChunkPool::AllocChunk()
     }
     else if (!empty_list_.IsEmpty())
     {
-        block = reinterpret_cast<MemBlock*>(empty_list_.Head()->GetHost());
+        block = reinterpret_cast<NFMemBlock*>(empty_list_.Head()->GetHost());
         chunk = AllocChunk(block);
         NF_ASSERT(chunk);
         empty_list_.Delete(&block->block_list);
@@ -73,17 +74,17 @@ void* ChunkPool::AllocChunk()
     return chunk;
 }
 
-bool ChunkPool::FreeChunk(void* chunk)
+bool NFChunkPool::FreeChunk(void* chunk)
 {
-    DoubleNode* curr;
+    NFDoubleNode* curr;
     curr = block_list_.Head();
     while (curr)
     {
-        MemBlock* block = reinterpret_cast<MemBlock*>(curr->GetHost());
+        NFMemBlock* block = reinterpret_cast<NFMemBlock*>(curr->GetHost());
         if (FreeChunk(block, chunk))
         {
             free_count_++;
-            if (unlikely(block->free_num == chunk_count_))
+            if (UNLIKELY(block->free_num == chunk_count_))
             {
                 if (free_to_sys_ && (free_count_ > free_threshold_))
                 {
@@ -108,7 +109,7 @@ bool ChunkPool::FreeChunk(void* chunk)
     curr = full_list_.Head();
     while (curr)
     {
-        MemBlock* block = reinterpret_cast<MemBlock*>(curr->GetHost());
+        NFMemBlock* block = reinterpret_cast<NFMemBlock*>(curr->GetHost());
         if (FreeChunk(block, chunk))
         {
             free_count_++;
@@ -124,10 +125,10 @@ bool ChunkPool::FreeChunk(void* chunk)
     return false;
 }
 
-MemBlock* ChunkPool::AllocBlock()
+NFMemBlock* NFChunkPool::AllocBlock()
 {
-    void* ptr = malloc(mem_size_ + sizeof(MemBlock));
-    MemBlock* block = reinterpret_cast<MemBlock*>(ptr);
+    void* ptr = malloc(mem_size_ + sizeof(NFMemBlock));
+    NFMemBlock* block = reinterpret_cast<NFMemBlock*>(ptr);
     if (block)
     {
         block->free_idx   = 0;
@@ -140,11 +141,11 @@ MemBlock* ChunkPool::AllocBlock()
     return block;
 }
 
-void* ChunkPool::AllocChunk(MemBlock* block)
+void* NFChunkPool::AllocChunk(NFMemBlock* block)
 {
     NF_ASSERT(block);
     void* chunk = NULL;
-    char* start = (reinterpret_cast<char*>(block)) + sizeof(MemBlock);
+    char* start = (reinterpret_cast<char*>(block)) + sizeof(NFMemBlock);
     // free list first
     if (block->free_list)
     {
@@ -169,12 +170,12 @@ void* ChunkPool::AllocChunk(MemBlock* block)
     return chunk;
 }
 
-bool ChunkPool::FreeChunk(MemBlock* block, void* chunk)
+bool NFChunkPool::FreeChunk(NFMemBlock* block, void* chunk)
 {
     NF_ASSERT(block);
     NF_ASSERT(chunk);
     size_t pos   = reinterpret_cast<size_t>(chunk);
-    size_t start = reinterpret_cast<size_t>(block) + sizeof(MemBlock);
+    size_t start = reinterpret_cast<size_t>(block) + sizeof(NFMemBlock);
     if ((pos < start) || (pos > (start + mem_size_ - chunk_size_ - reserve_size_)))
     {
         return false;
@@ -186,20 +187,20 @@ bool ChunkPool::FreeChunk(MemBlock* block, void* chunk)
     return true;
 }
 
-void ChunkPool::FreeBlockList(DoubleList& list)
+void NFChunkPool::FreeBlockList(NFDoubleList& list)
 {
-    DoubleNode* curr  = NULL;
-    MemBlock*   block = NULL;
+    NFDoubleNode* curr  = NULL;
+    NFMemBlock*   block = NULL;
     curr = list.Head();
     while (curr)
     {
-        block = reinterpret_cast<MemBlock*>(curr->GetHost());
+        block = reinterpret_cast<NFMemBlock*>(curr->GetHost());
         curr = list.Next(curr);
         free(block);
     }
 }
 
-void*& ChunkPool::NextOf(void* const chunk)
+void*& NFChunkPool::NextOf(void* const chunk)
 {
     return *(static_cast<void**>(chunk));
 }
