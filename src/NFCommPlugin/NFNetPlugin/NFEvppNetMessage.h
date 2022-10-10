@@ -264,7 +264,14 @@ protected:
 private:
 	std::vector<NFIConnection* > m_connectionList;
 	std::list<uint64_t>  mFreeLinks;
+private:
 	NFCHttpServer* m_httpServer;
+#if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
+    bool m_httpServerEnableSSL;
+    std::string m_httpServerCertificateChainFile;
+    std::string m_httpServerPrivateKeyFile;
+#endif
+private:
     NFCHttpClient* m_httpClient;
 private:
 	/**

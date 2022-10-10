@@ -29,6 +29,9 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
 	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
 	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
     m_httpServer = NULL;
+#if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
+    m_httpServerEnableSSL = false;
+#endif
     m_httpClient = NULL;
 }
 
@@ -315,6 +318,9 @@ int64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThrea
     if (pServer) {
         pServer->SetRecvCB(mHttpReceiveCB);
         pServer->SetFilterCB(mHttpFilter);
+#if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
+        pServer->SetPortSSLOption(listen_port, m_httpServerEnableSSL, m_httpServerCertificateChainFile.c_str(), m_httpServerPrivateKeyFile.c_str());
+#endif
         if (pServer->InitServer(listen_port)) {
             m_httpServer = pServer;
             return 0;

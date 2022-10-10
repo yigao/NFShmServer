@@ -264,4 +264,33 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string &strMsg, N
     return true;
 }
 
+#if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
+/* berif 对指定监听端口设置SSL选项
+ * param listen_port 监听的端口
+ * param enable_ssl 是否开启SSL支持
+ * param certificate_chain_file 证书链文件
+ * param private_key_file 私钥文件
+ */
+void NFCHttpServer::SetPortSSLOption(int listen_port,
+                      bool enable_ssl,
+                      const char* certificate_chain_file,
+                      const char* private_key_file)
+{
+    m_pHttpServer->setPortSSLOption(listen_port, enable_ssl, certificate_chain_file, private_key_file);
+}
+
+/* berif 设置端口默认SSL配置选项
+ * param enable_ssl 是否开启SSL支持
+ * param certificate_chain_file 证书链文件
+ * param private_key_file 私钥文件
+ */
+void NFCHttpServer::SetPortSSLDefaultOption(
+        bool enable_ssl,
+        const char* certificate_chain_file,
+        const char* private_key_file)
+{
+    m_pHttpServer->setPortSSLDefaultOption( enable_ssl, certificate_chain_file, private_key_file);
+}
+#endif
+
 
