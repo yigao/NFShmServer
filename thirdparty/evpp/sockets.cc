@@ -53,6 +53,7 @@ evpp_socket_t CreateNonblockingSocket() {
     if (fd == -1) {
         serrno = errno;
         LOG_ERROR << "socket error " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "socket error={} {}", serrno, strerror(serrno));
         return INVALID_SOCKET;
     }
 
@@ -64,6 +65,7 @@ evpp_socket_t CreateNonblockingSocket() {
     if (fcntl(fd, F_SETFD, 1) == -1) {
         serrno = errno;
         LOG_FATAL << "fcntl(F_SETFD)" << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "fcntl(F_SETFD) error={} {}", serrno, strerror(serrno));
         goto out;
     }
 #endif
@@ -82,6 +84,7 @@ evpp_socket_t CreateUDPServer(int port) {
     if (fd == -1) {
         int serrno = errno;
         LOG_ERROR << "socket error " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "ssocket error={} {}", serrno, strerror(serrno));
         return INVALID_SOCKET;
     }
     SetReuseAddr(fd);
@@ -92,6 +95,7 @@ evpp_socket_t CreateUDPServer(int port) {
     if (::bind(fd, (struct sockaddr*)&local, sizeof(struct sockaddr))) {
         int serrno = errno;
         LOG_ERROR << "socket bind error=" << serrno << " " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "socket bind error={} {}", serrno, strerror(serrno));
         return INVALID_SOCKET;
     }
 
@@ -142,6 +146,7 @@ bool SplitHostPort(const char* address, std::string& host, int& port) {
     size_t index = a.rfind(':');
     if (index == std::string::npos) {
         LOG_ERROR << "Address specified error <" << address << ">. Cannot find ':'";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Address specified error <{}>. Cannot find ':'", address);
         return false;
     }
 
@@ -155,6 +160,7 @@ bool SplitHostPort(const char* address, std::string& host, int& port) {
     if (host[0] == '[') {
         if (*host.rbegin() != ']') {
             LOG_ERROR << "Address specified error <" << address << ">. '[' ']' is not pair.";
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Address specified error <{}>. '[' ']' is not pair.", address);
             return false;
         }
 
@@ -177,6 +183,7 @@ struct sockaddr_storage GetLocalAddr(evpp_socket_t sockfd) {
     socklen_t addrlen = static_cast<socklen_t>(sizeof laddr);
     if (::getsockname(sockfd, sockaddr_cast(&laddr), &addrlen) < 0) {
         LOG_ERROR << "GetLocalAddr:" << strerror(errno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetLocalAddr:{}", strerror(errno));
         memset(&laddr, 0, sizeof laddr);
     }
 
@@ -209,6 +216,7 @@ std::string ToIPPort(const struct sockaddr_storage* ss) {
         port = ntohs(addr6->sin6_port);
     } else {
         LOG_ERROR << "unknown socket family connected";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "unknown socket family connected");
         return empty_string;
     }
 
@@ -245,6 +253,7 @@ std::string ToIP(const struct sockaddr* s) {
         }
     } else {
         LOG_ERROR << "unknown socket family connected";
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "unknown socket family connected");
     }
 
     return empty_string;
@@ -263,6 +272,7 @@ void SetTimeout(evpp_socket_t fd, uint32_t timeout_ms) {
     if (ret != 0) {
         int err = errno;
         LOG_ERROR << "setsockopt SO_RCVTIMEO ERROR " << err << strerror(err);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "setsockopt SO_RCVTIMEO ERROR errno={} {}", err, strerror(err));
     }
 }
 
@@ -277,6 +287,7 @@ void SetKeepAlive(evpp_socket_t fd, bool on) {
     if (rc != 0) {
         int serrno = errno;
         LOG_ERROR << "setsockopt(SO_KEEPALIVE) failed, errno=" << serrno << " " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "etsockopt(SO_KEEPALIVE) failed, errno={} {}", serrno, strerror(serrno));
     }
 }
 
@@ -287,6 +298,7 @@ void SetReuseAddr(evpp_socket_t fd) {
     if (rc != 0) {
         int serrno = errno;
         LOG_ERROR << "setsockopt(SO_REUSEADDR) failed, errno=" << serrno << " " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "etsockopt(SO_REUSEADDR) failed, errno={} {}", serrno, strerror(serrno));
     }
 }
 
@@ -299,6 +311,7 @@ void SetReusePort(evpp_socket_t fd) {
     if (rc != 0) {
         int serrno = errno;
         LOG_ERROR << "setsockopt(SO_REUSEPORT) failed, errno=" << serrno << " " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "etsockopt(SO_REUSEPORT) failed, errno={} {}", serrno, strerror(serrno));
     }
 #endif
 }
@@ -311,6 +324,7 @@ void SetTCPNoDelay(evpp_socket_t fd, bool on) {
     if (rc != 0) {
         int serrno = errno;
         LOG_ERROR << "setsockopt(TCP_NODELAY) failed, errno=" << serrno << " " << strerror(serrno);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "etsockopt(TCP_NODELAY) failed, errno={} {}", serrno, strerror(serrno));
     }
 }
 

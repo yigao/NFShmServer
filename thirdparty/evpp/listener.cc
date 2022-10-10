@@ -19,13 +19,13 @@ Listener::~Listener() {
     fd_ = INVALID_SOCKET;
 }
 
-void Listener::Listen(int backlog) {
+bool Listener::Listen(int backlog) {
     DLOG_TRACE;
     fd_ = sock::CreateNonblockingSocket();
     if (fd_ < 0) {
         int serrno = errno;
         LOG_FATAL << "Create a nonblocking socket failed " << strerror(serrno);
-        return;
+        return false;
     }
 
     struct sockaddr_storage addr = sock::ParseFromIPPort(addr_.data());
@@ -34,13 +34,16 @@ void Listener::Listen(int backlog) {
     if (ret < 0) {
         int serrno = errno;
         LOG_FATAL << "bind error :" << strerror(serrno) << " . addr=" << addr_;
+        return false;
     }
 
     ret = ::listen(fd_, backlog);
     if (ret < 0) {
         int serrno = errno;
         LOG_FATAL << "Listen failed " << strerror(serrno);
+        return false;
     }
+    return true;
 }
 
 void Listener::Accept() {

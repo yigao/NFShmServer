@@ -47,12 +47,7 @@ public:
 
 	virtual bool Finalize() override;
 private:
-	evpp::EventLoopThread* m_eventLoop;
-	evpp::TCPServer* m_tcpServer;
-
-	/**
-	* @brief 退出的时候用来确认
-	*/
-	atomic_bool mExit;
+    std::unique_ptr<evpp::EventLoopThread> m_eventLoop;
+    std::unique_ptr<evpp::TCPServer> m_tcpServer;
 };
 

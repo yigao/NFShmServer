@@ -35,7 +35,10 @@ bool TCPServer::Init() {
     DLOG_TRACE;
     assert(status_ == kNull);
     listener_.reset(new Listener(loop_, listen_addr_));
-    listener_->Listen();
+    if (!listener_->Listen())
+    {
+        return false;
+    }
     status_.store(kInitialized);
     return true;
 }
@@ -136,6 +139,7 @@ void TCPServer::HandleNewConn(evpp_socket_t sockfd,
     assert(loop_->IsInLoopThread());
     if (IsStopping()) {
         LOG_WARN << "this=" << this << " The server is at stopping status. Discard this socket fd=" << sockfd << " remote_addr=" << remote_addr;
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, " The server is at stopping status. Discard this socket fd={} remote_addr={}", sockfd, remote_addr);
         EVUTIL_CLOSESOCKET(sockfd);
         return;
     }
@@ -145,6 +149,7 @@ void TCPServer::HandleNewConn(evpp_socket_t sockfd,
         if (connections_.size() >= max_conn_count)
         {
             LOG_WARN << "this=" << this << " the conn count than max connect count. Discard this socket fd=" << sockfd << " remote_addr=" << remote_addr;
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, " the conn count than max connect count. Discard this socket fd={} remote_addr={}", sockfd, remote_addr);
             EVUTIL_CLOSESOCKET(sockfd);
             return;
         }

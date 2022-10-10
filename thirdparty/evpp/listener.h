@@ -18,7 +18,7 @@ public:
     ~Listener();
 
     // socket listen
-    void Listen(int backlog = SOMAXCONN);
+    bool Listen(int backlog = SOMAXCONN);
 
     // nonblocking accept
     void Accept();
