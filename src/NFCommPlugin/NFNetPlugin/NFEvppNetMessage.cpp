@@ -73,7 +73,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 NetEvppObject* pObject = GetNetObject(m_connectionList[i]->GetLinkId());
                                 if (pObject == NULL)
                                 {
-                                    pObject = AddNetObject(m_connectionList[i]->GetLinkId(), pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType());
+                                    pObject = AddNetObject(m_connectionList[i]->GetLinkId(), pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
                                 }
 
                                 if (pObject)
@@ -92,7 +92,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                             }
                             else
                             {
-                                NetEvppObject* pObject = AddNetObject(pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType());
+                                NetEvppObject* pObject = AddNetObject(pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
                                 if (pObject)
                                 {
                                     pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
@@ -215,7 +215,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 *
 * @return 消息回调
 */
-void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse)
+void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse, bool bSecurity)
 {
 	if (msg)
 	{
@@ -225,7 +225,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
             uint32_t outLen = 0;
             uint32_t allLen = 0;
             MsgFromNetInfo msgInfo(conn, linkId);
-            if (mSecurity)
+            if (bSecurity)
             {
                 Decryption((char*)msg->data(), msg->size());
             }
@@ -300,7 +300,7 @@ int64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
                 std::bind(&NFEvppNetMessage::ConnectionCallback, this, std::placeholders::_1, unLinkId));
         pServer->SetMessageCallback(
                 std::bind(&NFEvppNetMessage::MessageCallback, this, std::placeholders::_1, std::placeholders::_2,
-                          unLinkId, flag.mPacketParseType));
+                          unLinkId, flag.mPacketParseType, flag.mSecurity));
         if (pServer->Init()) {
             m_connectionList.push_back(pServer);
             return unLinkId;
@@ -336,7 +336,7 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
 		uint64_t unLinkId = GetFreeUnLinkId();
 		pClient->SetLinkId(unLinkId);
 		pClient->SetConnCallback(std::bind(&NFEvppNetMessage::ConnectionCallback, this, std::placeholders::_1, unLinkId));
-		pClient->SetMessageCallback(std::bind(&NFEvppNetMessage::MessageCallback, this, std::placeholders::_1, std::placeholders::_2, unLinkId, flag.mPacketParseType));
+		pClient->SetMessageCallback(std::bind(&NFEvppNetMessage::MessageCallback, this, std::placeholders::_1, std::placeholders::_2, unLinkId, flag.mPacketParseType, flag.mSecurity));
 		if (pClient->Init())
 		{
 			m_connectionList.push_back(pClient);
@@ -368,7 +368,7 @@ uint32_t NFEvppNetMessage::GetPort(uint64_t usLinkId)
     return 0;
 }
 
-NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint32_t parseType)
+NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint32_t parseType, bool bSecurity)
 {
 	uint64_t usLinkId = GetFreeUnLinkId();
 	if (usLinkId == 0)
@@ -377,10 +377,10 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint3
 		return nullptr;
 	}
 
-	return AddNetObject(usLinkId, conn, parseType);
+	return AddNetObject(usLinkId, conn, parseType, bSecurity);
 }
 
-NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCPConnPtr conn, uint32_t parseType)
+NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCPConnPtr conn, uint32_t parseType, bool bSecurity)
 {
 	if (mNetObjectArray.find(unLinkId) != mNetObjectArray.end())
 	{
@@ -655,7 +655,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& package)
     {
         mxSendBuffer.Clear();
         NFIPacketParse::EnCode(pObject->mPacketParseType, package, mxSendBuffer);
-        if (mSecurity)
+        if (pObject->IsSecurity())
         {
             Encryption(mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
         }

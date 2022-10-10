@@ -94,14 +94,14 @@ public:
 	 *
 	 * @return bool
 	 */
-	NetEvppObject* AddNetObject(const evpp::TCPConnPtr conn, uint32_t parseType);
+	NetEvppObject* AddNetObject(const evpp::TCPConnPtr conn, uint32_t parseType, bool bSecurity);
 
 	/**
 	 * @brief 添加网络对象
 	 *
 	 * @return bool
 	 */
-	NetEvppObject* AddNetObject(uint64_t unLinkId, const evpp::TCPConnPtr conn, uint32_t parseType);
+	NetEvppObject* AddNetObject(uint64_t unLinkId, const evpp::TCPConnPtr conn, uint32_t parseType, bool bSecurity);
 
 	/**
 	* @brief	初始化
@@ -136,7 +136,7 @@ public:
 	*
 	* @return 消息回调
 	*/
-	void MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse);
+	void MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse, bool bSecurity);
 
 	/**
 	* @brief	关闭客户端

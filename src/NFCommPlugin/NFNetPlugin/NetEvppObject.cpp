@@ -17,6 +17,7 @@ NetEvppObject::NetEvppObject(const evpp::TCPConnPtr& conn) : m_usLinkId(0), mNee
 	mPacketParseType = 0;
 	mLastHeartBeatTime = NFGetTime();
     m_port = 0;
+    mSecurity = false;
 }
 
 NetEvppObject::~NetEvppObject()

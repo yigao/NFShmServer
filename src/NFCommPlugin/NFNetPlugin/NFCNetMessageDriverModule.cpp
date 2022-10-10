@@ -168,6 +168,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 			flag.mStrIp = addr.mHost;
 			flag.nPort = addr.mPort;
 			flag.mPacketParseType = nPacketParseType;
+			flag.mSecurity = bSecurity;
 
 			NFINetMessage* pServer = mNetServerArray[eServerType];
 			if (!pServer)
@@ -180,7 +181,6 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
-				pServer->SetSecurity(bSecurity);
 			}
 
 
@@ -202,6 +202,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 			flag.mBusId = busid;
 			flag.mBusLength = addr.mPort;
 			flag.mPacketParseType = nPacketParseType;
+            flag.mSecurity = bSecurity;
 
 			NFINetMessage* pServer = mBusServerArray[eServerType];
 			if (!pServer)
@@ -209,7 +210,6 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 				pServer = NF_NEW NFCBusMessage(m_pObjPluginManager, eServerType);
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
-                pServer->SetSecurity(bSecurity);
 			}
 
 
@@ -251,6 +251,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 			flag.mPacketParseType = nPacketParseType;
 			flag.nWorkThreadNum = nNetThreadNum;
 			flag.mMaxConnectNum = nMaxConnectNum;
+			flag.mSecurity = bSecurity;
 			if (addr.mScheme == "http")
             {
 			    flag.bHttp = true;
@@ -264,13 +265,12 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 				pServer->SetEventCB(mEventCB);
 				pServer->SetHttpRecvCB(mHttpReceiveCB);
 				pServer->SetHttpFilterCB(mHttpFilter);
-				pServer->SetSecurity(bSecurity);
+                mNetServerArray[eServerType] = pServer;
 			}
 
 			int64_t linkId = pServer->BindServer(flag);
 			if (linkId >= 0)
 			{
-				mNetServerArray[eServerType] = pServer;
 				return linkId;
 			}
 
@@ -292,6 +292,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 			flag.mPacketParseType = nPacketParseType;
             flag.nWorkThreadNum = nNetThreadNum;
             flag.mMaxConnectNum = nMaxConnectNum;
+            flag.mSecurity = bSecurity;
 
 			NFINetMessage* pServer = mBusServerArray[eServerType];
 			if (!pServer)
@@ -300,13 +301,12 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
-                pServer->SetSecurity(bSecurity);
+                mBusServerArray[eServerType] = pServer;
 			}
 
 			int64_t linkId = pServer->BindServer(flag);
 			if (linkId >= 0)
 			{
-				mBusServerArray[eServerType] = pServer;
 				return linkId;
 			}
 

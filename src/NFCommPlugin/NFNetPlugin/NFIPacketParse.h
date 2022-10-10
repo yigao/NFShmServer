@@ -35,8 +35,8 @@ public:
     virtual int DecompressImpl(const char* inBuffer, int inLen, void *outBuffer, int outSize) { return -1; }
 
     // 使用 lzf 算法 压缩、解压
-    static int Compress(int32_t packetType, const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize);
-    static int Decompress(int32_t packetType, const char* inBuffer, int inLen, void *outBuffer, int outSize);
+    static int Compress(uint32_t packetType, const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize);
+    static int Decompress(uint32_t packetType, const char* inBuffer, int inLen, void *outBuffer, int outSize);
 
 	////////////////////////////////////////////////////////////
 	static NFIPacketParse* CreatePacketParse(int parseType = 0);

@@ -74,6 +74,8 @@ public:
 
 	virtual uint32_t GetPacketParseType() const { return mFlag.mPacketParseType; }
 
+    virtual bool IsSecurity() const { return mFlag.mSecurity; }
+
 	virtual uint32_t GetConnectionType() { return mConnectionType; }
 
 	virtual void SetConnectionType(uint32_t type) { mConnectionType = type; }

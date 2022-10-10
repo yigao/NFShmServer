@@ -45,7 +45,6 @@ public:
 	NFINetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFIModule(p), mServerType(serverType)
 	{
 		mNetObjectMaxIndex = 1;
-        mSecurity = false;
 		assert(serverType > NF_ST_NONE && serverType < NF_ST_MAX);
 	}
 
@@ -196,9 +195,6 @@ public:
                          int timeout = 3) { return -1; }
 
     virtual int ResumeConnect() { return 0; }
-
-    virtual bool IsSecurity() const { return mSecurity; }
-    virtual void SetSecurity(bool security) { mSecurity = security; }
 protected:
     /**
      * @brief	处理接受数据的回调
@@ -228,9 +224,4 @@ protected:
     * @brief	HTTP处理接受数据的回调
     */
     HTTP_FILTER_FUNCTOR mHttpFilter;
-
-    /**
-     * @brief jia mi, jie mi
-     */
-    bool mSecurity;
 };

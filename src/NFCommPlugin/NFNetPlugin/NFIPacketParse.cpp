@@ -36,7 +36,7 @@ NFIPacketParse* NFIPacketParse::CreatePacketParse(int parseType)
 
 int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
 {
-	if (packetType < 0 || packetType >= m_pPacketParse.size())
+	if (packetType >= m_pPacketParse.size())
 	{
 		return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->DeCodeImpl(strData, unLen, outData, outLen, allLen, recvPackage);
 	}
@@ -45,7 +45,7 @@ int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t un
 
 int NFIPacketParse::EnCode(uint32_t packetType, const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
-	if (packetType < 0 || packetType >= m_pPacketParse.size())
+	if (packetType >= m_pPacketParse.size())
 	{
 		return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->EnCodeImpl(recvPackage, buffer, nSendBusLinkId);
 	}
@@ -53,18 +53,18 @@ int NFIPacketParse::EnCode(uint32_t packetType, const NFDataPackage& recvPackage
 }
 
 // 使用 lzf 算法 压缩、解压
-int NFIPacketParse::Compress(int32_t packetType, const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize)
+int NFIPacketParse::Compress(uint32_t packetType, const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize)
 {
-    if (packetType < 0 || packetType >= m_pPacketParse.size())
+    if (packetType >= (int32_t)m_pPacketParse.size())
     {
         return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->CompressImpl(inBuffer, inLen, outBuffer, outSize);
     }
     return m_pPacketParse[packetType]->CompressImpl(inBuffer, inLen, outBuffer, outSize);
 }
 
-int NFIPacketParse::Decompress(int32_t packetType, const char* inBuffer, int inLen, void *outBuffer, int outSize)
+int NFIPacketParse::Decompress(uint32_t packetType, const char* inBuffer, int inLen, void *outBuffer, int outSize)
 {
-    if (packetType < 0 || packetType >= m_pPacketParse.size())
+    if (packetType >= m_pPacketParse.size())
     {
         return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->DecompressImpl(inBuffer, inLen, outBuffer, outSize);
     }

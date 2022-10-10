@@ -61,6 +61,7 @@ struct NFMessageFlag
 	std::string mBusName;
 	bool bHttp;
 	bool bActivityConnect;
+    bool mSecurity;
 	NFMessageFlag()
 	{
         mLinkId = 0;
@@ -73,5 +74,6 @@ struct NFMessageFlag
 		mBusLength = 0;
 		bHttp = false;
         bActivityConnect = true;
+        mSecurity = false;
 	}
 };
