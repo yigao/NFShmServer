@@ -406,6 +406,7 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCP
 	}
 
 	pObject->SetPacketParseType(parseType);
+	pObject->SetSecurity(bSecurity);
 
 	return pObject;
 }

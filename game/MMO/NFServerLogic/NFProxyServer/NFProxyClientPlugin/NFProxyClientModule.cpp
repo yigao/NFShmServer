@@ -37,9 +37,9 @@ bool NFCProxyClientModule::Awake()
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     //////来自客户端的协议////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_LOGIC_PING, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::CLIENT_TO_LOGIC_PING, this,
                                                        &NFCProxyClientModule::OnHandleClientHeartBeat);
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
                                                        &NFCProxyClientModule::OnHandleClientCenterLogin);
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
@@ -56,7 +56,7 @@ bool NFCProxyClientModule::Awake()
         }
 
         std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->ExternalServerIp, pConfig->ExternalServerPort);
-        int64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER_FOR_CLIENT, externUrl, pConfig->NetThreadNum,
+        int64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum,
                                                                              pConfig->MaxConnectNum,
                                                                              pConfig->ParseType, pConfig->Security);
         if (extern_unlinkId >= 0)
@@ -65,9 +65,9 @@ bool NFCProxyClientModule::Awake()
             注册服务器事件
             */
             m_proxyClientLinkId = (uint64_t) extern_unlinkId;
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, m_proxyClientLinkId, this,
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, m_proxyClientLinkId, this,
                                                              &NFCProxyClientModule::OnProxyClientSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER_FOR_CLIENT, m_proxyClientLinkId, this,
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyClientLinkId, this,
                                                              &NFCProxyClientModule::OnHandleProxyClientOtherMessage);
             NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy client listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ExternalServerIp, pConfig->ExternalServerPort);

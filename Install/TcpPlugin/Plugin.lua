@@ -37,30 +37,30 @@ LoadPlugin =
 			--"NFCommLogicPlugin",
 
 			"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
-			"NFRouteAgentServerPlugin",
+			--"NFRouteServerPlugin",
+			--"NFRouteAgentServerPlugin",
 
-			"NFStoreServerPlugin",
+			--"NFStoreServerPlugin",
 
 			"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
-			"NFProxyAgentServerPlugin",
+			"NFProxyClientPlugin",
+			--"NFProxyAgentServerPlugin",
 
-			"NFLoginServerPlugin",
+			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			"NFGameServerPlugin",
+			--"NFGameServerPlugin",
 
-			"NFWorldServerPlugin",
+			--"NFWorldServerPlugin",
 			--"NFWorldServerPlayerPlugin",
 
-			"NFSnsServerPlugin",
+			--"NFSnsServerPlugin",
 			--"NFSnsServerPlayerPlugin",
 
-			"NFLogicServerPlugin",
+			--"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
-			"NFWebServerPlugin",
+			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",
@@ -103,7 +103,7 @@ LoadPlugin =
 			"NFServerCommonPlugin",
 
 			"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
+			"NFProxyClientPlugin",
 		};
 		ServerType = NF_ST_PROXY_SERVER;
 	},

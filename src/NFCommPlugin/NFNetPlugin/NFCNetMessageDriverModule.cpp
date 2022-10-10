@@ -178,14 +178,13 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 #else
 
 #endif
-
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
+                mNetServerArray[eServerType] = pServer;
 			}
 
 
 			uint64_t linkId = pServer->ConnectServer(flag);
-			mNetServerArray[eServerType] = pServer;
 			return (int64_t)linkId;
 		}
 		else if (addr.mScheme == "bus")
@@ -210,11 +209,10 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 				pServer = NF_NEW NFCBusMessage(m_pObjPluginManager, eServerType);
 				pServer->SetRecvCB(mRecvCB);
 				pServer->SetEventCB(mEventCB);
+                mBusServerArray[eServerType] = pServer;
 			}
 
-
 			uint64_t linkId = pServer->ConnectServer(flag);
-			mBusServerArray[eServerType] = pServer;
 			return (int64_t)linkId;
 		}
 

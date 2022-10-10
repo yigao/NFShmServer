@@ -11,8 +11,8 @@ CLIENT_TO_CENTER_DEL_CHARACTER = 21;       --É¾½ÇÉ«ÇëÇó
 
 ProxyServer = {
     PacketMsg = {
-        {cmd = CLIENT_TO_CENTER_LOGIN, serverType = NF_ST_WORLD_SERVER, upper_limit = 100, min_interval = 0,  control_time = 10000}
-        {cmd = CLIENT_TO_CENTER_CREATE_CHARACTER, serverType = NF_ST_WORLD_SERVER, upper_limit = 100, min_interval = 0,  control_time = 10000}
+        {cmd = CLIENT_TO_CENTER_LOGIN, serverType = NF_ST_WORLD_SERVER, upper_limit = 100, min_interval = 0,  control_time = 10000},
+        {cmd = CLIENT_TO_CENTER_CREATE_CHARACTER, serverType = NF_ST_WORLD_SERVER, upper_limit = 100, min_interval = 0,  control_time = 10000},
         {cmd = CLIENT_TO_CENTER_DEL_CHARACTER, serverType = NF_ST_WORLD_SERVER, upper_limit = 100, min_interval = 0,  control_time = 10000}
     },
 };
