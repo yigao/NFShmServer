@@ -10,8 +10,9 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFCore/NFSingleton.hpp"
 
-class NFRawAllocator
+class NFRawAllocator : public NFSingleton<NFRawAllocator>
 {
 public:
     NFRawAllocator();
