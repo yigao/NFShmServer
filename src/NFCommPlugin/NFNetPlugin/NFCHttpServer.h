@@ -13,7 +13,7 @@
 #include "evpp/http/http_server.h"
 #include <list>
 #include <map>
-#include "NFComm/NFCore/NFQueue.hpp"
+#include "NFComm/NFCore/NFConcurrentQueue.h"
 
 class NFServerHttpHandle : public NFIHttpHandle {
 public:
@@ -154,7 +154,7 @@ private:
     uint32_t mServerType;
     std::vector<uint32_t> mVecPort;
 
-    NFQueueVector<NFEvppHttMsg *> mMsgQueue;
+    NFConcurrentQueue<NFEvppHttMsg *> mMsgQueue;
 
     uint64_t mIndex;
     std::map<uint64_t, NFServerHttpHandle *> mHttpRequestMap;

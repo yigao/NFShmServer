@@ -12,17 +12,20 @@
 #include "evpp/httpc/response.h"
 #include "NFComm/NFCore/NFCommon.h"
 
-NFCHttpClient::NFCHttpClient() {
+NFCHttpClient::NFCHttpClient()
+{
     m_threadLoop.Start();
     m_staticReqId = 10000;
 }
 
-NFCHttpClient::~NFCHttpClient() {
+NFCHttpClient::~NFCHttpClient()
+{
     m_threadLoop.Stop(true);
 }
 
 void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Response> &response,
-                                          evpp::httpc::GetRequest *request) {
+                                          evpp::httpc::GetRequest *request)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "HttpRespone url:http://{}{} code:{} body:{}", request->host(), request->uri(),
                response->http_code(), response->body().ToString());
     NF_ASSERT(request == response->request());
@@ -31,13 +34,14 @@ void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Res
     pMsg->code = response->http_code();
     pMsg->body = response->body().ToString();
     pMsg->reqid = request->GetId();
-    mMsgQueue.Push(pMsg);
+    while (!mMsgQueue.Enqueue(pMsg)) {}
 
     NF_SAFE_DELETE(request); // The request MUST BE deleted in EventLoop thread.
 }
 
 int NFCHttpClient::HttpGet(const string &strUri, const HTTP_CLIENT_RESPONE &respone,
-                           const map<std::string, std::string> &xHeaders, int timeout) {
+                           const map<std::string, std::string> &xHeaders, int timeout)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "HttpGet uri:{} headers:{}", strUri, NFCommon::tostr(xHeaders));
 
     evpp::httpc::GetRequest *req = new evpp::httpc::GetRequest(m_threadLoop.loop());
@@ -48,7 +52,7 @@ int NFCHttpClient::HttpGet(const string &strUri, const HTTP_CLIENT_RESPONE &resp
 
     req->SetId(m_staticReqId++);
 
-    for(auto iter = xHeaders.begin(); iter != xHeaders.end(); iter++)
+    for (auto iter = xHeaders.begin(); iter != xHeaders.end(); iter++)
     {
         req->AddHeader(iter->first, iter->second);
     }
@@ -61,7 +65,8 @@ int NFCHttpClient::HttpGet(const string &strUri, const HTTP_CLIENT_RESPONE &resp
 }
 
 int NFCHttpClient::HttpPost(const string &strUri, const string &strPostData, const HTTP_CLIENT_RESPONE &respone,
-                            const map<std::string, std::string> &xHeaders, int timeout) {
+                            const map<std::string, std::string> &xHeaders, int timeout)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "HttpPost uri:{} headers:{}", strUri, NFCommon::tostr(xHeaders));
 
     evpp::httpc::PostRequest *req = new evpp::httpc::PostRequest(m_threadLoop.loop());
@@ -72,7 +77,7 @@ int NFCHttpClient::HttpPost(const string &strUri, const string &strPostData, con
 
     req->SetId(m_staticReqId++);
 
-    for(auto iter = xHeaders.begin(); iter != xHeaders.end(); iter++)
+    for (auto iter = xHeaders.begin(); iter != xHeaders.end(); iter++)
     {
         req->AddHeader(iter->first, iter->second);
     }
@@ -85,7 +90,8 @@ int NFCHttpClient::HttpPost(const string &strUri, const string &strPostData, con
 }
 
 void NFCHttpClient::HandleHTTPPostResponse(const shared_ptr<evpp::httpc::Response> &response,
-                                           evpp::httpc::PostRequest *request) {
+                                           evpp::httpc::PostRequest *request)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "HttpRespone url:http://{}{} code:{} body:{}", request->host(), request->uri(),
                response->http_code(), response->body().ToString());
     NF_ASSERT(request == response->request());
@@ -94,36 +100,47 @@ void NFCHttpClient::HandleHTTPPostResponse(const shared_ptr<evpp::httpc::Respons
     pMsg->code = response->http_code();
     pMsg->body = response->body().ToString();
     pMsg->reqid = request->GetId();
-    mMsgQueue.Push(pMsg);
+    while (!mMsgQueue.Enqueue(pMsg)) {}
 
     NF_SAFE_DELETE(request); // The request MUST BE deleted in EventLoop thread.
 }
 
-bool NFCHttpClient::Execute() {
-    std::vector<NFHttpClientMsg*> vecMsg;
-    mMsgQueue.Pop(vecMsg);
-    for(int i = 0; i < (int)vecMsg.size(); i++)
+void NFCHttpClient::ProcessMsgLogicThread()
+{
+    int max_times = 10000;
+    while (!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
-        NFHttpClientMsg* pMsg = vecMsg[i];
-        if (pMsg)
+        std::vector<NFHttpClientMsg *> vecMsg;
+        vecMsg.resize(200);
+        mMsgQueue.TryDequeueBulk(vecMsg);
+        for (int i = 0; i < (int) vecMsg.size(); i++)
         {
-            auto iter = m_httpClientMap.find(pMsg->reqid);
-            if (iter != m_httpClientMap.end())
+            NFHttpClientMsg *pMsg = vecMsg[i];
+            if (pMsg)
             {
-                NFCHttpClientParam* pParam = iter->second;
-                if (pParam)
+                auto iter = m_httpClientMap.find(pMsg->reqid);
+                if (iter != m_httpClientMap.end())
                 {
-                   pParam->m_resp(pMsg->code, pMsg->body);
+                    NFCHttpClientParam *pParam = iter->second;
+                    if (pParam)
+                    {
+                        pParam->m_resp(pMsg->code, pMsg->body);
+                    }
+                    m_httpClientMap.erase(iter);
                 }
-                m_httpClientMap.erase(iter);
             }
+            NF_SAFE_DELETE(pMsg);
         }
-        NF_SAFE_DELETE(pMsg);
     }
+}
 
-    for(auto iter = m_httpClientMap.begin(); iter != m_httpClientMap.end(); )
+bool NFCHttpClient::Execute()
+{
+    ProcessMsgLogicThread();
+
+    for (auto iter = m_httpClientMap.begin(); iter != m_httpClientMap.end();)
     {
-        NFCHttpClientParam* pParam = iter->second;
+        NFCHttpClientParam *pParam = iter->second;
         if (pParam)
         {
             if (!pParam->IsTimeOut())

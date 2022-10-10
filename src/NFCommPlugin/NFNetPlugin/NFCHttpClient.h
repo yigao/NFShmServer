@@ -12,7 +12,7 @@
 #include <evpp/event_loop_thread.h>
 #include <evpp/httpc/request.h>
 #include <unordered_map>
-#include "NFComm/NFCore/NFQueue.hpp"
+#include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "evpp/httpc/request.h"
 #include "NFComm/NFCore/NFTime.h"
@@ -58,6 +58,8 @@ public:
     virtual ~NFCHttpClient();
 
     bool Execute();
+
+    void ProcessMsgLogicThread();
 public:
     void
     HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Response> &response, evpp::httpc::GetRequest *request);
@@ -77,6 +79,6 @@ public:
 private:
     std::unordered_map<int, NFCHttpClientParam *> m_httpClientMap;
     evpp::EventLoopThread m_threadLoop;
-    NFQueueVector<NFHttpClientMsg *> mMsgQueue;
+    NFConcurrentQueue<NFHttpClientMsg *> mMsgQueue;
     int m_staticReqId;
 };

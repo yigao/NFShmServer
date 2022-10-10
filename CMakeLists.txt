@@ -10,7 +10,8 @@ if( CMAKE_BUILD_TYPE STREQUAL "Release" )
 			-DNDEBUG
 			-Wcomment
 			-DNF_STATIC_PLUGIN
-			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp ssl
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp http client ssl
+			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-DLUA_COMPAT_5_1
 			-fPIC
@@ -23,7 +24,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 			-D_DEBUG
 			-Wcomment
 			-DNF_STATIC_PLUGIN
-			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp ssl
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp http client ssl
+			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-DLUA_COMPAT_5_1
 			-fPIC
@@ -37,7 +39,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 			-Wcomment
 			-DLUA_COMPAT_5_1
 			-DNF_DYNAMIC_PLUGIN
-			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp ssl
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp http client ssl
+			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-fPIC
 	)
@@ -51,7 +54,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 			-Wcomment
 			-DLUA_COMPAT_5_1
 			-DNF_DYNAMIC_PLUGIN
-			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp ssl
+			-DEVPP_HTTP_CLIENT_SUPPORTS_SSL			#evpp http client ssl
+			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-fPIC
 	)
