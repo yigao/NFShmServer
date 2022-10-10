@@ -253,20 +253,26 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 
                 if (msgInfo.mPacket.bCompress)
                 {
-                    NFBuffer comBuffer;
-                    comBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
+                    if (conn->loop()->context().IsEmpty())
+                    {
+                        NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+                        pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
+                        conn->loop()->set_context(evpp::Any(pComBuffer));
+                    }
 
-                    int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)comBuffer.WriteAddr(), (int)comBuffer.WritableSize());
+                    NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context());
+
+                    int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)pComBuffer->WriteAddr(), (int)pComBuffer->WritableSize());
                     if (decompressLen < 0)
                     {
                         NFLogError(NF_LOG_RECV_MSG,0,"recv msg:{}, decompress failed!", msgInfo.mPacket.ToString());
                         msg->Skip(allLen);
                         continue;
                     }
-                    comBuffer.Produce(decompressLen);
+                    pComBuffer->Produce(decompressLen);
 
                     msgInfo.nType = eMsgType_RECIVEDATA;
-                    msgInfo.mPacket.mStrMsg = std::string(comBuffer.ReadAddr(), comBuffer.ReadableSize());
+                    msgInfo.mPacket.mStrMsg = std::string(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
                     while(!mMsgQueue.Enqueue(msgInfo)) {}
                 }
                 else {
