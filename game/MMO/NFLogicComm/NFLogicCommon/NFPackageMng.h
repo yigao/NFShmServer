@@ -12,7 +12,7 @@
 
 #include <common_logic.pb.h>
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFServerLogicMessage/ClientToServerCmd.pb.h"
+#include "NFServerLogicMessage/ClientServerCmd.pb.h"
 
 
 enum PKG_RATE_ERROR

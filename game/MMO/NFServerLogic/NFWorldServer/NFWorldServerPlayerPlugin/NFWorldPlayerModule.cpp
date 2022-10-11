@@ -7,10 +7,11 @@
 //
 // -------------------------------------------------------------------------
 
-#include <ClientToServerCmd.pb.h>
-#include <CommonMsg.pb.h>
-#include <ClientToServer.pb.h>
-#include <ServerToClient.pb.h>
+#include <ClientServerCmd.pb.h>
+#include <Com.pb.h>
+#include <ComDefine.pb.h>
+#include <ClientServer.pb.h>
+#include <ServerClient.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include <NFComm/NFCore/NFServerIDUtil.h>
 #include "NFWorldPlayerModule.h"
