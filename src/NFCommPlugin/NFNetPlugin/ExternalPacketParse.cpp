@@ -143,12 +143,12 @@ int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	ExternalMsg packHead;
 	packHead.SetModule(0);
 	packHead.SetCmd(recvPackage.nMsgId);
-	packHead.SetLength(recvPackage.mBufferMsg.WritableSize() + sizeof(ExternalMsg));
+	packHead.SetLength(recvPackage.mBufferMsg.ReadableSize() + sizeof(ExternalMsg));
 
 	buffer.PushData(&packHead, sizeof(ExternalMsg));
-	buffer.PushData(recvPackage.mBufferMsg.WriteAddr(), recvPackage.mBufferMsg.WritableSize());
+	buffer.PushData(recvPackage.mBufferMsg.ReadAddr(), recvPackage.mBufferMsg.ReadableSize());
 
-	return recvPackage.mBufferMsg.WritableSize() + sizeof(ExternalMsg);
+	return recvPackage.mBufferMsg.ReadableSize() + sizeof(ExternalMsg);
 }
 
 // 使用 lzf 算法 压缩、解压

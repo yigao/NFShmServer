@@ -39,14 +39,14 @@
 #define GetServerIndexFromUnlinkId(UnlinkId)    (((uint64_t)UnlinkId) & MAX_CLIENT_MASK);
 
 #define CLIENT_MSG_PROCESS_NO_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.WriteAddr(), xPacket.mBufferMsg.WritableSize()))                \
+    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.ReadAddr(), xPacket.mBufferMsg.ReadableSize()))                \
     {                                                    \
         NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
         return -1;                                        \
     }
 
 #define CLIENT_MSG_PROCESS_WITH_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.WriteAddr(), xPacket.mBufferMsg.WritableSize()))                \
+    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.ReadAddr(), xPacket.mBufferMsg.ReadableSize()))                \
     {                                                    \
         NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
         return -1;                                        \

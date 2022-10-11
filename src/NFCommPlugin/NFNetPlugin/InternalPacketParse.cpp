@@ -135,7 +135,7 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	InternalMsg packHead;
     packHead.SetModule(recvPackage.mModuleId);
     packHead.SetCmd(recvPackage.nMsgId);
-    packHead.SetLength(recvPackage.mBufferMsg.WritableSize());
+    packHead.SetLength(recvPackage.mBufferMsg.ReadableSize());
 	packHead.nParam1 = recvPackage.nParam1;
 	packHead.nParam2 = recvPackage.nParam2;
 	packHead.nSrcId = recvPackage.nSrcId;
@@ -143,7 +143,7 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	packHead.ulSendBusLinkId = nSendBusLinkId;
 
 	buffer.PushData(&packHead, sizeof(InternalMsg));
-	buffer.PushData(recvPackage.mBufferMsg.WriteAddr(), recvPackage.mBufferMsg.WritableSize());
+	buffer.PushData(recvPackage.mBufferMsg.ReadAddr(), recvPackage.mBufferMsg.ReadableSize());
 
 	return packHead.mLength;
 }
