@@ -3,7 +3,7 @@ package proto_ff;
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 import "common_logic.proto";
-import "common_msg.proto";
+import "ComDefine.proto";
 
 message PingRsp
 {
@@ -29,6 +29,6 @@ message NotifyLogoutGame
     required uint32 scene_template_id = 3;       // 跨服目标场景，模板ID就可以
   }
 
-  required LOGOUT_FLAG flag               = 1;
+  required LOGOUT_TYPE flag               = 1;
   optional SwitchServerParam switch_server_param = 2; // 当flag==LOGOUT_FLAG_SWITCH_SERVER时候有效
 };
