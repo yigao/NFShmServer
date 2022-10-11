@@ -34,7 +34,7 @@ NFIPacketParse* NFIPacketParse::CreatePacketParse(int parseType)
 	}
 }
 
-int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
+int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage)
 {
 	if (packetType >= m_pPacketParse.size())
 	{

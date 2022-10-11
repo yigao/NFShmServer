@@ -51,7 +51,25 @@
             }\
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }                                \
+            assert_i(expr);\
+            return;\
+        }\
+    }while(0)
+#endif//CHECK_EXPR_NOT_RET
+
+#ifndef CHECK_EXPR_MSG
+#define CHECK_EXPR_MSG(expr, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
             }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }                                \
         }\
     }while(0)
 #endif//CHECK_EXPR_NOT_RET
@@ -70,6 +88,24 @@
             }\
 			NF_ASSERT(expr);\
 			return ret;\
+        }\
+    }while(0)
+#endif//CHECK_EXPR
+
+#ifndef CHECK_EXPR_ASSERT_NOT_RET
+#define CHECK_EXPR_ASSERT_NOT_RET(expr, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_ASSERT(expr);\
+			return;\
         }\
     }while(0)
 #endif//CHECK_EXPR

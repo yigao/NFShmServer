@@ -89,15 +89,15 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet);
+    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet);
 
 	virtual void OnHandleMsgQueue();
 
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet);
 
     virtual int ResumeConnect() override;
 private:
     NFMapEx<uint64_t, NFIBusConnection> m_busConnectMap;
     NF_SHARE_PTR<NFIBusConnection> m_bindConnect;
-    NFConcurrentQueue<MsgFromBusInfo> m_msgQueue;
+    NFConcurrentQueue<MsgFromBusInfo*> m_msgQueue;
 };

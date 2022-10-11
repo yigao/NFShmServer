@@ -14,14 +14,14 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFSlice.hpp"
-#include "NFComm/NFCore/NFSimpleBuffer.h"
+#include "NFComm/NFCore/NFBuffer.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
 #define WG_INT_MAX32 0x7FFFFFFFL
 
 enum NF_SERVER_TYPES
 {
-    NF_ST_NONE = 0,    		// NONE
+    NF_ST_NONE = 0,            // NONE
     NF_ST_MASTER_SERVER = 1,
     NF_ST_ROUTE_SERVER = 2, //路由集群服务器 负责不同机子服务器数据之间的转发
     NF_ST_ROUTE_AGENT_SERVER = 3, //路由代理服务器  负责同一台机子服务器数据之间的转发
@@ -38,24 +38,27 @@ enum NF_SERVER_TYPES
     NF_ST_MAX = 20,
 };
 
-enum NF_MODULE_TYPE {
+enum NF_MODULE_TYPE
+{
     NF_MODULE_NONE = 0,
 };
 
 enum PacketParseType
 {
-	PACKET_PARSE_TYPE_INTERNAL = 0,		//内网协议
-	PACKET_PARSE_TYPE_EXTERNAL = 1,		//默认外部协议
-	PACKET_PARSE_TYPE_OLD_EXTERNAL = 2,		//老的外部协议
+    PACKET_PARSE_TYPE_INTERNAL = 0,        //内网协议
+    PACKET_PARSE_TYPE_EXTERNAL = 1,        //默认外部协议
+    PACKET_PARSE_TYPE_OLD_EXTERNAL = 2,        //老的外部协议
 };
 
-enum {
+enum
+{
     APP_INIT_STATUS_SERVER_CONNECT = 0,
     APP_INIT_STATUS_SERVER_LOAD_DESC_STORE = 1,
     APP_INIT_STATUS_SERVER_LOAD_OBJ_FROM_DB = 2,
 };
 
-enum {
+enum
+{
     APP_INIT_NONE,
     //
     APP_INIT_CONNECT_MASTER,
@@ -111,29 +114,36 @@ std::string GetServerName(NF_SERVER_TYPES serverId);
 
 enum eMsgType
 {
-	eMsgType_Num = 0,
-	eMsgType_CONNECTED = 1,
-	eMsgType_DISCONNECTED = 2,
-	eMsgType_RECIVEDATA = 3,
+    eMsgType_Num = 0,
+    eMsgType_CONNECTED = 1,
+    eMsgType_DISCONNECTED = 2,
+    eMsgType_RECIVEDATA = 3,
 };
 
 enum eAccountEventType
 {
-	eAccountEventType_Num = 0,
-	eAccountEventType_CONNECTED = 1,
-	eAccountEventType_DISCONNECTED = 2,
-	eAccountEventType_RECONNECTED = 3,
+    eAccountEventType_Num = 0,
+    eAccountEventType_CONNECTED = 1,
+    eAccountEventType_DISCONNECTED = 2,
+    eAccountEventType_RECONNECTED = 3,
 };
 
 const uint32_t s_compressBitPos = 15;
 
-struct NFDataPackage
+struct NFBaseDataPackage
 {
-    NFDataPackage(): mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bCompress(false) {
+    NFBaseDataPackage() : mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bCompress(false)
+    {
 
     }
 
-    NFDataPackage(const NFDataPackage& packet) {
+    virtual ~NFBaseDataPackage()
+    {
+
+    }
+
+    NFBaseDataPackage(const NFBaseDataPackage &packet)
+    {
         mModuleId = packet.mModuleId;
         nMsgId = packet.nMsgId;
         nParam1 = packet.nParam1;
@@ -142,11 +152,23 @@ struct NFDataPackage
         nDstId = packet.nDstId;
         nSendBusLinkId = packet.nSendBusLinkId;
         bCompress = packet.bCompress;
-        mStrMsg = packet.mStrMsg;
     }
 
-    std::string ToString() const {
+    virtual std::string ToString() const
+    {
         return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{})", mModuleId, nMsgId, nParam1, nParam2);
+    }
+
+    virtual void Clear()
+    {
+        mModuleId = 0;
+        nMsgId = 0;
+        nParam1 = 0;
+        nParam2 = 0;
+        nSrcId = 0;
+        nDstId = 0;
+        nSendBusLinkId = 0;
+        bCompress = false;
     }
 
     uint32_t mModuleId;
@@ -157,12 +179,63 @@ struct NFDataPackage
     uint64_t nDstId;
     uint64_t nSendBusLinkId;
     bool bCompress;
-    std::string mStrMsg;
 };
 
-typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
 
-typedef std::function<int(uint64_t unLinkId, NFDataPackage& packet)> NET_RECEIVE_FUNCTOR;
+struct NFDataPackage : public NFBaseDataPackage
+{
+    NFDataPackage()
+    {
+
+    }
+
+    virtual ~NFDataPackage()
+    {
+
+    }
+
+    NFDataPackage &operator=(const NFBaseDataPackage &packet)
+    {
+        if (this != &packet)
+        {
+            Copy(packet);
+        }
+        return *this;
+    }
+
+    void Copy(const NFBaseDataPackage &packet)
+    {
+        mModuleId = packet.mModuleId;
+        nMsgId = packet.nMsgId;
+        nParam1 = packet.nParam1;
+        nParam2 = packet.nParam2;
+        nSrcId = packet.nSrcId;
+        nDstId = packet.nDstId;
+        nSendBusLinkId = packet.nSendBusLinkId;
+        bCompress = packet.bCompress;
+    }
+
+    virtual std::string ToString() const override
+    {
+        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{})", mModuleId, nMsgId, nParam1, nParam2);
+    }
+
+    virtual void Clear() override
+    {
+        NFBaseDataPackage::Clear();
+        mBufferMsg.Clear();
+    }
+
+    NFBuffer mBufferMsg;
+private:
+    NFDataPackage(const NFDataPackage &);
+
+    void operator=(const NFDataPackage &);
+};
+
+typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
+
+typedef std::function<int(uint64_t unLinkId, NFDataPackage &packet)> NET_RECEIVE_FUNCTOR;
 
 typedef std::function<int(eMsgType nEvent, uint64_t unLinkId)> NET_EVENT_FUNCTOR;
 
@@ -170,7 +243,7 @@ typedef std::function<int(eMsgType nEvent, uint64_t conntionLinkId, uint64_t obj
 
 typedef std::function<void(int iRet, google::protobuf::Message &message)> RPC_TRANS_DESC_STORE_CB;
 
-typedef std::function<int(uint64_t userId, const google::protobuf::Message* message)> LOG_BEHAVIOR_CALLBAK_FUNCTOR;
+typedef std::function<int(uint64_t userId, const google::protobuf::Message *message)> LOG_BEHAVIOR_CALLBAK_FUNCTOR;
 
 /**
 * @brief log打印配置
@@ -184,30 +257,30 @@ typedef std::function<int(uint64_t userId, const google::protobuf::Message* mess
 class LogInfoConfig
 {
 public:
-	LogInfoConfig()
-	{
-		mLogId = 0;
-		mDisplay = false;
-		mLevel = 0;
-	}
+    LogInfoConfig()
+    {
+        mLogId = 0;
+        mDisplay = false;
+        mLevel = 0;
+    }
 
-	bool Exist(uint64_t guid)
-	{
-		for (size_t i = 0; i < mVecGuid.size(); i++)
-		{
-			if (mVecGuid[i] == guid)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+    bool Exist(uint64_t guid)
+    {
+        for (size_t i = 0; i < mVecGuid.size(); i++)
+        {
+            if (mVecGuid[i] == guid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	uint32_t mLogId;
-	bool mDisplay;
-	uint32_t mLevel;
-	std::string mLogName;
-	std::vector<uint64_t> mVecGuid;
+    uint32_t mLogId;
+    bool mDisplay;
+    uint32_t mLevel;
+    std::string mLogName;
+    std::vector<uint64_t> mVecGuid;
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -235,10 +308,11 @@ typedef struct tagUidAndIndex
 {
     uint64_t m_ullUid;
     int32_t m_iIdx;
-}TUidAndIndex;
+} TUidAndIndex;
 
-int UidCompare( const TUidAndIndex *pstLeft, const TUidAndIndex *pstRight );
-int UidHash( const TUidAndIndex *pstKey );
+int UidCompare(const TUidAndIndex *pstLeft, const TUidAndIndex *pstRight);
+
+int UidHash(const TUidAndIndex *pstKey);
 
 struct TUid2Uid
 {
@@ -246,17 +320,19 @@ struct TUid2Uid
     uint64_t m_ullTargetUid;
 };
 
-int Uid2Compare( const TUid2Uid *pstLeft, const TUid2Uid *pstRight );
-int Uid2Hash( const TUid2Uid *pstKey );
+int Uid2Compare(const TUid2Uid *pstLeft, const TUid2Uid *pstRight);
+
+int Uid2Hash(const TUid2Uid *pstKey);
 
 const int MAX_NAME_STR_LEN = 32;
 typedef struct tagStrAndID
 {
     char m_szName[MAX_NAME_STR_LEN];
     int m_iID;
-}TStrAndID;
+} TStrAndID;
 
-int StrCompare( const TStrAndID *pstLeft, const TStrAndID *pstRight );
-int StrHash( const TStrAndID *pstKey );
+int StrCompare(const TStrAndID *pstLeft, const TStrAndID *pstRight);
+
+int StrHash(const TStrAndID *pstKey);
 
 

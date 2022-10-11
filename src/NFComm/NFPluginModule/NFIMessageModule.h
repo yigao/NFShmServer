@@ -39,14 +39,14 @@
 #define GetServerIndexFromUnlinkId(UnlinkId)    (((uint64_t)UnlinkId) & MAX_CLIENT_MASK);
 
 #define CLIENT_MSG_PROCESS_NO_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.mStrMsg.data(), xPacket.mStrMsg.length()))                \
+    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.WriteAddr(), xPacket.mBufferMsg.WritableSize()))                \
     {                                                    \
         NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
         return -1;                                        \
     }
 
 #define CLIENT_MSG_PROCESS_WITH_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.mStrMsg.data(), xPacket.mStrMsg.length()))                \
+    if (!xMsg.ParseFromArray(xPacket.mBufferMsg.WriteAddr(), xPacket.mBufferMsg.WritableSize()))                \
     {                                                    \
         NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
         return -1;                                        \
@@ -214,7 +214,7 @@ public:
 
     virtual void CloseServer(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServer, uint32_t busId, uint64_t usLinkId) = 0;
 
-    virtual void Send(uint64_t usLinkId, NFDataPackage &packet) = 0;
+    virtual void Send(uint64_t usLinkId, NFDataPackage& packet) = 0;
 
     virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string &strData, uint64_t param1 = 0, uint64_t param2 = 0,
                       uint64_t srcId = 0, uint64_t dstId = 0) = 0;

@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 #include <NFComm/NFCore/NFCommon.h>
+#include <NFComm/NFPluginModule/NFCheck.h>
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
@@ -53,7 +54,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
     int max_times = 10000;
     while(!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
-        std::vector<MsgFromNetInfo> vecMsg;
+        std::vector<MsgFromNetInfo*> vecMsg;
         vecMsg.resize(200);
 
         mMsgQueue.TryDequeueBulk(vecMsg);
@@ -61,7 +62,8 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
         for (size_t index = 0; index < vecMsg.size(); index++)
         {
             max_times--;
-            MsgFromNetInfo* pMsg = &vecMsg[index];
+            MsgFromNetInfo* pMsg = vecMsg[index];
+            CHECK_EXPR_CONTINUE(pMsg, "pMsg == NULL");
 
             if (pMsg->nType == eMsgType_CONNECTED)
             {
@@ -187,6 +189,9 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "net server  error");
             }
+
+            pMsg->Clear();
+            NFNetInfoPool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
         }
     }
 }
@@ -201,15 +206,21 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 	if (conn->IsConnected())
 	{
 		conn->SetTCPNoDelay(true);
-		MsgFromNetInfo msg(conn, linkId);
-		msg.nType = eMsgType_CONNECTED;
-		while(!mMsgQueue.Enqueue(msg)) {}
+        MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(0);
+        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+        pMsg->mTCPConPtr = conn;
+        pMsg->nLinkId = linkId;
+        pMsg->nType = eMsgType_CONNECTED;
+		while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 	else
 	{
-        MsgFromNetInfo msg(conn, linkId);
-		msg.nType = eMsgType_DISCONNECTED;
-        while(!mMsgQueue.Enqueue(msg)) {}
+        MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(0);
+        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+        pMsg->mTCPConPtr = conn;
+        pMsg->nLinkId = linkId;
+        pMsg->nType = eMsgType_DISCONNECTED;
+        while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 }
 
@@ -227,12 +238,12 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
             char* outData = nullptr;
             uint32_t outLen = 0;
             uint32_t allLen = 0;
-            MsgFromNetInfo msgInfo(conn, linkId);
             if (bSecurity)
             {
                 Decryption((char*)msg->data(), msg->size());
             }
-            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, msgInfo.mPacket);
+            NFBaseDataPackage packet;
+            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, packet);
 			if (ret < 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed!");
@@ -245,13 +256,13 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!(msgInfo.mPacket.mModuleId == 0 && (msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
-                || msgInfo.mPacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || msgInfo.mPacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
-                    NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", msgInfo.mPacket.ToString());
+                    NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", packet.ToString());
                 }
 
-                if (msgInfo.mPacket.bCompress)
+                if (packet.bCompress)
                 {
                     if (conn->loop()->context().IsEmpty())
                     {
@@ -261,24 +272,35 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
 
                     NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context());
+                    pComBuffer->Clear();
 
                     int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)pComBuffer->WriteAddr(), (int)pComBuffer->WritableSize());
                     if (decompressLen < 0)
                     {
-                        NFLogError(NF_LOG_RECV_MSG,0,"recv msg:{}, decompress failed!", msgInfo.mPacket.ToString());
+                        NFLogError(NF_LOG_RECV_MSG,0,"recv msg:{}, decompress failed!", packet.ToString());
                         msg->Skip(allLen);
                         continue;
                     }
                     pComBuffer->Produce(decompressLen);
 
-                    msgInfo.nType = eMsgType_RECIVEDATA;
-                    msgInfo.mPacket.mStrMsg = std::string(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-                    while(!mMsgQueue.Enqueue(msgInfo)) {}
+                    MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
+                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+                    pMsg->mTCPConPtr = conn;
+                    pMsg->nLinkId = linkId;
+                    pMsg->mPacket = packet;
+                    pMsg->nType = eMsgType_RECIVEDATA;
+                    pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                    while(!mMsgQueue.Enqueue(pMsg)) {}
                 }
                 else {
-                    msgInfo.nType = eMsgType_RECIVEDATA;
-                    msgInfo.mPacket.mStrMsg = std::string(outData, outLen);
-                    while(!mMsgQueue.Enqueue(msgInfo)) {}
+                    MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(outLen);
+                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+                    pMsg->mTCPConPtr = conn;
+                    pMsg->nLinkId = linkId;
+                    pMsg->mPacket = packet;
+                    pMsg->nType = eMsgType_RECIVEDATA;
+                    pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
+                    while(!mMsgQueue.Enqueue(pMsg)) {}
                 }
 
 				msg->Skip(allLen);
@@ -668,6 +690,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& package)
     {
         mxSendBuffer.Clear();
         NFIPacketParse::EnCode(pObject->mPacketParseType, package, mxSendBuffer);
+
         if (pObject->IsSecurity())
         {
             Encryption(mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
@@ -683,13 +706,17 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, uint32_t nModuleId, uint32_t
     if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
     {
         mxSendBuffer.Clear();
-        NFDataPackage packet;
-        packet.mModuleId = nModuleId;
-        packet.nMsgId = nMsgID;
-        packet.mStrMsg = std::string(msg, nLen);
-        packet.nParam1 = nParam1;
-        packet.nParam2 = nParam2;
-        NFIPacketParse::EnCode(pObject->mPacketParseType, packet, mxSendBuffer);
+        NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
+        CHECK_EXPR_ASSERT(pPacket, false, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc Failed!");
+        pPacket->mModuleId = nModuleId;
+        pPacket->nMsgId = nMsgID;
+        pPacket->mBufferMsg.PushData(msg, nLen);
+        pPacket->nParam1 = nParam1;
+        pPacket->nParam2 = nParam2;
+        NFIPacketParse::EnCode(pObject->mPacketParseType, *pPacket, mxSendBuffer);
+        pPacket->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+
         pObject->mConnPtr->Send((const void*)mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
         return true;
     }

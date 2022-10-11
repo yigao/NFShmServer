@@ -24,10 +24,10 @@ public:
 	}
 
 	//////////////////////////////////////////////////////////////
-	virtual int DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage) = 0;
+	virtual int DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage) = 0;
 	virtual int EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId = 0) = 0;
 	/////////////////////////////////////////////////////////////
-	static int DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage);
+	static int DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage);
     static int EnCode(uint32_t packetType, const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId = 0);
 
     // 使用 lzf 算法 压缩、解压

@@ -20,13 +20,20 @@
 #include "NFIConnection.h"
 #include <map>
 
-typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, NFDataPackage& packetd)> BusMsgPeerCallback;
+class MsgFromBusInfo;
+typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, MsgFromBusInfo* packetd)> BusMsgPeerCallback;
 
 struct MsgFromBusInfo
 {
     MsgFromBusInfo()
     {
         nType = eMsgType_Num;
+    }
+
+    void Clear()
+    {
+        nType = eMsgType_Num;
+        mPacket.Clear();
     }
 
     eMsgType nType;

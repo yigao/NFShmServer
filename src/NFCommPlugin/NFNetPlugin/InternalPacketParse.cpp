@@ -90,7 +90,7 @@ InternalPacketParse::InternalPacketParse()
 {
 }
 
-int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
+int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage)
 {
 	if (strData == nullptr || unLen == 0) return 1;
 
@@ -135,7 +135,7 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	InternalMsg packHead;
     packHead.SetModule(recvPackage.mModuleId);
     packHead.SetCmd(recvPackage.nMsgId);
-    packHead.SetLength(recvPackage.mStrMsg.length());
+    packHead.SetLength(recvPackage.mBufferMsg.WritableSize());
 	packHead.nParam1 = recvPackage.nParam1;
 	packHead.nParam2 = recvPackage.nParam2;
 	packHead.nSrcId = recvPackage.nSrcId;
@@ -143,7 +143,7 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	packHead.ulSendBusLinkId = nSendBusLinkId;
 
 	buffer.PushData(&packHead, sizeof(InternalMsg));
-	buffer.PushData(recvPackage.mStrMsg.data(), recvPackage.mStrMsg.length());
+	buffer.PushData(recvPackage.mBufferMsg.WriteAddr(), recvPackage.mBufferMsg.WritableSize());
 
 	return packHead.mLength;
 }

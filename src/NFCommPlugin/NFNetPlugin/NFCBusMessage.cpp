@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
 #include "NFIPacketParse.h"
 #include "NFCBusServer.h"
 #include "NFCBusClient.h"
@@ -196,13 +197,10 @@ void NFCBusMessage::CloseLinkId(uint64_t usLinkId)
     return pConn->CloseLinkId();
 }
 
-void NFCBusMessage::OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)
+void NFCBusMessage::OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet)
 {
-    MsgFromBusInfo msgInfo;
-    msgInfo.nType = type;
-    msgInfo.mPacket = packet;
-    msgInfo.mPacket.nSendBusLinkId = objectLinkId;
-    while(!m_msgQueue.Enqueue(msgInfo)) {}
+    packet->nType = type;
+    while(!m_msgQueue.Enqueue(packet)) {}
 }
 
 void NFCBusMessage::OnHandleMsgQueue()
@@ -210,21 +208,26 @@ void NFCBusMessage::OnHandleMsgQueue()
     uint32_t max_times = 10000;
     while (!m_msgQueue.IsQueueEmpty() && max_times > 0)
     {
-        std::vector<MsgFromBusInfo> vecMsg;
+        std::vector<MsgFromBusInfo*> vecMsg;
         vecMsg.resize(200);
         m_msgQueue.TryDequeueBulk(vecMsg);
 
         for(int i = 0; i < (int)vecMsg.size(); i++)
         {
             max_times--;
-            MsgFromBusInfo& msg = vecMsg[i];
-            OnHandleMsgPeer(msg.nType, msg.mPacket.nSendBusLinkId, msg.mPacket.nSendBusLinkId, msg.mPacket);
+            MsgFromBusInfo* pMsg = vecMsg[i];
+            CHECK_EXPR_CONTINUE(pMsg, "pMsg == NULL");
+
+            OnHandleMsgPeer(pMsg->nType, pMsg->mPacket.nSendBusLinkId, pMsg->mPacket.nSendBusLinkId, pMsg);
         }
     }
 }
 
-void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)
+void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* pMsg)
 {
+    CHECK_EXPR_NOT_RET(pMsg, "pMsg == NULL");
+
+    NFDataPackage& packet = pMsg->mPacket;
     if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
                                     || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
     {
@@ -267,23 +270,25 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
             {
                 ConnectServer(flag);
                 pConn = m_busConnectMap.GetElement(fromLinkId);
+                CHECK_EXPR_MSG(pConn, "m_busConnectMap.GetElement busId:{} == NULL", flag.mBusId);
             }
 
-            CHECK_EXPR(pConn, , "m_busConnectMap.GetElement busId:{} == NULL", flag.mBusId);
-
-            if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+            if (pConn)
             {
-                pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
-                if (mEventCB)
+                if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                 {
-                    mEventCB(type, m_bindConnect->GetLinkId(), pConn->GetLinkId());
+                    pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
+                    if (mEventCB)
+                    {
+                        mEventCB(type, m_bindConnect->GetLinkId(), pConn->GetLinkId());
+                    }
                 }
-            }
-            else
-            {
-                if (mEventCB)
+                else
                 {
-                    mEventCB(type, pConn->GetLinkId(),  pConn->GetLinkId());
+                    if (mEventCB)
+                    {
+                        mEventCB(type, pConn->GetLinkId(),  pConn->GetLinkId());
+                    }
                 }
             }
         }
@@ -295,6 +300,9 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
         default:
             break;
     }
+
+    pMsg->Clear();
+    NFNetInfoPool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
 }
 
 int NFCBusMessage::ResumeConnect()
@@ -335,14 +343,16 @@ int NFCBusMessage::ResumeConnect()
                 FindModule<NFIMessageModule>()->CreateLinkToServer((NF_SERVER_TYPES)mServerType, flag.mBusId, pServerData->mUnlinkId);
                 if (bActivityConnect)
                 {
-                    NFDataPackage tmpPacket;
-                    tmpPacket.nSendBusLinkId = pServerData->mUnlinkId;
-                    tmpPacket.mModuleId = 0;
-                    tmpPacket.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
-                    tmpPacket.nParam1 = flag.mBusId;
-                    tmpPacket.nParam2 = flag.mBusLength;
+                    MsgFromBusInfo* pPacket = NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(0);
+                    CHECK_EXPR_ASSERT(pPacket, -1, "pPacket == NULL, NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(0) Failed");
 
-                    OnHandleMsgPeer(eMsgType_CONNECTED, pServerData->mUnlinkId, pServerData->mUnlinkId, tmpPacket);
+                    pPacket->mPacket.nSendBusLinkId = pServerData->mUnlinkId;
+                    pPacket->mPacket.mModuleId = 0;
+                    pPacket->mPacket.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+                    pPacket->mPacket.nParam1 = flag.mBusId;
+                    pPacket->mPacket.nParam2 = flag.mBusLength;
+
+                    OnHandleMsgPeer(eMsgType_CONNECTED, pServerData->mUnlinkId, pServerData->mUnlinkId, pPacket);
                 }
                 else
                 {

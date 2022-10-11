@@ -70,5 +70,5 @@ public:
 
     virtual bool Send(NFDataPackage& packet) override;
 private:
-    evpp::EventLoopThreadPool* m_eventLoop;
+    evpp::EventLoopThread* m_eventLoop;
 };

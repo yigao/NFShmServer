@@ -43,6 +43,7 @@
 #include "NFIConnection.h"
 #include "NFCHttpServer.h"
 #include "NFCHttpClient.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
 
 enum EnumNFEvppClientTimer
 {
@@ -66,6 +67,19 @@ struct MsgFromNetInfo
 	{
 		nType = eMsgType_Num;
 	}
+
+	virtual ~MsgFromNetInfo()
+    {
+        Clear();
+    }
+
+    void Clear()
+    {
+        nType = eMsgType_Num;
+        mTCPConPtr = NULL;
+        nLinkId = 0;
+        mPacket.Clear();
+    }
 
 	eMsgType nType;
 	evpp::TCPConnPtr mTCPConPtr;
@@ -287,7 +301,12 @@ private:
 	/**
 	* @brief 需要消息队列
 	*/
-    NFConcurrentQueue<MsgFromNetInfo> mMsgQueue;
+    NFConcurrentQueue<MsgFromNetInfo*> mMsgQueue;
+
+    /**
+    * @brief 消息队列缓冲池
+    */
+    NFNetInfoPool<MsgFromNetInfo> mFreePool;
 
 	/**
 	* @brief 发送BUFF

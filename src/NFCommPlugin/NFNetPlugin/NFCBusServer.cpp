@@ -13,8 +13,10 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFIPacketParse.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
 #include <string.h>
 #include <sstream>
+#include <NFComm/NFPluginModule/NFCheck.h>
 
 NFCBusServer::~NFCBusServer()
 {
@@ -34,8 +36,7 @@ bool NFCBusServer::Init()
 {
     if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
     {
-        mFlag.nWorkThreadNum = 1;
-        m_eventLoop = NF_NEW evpp::EventLoopThreadPool(NULL, mFlag.nWorkThreadNum);
+        m_eventLoop = NF_NEW evpp::EventLoopThread();
         m_eventLoop->Start(true);
     }
 
@@ -48,10 +49,7 @@ bool NFCBusServer::Init()
 
     if (m_eventLoop)
     {
-        for(int i = 0; i < (int)m_eventLoop->thread_num(); i++)
-        {
-            m_eventLoop->GetNextLoopWithHash(i)->RunEvery(evpp::Duration((int64_t)100000), std::bind(&NFCBusServer::ProcessMsgLogicThread, this ));
-        }
+        m_eventLoop->loop()->RunEvery(evpp::Duration((int64_t)100000), std::bind(&NFCBusServer::ProcessMsgLogicThread, this ));
     }
 
     return true;
@@ -177,8 +175,8 @@ void NFCBusServer::ProcessMsgLogicThread()
                     char* outData = nullptr;
                     uint32_t outLen = 0;
                     uint32_t allLen = 0;
-                    NFDataPackage packet;
-                    int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, packet);
+                    NFBaseDataPackage dataPacket;
+                    int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, dataPacket);
                     if (ret < 0)
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "nfbus parse data failed!");
@@ -193,19 +191,23 @@ void NFCBusServer::ProcessMsgLogicThread()
                     {
                         mxBuffer.Consume(allLen);
 
-                        packet.mStrMsg = std::string(outData, outLen);
+                        MsgFromBusInfo* pPacket = NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(outLen);
+                        CHECK_EXPR_ASSERT_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(outLen:{}) Failed", outLen);
 
-                        if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        pPacket->mPacket.Copy(dataPacket);
+                        pPacket->mPacket.mBufferMsg.PushData(outData, outLen);
+
+                        if (pPacket->mPacket.mModuleId == 0 && pPacket->mPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
                         }
-                        else if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        else if (pPacket->mPacket.mModuleId == 0 && pPacket->mPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
                         }
                         else
                         {
-                            m_busMsgPeerCb(eMsgType_RECIVEDATA, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
+                            m_busMsgPeerCb(eMsgType_RECIVEDATA, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
                         }
 
                         continue;

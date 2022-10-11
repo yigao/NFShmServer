@@ -12,8 +12,10 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFIPacketParse.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
 #include <string.h>
 #include <sstream>
+#include <NFComm/NFPluginModule/NFCheck.h>
 
 NFCBusClient::~NFCBusClient()
 {
@@ -246,14 +248,17 @@ bool NFCBusClient::Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, ui
     }
 
     mxBuffer.Clear();
-    NFDataPackage packet;
-    packet.mModuleId = nModuleId;
-    packet.nMsgId = nMsgID;
-    packet.mStrMsg = std::string(msg, nLen);
-    packet.nParam1 = nParam1;
-    packet.nParam2 = nParam2;
-    packet.nSendBusLinkId = m_bindFlag.mLinkId;
-    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, packet, mxBuffer, m_bindFlag.mLinkId);
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
+    CHECK_EXPR_ASSERT(pPacket, false, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen:{}) Failed", nLen);
+    pPacket->mModuleId = nModuleId;
+    pPacket->nMsgId = nMsgID;
+    pPacket->mBufferMsg.PushData(msg, nLen);
+    pPacket->nParam1 = nParam1;
+    pPacket->nParam2 = nParam2;
+    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
+    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, *pPacket, mxBuffer, m_bindFlag.mLinkId);
+    pPacket->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
 
     NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
     NFShmChannel *pChannel = &head->m_nShmChannel;

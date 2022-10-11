@@ -99,7 +99,7 @@ ExternalPacketParse::ExternalPacketParse()
 {
 }
 
-int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
+int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage)
 {
 	if (strData == nullptr || unLen == 0) return 1;
 
@@ -143,12 +143,12 @@ int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& 
 	ExternalMsg packHead;
 	packHead.SetModule(0);
 	packHead.SetCmd(recvPackage.nMsgId);
-	packHead.SetLength(recvPackage.mStrMsg.length()+sizeof(ExternalMsg));
+	packHead.SetLength(recvPackage.mBufferMsg.WritableSize() + sizeof(ExternalMsg));
 
 	buffer.PushData(&packHead, sizeof(ExternalMsg));
-	buffer.PushData(recvPackage.mStrMsg.data(), recvPackage.mStrMsg.length());
+	buffer.PushData(recvPackage.mBufferMsg.WriteAddr(), recvPackage.mBufferMsg.WritableSize());
 
-	return recvPackage.mStrMsg.length() + sizeof(ExternalMsg);
+	return recvPackage.mBufferMsg.WritableSize() + sizeof(ExternalMsg);
 }
 
 // 使用 lzf 算法 压缩、解压
