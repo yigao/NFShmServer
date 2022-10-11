@@ -32,7 +32,7 @@ message mapmap
 
 message Sheet_mapmap
 {
-	repeated mapmap mapmap_List = 1[(yd_fieldoptions.field_arysize)=200];
+	repeated mapmap mapmap_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
 message mapitemdrop

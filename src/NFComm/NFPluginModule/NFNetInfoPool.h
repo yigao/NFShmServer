@@ -23,7 +23,110 @@ public:
 
     virtual ~NFNetInfoPool()
     {
+        while(!m_218MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_218MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
 
+        while(!m_256MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_256MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+
+        while(!m_512MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_512MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+
+        while(!m_1024MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_1024MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+
+        while(!m_2048MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_2048MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+
+        while(!m_4096MsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_4096MsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+
+        while(!m_moreMsgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            if (m_moreMsgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
     }
 public:
     TYPE* Alloc(size_t buffer_size)

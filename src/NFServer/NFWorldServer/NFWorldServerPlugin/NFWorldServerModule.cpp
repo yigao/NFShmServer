@@ -61,8 +61,9 @@ bool NFCWorldServerModule::Awake()
             */
             uint64_t worldServerLinkId = (uint64_t)unlinkId;
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_WORLD_SERVER, worldServerLinkId);
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnProxySocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnHandleOtherMessage);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
+            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
             NFLogInfo(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
@@ -111,47 +112,6 @@ bool NFCWorldServerModule::Awake()
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 	return true;
-}
-
-int NFCWorldServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId)
-{
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    if (nEvent == eMsgType_CONNECTED)
-    {
-
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
-    {
-        OnHandleServerDisconnect(unLinkId);
-    }
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
-    return 0;
-}
-
-int NFCWorldServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
-{
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "msgId:{} not handle", packet.ToString());
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
-    return 0;
-}
-
-int NFCWorldServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
-{
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_WORLD_SERVER, unLinkId);
-    if (pServerData)
-    {
-        pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
-        pServerData->mUnlinkId = 0;
-
-        NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "the server disconnect from world server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
-        , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
-    }
-
-    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_WORLD_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
-    return 0;
 }
 
 int NFCWorldServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)

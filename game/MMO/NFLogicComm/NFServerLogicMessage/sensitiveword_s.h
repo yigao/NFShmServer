@@ -15,7 +15,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFSizeString<200> sensitiveWord;
+		NFSizeString<60> sensitiveWord;
 
 		virtual void write_to_pbmsg(::proto_ff::sensitivewordsensitive_word & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::sensitivewordsensitive_word & msg);
@@ -28,7 +28,7 @@ namespace proto_ff_s {
 		Sheet_sensitivewordsensitive_word_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct sensitivewordsensitive_word_s, 60000> sensitivewordsensitive_word_List;
+		NFArray<struct sensitivewordsensitive_word_s, 6000> sensitivewordsensitive_word_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_sensitivewordsensitive_word & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_sensitivewordsensitive_word & msg);

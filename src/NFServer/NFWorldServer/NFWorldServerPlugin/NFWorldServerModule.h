@@ -17,60 +17,72 @@
 class NFCWorldServerModule : public NFIWorldServerModule
 {
 public:
-	explicit NFCWorldServerModule(NFIPluginManager* p);
-	virtual ~NFCWorldServerModule();
+    explicit NFCWorldServerModule(NFIPluginManager *p);
 
-	virtual bool Awake() override;
+    virtual ~NFCWorldServerModule();
 
-	virtual bool Init() override;
+    virtual bool Awake() override;
 
-	virtual bool Execute() override;
+    virtual bool Init() override;
 
-	virtual bool OnDynamicPlugin() override;
+    virtual bool Execute() override;
+
+    virtual bool OnDynamicPlugin() override;
 
     virtual void OnTimer(uint32_t nTimerID) override;
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
 
     virtual bool AddProxyMsgCheckCallBack(const NET_RECEIVE_FUNCTOR &functor) override;
+
 public:
-    int OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
-    int OnHandleServerDisconnect(uint64_t unLinkId);
-
     //网关服务器注册协议回调
-	int OnHandleProxyRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId);
+    int OnHandleProxyRegister(const proto_ff::ServerInfoReport &xData, uint64_t unlinkId);
 
-	int OnHandleLogicReport(const proto_ff::ServerInfoReport& xData);
+    int OnHandleLogicReport(const proto_ff::ServerInfoReport &xData);
 
-	int ServerReport();
+    int ServerReport();
 
-	int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
-	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
+    int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage &packet);
 
-	int OnHandleStoreServerReport(const proto_ff::ServerInfoReport& xData);
-	int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
-	int RegisterRouteAgentServer(uint64_t unLinkId);
-    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet);
-	int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+    int OnHandleServerReport(uint64_t unLinkId, NFDataPackage &packet);
 
-    int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData);
+    int OnHandleStoreServerReport(const proto_ff::ServerInfoReport &xData);
+
+    int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport &xData);
+
+    int RegisterRouteAgentServer(uint64_t unLinkId);
+
+    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage &packet);
+
+    int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+
+    int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
+
+    int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport &xData);
+
     int RegisterProxyAgentServer(uint64_t unLinkId);
+
     int OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
-    int OnCheckWorldServerAllMessage(uint64_t unLinkId, NFDataPackage& packet);
 
-	/*
-		处理Master服务器链接事件和未注册消息
-	*/
-    int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
-	int RegisterMasterServer(uint32_t serverState);
-	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+    int OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
-	////////////test server msg///////////////////////////////////////
-    int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage& packet);
+    int OnCheckWorldServerAllMessage(uint64_t unLinkId, NFDataPackage &packet);
+
+    /*
+        处理Master服务器链接事件和未注册消息
+    */
+    int ConnectMasterServer(const proto_ff::ServerInfoReport &xData);
+
+    int RegisterMasterServer(uint32_t serverState);
+
+    int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+
+    int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
+
+    ////////////test server msg///////////////////////////////////////
+    int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet);
+
 private:
     NET_RECEIVE_FUNCTOR m_allMsgCheckFunc;
 };

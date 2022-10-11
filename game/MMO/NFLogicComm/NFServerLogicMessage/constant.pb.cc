@@ -105,7 +105,7 @@ void protobuf_AddDesc_constant_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016constant.proto\022\010proto_ff\032\025yd_fieldopti"
     "ons.proto\"\204\001\n\020constantconstant\022 \n\nconsta"
-    "ntid\030\001 \001(\003B\014\302\377\024\010\351\205\215\347\275\256id\022 \n\014constantdata"
+    "ntid\030\001 \001(\005B\014\302\377\024\010\351\205\215\347\275\256id\022 \n\014constantdata"
     "\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022,\n\nstringdata\030\003 \001(\tB\030"
     "\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024\310\001\"Z\n\026Sheet_consta"
     "ntconstant\022@\n\025constantconstant_List\030\001 \003("
@@ -150,7 +150,7 @@ constantconstant::constantconstant(const constantconstant& from)
 
 void constantconstant::SharedCtor() {
   _cached_size_ = 0;
-  constantid_ = GOOGLE_LONGLONG(0);
+  constantid_ = 0;
   constantdata_ = GOOGLE_LONGLONG(0);
   stringdata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -191,7 +191,7 @@ constantconstant* constantconstant::New() const {
 
 void constantconstant::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    constantid_ = GOOGLE_LONGLONG(0);
+    constantid_ = 0;
     constantdata_ = GOOGLE_LONGLONG(0);
     if (has_stringdata()) {
       if (stringdata_ != &::google::protobuf::internal::kEmptyString) {
@@ -209,12 +209,12 @@ bool constantconstant::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 constantid = 1;
+      // optional int32 constantid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &constantid_)));
           set_has_constantid();
         } else {
@@ -275,9 +275,9 @@ bool constantconstant::MergePartialFromCodedStream(
 
 void constantconstant::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 constantid = 1;
+  // optional int32 constantid = 1;
   if (has_constantid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->constantid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->constantid(), output);
   }
 
   // optional int64 constantdata = 2;
@@ -302,9 +302,9 @@ void constantconstant::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* constantconstant::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 constantid = 1;
+  // optional int32 constantid = 1;
   if (has_constantid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->constantid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->constantid(), target);
   }
 
   // optional int64 constantdata = 2;
@@ -333,10 +333,10 @@ int constantconstant::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 constantid = 1;
+    // optional int32 constantid = 1;
     if (has_constantid()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->constantid());
     }
 

@@ -33,7 +33,14 @@ NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
 
 NFCConfigModule::~NFCConfigModule()
 {
-
+    for(int i = 0; i < (int)mServerConfig.size(); i++)
+    {
+        if (mServerConfig[i])
+        {
+            NF_SAFE_DELETE(mServerConfig[i]);
+        }
+        mServerConfig[i] = NULL;
+    }
 }
 
 bool NFCConfigModule::LoadConfig()

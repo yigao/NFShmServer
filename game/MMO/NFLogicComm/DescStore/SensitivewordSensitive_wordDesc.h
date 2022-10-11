@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/sensitiveword_s.h"
 
-#define MAX_SENSITIVEWORD_SENSITIVE_WORD_NUM 60000
+#define MAX_SENSITIVEWORD_SENSITIVE_WORD_NUM 6000
 
 class SensitivewordSensitive_wordDesc : public NFIDescStore
 {

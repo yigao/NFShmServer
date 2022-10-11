@@ -7,11 +7,12 @@
 //
 // -------------------------------------------------------------------------
 
-#include <client_to_server.pb.h>
-#include <common_msg.pb.h>
+#include <ClientToServerCmd.pb.h>
+#include <CommonMsg.pb.h>
 #include <ClientToServer.pb.h>
 #include <ServerToClient.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include <NFComm/NFCore/NFServerIDUtil.h>
 #include "NFWorldPlayerModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
@@ -20,33 +21,35 @@
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
 
-NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
+NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+{
 
 }
 
-NFCWorldPlayerModule::~NFCWorldPlayerModule() {
+NFCWorldPlayerModule::~NFCWorldPlayerModule()
+{
 }
 
-bool NFCWorldPlayerModule::Awake() {
+bool NFCWorldPlayerModule::Awake()
+{
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, this, &NFCWorldPlayerModule::OnHandleClientCenterLogin);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
+                                                       &NFCWorldPlayerModule::OnHandleClientCenterLogin);
     //////////check proxy msg///////////////////////
-    FindModule<NFIWorldServerModule>()->AddProxyMsgCheckCallBack(this,  &NFCWorldPlayerModule::OnCheckWorldServerMsg);
+    FindModule<NFIWorldServerModule>()->AddProxyMsgCheckCallBack(this, &NFCWorldPlayerModule::OnCheckWorldServerMsg);
 
     return true;
 }
 
 bool NFCWorldPlayerModule::Execute()
 {
-	return true;
+    return true;
 }
 
 bool NFCWorldPlayerModule::OnDynamicPlugin()
 {
-	return true;
+    return true;
 }
-
-
 
 int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet)
 {
@@ -54,13 +57,20 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
     proto_ff::ClientLoginGateReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
-    CHECK_EXPR(pConfig, -1, "pConfig == NULL");
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL, FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER)");
 
     //验证版本号，如果版本号不对，不让进入
-    CHECK_EXPR(xMsg.version() == pConfig->ClientVersion, -1, "xMsg.version():{} != pConfig->ClientVersion:{}", xMsg.version(), pConfig->ClientVersion);
+    CHECK_EXPR(xMsg.version() == pConfig->ClientVersion, -1, "xMsg.version():{} != pConfig->ClientVersion:{}", xMsg.version(),
+               pConfig->ClientVersion);
 
-	return 0;
+    uint32_t zid = NFServerIDUtil::GetZoneID(pConfig->BusId);
+    uint32_t gateid = packet.nSrcId;
+    uint32_t chanid = xMsg.channel_id();
+    uint32_t uid = xMsg.uid();
+    uint32_t loginzid = xMsg.zid();
+
+    return 0;
 }
 
 int NFCWorldPlayerModule::OnCheckWorldServerMsg(uint64_t unLinkId, NFDataPackage &packet)

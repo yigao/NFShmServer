@@ -84,7 +84,7 @@ message skillbuff
 	optional int32 save = 9[(yd_fieldoptions.field_cname) = "是否存盘"];
 	optional string stateBagRule = 10[(yd_fieldoptions.field_cname) = "同一状态包叠加规则", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 label = 11[(yd_fieldoptions.field_cname) = "状态标签"];
-	optional int32 mask = 12[(yd_fieldoptions.field_cname) = "32位掩码"];
+	optional int32 mask = 12[(yd_fieldoptions.field_cname) = "掩码"];
 	optional string stateBagCd = 13[(yd_fieldoptions.field_cname) = "状态包冷却", (yd_fieldoptions.field_bufsize) = 60];
 	repeated skillbuffeffectDesc effect = 14[(yd_fieldoptions.field_cname) = "效果", (yd_fieldoptions.field_arysize) = 5];
 }

@@ -14,7 +14,7 @@ namespace proto_ff_s {
 		constantconstant_s();
 		int CreateInit();
 		int ResumeInit();
-		int64_t constantid;
+		int32_t constantid;
 		int64_t constantdata;
 		NFSizeString<200> stringdata;
 

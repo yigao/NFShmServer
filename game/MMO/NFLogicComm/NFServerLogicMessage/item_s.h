@@ -34,11 +34,10 @@ namespace proto_ff_s {
 		int32_t isCanBatchUse;
 		int32_t dayUse;
 		int32_t outTime;
-		int32_t dayOutTime;
 		NFSizeString<2000> useLimit;
 		int32_t blessing;
 		int32_t invest;
-		int64_t exchange;
+		int32_t exchange;
 
 		virtual void write_to_pbmsg(::proto_ff::itemitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::itemitem & msg);

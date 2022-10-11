@@ -11,7 +11,7 @@ constantconstant_s::constantconstant_s() {
 }
 
 int constantconstant_s::CreateInit() {
-	constantid = (int64_t)0;
+	constantid = (int32_t)0;
 	constantdata = (int64_t)0;
 	return 0;
 }
@@ -21,7 +21,7 @@ int constantconstant_s::ResumeInit() {
 }
 
 void constantconstant_s::write_to_pbmsg(::proto_ff::constantconstant & msg) const {
-	msg.set_constantid((int64_t)constantid);
+	msg.set_constantid((int32_t)constantid);
 	msg.set_constantdata((int64_t)constantdata);
 	msg.set_stringdata((const char*)stringdata.Get());
 }

@@ -8,9 +8,9 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFTime.h>
-#include <common_msg.pb.h>
-#include <server_to_client.pb.h>
-#include <client_to_server.pb.h>
+#include <CommonMsg.pb.h>
+#include <ServerToClientCmd.pb.h>
+#include <ClientToServerCmd.pb.h>
 #include <ClientToServer.pb.h>
 #include <ServerToClient.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>

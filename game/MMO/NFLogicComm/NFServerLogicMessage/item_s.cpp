@@ -27,10 +27,9 @@ int itemitem_s::CreateInit() {
 	isCanBatchUse = (int32_t)0;
 	dayUse = (int32_t)0;
 	outTime = (int32_t)0;
-	dayOutTime = (int32_t)0;
 	blessing = (int32_t)0;
 	invest = (int32_t)0;
-	exchange = (int64_t)0;
+	exchange = (int32_t)0;
 	return 0;
 }
 
@@ -59,11 +58,10 @@ void itemitem_s::write_to_pbmsg(::proto_ff::itemitem & msg) const {
 	msg.set_iscanbatchuse((int32_t)isCanBatchUse);
 	msg.set_dayuse((int32_t)dayUse);
 	msg.set_outtime((int32_t)outTime);
-	msg.set_dayouttime((int32_t)dayOutTime);
 	msg.set_uselimit((const char*)useLimit.Get());
 	msg.set_blessing((int32_t)blessing);
 	msg.set_invest((int32_t)invest);
-	msg.set_exchange((int64_t)exchange);
+	msg.set_exchange((int32_t)exchange);
 }
 
 void itemitem_s::read_from_pbmsg(const ::proto_ff::itemitem & msg) {
@@ -88,7 +86,6 @@ void itemitem_s::read_from_pbmsg(const ::proto_ff::itemitem & msg) {
 	isCanBatchUse = msg.iscanbatchuse();
 	dayUse = msg.dayuse();
 	outTime = msg.outtime();
-	dayOutTime = msg.dayouttime();
 	useLimit.Copy(msg.uselimit());
 	blessing = msg.blessing();
 	invest = msg.invest();

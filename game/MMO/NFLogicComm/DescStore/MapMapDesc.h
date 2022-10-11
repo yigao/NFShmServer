@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/map_s.h"
 
-#define MAX_MAP_MAP_NUM 200
+#define MAX_MAP_MAP_NUM 20
 
 class MapMapDesc : public NFIDescStore
 {

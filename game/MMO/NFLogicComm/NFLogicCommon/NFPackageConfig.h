@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFILuaModule.h"
 #include <common_logic.pb.h>
-#include "NFServerLogicMessage/client_to_server.pb.h"
+#include "NFServerLogicMessage/ClientToServerCmd.pb.h"
 
 class NFPackageConfig : public NFILuaModule
 {

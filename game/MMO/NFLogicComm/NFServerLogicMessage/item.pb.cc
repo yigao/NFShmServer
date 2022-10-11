@@ -37,7 +37,7 @@ void protobuf_AssignDesc_item_2eproto() {
       "item.proto");
   GOOGLE_CHECK(file != NULL);
   itemitem_descriptor_ = file->message_type(0);
-  static const int itemitem_offsets_[25] = {
+  static const int itemitem_offsets_[24] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, itemtype_),
@@ -58,7 +58,6 @@ void protobuf_AssignDesc_item_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, iscanbatchuse_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, dayuse_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, outtime_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, dayouttime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, uselimit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, blessing_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(itemitem, invest_),
@@ -126,7 +125,7 @@ void protobuf_AddDesc_item_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nitem.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"\352\007\n\010itemitem\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345"
+    "proto\"\276\007\n\010itemitem\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345"
     "\223\201ID\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\347\211\251\345\223\201\345\220\215\347\247\260\220\301\024x"
     "\022\"\n\010itemType\030\003 \001(\005B\020\302\377\024\014\347\211\251\345\223\201\347\261\273\345\236\213\022\036\n\007"
     "subType\030\004 \001(\005B\r\302\377\024\t\345\255\220\347\261\273\345\236\213\022,\n\014function"
@@ -146,13 +145,12 @@ void protobuf_AddDesc_item_2eproto() {
     "isCanBatchUse\030\022 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\345\217\257\346\211\271\351\207\217"
     "\344\275\277\347\224\250\022&\n\006dayUse\030\023 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\344\275\277\347\224\250"
     "\346\254\241\346\225\260\022!\n\007outTime\030\024 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\227\266\351\231"
-    "\220\022*\n\ndayOutTime\030\025 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\350\277\207\346\234\237\351"
-    "\201\223\345\205\267\0220\n\010useLimit\030\026 \001(\tB\036\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201"
-    "\223\345\205\267\345\234\260\345\233\276\220\301\024\320\017\022%\n\010blessing\030\027 \001(\005B\023\302\377\024\017\351"
-    "\276\231\345\237\237\347\245\235\347\246\217\345\200\274\022#\n\006invest\030\030 \001(\005B\023\302\377\024\017\351\276\231\345"
-    "\237\237\346\212\225\350\265\204\345\200\274\022%\n\010exchange\030\031 \001(\003B\023\302\377\024\017\345\205\221\346\215"
-    "\242\351\255\224\347\201\265\345\200\274\"B\n\016Sheet_itemitem\0220\n\ritemitem"
-    "_List\030\001 \003(\0132\022.proto_ff.itemitemB\005\210\301\024\270\027", 1118);
+    "\220\0220\n\010useLimit\030\025 \001(\tB\036\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201\223\345\205\267"
+    "\345\234\260\345\233\276\220\301\024\320\017\022%\n\010blessing\030\026 \001(\005B\023\302\377\024\017\351\276\231\345\237"
+    "\237\347\245\235\347\246\217\345\200\274\022#\n\006invest\030\027 \001(\005B\023\302\377\024\017\351\276\231\345\237\237\346\212"
+    "\225\350\265\204\345\200\274\022%\n\010exchange\030\030 \001(\005B\023\302\377\024\017\345\205\221\346\215\242\351\255\224"
+    "\347\201\265\345\200\274\"B\n\016Sheet_itemitem\0220\n\ritemitem_Lis"
+    "t\030\001 \003(\0132\022.proto_ff.itemitemB\005\210\301\024\270\027", 1074);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "item.proto", &protobuf_RegisterTypes);
   itemitem::default_instance_ = new itemitem();
@@ -192,7 +190,6 @@ const int itemitem::kBroadcastFieldNumber;
 const int itemitem::kIsCanBatchUseFieldNumber;
 const int itemitem::kDayUseFieldNumber;
 const int itemitem::kOutTimeFieldNumber;
-const int itemitem::kDayOutTimeFieldNumber;
 const int itemitem::kUseLimitFieldNumber;
 const int itemitem::kBlessingFieldNumber;
 const int itemitem::kInvestFieldNumber;
@@ -235,11 +232,10 @@ void itemitem::SharedCtor() {
   iscanbatchuse_ = 0;
   dayuse_ = 0;
   outtime_ = 0;
-  dayouttime_ = 0;
   uselimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   blessing_ = 0;
   invest_ = 0;
-  exchange_ = GOOGLE_LONGLONG(0);
+  exchange_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -330,7 +326,6 @@ void itemitem::Clear() {
     iscanbatchuse_ = 0;
     dayuse_ = 0;
     outtime_ = 0;
-    dayouttime_ = 0;
     if (has_uselimit()) {
       if (uselimit_ != &::google::protobuf::internal::kEmptyString) {
         uselimit_->clear();
@@ -338,9 +333,7 @@ void itemitem::Clear() {
     }
     blessing_ = 0;
     invest_ = 0;
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    exchange_ = GOOGLE_LONGLONG(0);
+    exchange_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -671,28 +664,12 @@ bool itemitem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_dayOutTime;
+        if (input->ExpectTag(170)) goto parse_useLimit;
         break;
       }
 
-      // optional int32 dayOutTime = 21;
+      // optional string useLimit = 21;
       case 21: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dayOutTime:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &dayouttime_)));
-          set_has_dayouttime();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(178)) goto parse_useLimit;
-        break;
-      }
-
-      // optional string useLimit = 22;
-      case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_useLimit:
@@ -704,12 +681,12 @@ bool itemitem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_blessing;
+        if (input->ExpectTag(176)) goto parse_blessing;
         break;
       }
 
-      // optional int32 blessing = 23;
-      case 23: {
+      // optional int32 blessing = 22;
+      case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_blessing:
@@ -720,12 +697,12 @@ bool itemitem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_invest;
+        if (input->ExpectTag(184)) goto parse_invest;
         break;
       }
 
-      // optional int32 invest = 24;
-      case 24: {
+      // optional int32 invest = 23;
+      case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_invest:
@@ -736,17 +713,17 @@ bool itemitem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_exchange;
+        if (input->ExpectTag(192)) goto parse_exchange;
         break;
       }
 
-      // optional int64 exchange = 25;
-      case 25: {
+      // optional int32 exchange = 24;
+      case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_exchange:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &exchange_)));
           set_has_exchange();
         } else {
@@ -890,33 +867,28 @@ void itemitem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->outtime(), output);
   }
 
-  // optional int32 dayOutTime = 21;
-  if (has_dayouttime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->dayouttime(), output);
-  }
-
-  // optional string useLimit = 22;
+  // optional string useLimit = 21;
   if (has_uselimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->uselimit().data(), this->uselimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      22, this->uselimit(), output);
+      21, this->uselimit(), output);
   }
 
-  // optional int32 blessing = 23;
+  // optional int32 blessing = 22;
   if (has_blessing()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->blessing(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->blessing(), output);
   }
 
-  // optional int32 invest = 24;
+  // optional int32 invest = 23;
   if (has_invest()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->invest(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->invest(), output);
   }
 
-  // optional int64 exchange = 25;
+  // optional int32 exchange = 24;
   if (has_exchange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->exchange(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->exchange(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1047,34 +1019,29 @@ void itemitem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->outtime(), target);
   }
 
-  // optional int32 dayOutTime = 21;
-  if (has_dayouttime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->dayouttime(), target);
-  }
-
-  // optional string useLimit = 22;
+  // optional string useLimit = 21;
   if (has_uselimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->uselimit().data(), this->uselimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        22, this->uselimit(), target);
+        21, this->uselimit(), target);
   }
 
-  // optional int32 blessing = 23;
+  // optional int32 blessing = 22;
   if (has_blessing()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->blessing(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->blessing(), target);
   }
 
-  // optional int32 invest = 24;
+  // optional int32 invest = 23;
   if (has_invest()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->invest(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->invest(), target);
   }
 
-  // optional int64 exchange = 25;
+  // optional int32 exchange = 24;
   if (has_exchange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->exchange(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->exchange(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1232,40 +1199,31 @@ int itemitem::ByteSize() const {
           this->outtime());
     }
 
-    // optional int32 dayOutTime = 21;
-    if (has_dayouttime()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->dayouttime());
-    }
-
-    // optional string useLimit = 22;
+    // optional string useLimit = 21;
     if (has_uselimit()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->uselimit());
     }
 
-    // optional int32 blessing = 23;
+    // optional int32 blessing = 22;
     if (has_blessing()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->blessing());
     }
 
-    // optional int32 invest = 24;
+    // optional int32 invest = 23;
     if (has_invest()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->invest());
     }
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int64 exchange = 25;
+    // optional int32 exchange = 24;
     if (has_exchange()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->exchange());
     }
 
@@ -1360,9 +1318,6 @@ void itemitem::MergeFrom(const itemitem& from) {
     if (from.has_outtime()) {
       set_outtime(from.outtime());
     }
-    if (from.has_dayouttime()) {
-      set_dayouttime(from.dayouttime());
-    }
     if (from.has_uselimit()) {
       set_uselimit(from.uselimit());
     }
@@ -1372,8 +1327,6 @@ void itemitem::MergeFrom(const itemitem& from) {
     if (from.has_invest()) {
       set_invest(from.invest());
     }
-  }
-  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_exchange()) {
       set_exchange(from.exchange());
     }
@@ -1420,7 +1373,6 @@ void itemitem::Swap(itemitem* other) {
     std::swap(iscanbatchuse_, other->iscanbatchuse_);
     std::swap(dayuse_, other->dayuse_);
     std::swap(outtime_, other->outtime_);
-    std::swap(dayouttime_, other->dayouttime_);
     std::swap(uselimit_, other->uselimit_);
     std::swap(blessing_, other->blessing_);
     std::swap(invest_, other->invest_);

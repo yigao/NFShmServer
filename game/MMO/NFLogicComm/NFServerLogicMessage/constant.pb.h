@@ -93,12 +93,12 @@ class constantconstant : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 constantid = 1;
+  // optional int32 constantid = 1;
   inline bool has_constantid() const;
   inline void clear_constantid();
   static const int kConstantidFieldNumber = 1;
-  inline ::google::protobuf::int64 constantid() const;
-  inline void set_constantid(::google::protobuf::int64 value);
+  inline ::google::protobuf::int32 constantid() const;
+  inline void set_constantid(::google::protobuf::int32 value);
 
   // optional int64 constantdata = 2;
   inline bool has_constantdata() const;
@@ -130,9 +130,9 @@ class constantconstant : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 constantid_;
   ::google::protobuf::int64 constantdata_;
   ::std::string* stringdata_;
+  ::google::protobuf::int32 constantid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -236,7 +236,7 @@ class Sheet_constantconstant : public ::google::protobuf::Message {
 
 // constantconstant
 
-// optional int64 constantid = 1;
+// optional int32 constantid = 1;
 inline bool constantconstant::has_constantid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -247,13 +247,13 @@ inline void constantconstant::clear_has_constantid() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void constantconstant::clear_constantid() {
-  constantid_ = GOOGLE_LONGLONG(0);
+  constantid_ = 0;
   clear_has_constantid();
 }
-inline ::google::protobuf::int64 constantconstant::constantid() const {
+inline ::google::protobuf::int32 constantconstant::constantid() const {
   return constantid_;
 }
-inline void constantconstant::set_constantid(::google::protobuf::int64 value) {
+inline void constantconstant::set_constantid(::google::protobuf::int32 value) {
   set_has_constantid();
   constantid_ = value;
 }

@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		Sheet_mapmap_s();
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapmap_s, 200> mapmap_List;
+		NFArray<struct mapmap_s, 20> mapmap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_mapmap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapmap & msg);
