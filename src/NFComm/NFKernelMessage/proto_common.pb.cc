@@ -455,7 +455,7 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "T_LOGIN_SERVER\020\007\022\026\n\022NF_ST_WORLD_SERVER\020\010"
     "\022\026\n\022NF_ST_LOGIC_SERVER\020\t\022\025\n\021NF_ST_GAME_S"
     "ERVER\020\n\022\024\n\020NF_ST_SNS_SERVER\020\013\022\024\n\020NF_ST_W"
-    "EB_SERVER\020\014\022\030\n\024NF_ST_MONITOR_SERVER\020\023\022\r\n"
+    "EB_SERVER\020\014\022\030\n\024NF_ST_MONITOR_SERVER\020\022\022\r\n"
     "\tNF_ST_MAX\020\024", 2932);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
@@ -509,7 +509,7 @@ bool NF_SERVER_TYPE_IsValid(int value) {
     case 10:
     case 11:
     case 12:
-    case 19:
+    case 18:
     case 20:
       return true;
     default:

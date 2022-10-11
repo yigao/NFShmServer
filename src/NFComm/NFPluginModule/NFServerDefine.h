@@ -34,8 +34,8 @@ enum NF_SERVER_TYPES
     NF_ST_GAME_SERVER = 10,
     NF_ST_SNS_SERVER = 11, //SNS服务器
     NF_ST_WEB_SERVER = 12, //Web服务器
-    NF_ST_MONITOR_SERVER = 19, //Monitor服务器
-    NF_ST_MAX = 20,
+    NF_ST_MONITOR_SERVER = 18, //Monitor服务器
+    NF_ST_MAX = 50,
 };
 
 enum NF_MODULE_TYPE
@@ -90,24 +90,24 @@ enum
 const std::string gArrayServer[NF_ST_MAX] = {
         "NoneServer",
         "MasterServer", //1
-        "RouteAgentServer", //2
-        "RouteServer", //3
+        "RouteServer", //2
+        "RouteAgentServer", //3
         "ProxyServer", //4
-        "ProxyServerForClient", //5
-        "ProxyAgentServer", //6
-        "StoreServer", //7
-        "LoginServer", //8
-        "WorldServer", //9
-        "LogicServer", //10
-        "GameServer", //11
-        "SnsServer", //12
-        "WebServer", //13
-        "MonitorServer", //14
-        "NoneServer",
-        "NoneServer",
-        "NoneServer",
-        "NoneServer",
-        "NoneServer",
+        "ProxyAgentServer", //5
+        "StoreServer", //6
+        "LoginServer", //7
+        "WorldServer", //8
+        "LogicServer", //9
+        "GameServer", //10
+        "SnsServer", //11
+        "WebServer", //12
+        "NoneServer", //13
+        "NoneServer", //14
+        "NoneServer", //15
+        "NoneServer", //16
+        "NoneServer", //17
+        "MonitorServer", //18
+        "NoneServer", //19
 };
 
 std::string GetServerName(NF_SERVER_TYPES serverId);

@@ -40,36 +40,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="mem">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageDriver.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/ExternalPacketParse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/ExternalPacketParse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/ExternalPacketParse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/ExternalPacketParse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCNetMessageDriverModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIBusConnection.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIBusConnection.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFINetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFINetMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIPacketParse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIPacketParse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIPacketParse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIPacketParse.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/NFProxyAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/NFProxyAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="mem pool" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +194,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=ProxyServer --ID=1.9.4.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -522,14 +493,7 @@
       <workItem from="1665275205916" duration="50000" />
       <workItem from="1665275284547" duration="20580000" />
       <workItem from="1665362066297" duration="35465000" />
-      <workItem from="1665448702691" duration="22806000" />
-    </task>
-    <task id="LOCAL-00127" summary="chong gou">
-      <created>1663430128209</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1663430128209</updated>
+      <workItem from="1665448702691" duration="23419000" />
     </task>
     <task id="LOCAL-00128" summary="chong gou">
       <created>1663430811716</created>
@@ -867,7 +831,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665398438142</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="mem pool">
+      <created>1665473765353</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1665473765353</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -886,6 +857,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="469eeb2e-025f-42d0-bce3-3dba4e8d0845">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/gaoyi/mmo-nfshm-server/src/NFComm/NFPluginModule" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -925,6 +921,7 @@
     </option>
     <option name="OPEN_GENERIC_TABS">
       <map>
+        <entry key="469eeb2e-025f-42d0-bce3-3dba4e8d0845" value="TOOL_WINDOW" />
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e" value="TOOL_WINDOW" />
       </map>
     </option>
@@ -953,7 +950,8 @@
     <MESSAGE value="exit" />
     <MESSAGE value="net" />
     <MESSAGE value="mem" />
-    <option name="LAST_COMMIT_MESSAGE" value="mem" />
+    <MESSAGE value="mem pool" />
+    <option name="LAST_COMMIT_MESSAGE" value="mem pool" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

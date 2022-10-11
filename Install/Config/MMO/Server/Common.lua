@@ -12,5 +12,5 @@ NF_ST_LOGIC_SERVER = 9; --Logic服务器
 NF_ST_GAME_SERVER = 10;
 NF_ST_SNS_SERVER = 11; --SNS服务器
 NF_ST_WEB_SERVER = 12; --Web服务器
-NF_ST_MONITOR_SERVER = 19; ---Monitor服务器
+NF_ST_MONITOR_SERVER = 18; ---Monitor服务器
 NF_ST_MAX = 20;
