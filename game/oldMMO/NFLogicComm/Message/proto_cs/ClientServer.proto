@@ -1,0 +1,53 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+import "ComDefine.proto";
+
+//客户端带上来的需要发往奥飞日志服的信息
+message ClientToLogInfoProto
+{
+  optional string os_name =1;			//操作系统,直接通过系统提供API返回的字符串，如ios,android,windows,ubuntu,symbian等
+  optional string os_ver=2;			//操作系统版本,设备操作系统版本号如：6.1,2.3等
+  optional string mac_addr=3;		//设备mac地址,如08:00:20:0A:8C:6D
+  optional string udid=4;			//设备唯一标示符,设备UDID号,ios详情见：《苹果公司建议的UUID替代方案》
+  optional string device_model=5;	//设备型号,直接获取通过系统提供API返回的设备制造商,设备型号,CPU名称,CPU核心数,CPU频率,GPU名称字符串，并使用分割符号_进行拼接。
+  optional string ip=6;				//Ipv4地址,如果是ipv4网络(服务器可以获取，客户端不用赋值)
+
+  optional string app_channel=7;		//运营渠道,运营渠道，如app_store/91_assistant等…
+  optional string app_ver=8;			//客户端版本号,
+  optional string network=9;			//网络连接,例如有3g,2.5g,4g,wifi几种。
+  optional string platform_tag=10;	//发行平台标记,奥飞国内aofei，预留其它
+  optional int32 group_id=11;		//操作系统ID,例如IOS为1，android为2，windows为3等
+  optional int32 channel_id=12;		//运营渠道ID,原记录方式100，101
+  optional int32 active_time=13;	//激活时间
+  optional string device_screen = 14;//设备屏幕高度宽度，如100X80这样表达
+
+  optional string idfa = 15;			//IOS设备标识
+  optional string imei = 16;			//Android设备标识
+
+  optional uint32 port = 17;			//端口(服务器可以获取，客户端不用赋值)
+}
+
+//客户端登陆请求(连上网关第一个请求)
+//CLIENT_TO_CENTER_LOGIN
+message ClientLoginGateReq
+{
+  required uint32  uid = 1;
+  required uint32  channelId = 2;
+  required string  token = 3;
+  required uint64  loginTimeStamp = 4;
+  required uint32  gateId = 5;   //网关Id
+  optional string  clientSdkString = 6;   //客户端调用sdk返回串(json格式)
+  optional string  srvSdkString = 7;      //选服后服务器返回的sdk串(json格式)
+  optional uint32  version	= 8;		//客户端版本号，留着备用
+  optional ClientToLogInfoProto loginfo =9;	//客户端带上来的日志所需信息
+}
+
+//请求排队名次
+//CLIENT_TO_CENTER_REQ_QUEUE_INDEX		= 32
+message ClientQueueIndexReq
+{
+  //空
+}
