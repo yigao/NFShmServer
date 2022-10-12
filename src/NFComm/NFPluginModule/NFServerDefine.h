@@ -40,7 +40,8 @@ enum NF_SERVER_TYPES
 
 enum NF_MODULE_TYPE
 {
-    NF_MODULE_NONE = 0,
+    NF_MODULE_NONE = 0, //服务器内网通讯
+    NF_MODULE_CLIENT = 0, //客户端外部协议
 };
 
 enum PacketParseType

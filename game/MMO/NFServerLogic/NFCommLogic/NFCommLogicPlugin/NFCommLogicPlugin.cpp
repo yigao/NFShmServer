@@ -12,210 +12,8 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "DescStore/AchievementAchievementDesc.h"
-#include "DescStore/AchievementAchievementrewardDesc.h"
-#include "DescStore/ActivityDailyDesc.h"
-#include "DescStore/ActivityActivitynoticeDesc.h"
-#include "DescStore/ActivityScuffleDesc.h"
-#include "DescStore/ActivityChaosdragonsDesc.h"
-#include "DescStore/ActivityCircusDesc.h"
-#include "DescStore/ActivityCircusnumDesc.h"
-#include "DescStore/ActivityCircusdanDesc.h"
-#include "DescStore/ActivityMathruleDesc.h"
-#include "DescStore/ActivityMathrewardDesc.h"
-#include "DescStore/ActivityGvgconstDesc.h"
-#include "DescStore/ActivityGvgrankrewardDesc.h"
-#include "DescStore/ActivityGvgrewardDesc.h"
-#include "DescStore/ActivityWorldtreasureconstDesc.h"
-#include "DescStore/ActivityWorldtreasuremapDesc.h"
-#include "DescStore/ActivityWorldtreasuremonsterDesc.h"
-#include "DescStore/ActivityLosttempleconstantDesc.h"
-#include "DescStore/AiAiDesc.h"
-#include "DescStore/AreaAreaDesc.h"
-#include "DescStore/AreaPathDesc.h"
-#include "DescStore/ArenaRobotDesc.h"
-#include "DescStore/ArenaRankawardDesc.h"
-#include "DescStore/ArenaArenawardDesc.h"
-#include "DescStore/ArenaFirstrankDesc.h"
-#include "DescStore/ArenaBuychallengeDesc.h"
-#include "DescStore/ArtifactArtifactDesc.h"
-#include "DescStore/AttributeAttributeDesc.h"
-#include "DescStore/AttributeSuppressDesc.h"
-#include "DescStore/AttributePowersupDesc.h"
-#include "DescStore/AuctionAcquisitionDesc.h"
-#include "DescStore/AuctionPurchaseDesc.h"
-#include "DescStore/BackBackDesc.h"
-#include "DescStore/BoxBoxDesc.h"
-#include "DescStore/ButtonButtonDesc.h"
-#include "DescStore/ChatChatDesc.h"
-#include "DescStore/ChatSpecialchatDesc.h"
-#include "DescStore/CombineCitemDesc.h"
-#include "DescStore/CombineStarupDesc.h"
-#include "DescStore/CombineItemupDesc.h"
-#include "DescStore/CombineRankupDesc.h"
-#include "DescStore/CombineQualityupDesc.h"
-#include "DescStore/ConstantConstantDesc.h"
-#include "DescStore/DropDropDesc.h"
-#include "DescStore/DuplicateDuplicateDesc.h"
-#include "DescStore/DuplicateConstantDesc.h"
-#include "DescStore/DuplicateEndlessmazeDesc.h"
-#include "DescStore/DuplicateTowerrewardDesc.h"
-#include "DescStore/DuplicateDungeonrewardDesc.h"
-#include "DescStore/DuplicateGroupDesc.h"
-#include "DescStore/DuplicateSweepmonsternumDesc.h"
-#include "DescStore/DuplicateGuildbosstimeDesc.h"
-#include "DescStore/DuplicateGuildbossDesc.h"
-#include "DescStore/DuplicateGuildduplicateDesc.h"
-#include "DescStore/DynamicexpDynamicexpDesc.h"
-#include "DescStore/EffectEffectDesc.h"
-#include "DescStore/ElementElementDesc.h"
-#include "DescStore/ElementFragmentDesc.h"
-#include "DescStore/ElementElementuiDesc.h"
-#include "DescStore/EquipEquipDesc.h"
-#include "DescStore/EquipStrongDesc.h"
-#include "DescStore/EquipGemfineDesc.h"
-#include "DescStore/EquipGemDesc.h"
-#include "DescStore/EquipAttDesc.h"
-#include "DescStore/EquipSuitDesc.h"
-#include "DescStore/EquipClearDesc.h"
-#include "DescStore/EquipStrongexpDesc.h"
-#include "DescStore/EquipGemfineexpDesc.h"
-#include "DescStore/EquipClearteamDesc.h"
-#include "DescStore/EquipAwakeningDesc.h"
-#include "DescStore/EquipEnchantingDesc.h"
-#include "DescStore/EquipMarryDesc.h"
-#include "DescStore/EscortEscortDesc.h"
-#include "DescStore/EscortChanceDesc.h"
-#include "DescStore/EscortRewardexpDesc.h"
-#include "DescStore/FashionFashionDesc.h"
-#include "DescStore/FestivalMuban_jfduihuanDesc.h"
-#include "DescStore/FestivalMuban_dingzhiDesc.h"
-#include "DescStore/FestivalMuban_czfanzuanDesc.h"
-#include "DescStore/FestivalMuban_lianxuczDesc.h"
-#include "DescStore/FestivalMuban_prerechargeDesc.h"
-#include "DescStore/FestivalMuban_doublegiftDesc.h"
-#include "DescStore/FestivalBigyanhuarechargeDesc.h"
-#include "DescStore/FestivalBigyanhuacostDesc.h"
-#include "DescStore/FestivalMuban_bigyanhuaDesc.h"
-#include "DescStore/FestivalFestivalDesc.h"
-#include "DescStore/FestivalTemplateDesc.h"
-#include "DescStore/FestivalMuban_worldbossDesc.h"
-#include "DescStore/FestivalMuban_libaoDesc.h"
-#include "DescStore/FestivalMuban_doubleDesc.h"
-#include "DescStore/FestivalMiaoshuDesc.h"
-#include "DescStore/FestivalMuban_dengluDesc.h"
-#include "DescStore/FestivalMuban_touziDesc.h"
-#include "DescStore/FestivalMuban_zhichongDesc.h"
-#include "DescStore/FestivalMuban_leichongDesc.h"
-#include "DescStore/FestivalMuban_duihuanDesc.h"
-#include "DescStore/FestivalD_diaoluoDesc.h"
-#include "DescStore/FestivalMuban_leixiaoDesc.h"
-#include "DescStore/FestivalMuban_shouchongDesc.h"
-#include "DescStore/FestivalMuban_yanhuaDesc.h"
-#include "DescStore/FestivalYanhuaconstantDesc.h"
-#include "DescStore/FestivalMuban_shopDesc.h"
-#include "DescStore/FestivalMuban_czjbDesc.h"
-#include "DescStore/FestivalMuban_scsbDesc.h"
-#include "DescStore/FestivalMuban_eggsDesc.h"
-#include "DescStore/FestivalEggconstantDesc.h"
-#include "DescStore/FestivalConstantDesc.h"
-#include "DescStore/FestivalMuban_shoushaDesc.h"
-#include "DescStore/FestivalMuban_huoyueDesc.h"
-#include "DescStore/FieldFieldDesc.h"
-#include "DescStore/FieldReikiDesc.h"
-#include "DescStore/FieldExpDesc.h"
-#include "DescStore/FieldValueDesc.h"
-#include "DescStore/FieldExpandDesc.h"
-#include "DescStore/FieldStongDesc.h"
-#include "DescStore/FlashFlashDesc.h"
-#include "DescStore/FlashItemflashDesc.h"
-#include "DescStore/FunctionunlockFunctionunlockDesc.h"
-#include "DescStore/GettreasureRareitemDesc.h"
-#include "DescStore/GettreasureTimescontrolDesc.h"
-#include "DescStore/GettreasureArrivalbossrewardDesc.h"
-#include "DescStore/GettreasureArrivalbosscontrolDesc.h"
-#include "DescStore/GettreasureVipbosscontrolDesc.h"
-#include "DescStore/GettreasureBossDesc.h"
-#include "DescStore/GettreasureHelpDesc.h"
-#include "DescStore/GmcommandGmcommandDesc.h"
-#include "DescStore/GodhoodGodhoodDesc.h"
-#include "DescStore/GodhoodExpDesc.h"
-#include "DescStore/GuildConstantDesc.h"
-#include "DescStore/GuildLevelDesc.h"
-#include "DescStore/GuildCollegeDesc.h"
-#include "DescStore/GuildPositionDesc.h"
-#include "DescStore/GuildHouseDesc.h"
-#include "DescStore/GuildGiftDesc.h"
-#include "DescStore/GuildGuildanceDesc.h"
-#include "DescStore/GuildWarconstantDesc.h"
-#include "DescStore/GuildWarmoraleDesc.h"
-#include "DescStore/GuildWarreviveDesc.h"
-#include "DescStore/HandbookHandbookDesc.h"
-#include "DescStore/HandbookFateDesc.h"
-#include "DescStore/HandbookAttrDesc.h"
-#include "DescStore/HuoyueduRewardDesc.h"
-#include "DescStore/HuoyueduActiveDesc.h"
-#include "DescStore/IntimacyIntimacyDesc.h"
-#include "DescStore/IntimacyGiftDesc.h"
-#include "DescStore/ItemItemDesc.h"
-#include "DescStore/LinkLinkDesc.h"
-#include "DescStore/MallMallDesc.h"
-#include "DescStore/MallMalltypeDesc.h"
-#include "DescStore/MapMapDesc.h"
-#include "DescStore/MapItemdropDesc.h"
-#include "DescStore/MapDestroyitemDesc.h"
-#include "DescStore/MarryConstDesc.h"
-#include "DescStore/MarryBanquetDesc.h"
-#include "DescStore/MarryGearDesc.h"
-#include "DescStore/MarryTimesDesc.h"
-#include "DescStore/MarryWarmDesc.h"
-#include "DescStore/MarryLevelexpDesc.h"
-#include "DescStore/MonsterMonsterDesc.h"
-#include "DescStore/MonsterDisplayDesc.h"
-#include "DescStore/MonsterValueDesc.h"
-#include "DescStore/MountMountDesc.h"
-#include "DescStore/MountStarupDesc.h"
 #include "DescStore/MsgPhpmsgDesc.h"
-#include "DescStore/OccupationOccupationDesc.h"
-#include "DescStore/OccupationAptitudeDesc.h"
-#include "DescStore/OccupationConditionlistDesc.h"
-#include "DescStore/OfflineOfflineDesc.h"
-#include "DescStore/OfflineItemlistDesc.h"
-#include "DescStore/OperateOperateDesc.h"
-#include "DescStore/OperateTutorDesc.h"
-#include "DescStore/OperateJiangliDesc.h"
-#include "DescStore/OperateHoroscopeDesc.h"
-#include "DescStore/OperateHoroscopepoolDesc.h"
-#include "DescStore/OperateHoroscopeexchangeDesc.h"
-#include "DescStore/OperateConstDesc.h"
-#include "DescStore/OperateUnlimitedDesc.h"
-#include "DescStore/OperateRandDesc.h"
-#include "DescStore/OperateMooncardDesc.h"
-#include "DescStore/OperateFundDesc.h"
-#include "DescStore/OperateTaskDesc.h"
-#include "DescStore/OperateShopDesc.h"
-#include "DescStore/OperateWishDesc.h"
-#include "DescStore/OperateTurntableDesc.h"
-#include "DescStore/OperateTurntabletaskDesc.h"
-#include "DescStore/PartnerPartnerDesc.h"
-#include "DescStore/PartnerChangeDesc.h"
-#include "DescStore/PartnerStarupDesc.h"
-#include "DescStore/PartnerFragmentDesc.h"
-#include "DescStore/PartnerAttributeDesc.h"
-#include "DescStore/PartnerExpDesc.h"
-#include "DescStore/PartnerEquipDesc.h"
-#include "DescStore/PartnerRefineDesc.h"
-#include "DescStore/PartnerSlotDesc.h"
-#include "DescStore/RandomnameManfirstDesc.h"
-#include "DescStore/RandomnameMansecondDesc.h"
-#include "DescStore/RandomnameManthirdDesc.h"
-#include "DescStore/RandomnameWomanfirstDesc.h"
-#include "DescStore/RandomnameWomansecondDesc.h"
-#include "DescStore/RandomnameWomanthirdDesc.h"
-#include "DescStore/RankingRankingDesc.h"
-#include "DescStore/RankingDateDesc.h"
-#include "DescStore/RankingPkconsDesc.h"
-#include "DescStore/RechargeRechargeDesc.h"
+#include "DescStore/UiEffectDesc.h"
 #include "DescStore/RoleBornDesc.h"
 #include "DescStore/RoleWarriorDesc.h"
 #include "DescStore/RoleMasterDesc.h"
@@ -225,109 +23,27 @@
 #include "DescStore/RoleSkilltypeDesc.h"
 #include "DescStore/RoleAddskillDesc.h"
 #include "DescStore/RoleWorldexpDesc.h"
+#include "DescStore/RandomnameManfirstDesc.h"
+#include "DescStore/RandomnameMansecondDesc.h"
+#include "DescStore/RandomnameManthirdDesc.h"
+#include "DescStore/RandomnameWomanfirstDesc.h"
+#include "DescStore/RandomnameWomansecondDesc.h"
+#include "DescStore/RandomnameWomanthirdDesc.h"
 #include "DescStore/SensitivewordSensitive_wordDesc.h"
 #include "DescStore/SensitivewordRolesensitiveDesc.h"
+#include "DescStore/MapMapDesc.h"
+#include "DescStore/MapItemdropDesc.h"
+#include "DescStore/MapDestroyitemDesc.h"
+#include "DescStore/MonsterMonsterDesc.h"
+#include "DescStore/MonsterDisplayDesc.h"
+#include "DescStore/MonsterValueDesc.h"
+#include "DescStore/AreaAreaDesc.h"
+#include "DescStore/AreaPathDesc.h"
 #include "DescStore/SkillSkillDesc.h"
 #include "DescStore/SkillBuffDesc.h"
-#include "DescStore/StarPointDesc.h"
-#include "DescStore/StarStarDesc.h"
-#include "DescStore/StarExpDesc.h"
-#include "DescStore/StarAstrologyDesc.h"
-#include "DescStore/TaskdynamicTaskdynamicDesc.h"
-#include "DescStore/TaskdynamicTaskcomcondDesc.h"
-#include "DescStore/TaskdynamicTasktextDesc.h"
-#include "DescStore/TaskrewardTaskrewardDesc.h"
-#include "DescStore/TasktrackerTasktrackerDesc.h"
-#include "DescStore/TeamTeamDesc.h"
-#include "DescStore/TeleportBornDesc.h"
-#include "DescStore/TeleportTeleportDesc.h"
-#include "DescStore/TitleTypeDesc.h"
-#include "DescStore/TitleTitleDesc.h"
-#include "DescStore/TreasureTreasureDesc.h"
-#include "DescStore/TreasureChangeDesc.h"
-#include "DescStore/TreasureStarupDesc.h"
-#include "DescStore/TreasureFragmentDesc.h"
-#include "DescStore/TreasureEquipDesc.h"
-#include "DescStore/TreasureSlotDesc.h"
-#include "DescStore/TreasureRefineDesc.h"
-#include "DescStore/UiEffectDesc.h"
-#include "DescStore/VipVipDesc.h"
-#include "DescStore/VipPrivilegeDesc.h"
-#include "DescStore/VipGiftDesc.h"
-#include "DescStore/WarlandConstantDesc.h"
-#include "DescStore/WarlandMultikillDesc.h"
-#include "DescStore/WarlandRankrewardDesc.h"
-#include "DescStore/WingWingDesc.h"
-#include "DescStore/WingChangeDesc.h"
-#include "DescStore/WingFragmentDesc.h"
-#include "DescStore/WingStarupDesc.h"
-#include "DescStore/ServeropenactiveServiceactivityDesc.h"
-#include "DescStore/ServeropenactivePagebookDesc.h"
-#include "DescStore/ServeropenactivePageDesc.h"
-#include "DescStore/ServeropenactiveMrankDesc.h"
-#include "DescStore/ServeropenactiveMadvancedDesc.h"
-#include "DescStore/ServeropenactiveMrechargeDesc.h"
-#include "DescStore/ServeropenactiveMgoodsDesc.h"
-#include "DescStore/WitchAwardDesc.h"
-#include "DescStore/WitchSummonDesc.h"
-#include "DescStore/WitchRewardexpDesc.h"
-#include "DescStore/SoloDuanweiDesc.h"
-#include "DescStore/SoloRankDesc.h"
-#include "DescStore/SoloPipeiDesc.h"
-#include "DescStore/SoloConstantDesc.h"
-#include "DescStore/NoticeNoticeDesc.h"
-#include "DescStore/ConditionshopConditionshopDesc.h"
-#include "DescStore/ClosetestActivityDesc.h"
-#include "DescStore/ClosetestRebateDesc.h"
-#include "DescStore/WorldmapbossWorldbossDesc.h"
-#include "DescStore/WorldmapbossDroplistDesc.h"
-#include "DescStore/WorldmapbossFestivalDesc.h"
-#include "DescStore/DragonworldwarConstantsDesc.h"
-#include "DescStore/DragonworldwarGoldskillDesc.h"
-#include "DescStore/DragonworldwarGoldshopDesc.h"
-#include "DescStore/ManorConstantsDesc.h"
-#include "DescStore/ManorItemcostDesc.h"
-#include "DescStore/ManorManorlistDesc.h"
-#include "DescStore/ManorProductDesc.h"
-#include "DescStore/ManorBuildDesc.h"
-#include "DescStore/ManorBuildupDesc.h"
-#include "DescStore/ManorEggDesc.h"
-#include "DescStore/ManorPatbeastDesc.h"
-#include "DescStore/ManorPatbeastupDesc.h"
-#include "DescStore/ManorBuildbuffDesc.h"
-#include "DescStore/ManorShopDesc.h"
-#include "DescStore/ManorBuildaddDesc.h"
-#include "DescStore/ManorLogDesc.h"
-#include "DescStore/ConditionConditionDesc.h"
-#include "DescStore/PrivilegePrivilegeDesc.h"
-#include "DescStore/GodpowerGodpowerDesc.h"
-#include "DescStore/GodpowerSkillupdateDesc.h"
-#include "DescStore/HeadportraitHeadDesc.h"
-#include "DescStore/HeadportraitFrameDesc.h"
-#include "DescStore/HeadportraitBubbleDesc.h"
-#include "DescStore/Gm5helpConsDesc.h"
-#include "DescStore/Gm5helpRewardDesc.h"
-#include "DescStore/GodgmGodgmDesc.h"
-#include "DescStore/ServerhornServerhornDesc.h"
-#include "DescStore/LightandshadowConsDesc.h"
-#include "DescStore/LightandshadowRewardDesc.h"
-#include "DescStore/RechargereturnRechargereturnDesc.h"
-#include "DescStore/RechargereturnTimeDesc.h"
-#include "DescStore/RechargereturnContinuousreturnDesc.h"
-#include "DescStore/RechargereturnRechargetriggerDesc.h"
-#include "DescStore/RechargereturnConstantDesc.h"
-#include "DescStore/SnowballwarConsDesc.h"
-#include "DescStore/ChoosegiftChoosegiftDesc.h"
-#include "DescStore/TreasurebowlTreasurebowlDesc.h"
-#include "DescStore/GmtoolsGmtoolsDesc.h"
-#include "DescStore/GmtoolsRechargeDesc.h"
-#include "DescStore/GmtoolsGiftDesc.h"
-#include "DescStore/GmtoolsUnlimitDesc.h"
-#include "DescStore/GmtoolsUpperlimitDesc.h"
-#include "DescStore/IndulttaskIndulttaskDesc.h"
-#include "DescStore/IndulttaskTaskDesc.h"
-#include "DescStore/ColpointsColpointsDesc.h"
-#include "DescStore/ColpointsTaskDesc.h"
+#include "DescStore/ItemItemDesc.h"
+#include "DescStore/EquipEquipDesc.h"
+#include "DescStore/ConstantConstantDesc.h"
 
 
 #ifdef NF_DYNAMIC_PLUGIN
@@ -374,210 +90,8 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     CHECK_EXPR(pConfig, false, "pConfig == NULL");
     CHECK_EXPR(!pConfig->DefaultDBName.empty(), false, "pConfig->DefaultDBName.empty()");
 
-    REGISTER_DESCSTORE(AchievementAchievementDesc, EOT_CONST_ACHIEVEMENT_ACHIEVEMENT_DESC_ID);
-    REGISTER_DESCSTORE(AchievementAchievementrewardDesc, EOT_CONST_ACHIEVEMENT_ACHIEVEMENTREWARD_DESC_ID);
-    REGISTER_DESCSTORE(ActivityDailyDesc, EOT_CONST_ACTIVITY_DAILY_DESC_ID);
-    REGISTER_DESCSTORE(ActivityActivitynoticeDesc, EOT_CONST_ACTIVITY_ACTIVITYNOTICE_DESC_ID);
-    REGISTER_DESCSTORE(ActivityScuffleDesc, EOT_CONST_ACTIVITY_SCUFFLE_DESC_ID);
-    REGISTER_DESCSTORE(ActivityChaosdragonsDesc, EOT_CONST_ACTIVITY_CHAOSDRAGONS_DESC_ID);
-    REGISTER_DESCSTORE(ActivityCircusDesc, EOT_CONST_ACTIVITY_CIRCUS_DESC_ID);
-    REGISTER_DESCSTORE(ActivityCircusnumDesc, EOT_CONST_ACTIVITY_CIRCUSNUM_DESC_ID);
-    REGISTER_DESCSTORE(ActivityCircusdanDesc, EOT_CONST_ACTIVITY_CIRCUSDAN_DESC_ID);
-    REGISTER_DESCSTORE(ActivityMathruleDesc, EOT_CONST_ACTIVITY_MATHRULE_DESC_ID);
-    REGISTER_DESCSTORE(ActivityMathrewardDesc, EOT_CONST_ACTIVITY_MATHREWARD_DESC_ID);
-    REGISTER_DESCSTORE(ActivityGvgconstDesc, EOT_CONST_ACTIVITY_GVGCONST_DESC_ID);
-    REGISTER_DESCSTORE(ActivityGvgrankrewardDesc, EOT_CONST_ACTIVITY_GVGRANKREWARD_DESC_ID);
-    REGISTER_DESCSTORE(ActivityGvgrewardDesc, EOT_CONST_ACTIVITY_GVGREWARD_DESC_ID);
-    REGISTER_DESCSTORE(ActivityWorldtreasureconstDesc, EOT_CONST_ACTIVITY_WORLDTREASURECONST_DESC_ID);
-    REGISTER_DESCSTORE(ActivityWorldtreasuremapDesc, EOT_CONST_ACTIVITY_WORLDTREASUREMAP_DESC_ID);
-    REGISTER_DESCSTORE(ActivityWorldtreasuremonsterDesc, EOT_CONST_ACTIVITY_WORLDTREASUREMONSTER_DESC_ID);
-    REGISTER_DESCSTORE(ActivityLosttempleconstantDesc, EOT_CONST_ACTIVITY_LOSTTEMPLECONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(AiAiDesc, EOT_CONST_AI_AI_DESC_ID);
-    REGISTER_DESCSTORE(AreaAreaDesc, EOT_CONST_AREA_AREA_DESC_ID);
-    REGISTER_DESCSTORE(AreaPathDesc, EOT_CONST_AREA_PATH_DESC_ID);
-    REGISTER_DESCSTORE(ArenaRobotDesc, EOT_CONST_ARENA_ROBOT_DESC_ID);
-    REGISTER_DESCSTORE(ArenaRankawardDesc, EOT_CONST_ARENA_RANKAWARD_DESC_ID);
-    REGISTER_DESCSTORE(ArenaArenawardDesc, EOT_CONST_ARENA_ARENAWARD_DESC_ID);
-    REGISTER_DESCSTORE(ArenaFirstrankDesc, EOT_CONST_ARENA_FIRSTRANK_DESC_ID);
-    REGISTER_DESCSTORE(ArenaBuychallengeDesc, EOT_CONST_ARENA_BUYCHALLENGE_DESC_ID);
-    REGISTER_DESCSTORE(ArtifactArtifactDesc, EOT_CONST_ARTIFACT_ARTIFACT_DESC_ID);
-    REGISTER_DESCSTORE(AttributeAttributeDesc, EOT_CONST_ATTRIBUTE_ATTRIBUTE_DESC_ID);
-    REGISTER_DESCSTORE(AttributeSuppressDesc, EOT_CONST_ATTRIBUTE_SUPPRESS_DESC_ID);
-    REGISTER_DESCSTORE(AttributePowersupDesc, EOT_CONST_ATTRIBUTE_POWERSUP_DESC_ID);
-    REGISTER_DESCSTORE(AuctionAcquisitionDesc, EOT_CONST_AUCTION_ACQUISITION_DESC_ID);
-    REGISTER_DESCSTORE(AuctionPurchaseDesc, EOT_CONST_AUCTION_PURCHASE_DESC_ID);
-    REGISTER_DESCSTORE(BackBackDesc, EOT_CONST_BACK_BACK_DESC_ID);
-    REGISTER_DESCSTORE(BoxBoxDesc, EOT_CONST_BOX_BOX_DESC_ID);
-    REGISTER_DESCSTORE(ButtonButtonDesc, EOT_CONST_BUTTON_BUTTON_DESC_ID);
-    REGISTER_DESCSTORE(ChatChatDesc, EOT_CONST_CHAT_CHAT_DESC_ID);
-    REGISTER_DESCSTORE(ChatSpecialchatDesc, EOT_CONST_CHAT_SPECIALCHAT_DESC_ID);
-    REGISTER_DESCSTORE(CombineCitemDesc, EOT_CONST_COMBINE_CITEM_DESC_ID);
-    REGISTER_DESCSTORE(CombineStarupDesc, EOT_CONST_COMBINE_STARUP_DESC_ID);
-    REGISTER_DESCSTORE(CombineItemupDesc, EOT_CONST_COMBINE_ITEMUP_DESC_ID);
-    REGISTER_DESCSTORE(CombineRankupDesc, EOT_CONST_COMBINE_RANKUP_DESC_ID);
-    REGISTER_DESCSTORE(CombineQualityupDesc, EOT_CONST_COMBINE_QUALITYUP_DESC_ID);
-    REGISTER_DESCSTORE(ConstantConstantDesc, EOT_CONST_CONSTANT_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(DropDropDesc, EOT_CONST_DROP_DROP_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateDuplicateDesc, EOT_CONST_DUPLICATE_DUPLICATE_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateConstantDesc, EOT_CONST_DUPLICATE_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateEndlessmazeDesc, EOT_CONST_DUPLICATE_ENDLESSMAZE_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateTowerrewardDesc, EOT_CONST_DUPLICATE_TOWERREWARD_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateDungeonrewardDesc, EOT_CONST_DUPLICATE_DUNGEONREWARD_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateGroupDesc, EOT_CONST_DUPLICATE_GROUP_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateSweepmonsternumDesc, EOT_CONST_DUPLICATE_SWEEPMONSTERNUM_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateGuildbosstimeDesc, EOT_CONST_DUPLICATE_GUILDBOSSTIME_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateGuildbossDesc, EOT_CONST_DUPLICATE_GUILDBOSS_DESC_ID);
-    REGISTER_DESCSTORE(DuplicateGuildduplicateDesc, EOT_CONST_DUPLICATE_GUILDDUPLICATE_DESC_ID);
-    REGISTER_DESCSTORE(DynamicexpDynamicexpDesc, EOT_CONST_DYNAMICEXP_DYNAMICEXP_DESC_ID);
-    REGISTER_DESCSTORE(EffectEffectDesc, EOT_CONST_EFFECT_EFFECT_DESC_ID);
-    REGISTER_DESCSTORE(ElementElementDesc, EOT_CONST_ELEMENT_ELEMENT_DESC_ID);
-    REGISTER_DESCSTORE(ElementFragmentDesc, EOT_CONST_ELEMENT_FRAGMENT_DESC_ID);
-    REGISTER_DESCSTORE(ElementElementuiDesc, EOT_CONST_ELEMENT_ELEMENTUI_DESC_ID);
-    REGISTER_DESCSTORE(EquipEquipDesc, EOT_CONST_EQUIP_EQUIP_DESC_ID);
-    REGISTER_DESCSTORE(EquipStrongDesc, EOT_CONST_EQUIP_STRONG_DESC_ID);
-    REGISTER_DESCSTORE(EquipGemfineDesc, EOT_CONST_EQUIP_GEMFINE_DESC_ID);
-    REGISTER_DESCSTORE(EquipGemDesc, EOT_CONST_EQUIP_GEM_DESC_ID);
-    REGISTER_DESCSTORE(EquipAttDesc, EOT_CONST_EQUIP_ATT_DESC_ID);
-    REGISTER_DESCSTORE(EquipSuitDesc, EOT_CONST_EQUIP_SUIT_DESC_ID);
-    REGISTER_DESCSTORE(EquipClearDesc, EOT_CONST_EQUIP_CLEAR_DESC_ID);
-    REGISTER_DESCSTORE(EquipStrongexpDesc, EOT_CONST_EQUIP_STRONGEXP_DESC_ID);
-    REGISTER_DESCSTORE(EquipGemfineexpDesc, EOT_CONST_EQUIP_GEMFINEEXP_DESC_ID);
-    REGISTER_DESCSTORE(EquipClearteamDesc, EOT_CONST_EQUIP_CLEARTEAM_DESC_ID);
-    REGISTER_DESCSTORE(EquipAwakeningDesc, EOT_CONST_EQUIP_AWAKENING_DESC_ID);
-    REGISTER_DESCSTORE(EquipEnchantingDesc, EOT_CONST_EQUIP_ENCHANTING_DESC_ID);
-    REGISTER_DESCSTORE(EquipMarryDesc, EOT_CONST_EQUIP_MARRY_DESC_ID);
-    REGISTER_DESCSTORE(EscortEscortDesc, EOT_CONST_ESCORT_ESCORT_DESC_ID);
-    REGISTER_DESCSTORE(EscortChanceDesc, EOT_CONST_ESCORT_CHANCE_DESC_ID);
-    REGISTER_DESCSTORE(EscortRewardexpDesc, EOT_CONST_ESCORT_REWARDEXP_DESC_ID);
-    REGISTER_DESCSTORE(FashionFashionDesc, EOT_CONST_FASHION_FASHION_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_jfduihuanDesc, EOT_CONST_FESTIVAL_MUBAN_JFDUIHUAN_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_dingzhiDesc, EOT_CONST_FESTIVAL_MUBAN_DINGZHI_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_czfanzuanDesc, EOT_CONST_FESTIVAL_MUBAN_CZFANZUAN_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_lianxuczDesc, EOT_CONST_FESTIVAL_MUBAN_LIANXUCZ_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_prerechargeDesc, EOT_CONST_FESTIVAL_MUBAN_PRERECHARGE_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_doublegiftDesc, EOT_CONST_FESTIVAL_MUBAN_DOUBLEGIFT_DESC_ID);
-    REGISTER_DESCSTORE(FestivalBigyanhuarechargeDesc, EOT_CONST_FESTIVAL_BIGYANHUARECHARGE_DESC_ID);
-    REGISTER_DESCSTORE(FestivalBigyanhuacostDesc, EOT_CONST_FESTIVAL_BIGYANHUACOST_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_bigyanhuaDesc, EOT_CONST_FESTIVAL_MUBAN_BIGYANHUA_DESC_ID);
-    REGISTER_DESCSTORE(FestivalFestivalDesc, EOT_CONST_FESTIVAL_FESTIVAL_DESC_ID);
-    REGISTER_DESCSTORE(FestivalTemplateDesc, EOT_CONST_FESTIVAL_TEMPLATE_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_worldbossDesc, EOT_CONST_FESTIVAL_MUBAN_WORLDBOSS_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_libaoDesc, EOT_CONST_FESTIVAL_MUBAN_LIBAO_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_doubleDesc, EOT_CONST_FESTIVAL_MUBAN_DOUBLE_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMiaoshuDesc, EOT_CONST_FESTIVAL_MIAOSHU_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_dengluDesc, EOT_CONST_FESTIVAL_MUBAN_DENGLU_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_touziDesc, EOT_CONST_FESTIVAL_MUBAN_TOUZI_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_zhichongDesc, EOT_CONST_FESTIVAL_MUBAN_ZHICHONG_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_leichongDesc, EOT_CONST_FESTIVAL_MUBAN_LEICHONG_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_duihuanDesc, EOT_CONST_FESTIVAL_MUBAN_DUIHUAN_DESC_ID);
-    REGISTER_DESCSTORE(FestivalD_diaoluoDesc, EOT_CONST_FESTIVAL_D_DIAOLUO_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_leixiaoDesc, EOT_CONST_FESTIVAL_MUBAN_LEIXIAO_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_shouchongDesc, EOT_CONST_FESTIVAL_MUBAN_SHOUCHONG_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_yanhuaDesc, EOT_CONST_FESTIVAL_MUBAN_YANHUA_DESC_ID);
-    REGISTER_DESCSTORE(FestivalYanhuaconstantDesc, EOT_CONST_FESTIVAL_YANHUACONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_shopDesc, EOT_CONST_FESTIVAL_MUBAN_SHOP_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_czjbDesc, EOT_CONST_FESTIVAL_MUBAN_CZJB_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_scsbDesc, EOT_CONST_FESTIVAL_MUBAN_SCSB_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_eggsDesc, EOT_CONST_FESTIVAL_MUBAN_EGGS_DESC_ID);
-    REGISTER_DESCSTORE(FestivalEggconstantDesc, EOT_CONST_FESTIVAL_EGGCONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(FestivalConstantDesc, EOT_CONST_FESTIVAL_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_shoushaDesc, EOT_CONST_FESTIVAL_MUBAN_SHOUSHA_DESC_ID);
-    REGISTER_DESCSTORE(FestivalMuban_huoyueDesc, EOT_CONST_FESTIVAL_MUBAN_HUOYUE_DESC_ID);
-    REGISTER_DESCSTORE(FieldFieldDesc, EOT_CONST_FIELD_FIELD_DESC_ID);
-    REGISTER_DESCSTORE(FieldReikiDesc, EOT_CONST_FIELD_REIKI_DESC_ID);
-    REGISTER_DESCSTORE(FieldExpDesc, EOT_CONST_FIELD_EXP_DESC_ID);
-    REGISTER_DESCSTORE(FieldValueDesc, EOT_CONST_FIELD_VALUE_DESC_ID);
-    REGISTER_DESCSTORE(FieldExpandDesc, EOT_CONST_FIELD_EXPAND_DESC_ID);
-    REGISTER_DESCSTORE(FieldStongDesc, EOT_CONST_FIELD_STONG_DESC_ID);
-    REGISTER_DESCSTORE(FlashFlashDesc, EOT_CONST_FLASH_FLASH_DESC_ID);
-    REGISTER_DESCSTORE(FlashItemflashDesc, EOT_CONST_FLASH_ITEMFLASH_DESC_ID);
-    REGISTER_DESCSTORE(FunctionunlockFunctionunlockDesc, EOT_CONST_FUNCTIONUNLOCK_FUNCTIONUNLOCK_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureRareitemDesc, EOT_CONST_GETTREASURE_RAREITEM_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureTimescontrolDesc, EOT_CONST_GETTREASURE_TIMESCONTROL_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureArrivalbossrewardDesc, EOT_CONST_GETTREASURE_ARRIVALBOSSREWARD_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureArrivalbosscontrolDesc, EOT_CONST_GETTREASURE_ARRIVALBOSSCONTROL_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureVipbosscontrolDesc, EOT_CONST_GETTREASURE_VIPBOSSCONTROL_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureBossDesc, EOT_CONST_GETTREASURE_BOSS_DESC_ID);
-    REGISTER_DESCSTORE(GettreasureHelpDesc, EOT_CONST_GETTREASURE_HELP_DESC_ID);
-    REGISTER_DESCSTORE(GmcommandGmcommandDesc, EOT_CONST_GMCOMMAND_GMCOMMAND_DESC_ID);
-    REGISTER_DESCSTORE(GodhoodGodhoodDesc, EOT_CONST_GODHOOD_GODHOOD_DESC_ID);
-    REGISTER_DESCSTORE(GodhoodExpDesc, EOT_CONST_GODHOOD_EXP_DESC_ID);
-    REGISTER_DESCSTORE(GuildConstantDesc, EOT_CONST_GUILD_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(GuildLevelDesc, EOT_CONST_GUILD_LEVEL_DESC_ID);
-    REGISTER_DESCSTORE(GuildCollegeDesc, EOT_CONST_GUILD_COLLEGE_DESC_ID);
-    REGISTER_DESCSTORE(GuildPositionDesc, EOT_CONST_GUILD_POSITION_DESC_ID);
-    REGISTER_DESCSTORE(GuildHouseDesc, EOT_CONST_GUILD_HOUSE_DESC_ID);
-    REGISTER_DESCSTORE(GuildGiftDesc, EOT_CONST_GUILD_GIFT_DESC_ID);
-    REGISTER_DESCSTORE(GuildGuildanceDesc, EOT_CONST_GUILD_GUILDANCE_DESC_ID);
-    REGISTER_DESCSTORE(GuildWarconstantDesc, EOT_CONST_GUILD_WARCONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(GuildWarmoraleDesc, EOT_CONST_GUILD_WARMORALE_DESC_ID);
-    REGISTER_DESCSTORE(GuildWarreviveDesc, EOT_CONST_GUILD_WARREVIVE_DESC_ID);
-    REGISTER_DESCSTORE(HandbookHandbookDesc, EOT_CONST_HANDBOOK_HANDBOOK_DESC_ID);
-    REGISTER_DESCSTORE(HandbookFateDesc, EOT_CONST_HANDBOOK_FATE_DESC_ID);
-    REGISTER_DESCSTORE(HandbookAttrDesc, EOT_CONST_HANDBOOK_ATTR_DESC_ID);
-    REGISTER_DESCSTORE(HuoyueduRewardDesc, EOT_CONST_HUOYUEDU_REWARD_DESC_ID);
-    REGISTER_DESCSTORE(HuoyueduActiveDesc, EOT_CONST_HUOYUEDU_ACTIVE_DESC_ID);
-    REGISTER_DESCSTORE(IntimacyIntimacyDesc, EOT_CONST_INTIMACY_INTIMACY_DESC_ID);
-    REGISTER_DESCSTORE(IntimacyGiftDesc, EOT_CONST_INTIMACY_GIFT_DESC_ID);
-    REGISTER_DESCSTORE(ItemItemDesc, EOT_CONST_ITEM_ITEM_DESC_ID);
-    REGISTER_DESCSTORE(LinkLinkDesc, EOT_CONST_LINK_LINK_DESC_ID);
-    REGISTER_DESCSTORE(MallMallDesc, EOT_CONST_MALL_MALL_DESC_ID);
-    REGISTER_DESCSTORE(MallMalltypeDesc, EOT_CONST_MALL_MALLTYPE_DESC_ID);
-    REGISTER_DESCSTORE(MapMapDesc, EOT_CONST_MAP_MAP_DESC_ID);
-    REGISTER_DESCSTORE(MapItemdropDesc, EOT_CONST_MAP_ITEMDROP_DESC_ID);
-    REGISTER_DESCSTORE(MapDestroyitemDesc, EOT_CONST_MAP_DESTROYITEM_DESC_ID);
-    REGISTER_DESCSTORE(MarryConstDesc, EOT_CONST_MARRY_CONST_DESC_ID);
-    REGISTER_DESCSTORE(MarryBanquetDesc, EOT_CONST_MARRY_BANQUET_DESC_ID);
-    REGISTER_DESCSTORE(MarryGearDesc, EOT_CONST_MARRY_GEAR_DESC_ID);
-    REGISTER_DESCSTORE(MarryTimesDesc, EOT_CONST_MARRY_TIMES_DESC_ID);
-    REGISTER_DESCSTORE(MarryWarmDesc, EOT_CONST_MARRY_WARM_DESC_ID);
-    REGISTER_DESCSTORE(MarryLevelexpDesc, EOT_CONST_MARRY_LEVELEXP_DESC_ID);
-    REGISTER_DESCSTORE(MonsterMonsterDesc, EOT_CONST_MONSTER_MONSTER_DESC_ID);
-    REGISTER_DESCSTORE(MonsterDisplayDesc, EOT_CONST_MONSTER_DISPLAY_DESC_ID);
-    REGISTER_DESCSTORE(MonsterValueDesc, EOT_CONST_MONSTER_VALUE_DESC_ID);
-    REGISTER_DESCSTORE(MountMountDesc, EOT_CONST_MOUNT_MOUNT_DESC_ID);
-    REGISTER_DESCSTORE(MountStarupDesc, EOT_CONST_MOUNT_STARUP_DESC_ID);
     REGISTER_DESCSTORE(MsgPhpmsgDesc, EOT_CONST_MSG_PHPMSG_DESC_ID);
-    REGISTER_DESCSTORE(OccupationOccupationDesc, EOT_CONST_OCCUPATION_OCCUPATION_DESC_ID);
-    REGISTER_DESCSTORE(OccupationAptitudeDesc, EOT_CONST_OCCUPATION_APTITUDE_DESC_ID);
-    REGISTER_DESCSTORE(OccupationConditionlistDesc, EOT_CONST_OCCUPATION_CONDITIONLIST_DESC_ID);
-    REGISTER_DESCSTORE(OfflineOfflineDesc, EOT_CONST_OFFLINE_OFFLINE_DESC_ID);
-    REGISTER_DESCSTORE(OfflineItemlistDesc, EOT_CONST_OFFLINE_ITEMLIST_DESC_ID);
-    REGISTER_DESCSTORE(OperateOperateDesc, EOT_CONST_OPERATE_OPERATE_DESC_ID);
-    REGISTER_DESCSTORE(OperateTutorDesc, EOT_CONST_OPERATE_TUTOR_DESC_ID);
-    REGISTER_DESCSTORE(OperateJiangliDesc, EOT_CONST_OPERATE_JIANGLI_DESC_ID);
-    REGISTER_DESCSTORE(OperateHoroscopeDesc, EOT_CONST_OPERATE_HOROSCOPE_DESC_ID);
-    REGISTER_DESCSTORE(OperateHoroscopepoolDesc, EOT_CONST_OPERATE_HOROSCOPEPOOL_DESC_ID);
-    REGISTER_DESCSTORE(OperateHoroscopeexchangeDesc, EOT_CONST_OPERATE_HOROSCOPEEXCHANGE_DESC_ID);
-    REGISTER_DESCSTORE(OperateConstDesc, EOT_CONST_OPERATE_CONST_DESC_ID);
-    REGISTER_DESCSTORE(OperateUnlimitedDesc, EOT_CONST_OPERATE_UNLIMITED_DESC_ID);
-    REGISTER_DESCSTORE(OperateRandDesc, EOT_CONST_OPERATE_RAND_DESC_ID);
-    REGISTER_DESCSTORE(OperateMooncardDesc, EOT_CONST_OPERATE_MOONCARD_DESC_ID);
-    REGISTER_DESCSTORE(OperateFundDesc, EOT_CONST_OPERATE_FUND_DESC_ID);
-    REGISTER_DESCSTORE(OperateTaskDesc, EOT_CONST_OPERATE_TASK_DESC_ID);
-    REGISTER_DESCSTORE(OperateShopDesc, EOT_CONST_OPERATE_SHOP_DESC_ID);
-    REGISTER_DESCSTORE(OperateWishDesc, EOT_CONST_OPERATE_WISH_DESC_ID);
-    REGISTER_DESCSTORE(OperateTurntableDesc, EOT_CONST_OPERATE_TURNTABLE_DESC_ID);
-    REGISTER_DESCSTORE(OperateTurntabletaskDesc, EOT_CONST_OPERATE_TURNTABLETASK_DESC_ID);
-    REGISTER_DESCSTORE(PartnerPartnerDesc, EOT_CONST_PARTNER_PARTNER_DESC_ID);
-    REGISTER_DESCSTORE(PartnerChangeDesc, EOT_CONST_PARTNER_CHANGE_DESC_ID);
-    REGISTER_DESCSTORE(PartnerStarupDesc, EOT_CONST_PARTNER_STARUP_DESC_ID);
-    REGISTER_DESCSTORE(PartnerFragmentDesc, EOT_CONST_PARTNER_FRAGMENT_DESC_ID);
-    REGISTER_DESCSTORE(PartnerAttributeDesc, EOT_CONST_PARTNER_ATTRIBUTE_DESC_ID);
-    REGISTER_DESCSTORE(PartnerExpDesc, EOT_CONST_PARTNER_EXP_DESC_ID);
-    REGISTER_DESCSTORE(PartnerEquipDesc, EOT_CONST_PARTNER_EQUIP_DESC_ID);
-    REGISTER_DESCSTORE(PartnerRefineDesc, EOT_CONST_PARTNER_REFINE_DESC_ID);
-    REGISTER_DESCSTORE(PartnerSlotDesc, EOT_CONST_PARTNER_SLOT_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameManfirstDesc, EOT_CONST_RANDOMNAME_MANFIRST_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameMansecondDesc, EOT_CONST_RANDOMNAME_MANSECOND_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameManthirdDesc, EOT_CONST_RANDOMNAME_MANTHIRD_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameWomanfirstDesc, EOT_CONST_RANDOMNAME_WOMANFIRST_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameWomansecondDesc, EOT_CONST_RANDOMNAME_WOMANSECOND_DESC_ID);
-    REGISTER_DESCSTORE(RandomnameWomanthirdDesc, EOT_CONST_RANDOMNAME_WOMANTHIRD_DESC_ID);
-    REGISTER_DESCSTORE(RankingRankingDesc, EOT_CONST_RANKING_RANKING_DESC_ID);
-    REGISTER_DESCSTORE(RankingDateDesc, EOT_CONST_RANKING_DATE_DESC_ID);
-    REGISTER_DESCSTORE(RankingPkconsDesc, EOT_CONST_RANKING_PKCONS_DESC_ID);
-    REGISTER_DESCSTORE(RechargeRechargeDesc, EOT_CONST_RECHARGE_RECHARGE_DESC_ID);
+    REGISTER_DESCSTORE(UiEffectDesc, EOT_CONST_UI_EFFECT_DESC_ID);
     REGISTER_DESCSTORE(RoleBornDesc, EOT_CONST_ROLE_BORN_DESC_ID);
     REGISTER_DESCSTORE(RoleWarriorDesc, EOT_CONST_ROLE_WARRIOR_DESC_ID);
     REGISTER_DESCSTORE(RoleMasterDesc, EOT_CONST_ROLE_MASTER_DESC_ID);
@@ -587,109 +101,27 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(RoleSkilltypeDesc, EOT_CONST_ROLE_SKILLTYPE_DESC_ID);
     REGISTER_DESCSTORE(RoleAddskillDesc, EOT_CONST_ROLE_ADDSKILL_DESC_ID);
     REGISTER_DESCSTORE(RoleWorldexpDesc, EOT_CONST_ROLE_WORLDEXP_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameManfirstDesc, EOT_CONST_RANDOMNAME_MANFIRST_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameMansecondDesc, EOT_CONST_RANDOMNAME_MANSECOND_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameManthirdDesc, EOT_CONST_RANDOMNAME_MANTHIRD_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameWomanfirstDesc, EOT_CONST_RANDOMNAME_WOMANFIRST_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameWomansecondDesc, EOT_CONST_RANDOMNAME_WOMANSECOND_DESC_ID);
+    REGISTER_DESCSTORE(RandomnameWomanthirdDesc, EOT_CONST_RANDOMNAME_WOMANTHIRD_DESC_ID);
     REGISTER_DESCSTORE(SensitivewordSensitive_wordDesc, EOT_CONST_SENSITIVEWORD_SENSITIVE_WORD_DESC_ID);
     REGISTER_DESCSTORE(SensitivewordRolesensitiveDesc, EOT_CONST_SENSITIVEWORD_ROLESENSITIVE_DESC_ID);
+    REGISTER_DESCSTORE(MapMapDesc, EOT_CONST_MAP_MAP_DESC_ID);
+    REGISTER_DESCSTORE(MapItemdropDesc, EOT_CONST_MAP_ITEMDROP_DESC_ID);
+    REGISTER_DESCSTORE(MapDestroyitemDesc, EOT_CONST_MAP_DESTROYITEM_DESC_ID);
+    REGISTER_DESCSTORE(MonsterMonsterDesc, EOT_CONST_MONSTER_MONSTER_DESC_ID);
+    REGISTER_DESCSTORE(MonsterDisplayDesc, EOT_CONST_MONSTER_DISPLAY_DESC_ID);
+    REGISTER_DESCSTORE(MonsterValueDesc, EOT_CONST_MONSTER_VALUE_DESC_ID);
+    REGISTER_DESCSTORE(AreaAreaDesc, EOT_CONST_AREA_AREA_DESC_ID);
+    REGISTER_DESCSTORE(AreaPathDesc, EOT_CONST_AREA_PATH_DESC_ID);
     REGISTER_DESCSTORE(SkillSkillDesc, EOT_CONST_SKILL_SKILL_DESC_ID);
     REGISTER_DESCSTORE(SkillBuffDesc, EOT_CONST_SKILL_BUFF_DESC_ID);
-    REGISTER_DESCSTORE(StarPointDesc, EOT_CONST_STAR_POINT_DESC_ID);
-    REGISTER_DESCSTORE(StarStarDesc, EOT_CONST_STAR_STAR_DESC_ID);
-    REGISTER_DESCSTORE(StarExpDesc, EOT_CONST_STAR_EXP_DESC_ID);
-    REGISTER_DESCSTORE(StarAstrologyDesc, EOT_CONST_STAR_ASTROLOGY_DESC_ID);
-    REGISTER_DESCSTORE(TaskdynamicTaskdynamicDesc, EOT_CONST_TASKDYNAMIC_TASKDYNAMIC_DESC_ID);
-    REGISTER_DESCSTORE(TaskdynamicTaskcomcondDesc, EOT_CONST_TASKDYNAMIC_TASKCOMCOND_DESC_ID);
-    REGISTER_DESCSTORE(TaskdynamicTasktextDesc, EOT_CONST_TASKDYNAMIC_TASKTEXT_DESC_ID);
-    REGISTER_DESCSTORE(TaskrewardTaskrewardDesc, EOT_CONST_TASKREWARD_TASKREWARD_DESC_ID);
-    REGISTER_DESCSTORE(TasktrackerTasktrackerDesc, EOT_CONST_TASKTRACKER_TASKTRACKER_DESC_ID);
-    REGISTER_DESCSTORE(TeamTeamDesc, EOT_CONST_TEAM_TEAM_DESC_ID);
-    REGISTER_DESCSTORE(TeleportBornDesc, EOT_CONST_TELEPORT_BORN_DESC_ID);
-    REGISTER_DESCSTORE(TeleportTeleportDesc, EOT_CONST_TELEPORT_TELEPORT_DESC_ID);
-    REGISTER_DESCSTORE(TitleTypeDesc, EOT_CONST_TITLE_TYPE_DESC_ID);
-    REGISTER_DESCSTORE(TitleTitleDesc, EOT_CONST_TITLE_TITLE_DESC_ID);
-    REGISTER_DESCSTORE(TreasureTreasureDesc, EOT_CONST_TREASURE_TREASURE_DESC_ID);
-    REGISTER_DESCSTORE(TreasureChangeDesc, EOT_CONST_TREASURE_CHANGE_DESC_ID);
-    REGISTER_DESCSTORE(TreasureStarupDesc, EOT_CONST_TREASURE_STARUP_DESC_ID);
-    REGISTER_DESCSTORE(TreasureFragmentDesc, EOT_CONST_TREASURE_FRAGMENT_DESC_ID);
-    REGISTER_DESCSTORE(TreasureEquipDesc, EOT_CONST_TREASURE_EQUIP_DESC_ID);
-    REGISTER_DESCSTORE(TreasureSlotDesc, EOT_CONST_TREASURE_SLOT_DESC_ID);
-    REGISTER_DESCSTORE(TreasureRefineDesc, EOT_CONST_TREASURE_REFINE_DESC_ID);
-    REGISTER_DESCSTORE(UiEffectDesc, EOT_CONST_UI_EFFECT_DESC_ID);
-    REGISTER_DESCSTORE(VipVipDesc, EOT_CONST_VIP_VIP_DESC_ID);
-    REGISTER_DESCSTORE(VipPrivilegeDesc, EOT_CONST_VIP_PRIVILEGE_DESC_ID);
-    REGISTER_DESCSTORE(VipGiftDesc, EOT_CONST_VIP_GIFT_DESC_ID);
-    REGISTER_DESCSTORE(WarlandConstantDesc, EOT_CONST_WARLAND_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(WarlandMultikillDesc, EOT_CONST_WARLAND_MULTIKILL_DESC_ID);
-    REGISTER_DESCSTORE(WarlandRankrewardDesc, EOT_CONST_WARLAND_RANKREWARD_DESC_ID);
-    REGISTER_DESCSTORE(WingWingDesc, EOT_CONST_WING_WING_DESC_ID);
-    REGISTER_DESCSTORE(WingChangeDesc, EOT_CONST_WING_CHANGE_DESC_ID);
-    REGISTER_DESCSTORE(WingFragmentDesc, EOT_CONST_WING_FRAGMENT_DESC_ID);
-    REGISTER_DESCSTORE(WingStarupDesc, EOT_CONST_WING_STARUP_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactiveServiceactivityDesc, EOT_CONST_SERVEROPENACTIVE_SERVICEACTIVITY_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactivePagebookDesc, EOT_CONST_SERVEROPENACTIVE_PAGEBOOK_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactivePageDesc, EOT_CONST_SERVEROPENACTIVE_PAGE_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactiveMrankDesc, EOT_CONST_SERVEROPENACTIVE_MRANK_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactiveMadvancedDesc, EOT_CONST_SERVEROPENACTIVE_MADVANCED_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactiveMrechargeDesc, EOT_CONST_SERVEROPENACTIVE_MRECHARGE_DESC_ID);
-    REGISTER_DESCSTORE(ServeropenactiveMgoodsDesc, EOT_CONST_SERVEROPENACTIVE_MGOODS_DESC_ID);
-    REGISTER_DESCSTORE(WitchAwardDesc, EOT_CONST_WITCH_AWARD_DESC_ID);
-    REGISTER_DESCSTORE(WitchSummonDesc, EOT_CONST_WITCH_SUMMON_DESC_ID);
-    REGISTER_DESCSTORE(WitchRewardexpDesc, EOT_CONST_WITCH_REWARDEXP_DESC_ID);
-    REGISTER_DESCSTORE(SoloDuanweiDesc, EOT_CONST_SOLO_DUANWEI_DESC_ID);
-    REGISTER_DESCSTORE(SoloRankDesc, EOT_CONST_SOLO_RANK_DESC_ID);
-    REGISTER_DESCSTORE(SoloPipeiDesc, EOT_CONST_SOLO_PIPEI_DESC_ID);
-    REGISTER_DESCSTORE(SoloConstantDesc, EOT_CONST_SOLO_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(NoticeNoticeDesc, EOT_CONST_NOTICE_NOTICE_DESC_ID);
-    REGISTER_DESCSTORE(ConditionshopConditionshopDesc, EOT_CONST_CONDITIONSHOP_CONDITIONSHOP_DESC_ID);
-    REGISTER_DESCSTORE(ClosetestActivityDesc, EOT_CONST_CLOSETEST_ACTIVITY_DESC_ID);
-    REGISTER_DESCSTORE(ClosetestRebateDesc, EOT_CONST_CLOSETEST_REBATE_DESC_ID);
-    REGISTER_DESCSTORE(WorldmapbossWorldbossDesc, EOT_CONST_WORLDMAPBOSS_WORLDBOSS_DESC_ID);
-    REGISTER_DESCSTORE(WorldmapbossDroplistDesc, EOT_CONST_WORLDMAPBOSS_DROPLIST_DESC_ID);
-    REGISTER_DESCSTORE(WorldmapbossFestivalDesc, EOT_CONST_WORLDMAPBOSS_FESTIVAL_DESC_ID);
-    REGISTER_DESCSTORE(DragonworldwarConstantsDesc, EOT_CONST_DRAGONWORLDWAR_CONSTANTS_DESC_ID);
-    REGISTER_DESCSTORE(DragonworldwarGoldskillDesc, EOT_CONST_DRAGONWORLDWAR_GOLDSKILL_DESC_ID);
-    REGISTER_DESCSTORE(DragonworldwarGoldshopDesc, EOT_CONST_DRAGONWORLDWAR_GOLDSHOP_DESC_ID);
-    REGISTER_DESCSTORE(ManorConstantsDesc, EOT_CONST_MANOR_CONSTANTS_DESC_ID);
-    REGISTER_DESCSTORE(ManorItemcostDesc, EOT_CONST_MANOR_ITEMCOST_DESC_ID);
-    REGISTER_DESCSTORE(ManorManorlistDesc, EOT_CONST_MANOR_MANORLIST_DESC_ID);
-    REGISTER_DESCSTORE(ManorProductDesc, EOT_CONST_MANOR_PRODUCT_DESC_ID);
-    REGISTER_DESCSTORE(ManorBuildDesc, EOT_CONST_MANOR_BUILD_DESC_ID);
-    REGISTER_DESCSTORE(ManorBuildupDesc, EOT_CONST_MANOR_BUILDUP_DESC_ID);
-    REGISTER_DESCSTORE(ManorEggDesc, EOT_CONST_MANOR_EGG_DESC_ID);
-    REGISTER_DESCSTORE(ManorPatbeastDesc, EOT_CONST_MANOR_PATBEAST_DESC_ID);
-    REGISTER_DESCSTORE(ManorPatbeastupDesc, EOT_CONST_MANOR_PATBEASTUP_DESC_ID);
-    REGISTER_DESCSTORE(ManorBuildbuffDesc, EOT_CONST_MANOR_BUILDBUFF_DESC_ID);
-    REGISTER_DESCSTORE(ManorShopDesc, EOT_CONST_MANOR_SHOP_DESC_ID);
-    REGISTER_DESCSTORE(ManorBuildaddDesc, EOT_CONST_MANOR_BUILDADD_DESC_ID);
-    REGISTER_DESCSTORE(ManorLogDesc, EOT_CONST_MANOR_LOG_DESC_ID);
-    REGISTER_DESCSTORE(ConditionConditionDesc, EOT_CONST_CONDITION_CONDITION_DESC_ID);
-    REGISTER_DESCSTORE(PrivilegePrivilegeDesc, EOT_CONST_PRIVILEGE_PRIVILEGE_DESC_ID);
-    REGISTER_DESCSTORE(GodpowerGodpowerDesc, EOT_CONST_GODPOWER_GODPOWER_DESC_ID);
-    REGISTER_DESCSTORE(GodpowerSkillupdateDesc, EOT_CONST_GODPOWER_SKILLUPDATE_DESC_ID);
-    REGISTER_DESCSTORE(HeadportraitHeadDesc, EOT_CONST_HEADPORTRAIT_HEAD_DESC_ID);
-    REGISTER_DESCSTORE(HeadportraitFrameDesc, EOT_CONST_HEADPORTRAIT_FRAME_DESC_ID);
-    REGISTER_DESCSTORE(HeadportraitBubbleDesc, EOT_CONST_HEADPORTRAIT_BUBBLE_DESC_ID);
-    REGISTER_DESCSTORE(Gm5helpConsDesc, EOT_CONST_GM5HELP_CONS_DESC_ID);
-    REGISTER_DESCSTORE(Gm5helpRewardDesc, EOT_CONST_GM5HELP_REWARD_DESC_ID);
-    REGISTER_DESCSTORE(GodgmGodgmDesc, EOT_CONST_GODGM_GODGM_DESC_ID);
-    REGISTER_DESCSTORE(ServerhornServerhornDesc, EOT_CONST_SERVERHORN_SERVERHORN_DESC_ID);
-    REGISTER_DESCSTORE(LightandshadowConsDesc, EOT_CONST_LIGHTANDSHADOW_CONS_DESC_ID);
-    REGISTER_DESCSTORE(LightandshadowRewardDesc, EOT_CONST_LIGHTANDSHADOW_REWARD_DESC_ID);
-    REGISTER_DESCSTORE(RechargereturnRechargereturnDesc, EOT_CONST_RECHARGERETURN_RECHARGERETURN_DESC_ID);
-    REGISTER_DESCSTORE(RechargereturnTimeDesc, EOT_CONST_RECHARGERETURN_TIME_DESC_ID);
-    REGISTER_DESCSTORE(RechargereturnContinuousreturnDesc, EOT_CONST_RECHARGERETURN_CONTINUOUSRETURN_DESC_ID);
-    REGISTER_DESCSTORE(RechargereturnRechargetriggerDesc, EOT_CONST_RECHARGERETURN_RECHARGETRIGGER_DESC_ID);
-    REGISTER_DESCSTORE(RechargereturnConstantDesc, EOT_CONST_RECHARGERETURN_CONSTANT_DESC_ID);
-    REGISTER_DESCSTORE(SnowballwarConsDesc, EOT_CONST_SNOWBALLWAR_CONS_DESC_ID);
-    REGISTER_DESCSTORE(ChoosegiftChoosegiftDesc, EOT_CONST_CHOOSEGIFT_CHOOSEGIFT_DESC_ID);
-    REGISTER_DESCSTORE(TreasurebowlTreasurebowlDesc, EOT_CONST_TREASUREBOWL_TREASUREBOWL_DESC_ID);
-    REGISTER_DESCSTORE(GmtoolsGmtoolsDesc, EOT_CONST_GMTOOLS_GMTOOLS_DESC_ID);
-    REGISTER_DESCSTORE(GmtoolsRechargeDesc, EOT_CONST_GMTOOLS_RECHARGE_DESC_ID);
-    REGISTER_DESCSTORE(GmtoolsGiftDesc, EOT_CONST_GMTOOLS_GIFT_DESC_ID);
-    REGISTER_DESCSTORE(GmtoolsUnlimitDesc, EOT_CONST_GMTOOLS_UNLIMIT_DESC_ID);
-    REGISTER_DESCSTORE(GmtoolsUpperlimitDesc, EOT_CONST_GMTOOLS_UPPERLIMIT_DESC_ID);
-    REGISTER_DESCSTORE(IndulttaskIndulttaskDesc, EOT_CONST_INDULTTASK_INDULTTASK_DESC_ID);
-    REGISTER_DESCSTORE(IndulttaskTaskDesc, EOT_CONST_INDULTTASK_TASK_DESC_ID);
-    REGISTER_DESCSTORE(ColpointsColpointsDesc, EOT_CONST_COLPOINTS_COLPOINTS_DESC_ID);
-    REGISTER_DESCSTORE(ColpointsTaskDesc, EOT_CONST_COLPOINTS_TASK_DESC_ID);
+    REGISTER_DESCSTORE(ItemItemDesc, EOT_CONST_ITEM_ITEM_DESC_ID);
+    REGISTER_DESCSTORE(EquipEquipDesc, EOT_CONST_EQUIP_EQUIP_DESC_ID);
+    REGISTER_DESCSTORE(ConstantConstantDesc, EOT_CONST_CONSTANT_CONSTANT_DESC_ID);
 
 	return true;
 }

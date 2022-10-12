@@ -8,13 +8,15 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFTime.h>
-#include <CommonMsg.pb.h>
-#include <ServerToClientCmd.pb.h>
-#include <ClientToServerCmd.pb.h>
-#include <ClientToServer.pb.h>
-#include <ServerToClient.pb.h>
+#include <Com.pb.h>
+#include <ComDefine.pb.h>
+#include <ServerClientCmd.pb.h>
+#include <ClientServerCmd.pb.h>
+#include <ClientServer.pb.h>
+#include <ServerClient.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
+#include <ServerInternalCmd.pb.h>
 #include "NFProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -37,9 +39,9 @@ bool NFCProxyClientModule::Awake()
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     //////来自客户端的协议////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::CLIENT_TO_LOGIC_PING, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::SYS_PING, this,
                                                        &NFCProxyClientModule::OnHandleClientHeartBeat);
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
                                                        &NFCProxyClientModule::OnHandleClientCenterLogin);
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////

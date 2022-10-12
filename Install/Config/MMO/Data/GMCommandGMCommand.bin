@@ -1,50 +1,0 @@
-
-get"get,id,value
-lvup"
-lvup,level
-!use_paycard"use_paycard,id
-gold"
-gold,value
-holydia"holydia,value
-diamond"diamond,value
-$pinkdiamond"pinkdiamond,value
-#task_receive"task_receive,id
-$	task_finish"task_finish,id,id
-
-task_end"task_end,id
--task_sigle_finish"task_sigle_finish,id
--task_sigle_remove"task_sigle_remove,id
-1task_submit_chapter"task_submit_chapter,id
-1task_remove_chapter"task_remove_chapter,id
-$add_pkvalue"add_pkvalue,value
-monster"monster,id,value
-$addArenaCoin"addArenaCoin,num
-(AddStarSource"AddStarSource,1,num
-;set_ladder_layer"#set_ladder_layer,天梯副本层数
-,union_levup,等级"union_levup,等级
-V#add_compose_material,composeId,type"+add_compose_material,目标合成物Id,type
-8cl_dup_group, dupGroupId"cl_dup_group, dupGroupId
-+SetAreanRankId"SetAreanRankId,rankid
-3AddForgedRelation"AddForgedRelation,type,num
-wing"wing,3,4
-tlv"tlv,1,2
-"partnerlvup"partnerlvup,1,2
-openbag"	openbag,1
-)SetWorldLevel"SetWorldLevel,等级
-,add_use_contri"add_use_contri,add_val
-2add_spirit,type,value"add_spirit,type,value
-' add_union_red"add_union_red,type
-7!add_Intimacy"#add_Intimacy,好友名字,加的值
-3"union_addexp"union_addexp,增加的经验值
-8#get_bind_item"#get_bind_item,物品ID,物品数量
-*$partnerbabylvup"partnerbabylvup,lev
-%occlvup"occlvup,lev
-0&add_union_welfare"add_union_welfare,value
-('cl_union_boss"cl_union_boss,dupid
-.(cl_union_killnum"cl_union_killnum,dupid
-8)set_union_killnum"set_union_killnum,killnum,dupid
-.*addsoloscore,分数"addsoloscore,分数
-+zadan,"zadan,次数
-/,set_palace_layer"set_palace_layer,层数
-2-equipstrong"equipstrong,装备部位,等级
-2.equiprefine"equiprefine,装备部位,等级
