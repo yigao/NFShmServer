@@ -515,7 +515,6 @@ uint64_t NFEvppNetMessage::GetFreeUnLinkId()
         mNetObjectMaxIndex++;
         unlinkId = GetUnLinkId(NF_IS_NET, mServerType, mNetObjectMaxIndex);
 
-
         if (mNetObjectArray.find(unlinkId) == mNetObjectArray.end())
         {
             return unlinkId;

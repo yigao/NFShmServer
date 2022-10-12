@@ -39,7 +39,7 @@ bool NFCProxyClientModule::Awake()
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     //////来自客户端的协议////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::SYS_PING, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_LOGIC_PING, this,
                                                        &NFCProxyClientModule::OnHandleClientHeartBeat);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
                                                        &NFCProxyClientModule::OnHandleClientCenterLogin);
@@ -319,7 +319,7 @@ int NFCProxyClientModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
     NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER);
     if (pWorldServer)
     {
-        FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), proto_ff::CLIENT_TO_CENTER_LOGIN, xMsg, unLinkId);
+        FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, xMsg, unLinkId);
     }
     else {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find world server, the packet:{} drop msg", packet.ToString());

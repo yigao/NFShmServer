@@ -108,13 +108,13 @@ template<typename KEY,
         typename VALUE,
         typename HASH_FUNC = std::hash<KEY>,
         typename EQUAL_KEY = std::equal_to<KEY> >
-class NFHashObjectMgr;
+class NFShmHashObjectMgr;
 
 template<typename KEY,
         typename VALUE,
         typename HASH_FUNC,
         typename EQUAL_KEY>
-class NFHashObjectMgr
+class NFShmHashObjectMgr
 {
 public:
     typedef class tagPair
@@ -162,12 +162,12 @@ public:
     NFObjectMgr<TPair>  m_stMgr;    ///< 先设为public, 外部可能会用到索引链表操作
     typedef void(*pDumpFunc)(KEY& stKey, VALUE &stData);  ///< 外部用来dump Hash表中内容的函数
 public:
-    NFHashObjectMgr()
+    NFShmHashObjectMgr()
     {
 
     }
 
-    virtual ~NFHashObjectMgr()
+    virtual ~NFShmHashObjectMgr()
     {
 
     }
@@ -193,7 +193,7 @@ public:
             return -1;
         }
 
-        int iRet = m_stMgr.Init(pBuffer, iObjectCount, bResetShm, sizeof(TPair), iListCount, iIndexCount);
+        int iRet = m_stMgr.Init(pBuffer, iObjectCount, sizeof(TPair), bResetShm, iListCount, iIndexCount);
         if (iRet)
         {
             return iRet;

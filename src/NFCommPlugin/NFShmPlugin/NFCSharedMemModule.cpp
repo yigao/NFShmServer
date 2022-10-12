@@ -658,7 +658,7 @@ int NFCSharedMemModule::InitShmObjectGlobal()
 	else
 	{
 		m_pGlobalID = (NFGlobalID *)NFGlobalID::CreateObject(m_pObjPluginManager);
-		//CreateObj(EOT_TYPE_TIMER_MNG);
+		//CreateObjByHashKey(EOT_TYPE_TIMER_MNG);
 		for (int i = EOT_GLOBAL_ID+1; i < (int)m_nObjSegSwapCounter.size(); i++)
 		{
 			if (m_nObjSegSwapCounter[i].m_nObjSize > 0 && m_nObjSegSwapCounter[i].m_iItemCount > 0)
@@ -884,7 +884,7 @@ NFTransBase* NFCSharedMemModule::GetTrans(uint64_t ullTransId)
     return NULL;
 }
 
-NFShmObj *NFCSharedMemModule::CreateObj(uint64_t hashKey, int iType)
+NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
 {
     assert(IsTypeValid(iType));
 
@@ -957,7 +957,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 	NFShmObj *pObj = NULL;
     if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj use hash, crete obj use CreateObj(uint64_t hashKey, int iType)");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj use hash, crete obj use CreateObjByHashKey(uint64_t hashKey, int iType)");
         return NULL;
     }
 
@@ -988,7 +988,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 	return pObj;
 }
 
-NFShmObj *NFCSharedMemModule::GetObjFromHashKey(uint64_t hashKey, int iType)
+NFShmObj *NFCSharedMemModule::GetObjByHashKey(uint64_t hashKey, int iType)
 {
     assert(IsTypeValid(iType));
     if (!m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
@@ -1222,7 +1222,7 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
         if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
         {
             std::vector<NFShmObj*> vecObj;
-            NFHashObjectMgr<uint64_t, int>& hashMgr = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetHashMgr();
+            NFShmHashObjectMgr<uint64_t, int>& hashMgr = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetHashMgr();
             if (maxNum == INVALID_ID)
             {
                 int index = hashMgr.GetHeadIndex();
@@ -1256,7 +1256,7 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
             {
                 std::vector<NFShmObj*> vecObj;
                 int index = hashMgr.GetHeadIndex();
-                while (hashMgr.CheckIndexUsed(index) || hashMgr.Size(NFHashObjectMgr<uint64_t, int>::USED_LIST) > maxNum)
+                while (hashMgr.CheckIndexUsed(index) || hashMgr.Size(NFShmHashObjectMgr<uint64_t, int>::USED_LIST) > maxNum)
                 {
                     uint64_t key = hashMgr.GetKeyByIndex(index);
                     int globalId = hashMgr[index];
@@ -1353,21 +1353,17 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "HashErase:{} Failed!", iHashID);
                 }
-                //NFLogInfo(NF_LOG_SYSTEMLOG, key, "DestroyObj Data, key:{} globalId:{} type:{} index:{} iHashID:{}", key, iID, iType, iIndex, iHashID);
+                NFLogTrace(NF_LOG_SYSTEMLOG, key, "DestroyObj Data, key:{} globalId:{} type:{} index:{} iHashID:{}", key, iID, iType, iIndex, iHashID);
             }
             else
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "iHashID:{} < 0 error", iHashID);
             }
         }
-#if 0
-#if defined(_DEBUG_) | defined(_DEBUG)
-		TRACESVR(LL_TRACEDETAIL, "Free Type:%d index:%d void:%d\n", iType, iIndex, (int)pObj);
-#endif
-#endif
+
 		m_pGlobalID->ReleaseID(iID);
 		m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
-        //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObj Data, globalId:{} type:{} index:{}", iID, iType, iIndex);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DestroyObj Data, globalId:{} type:{} index:{}", iID, iType, iIndex);
 	}
 
 	return;

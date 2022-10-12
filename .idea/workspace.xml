@@ -45,36 +45,39 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="old mmo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common/common_logic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common/common_logic.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ClientToServer.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ClientServer.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerToClient.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerClient.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/client_to_server.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ClientServerCmd.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/common_msg.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ComDefine.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/server_to_client.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerClientCmd.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFPackageConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFPackageConfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFPackageMng.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFPackageMng.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientToServer.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientToServer.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerToClient.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerClient.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerToClient.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerClient.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/client_to_server.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/client_to_server.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_msg.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_msg.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/server_to_client.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerClientCmd.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/server_to_client.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerClientCmd.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldServerPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldServerPlayerPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFServerTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFServerTime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFServerTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFServerTime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFTime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFTime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmHashObjectMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmHashObjectMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjectMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjectMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStorePlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStorePlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFIDescStore.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFIDescStore.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +114,7 @@
     </option>
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFNetPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFDescStore" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="2" />
@@ -140,7 +143,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_svr" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -531,14 +534,7 @@
       <workItem from="1665448702691" duration="31088000" />
       <workItem from="1665481483079" duration="4756000" />
       <workItem from="1665542504686" duration="3544000" />
-      <workItem from="1665546109694" duration="1346000" />
-    </task>
-    <task id="LOCAL-00136" summary="chong gou">
-      <created>1663477263354</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1663477263354</updated>
+      <workItem from="1665546109694" duration="18563000" />
     </task>
     <task id="LOCAL-00137" summary="chong gou">
       <created>1663477458242</created>
@@ -876,7 +872,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665540419230</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="old mmo">
+      <created>1665547653299</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1665547653299</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1069,7 +1072,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp</url>
-          <line>529</line>
+          <line>528</line>
           <option name="timeStamp" value="419" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

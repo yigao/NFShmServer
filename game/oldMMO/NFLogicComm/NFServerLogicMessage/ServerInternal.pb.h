@@ -20,8 +20,11 @@
 #endif
 
 #include <google/protobuf/generated_message_util.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
+#include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
 #include "common_logic.pb.h"
 #include "Com.pb.h"
@@ -35,14 +38,359 @@ void  protobuf_AddDesc_ServerInternal_2eproto();
 void protobuf_AssignDesc_ServerInternal_2eproto();
 void protobuf_ShutdownFile_ServerInternal_2eproto();
 
+class NotifyGateChangeLogic;
 
+enum NotifyGateChangeLogic_cType {
+  NotifyGateChangeLogic_cType_ENTER_LOGIC = 1,
+  NotifyGateChangeLogic_cType_LEAVE_LOGIC = 2,
+  NotifyGateChangeLogic_cType_TTRANS_LOGIC = 3,
+  NotifyGateChangeLogic_cType_RETURN_ROLE_LIST = 4
+};
+bool NotifyGateChangeLogic_cType_IsValid(int value);
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic_cType_cType_MIN = NotifyGateChangeLogic_cType_ENTER_LOGIC;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic_cType_cType_MAX = NotifyGateChangeLogic_cType_RETURN_ROLE_LIST;
+const int NotifyGateChangeLogic_cType_cType_ARRAYSIZE = NotifyGateChangeLogic_cType_cType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* NotifyGateChangeLogic_cType_descriptor();
+inline const ::std::string& NotifyGateChangeLogic_cType_Name(NotifyGateChangeLogic_cType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    NotifyGateChangeLogic_cType_descriptor(), value);
+}
+inline bool NotifyGateChangeLogic_cType_Parse(
+    const ::std::string& name, NotifyGateChangeLogic_cType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<NotifyGateChangeLogic_cType>(
+    NotifyGateChangeLogic_cType_descriptor(), name, value);
+}
+// ===================================================================
+
+class NotifyGateChangeLogic : public ::google::protobuf::Message {
+ public:
+  NotifyGateChangeLogic();
+  virtual ~NotifyGateChangeLogic();
+
+  NotifyGateChangeLogic(const NotifyGateChangeLogic& from);
+
+  inline NotifyGateChangeLogic& operator=(const NotifyGateChangeLogic& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyGateChangeLogic& default_instance();
+
+  void Swap(NotifyGateChangeLogic* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyGateChangeLogic* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyGateChangeLogic& from);
+  void MergeFrom(const NotifyGateChangeLogic& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef NotifyGateChangeLogic_cType cType;
+  static const cType ENTER_LOGIC = NotifyGateChangeLogic_cType_ENTER_LOGIC;
+  static const cType LEAVE_LOGIC = NotifyGateChangeLogic_cType_LEAVE_LOGIC;
+  static const cType TTRANS_LOGIC = NotifyGateChangeLogic_cType_TTRANS_LOGIC;
+  static const cType RETURN_ROLE_LIST = NotifyGateChangeLogic_cType_RETURN_ROLE_LIST;
+  static inline bool cType_IsValid(int value) {
+    return NotifyGateChangeLogic_cType_IsValid(value);
+  }
+  static const cType cType_MIN =
+    NotifyGateChangeLogic_cType_cType_MIN;
+  static const cType cType_MAX =
+    NotifyGateChangeLogic_cType_cType_MAX;
+  static const int cType_ARRAYSIZE =
+    NotifyGateChangeLogic_cType_cType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  cType_descriptor() {
+    return NotifyGateChangeLogic_cType_descriptor();
+  }
+  static inline const ::std::string& cType_Name(cType value) {
+    return NotifyGateChangeLogic_cType_Name(value);
+  }
+  static inline bool cType_Parse(const ::std::string& name,
+      cType* value) {
+    return NotifyGateChangeLogic_cType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+  inline bool has_ctype() const;
+  inline void clear_ctype();
+  static const int kCtypeFieldNumber = 1;
+  inline ::proto_ff::NotifyGateChangeLogic_cType ctype() const;
+  inline void set_ctype(::proto_ff::NotifyGateChangeLogic_cType value);
+
+  // required uint32 clientId = 2;
+  inline bool has_clientid() const;
+  inline void clear_clientid();
+  static const int kClientIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 clientid() const;
+  inline void set_clientid(::google::protobuf::uint32 value);
+
+  // required uint64 cid = 3;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 3;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint32 uid = 4;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 4;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional uint32 logicId = 5;
+  inline bool has_logicid() const;
+  inline void clear_logicid();
+  static const int kLogicIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 logicid() const;
+  inline void set_logicid(::google::protobuf::uint32 value);
+
+  // optional bool forceLeave = 6;
+  inline bool has_forceleave() const;
+  inline void clear_forceleave();
+  static const int kForceLeaveFieldNumber = 6;
+  inline bool forceleave() const;
+  inline void set_forceleave(bool value);
+
+  // optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+  inline bool has_leaveflag() const;
+  inline void clear_leaveflag();
+  static const int kLeaveFlagFieldNumber = 7;
+  inline ::proto_ff::LOGOUT_FLAG leaveflag() const;
+  inline void set_leaveflag(::proto_ff::LOGOUT_FLAG value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyGateChangeLogic)
+ private:
+  inline void set_has_ctype();
+  inline void clear_has_ctype();
+  inline void set_has_clientid();
+  inline void clear_has_clientid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_logicid();
+  inline void clear_has_logicid();
+  inline void set_has_forceleave();
+  inline void clear_has_forceleave();
+  inline void set_has_leaveflag();
+  inline void clear_has_leaveflag();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  int ctype_;
+  ::google::protobuf::uint32 clientid_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 uid_;
+  ::google::protobuf::uint32 logicid_;
+  bool forceleave_;
+  int leaveflag_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyGateChangeLogic* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
 
+// NotifyGateChangeLogic
 
-// ===================================================================
+// required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+inline bool NotifyGateChangeLogic::has_ctype() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_ctype() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyGateChangeLogic::clear_has_ctype() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyGateChangeLogic::clear_ctype() {
+  ctype_ = 1;
+  clear_has_ctype();
+}
+inline ::proto_ff::NotifyGateChangeLogic_cType NotifyGateChangeLogic::ctype() const {
+  return static_cast< ::proto_ff::NotifyGateChangeLogic_cType >(ctype_);
+}
+inline void NotifyGateChangeLogic::set_ctype(::proto_ff::NotifyGateChangeLogic_cType value) {
+  assert(::proto_ff::NotifyGateChangeLogic_cType_IsValid(value));
+  set_has_ctype();
+  ctype_ = value;
+}
+
+// required uint32 clientId = 2;
+inline bool NotifyGateChangeLogic::has_clientid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_clientid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyGateChangeLogic::clear_has_clientid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyGateChangeLogic::clear_clientid() {
+  clientid_ = 0u;
+  clear_has_clientid();
+}
+inline ::google::protobuf::uint32 NotifyGateChangeLogic::clientid() const {
+  return clientid_;
+}
+inline void NotifyGateChangeLogic::set_clientid(::google::protobuf::uint32 value) {
+  set_has_clientid();
+  clientid_ = value;
+}
+
+// required uint64 cid = 3;
+inline bool NotifyGateChangeLogic::has_cid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_cid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyGateChangeLogic::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyGateChangeLogic::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyGateChangeLogic::cid() const {
+  return cid_;
+}
+inline void NotifyGateChangeLogic::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint32 uid = 4;
+inline bool NotifyGateChangeLogic::has_uid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_uid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyGateChangeLogic::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyGateChangeLogic::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 NotifyGateChangeLogic::uid() const {
+  return uid_;
+}
+inline void NotifyGateChangeLogic::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint32 logicId = 5;
+inline bool NotifyGateChangeLogic::has_logicid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_logicid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NotifyGateChangeLogic::clear_has_logicid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NotifyGateChangeLogic::clear_logicid() {
+  logicid_ = 0u;
+  clear_has_logicid();
+}
+inline ::google::protobuf::uint32 NotifyGateChangeLogic::logicid() const {
+  return logicid_;
+}
+inline void NotifyGateChangeLogic::set_logicid(::google::protobuf::uint32 value) {
+  set_has_logicid();
+  logicid_ = value;
+}
+
+// optional bool forceLeave = 6;
+inline bool NotifyGateChangeLogic::has_forceleave() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_forceleave() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void NotifyGateChangeLogic::clear_has_forceleave() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void NotifyGateChangeLogic::clear_forceleave() {
+  forceleave_ = false;
+  clear_has_forceleave();
+}
+inline bool NotifyGateChangeLogic::forceleave() const {
+  return forceleave_;
+}
+inline void NotifyGateChangeLogic::set_forceleave(bool value) {
+  set_has_forceleave();
+  forceleave_ = value;
+}
+
+// optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+inline bool NotifyGateChangeLogic::has_leaveflag() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void NotifyGateChangeLogic::set_has_leaveflag() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void NotifyGateChangeLogic::clear_has_leaveflag() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void NotifyGateChangeLogic::clear_leaveflag() {
+  leaveflag_ = 0;
+  clear_has_leaveflag();
+}
+inline ::proto_ff::LOGOUT_FLAG NotifyGateChangeLogic::leaveflag() const {
+  return static_cast< ::proto_ff::LOGOUT_FLAG >(leaveflag_);
+}
+inline void NotifyGateChangeLogic::set_leaveflag(::proto_ff::LOGOUT_FLAG value) {
+  assert(::proto_ff::LOGOUT_FLAG_IsValid(value));
+  set_has_leaveflag();
+  leaveflag_ = value;
+}
 
 
 // @@protoc_insertion_point(namespace_scope)
@@ -53,6 +401,10 @@ void protobuf_ShutdownFile_ServerInternal_2eproto();
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::NotifyGateChangeLogic_cType>() {
+  return ::proto_ff::NotifyGateChangeLogic_cType_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

@@ -36,7 +36,7 @@ public:
     int   HashAlloc(uint64_t key, int globalId);
 	NFShmObj* HashFind(uint64_t key, int iType);
 	int   HashErase(int hashId);
-    NFHashObjectMgr<uint64_t, int>& GetHashMgr();
+    NFShmHashObjectMgr<uint64_t, int>& GetHashMgr();
 
 	//added by xxxx
 	NFShmObj* GetObjFast(int iIdx);
@@ -77,7 +77,7 @@ private:
 	size_t		m_nObjSize;
 	NFShmIdx*		m_pIdxs;
 	NFShmObj*		m_pObjs;
-    NFHashObjectMgr<uint64_t, int> m_hashMgr;
+    NFShmHashObjectMgr<uint64_t, int> m_hashMgr;
 	int		m_iItemCount;
 	int		m_iFreeHead;
 	int		m_iUsedHead;

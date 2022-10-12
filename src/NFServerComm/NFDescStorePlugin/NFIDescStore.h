@@ -22,12 +22,12 @@
 #define REGISTER_DESCSTORE(className, ClassType)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
 	m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType);\
-	REGISTER_SINGLETON_SHM_OBJ(className, ClassType, 1)      \
+	REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
 
 #define REGISTER_DESCSTORE_WITH_DBNAME(className, ClassType, dbName)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
 	m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
-	REGISTER_SINGLETON_SHM_OBJ(className, ClassType, 1)      \
+	REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
 
 class NFIDescStore : public NFShmObj
 {

@@ -180,8 +180,8 @@ public:
 
     virtual NFShmObj   *GetObj(int iType, int iIndex) override;
 
-    virtual NFShmObj   *CreateObj(uint64_t hashKey, int iType) override;
-    virtual NFShmObj   *GetObjFromHashKey(uint64_t hashKey, int iType) override;
+    virtual NFShmObj   *CreateObjByHashKey(uint64_t hashKey, int iType) override;
+    virtual NFShmObj   *GetObjByHashKey(uint64_t hashKey, int iType) override;
 
 	virtual NFShmObj   *CreateObj(int iType) override;
 	virtual NFShmObj   *GetHeadObj(int iType) override;

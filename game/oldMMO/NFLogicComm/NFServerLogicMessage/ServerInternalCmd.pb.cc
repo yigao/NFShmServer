@@ -61,37 +61,10 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   ::proto_ff::protobuf_AddDesc_common_5flogic_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\027ServerInternalCmd.proto\022\010proto_ff\032\025yd_"
-    "fieldoptions.proto\032\022common_logic.proto*\257"
-    "\t\n\021ServerInternalCmd\022\014\n\010SYS_PING\020\001\022\024\n\020SY"
-    "S_CLOSE_SERVER\020\002\022\037\n\033SYS_REDIRECT_CLIENT_"
-    "BY_GATE\020\n\022!\n\035SYS_REDIRECT_CLIENT_BY_CENT"
-    "ER\020\013\022!\n\035SYS_REDIRECT_SOCIAL_BY_CENTER\020\014\022"
-    " \n\034SYS_REDIRECT_LOGIC_BY_CENTER\020\r\022#\n\037SYS"
-    "_REDIRECT_LOGIC_ID_BY_CENTER\020\016\022\037\n\033SYS_RE"
-    "DIRECT_SERVER_BY_GATE\020\017\022\031\n\025LOGIC_REGISTE"
-    "R_CENTER\020\020\022\035\n\031LOGIC_REGISTER_CENTER_RSP\020"
-    "\021\022\027\n\023LOGIC_REGISTER_GATE\020\022\022\033\n\027LOGIC_REGI"
-    "STER_GATE_RSP\020\023\022\030\n\024CENTER_REGISTER_GATE\020"
-    "\024\022\034\n\030CENTER_REGISTER_GATE_RSP\020\025\022\026\n\022CENTE"
-    "R_REGISTER_DB\020\026\022\032\n\026SOCIAL_REGISTER_CENTE"
-    "R\020\027\022\036\n\032SOCIAL_REGISTER_CENTER_RSP\020\030\022\034\n\030S"
-    "OCIAL_QUERY_CENTER_INFO\020\031\022 \n\034SOCIAL_QUER"
-    "Y_CENTER_INFO_RSP\020\032\022\026\n\022NOTIFY_LOGIC_STAT"
-    "E\020\033\022\021\n\rINNER_LOG_REQ\020\037\022\034\n\030NOTIFY_LOGIC_D"
-    "ATA_UPDATE\020 \022\025\n\020DB_ROLE_LIST_REQ\020\255\002\022\025\n\020D"
-    "B_ROLE_LIST_RSP\020\256\002\022\027\n\022DB_CREATE_ROLE_REQ"
-    "\020\257\002\022\027\n\022DB_CREATE_ROLE_RSP\020\260\002\022\025\n\020DB_ROLE_"
-    "INFO_REQ\020\261\002\022\025\n\020DB_ROLE_INFO_RSP\020\262\002\022\033\n\026DB"
-    "_ROLE_INFO_UPDAT_REQ\020\263\002\022 \n\033NOTIFY_LOGIC_"
-    "ENTER_GAME_REQ\020\264\002\022 \n\033NOTIFY_LOGIC_ENTER_"
-    "GAME_RSP\020\265\002\022 \n\033NOTIFY_LOGIC_LEAVE_GAME_R"
-    "EQ\020\266\002\022 \n\033NOTIFY_LOGIC_LEAVE_GAME_RSP\020\267\002\022"
-    "\033\n\026NOTIFY_CENTER_KICK_REQ\020\270\002\022\033\n\026NOTIFY_G"
-    "ATE_ENTER_GAME\020\271\002\022\035\n\030NOTIFY_GATE_CHANGE_"
-    "LOGIC\020\272\002\022\033\n\026NOTIFY_GATE_LEAVE_GAME\020\273\002\022\037\n"
-    "\032NOTIFY_GATE_RECONNECT_GAME\020\274\002\022\035\n\030NOTIFY"
-    "_CENTER_DISCONNECT\020\275\002\022\034\n\027NOTIFY_LOGIC_DI"
-    "SCONNECT\020\276\002\022\033\n\026NOTIFY_LOGIC_RECONNECT\020\277\002", 1280);
+    "fieldoptions.proto\032\022common_logic.proto*U"
+    "\n\021ServerInternalCmd\022\032\n\025SERVER_INTERNAL_B"
+    "EGIN\020\254\002\022$\n\037WORLD_NOTIFY_PROXY_CHANGE_LOG"
+    "IC\020\255\002", 165);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -109,47 +82,8 @@ const ::google::protobuf::EnumDescriptor* ServerInternalCmd_descriptor() {
 }
 bool ServerInternalCmd_IsValid(int value) {
   switch(value) {
-    case 1:
-    case 2:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
-    case 23:
-    case 24:
-    case 25:
-    case 26:
-    case 27:
-    case 31:
-    case 32:
+    case 300:
     case 301:
-    case 302:
-    case 303:
-    case 304:
-    case 305:
-    case 306:
-    case 307:
-    case 308:
-    case 309:
-    case 310:
-    case 311:
-    case 312:
-    case 313:
-    case 314:
-    case 315:
-    case 316:
-    case 317:
-    case 318:
-    case 319:
       return true;
     default:
       return false;

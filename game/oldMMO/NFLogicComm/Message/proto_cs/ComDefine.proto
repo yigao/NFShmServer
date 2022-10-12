@@ -19,6 +19,17 @@ enum LOGOUT_FLAG
   LOGOUT_FLAG_RECONNECT		= 9;					// 重连,关闭旧的连接
 }
 
+//中心服通知下线类型
+enum LOGOUT_TYPE
+{
+  LOGOUT_TYPE_NONE = 0;				//无
+  LOGOUT_TYPE_LOGOUT = 1;				//正常下线
+  LOGOUT_TYPE_KICK_OUT = 2;			//被踢下线
+  LOGOUT_TYPE_DIS_TIME_OUT = 3;		//断开超时下线
+  LOGOUT_TYPE_CHANGE_LOGIC = 4;		//切换逻辑节点
+  LOGOUT_TYPE_RETURN_ROLE_LIST = 5;	//返回角色列表界面
+}
+
 //返回码（公用的返回码放到前面，模块相关的返回码放到后面）
 enum ERetCode
 {

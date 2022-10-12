@@ -47,13 +47,13 @@ void NFWorldPlayerMgr::OnTimer(int timeId, int callcount)
 {
     if (m_playerTickTimer == timeId)
     {
-        UserTick();
+        PlayerTick();
     }
 }
 
-int NFWorldPlayerMgr::UserTick()
+int NFWorldPlayerMgr::PlayerTick()
 {
-    std::vector<uint64_t> willRemovePlayer;
+/*    std::vector<uint64_t> willRemovePlayer;
     NFWorldPlayer* pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_WORLD_PLAYER_ID));
     while (pPlayer)
     {
@@ -73,14 +73,14 @@ int NFWorldPlayerMgr::UserTick()
             NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} be erase from memory", pPlayer->GetPlayerId());
             DeletePlayer(pPlayer);
         }
-    }
+    }*/
     return 0;
 }
 
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayer(uint64_t playerId)
 {
-    return dynamic_cast<NFWorldPlayer*>(FindModule<NFISharedMemModule>()->GetObjFromHashKey(playerId, EOT_WORLD_PLAYER_ID));
+    return dynamic_cast<NFWorldPlayer*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(playerId, EOT_WORLD_PLAYER_ID));
 }
 
 NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
@@ -88,7 +88,7 @@ NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
     NFWorldPlayer *pPlayer = GetPlayer(playerId);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", playerId);
 
-    pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateObj(playerId, EOT_WORLD_PLAYER_ID));
+    pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(playerId, EOT_WORLD_PLAYER_ID));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
 
     pPlayer->SetPlayerId(playerId);
@@ -106,4 +106,27 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
     FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
 
     return 0;
+}
+
+NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByCid(uint64_t cid)
+{
+    uint64_t* pPlayerId = m_charIdToPlayerIdMap.Find(cid);
+    if (pPlayerId)
+    {
+        return GetPlayer(*pPlayerId);
+    }
+
+    return NULL;
+}
+
+int NFWorldPlayerMgr::EraseCid(uint64_t cid)
+{
+    uint64_t* pPlayerId = m_charIdToPlayerIdMap.Find(cid);
+    if (pPlayerId)
+    {
+        m_charIdToPlayerIdMap.Erase(cid);
+        return 0;
+    }
+
+    return -1;
 }

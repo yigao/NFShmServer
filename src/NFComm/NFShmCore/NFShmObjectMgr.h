@@ -540,7 +540,7 @@ class NFObjectMgr : public NFObjectMgrBase
 public:
     virtual ~NFObjectMgr() {}
 
-    virtual int Init(const char* pBuffer, int iObjectCount, bool bResetShm = true, int iObjectSize = sizeof(T), int iListCount = 2, int iIndexCount = 1)
+    virtual int Init(const char* pBuffer, int iObjectCount, int iObjectSize = sizeof(T), bool bResetShm = true, int iListCount = 2, int iIndexCount = 1)
     {
         int iRet = NFObjectMgrBase::Init(pBuffer, iObjectCount, iObjectSize, bResetShm, iListCount, iIndexCount);
         if (iRet)

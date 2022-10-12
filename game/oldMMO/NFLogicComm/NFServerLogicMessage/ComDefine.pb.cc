@@ -21,6 +21,7 @@ namespace proto_ff {
 namespace {
 
 const ::google::protobuf::EnumDescriptor* LOGOUT_FLAG_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* LOGOUT_TYPE_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ERetCode_descriptor_ = NULL;
 
 }  // namespace
@@ -33,7 +34,8 @@ void protobuf_AssignDesc_ComDefine_2eproto() {
       "ComDefine.proto");
   GOOGLE_CHECK(file != NULL);
   LOGOUT_FLAG_descriptor_ = file->enum_type(0);
-  ERetCode_descriptor_ = file->enum_type(1);
+  LOGOUT_TYPE_descriptor_ = file->enum_type(1);
+  ERetCode_descriptor_ = file->enum_type(2);
 }
 
 namespace {
@@ -70,8 +72,13 @@ void protobuf_AddDesc_ComDefine_2eproto() {
     "LAG_BREAK_TIMEOUT\020\004\022\034\n\030LOGOUT_FLAG_OPERA"
     "TE_KICK\020\005\022\032\n\026LOGOUT_FLAG_CHEAR_KICK\020\006\022\024\n"
     "\020LOGOUT_FLAG_KICK\020\007\022\025\n\021LOGOUT_FLAG_CRASH"
-    "\020\010\022\031\n\025LOGOUT_FLAG_RECONNECT\020\t*-\n\010ERetCod"
-    "e\022\017\n\013RET_SUCCESS\020\000\022\014\n\010RET_FAIL\020\001\032\002\020\001", 396);
+    "\020\010\022\031\n\025LOGOUT_FLAG_RECONNECT\020\t*\263\001\n\013LOGOUT"
+    "_TYPE\022\024\n\020LOGOUT_TYPE_NONE\020\000\022\026\n\022LOGOUT_TY"
+    "PE_LOGOUT\020\001\022\030\n\024LOGOUT_TYPE_KICK_OUT\020\002\022\034\n"
+    "\030LOGOUT_TYPE_DIS_TIME_OUT\020\003\022\034\n\030LOGOUT_TY"
+    "PE_CHANGE_LOGIC\020\004\022 \n\034LOGOUT_TYPE_RETURN_"
+    "ROLE_LIST\020\005*-\n\010ERetCode\022\017\n\013RET_SUCCESS\020\000"
+    "\022\014\n\010RET_FAIL\020\001\032\002\020\001", 578);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ComDefine.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ComDefine_2eproto);
@@ -99,6 +106,24 @@ bool LOGOUT_FLAG_IsValid(int value) {
     case 7:
     case 8:
     case 9:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* LOGOUT_TYPE_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LOGOUT_TYPE_descriptor_;
+}
+bool LOGOUT_TYPE_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;

@@ -6,3 +6,23 @@ import "common_logic.proto";
 
 import "Com.proto";
 import "ComDefine.proto";
+
+// 中心服通知网关玩家逻辑节点变化
+//CENTER_NOTIFY_GATE_CHANGE_LOGIC
+message NotifyGateChangeLogic
+{
+  enum cType
+  {
+    ENTER_LOGIC = 1;
+    LEAVE_LOGIC = 2;
+    TTRANS_LOGIC= 3;
+    RETURN_ROLE_LIST = 4;
+  }
+  required cType  ctype = 1;
+  required uint32 clientId = 2;
+  required uint64 cid = 3;
+  required uint32 uid = 4;
+  optional uint32 logicId = 5;
+  optional bool   forceLeave = 6;
+  optional LOGOUT_FLAG leaveFlag =7;
+}

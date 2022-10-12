@@ -62,6 +62,29 @@ inline bool LOGOUT_FLAG_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<LOGOUT_FLAG>(
     LOGOUT_FLAG_descriptor(), name, value);
 }
+enum LOGOUT_TYPE {
+  LOGOUT_TYPE_NONE = 0,
+  LOGOUT_TYPE_LOGOUT = 1,
+  LOGOUT_TYPE_KICK_OUT = 2,
+  LOGOUT_TYPE_DIS_TIME_OUT = 3,
+  LOGOUT_TYPE_CHANGE_LOGIC = 4,
+  LOGOUT_TYPE_RETURN_ROLE_LIST = 5
+};
+bool LOGOUT_TYPE_IsValid(int value);
+const LOGOUT_TYPE LOGOUT_TYPE_MIN = LOGOUT_TYPE_NONE;
+const LOGOUT_TYPE LOGOUT_TYPE_MAX = LOGOUT_TYPE_RETURN_ROLE_LIST;
+const int LOGOUT_TYPE_ARRAYSIZE = LOGOUT_TYPE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* LOGOUT_TYPE_descriptor();
+inline const ::std::string& LOGOUT_TYPE_Name(LOGOUT_TYPE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LOGOUT_TYPE_descriptor(), value);
+}
+inline bool LOGOUT_TYPE_Parse(
+    const ::std::string& name, LOGOUT_TYPE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LOGOUT_TYPE>(
+    LOGOUT_TYPE_descriptor(), name, value);
+}
 enum ERetCode {
   RET_SUCCESS = 0,
   RET_FAIL = 1
@@ -101,6 +124,10 @@ namespace protobuf {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::LOGOUT_FLAG>() {
   return ::proto_ff::LOGOUT_FLAG_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::LOGOUT_TYPE>() {
+  return ::proto_ff::LOGOUT_TYPE_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ERetCode>() {

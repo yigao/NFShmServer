@@ -20,6 +20,10 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::Descriptor* NotifyGateChangeLogic_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyGateChangeLogic_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* NotifyGateChangeLogic_cType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -30,6 +34,28 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "ServerInternal.proto");
   GOOGLE_CHECK(file != NULL);
+  NotifyGateChangeLogic_descriptor_ = file->message_type(0);
+  static const int NotifyGateChangeLogic_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, ctype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, clientid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, logicid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, forceleave_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, leaveflag_),
+  };
+  NotifyGateChangeLogic_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyGateChangeLogic_descriptor_,
+      NotifyGateChangeLogic::default_instance_,
+      NotifyGateChangeLogic_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateChangeLogic, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyGateChangeLogic));
+  NotifyGateChangeLogic_cType_descriptor_ = NotifyGateChangeLogic_descriptor_->enum_type(0);
 }
 
 namespace {
@@ -42,11 +68,15 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyGateChangeLogic_descriptor_, &NotifyGateChangeLogic::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ServerInternal_2eproto() {
+  delete NotifyGateChangeLogic::default_instance_;
+  delete NotifyGateChangeLogic_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -62,9 +92,18 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024ServerInternal.proto\022\010proto_ff\032\025yd_fie"
     "ldoptions.proto\032\022common_logic.proto\032\tCom"
-    ".proto\032\017ComDefine.proto", 103);
+    ".proto\032\017ComDefine.proto\"\233\002\n\025NotifyGateCh"
+    "angeLogic\0224\n\005ctype\030\001 \002(\0162%.proto_ff.Noti"
+    "fyGateChangeLogic.cType\022\020\n\010clientId\030\002 \002("
+    "\r\022\013\n\003cid\030\003 \002(\004\022\013\n\003uid\030\004 \002(\r\022\017\n\007logicId\030\005"
+    " \001(\r\022\022\n\nforceLeave\030\006 \001(\010\022(\n\tleaveFlag\030\007 "
+    "\001(\0162\025.proto_ff.LOGOUT_FLAG\"Q\n\005cType\022\017\n\013E"
+    "NTER_LOGIC\020\001\022\017\n\013LEAVE_LOGIC\020\002\022\020\n\014TTRANS_"
+    "LOGIC\020\003\022\024\n\020RETURN_ROLE_LIST\020\004", 389);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
+  NotifyGateChangeLogic::default_instance_ = new NotifyGateChangeLogic();
+  NotifyGateChangeLogic::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -74,6 +113,490 @@ struct StaticDescriptorInitializer_ServerInternal_2eproto {
     protobuf_AddDesc_ServerInternal_2eproto();
   }
 } static_descriptor_initializer_ServerInternal_2eproto_;
+
+// ===================================================================
+
+const ::google::protobuf::EnumDescriptor* NotifyGateChangeLogic_cType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyGateChangeLogic_cType_descriptor_;
+}
+bool NotifyGateChangeLogic_cType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::ENTER_LOGIC;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::LEAVE_LOGIC;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::TTRANS_LOGIC;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::RETURN_ROLE_LIST;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::cType_MIN;
+const NotifyGateChangeLogic_cType NotifyGateChangeLogic::cType_MAX;
+const int NotifyGateChangeLogic::cType_ARRAYSIZE;
+#endif  // _MSC_VER
+#ifndef _MSC_VER
+const int NotifyGateChangeLogic::kCtypeFieldNumber;
+const int NotifyGateChangeLogic::kClientIdFieldNumber;
+const int NotifyGateChangeLogic::kCidFieldNumber;
+const int NotifyGateChangeLogic::kUidFieldNumber;
+const int NotifyGateChangeLogic::kLogicIdFieldNumber;
+const int NotifyGateChangeLogic::kForceLeaveFieldNumber;
+const int NotifyGateChangeLogic::kLeaveFlagFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyGateChangeLogic::NotifyGateChangeLogic()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyGateChangeLogic::InitAsDefaultInstance() {
+}
+
+NotifyGateChangeLogic::NotifyGateChangeLogic(const NotifyGateChangeLogic& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyGateChangeLogic::SharedCtor() {
+  _cached_size_ = 0;
+  ctype_ = 1;
+  clientid_ = 0u;
+  cid_ = GOOGLE_ULONGLONG(0);
+  uid_ = 0u;
+  logicid_ = 0u;
+  forceleave_ = false;
+  leaveflag_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyGateChangeLogic::~NotifyGateChangeLogic() {
+  SharedDtor();
+}
+
+void NotifyGateChangeLogic::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void NotifyGateChangeLogic::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyGateChangeLogic::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyGateChangeLogic_descriptor_;
+}
+
+const NotifyGateChangeLogic& NotifyGateChangeLogic::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+NotifyGateChangeLogic* NotifyGateChangeLogic::default_instance_ = NULL;
+
+NotifyGateChangeLogic* NotifyGateChangeLogic::New() const {
+  return new NotifyGateChangeLogic;
+}
+
+void NotifyGateChangeLogic::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ctype_ = 1;
+    clientid_ = 0u;
+    cid_ = GOOGLE_ULONGLONG(0);
+    uid_ = 0u;
+    logicid_ = 0u;
+    forceleave_ = false;
+    leaveflag_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyGateChangeLogic::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::proto_ff::NotifyGateChangeLogic_cType_IsValid(value)) {
+            set_ctype(static_cast< ::proto_ff::NotifyGateChangeLogic_cType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_clientId;
+        break;
+      }
+
+      // required uint32 clientId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_clientId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &clientid_)));
+          set_has_clientid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_cid;
+        break;
+      }
+
+      // required uint64 cid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_uid;
+        break;
+      }
+
+      // required uint32 uid = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_uid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+          set_has_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_logicId;
+        break;
+      }
+
+      // optional uint32 logicId = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_logicId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &logicid_)));
+          set_has_logicid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_forceLeave;
+        break;
+      }
+
+      // optional bool forceLeave = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_forceLeave:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &forceleave_)));
+          set_has_forceleave();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_leaveFlag;
+        break;
+      }
+
+      // optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_leaveFlag:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::proto_ff::LOGOUT_FLAG_IsValid(value)) {
+            set_leaveflag(static_cast< ::proto_ff::LOGOUT_FLAG >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(7, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyGateChangeLogic::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+  if (has_ctype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->ctype(), output);
+  }
+
+  // required uint32 clientId = 2;
+  if (has_clientid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->clientid(), output);
+  }
+
+  // required uint64 cid = 3;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->cid(), output);
+  }
+
+  // required uint32 uid = 4;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->uid(), output);
+  }
+
+  // optional uint32 logicId = 5;
+  if (has_logicid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->logicid(), output);
+  }
+
+  // optional bool forceLeave = 6;
+  if (has_forceleave()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->forceleave(), output);
+  }
+
+  // optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+  if (has_leaveflag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      7, this->leaveflag(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyGateChangeLogic::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+  if (has_ctype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->ctype(), target);
+  }
+
+  // required uint32 clientId = 2;
+  if (has_clientid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->clientid(), target);
+  }
+
+  // required uint64 cid = 3;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->cid(), target);
+  }
+
+  // required uint32 uid = 4;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->uid(), target);
+  }
+
+  // optional uint32 logicId = 5;
+  if (has_logicid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->logicid(), target);
+  }
+
+  // optional bool forceLeave = 6;
+  if (has_forceleave()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->forceleave(), target);
+  }
+
+  // optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+  if (has_leaveflag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      7, this->leaveflag(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyGateChangeLogic::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .proto_ff.NotifyGateChangeLogic.cType ctype = 1;
+    if (has_ctype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->ctype());
+    }
+
+    // required uint32 clientId = 2;
+    if (has_clientid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->clientid());
+    }
+
+    // required uint64 cid = 3;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // required uint32 uid = 4;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->uid());
+    }
+
+    // optional uint32 logicId = 5;
+    if (has_logicid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->logicid());
+    }
+
+    // optional bool forceLeave = 6;
+    if (has_forceleave()) {
+      total_size += 1 + 1;
+    }
+
+    // optional .proto_ff.LOGOUT_FLAG leaveFlag = 7;
+    if (has_leaveflag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->leaveflag());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyGateChangeLogic::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyGateChangeLogic* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyGateChangeLogic*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyGateChangeLogic::MergeFrom(const NotifyGateChangeLogic& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ctype()) {
+      set_ctype(from.ctype());
+    }
+    if (from.has_clientid()) {
+      set_clientid(from.clientid());
+    }
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_uid()) {
+      set_uid(from.uid());
+    }
+    if (from.has_logicid()) {
+      set_logicid(from.logicid());
+    }
+    if (from.has_forceleave()) {
+      set_forceleave(from.forceleave());
+    }
+    if (from.has_leaveflag()) {
+      set_leaveflag(from.leaveflag());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyGateChangeLogic::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyGateChangeLogic::CopyFrom(const NotifyGateChangeLogic& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyGateChangeLogic::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void NotifyGateChangeLogic::Swap(NotifyGateChangeLogic* other) {
+  if (other != this) {
+    std::swap(ctype_, other->ctype_);
+    std::swap(clientid_, other->clientid_);
+    std::swap(cid_, other->cid_);
+    std::swap(uid_, other->uid_);
+    std::swap(logicid_, other->logicid_);
+    std::swap(forceleave_, other->forceleave_);
+    std::swap(leaveflag_, other->leaveflag_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyGateChangeLogic::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyGateChangeLogic_descriptor_;
+  metadata.reflection = NotifyGateChangeLogic_reflection_;
+  return metadata;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 

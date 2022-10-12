@@ -59,10 +59,14 @@ bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
+    if (maxOnlinePlayerNum >= WORLD_SERVER_MAX_ONLINE_COUNT)
+    {
+        maxOnlinePlayerNum = WORLD_SERVER_MAX_ONLINE_COUNT;
+    }
 
 	REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, EOT_WORLD_PLAYER_ID, maxOnlinePlayerNum);
-	REGISTER_SHM_OBJ(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, 1);//
-    REGISTER_SHM_OBJ(NFWorldConfig, EOT_WOLRD_CONFIG_ID, 1);//
+    REGISTER_SINGLETON_SHM_OBJ(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID);//
+    REGISTER_SINGLETON_SHM_OBJ(NFWorldConfig, EOT_WOLRD_CONFIG_ID);//
 
 	return true;
 }

@@ -38,7 +38,6 @@ protected:
 	uint64_t realSec_;
 	NFTime() : sec_(0), nsec_(0), realSec_(0) {}
 public:
-	static  int32_t zoneTime_; //时区时间
 	static  uint64_t gmStartTime_;	//GM设置的时间
 	static  uint64_t gmSetTimeTime_; //gm开始设置时，系统的时间
 public:
@@ -177,6 +176,7 @@ public:
 	}
 
 	static struct NFDate GetLocalDate();
+    static uint64_t  GetLocalDateSec();
 	static struct NFDate GetLocalDate(uint64_t unixSec);
 
 	static int32_t GetLocalDayDifference(uint64_t left, uint64_t right);
@@ -194,4 +194,7 @@ public:
 	static uint64_t GetZeroTime(uint64_t timeSec);
 
     static uint64_t GetMonthZeroTime(uint64_t timeSec);
+
+    //获取当前服务器所在的时区,单位秒
+    static int32_t GetCurTimeZone();
 };

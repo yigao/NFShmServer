@@ -91,7 +91,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
             int ret = m_hashMgr.Init(m_iHashBuffer, m_iItemCount, true);
             if (ret)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFHashObjectMgr Init Failed!");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
             }
         }
 	}
@@ -108,7 +108,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
             int ret = m_hashMgr.Init(m_iHashBuffer, m_iItemCount, false);
             if (ret)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFHashObjectMgr Init Failed!");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
             }
         }
 	}
@@ -218,7 +218,7 @@ int NFShmObjSeg::HashErase(int hashId)
     return m_hashMgr.HashFreeByIndex(hashId);
 }
 
-NFHashObjectMgr<uint64_t, int>& NFShmObjSeg::GetHashMgr()
+NFShmHashObjectMgr<uint64_t, int>& NFShmObjSeg::GetHashMgr()
 {
     return m_hashMgr;
 }
@@ -249,7 +249,7 @@ void NFShmObjSeg::FreeMemForObject(void *pMem)
 
 int NFShmObjSeg::GetHashSize(int objCount)
 {
-    return NFHashObjectMgr<uint64_t, int>::CountSize(objCount);
+    return NFShmHashObjectMgr<uint64_t, int>::CountSize(objCount);
 }
 
 int NFShmObjSeg::CreateIdx()

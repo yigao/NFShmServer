@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <ServerInternal.pb.h>
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include "NFWorldPlayerMgr.h"
 
@@ -41,6 +42,26 @@ public:
      * @return
      */
     int OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet);
+public:
+    /**
+     * @brief 世界服通知网关改变逻辑服
+     * @param pPlayer
+     * @param ctype
+     * @param logicId 逻辑服Id
+     * @param force
+     * @param flag
+     * @return
+     */
+    int GateChangeLogic(NFWorldPlayer* pPlayer, proto_ff::NotifyGateChangeLogic_cType ctype, uint32_t logicId, bool force = false, proto_ff::LOGOUT_FLAG flag = proto_ff::LOGOUT_FLAG_NORMAL);
+
+    /**
+     * @brief
+     * @param pPlayer
+     * @param logicId
+     * @param type
+     * @return
+     */
+    int NotifyLogicLeave(NFWorldPlayer* pPlayer, uint32_t logicId, proto_ff::LOGOUT_TYPE type = proto_ff::LOGOUT_TYPE_NONE);
 private:
     /**
      * @brief NFILuaModule

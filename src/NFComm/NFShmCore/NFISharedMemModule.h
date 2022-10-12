@@ -79,8 +79,8 @@ public:
 	*/
 	virtual void	SetShmInitSuccessFlag() = 0;
 
-    virtual NFShmObj *CreateObj(uint64_t hashKey, int iType) = 0;
-    virtual NFShmObj *GetObjFromHashKey(uint64_t hashKey, int iType) = 0;
+    virtual NFShmObj *CreateObjByHashKey(uint64_t hashKey, int iType) = 0;
+    virtual NFShmObj *GetObjByHashKey(uint64_t hashKey, int iType) = 0;
 
     virtual int GetItemCount(int iType) = 0;
     virtual int GetUsedCount(int iType) = 0;

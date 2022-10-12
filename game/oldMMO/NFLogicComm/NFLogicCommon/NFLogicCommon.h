@@ -27,6 +27,14 @@ class NFLogicCommon : public NFSingleton<NFLogicCommon> {
 public:
     NFLogicCommon();
     virtual ~NFLogicCommon();
+public:
+    /**
+     * @brief 使用uid 以及 timeStamp 合同一个md5 的 token
+     * @param uid
+     * @param timeStamp
+     * @return
+     */
+    static std::string MakeToken(uint32_t uid, uint64_t timeStamp);
 };
 
 
