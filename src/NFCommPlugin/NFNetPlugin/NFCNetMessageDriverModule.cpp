@@ -453,17 +453,23 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
 
 void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
-    std::string data;
-    if (!xData.SerializePartialToString(&data))
+    int len = xData.ByteSize();
+
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
+    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+
+    pPacket->mBufferMsg.Clear();
+    if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
     {
+        pPacket->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
         return;
     }
 
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(data.length());
-    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    pPacket->mBufferMsg.Produce(len);
+
     pPacket->mModuleId = nModuleId;
     pPacket->nMsgId = nMsgID;
-    pPacket->mBufferMsg.PushData(data.data(), data.length());
     pPacket->nParam1 = nParam1;
     pPacket->nParam2 = nParam2;
     pPacket->nSrcId = srcId;
@@ -504,17 +510,21 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
 
 void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
-    std::string data;
-    if (!xData.SerializeToString(&data))
+    int len = xData.ByteSize();
+
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
+    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+
+    pPacket->mBufferMsg.Clear();
+    if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
     {
+        pPacket->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
         return;
     }
 
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(data.length());
-    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
     pPacket->mModuleId = nModuleId;
     pPacket->nMsgId = nMsgID;
-    pPacket->mBufferMsg.PushData(data.data(), data.length());
     pPacket->nParam1 = nParam1;
     pPacket->nParam2 = nParam2;
     pPacket->nSrcId = nSrcID;
