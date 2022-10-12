@@ -25,84 +25,112 @@ public:
     {
         while(!m_218MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_218MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_218MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_256MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_256MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_256MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_512MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_512MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_512MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_1024MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_1024MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_1024MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_2048MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_2048MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_2048MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_4096MsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_4096MsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_4096MsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
 
         while(!m_moreMsgQueue.IsQueueEmpty())
         {
-            TYPE* pType = NULL;
-            if (m_moreMsgQueue.TryDequeue(pType))
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_moreMsgQueue.TryDequeueBulk(vec))
             {
-                if (pType)
+                for(int i = 0; i < (int)vec.size(); i++)
                 {
-                    NF_SAFE_DELETE(pType);
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
                 }
             }
         }
