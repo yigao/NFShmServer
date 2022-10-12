@@ -433,10 +433,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     pPacket->nSrcId = srcId;
     pPacket->nDstId = dstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
 void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
@@ -451,16 +448,13 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     pPacket->nSrcId = srcId;
     pPacket->nDstId = dstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
 void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     std::string data;
-    if (!xData.SerializeToString(&data))
+    if (!xData.SerializePartialToString(&data))
     {
         return;
     }
@@ -475,10 +469,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     pPacket->nSrcId = srcId;
     pPacket->nDstId = dstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
 void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
@@ -493,10 +484,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     pPacket->nSrcId = nSrcID;
     pPacket->nDstId = nDstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
 void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
@@ -511,10 +499,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     pPacket->nSrcId = nSrcID;
     pPacket->nDstId = nDstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
 void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
@@ -535,13 +520,20 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     pPacket->nSrcId = nSrcID;
     pPacket->nDstId = nDstId;
 
-    Send(usLinkId, *pPacket);
-
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage& packet)
+void NFCNetMessageDriverModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
+{
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(packet.mBufferMsg.ReadableSize());
+    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    pPacket->Copy(packet);
+    pPacket->mBufferMsg.PushData(packet.mBufferMsg.ReadAddr(), packet.mBufferMsg.ReadableSize());
+
+    Send(usLinkId, pPacket);
+}
+
+void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage* pPackage)
 {
     uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
 
@@ -553,12 +545,14 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage& packet)
             auto pServer = mNetServerArray[serverType];
             if (pServer)
             {
-                SendMsg(pServer, usLinkId, packet);
+                Send(pServer, usLinkId, pPackage);
                 return;
             }
             else
             {
                 NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                pPackage->Clear();
+                NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
             }
         }
         else
@@ -566,28 +560,37 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage& packet)
             auto pServer = mBusServerArray[serverType];
             if (pServer)
             {
-                SendMsg(pServer, usLinkId, packet);
+                Send(pServer, usLinkId, pPackage);
                 return;
             }
             else
             {
                 NFLogError(NF_LOG_NET_PLUGIN, 0, "bus SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                pPackage->Clear();
+                NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
             }
         }
-
     }
+
     if (usLinkId != 0)
     {
         NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
     }
+
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 }
 
-void NFCNetMessageDriverModule::SendMsg(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage& packet)
+void NFCNetMessageDriverModule::Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* pPackage)
 {
     if (pServer)
     {
-        pServer->Send(usLinkId, packet);
+        pServer->Send(usLinkId, pPackage);
+        return;
     }
+
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 }
 
 bool

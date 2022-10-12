@@ -227,11 +227,11 @@ NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage
         if (pServerData) {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pServerData->mUnlinkId, packet);
         } else {
             auto pRouteServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_AGENT_SERVER, NF_ST_ROUTE_SERVER);
             CHECK_NULL(pRouteServerData);
-            FindModule<NFIMessageModule>()->Send(pRouteServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pRouteServerData->mUnlinkId, packet);
         }
     } else {
         NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(
@@ -239,11 +239,11 @@ NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage
         if (pServerData) {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pServerData->mUnlinkId, packet);
         } else {
             auto pRouteServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_AGENT_SERVER, NF_ST_ROUTE_SERVER);
             CHECK_NULL(pRouteServerData);
-            FindModule<NFIMessageModule>()->Send(pRouteServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pRouteServerData->mUnlinkId, packet);
         }
     }
 
@@ -477,7 +477,7 @@ int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDa
         if (pServerData) {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pServerData->mUnlinkId, packet);
         } else {
             NFLogError(NF_LOG_ROUTE_AGENT_SERVER_PLUGIN, 0,
                        "the route agent can't find the server, busid:{}, server:{} trans packet:{} failed", destBusId,
@@ -489,7 +489,7 @@ int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDa
         {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pServerData->mUnlinkId, packet);
         } else {
             NFLogError(NF_LOG_ROUTE_AGENT_SERVER_PLUGIN, 0,
                        "the route agent can't find the server, busid:{}, server:{} trans packet:{} failed", destBusId,

@@ -53,15 +53,6 @@ public:
 	*/
 	virtual int64_t ConnectServer(const NFMessageFlag& flag);
 
-	/**
-	 * @brief	发送数据
-	 *
-	 * @param pData		发送的数据, 这里的数据已经包含了数据头
-	 * @param unSize	数据的大小
-	 * @return
-	 */
-	virtual bool Send(uint64_t usLinkId, const char* pData, uint32_t unSize);
-
     /**
      * @brief	发送数据 不包含数据头
      *
@@ -69,8 +60,7 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2);
-    virtual bool Send(uint64_t usLinkId, NFDataPackage& package);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage* package);
 
 	/**
 	 * @brief 获得连接IP

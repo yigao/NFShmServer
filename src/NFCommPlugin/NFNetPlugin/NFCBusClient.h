@@ -47,26 +47,16 @@ public:
     virtual int64_t ConnectServer(const NFMessageFlag& flag, const NFMessageFlag& bindFlag);
 
     /**
-     * @brief	发送数据
-     *
-     * @param pData		发送的数据, 这里的数据已经包含了数据头
-     * @param unSize	数据的大小
-     * @return
-     */
-    virtual bool Send(const char* pData, uint32_t unSize) override;
-
-    /**
      * @brief	发送数据 不包含数据头
      *
      * @param pData		发送的数据,
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2) override;
-    virtual bool Send(NFDataPackage& packet) override;
+    virtual bool Send(NFDataPackage* packet) override;
 
-    virtual bool SendToLoop(NFShmChannel *pChannel, const char* pData, uint32_t unSize);
-    virtual void SendStringInLoop(NFShmChannel *pChannel, const std::string& msg);
+    virtual bool SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet);
+    virtual void SendStringInLoop(NFShmChannel *pChannel, int packetParseType, uint64_t linkId, NFDataPackage* pPackage);
 private:
     evpp::EventLoopThread* m_eventLoop;
 };

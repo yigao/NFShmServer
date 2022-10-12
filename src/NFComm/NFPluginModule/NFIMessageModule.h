@@ -214,7 +214,7 @@ public:
 
     virtual void CloseServer(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServer, uint32_t busId, uint64_t usLinkId) = 0;
 
-    virtual void Send(uint64_t usLinkId, NFDataPackage& packet) = 0;
+    virtual void CopySend(uint64_t usLinkId, NFDataPackage& packet) = 0;
 
     virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string &strData, uint64_t param1 = 0, uint64_t param2 = 0,
                       uint64_t srcId = 0, uint64_t dstId = 0) = 0;

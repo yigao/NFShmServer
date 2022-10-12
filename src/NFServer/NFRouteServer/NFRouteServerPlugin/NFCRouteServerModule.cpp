@@ -236,7 +236,7 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
             NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(
                     NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
             if (pRouteAgent) {
-                FindModule<NFIMessageModule>()->Send(pRouteAgent->mUnlinkId, packet);
+                FindModule<NFIMessageModule>()->CopySend(pRouteAgent->mUnlinkId, packet);
             } else {
                 NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                            packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
@@ -250,7 +250,7 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
                     NF_ST_ROUTE_SERVER,
                     pRegServerData->mRouteAgentBusId);
             if (pRouteAgent) {
-                FindModule<NFIMessageModule>()->Send(pRouteAgent->mUnlinkId, packet);
+                FindModule<NFIMessageModule>()->CopySend(pRouteAgent->mUnlinkId, packet);
             } else {
                 NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                            packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType),

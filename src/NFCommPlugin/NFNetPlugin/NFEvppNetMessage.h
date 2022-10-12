@@ -197,23 +197,13 @@ public:
 	 */
 	virtual uint64_t GetFreeUnLinkId();
 
-	/**
-	 * @brief	发送数据
-	 *
-	 * @param pData		发送的数据, 这里的数据已经包含了数据头
-	 * @param unSize	数据的大小
-	 * @return
-	 */
-	virtual bool Send(uint64_t usLinkId, const char* pData, uint32_t unSize);
-
-    /**
-     * @brief	发送数据 不包含数据头
-     *
-     * @param pData		发送的数据,
-     * @param unSize	数据的大小
-     * @return
-     */
-    virtual bool Send(uint64_t usLinkId, NFDataPackage& package);
+     /**
+      * @brief  发送数据 不包含数据头
+      * @param usLinkId
+      * @param package      数据包
+      * @return     true:Success false:Failure
+      */
+    virtual bool Send(uint64_t usLinkId, NFDataPackage* package);
 
 	NetEvppObject* GetNetObject(uint64_t uslinkId);
 
@@ -256,25 +246,13 @@ protected:
 	 */
 	virtual void OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet);
 
-    /**
-     * @brief	发送数据 不包含数据头
-     *
-     * @param pData		发送的数据,
-     * @param unSize	数据的大小
-     * @return
-     */
-    virtual bool Send(NetEvppObject* pObject, NFDataPackage& package);
-
-    virtual bool Send(NetEvppObject* pObject, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2);
-
-	/**
-	 * @brief	发送数据
-	 *
-	 * @param pData		发送的数据, 这里的数据已经包含了数据头
-	 * @param unSize	数据的大小
-	 * @return
-	 */
-	virtual bool Send(NetEvppObject* pObject, const char* msg, uint32_t nLen);
+     /**
+      * @brief  发送数据 不包含数据头
+      * @param pObject
+      * @param package  数据包
+      * @return true:Success false:Failure
+      */
+    virtual bool Send(NetEvppObject* pObject, NFDataPackage* package);
 private:
 	std::vector<NFIConnection* > m_connectionList;
 	std::list<uint64_t>  mFreeLinks;

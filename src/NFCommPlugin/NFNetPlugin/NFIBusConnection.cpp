@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
 #include "NFIPacketParse.h"
 #include <string.h>
 #include <sstream>
@@ -1016,13 +1017,29 @@ void NFIBusConnection::SetMsgPeerCallback(const BusMsgPeerCallback& cb)
 
 int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
 {
-    Send(0, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ, NULL, 0, busLength, busId);
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
+    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    pPacket->mModuleId = 0;
+    pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+    pPacket->nParam1 = busId;
+    pPacket->nParam2 = busLength;
+    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
+
+    Send(pPacket);
     return 0;
 }
 
 int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
 {
-    Send(0, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP, NULL, 0, busLength, busId);
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
+    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    pPacket->mModuleId = 0;
+    pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
+    pPacket->nParam1 = busId;
+    pPacket->nParam2 = busLength;
+    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
+
+    Send(pPacket);
     return 0;
 }
 

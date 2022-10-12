@@ -50,25 +50,7 @@ public:
      */
     virtual void ProcessMsgLogicThread();
 
-    /**
-     * @brief	发送数据
-     *
-     * @param pData		发送的数据, 这里的数据已经包含了数据头
-     * @param unSize	数据的大小
-     * @return
-     */
-    virtual bool Send(const char* pData, uint32_t unSize) override;
-
-    /**
-     * @brief	发送数据 不包含数据头
-     *
-     * @param pData		发送的数据,
-     * @param unSize	数据的大小
-     * @return
-     */
-    virtual bool Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nSendValue, uint64_t nSendId) override;
-
-    virtual bool Send(NFDataPackage& packet) override;
+    virtual bool Send(NFDataPackage* packet) override;
 private:
     evpp::EventLoopThread* m_eventLoop;
 };

@@ -176,7 +176,9 @@ public:
 
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) override;
 
-    virtual void Send(uint64_t usLinkId, NFDataPackage& packet) override;
+    virtual void CopySend(uint64_t usLinkId, NFDataPackage& packet) override;
+
+    virtual void Send(uint64_t usLinkId, NFDataPackage* packet);
 
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK") override;
@@ -200,7 +202,7 @@ protected:
 	 * @brief 将消息编码后通过pServer发送出去
 	 *
 	 */
-    void SendMsg(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage& packet);
+    void Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* packet);
 private:
 	/**
 	 * @brief	处理接受数据的回调

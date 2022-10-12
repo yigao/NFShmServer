@@ -422,7 +422,7 @@ int NFCProxyAgentServerModule::OnHandleProxyOtherMessage(uint64_t unLinkId, NFDa
             NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "Trans ProxyServer:{} packet:{} to OtherServer:{}({})",
                        pProxyServerData->mServerInfo.server_id(), packet.ToString(), pServerData->mServerInfo.server_name(),
                        pServerData->mServerInfo.server_id());
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pServerData->mUnlinkId, packet);
         }
         else
         {
@@ -482,7 +482,7 @@ int NFCProxyAgentServerModule::OnHandleProxyAgentServerOtherMessage(uint64_t unL
             NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "Trans Server:{}({}) packet:{} to ProxyServer:{}({})", pServerData->mServerInfo.server_name(),
                        pServerData->mServerInfo.server_id(), packet.ToString(), pProxyServerData->mServerInfo.server_name(),
                        pProxyServerData->mServerInfo.server_id());
-            FindModule<NFIMessageModule>()->Send(pProxyServerData->mUnlinkId, packet);
+            FindModule<NFIMessageModule>()->CopySend(pProxyServerData->mUnlinkId, packet);
         }
         else
         {

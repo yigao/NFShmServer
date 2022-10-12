@@ -575,23 +575,16 @@ bool NFEvppNetMessage::Execute()
 	return true;
 }
 
-bool NFEvppNetMessage::Send(uint64_t usLinkId, const char* pData, uint32_t unSize)
-{
-	NetEvppObject* pObject = GetNetObject(usLinkId);
-	if (pObject)
-	{
-		return Send(pObject, pData, unSize);
-	}
-	return false;
-}
-
-bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& package)
+bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage* pPackage)
 {
     NetEvppObject* pObject = GetNetObject(usLinkId);
     if (pObject)
     {
-        return Send(pObject, package);
+        return Send(pObject, pPackage);
     }
+
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 
@@ -609,10 +602,12 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 if (pObject && pObject->mIsServer)
                 {
                     pObject->SetLastHeartBeatTime(NFGetTime());
-                    NFDataPackage packet;
-                    packet.mModuleId = 0;
-                    packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
-                    Send(pObject->GetLinkId(), packet);
+                    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
+                    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+
+                    pPacket->mModuleId = 0;
+                    pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
+                    Send(pObject->GetLinkId(), pPacket);
                     return;
                 }
             }
@@ -673,52 +668,39 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 	}
 }
 
-bool NFEvppNetMessage::Send(NetEvppObject* pObject, const char* pData, uint32_t unSize)
-{
-	if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
-	{
-		pObject->mConnPtr->Send((const void*)pData, unSize);
-		return true;
-	}
-	return false;
-}
-
-bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& package)
+bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
 {
     if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
     {
-        mxSendBuffer.Clear();
-        NFIPacketParse::EnCode(pObject->mPacketParseType, package, mxSendBuffer);
+        pObject->mConnPtr->loop()->RunInLoop(std::bind([](NFDataPackage* pPackage, evpp::TCPConnPtr pConn, int packetParseType, bool isSecurity){
+            if (pConn->loop()->context().IsEmpty())
+            {
+                NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+                pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
+                pConn->loop()->set_context(evpp::Any(pComBuffer));
+            }
 
-        if (pObject->IsSecurity())
-        {
-            Encryption(mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
-        }
-        pObject->mConnPtr->Send((const void*)mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
+            NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pConn->loop()->context());
+            pComBuffer->Clear();
+
+            NFIPacketParse::EnCode(packetParseType, *pPackage, *pComBuffer);
+
+            if (isSecurity)
+            {
+                Encryption(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+            }
+
+            pConn->Send((const void*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+
+            pComBuffer->Clear();
+            pPackage->Clear();
+            NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+        }, pPackage, pObject->mConnPtr, pObject->mPacketParseType, pObject->IsSecurity()));
         return true;
     }
-    return false;
-}
 
-bool NFEvppNetMessage::Send(NetEvppObject* pObject, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
-{
-    if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
-    {
-        mxSendBuffer.Clear();
-        NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
-        CHECK_EXPR_ASSERT(pPacket, false, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc Failed!");
-        pPacket->mModuleId = nModuleId;
-        pPacket->nMsgId = nMsgID;
-        pPacket->mBufferMsg.PushData(msg, nLen);
-        pPacket->nParam1 = nParam1;
-        pPacket->nParam2 = nParam2;
-        NFIPacketParse::EnCode(pObject->mPacketParseType, *pPacket, mxSendBuffer);
-        pPacket->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
-
-        pObject->mConnPtr->Send((const void*)mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
-        return true;
-    }
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 
@@ -740,10 +722,11 @@ void  NFEvppNetMessage::SendHeartMsg()
 	{
 		if (m_connectionList[i] && m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
 		{
-            NFDataPackage packet;
-            packet.mModuleId = 0;
-            packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
-			Send(m_connectionList[i]->GetLinkId(), packet);
+            NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
+            CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+            pPacket->mModuleId = 0;
+            pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
+			Send(m_connectionList[i]->GetLinkId(), pPacket);
 		}
 	}
 }

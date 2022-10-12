@@ -161,53 +161,22 @@ int64_t NFCBusClient::ConnectServer(const NFMessageFlag& flag, const NFMessageFl
     return (int64_t)pShmRecord->m_nUnLinkId;
 }
 
-/**
- * @brief	发送数据
- *
- * @param pData		发送的数据, 这里的数据已经包含了数据头
- * @param unSize	数据的大小
- * @return
- */
-bool NFCBusClient::Send(const char* pData, uint32_t unSize)
-{
-    NFShmRecordType * pShmRecord = GetShmRecord();
-    if (pShmRecord == NULL)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed");
-        return false;
-    }
-
-    if (pShmRecord->m_nOwner == true)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "bus owner can't send data, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        return false;
-    }
-
-    if (pShmRecord->m_nBuffer == NULL)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "buffer = null, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        return false;
-    }
-
-    NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
-    NFShmChannel *pChannel = &head->m_nShmChannel;
-    if (pChannel)
-    {
-        return SendToLoop(pChannel, pData, unSize);
-    }
-    return false;
-}
-
-bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, const char* pData, uint32_t unSize)
+bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDataPackage* pPackage)
 {
     if (m_eventLoop)
     {
-        m_eventLoop->loop()->QueueInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, std::string(pData, unSize)));
+        m_eventLoop->loop()->QueueInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, packetParseType, m_bindFlag.mLinkId, pPackage));
         return true;
     }
     else
     {
-        int iRet = ShmSend(pChannel, pData, unSize);
+        mxBuffer.Clear();
+        NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, m_bindFlag.mLinkId);
+
+        pPackage->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+
+        int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
         if (iRet)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
@@ -217,87 +186,57 @@ bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, const char* pData, uint32_
     return true;
 }
 
-void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, const std::string& msg)
+void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, int packetParseType, uint64_t linkId, NFDataPackage* pPackage)
 {
-    int iRet = ShmSend(pChannel, msg.data(), msg.length());
+    mxBuffer.Clear();
+    NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, linkId);
+
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+
+    int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
     }
 }
 
-bool NFCBusClient::Send(uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
+bool NFCBusClient::Send(NFDataPackage* pPackage)
 {
     NFShmRecordType * pShmRecord = GetShmRecord();
     if (pShmRecord == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed,");
+        pPackage->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
     if (pShmRecord->m_nOwner == true)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "bus owner can't send data, uslinkId:{} ", pShmRecord->m_nUnLinkId);
+        pPackage->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
     if (pShmRecord->m_nBuffer == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "buffer = null, uslinkId:{} ", pShmRecord->m_nUnLinkId);
+        pPackage->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
-    mxBuffer.Clear();
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
-    CHECK_EXPR_ASSERT(pPacket, false, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen:{}) Failed", nLen);
-    pPacket->mModuleId = nModuleId;
-    pPacket->nMsgId = nMsgID;
-    pPacket->mBufferMsg.PushData(msg, nLen);
-    pPacket->nParam1 = nParam1;
-    pPacket->nParam2 = nParam2;
-    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
-    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, *pPacket, mxBuffer, m_bindFlag.mLinkId);
-    pPacket->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
 
     NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
     NFShmChannel *pChannel = &head->m_nShmChannel;
     if (pChannel)
     {
-        return SendToLoop(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
-    }
-    return false;
-}
-
-bool NFCBusClient::Send(NFDataPackage& packet)
-{
-    NFShmRecordType * pShmRecord = GetShmRecord();
-    if (pShmRecord == NULL)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed,");
-        return false;
+        return SendToLoop(pChannel, pShmRecord->mPacketParseType, pPackage);
     }
 
-    if (pShmRecord->m_nOwner == true)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "bus owner can't send data, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        return false;
-    }
-
-    if (pShmRecord->m_nBuffer == NULL)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "buffer = null, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        return false;
-    }
-
-    mxBuffer.Clear();
-    NFIPacketParse::EnCode(pShmRecord->mPacketParseType, packet, mxBuffer, m_bindFlag.mLinkId);
-
-    NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
-    NFShmChannel *pChannel = &head->m_nShmChannel;
-    if (pChannel)
-    {
-        return SendToLoop(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
-    }
+    pPackage->Clear();
+    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
