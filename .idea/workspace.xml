@@ -43,13 +43,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="old mmo">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="login">
+      <change afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldCommonDefine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ComDefine.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ComDefine.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" afterDir="false" />
@@ -534,14 +538,7 @@
       <workItem from="1665448702691" duration="31088000" />
       <workItem from="1665481483079" duration="4756000" />
       <workItem from="1665542504686" duration="3544000" />
-      <workItem from="1665546109694" duration="18563000" />
-    </task>
-    <task id="LOCAL-00137" summary="chong gou">
-      <created>1663477458242</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1663477458242</updated>
+      <workItem from="1665546109694" duration="21810000" />
     </task>
     <task id="LOCAL-00138" summary="chong gou">
       <created>1663478292008</created>
@@ -879,7 +876,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665547653299</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="login">
+      <created>1665571604792</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1665571604792</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -995,7 +999,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="plugin" />
     <MESSAGE value="show user id" />
     <MESSAGE value="vip level" />
     <MESSAGE value="vip recharge" />
@@ -1020,7 +1023,8 @@
     <MESSAGE value="cmd" />
     <MESSAGE value="new mmo" />
     <MESSAGE value="old mmo" />
-    <option name="LAST_COMMIT_MESSAGE" value="old mmo" />
+    <MESSAGE value="login" />
+    <option name="LAST_COMMIT_MESSAGE" value="login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

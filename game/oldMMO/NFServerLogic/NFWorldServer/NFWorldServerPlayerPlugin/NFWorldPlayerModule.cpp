@@ -83,7 +83,6 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
 
     uint32_t uid = clogin.uid();
 
-    uint32_t zid = NFServerIDUtil::GetZoneID(pConfig->BusId);
     uint32_t proxyId = (uint32_t) packet.nSrcId;
 
     /*
@@ -297,11 +296,11 @@ int NFCWorldPlayerModule::GateChangeLogic(NFWorldPlayer *pPlayer, proto_ff::Noti
  * @param type
  * @return
  */
-int NFCWorldPlayerModule::NotifyLogicLeave(NFWorldPlayer* pPlayer, uint32_t logicId, proto_ff::LOGOUT_TYPE type = proto_ff::LOGOUT_TYPE_NONE)
+int NFCWorldPlayerModule::NotifyLogicLeave(NFWorldPlayer* pPlayer, uint32_t logicId, proto_ff::LOGOUT_TYPE type /*= proto_ff::LOGOUT_TYPE_NONE*/)
 {
     CHECK_NULL(pPlayer);
 
-    return true;
+    return 0;
 }
 
 
