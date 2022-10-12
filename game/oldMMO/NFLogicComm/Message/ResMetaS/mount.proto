@@ -1,0 +1,52 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message mountmountuseattrDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message mountmount
+{
+	optional int64 mountId = 1[(yd_fieldoptions.field_cname) = "坐骑id"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "坐骑名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 quality = 3[(yd_fieldoptions.field_cname) = "坐骑品质"];
+	optional int64 occupation = 4[(yd_fieldoptions.field_cname) = "转职要求"];
+	optional int32 speedNum = 5[(yd_fieldoptions.field_cname) = "乘骑速度值"];
+	optional int64 needItem = 6[(yd_fieldoptions.field_cname) = "激活升星道具"];
+	optional string ItemNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 200];
+	optional int32 starLv = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 starNumber = 9[(yd_fieldoptions.field_cname) = "每级提升百分比"];
+	optional int32 sourceLink = 10[(yd_fieldoptions.field_cname) = "来源链接"];
+	optional int64 upAttributeId = 11[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	repeated mountmountuseattrDesc useattr = 12[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_mountmount
+{
+	repeated mountmount mountmount_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message mountstarUpupAttributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message mountstarUp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 upAttributeId = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 starID = 3[(yd_fieldoptions.field_cname) = "星级"];
+	repeated mountstarUpupAttributeDesc upAttribute = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_mountstarUp
+{
+	repeated mountstarUp mountstarUp_List = 1[(yd_fieldoptions.field_arysize)=80];
+}

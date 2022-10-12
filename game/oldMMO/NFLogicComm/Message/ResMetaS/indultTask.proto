@@ -1,0 +1,33 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message indultTaskindultTask
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 order = 2[(yd_fieldoptions.field_cname) = "前置活动"];
+	optional int32 functionUnlock = 3[(yd_fieldoptions.field_cname) = "解锁开关"];
+	optional int64 boxid = 4[(yd_fieldoptions.field_cname) = "奖励"];
+	optional string taskID = 5[(yd_fieldoptions.field_cname) = "包含任务", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 taskNum = 6[(yd_fieldoptions.field_cname) = "需要完成任务数量"];
+}
+
+
+message Sheet_indultTaskindultTask
+{
+	repeated indultTaskindultTask indultTaskindultTask_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message indultTasktask
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 task = 2[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional string taskParam = 3[(yd_fieldoptions.field_cname) = "条件参数", (yd_fieldoptions.field_bufsize) = 80];
+}
+
+
+message Sheet_indultTasktask
+{
+	repeated indultTasktask indultTasktask_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

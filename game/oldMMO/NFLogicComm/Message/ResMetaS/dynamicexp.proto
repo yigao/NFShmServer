@@ -1,0 +1,21 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message dynamicexpdynamicexpdynamicDesc
+{
+	optional int64 exp = 1[(yd_fieldoptions.field_cname) = "经验"];
+}
+
+message dynamicexpdynamicexp
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "角色等级"];
+	repeated dynamicexpdynamicexpdynamicDesc dynamic = 2[(yd_fieldoptions.field_cname) = "动态", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_dynamicexpdynamicexp
+{
+	repeated dynamicexpdynamicexp dynamicexpdynamicexp_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}

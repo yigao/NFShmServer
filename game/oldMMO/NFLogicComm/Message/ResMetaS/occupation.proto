@@ -1,0 +1,70 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message occupationoccupationattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "基础属性ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "基础属性值"];
+}
+
+message occupationoccupation
+{
+	optional int64 occupationID = 1[(yd_fieldoptions.field_cname) = "转职职业ID"];
+	optional int32 id = 2[(yd_fieldoptions.field_cname) = "主职业ID"];
+	optional int32 grade = 3[(yd_fieldoptions.field_cname) = "职业等级"];
+	optional string activeDesc = 4[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 140];
+	optional int32 level = 5[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int64 aptitude = 6[(yd_fieldoptions.field_cname) = "境界要求"];
+	optional string taskID = 7[(yd_fieldoptions.field_cname) = "任务id", (yd_fieldoptions.field_bufsize) = 60];
+	optional string equip = 8[(yd_fieldoptions.field_cname) = "武器模型", (yd_fieldoptions.field_bufsize) = 60];
+	optional string modelID = 9[(yd_fieldoptions.field_cname) = "模型路径", (yd_fieldoptions.field_bufsize) = 60];
+	repeated occupationoccupationattributeDesc attribute = 10[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 delSkill_id = 11[(yd_fieldoptions.field_cname) = "删除技能ID", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 skill_id = 12[(yd_fieldoptions.field_cname) = "增加技能ID", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_occupationoccupation
+{
+	repeated occupationoccupation occupationoccupation_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message occupationaptitudeattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "基础属性ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "基础属性值"];
+}
+
+message occupationaptitude
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "资质ID"];
+	optional int32 grade = 2[(yd_fieldoptions.field_cname) = "职业等级ID"];
+	optional int32 level = 3[(yd_fieldoptions.field_cname) = "资质等级"];
+	optional int64 requirement = 4[(yd_fieldoptions.field_cname) = "战力"];
+	optional int64 material = 5[(yd_fieldoptions.field_cname) = "进阶材料ID"];
+	optional int32 num = 6[(yd_fieldoptions.field_cname) = "进阶材料数量"];
+	optional string conditionId = 7[(yd_fieldoptions.field_cname) = "转职条件ID", (yd_fieldoptions.field_bufsize) = 60];
+	repeated occupationaptitudeattributeDesc attribute = 8[(yd_fieldoptions.field_cname) = "$$$$", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_occupationaptitude
+{
+	repeated occupationaptitude occupationaptitude_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message occupationconditionList
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int64 conditionValue = 3[(yd_fieldoptions.field_cname) = "参数值"];
+	optional int32 conditionNum = 4[(yd_fieldoptions.field_cname) = "参数数量"];
+}
+
+
+message Sheet_occupationconditionList
+{
+	repeated occupationconditionList occupationconditionList_List = 1[(yd_fieldoptions.field_arysize)=100];
+}

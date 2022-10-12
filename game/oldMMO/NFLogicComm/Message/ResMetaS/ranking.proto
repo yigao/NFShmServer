@@ -1,0 +1,46 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message rankingranking
+{
+	optional int32 rankingID = 1[(yd_fieldoptions.field_cname) = "排行榜ID"];
+	optional string rankingName = 2[(yd_fieldoptions.field_cname) = "排行名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 save = 3[(yd_fieldoptions.field_cname) = "是否保存"];
+	optional int32 capacity = 4[(yd_fieldoptions.field_cname) = "实际排多少元素"];
+	optional int32 showSize = 5[(yd_fieldoptions.field_cname) = "显示多少个元素"];
+	optional int32 rankModule = 6[(yd_fieldoptions.field_cname) = "排行类型"];
+	repeated int32 dateID = 7[(yd_fieldoptions.field_cname) = "排行数据", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_rankingranking
+{
+	repeated rankingranking rankingranking_List = 1[(yd_fieldoptions.field_arysize)=100];
+}
+
+message rankingdate
+{
+	optional int32 dateID = 1[(yd_fieldoptions.field_cname) = "数据ID"];
+	optional string dateName = 2[(yd_fieldoptions.field_cname) = "数据名称", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_rankingdate
+{
+	repeated rankingdate rankingdate_List = 1[(yd_fieldoptions.field_arysize)=100];
+}
+
+message rankingpkcons
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int32 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_rankingpkcons
+{
+	repeated rankingpkcons rankingpkcons_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

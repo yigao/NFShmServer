@@ -1,0 +1,52 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message taskdynamictaskdynamic
+{
+	optional int64 taskID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string remark = 2[(yd_fieldoptions.field_cname) = "策划备注", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 taskType = 3[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 minlv = 4[(yd_fieldoptions.field_cname) = "最低等级"];
+	optional int32 maxlv = 5[(yd_fieldoptions.field_cname) = "最高等级"];
+	optional int32 receCount = 6[(yd_fieldoptions.field_cname) = "可接取数量"];
+	optional string idList = 7[(yd_fieldoptions.field_cname) = "抽取id列表", (yd_fieldoptions.field_bufsize) = 200];
+}
+
+
+message Sheet_taskdynamictaskdynamic
+{
+	repeated taskdynamictaskdynamic taskdynamictaskdynamic_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message taskdynamictaskcomcond
+{
+	optional int64 comcondID = 1[(yd_fieldoptions.field_cname) = "完成id"];
+	optional int32 comcondType = 2[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int64 param1 = 3[(yd_fieldoptions.field_cname) = "条件参数a"];
+	optional int64 param2 = 4[(yd_fieldoptions.field_cname) = "条件参数b"];
+	optional int64 param3 = 5[(yd_fieldoptions.field_cname) = "条件参数c"];
+	optional int64 param4 = 6[(yd_fieldoptions.field_cname) = "条件参数d"];
+	optional int64 param5 = 7[(yd_fieldoptions.field_cname) = "条件参数e"];
+	optional int32 comcondRandomValue = 8[(yd_fieldoptions.field_cname) = "完成条件随机值"];
+}
+
+
+message Sheet_taskdynamictaskcomcond
+{
+	repeated taskdynamictaskcomcond taskdynamictaskcomcond_List = 1[(yd_fieldoptions.field_arysize)=140];
+}
+
+message taskdynamictasktext
+{
+	optional int64 textID = 1[(yd_fieldoptions.field_cname) = "文本id"];
+	optional string taskType = 2[(yd_fieldoptions.field_cname) = "任务类型", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 comcondType = 3[(yd_fieldoptions.field_cname) = "完成条件类型"];
+}
+
+
+message Sheet_taskdynamictasktext
+{
+	repeated taskdynamictasktext taskdynamictasktext_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

@@ -1,0 +1,51 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message vipvip
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 level = 2[(yd_fieldoptions.field_cname) = "vip等级"];
+	optional int32 vipType = 3[(yd_fieldoptions.field_cname) = "vip类型"];
+	optional int32 exp = 4[(yd_fieldoptions.field_cname) = "经验值"];
+	optional string privilege_id = 5[(yd_fieldoptions.field_cname) = "特权id", (yd_fieldoptions.field_bufsize) = 200];
+	optional int64 chat = 6[(yd_fieldoptions.field_cname) = "跑马灯"];
+}
+
+
+message Sheet_vipvip
+{
+	repeated vipvip vipvip_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message vipprivilege
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "开放类型"];
+	optional string canshuString = 3[(yd_fieldoptions.field_cname) = "整数功能参数", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 canshu = 4[(yd_fieldoptions.field_cname) = "功能参数", (yd_fieldoptions.field_arysize) = 1];
+}
+
+
+message Sheet_vipprivilege
+{
+	repeated vipprivilege vipprivilege_List = 1[(yd_fieldoptions.field_arysize)=400];
+}
+
+message vipgift
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 Type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 VipLv = 3[(yd_fieldoptions.field_cname) = "VIP等级"];
+	optional int32 moneyType = 4[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 OriginalPrice = 5[(yd_fieldoptions.field_cname) = "原价"];
+	optional int32 Price = 6[(yd_fieldoptions.field_cname) = "现价"];
+	optional int64 boxid = 7[(yd_fieldoptions.field_cname) = "奖励ID"];
+}
+
+
+message Sheet_vipgift
+{
+	repeated vipgift vipgift_List = 1[(yd_fieldoptions.field_arysize)=80];
+}

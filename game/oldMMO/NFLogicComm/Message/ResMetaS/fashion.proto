@@ -1,0 +1,30 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message fashionfashionattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message fashionfashion
+{
+	optional int64 fashionID = 1[(yd_fieldoptions.field_cname) = "时装ID"];
+	optional string fashionName = 2[(yd_fieldoptions.field_cname) = "时装名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 fashionType = 3[(yd_fieldoptions.field_cname) = "时装类型"];
+	optional int32 quality = 4[(yd_fieldoptions.field_cname) = "时装品质"];
+	optional string fashionZhiye = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 starId = 6[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string starNum = 7[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 200];
+	optional int32 starUp = 8[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 starBer = 9[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
+	repeated fashionfashionattributeDesc attribute = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_fashionfashion
+{
+	repeated fashionfashion fashionfashion_List = 1[(yd_fieldoptions.field_arysize)=200];
+}

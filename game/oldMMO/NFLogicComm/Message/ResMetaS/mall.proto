@@ -1,0 +1,48 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message mallmall
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int64 itemID = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 num = 3[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 mallType = 4[(yd_fieldoptions.field_cname) = "商城分类"];
+	optional int32 subType = 5[(yd_fieldoptions.field_cname) = "子类型"];
+	optional int32 priority = 6[(yd_fieldoptions.field_cname) = "优先级"];
+	optional int32 moneyType = 7[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 price = 8[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 discount = 9[(yd_fieldoptions.field_cname) = "折扣"];
+	optional int32 daily = 10[(yd_fieldoptions.field_cname) = "日可购买数量"];
+	optional string buyAmount = 11[(yd_fieldoptions.field_cname) = "可购买数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional string vipLimit = 12[(yd_fieldoptions.field_cname) = "VIP等级限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 isClose = 13[(yd_fieldoptions.field_cname) = "是否下架"];
+	optional int32 cantBuy = 14[(yd_fieldoptions.field_cname) = "下架情况下是否能购买"];
+	optional int32 isMarkBind = 15[(yd_fieldoptions.field_cname) = "是否标记为已绑定"];
+	optional int32 roleLimit = 16[(yd_fieldoptions.field_cname) = "是否为角色限购"];
+	optional int32 functionUnlock = 17[(yd_fieldoptions.field_cname) = "关联功能开放"];
+}
+
+
+message Sheet_mallmall
+{
+	repeated mallmall mallmall_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message mallmalltype
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "组ID"];
+	optional string title = 2[(yd_fieldoptions.field_cname) = "商店名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string tab = 3[(yd_fieldoptions.field_cname) = "页签名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 groupType = 4[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 priority = 5[(yd_fieldoptions.field_cname) = "优先级"];
+	optional int32 logicType = 6[(yd_fieldoptions.field_cname) = "逻辑类型"];
+	optional int32 functionunlock = 7[(yd_fieldoptions.field_cname) = "开启条件"];
+}
+
+
+message Sheet_mallmalltype
+{
+	repeated mallmalltype mallmalltype_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

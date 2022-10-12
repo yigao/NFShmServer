@@ -1,0 +1,50 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message worldmapbossworldboss
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 bossId = 2[(yd_fieldoptions.field_cname) = "BOSSID"];
+	optional int32 miniLevel = 3[(yd_fieldoptions.field_cname) = "刷新初始等级"];
+	optional int32 unLockLevel = 4[(yd_fieldoptions.field_cname) = "解锁等级"];
+	optional int32 levelCheck = 5[(yd_fieldoptions.field_cname) = "动态等级校正"];
+	optional string pathId = 6[(yd_fieldoptions.field_cname) = "刷新地点库", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 specNoticeHP = 7[(yd_fieldoptions.field_cname) = "特殊跑马灯触发血量"];
+	optional int32 bornSpaceTime = 8[(yd_fieldoptions.field_cname) = "死亡重生间隔（秒）"];
+	repeated string born_Time = 9[(yd_fieldoptions.field_cname) = "刷新时间点", (yd_fieldoptions.field_arysize) = 6, (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_worldmapbossworldboss
+{
+	repeated worldmapbossworldboss worldmapbossworldboss_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message worldmapbossdroplist
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 monsterId = 2[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 bossLevel = 3[(yd_fieldoptions.field_cname) = "BOSS等级"];
+	optional int64 dropId = 4[(yd_fieldoptions.field_cname) = "掉落ID"];
+}
+
+
+message Sheet_worldmapbossdroplist
+{
+	repeated worldmapbossdroplist worldmapbossdroplist_List = 1[(yd_fieldoptions.field_arysize)=4000];
+}
+
+message worldmapbossfestival
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 bossId = 2[(yd_fieldoptions.field_cname) = "BOSSID"];
+	optional int32 across = 3[(yd_fieldoptions.field_cname) = "跨服标记"];
+}
+
+
+message Sheet_worldmapbossfestival
+{
+	repeated worldmapbossfestival worldmapbossfestival_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

@@ -1,0 +1,109 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message fieldfieldfieldDesc
+{
+	optional int32 att = 1[(yd_fieldoptions.field_cname) = "Id"];
+	optional int32 num = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message fieldfield
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "领域ID"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "领域名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 quality = 3[(yd_fieldoptions.field_cname) = "领域品质"];
+	repeated fieldfieldfieldDesc field = 4[(yd_fieldoptions.field_cname) = "领域属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 skill = 5[(yd_fieldoptions.field_cname) = "领域技能", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 num = 6[(yd_fieldoptions.field_cname) = "镶嵌孔", (yd_fieldoptions.field_arysize) = 5];
+	repeated int32 pos = 7[(yd_fieldoptions.field_cname) = "品质", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_fieldfield
+{
+	repeated fieldfield fieldfield_List = 1[(yd_fieldoptions.field_arysize)=60];
+}
+
+message fieldreikirefineDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int64 value = 2[(yd_fieldoptions.field_cname) = "组ID"];
+}
+
+message fieldreiki
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "材料ID"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "材料名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 quality = 3[(yd_fieldoptions.field_cname) = "材料品质"];
+	optional int32 field = 4[(yd_fieldoptions.field_cname) = "材料部位"];
+	optional int32 Lv = 5[(yd_fieldoptions.field_cname) = "材料等级上限"];
+	optional int32 star = 6[(yd_fieldoptions.field_cname) = "材料星级"];
+	optional string refineAttribute = 7[(yd_fieldoptions.field_cname) = "随机星级属性库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string refineAttributeValue = 8[(yd_fieldoptions.field_cname) = "星级属性值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 blueStarNum = 9[(yd_fieldoptions.field_cname) = "蓝星属性数量"];
+	optional string blueStar_type = 10[(yd_fieldoptions.field_cname) = "蓝星属性类型库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string blueStar_value = 11[(yd_fieldoptions.field_cname) = "蓝星属性值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 exp = 12[(yd_fieldoptions.field_cname) = "初始经验"];
+	optional int64 link = 13[(yd_fieldoptions.field_cname) = "来源"];
+	repeated fieldreikirefineDesc refine = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_fieldreiki
+{
+	repeated fieldreiki fieldreiki_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message fieldexp
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+}
+
+
+message Sheet_fieldexp
+{
+	repeated fieldexp fieldexp_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message fieldvalue
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "属性组ID"];
+	repeated int32 lvValue = 2[(yd_fieldoptions.field_cname) = "等级值", (yd_fieldoptions.field_arysize) = 150];
+}
+
+
+message Sheet_fieldvalue
+{
+	repeated fieldvalue fieldvalue_List = 1[(yd_fieldoptions.field_arysize)=140];
+}
+
+message fieldexpand
+{
+	optional int32 number = 1[(yd_fieldoptions.field_cname) = "激活个数"];
+	optional int32 lv = 2[(yd_fieldoptions.field_cname) = "激活等级"];
+	optional int64 id = 3[(yd_fieldoptions.field_cname) = "激活道具id"];
+	optional int32 num = 4[(yd_fieldoptions.field_cname) = "激活道具数量"];
+}
+
+
+message Sheet_fieldexpand
+{
+	repeated fieldexpand fieldexpand_List = 1[(yd_fieldoptions.field_arysize)=60];
+}
+
+message fieldstong
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "水晶id"];
+	optional int64 stongId = 2[(yd_fieldoptions.field_cname) = "水晶升级到下一级id"];
+	optional int64 fenJieId = 3[(yd_fieldoptions.field_cname) = "可分解的水晶id"];
+	optional int32 fenJieNum = 4[(yd_fieldoptions.field_cname) = "可分解的水晶数量"];
+}
+
+
+message Sheet_fieldstong
+{
+	repeated fieldstong fieldstong_List = 1[(yd_fieldoptions.field_arysize)=100];
+}

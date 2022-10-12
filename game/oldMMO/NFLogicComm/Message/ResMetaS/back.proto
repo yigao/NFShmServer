@@ -1,0 +1,30 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message backback
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "找回类型"];
+	optional string name = 3[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 backTimes = 4[(yd_fieldoptions.field_cname) = "找回次数"];
+	optional int32 vipType = 5[(yd_fieldoptions.field_cname) = "vip找回参数"];
+	optional int32 group = 6[(yd_fieldoptions.field_cname) = "组"];
+	optional int64 duplicateID = 7[(yd_fieldoptions.field_cname) = "关联副本ID"];
+	optional int64 bossTypeID = 8[(yd_fieldoptions.field_cname) = "关联BOSS类型ID"];
+	optional int32 functionUnlock = 9[(yd_fieldoptions.field_cname) = "关联功能开放"];
+	optional int32 levelLimit = 10[(yd_fieldoptions.field_cname) = "等级要求下限"];
+	optional int64 itemId = 11[(yd_fieldoptions.field_cname) = "找回物品"];
+	optional string icon = 12[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 backExp = 13[(yd_fieldoptions.field_cname) = "找回9999经验值", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 backNum = 14[(yd_fieldoptions.field_cname) = "找回9999物品数量", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 param = 15[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 backExpend = 16[(yd_fieldoptions.field_cname) = "找回9999消耗数量", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_backback
+{
+	repeated backback backback_List = 1[(yd_fieldoptions.field_arysize)=160];
+}

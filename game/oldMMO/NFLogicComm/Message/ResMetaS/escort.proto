@@ -1,0 +1,74 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message escortescortshuangDesc
+{
+	optional int32 duration = 1[(yd_fieldoptions.field_cname) = "持续时间"];
+	optional int32 Time = 2[(yd_fieldoptions.field_cname) = "时间"];
+}
+
+message escortescort
+{
+	optional int64 convoyId = 1[(yd_fieldoptions.field_cname) = "镖车ID"];
+	optional string convoyName = 2[(yd_fieldoptions.field_cname) = "物资车名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 MonsterId = 3[(yd_fieldoptions.field_cname) = "物资车ID"];
+	optional int32 convoyLevel = 4[(yd_fieldoptions.field_cname) = "镖车等级"];
+	optional int32 chance = 5[(yd_fieldoptions.field_cname) = "默认获得权重"];
+	optional int64 tokenId = 6[(yd_fieldoptions.field_cname) = "物资卷轴ID"];
+	optional int32 tokenNumber = 7[(yd_fieldoptions.field_cname) = "物资卷轴数量"];
+	optional int32 dayTime = 8[(yd_fieldoptions.field_cname) = "每日次数"];
+	optional int64 mapId = 9[(yd_fieldoptions.field_cname) = "地图ID"];
+	optional int64 startArea = 10[(yd_fieldoptions.field_cname) = "初始区域"];
+	optional int64 endArea = 11[(yd_fieldoptions.field_cname) = "目标区域"];
+	optional int64 startAreaLink = 12[(yd_fieldoptions.field_cname) = "初始连接"];
+	optional int64 endAreaLink = 13[(yd_fieldoptions.field_cname) = "目标连接"];
+	optional int32 DistanceA = 14[(yd_fieldoptions.field_cname) = "最大距离"];
+	optional int32 DistanceB = 15[(yd_fieldoptions.field_cname) = "跟进距离"];
+	optional int32 DistanceC = 16[(yd_fieldoptions.field_cname) = "最近距离"];
+	optional int32 rewardMoney = 17[(yd_fieldoptions.field_cname) = "玩家奖励金币"];
+	optional int32 timeLimit = 18[(yd_fieldoptions.field_cname) = "任务时间限制"];
+	repeated escortescortshuangDesc shuang = 19[(yd_fieldoptions.field_cname) = "双倍", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_escortescort
+{
+	repeated escortescort escortescort_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message escortchanceescortDesc
+{
+	optional int32 chance = 1[(yd_fieldoptions.field_cname) = "权重"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message escortchance
+{
+	optional int64 convoyId = 1[(yd_fieldoptions.field_cname) = "镖车ID"];
+	repeated escortchanceescortDesc escort = 2[(yd_fieldoptions.field_cname) = "镖车", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_escortchance
+{
+	repeated escortchance escortchance_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message escortrewardExprewardDesc
+{
+	optional int64 Exp = 1[(yd_fieldoptions.field_cname) = "奖励经验"];
+}
+
+message escortrewardExp
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "角色等级"];
+	repeated escortrewardExprewardDesc reward = 2[(yd_fieldoptions.field_cname) = "物资车", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_escortrewardExp
+{
+	repeated escortrewardExp escortrewardExp_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}

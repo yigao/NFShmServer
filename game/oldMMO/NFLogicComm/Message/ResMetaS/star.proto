@@ -1,0 +1,80 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message starpoint
+{
+	optional int32 starID = 1[(yd_fieldoptions.field_cname) = "命星槽位ID"];
+	optional int32 starNum = 2[(yd_fieldoptions.field_cname) = "命星塔解锁层级"];
+}
+
+
+message Sheet_starpoint
+{
+	repeated starpoint starpoint_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message starstarstarDesc
+{
+	optional int32 Att = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 Attnum = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message starstar
+{
+	optional int64 starID = 1[(yd_fieldoptions.field_cname) = "命星ID"];
+	optional string starName = 2[(yd_fieldoptions.field_cname) = "命星名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 starQuality = 3[(yd_fieldoptions.field_cname) = "命星品质"];
+	optional int32 starNum = 4[(yd_fieldoptions.field_cname) = "命星塔解锁层级"];
+	optional int32 change = 5[(yd_fieldoptions.field_cname) = "兑换所需碎片"];
+	optional int32 LvUp = 6[(yd_fieldoptions.field_cname) = "升级上限等级"];
+	optional int32 starSq = 7[(yd_fieldoptions.field_cname) = "是否可镶嵌"];
+	optional int32 starDs = 8[(yd_fieldoptions.field_cname) = "单双命星"];
+	optional int32 rock = 9[(yd_fieldoptions.field_cname) = "分解神石"];
+	optional int32 exp = 10[(yd_fieldoptions.field_cname) = "初始经验"];
+	optional int32 starType = 11[(yd_fieldoptions.field_cname) = "纹章类型"];
+	repeated string LvAdd = 12[(yd_fieldoptions.field_cname) = "属性9999升级加成值", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
+	repeated starstarstarDesc star = 13[(yd_fieldoptions.field_cname) = "命星属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_starstar
+{
+	repeated starstar starstar_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message starexp
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "排序ID"];
+	optional int32 starDs = 2[(yd_fieldoptions.field_cname) = "单双命星"];
+	optional int32 starQuality = 3[(yd_fieldoptions.field_cname) = "命星品质"];
+	optional int32 starLv = 4[(yd_fieldoptions.field_cname) = "命星等级"];
+	optional int32 exp = 5[(yd_fieldoptions.field_cname) = "升级经验"];
+}
+
+
+message Sheet_starexp
+{
+	repeated starexp starexp_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}
+
+message starastrology
+{
+	optional int32 astrology = 1[(yd_fieldoptions.field_cname) = "占星次数"];
+	optional int64 itemId = 2[(yd_fieldoptions.field_cname) = "消耗道具id"];
+	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "消耗道具数量"];
+	optional int32 fragment = 4[(yd_fieldoptions.field_cname) = "奖励命星碎片数"];
+	optional int32 essence = 5[(yd_fieldoptions.field_cname) = "奖励命星精华数"];
+	optional int32 time = 6[(yd_fieldoptions.field_cname) = "免费占星冷却时间（小时）"];
+	optional int32 coinTye = 7[(yd_fieldoptions.field_cname) = "消耗货币类型"];
+	optional int32 number = 8[(yd_fieldoptions.field_cname) = "货币数量"];
+	repeated int32 gailv = 9[(yd_fieldoptions.field_cname) = "单次权重品质", (yd_fieldoptions.field_arysize) = 5];
+	repeated int32 probability = 10[(yd_fieldoptions.field_cname) = "十次权重品质", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_starastrology
+{
+	repeated starastrology starastrology_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

@@ -1,0 +1,119 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message marryconst
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_marryconst
+{
+	repeated marryconst marryconst_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message marrybanquetfireworkDesc
+{
+	optional int64 Item = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 Price = 2[(yd_fieldoptions.field_cname) = "价格"];
+	optional int64 Efc = 3[(yd_fieldoptions.field_cname) = "特效"];
+	optional int32 Warm = 4[(yd_fieldoptions.field_cname) = "增加温馨值"];
+}
+
+message marrybanquet
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 orderItem = 2[(yd_fieldoptions.field_cname) = "预约消耗道具"];
+	optional int32 orderNum = 3[(yd_fieldoptions.field_cname) = "预约消耗数量"];
+	optional int64 banquetReward = 4[(yd_fieldoptions.field_cname) = "婚宴奖励道具"];
+	optional int32 rewardNum = 5[(yd_fieldoptions.field_cname) = "奖励道具数量"];
+	optional int32 makeLoveWarmValue = 6[(yd_fieldoptions.field_cname) = "亲热增加温馨值"];
+	optional int32 inviteNum = 7[(yd_fieldoptions.field_cname) = "可邀请并可上限"];
+	optional int32 strangerNum = 8[(yd_fieldoptions.field_cname) = "路人乱入名额"];
+	optional int32 preludeTime = 9[(yd_fieldoptions.field_cname) = "婚宴预备阶段时长"];
+	optional int32 banquetTime = 10[(yd_fieldoptions.field_cname) = "婚宴阶段时长"];
+	optional int64 makeLoveEfc = 11[(yd_fieldoptions.field_cname) = "婚宴亲热特效"];
+	optional int32 warmValue = 12[(yd_fieldoptions.field_cname) = "每个人增加温馨值"];
+	optional int32 warmCycle = 13[(yd_fieldoptions.field_cname) = "自动增加周期"];
+	optional int64 duplcateId = 14[(yd_fieldoptions.field_cname) = "婚宴副本ID"];
+	repeated marrybanquetfireworkDesc firework = 15[(yd_fieldoptions.field_cname) = "烟花", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_marrybanquet
+{
+	repeated marrybanquet marrybanquet_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message marrygear
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 title = 2[(yd_fieldoptions.field_cname) = "称号奖励（第一个物品）"];
+	optional int64 item = 3[(yd_fieldoptions.field_cname) = "物品奖励（第二个物品）"];
+	optional string nickName = 4[(yd_fieldoptions.field_cname) = "昵称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 initiate = 5[(yd_fieldoptions.field_cname) = "发起奖励"];
+	optional int32 usetype = 6[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 useprice = 7[(yd_fieldoptions.field_cname) = "发起价格"];
+	optional int32 AAPrice = 8[(yd_fieldoptions.field_cname) = "AA价格"];
+	optional string preset = 9[(yd_fieldoptions.field_cname) = "告白", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 weddingEffect = 10[(yd_fieldoptions.field_cname) = "结婚特效"];
+}
+
+
+message Sheet_marrygear
+{
+	repeated marrygear marrygear_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message marrytimes
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string startTime = 2[(yd_fieldoptions.field_cname) = "开始时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string endTime = 3[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional string limit = 4[(yd_fieldoptions.field_cname) = "预约类型限制", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_marrytimes
+{
+	repeated marrytimes marrytimes_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message marrywarm
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 warmValue = 2[(yd_fieldoptions.field_cname) = "温馨值档位数值"];
+	optional int64 monsterId = 3[(yd_fieldoptions.field_cname) = "温馨值档位宝箱ID"];
+	optional int32 monsterFlashCycle = 4[(yd_fieldoptions.field_cname) = "温馨值档位宝箱周期（秒）"];
+	optional int32 warmExpValue = 5[(yd_fieldoptions.field_cname) = "温馨值档位经验"];
+	optional int32 warmExpCycle = 6[(yd_fieldoptions.field_cname) = "温馨值档位经验周期（秒）"];
+	optional int32 warmGetNum = 7[(yd_fieldoptions.field_cname) = "温馨值档位增加采集次数"];
+}
+
+
+message Sheet_marrywarm
+{
+	repeated marrywarm marrywarm_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message marrylevelexpwarmDesc
+{
+	optional int32 Id = 1[(yd_fieldoptions.field_cname) = "温馨值ID"];
+	optional int64 Exp = 2[(yd_fieldoptions.field_cname) = "增加经验"];
+}
+
+message marrylevelexp
+{
+	optional int32 level = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	repeated marrylevelexpwarmDesc warm = 2[(yd_fieldoptions.field_cname) = "档位", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_marrylevelexp
+{
+	repeated marrylevelexp marrylevelexp_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}

@@ -1,0 +1,54 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message dropdropitemDesc
+{
+	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 300];
+	optional int32 rand = 2[(yd_fieldoptions.field_cname) = "概率"];
+	optional int32 maxNum = 3[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional string QZ = 4[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 300];
+	optional int32 minNum = 5[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 700];
+}
+
+message dropdropitemTeamDesc
+{
+	optional string bd = 1[(yd_fieldoptions.field_cname) = "是否绑定", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 rand = 2[(yd_fieldoptions.field_cname) = "概率百分比"];
+	optional int32 maxNum = 3[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional string QZ = 4[(yd_fieldoptions.field_cname) = "掉落权重", (yd_fieldoptions.field_bufsize) = 120];
+	optional int32 minNum = 5[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 200];
+}
+
+message dropdropequipDesc
+{
+	optional int32 rand = 1[(yd_fieldoptions.field_cname) = "概率百分比"];
+	optional int32 maxNum = 2[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional string weight = 3[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 80];
+	optional int32 minNum = 4[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional string isbind = 5[(yd_fieldoptions.field_cname) = "绑定概率", (yd_fieldoptions.field_bufsize) = 60];
+	optional string prof = 6[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional string id = 7[(yd_fieldoptions.field_cname) = "道具ID", (yd_fieldoptions.field_bufsize) = 180];
+}
+
+message dropdrop
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "掉落包ID"];
+	optional int32 goldlow = 2[(yd_fieldoptions.field_cname) = "总金币数量下限"];
+	optional int32 goldup = 3[(yd_fieldoptions.field_cname) = "总金币数量上限"];
+	optional int32 gold_heapMin = 4[(yd_fieldoptions.field_cname) = "金币掉落堆数"];
+	optional int32 gold_heapMax = 5[(yd_fieldoptions.field_cname) = "金币掉落堆数"];
+	optional int32 gold_rand = 6[(yd_fieldoptions.field_cname) = "金币掉落概率"];
+	repeated dropdropitemDesc item = 7[(yd_fieldoptions.field_cname) = "普通掉落", (yd_fieldoptions.field_arysize) = 32];
+	repeated dropdropitemTeamDesc itemTeam = 8[(yd_fieldoptions.field_cname) = "稀有掉落", (yd_fieldoptions.field_arysize) = 5];
+	repeated dropdropequipDesc equip = 9[(yd_fieldoptions.field_cname) = "职业掉落", (yd_fieldoptions.field_arysize) = 1];
+}
+
+
+message Sheet_dropdrop
+{
+	repeated dropdrop dropdrop_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}

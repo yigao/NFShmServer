@@ -1,0 +1,214 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message manorconstants
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int64 valuedata = 2[(yd_fieldoptions.field_cname) = "值数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "文本数据", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_manorconstants
+{
+	repeated manorconstants manorconstants_List = 1[(yd_fieldoptions.field_arysize)=60];
+}
+
+message manoritemCost
+{
+	optional int64 itemId = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int32 useFor = 2[(yd_fieldoptions.field_cname) = "用途类型"];
+	optional int32 itemValue = 3[(yd_fieldoptions.field_cname) = "效果值"];
+	optional int32 backType = 4[(yd_fieldoptions.field_cname) = "返利类型"];
+	optional int32 backValue = 5[(yd_fieldoptions.field_cname) = "返利数量"];
+}
+
+
+message Sheet_manoritemCost
+{
+	repeated manoritemCost manoritemCost_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manormanorlistinitialMonsterDesc
+{
+	optional int32 Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 Id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message manormanorlist
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "领土名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 manorType = 3[(yd_fieldoptions.field_cname) = "领地类型"];
+	optional int32 attackBuildLevel = 4[(yd_fieldoptions.field_cname) = "宣战所需建筑等级"];
+	optional int32 coreBaseLevel = 5[(yd_fieldoptions.field_cname) = "魔灵柱野生增量等级"];
+	optional int64 mapId = 6[(yd_fieldoptions.field_cname) = "领地所在地图"];
+	optional int32 productId = 7[(yd_fieldoptions.field_cname) = "特产组编号"];
+	optional int64 coreBasePath = 8[(yd_fieldoptions.field_cname) = "魔灵柱位置"];
+	optional int32 coreBaseMaxLevel = 9[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
+	optional int64 coreBaseId = 10[(yd_fieldoptions.field_cname) = "魔灵柱ID"];
+	optional int64 hatcheryBasePath = 11[(yd_fieldoptions.field_cname) = "孵化场位置"];
+	optional int32 hatcheryBaseMaxLevel = 12[(yd_fieldoptions.field_cname) = "孵化场等级上限"];
+	optional int64 hatcheryBaseId = 13[(yd_fieldoptions.field_cname) = "孵化场ID"];
+	optional int64 buffBasePath = 14[(yd_fieldoptions.field_cname) = "光环柱位置"];
+	optional int32 buffBaseMaxLevel = 15[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
+	optional int64 buffBaseId = 16[(yd_fieldoptions.field_cname) = "光环柱ID"];
+	optional int64 shopPath = 17[(yd_fieldoptions.field_cname) = "商店位置"];
+	optional int32 shopMaxLevel = 18[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
+	optional int64 shopId = 19[(yd_fieldoptions.field_cname) = "商店ID"];
+	optional int64 crossGateBasePath = 20[(yd_fieldoptions.field_cname) = "祭献塔位置"];
+	optional int32 crossGateMaxLevel = 21[(yd_fieldoptions.field_cname) = "建筑物等级上限"];
+	optional int64 crossGateBaseId = 22[(yd_fieldoptions.field_cname) = "祭献塔ID"];
+	repeated manormanorlistinitialMonsterDesc initialMonster = 23[(yd_fieldoptions.field_cname) = "初始中立怪物", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 patBeastAttack_Path = 24[(yd_fieldoptions.field_cname) = "奇兽攻击落点", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_manormanorlist
+{
+	repeated manormanorlist manormanorlist_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message manorproductproductDesc
+{
+	optional int64 Item = 1[(yd_fieldoptions.field_cname) = ""];
+	optional int32 Num = 2[(yd_fieldoptions.field_cname) = "每次维护产量"];
+	optional int32 buildLevle = 3[(yd_fieldoptions.field_cname) = "需要建筑等级"];
+}
+
+message manorproduct
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	repeated manorproductproductDesc product = 2[(yd_fieldoptions.field_cname) = "产品", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_manorproduct
+{
+	repeated manorproduct manorproduct_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message manorbuild
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "建筑名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 buildingType = 3[(yd_fieldoptions.field_cname) = "建筑类型"];
+	optional int64 monsterId = 4[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional string buildingvalue = 5[(yd_fieldoptions.field_cname) = "建筑各等级参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional string buildingAddBuff = 6[(yd_fieldoptions.field_cname) = "各等级给魔灵柱加成", (yd_fieldoptions.field_bufsize) = 140];
+	optional string buildingConsume = 7[(yd_fieldoptions.field_cname) = "各等级魔灵日耗", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_manorbuild
+{
+	repeated manorbuild manorbuild_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorbuildUpbuildDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = ""];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "升到该级需要经验"];
+}
+
+message manorbuildUp
+{
+	optional int32 level = 1[(yd_fieldoptions.field_cname) = "等级"];
+	repeated manorbuildUpbuildDesc build = 2[(yd_fieldoptions.field_cname) = "建筑", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_manorbuildUp
+{
+	repeated manorbuildUp manorbuildUp_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manoregg
+{
+	optional int64 eggItemID = 1[(yd_fieldoptions.field_cname) = "蛋道具"];
+	optional int32 incubationTime = 2[(yd_fieldoptions.field_cname) = "孵化时长（秒）"];
+	optional string patBeastsProbab = 3[(yd_fieldoptions.field_cname) = "孵出怪物权重", (yd_fieldoptions.field_bufsize) = 80];
+}
+
+
+message Sheet_manoregg
+{
+	repeated manoregg manoregg_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorpatBeast
+{
+	optional int64 Id = 1[(yd_fieldoptions.field_cname) = "怪物ID"];
+}
+
+
+message Sheet_manorpatBeast
+{
+	repeated manorpatBeast manorpatBeast_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorpatBeastUP
+{
+	optional int32 level = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "升到该级需要经验"];
+}
+
+
+message Sheet_manorpatBeastUP
+{
+	repeated manorpatBeastUP manorpatBeastUP_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorbuildBuff
+{
+	optional int32 levelSum = 1[(yd_fieldoptions.field_cname) = "建筑等级总和"];
+	optional int64 skillId = 2[(yd_fieldoptions.field_cname) = "技能ID"];
+}
+
+
+message Sheet_manorbuildBuff
+{
+	repeated manorbuildBuff manorbuildBuff_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorshop
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+	optional int64 itemId = 2[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 needShopLV = 3[(yd_fieldoptions.field_cname) = "需求商店建筑等级和"];
+	optional int32 buyLimit = 4[(yd_fieldoptions.field_cname) = "购买日限"];
+	optional int32 moneyCode = 5[(yd_fieldoptions.field_cname) = "货币代号"];
+	optional int64 moneyType = 6[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 Price = 7[(yd_fieldoptions.field_cname) = "购买消耗"];
+}
+
+
+message Sheet_manorshop
+{
+	repeated manorshop manorshop_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorbuildAdd
+{
+	optional int32 levelSum = 1[(yd_fieldoptions.field_cname) = "建筑等级总和"];
+	optional int32 addRatio = 2[(yd_fieldoptions.field_cname) = "祭献加成比例"];
+}
+
+
+message Sheet_manorbuildAdd
+{
+	repeated manorbuildAdd manorbuildAdd_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message manorlog
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "编号"];
+}
+
+
+message Sheet_manorlog
+{
+	repeated manorlog manorlog_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

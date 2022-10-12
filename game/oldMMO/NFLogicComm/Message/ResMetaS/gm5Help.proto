@@ -1,0 +1,37 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message gm5Helpcons
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_gm5Helpcons
+{
+	repeated gm5Helpcons gm5Helpcons_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message gm5HelprewardrewardDesc
+{
+	optional int64 ItemId = 1[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 num = 2[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+message gm5Helpreward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 rewardType = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
+	optional int32 getNeed = 3[(yd_fieldoptions.field_cname) = "领取参数"];
+	repeated gm5HelprewardrewardDesc reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_gm5Helpreward
+{
+	repeated gm5Helpreward gm5Helpreward_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

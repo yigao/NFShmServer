@@ -1,0 +1,57 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message witchawarditemDesc
+{
+	optional int32 num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 name = 2[(yd_fieldoptions.field_cname) = "名称"];
+}
+
+message witchaward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 rank1 = 2[(yd_fieldoptions.field_cname) = "最小排行区间"];
+	optional int32 rank2 = 3[(yd_fieldoptions.field_cname) = "最大排行区间"];
+	optional int32 integral_blue_nub = 4[(yd_fieldoptions.field_cname) = "蓝色积分"];
+	optional int32 integral_purple_nub = 5[(yd_fieldoptions.field_cname) = "紫色积分"];
+	optional int32 integral_red_nub = 6[(yd_fieldoptions.field_cname) = "红色积分"];
+	repeated witchawarditemDesc item = 7[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_witchaward
+{
+	repeated witchaward witchaward_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message witchsummon
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 consume = 2[(yd_fieldoptions.field_cname) = "消耗积分类型"];
+	optional int64 bossId = 3[(yd_fieldoptions.field_cname) = "召唤BOSS_ID"];
+	optional int64 item = 4[(yd_fieldoptions.field_cname) = "红包奖励id"];
+	optional int32 purpleDrill = 5[(yd_fieldoptions.field_cname) = "紫钻红包数量"];
+	optional int32 xzhou = 6[(yd_fieldoptions.field_cname) = "坐标横向"];
+	optional int32 yzhou = 7[(yd_fieldoptions.field_cname) = "坐标纵向"];
+	optional int32 zzhou = 8[(yd_fieldoptions.field_cname) = "坐标垂直"];
+}
+
+
+message Sheet_witchsummon
+{
+	repeated witchsummon witchsummon_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message witchrewardExp
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "角色等级"];
+	optional int64 reward_Exp = 2[(yd_fieldoptions.field_cname) = "奖励经验"];
+}
+
+
+message Sheet_witchrewardExp
+{
+	repeated witchrewardExp witchrewardExp_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}

@@ -1,0 +1,28 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+
+
+//客户端到服务器协议号
+enum ClientToServerCmd
+{
+
+  //登录模块
+  CLIENT_TO_SERVER_LOGIN_BEGIN = 1;
+  CLIENT_TO_LOGIN_PING = 2;
+  CLIENT_TO_LOGIN_ACCOUNT_LOGIN = 3;
+  CLIENT_TO_LOGIN_SELECT_ZONE = 4;        //客户端选区
+  CLIENT_TO_ZONE_GATEINFO_REQ = 5;        //客户端连接管理服请求
+  CLIENT_TO_SERVER_LOGIN_END = 9;
+
+  CLIENT_TO_LOGIC_PING = 10;
+  CLIENT_TO_ZONE_PING = 11;
+
+  CLIENT_TO_CENTER_LOGIN_BEGIN = 18;
+  CLIENT_TO_CENTER_LOGIN = 19;       //登陆网关请求
+  CLIENT_TO_CENTER_CREATE_CHARACTER = 20;    //请求创建角色请求
+  CLIENT_TO_CENTER_DEL_CHARACTER = 21;       //删角色请求
+
+  CLIENT_MAX_CMD_ID_VALUE = 5000;
+}
