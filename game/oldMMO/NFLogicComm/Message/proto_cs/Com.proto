@@ -1,0 +1,261 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+import "ComDefine.proto";
+
+// 空消息
+message EmptyMessage
+{}
+
+
+//位置
+message Vector3PB{
+  required float x	=1;		//x坐标
+  required float y	=2;		//y坐标
+  required float z	=3;		//z坐标
+}
+
+//方向(只有 x, z 坐标)
+message Vector2PB{
+  required float x	=1;
+  required float y	=2;
+}
+
+//64位属性通信结构
+message Attr64
+{
+  required uint32 id = 1;    //属性索引id
+  required int64 value = 2;   //属性值
+}
+
+
+
+
+//角色DB信息
+message RoleDBInfo
+{
+  required uint64 cid 			= 1;
+  required string name            = 2;   		// 名字
+  required uint32 prof            = 3;   		// 职业
+  required uint32 level           = 4;   		// 等级
+}
+
+//角色外观信息
+message RoleFacadeProto
+{
+}
+
+
+//玩家登录时需要从中心服同步到逻辑服的数据
+message LoginSyncProto
+{
+  optional uint32 guild_id = 1;				//工会ID
+  optional string guild_name = 2;				//工会名字
+  optional int32  guild_duty = 3;				//工会中的职务
+  optional uint64 guild_leader = 5;			//工会会长
+}
+
+
+//生物属性组，用于计算生物战斗属性
+enum EAttrGroup
+{
+  EAttrGroup_Level	=1;		//等级属性组
+  EAttrGroup_Skill	=2;		//技能属性组
+  EAttrGroup_Buff		=3;		//buff属性组
+  EAttrGroup_Equip    =4;		//装备属性组
+}
+
+
+
+//生物属性ID枚举定义
+enum ECreatureAttr
+{
+  // 说明
+  // 1、1-100      生物战斗属性ID,玩家战斗属性有改变都需要同步给客户端
+  // 2、101 - 400  玩家常规属性ID,玩家常规属性改变视具体需求同步给客户端,并不是所有的常规属性都需要同步给客户端
+  // 3、其他生物的常规属性比较少，再对应的生物类中定义成员变量即可，这里不预留常规属性ID段
+  // 4、属性组的属性ID从 401 开始
+  //    每个属性组对应的起始属性ID： 常规属性结束ID(A_COMMON_END) + （等级属性组枚举 - 1） * A_FIGHT_END + 1
+  //    每个属性组对应的结束属性ID： 每个属性组对应的起始属性 + A_FIGHT_END
+
+  A_NONE = 0;
+  A_HP_RECOVER = 1;		//生命恢复
+  A_SPEED = 2;			//移动速度
+  A_MAX_HP = 3;			//最大生命
+  A_ATK = 4;				//攻击
+  A_DEF = 5;				//防御
+  A_PIERCE = 6;			//穿透
+  A_DIVINE_ATK = 7;		//神圣攻击
+  A_DIVINE_DEF = 8;		//神圣防御
+  A_HIT = 9;				//命中
+  A_DODGE = 10;			//闪避
+  A_CRIT = 11;			//暴击
+  A_TOUGH = 12;			//坚韧
+  A_KILL = 13;			//必杀
+  A_PARRY = 14;			//格挡
+  A_HIT_RATE = 15;		//命中率
+  A_DODGE_RATE = 16;		//闪避率
+  A_CRIT_RATE = 17;		//暴击率
+  A_TOUGH_RATE = 18;		//暴击抵抗
+  A_KILL_RATE = 19;		//必杀几率
+  A_PARRY_RATE = 20;		//必杀抵抗
+  A_CRIT_DAM = 21;		//暴击伤害
+  A_CRIT_REDU = 22;		//暴击减免
+  A_KILL_DAM = 23;		//必杀伤害
+  A_KILL_REDU = 24;		//必杀减免
+  A_DAM_ADD = 25;			//伤害提升
+  A_DAM_REDU = 26;		//伤害减免
+  A_PVP_DAM = 27;			//PVP 伤害
+  A_PVP_ARMOR = 28;		//PVP护甲
+  A_MON_DAM_ADD = 29;		//怪物伤害提升
+  A_MON_DAM_REDU = 30;	//怪物伤害减免
+  A_BOSS_DAM_ADD = 31;	//BOSS伤害提升
+  A_BOSS_DAM_REDU = 32;	//BOSS伤害减免
+  A_CONTROL_ADD = 33;		//控制加强
+  A_CONTROL_REDU = 34;	//控制减免
+  A_MAX_HP_ADD = 35;		//生命加成
+  A_ATK_ADD = 36;			//攻击加成
+  A_DEF_ADD = 37;			//防御加成
+  A_PIERCE_ADD = 38;		//穿透加成
+  A_DIV_ATK_ADD = 39;		//神圣攻击加成
+  A_DIV_DEF_ADD = 40;		//神圣防御加成
+  A_HIT_ADD = 41;			//命中加成
+  A_DODGE_ADD = 42;		//闪避加成
+  A_CRIT_ADD = 43;		//暴击加成
+  A_TOUGH_ADD = 44;		//坚韧加成
+  A_KILL_ADD = 45;		//必杀加成
+  A_PARRY_ADD = 46;		//格挡加成
+  A_BA_HP = 47;			//基础生命
+  A_BA_ATK = 48;			//基础攻击
+  A_BA_DEF = 49;			//基础防御
+  A_BA_PIERCE = 50;		//基础穿透
+  A_EQU_HP = 51;			//防具生命
+  A_EQU_ATK = 52;			//武器攻击
+  A_EQU_DEF = 53;			//防具防御
+  A_EQU_PIERCE = 54;		//武器穿透
+  A_SUP_ATK = 55;			//仙器攻击
+  A_SUP_PIERCE = 56;		//仙器穿透
+  A_PAR_ATTR_ADD = 57;	//伙伴总属性加成
+  A_PAR_HP_ADD = 58;		//伙伴生命加成
+  A_PAR_ATK_ADD = 59;		//伙伴攻击加成
+  A_PAR_DEF_ADD = 60;		//伙伴防御加成
+  A_PAR_PIER_ADD = 61;	//伙伴穿透加成
+  A_STR_ATTR_ADD = 62;	//装备强化总属性加成
+  A_WING_ATTR_ADD = 63;	//翅膀总属性加成
+  A_MAG_ATTR_ADD = 64;	//法宝总属性加成
+  A_ART_ATTR_ADD = 65;	//神器总属性加成
+  A_ATKART_ATTR_ADD = 66; //攻击神器总属性加成
+  A_HPART_ATTR_ADD = 67;	//生命神器总属性加成
+  A_CRITART_ATTR_ADD = 68;//暴击神器总属性加成
+  A_KILLART_ATTR_ADD = 69;//必杀神器总属性加成
+  A_FAI_ATTR_ADD = 70;	//仙阵总属性加成
+  A_FAI_HP_ADD = 71;		//仙阵生命加成
+  A_FAI_ATK_ADD = 72;		//仙阵攻击加成
+  A_FAI_DEF_ADD = 73;		//仙阵防御加成
+  A_FAI_PIER_ADD = 74;	//仙阵穿透加成
+  A_SPEED_ADD = 75;		//移动速度加成
+  A_EXP_ADD = 76;			//经验加成
+  A_DROP_RATE = 77;		//珍稀掉率
+  A_SKILL_DAM_ADD = 78;	//技能伤害提升
+  A_SKILL_DAM_REDU = 79;	//技能伤害减免
+
+  A_FIGHT_END = 100;		//战斗属性结束ID，最大可扩展到 100
+
+  A_FIGHT = 101;			//战力
+  A_EXP = 102;			//经验
+  A_CUR_HP = 103;			//当前生命
+  A_PROF = 104;			//职业
+  A_GOLD = 105;			//金币
+  A_DIAMOND = 106;		//钻石
+  A_DIAMOND_BIND = 107;	//绑钻
+  A_SEX = 108;			//性别
+  A_LEVEL = 109;			//等级
+  A_OCCUPATION = 110;		//转职职业
+  A_APTITUDE = 111;		//境界等级(资质)
+  A_WING_EXP = 112;		//翅膀经验
+  A_USE_TITLE	= 113;		//当前使用称号
+  A_DUPLICATE_ID = 114;	//当前所在副本ID
+  A_TEAM_ID = 115;		//队伍ID
+  A_TEAM_LEADER = 116;	//队长CID
+  A_ARENA_COIN	= 117;	//竞技币
+  A_STAR_ESSENCE = 118;   //命星精华
+  A_STAR_EXP = 119;       //命星经验
+  A_STAR_FRAGMENT = 120;  //命星碎片
+  A_UNION_ID = 121;		//工会ID
+  A_UNION_LEADER = 122;	//工会会长
+  A_ESCORT_ID = 123;		//镖车ID
+  A_HANGUP_TIME = 124;	// 挂机时长
+  A_UNION_DUTY = 125;		//在工会里的职位
+  A_UNION_LEVEL = 126;	//工会等级
+  A_ACTIVE_NUM = 127;		// 活跃度
+  A_CLONESS_LEVEL = 128;	//亲密度等级
+  A_VIP_LEVEL = 129;      //vip等级（失效时为0）
+  A_WORLD_EXP_ADD = 130;  //世界等级经验加成
+  A_SMALL_SPIRIT = 131;	//小灵魄(合成货币)
+  A_BIG_SPIRIT = 132;		//大灵魄(合成货币)
+  A_GODHOOD_EXP = 133;	//神格经验
+  A_CAMP_ID = 134;		//阵营(目前用于纷争之战分配的临时阵营，以后是否作它用，待定)
+  A_RECHARGE_DISCOUNT_DATE = 135;//购买充值特惠包日期,unixSec转换的天数
+  A_FRIEND_COUNT = 136;	//好友数量
+  A_FIELD_EXP = 137;		//领域经验，只用于虚拟物品，不能作为逻辑判断
+  A_COMBAT_TEAM_ID = 138;	//3V3战队ID
+  A_SOLO_SCORE	= 139;	//SOLO积分
+  A_SOLO_PRV_SCORE = 140;	//上次solo积分
+  A_TEAM_EXP_ADD	= 141;	//组队经验加成
+  A_MARRY_TEAM_EXP_ADD=142;//伴侣组队经验加成
+  A_DUP_EXP_ADD = 143;	//副本惊喜 经验加成
+  A_CONTINUS_KILL_NUM = 144;//连杀数量
+  A_DRAGONS_NUM = 145;	//龙鳞数量
+  A_VIP_CARD_DIAMOND = 146;	//特权卡当前熔炼获得的钻石
+  A_HOLY_DIAMOND = 147;		//神钻
+  A_GOLD_JUAN_NUM = 148;	//金券数量
+  A_SILVER_JUAN_NUM = 149;//银卷数量
+  A_RELIVE_NUM	= 150;	 //原地复活次数
+  A_LAST_RELIVE_TIME = 151;	 //上次原地复活时间
+  A_DEAD_MAP_ID	= 152;		//死亡的静态地图ID
+  A_DEAD_STATIC_NUM = 153;	//静态地图死亡次数
+  A_DEAD_CD = 154;			//原地复活CD毫秒数（未来的时间戳)
+  A_FUSHI_TIME = 155;		//符石剩余时间秒数
+  A_STAR_STONE = 156;		//命星神石
+  A_VOUCHER = 157;		//代金券
+  A_WAIGUAN = 158;		//外观碎片
+  //常规属性结束ID
+  A_COMMON_END = 400;		//常规属性结束ID
+
+  //最大属性ID
+  A_MAX = 3000;			//最大属性ID  A_COMMON_END + (EAttrGroup_MAX * A_FIGHT_END)
+
+}
+
+
+//属性通用结构体
+message Attr
+{
+  required uint32 id = 1;    //属性索引id
+  required uint32 val = 2;   //属性值
+}
+
+//物品结构
+message ItemProtoInfo
+{
+  message blustarAttr
+  {
+    required uint32 attrid =1; //属性id
+    required uint32 levelinterval =2;	//所加属性的等级间隔
+    required uint32 attrvalue   =3;		//每个间隔所加属性值
+  }
+  required uint64 item_id			= 1;		//物品ID(配置ID)
+  required int64  item_num		= 2;		//物品数量
+  optional int32  bind			= 3;		//绑定状态 0 非绑定，1 绑定
+  repeated Attr   baseattr		= 4;		//基础属性
+  optional int32  index			= 5;		//索引(穿戴装备标示穿戴位置,背包中表示格子索引)
+  optional int32  level			= 6;		//等级
+  repeated Attr   refineex		= 8;		//星级属性
+  repeated blustarAttr   con_attr	= 9;		//固定附加属性(对应蓝色星条属性值)
+  optional uint64 expireTime		= 10;		//过期时间
+
+}

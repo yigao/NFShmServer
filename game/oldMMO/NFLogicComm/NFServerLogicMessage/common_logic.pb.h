@@ -23,7 +23,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
 // @@protoc_insertion_point(includes)
@@ -37,110 +36,8 @@ void protobuf_ShutdownFile_common_5flogic_2eproto();
 
 class PacketMsg;
 class ServerPacketMsg;
+class WorldExternalConfig;
 
-enum EMODULE_ID {
-  EMODULE_ID_NONE = 0,
-  EMODULE_ID_SERV_SYS = 1,
-  EMODULE_ID_PLAYER = 2,
-  EMODULE_ID_LOGIN = 3,
-  EMODULE_ID_SCENE = 4,
-  EMODULE_ID_SKILL = 5,
-  EMODULE_ID_BUFF = 6,
-  EMODULE_ID_PACKAGE = 7,
-  EMODULE_ID_TASK = 8,
-  EMODULE_ID_CHAT = 9,
-  EMODULE_ID_DUPLICATE = 10,
-  EMODULE_ID_FRIEND = 11,
-  EMODULE_ID_MOVE = 12,
-  EMODULE_ID_MAIL = 13,
-  EMODULE_ID_DROP = 14,
-  EMODULE_ID_ACHIEVEMENT = 15,
-  EMODULE_ID_ENEMY = 16,
-  EMODULE_ID_PVP = 17,
-  EMODULE_ID_MALL = 18,
-  EMODULE_ID_BOWL = 19,
-  EMODULE_ID_ACTIVITY = 20,
-  EMODULE_ID_TEAM = 21,
-  EMODULE_ID_AUCTIONEER = 22,
-  EMODULE_ID_PLAYERPET = 23,
-  EMODULE_ID_SEND_ZONE_MSG = 24,
-  EMODULE_ID_RECV_ZONE_MSG = 25,
-  EMODULE_ID_RANKINGLIST = 26,
-  EMODULE_ID_GM = 27,
-  EMODULE_ID_TREASURE = 28,
-  EMODULE_ID_ARENA = 29,
-  EMODULE_ID_MIRROR = 30,
-  EMODULE_ID_QUERY = 31,
-  EMODULE_ID_BREACH = 32,
-  EMODULE_ID_UNION = 33,
-  EMOUDLE_ID_COLLECT = 34,
-  EMODULE_ID_CONVOY = 35,
-  EMODULE_ID_RUNBUSINESS = 36,
-  EMODULE_ID_TITLE = 37,
-  EMODULE_ID_WELFARE = 38,
-  EMODULE_ID_OPERATELIMIT = 39,
-  EMODULE_ID_HUOYUEDU = 40,
-  EMODULE_ID_PLANE = 41,
-  EMODULE_ID_HORSE = 42,
-  EMODULE_ID_GODHOOD = 43,
-  EMODULE_ID_PANDOS = 44,
-  EMODULE_ID_PAY = 45,
-  EMODULE_ID_COMPETE = 46,
-  EMODULE_ID_ADVENTURE = 47,
-  EMODULE_ID_MAPBOSS = 48,
-  EMODULE_ID_YODA = 49,
-  EMODULE_ID_FUNCTIONUNLOCK = 50,
-  EMODULE_ID_FESTIVAL = 51,
-  EMODULE_ID_EMBLEM = 52,
-  EMODULE_ID_IDENTIFY = 53,
-  EMODULE_ID_OCCUPATION = 54,
-  EMODULE_ID_ELEMENT = 55,
-  EMODULE_ID_WING = 56,
-  EMODULE_ID_FASHION = 57,
-  EMODULE_ID_MOUNT = 58,
-  EMODULE_ID_ARTIFACT = 59,
-  EMODULE_ID_FATESTAR = 60,
-  EMODULE_ID_DAILY = 61,
-  EMODULE_ID_FIELD = 62,
-  EMODULE_ID_PARTNER = 63,
-  EMODULE_ID_VIP = 64,
-  EMODULE_ID_RECOVERY = 66,
-  EMODULE_ID_OPERATIONACTIVE = 67,
-  EMODULE_ID_OPERATION_RANK = 68,
-  EMODULE_ID_MARRY = 69,
-  EMODULE_ID_SERVEROPENACTIVE = 70,
-  EMODULE_ID_SERVEROPENRANK = 71,
-  EMODULE_ID_POKER = 72,
-  EMODULE_ID_3V3 = 73,
-  EMODULE_ID_UNIONWAR = 74,
-  EMODULE_ID_MYSTERYSHOP = 75,
-  EMODULE_IDPACKAGETESTREBATE = 76,
-  EMODULE_ID_WORLDBOSS = 77,
-  EMODULE_ID_TUTOR = 79,
-  EMODULE_ID_MANOR = 81,
-  EMODULE_ID_POWER = 82,
-  EMODULE_ID_HEAD = 83,
-  EMODULE_ID_ONLINE_GIFT = 84,
-  EMODULE_ID_GM_HELP = 85,
-  EMODULE_ID_GODGM = 86,
-  EMODULE_ID_ARRIVAL_BOSS = 87,
-  EMODULE_ID_LIMIT = 88
-};
-bool EMODULE_ID_IsValid(int value);
-const EMODULE_ID EMODULE_ID_MIN = EMODULE_ID_NONE;
-const EMODULE_ID EMODULE_ID_MAX = EMODULE_ID_LIMIT;
-const int EMODULE_ID_ARRAYSIZE = EMODULE_ID_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor();
-inline const ::std::string& EMODULE_ID_Name(EMODULE_ID value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    EMODULE_ID_descriptor(), value);
-}
-inline bool EMODULE_ID_Parse(
-    const ::std::string& name, EMODULE_ID* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<EMODULE_ID>(
-    EMODULE_ID_descriptor(), name, value);
-}
 // ===================================================================
 
 class PacketMsg : public ::google::protobuf::Message {
@@ -348,6 +245,88 @@ class ServerPacketMsg : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ServerPacketMsg* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class WorldExternalConfig : public ::google::protobuf::Message {
+ public:
+  WorldExternalConfig();
+  virtual ~WorldExternalConfig();
+
+  WorldExternalConfig(const WorldExternalConfig& from);
+
+  inline WorldExternalConfig& operator=(const WorldExternalConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WorldExternalConfig& default_instance();
+
+  void Swap(WorldExternalConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  WorldExternalConfig* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WorldExternalConfig& from);
+  void MergeFrom(const WorldExternalConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool TokenTimeCheck = 1;
+  inline bool has_tokentimecheck() const;
+  inline void clear_tokentimecheck();
+  static const int kTokenTimeCheckFieldNumber = 1;
+  inline bool tokentimecheck() const;
+  inline void set_tokentimecheck(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WorldExternalConfig)
+ private:
+  inline void set_has_tokentimecheck();
+  inline void clear_has_tokentimecheck();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  bool tokentimecheck_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static WorldExternalConfig* default_instance_;
+};
 // ===================================================================
 
 
@@ -494,6 +473,32 @@ ServerPacketMsg::mutable_packetmsg() {
   return &packetmsg_;
 }
 
+// -------------------------------------------------------------------
+
+// WorldExternalConfig
+
+// optional bool TokenTimeCheck = 1;
+inline bool WorldExternalConfig::has_tokentimecheck() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WorldExternalConfig::set_has_tokentimecheck() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WorldExternalConfig::clear_has_tokentimecheck() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WorldExternalConfig::clear_tokentimecheck() {
+  tokentimecheck_ = false;
+  clear_has_tokentimecheck();
+}
+inline bool WorldExternalConfig::tokentimecheck() const {
+  return tokentimecheck_;
+}
+inline void WorldExternalConfig::set_tokentimecheck(bool value) {
+  set_has_tokentimecheck();
+  tokentimecheck_ = value;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -503,10 +508,6 @@ ServerPacketMsg::mutable_packetmsg() {
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMODULE_ID>() {
-  return ::proto_ff::EMODULE_ID_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf

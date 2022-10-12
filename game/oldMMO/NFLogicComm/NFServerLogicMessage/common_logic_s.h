@@ -40,5 +40,18 @@ namespace proto_ff_s {
 	};
 	typedef struct ServerPacketMsg_s ServerPacketMsg_t;
 
+	struct WorldExternalConfig_s {
+		WorldExternalConfig_s();
+		int CreateInit();
+		int ResumeInit();
+		bool TokenTimeCheck;
+
+		virtual void write_to_pbmsg(::proto_ff::WorldExternalConfig & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg);
+		static ::proto_ff::WorldExternalConfig* new_pbmsg(){ return new ::proto_ff::WorldExternalConfig(); }
+		static ::proto_ff::WorldExternalConfig make_pbmsg(){ return ::proto_ff::WorldExternalConfig(); }
+	};
+	typedef struct WorldExternalConfig_s WorldExternalConfig_t;
+
 }
 

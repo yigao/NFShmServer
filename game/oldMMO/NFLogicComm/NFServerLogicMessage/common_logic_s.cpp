@@ -62,4 +62,25 @@ void ServerPacketMsg_s::read_from_pbmsg(const ::proto_ff::ServerPacketMsg & msg)
 	}
 }
 
+WorldExternalConfig_s::WorldExternalConfig_s() {
+	CreateInit();
+}
+
+int WorldExternalConfig_s::CreateInit() {
+	TokenTimeCheck = (bool)0;
+	return 0;
+}
+
+int WorldExternalConfig_s::ResumeInit() {
+	return 0;
+}
+
+void WorldExternalConfig_s::write_to_pbmsg(::proto_ff::WorldExternalConfig & msg) const {
+	msg.set_tokentimecheck((bool)TokenTimeCheck);
+}
+
+void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg) {
+	TokenTimeCheck = msg.tokentimecheck();
+}
+
 }

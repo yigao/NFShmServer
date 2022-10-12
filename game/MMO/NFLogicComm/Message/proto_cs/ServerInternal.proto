@@ -4,7 +4,7 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 import "common_logic.proto";
 
-import "Com.proto";
+import "ComDefine.proto";
 import "ComDefine.proto";
 
 //web返回合服标记 WEB_TO_CENTER_MERGE_FLAG_RSP

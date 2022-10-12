@@ -3,7 +3,7 @@ package proto_ff;
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 import "common_logic.proto";
-import "common_msg.proto";
+import "ComDefine.proto";
 
 message PingRsp
 {

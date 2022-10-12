@@ -26,7 +26,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ServerPacketMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ServerPacketMsg_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* WorldExternalConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  WorldExternalConfig_reflection_ = NULL;
 
 }  // namespace
 
@@ -71,7 +73,21 @@ void protobuf_AssignDesc_common_5flogic_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ServerPacketMsg));
-  EMODULE_ID_descriptor_ = file->enum_type(0);
+  WorldExternalConfig_descriptor_ = file->message_type(2);
+  static const int WorldExternalConfig_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, tokentimecheck_),
+  };
+  WorldExternalConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      WorldExternalConfig_descriptor_,
+      WorldExternalConfig::default_instance_,
+      WorldExternalConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(WorldExternalConfig));
 }
 
 namespace {
@@ -88,6 +104,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     PacketMsg_descriptor_, &PacketMsg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ServerPacketMsg_descriptor_, &ServerPacketMsg::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    WorldExternalConfig_descriptor_, &WorldExternalConfig::default_instance());
 }
 
 }  // namespace
@@ -97,6 +115,8 @@ void protobuf_ShutdownFile_common_5flogic_2eproto() {
   delete PacketMsg_reflection_;
   delete ServerPacketMsg::default_instance_;
   delete ServerPacketMsg_reflection_;
+  delete WorldExternalConfig::default_instance_;
+  delete WorldExternalConfig_reflection_;
 }
 
 void protobuf_AddDesc_common_5flogic_2eproto() {
@@ -112,66 +132,17 @@ void protobuf_AddDesc_common_5flogic_2eproto() {
     "\004\240\301\024\001\022\022\n\nserverType\030\002 \001(\r\022\023\n\013upper_limit"
     "\030\003 \001(\r\022\024\n\014min_interval\030\004 \001(\r\022\024\n\014control_"
     "time\030\005 \001(\r\"\?\n\017ServerPacketMsg\022,\n\tPacketM"
-    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001*\246\020\n\n"
-    "EMODULE_ID\022\023\n\017EMODULE_ID_NONE\020\000\022\027\n\023EMODU"
-    "LE_ID_SERV_SYS\020\001\022\025\n\021EMODULE_ID_PLAYER\020\002\022"
-    "\024\n\020EMODULE_ID_LOGIN\020\003\022\024\n\020EMODULE_ID_SCEN"
-    "E\020\004\022\024\n\020EMODULE_ID_SKILL\020\005\022\023\n\017EMODULE_ID_"
-    "BUFF\020\006\022\026\n\022EMODULE_ID_PACKAGE\020\007\022\023\n\017EMODUL"
-    "E_ID_TASK\020\010\022\023\n\017EMODULE_ID_CHAT\020\t\022\030\n\024EMOD"
-    "ULE_ID_DUPLICATE\020\n\022\025\n\021EMODULE_ID_FRIEND\020"
-    "\013\022\023\n\017EMODULE_ID_MOVE\020\014\022\023\n\017EMODULE_ID_MAI"
-    "L\020\r\022\023\n\017EMODULE_ID_DROP\020\016\022\032\n\026EMODULE_ID_A"
-    "CHIEVEMENT\020\017\022\024\n\020EMODULE_ID_ENEMY\020\020\022\022\n\016EM"
-    "ODULE_ID_PVP\020\021\022\023\n\017EMODULE_ID_MALL\020\022\022\023\n\017E"
-    "MODULE_ID_BOWL\020\023\022\027\n\023EMODULE_ID_ACTIVITY\020"
-    "\024\022\023\n\017EMODULE_ID_TEAM\020\025\022\031\n\025EMODULE_ID_AUC"
-    "TIONEER\020\026\022\030\n\024EMODULE_ID_PLAYERPET\020\027\022\034\n\030E"
-    "MODULE_ID_SEND_ZONE_MSG\020\030\022\034\n\030EMODULE_ID_"
-    "RECV_ZONE_MSG\020\031\022\032\n\026EMODULE_ID_RANKINGLIS"
-    "T\020\032\022\021\n\rEMODULE_ID_GM\020\033\022\027\n\023EMODULE_ID_TRE"
-    "ASURE\020\034\022\024\n\020EMODULE_ID_ARENA\020\035\022\025\n\021EMODULE"
-    "_ID_MIRROR\020\036\022\024\n\020EMODULE_ID_QUERY\020\037\022\025\n\021EM"
-    "ODULE_ID_BREACH\020 \022\024\n\020EMODULE_ID_UNION\020!\022"
-    "\026\n\022EMOUDLE_ID_COLLECT\020\"\022\025\n\021EMODULE_ID_CO"
-    "NVOY\020#\022\032\n\026EMODULE_ID_RUNBUSINESS\020$\022\024\n\020EM"
-    "ODULE_ID_TITLE\020%\022\026\n\022EMODULE_ID_WELFARE\020&"
-    "\022\033\n\027EMODULE_ID_OPERATELIMIT\020\'\022\027\n\023EMODULE"
-    "_ID_HUOYUEDU\020(\022\024\n\020EMODULE_ID_PLANE\020)\022\024\n\020"
-    "EMODULE_ID_HORSE\020*\022\026\n\022EMODULE_ID_GODHOOD"
-    "\020+\022\025\n\021EMODULE_ID_PANDOS\020,\022\022\n\016EMODULE_ID_"
-    "PAY\020-\022\026\n\022EMODULE_ID_COMPETE\020.\022\030\n\024EMODULE"
-    "_ID_ADVENTURE\020/\022\026\n\022EMODULE_ID_MAPBOSS\0200\022"
-    "\023\n\017EMODULE_ID_YODA\0201\022\035\n\031EMODULE_ID_FUNCT"
-    "IONUNLOCK\0202\022\027\n\023EMODULE_ID_FESTIVAL\0203\022\025\n\021"
-    "EMODULE_ID_EMBLEM\0204\022\027\n\023EMODULE_ID_IDENTI"
-    "FY\0205\022\031\n\025EMODULE_ID_OCCUPATION\0206\022\026\n\022EMODU"
-    "LE_ID_ELEMENT\0207\022\023\n\017EMODULE_ID_WING\0208\022\026\n\022"
-    "EMODULE_ID_FASHION\0209\022\024\n\020EMODULE_ID_MOUNT"
-    "\020:\022\027\n\023EMODULE_ID_ARTIFACT\020;\022\027\n\023EMODULE_I"
-    "D_FATESTAR\020<\022\024\n\020EMODULE_ID_DAILY\020=\022\024\n\020EM"
-    "ODULE_ID_FIELD\020>\022\026\n\022EMODULE_ID_PARTNER\020\?"
-    "\022\022\n\016EMODULE_ID_VIP\020@\022\027\n\023EMODULE_ID_RECOV"
-    "ERY\020B\022\036\n\032EMODULE_ID_OPERATIONACTIVE\020C\022\035\n"
-    "\031EMODULE_ID_OPERATION_RANK\020D\022\024\n\020EMODULE_"
-    "ID_MARRY\020E\022\037\n\033EMODULE_ID_SERVEROPENACTIV"
-    "E\020F\022\035\n\031EMODULE_ID_SERVEROPENRANK\020G\022\024\n\020EM"
-    "ODULE_ID_POKER\020H\022\022\n\016EMODULE_ID_3V3\020I\022\027\n\023"
-    "EMODULE_ID_UNIONWAR\020J\022\032\n\026EMODULE_ID_MYST"
-    "ERYSHOP\020K\022\037\n\033EMODULE_IDPACKAGETESTREBATE"
-    "\020L\022\030\n\024EMODULE_ID_WORLDBOSS\020M\022\024\n\020EMODULE_"
-    "ID_TUTOR\020O\022\024\n\020EMODULE_ID_MANOR\020Q\022\024\n\020EMOD"
-    "ULE_ID_POWER\020R\022\023\n\017EMODULE_ID_HEAD\020S\022\032\n\026E"
-    "MODULE_ID_ONLINE_GIFT\020T\022\026\n\022EMODULE_ID_GM"
-    "_HELP\020U\022\024\n\020EMODULE_ID_GODGM\020V\022\033\n\027EMODULE"
-    "_ID_ARRIVAL_BOSS\020W\022\024\n\020EMODULE_ID_LIMIT\020X"
-    "\032\002\020\001", 2324);
+    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001\"3\n\023W"
+    "orldExternalConfig\022\034\n\016TokenTimeCheck\030\001 \001"
+    "(\010B\004\240\301\024\001", 288);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common_logic.proto", &protobuf_RegisterTypes);
   PacketMsg::default_instance_ = new PacketMsg();
   ServerPacketMsg::default_instance_ = new ServerPacketMsg();
+  WorldExternalConfig::default_instance_ = new WorldExternalConfig();
   PacketMsg::default_instance_->InitAsDefaultInstance();
   ServerPacketMsg::default_instance_->InitAsDefaultInstance();
+  WorldExternalConfig::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_common_5flogic_2eproto);
 }
 
@@ -181,104 +152,6 @@ struct StaticDescriptorInitializer_common_5flogic_2eproto {
     protobuf_AddDesc_common_5flogic_2eproto();
   }
 } static_descriptor_initializer_common_5flogic_2eproto_;
-const ::google::protobuf::EnumDescriptor* EMODULE_ID_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EMODULE_ID_descriptor_;
-}
-bool EMODULE_ID_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
-    case 23:
-    case 24:
-    case 25:
-    case 26:
-    case 27:
-    case 28:
-    case 29:
-    case 30:
-    case 31:
-    case 32:
-    case 33:
-    case 34:
-    case 35:
-    case 36:
-    case 37:
-    case 38:
-    case 39:
-    case 40:
-    case 41:
-    case 42:
-    case 43:
-    case 44:
-    case 45:
-    case 46:
-    case 47:
-    case 48:
-    case 49:
-    case 50:
-    case 51:
-    case 52:
-    case 53:
-    case 54:
-    case 55:
-    case 56:
-    case 57:
-    case 58:
-    case 59:
-    case 60:
-    case 61:
-    case 62:
-    case 63:
-    case 64:
-    case 66:
-    case 67:
-    case 68:
-    case 69:
-    case 70:
-    case 71:
-    case 72:
-    case 73:
-    case 74:
-    case 75:
-    case 76:
-    case 77:
-    case 79:
-    case 81:
-    case 82:
-    case 83:
-    case 84:
-    case 85:
-    case 86:
-    case 87:
-    case 88:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
@@ -847,6 +720,212 @@ void ServerPacketMsg::Swap(ServerPacketMsg* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = ServerPacketMsg_descriptor_;
   metadata.reflection = ServerPacketMsg_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int WorldExternalConfig::kTokenTimeCheckFieldNumber;
+#endif  // !_MSC_VER
+
+WorldExternalConfig::WorldExternalConfig()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void WorldExternalConfig::InitAsDefaultInstance() {
+}
+
+WorldExternalConfig::WorldExternalConfig(const WorldExternalConfig& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void WorldExternalConfig::SharedCtor() {
+  _cached_size_ = 0;
+  tokentimecheck_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+WorldExternalConfig::~WorldExternalConfig() {
+  SharedDtor();
+}
+
+void WorldExternalConfig::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void WorldExternalConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WorldExternalConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return WorldExternalConfig_descriptor_;
+}
+
+const WorldExternalConfig& WorldExternalConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_common_5flogic_2eproto();
+  return *default_instance_;
+}
+
+WorldExternalConfig* WorldExternalConfig::default_instance_ = NULL;
+
+WorldExternalConfig* WorldExternalConfig::New() const {
+  return new WorldExternalConfig;
+}
+
+void WorldExternalConfig::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    tokentimecheck_ = false;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool WorldExternalConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool TokenTimeCheck = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &tokentimecheck_)));
+          set_has_tokentimecheck();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void WorldExternalConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional bool TokenTimeCheck = 1;
+  if (has_tokentimecheck()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->tokentimecheck(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* WorldExternalConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional bool TokenTimeCheck = 1;
+  if (has_tokentimecheck()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->tokentimecheck(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int WorldExternalConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional bool TokenTimeCheck = 1;
+    if (has_tokentimecheck()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WorldExternalConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const WorldExternalConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const WorldExternalConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void WorldExternalConfig::MergeFrom(const WorldExternalConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_tokentimecheck()) {
+      set_tokentimecheck(from.tokentimecheck());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void WorldExternalConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WorldExternalConfig::CopyFrom(const WorldExternalConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WorldExternalConfig::IsInitialized() const {
+
+  return true;
+}
+
+void WorldExternalConfig::Swap(WorldExternalConfig* other) {
+  if (other != this) {
+    std::swap(tokentimecheck_, other->tokentimecheck_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata WorldExternalConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = WorldExternalConfig_descriptor_;
+  metadata.reflection = WorldExternalConfig_reflection_;
   return metadata;
 }
 

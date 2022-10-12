@@ -9,10 +9,11 @@
 
 #include "NFWorldServerPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFWorldConfig.h"
 #include "NFWorldPlayerModule.h"
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
-#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -61,6 +62,7 @@ bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
 
 	REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, EOT_WORLD_PLAYER_ID, maxOnlinePlayerNum);
 	REGISTER_SHM_OBJ(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, 1);//
+    REGISTER_SHM_OBJ(NFWorldConfig, EOT_WOLRD_CONFIG_ID, 1);//
 
 	return true;
 }
