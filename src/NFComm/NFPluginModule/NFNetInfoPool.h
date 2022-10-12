@@ -25,105 +25,84 @@ public:
     {
         while(!m_218MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_218MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_218MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_256MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_256MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_256MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_512MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_512MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_512MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_1024MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_1024MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_1024MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_2048MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_2048MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_2048MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_4096MsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_4096MsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_4096MsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
 
         while(!m_moreMsgQueue.IsQueueEmpty())
         {
-            std::vector<TYPE*> vec;
-            if (m_moreMsgQueue.TryDequeueBulk(vec))
+            TYPE* pType = NULL;
+            if (m_moreMsgQueue.TryDequeue(pType))
             {
-                for(int i = 0; i < (int)vec.size(); i++)
+                if (pType)
                 {
-                    if (vec[i])
-                    {
-                        NF_SAFE_DELETE(vec[i]);
-                    }
+                    NF_SAFE_DELETE(pType);
                 }
             }
         }
