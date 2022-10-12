@@ -458,7 +458,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
 
-    pPacket->mBufferMsg.Clear();
+    pPacket->mBufferMsg.AssureSpace(len);
     if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
     {
         pPacket->Clear();
@@ -515,7 +515,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
 
-    pPacket->mBufferMsg.Clear();
+    pPacket->mBufferMsg.AssureSpace(len);
     if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
     {
         pPacket->Clear();
