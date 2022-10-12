@@ -101,7 +101,6 @@ bool NFCNetMessageDriverModule::Finalize()
 	}
 	mNetServerArray.clear();
 	mBusServerArray.clear();
-    NFNetInfoPool<NFDataPackage>::ReleaseInstance();
 	return true;
 }
 
