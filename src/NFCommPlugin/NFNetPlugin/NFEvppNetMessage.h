@@ -281,11 +281,6 @@ private:
 	*/
     NFConcurrentQueue<MsgFromNetInfo*> mMsgQueue;
 
-    /**
-    * @brief 消息队列缓冲池
-    */
-    NFNetInfoPool<MsgFromNetInfo> mFreePool;
-
 	/**
 	* @brief 发送BUFF
 	*/
