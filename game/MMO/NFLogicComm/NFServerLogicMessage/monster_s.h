@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		int32_t breedMonLive;
 		NFSizeString<60> itemCost;
 		int32_t isBornActionOn;
-		int32_t exp;
+		int64_t exp;
 		int32_t dropType;
 		int32_t isBelongToPlayer;
 		int64_t dropDefault;

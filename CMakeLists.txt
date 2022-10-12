@@ -104,7 +104,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 	SET(LIB_LINK_NF libNFKernelPlugin.a  NFTestPlugin.a)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	SET(LIB_DIR "." "/usr/lib"
+	SET(LIB_DIR "./" "/usr/lib"
 			"${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
 			"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
 			"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"

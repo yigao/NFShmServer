@@ -23,7 +23,7 @@ message itemitem
 	optional int64 sellBox = 16[(yd_fieldoptions.field_cname) = "出售掉落"];
 	optional int32 broadcast = 17[(yd_fieldoptions.field_cname) = "是否跑马灯广播"];
 	optional int32 isCanBatchUse = 18[(yd_fieldoptions.field_cname) = "是否可批量使用"];
-	optional int32 dayUse = 19[(yd_fieldoptions.field_cname) = "每日使用次数"];
+	optional string dayUse = 19[(yd_fieldoptions.field_cname) = "每日使用次数", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 outTime = 20[(yd_fieldoptions.field_cname) = "道具时限"];
 	optional string useLimit = 21[(yd_fieldoptions.field_cname) = "禁用本道具地图", (yd_fieldoptions.field_bufsize) = 2000];
 	optional int32 blessing = 22[(yd_fieldoptions.field_cname) = "龙域祝福值"];

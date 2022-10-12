@@ -239,12 +239,17 @@ class itemitem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 iscanbatchuse() const;
   inline void set_iscanbatchuse(::google::protobuf::int32 value);
 
-  // optional int32 dayUse = 19;
+  // optional string dayUse = 19;
   inline bool has_dayuse() const;
   inline void clear_dayuse();
   static const int kDayUseFieldNumber = 19;
-  inline ::google::protobuf::int32 dayuse() const;
-  inline void set_dayuse(::google::protobuf::int32 value);
+  inline const ::std::string& dayuse() const;
+  inline void set_dayuse(const ::std::string& value);
+  inline void set_dayuse(const char* value);
+  inline void set_dayuse(const char* value, size_t size);
+  inline ::std::string* mutable_dayuse();
+  inline ::std::string* release_dayuse();
+  inline void set_allocated_dayuse(::std::string* dayuse);
 
   // optional int32 outTime = 20;
   inline bool has_outtime() const;
@@ -357,9 +362,9 @@ class itemitem : public ::google::protobuf::Message {
   ::google::protobuf::int64 sellbox_;
   ::google::protobuf::int32 broadcast_;
   ::google::protobuf::int32 iscanbatchuse_;
-  ::google::protobuf::int32 dayuse_;
-  ::google::protobuf::int32 outtime_;
+  ::std::string* dayuse_;
   ::std::string* uselimit_;
+  ::google::protobuf::int32 outtime_;
   ::google::protobuf::int32 blessing_;
   ::google::protobuf::int32 invest_;
   ::google::protobuf::int32 exchange_;
@@ -1054,7 +1059,7 @@ inline void itemitem::set_iscanbatchuse(::google::protobuf::int32 value) {
   iscanbatchuse_ = value;
 }
 
-// optional int32 dayUse = 19;
+// optional string dayUse = 19;
 inline bool itemitem::has_dayuse() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -1065,15 +1070,63 @@ inline void itemitem::clear_has_dayuse() {
   _has_bits_[0] &= ~0x00040000u;
 }
 inline void itemitem::clear_dayuse() {
-  dayuse_ = 0;
+  if (dayuse_ != &::google::protobuf::internal::kEmptyString) {
+    dayuse_->clear();
+  }
   clear_has_dayuse();
 }
-inline ::google::protobuf::int32 itemitem::dayuse() const {
+inline const ::std::string& itemitem::dayuse() const {
+  return *dayuse_;
+}
+inline void itemitem::set_dayuse(const ::std::string& value) {
+  set_has_dayuse();
+  if (dayuse_ == &::google::protobuf::internal::kEmptyString) {
+    dayuse_ = new ::std::string;
+  }
+  dayuse_->assign(value);
+}
+inline void itemitem::set_dayuse(const char* value) {
+  set_has_dayuse();
+  if (dayuse_ == &::google::protobuf::internal::kEmptyString) {
+    dayuse_ = new ::std::string;
+  }
+  dayuse_->assign(value);
+}
+inline void itemitem::set_dayuse(const char* value, size_t size) {
+  set_has_dayuse();
+  if (dayuse_ == &::google::protobuf::internal::kEmptyString) {
+    dayuse_ = new ::std::string;
+  }
+  dayuse_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* itemitem::mutable_dayuse() {
+  set_has_dayuse();
+  if (dayuse_ == &::google::protobuf::internal::kEmptyString) {
+    dayuse_ = new ::std::string;
+  }
   return dayuse_;
 }
-inline void itemitem::set_dayuse(::google::protobuf::int32 value) {
-  set_has_dayuse();
-  dayuse_ = value;
+inline ::std::string* itemitem::release_dayuse() {
+  clear_has_dayuse();
+  if (dayuse_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = dayuse_;
+    dayuse_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void itemitem::set_allocated_dayuse(::std::string* dayuse) {
+  if (dayuse_ != &::google::protobuf::internal::kEmptyString) {
+    delete dayuse_;
+  }
+  if (dayuse) {
+    set_has_dayuse();
+    dayuse_ = dayuse;
+  } else {
+    clear_has_dayuse();
+    dayuse_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // optional int32 outTime = 20;

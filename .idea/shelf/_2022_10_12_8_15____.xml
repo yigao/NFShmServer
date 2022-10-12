@@ -1,0 +1,14 @@
+<changelist name="在进行更新之前于_2022_10_12_上午8_15_取消提交了变更_[默认变更列表]" date="1665533750517" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_10_12_上午8_15_取消提交了变更_[默认变更列表]/shelved.patch" />
+  <option name="DESCRIPTION" value="在进行更新之前于 2022/10/12 上午8:15 取消提交了变更 [默认变更列表]" />
+  <binary>
+    <option name="BEFORE_PATH" value="game/MMO/ExcelMMO/monster.xlsx" />
+    <option name="AFTER_PATH" value="game/MMO/ExcelMMO/monster.xlsx" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_10_12_上午8_15_取消提交了变更_[默认变更列表]/monster.xlsx" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="game/MMO/ExcelMMO/item.xlsx" />
+    <option name="AFTER_PATH" value="game/MMO/ExcelMMO/item.xlsx" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_10_12_上午8_15_取消提交了变更_[默认变更列表]/item.xlsx" />
+  </binary>
+</changelist>

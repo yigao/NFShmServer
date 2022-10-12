@@ -25,7 +25,6 @@ int itemitem_s::CreateInit() {
 	sellBox = (int64_t)0;
 	broadcast = (int32_t)0;
 	isCanBatchUse = (int32_t)0;
-	dayUse = (int32_t)0;
 	outTime = (int32_t)0;
 	blessing = (int32_t)0;
 	invest = (int32_t)0;
@@ -56,7 +55,7 @@ void itemitem_s::write_to_pbmsg(::proto_ff::itemitem & msg) const {
 	msg.set_sellbox((int64_t)sellBox);
 	msg.set_broadcast((int32_t)broadcast);
 	msg.set_iscanbatchuse((int32_t)isCanBatchUse);
-	msg.set_dayuse((int32_t)dayUse);
+	msg.set_dayuse((const char*)dayUse.Get());
 	msg.set_outtime((int32_t)outTime);
 	msg.set_uselimit((const char*)useLimit.Get());
 	msg.set_blessing((int32_t)blessing);
@@ -84,7 +83,7 @@ void itemitem_s::read_from_pbmsg(const ::proto_ff::itemitem & msg) {
 	sellBox = msg.sellbox();
 	broadcast = msg.broadcast();
 	isCanBatchUse = msg.iscanbatchuse();
-	dayUse = msg.dayuse();
+	dayUse.Copy(msg.dayuse());
 	outTime = msg.outtime();
 	useLimit.Copy(msg.uselimit());
 	blessing = msg.blessing();

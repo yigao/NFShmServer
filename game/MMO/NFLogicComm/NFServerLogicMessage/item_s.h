@@ -32,7 +32,7 @@ namespace proto_ff_s {
 		int64_t sellBox;
 		int32_t broadcast;
 		int32_t isCanBatchUse;
-		int32_t dayUse;
+		NFSizeString<60> dayUse;
 		int32_t outTime;
 		NFSizeString<2000> useLimit;
 		int32_t blessing;

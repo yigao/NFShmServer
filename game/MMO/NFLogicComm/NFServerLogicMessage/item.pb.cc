@@ -125,7 +125,7 @@ void protobuf_AddDesc_item_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nitem.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"\276\007\n\010itemitem\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345"
+    "proto\"\302\007\n\010itemitem\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345"
     "\223\201ID\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\347\211\251\345\223\201\345\220\215\347\247\260\220\301\024x"
     "\022\"\n\010itemType\030\003 \001(\005B\020\302\377\024\014\347\211\251\345\223\201\347\261\273\345\236\213\022\036\n\007"
     "subType\030\004 \001(\005B\r\302\377\024\t\345\255\220\347\261\273\345\236\213\022,\n\014function"
@@ -143,14 +143,14 @@ void protobuf_AddDesc_item_2eproto() {
     "ellBox\030\020 \001(\003B\020\302\377\024\014\345\207\272\345\224\256\346\216\211\350\220\275\022,\n\tbroadc"
     "ast\030\021 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\350\267\221\351\251\254\347\201\257\345\271\277\346\222\255\0220\n\r"
     "isCanBatchUse\030\022 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\345\217\257\346\211\271\351\207\217"
-    "\344\275\277\347\224\250\022&\n\006dayUse\030\023 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\344\275\277\347\224\250"
-    "\346\254\241\346\225\260\022!\n\007outTime\030\024 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\227\266\351\231"
-    "\220\0220\n\010useLimit\030\025 \001(\tB\036\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201\223\345\205\267"
-    "\345\234\260\345\233\276\220\301\024\320\017\022%\n\010blessing\030\026 \001(\005B\023\302\377\024\017\351\276\231\345\237"
-    "\237\347\245\235\347\246\217\345\200\274\022#\n\006invest\030\027 \001(\005B\023\302\377\024\017\351\276\231\345\237\237\346\212"
-    "\225\350\265\204\345\200\274\022%\n\010exchange\030\030 \001(\005B\023\302\377\024\017\345\205\221\346\215\242\351\255\224"
-    "\347\201\265\345\200\274\"B\n\016Sheet_itemitem\0220\n\ritemitem_Lis"
-    "t\030\001 \003(\0132\022.proto_ff.itemitemB\005\210\301\024\270\027", 1074);
+    "\344\275\277\347\224\250\022*\n\006dayUse\030\023 \001(\tB\032\302\377\024\022\346\257\217\346\227\245\344\275\277\347\224\250"
+    "\346\254\241\346\225\260\220\301\024<\022!\n\007outTime\030\024 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346"
+    "\227\266\351\231\220\0220\n\010useLimit\030\025 \001(\tB\036\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201"
+    "\223\345\205\267\345\234\260\345\233\276\220\301\024\320\017\022%\n\010blessing\030\026 \001(\005B\023\302\377\024\017\351"
+    "\276\231\345\237\237\347\245\235\347\246\217\345\200\274\022#\n\006invest\030\027 \001(\005B\023\302\377\024\017\351\276\231\345"
+    "\237\237\346\212\225\350\265\204\345\200\274\022%\n\010exchange\030\030 \001(\005B\023\302\377\024\017\345\205\221\346\215"
+    "\242\351\255\224\347\201\265\345\200\274\"B\n\016Sheet_itemitem\0220\n\ritemitem"
+    "_List\030\001 \003(\0132\022.proto_ff.itemitemB\005\210\301\024\270\027", 1078);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "item.proto", &protobuf_RegisterTypes);
   itemitem::default_instance_ = new itemitem();
@@ -230,7 +230,7 @@ void itemitem::SharedCtor() {
   sellbox_ = GOOGLE_LONGLONG(0);
   broadcast_ = 0;
   iscanbatchuse_ = 0;
-  dayuse_ = 0;
+  dayuse_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   outtime_ = 0;
   uselimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   blessing_ = 0;
@@ -255,6 +255,9 @@ void itemitem::SharedDtor() {
   }
   if (profession_ != &::google::protobuf::internal::kEmptyString) {
     delete profession_;
+  }
+  if (dayuse_ != &::google::protobuf::internal::kEmptyString) {
+    delete dayuse_;
   }
   if (uselimit_ != &::google::protobuf::internal::kEmptyString) {
     delete uselimit_;
@@ -324,7 +327,11 @@ void itemitem::Clear() {
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     broadcast_ = 0;
     iscanbatchuse_ = 0;
-    dayuse_ = 0;
+    if (has_dayuse()) {
+      if (dayuse_ != &::google::protobuf::internal::kEmptyString) {
+        dayuse_->clear();
+      }
+    }
     outtime_ = 0;
     if (has_uselimit()) {
       if (uselimit_ != &::google::protobuf::internal::kEmptyString) {
@@ -632,19 +639,20 @@ bool itemitem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_dayUse;
+        if (input->ExpectTag(154)) goto parse_dayUse;
         break;
       }
 
-      // optional int32 dayUse = 19;
+      // optional string dayUse = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_dayUse:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &dayuse_)));
-          set_has_dayuse();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_dayuse()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->dayuse().data(), this->dayuse().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -857,9 +865,13 @@ void itemitem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->iscanbatchuse(), output);
   }
 
-  // optional int32 dayUse = 19;
+  // optional string dayUse = 19;
   if (has_dayuse()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->dayuse(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dayuse().data(), this->dayuse().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      19, this->dayuse(), output);
   }
 
   // optional int32 outTime = 20;
@@ -1009,9 +1021,14 @@ void itemitem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->iscanbatchuse(), target);
   }
 
-  // optional int32 dayUse = 19;
+  // optional string dayUse = 19;
   if (has_dayuse()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->dayuse(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dayuse().data(), this->dayuse().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        19, this->dayuse(), target);
   }
 
   // optional int32 outTime = 20;
@@ -1185,10 +1202,10 @@ int itemitem::ByteSize() const {
           this->iscanbatchuse());
     }
 
-    // optional int32 dayUse = 19;
+    // optional string dayUse = 19;
     if (has_dayuse()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->dayuse());
     }
 

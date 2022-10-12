@@ -289,7 +289,7 @@ void protobuf_AddDesc_monster_2eproto() {
     "\347\211\251ID\022,\n\014breedMonLive\030\020 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345"
     "\255\230\346\264\273\346\227\266\351\227\264\022&\n\010itemCost\030\021 \001(\tB\024\302\377\024\014\351\201\223\345\205"
     "\267\346\266\210\350\200\227\220\301\024<\0224\n\016isBornActionOn\030\022 \001(\005B\034\302\377\024"
-    "\030\346\230\257\345\220\246\345\220\257\347\224\250\345\207\272\347\224\237\345\212\250\344\275\234\022\035\n\003exp\030\023 \001(\005B\020"
+    "\030\346\230\257\345\220\246\345\220\257\347\224\250\345\207\272\347\224\237\345\212\250\344\275\234\022\035\n\003exp\030\023 \001(\003B\020"
     "\302\377\024\014\347\273\217\351\252\214\344\272\247\345\207\272\022\"\n\010dropType\030\024 \001(\005B\020\302\377\024\014"
     "\346\216\211\350\220\275\347\261\273\345\236\213\022<\n\020isBelongToPlayer\030\025 \001(\005B\""
     "\302\377\024\036\346\200\252\347\211\251\346\216\211\350\220\275\345\275\222\345\261\236\346\230\257\345\220\246\346\230\276\347\244\272\022%\n\013dr"
@@ -433,7 +433,7 @@ void monstermonster::SharedCtor() {
   breedmonlive_ = 0;
   itemcost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   isbornactionon_ = 0;
-  exp_ = 0;
+  exp_ = GOOGLE_LONGLONG(0);
   droptype_ = 0;
   isbelongtoplayer_ = 0;
   dropdefault_ = GOOGLE_LONGLONG(0);
@@ -514,7 +514,7 @@ void monstermonster::Clear() {
       }
     }
     isbornactionon_ = 0;
-    exp_ = 0;
+    exp_ = GOOGLE_LONGLONG(0);
     droptype_ = 0;
     isbelongtoplayer_ = 0;
     dropdefault_ = GOOGLE_LONGLONG(0);
@@ -826,13 +826,13 @@ bool monstermonster::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 exp = 19;
+      // optional int64 exp = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_exp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &exp_)));
           set_has_exp();
         } else {
@@ -1102,9 +1102,9 @@ void monstermonster::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->isbornactionon(), output);
   }
 
-  // optional int32 exp = 19;
+  // optional int64 exp = 19;
   if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->exp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(19, this->exp(), output);
   }
 
   // optional int32 dropType = 20;
@@ -1260,9 +1260,9 @@ void monstermonster::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->isbornactionon(), target);
   }
 
-  // optional int32 exp = 19;
+  // optional int64 exp = 19;
   if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->exp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(19, this->exp(), target);
   }
 
   // optional int32 dropType = 20;
@@ -1451,10 +1451,10 @@ int monstermonster::ByteSize() const {
           this->isbornactionon());
     }
 
-    // optional int32 exp = 19;
+    // optional int64 exp = 19;
     if (has_exp()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->exp());
     }
 
