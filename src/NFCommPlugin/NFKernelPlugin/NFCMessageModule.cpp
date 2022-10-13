@@ -19,7 +19,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
     m_pObjPluginManager = p;
@@ -625,7 +625,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 }
 				else
 				{
-				    NFDataPackage* pTransPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(svrPkg.msg_data().length());
+				    NFDataPackage* pTransPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(svrPkg.msg_data().length());
                     pTransPacket->nParam1 = packet.nParam1;
                     pTransPacket->nParam2 = svrPkg.disp_info().req_trans_id();
                     pTransPacket->mModuleId = 0;
@@ -633,7 +633,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     pTransPacket->mBufferMsg.PushData(svrPkg.msg_data().data(), svrPkg.msg_data().length());
 					OnHandleReceiveNetPack(connectionLink, objectLinkId, *pTransPacket);
                     pTransPacket->Clear();
-                    NFNetInfoPool<NFDataPackage>::Instance()->Free(pTransPacket, pTransPacket->mBufferMsg.Capacity());
+                    NFNetPackagePool<NFDataPackage>::Instance()->Free(pTransPacket, pTransPacket->mBufferMsg.Capacity());
 				}
 
 				return 0;
@@ -675,7 +675,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 for(int i = 0; i < (int)xMsg.user_id_size(); i++)
                 {
                     uint64_t userId = xMsg.user_id(i);
-                    NFDataPackage* pTransPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(xMsg.msg_data().length());
+                    NFDataPackage* pTransPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(xMsg.msg_data().length());
                     pTransPacket->nParam1 = userId;
                     pTransPacket->nParam2 = packet.nParam2;
                     pTransPacket->mModuleId = 0;
@@ -683,7 +683,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     pTransPacket->mBufferMsg.PushData(xMsg.msg_data().data(), xMsg.msg_data().length());
                     OnHandleReceiveNetPack(connectionLink, objectLinkId, *pTransPacket);
                     pTransPacket->Clear();
-                    NFNetInfoPool<NFDataPackage>::Instance()->Free(pTransPacket, pTransPacket->mBufferMsg.Capacity());
+                    NFNetPackagePool<NFDataPackage>::Instance()->Free(pTransPacket, pTransPacket->mBufferMsg.Capacity());
                 }
 
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;

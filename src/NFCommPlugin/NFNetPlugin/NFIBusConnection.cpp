@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include "NFIPacketParse.h"
 #include <string.h>
 #include <sstream>
@@ -1017,8 +1017,8 @@ void NFIBusConnection::SetMsgPeerCallback(const BusMsgPeerCallback& cb)
 
 int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
 {
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
-    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
+    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
     pPacket->mModuleId = 0;
     pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
     pPacket->nParam1 = busId;
@@ -1028,15 +1028,15 @@ int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
     if (!Send(pPacket))
     {
         pPacket->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
     }
     return 0;
 }
 
 int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
 {
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
-    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+    NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
+    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
     pPacket->mModuleId = 0;
     pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
     pPacket->nParam1 = busId;
@@ -1046,7 +1046,7 @@ int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
     if (!Send(pPacket))
     {
         pPacket->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
     }
     return 0;
 }

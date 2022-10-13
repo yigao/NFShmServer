@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFIPacketParse.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include <string.h>
 #include <sstream>
 #include <NFComm/NFPluginModule/NFCheck.h>
@@ -191,8 +191,8 @@ void NFCBusServer::ProcessMsgLogicThread()
                     {
                         mxBuffer.Consume(allLen);
 
-                        MsgFromBusInfo* pPacket = NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(outLen);
-                        CHECK_EXPR_ASSERT_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(outLen:{}) Failed", outLen);
+                        MsgFromBusInfo* pPacket = NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(outLen);
+                        CHECK_EXPR_ASSERT_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(outLen:{}) Failed", outLen);
 
                         pPacket->mPacket.Copy(dataPacket);
                         pPacket->mPacket.mBufferMsg.PushData(outData, outLen);

@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include "NFIPacketParse.h"
 #include "NFCBusServer.h"
 #include "NFCBusClient.h"
@@ -73,7 +73,7 @@ bool NFCBusMessage::Finalize()
             if (pMsg)
             {
                 pMsg->Clear();
-                NFNetInfoPool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+                NFNetPackagePool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
             }
         }
     }
@@ -293,7 +293,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
     }
 
     pMsg->Clear();
-    NFNetInfoPool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+    NFNetPackagePool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
 }
 
 int NFCBusMessage::ResumeConnect()
@@ -334,8 +334,8 @@ int NFCBusMessage::ResumeConnect()
                 FindModule<NFIMessageModule>()->CreateLinkToServer((NF_SERVER_TYPES)mServerType, flag.mBusId, pServerData->mUnlinkId);
                 if (bActivityConnect)
                 {
-                    MsgFromBusInfo* pPacket = NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(0);
-                    CHECK_EXPR_ASSERT(pPacket, -1, "pPacket == NULL, NFNetInfoPool<MsgFromBusInfo>::Instance()->Alloc(0) Failed");
+                    MsgFromBusInfo* pPacket = NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(0);
+                    CHECK_EXPR_ASSERT(pPacket, -1, "pPacket == NULL, NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(0) Failed");
 
                     pPacket->mPacket.nSendBusLinkId = pServerData->mUnlinkId;
                     pPacket->mPacket.mModuleId = 0;

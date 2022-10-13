@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFIPacketParse.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include <string.h>
 #include <sstream>
 #include <NFComm/NFPluginModule/NFCheck.h>
@@ -177,7 +177,7 @@ bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDat
         if (iRet == 0)
         {
             pPackage->Clear();
-            NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+            NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
             return true;
         }
         else
@@ -194,7 +194,7 @@ void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, int packetParseType,
     NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, linkId);
 
     pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+    NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 
     int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
     if (iRet != 0)

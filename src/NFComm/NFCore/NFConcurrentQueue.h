@@ -71,3 +71,11 @@ private:
     moodycamel::ConcurrentQueue<T> m_queue;
 };
 
+template<typename T>
+class NFFreeConcurrentQueue : public NFConcurrentQueue<T>
+{
+public:
+private:
+
+};
+

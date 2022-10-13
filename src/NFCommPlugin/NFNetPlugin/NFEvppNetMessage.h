@@ -43,7 +43,7 @@
 #include "NFIConnection.h"
 #include "NFCHttpServer.h"
 #include "NFCHttpClient.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 
 enum EnumNFEvppClientTimer
 {

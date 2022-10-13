@@ -14,6 +14,7 @@
 #include <list>
 #include <map>
 #include "NFComm/NFCore/NFConcurrentQueue.h"
+#include <unordered_map>
 
 class NFServerHttpHandle : public NFIHttpHandle {
 public:
@@ -88,6 +89,21 @@ public:
 
 class NFEvppHttMsg {
 public:
+    NFEvppHttMsg()
+    {
+        Clear();
+    }
+
+    virtual ~NFEvppHttMsg()
+    {
+        Clear();
+    }
+
+    void Clear()
+    {
+        mCtx = NULL;
+        mResponseCb = NULL;
+    }
     evpp::http::ContextPtr mCtx;
     evpp::http::HTTPSendResponseCallback mResponseCb;
 };
@@ -177,9 +193,10 @@ private:
     std::vector<uint32_t> mVecPort;
 
     NFConcurrentQueue<NFEvppHttMsg *> mMsgQueue;
+    NFConcurrentQueue<NFEvppHttMsg *> mFreeQueue;
 
     uint64_t mIndex;
-    std::map<uint64_t, NFServerHttpHandle *> mHttpRequestMap;
+    std::unordered_map<uint64_t, NFServerHttpHandle *> mHttpRequestMap;
     std::list<NFServerHttpHandle *> mListHttpRequestPool;
 protected:
     HTTP_RECEIVE_FUNCTOR mReceiveCB;

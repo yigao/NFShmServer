@@ -10,7 +10,7 @@
 #include "NFComm/NFCore/NFServerTime.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFMemTracker.h"
-#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_hotfixServer(false)
@@ -95,7 +95,7 @@ void NFGlobalSystem::ReleaseSingleton()
     /**
      * @brief 释放网络信息包
      */
-    NFNetInfoPool<NFDataPackage>::Instance()->ReleaseInstance();
+    NFNetPackagePool<NFDataPackage>::Instance()->ReleaseInstance();
 
     NFMemTracker::Instance()->ReleaseInstance();
 

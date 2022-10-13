@@ -13,15 +13,15 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 
 template <typename TYPE>
-class NFNetInfoPool : public NFSingleton<NFNetInfoPool<TYPE>>
+class NFNetPackagePool : public NFSingleton<NFNetPackagePool<TYPE>>
 {
 public:
-    NFNetInfoPool(int maxPoolSize = 1000):m_maxPoolSize(maxPoolSize)
+    NFNetPackagePool(int maxPoolSize = 1000): m_maxPoolSize(maxPoolSize)
     {
 
     }
 
-    virtual ~NFNetInfoPool()
+    virtual ~NFNetPackagePool()
     {
         while(!m_218MsgQueue.IsQueueEmpty())
         {

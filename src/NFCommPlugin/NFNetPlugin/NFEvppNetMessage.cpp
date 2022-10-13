@@ -191,7 +191,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
             }
 
             pMsg->Clear();
-            NFNetInfoPool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+            NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
         }
     }
 }
@@ -206,8 +206,8 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 	if (conn->IsConnected())
 	{
 		conn->SetTCPNoDelay(true);
-        MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(0);
-        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
+        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
         pMsg->mTCPConPtr = conn;
         pMsg->nLinkId = linkId;
         pMsg->nType = eMsgType_CONNECTED;
@@ -215,8 +215,8 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 	}
 	else
 	{
-        MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(0);
-        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
+        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
         pMsg->mTCPConPtr = conn;
         pMsg->nLinkId = linkId;
         pMsg->nType = eMsgType_DISCONNECTED;
@@ -283,8 +283,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
                     pComBuffer->Produce(decompressLen);
 
-                    MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
-                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+                    MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
+                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
                     pMsg->mTCPConPtr = conn;
                     pMsg->nLinkId = linkId;
                     pMsg->mPacket = packet;
@@ -293,8 +293,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     while(!mMsgQueue.Enqueue(pMsg)) {}
                 }
                 else {
-                    MsgFromNetInfo* pMsg = NFNetInfoPool<MsgFromNetInfo>::Instance()->Alloc(outLen);
-                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetInfoPool<MsgFromNetInfo>::Instance().Alloc Failed");
+                    MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
+                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
                     pMsg->mTCPConPtr = conn;
                     pMsg->nLinkId = linkId;
                     pMsg->mPacket = packet;
@@ -570,7 +570,7 @@ bool NFEvppNetMessage::Finalize()
             if (vecMsg[i])
             {
                 pMsg->Clear();
-                NFNetInfoPool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+                NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
             }
         }
     }
@@ -616,15 +616,15 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 if (pObject && pObject->mIsServer)
                 {
                     pObject->SetLastHeartBeatTime(NFGetTime());
-                    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
-                    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+                    NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
+                    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
 
                     pPacket->mModuleId = 0;
                     pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
                     if (!Send(pObject->GetLinkId(), pPacket))
                     {
                         pPacket->Clear();
-                        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+                        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
                     }
                     return;
                 }
@@ -712,7 +712,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
 
             pComBuffer->Clear();
             pPackage->Clear();
-            NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+            NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         }, pPackage, pObject->mConnPtr, pObject->mPacketParseType, pObject->IsSecurity()));
         return true;
     }
@@ -738,14 +738,14 @@ void  NFEvppNetMessage::SendHeartMsg()
 	{
 		if (m_connectionList[i] && m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
 		{
-            NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(0);
-            CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
+            NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
+            CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
             pPacket->mModuleId = 0;
             pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
 			if (!Send(m_connectionList[i]->GetLinkId(), pPacket))
             {
                 pPacket->Clear();
-                NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+                NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
             }
 		}
 	}
