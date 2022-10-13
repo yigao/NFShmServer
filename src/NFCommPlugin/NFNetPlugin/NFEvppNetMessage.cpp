@@ -558,6 +558,22 @@ bool NFEvppNetMessage::Finalize()
             NF_SAFE_DELETE(pConn);
         }
     }
+
+    while(!mMsgQueue.IsQueueEmpty())
+    {
+        std::vector<MsgFromNetInfo *> vecMsg;
+        vecMsg.resize(200);
+        mMsgQueue.TryDequeueBulk(vecMsg);
+        for(int i = 0; i < (int)vecMsg.size(); i++)
+        {
+            MsgFromNetInfo* pMsg = vecMsg[i];
+            if (vecMsg[i])
+            {
+                pMsg->Clear();
+                NFNetInfoPool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+            }
+        }
+    }
 	return true;
 }
 

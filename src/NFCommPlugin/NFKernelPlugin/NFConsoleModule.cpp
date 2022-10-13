@@ -29,14 +29,24 @@ NFCConsoleModule::~NFCConsoleModule()
 
 bool NFCConsoleModule::Shut()
 {
-	if (mBackThread.joinable())
-	{
-		mBackThread.detach();
-	}
-	if (mPluginThread.joinable())
-	{
-		mPluginThread.detach();
-	}
+    if (mBackThread && mBackThread->joinable()) {
+        try {
+            //mBackThread->join();
+            mBackThread->detach();
+        } catch (const std::system_error& e) {
+        }
+        mBackThread.reset();
+    }
+
+    if (mPluginThread && mPluginThread->joinable()) {
+        try {
+            //mPluginThread->join();
+            mPluginThread->detach();
+        } catch (const std::system_error& e) {
+        }
+        mPluginThread.reset();
+    }
+
 	return true;
 }
 
@@ -78,13 +88,13 @@ bool NFCConsoleModule::Awake()
 
 void NFCConsoleModule::CreateBackThread()
 {
-	mBackThread = std::thread(&NFCConsoleModule::BackThreadLoop, this);
+	mBackThread.reset(NF_NEW std::thread(&NFCConsoleModule::BackThreadLoop, this));
 	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CreateBackThread...............");
 }
 
 void NFCConsoleModule::CheckPluginThread()
 {
-	mPluginThread = std::thread(&NFCConsoleModule::CheckPluginThreadLoop, this);
+	mPluginThread.reset(NF_NEW std::thread(&NFCConsoleModule::CheckPluginThreadLoop, this));
 	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CheckPluginThread...............");
 }
 
@@ -143,8 +153,6 @@ void NFCConsoleModule::BackThreadLoop()
 				NFConsoleMsg msg;
 				msg.mMsgType = NFConsoleMsg_Exit;
 				mQueueMsg.Push(msg);
-				mBackThread.detach();
-				return;
 			}
 
 			if (mCmdParser.Exist("Profiler"))

@@ -115,6 +115,7 @@ int main(int argc, char* argv[])
     {
         NFIPluginManager* pPluginManager = vecPluginManager[i];
         pPluginManager->End();
+        NF_SAFE_DELETE(pPluginManager);
     }
 
     NFGlobalSystem::Instance()->ReleaseSingleton();

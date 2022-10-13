@@ -33,14 +33,7 @@ NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
 
 NFCConfigModule::~NFCConfigModule()
 {
-    for(int i = 0; i < (int)mServerConfig.size(); i++)
-    {
-        if (mServerConfig[i])
-        {
-            NF_SAFE_DELETE(mServerConfig[i]);
-        }
-        mServerConfig[i] = NULL;
-    }
+
 }
 
 bool NFCConfigModule::LoadConfig()
@@ -300,7 +293,7 @@ bool NFCConfigModule::LoadServerConfig()
             }
 
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
-            NFServerConfig* pConfig = new NFServerConfig();
+            NFServerConfig* pConfig = NF_NEW NFServerConfig();
             pConfig->read_from_pbmsg(*pPbConfig);
 
             if (m_pObjPluginManager->IsLoadAllServer())
@@ -308,6 +301,13 @@ bool NFCConfigModule::LoadServerConfig()
                 if (vecServerIDMap.find(pPbConfig->serverid()) != vecServerIDMap.end())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
+                    if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
+                    {
+                        m_appConfig = pConfig;
+                    }
+                }
+                else {
+                    NF_SAFE_DELETE(pConfig);
                 }
             }
             else
@@ -315,12 +315,11 @@ bool NFCConfigModule::LoadServerConfig()
                 if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
+                    m_appConfig = pConfig;
                 }
-            }
-
-            if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
-            {
-                m_appConfig = pConfig;
+                else {
+                    NF_SAFE_DELETE(pConfig);
+                }
             }
         }
 	}

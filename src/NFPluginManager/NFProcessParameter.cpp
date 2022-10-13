@@ -110,7 +110,7 @@ void ProcessParameter(int argc, char* argv[])
                 vecParam.push_back("--Config="+strConfigPath);
                 vecParam.push_back("--Plugin="+strPlugin);
                 vecParam.push_back("--restart");
-                NFIPluginManager* pPluginManager = (NFIPluginManager*)(new NFCPluginManager());
+                NFIPluginManager* pPluginManager = (NFIPluginManager*)(NF_NEW NFCPluginManager());
                 ProcessParameter(pPluginManager, vecParam);
                 NFGlobalSystem::Instance()->SetGlobalPluginManager(pPluginManager);
                 NFGlobalSystem::Instance()->AddPluginManager(pPluginManager);

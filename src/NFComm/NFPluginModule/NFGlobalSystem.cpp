@@ -19,7 +19,8 @@ NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m
 
 NFGlobalSystem::~NFGlobalSystem()
 {
-
+    m_gGlobalPluginManager = NULL;
+    m_gGlobalPluginManagerList.clear();
 }
 
 bool NFGlobalSystem::LoadConfig(const std::string &path)

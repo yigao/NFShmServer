@@ -61,6 +61,22 @@ bool NFCBusMessage::Finalize()
     }
     m_bindConnect = NULL;
     m_busConnectMap.ClearAll();
+
+    while (!m_msgQueue.IsQueueEmpty())
+    {
+        std::vector<MsgFromBusInfo *> vecMsg;
+        vecMsg.resize(200);
+        m_msgQueue.TryDequeueBulk(vecMsg);
+        for(int i = 0; i < (int)vecMsg.size(); i++)
+        {
+            MsgFromBusInfo* pMsg = vecMsg[i];
+            if (pMsg)
+            {
+                pMsg->Clear();
+                NFNetInfoPool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
+            }
+        }
+    }
     return true;
 }
 
