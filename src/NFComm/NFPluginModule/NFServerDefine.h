@@ -230,6 +230,27 @@ struct NFDataPackage : public NFBaseDataPackage
         mBufferMsg.Clear();
     }
 
+    /**
+     * @brief zero copy
+     * @param xData
+     * @return
+     */
+    bool SerializeBuffer(int byte_size, const google::protobuf::Message& xData)
+    {
+        mBufferMsg.AssureSpace(byte_size);
+        if (mBufferMsg.Capacity() < byte_size)
+        {
+            return false;
+        }
+
+        uint8_t* start = reinterpret_cast<uint8_t*>(mBufferMsg.WriteAddr());
+        uint8_t* end = xData.SerializeWithCachedSizesToArray(start);
+        NF_ASSERT(end - start == byte_size);
+
+        mBufferMsg.Produce(byte_size);
+        return true;
+    }
+
     NFBuffer mBufferMsg;
 private:
     NFDataPackage(const NFDataPackage &);

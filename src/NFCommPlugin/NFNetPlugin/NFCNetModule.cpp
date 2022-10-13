@@ -475,20 +475,16 @@ void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, 
 
 void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
-    int len = xData.ByteSize();
-
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
+    int byte_size = xData.ByteSize();
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(byte_size);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
 
-    pPacket->mBufferMsg.AssureSpace(len);
-    if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
+    if (!pPacket->SerializeBuffer(byte_size, xData))
     {
         pPacket->Clear();
         NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
         return;
     }
-
-    pPacket->mBufferMsg.Produce(len);
 
     pPacket->mModuleId = nModuleId;
     pPacket->nMsgId = nMsgID;
@@ -544,13 +540,11 @@ void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nM
 
 void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
-    int len = xData.ByteSize();
-
-    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(len);
+    int byte_size = xData.ByteSize();
+    NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(byte_size);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
 
-    pPacket->mBufferMsg.AssureSpace(len);
-    if (!xData.SerializePartialToArray(pPacket->mBufferMsg.WriteAddr(), pPacket->mBufferMsg.WritableSize()))
+    if (!pPacket->SerializeBuffer(byte_size, xData))
     {
         pPacket->Clear();
         NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
