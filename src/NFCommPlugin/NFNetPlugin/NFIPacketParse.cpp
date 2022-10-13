@@ -15,7 +15,16 @@ std::vector<NFIPacketParse*> NFIPacketParse::m_pPacketParse = { CreatePacketPars
 
 void NFIPacketParse::DeletePacketParse(NFIPacketParse* pPacketParse)
 {
-	delete pPacketParse;
+    NF_SAFE_DELETE(pPacketParse);
+}
+
+void NFIPacketParse::ReleasePacketParse()
+{
+    for(int i = 0; i < (int)m_pPacketParse.size(); i++)
+    {
+        DeletePacketParse(m_pPacketParse[i]);
+    }
+    m_pPacketParse.clear();
 }
 
 NFIPacketParse* NFIPacketParse::CreatePacketParse(int parseType)
@@ -55,7 +64,7 @@ int NFIPacketParse::EnCode(uint32_t packetType, const NFDataPackage& recvPackage
 // 使用 lzf 算法 压缩、解压
 int NFIPacketParse::Compress(uint32_t packetType, const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize)
 {
-    if (packetType >= (int32_t)m_pPacketParse.size())
+    if (packetType >= (uint32_t)m_pPacketParse.size())
     {
         return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->CompressImpl(inBuffer, inLen, outBuffer, outSize);
     }

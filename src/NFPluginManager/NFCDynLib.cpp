@@ -65,3 +65,5 @@ void* NFCDynLib::GetSymbol(const char* szProcName)
 {
     return (DYNLIB_HANDLE)DYNLIB_GETSYM(mInst, szProcName);
 }
+
+

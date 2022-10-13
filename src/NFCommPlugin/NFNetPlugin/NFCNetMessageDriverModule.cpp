@@ -110,6 +110,11 @@ bool NFCNetMessageDriverModule::Finalize()
      * @brief 释放网络信息包
      */
     NFNetInfoPool<MsgFromBusInfo>::Instance()->ReleaseInstance();
+
+    /**
+     * @brief 释放资源
+     */
+    NFIPacketParse::ReleasePacketParse();
 	return true;
 }
 

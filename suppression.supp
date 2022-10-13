@@ -1,0 +1,86 @@
+{
+   operator new(unsigned long)
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:_dl_init
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+}
+{
+   evpp::EventLoop::IsInLoopThread() const
+   Memcheck:Addr8
+   fun:_ZNK4evpp9EventLoop14IsInLoopThreadEv
+   fun:_ZNK4evpp9TCPClient4connEv
+   fun:_ZN4evpp9TCPClientD1Ev
+   fun:_ZNSt15_Sp_counted_ptrIPN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+   fun:_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+   fun:_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev
+   fun:_ZNSt12__shared_ptrIN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EED1Ev
+   fun:_ZNSt12__shared_ptrIN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EE5resetEv
+   fun:_ZN12NFEvppClient8FinalizeEv
+   fun:_ZN16NFEvppNetMessage8FinalizeEv
+   fun:_ZN25NFCNetMessageDriverModule8FinalizeEv
+   fun:_ZN9NFIPlugin8FinalizeEv
+}
+
+{
+   memalign
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:memalign
+   fun:tls_get_addr_tail
+   fun:__tls_get_addr
+   fun:_ZN10moodycamel7details9thread_idEv
+   fun:_ZN10moodycamel15ConcurrentQueueISt8functionIFvvEENS_28ConcurrentQueueDefaultTraitsEE28get_or_add_implicit_producerEv
+   fun:_ZN10moodycamel15ConcurrentQueueISt8functionIFvvEENS_28ConcurrentQueueDefaultTraitsEE13inner_enqueueILNS5_14AllocationModeE0ES3_EEbOT0_
+   fun:_ZN10moodycamel15ConcurrentQueueISt8functionIFvvEENS_28ConcurrentQueueDefaultTraitsEE7enqueueEOS3_
+   fun:_ZN4evpp9EventLoop11QueueInLoopEOSt8functionIFvvEE
+   fun:_ZN4evpp15EventLoopThread3RunERKSt8functionIFivEES5_
+   fun:_ZNKSt7_Mem_fnIMN4evpp15EventLoopThreadEFvRKSt8functionIFivEES6_EEclIIRS4_SB_EvEEvPS1_DpOT_
+   fun:_ZNSt5_BindIFSt7_Mem_fnIMN4evpp15EventLoopThreadEFvRKSt8functionIFivEES7_EEPS2_S5_S5_EE6__callIvIEILm0ELm1ELm2EEEET_OSt5tupleIIDpT0_EESt12_Index_tupleIIXspT1_EEE
+   fun:_ZNSt5_BindIFSt7_Mem_fnIMN4evpp15EventLoopThreadEFvRKSt8functionIFivEES7_EEPS2_S5_S5_EEclIIEvEET0_DpOT_
+}
+
+{
+   calloc
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   fun:_dl_allocate_tls
+   fun:pthread_create@@GLIBC_2.2.5
+   fun:_ZNSt6thread15_M_start_threadESt10shared_ptrINS_10_Impl_baseEE
+   fun:_ZNSt6threadC1IM16NFCConsoleModuleFvvEIKPS1_EEEOT_DpOT0_
+   fun:_ZN16NFCConsoleModule16CreateBackThreadEv
+   fun:_ZN16NFCConsoleModule5AwakeEv
+   fun:_ZN9NFIPlugin5AwakeEv
+   fun:_ZN16NFCPluginManager5AwakeEv
+   fun:_ZN16NFCPluginManager5BeginEv
+   fun:main
+}
+
+{
+   operator new(unsigned long)
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:_Znwm
+   obj:*
+   fun:_ZN6google8protobuf8internal16FunctionClosure03RunEv
+   fun:_ZN6google8protobuf18GoogleOnceInitImplEPlPNS0_7ClosureE
+   fun:_ZN6google8protobuf14GoogleOnceInitEPlPFvvE
+   obj:*
+   obj:*
+   fun:_ZNK6google8protobuf7Message13GetDescriptorEv
+   fun:_ZN16NFProtobufCommon17LuaToProtoMessageEN7LuaIntf6LuaRefEPN6google8protobuf7MessageE
+   obj:*
+   obj:*
+   fun:_ZN9NFIPlugin5AwakeEv
+}

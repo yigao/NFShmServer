@@ -41,6 +41,7 @@ public:
 	////////////////////////////////////////////////////////////
 	static NFIPacketParse* CreatePacketParse(int parseType = 0);
 	static void DeletePacketParse(NFIPacketParse* pPacketParse);
+	static void ReleasePacketParse();
 private:
 	static std::vector<NFIPacketParse*> m_pPacketParse;
 };
