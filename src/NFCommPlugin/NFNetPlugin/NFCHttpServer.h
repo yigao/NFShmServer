@@ -193,7 +193,7 @@ private:
     std::vector<uint32_t> mVecPort;
 
     NFConcurrentQueue<NFEvppHttMsg *> mMsgQueue;
-    NFConcurrentQueue<NFEvppHttMsg *> mFreeQueue;
+    NFConcurrentQueuePool<NFEvppHttMsg> mFreeQueuePool;
 
     uint64_t mIndex;
     std::unordered_map<uint64_t, NFServerHttpHandle *> mHttpRequestMap;

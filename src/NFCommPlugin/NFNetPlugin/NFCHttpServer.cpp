@@ -25,7 +25,7 @@ NFCHttpServer::NFCHttpServer(uint32_t serverType, uint32_t netThreadNum)
                                                  const evpp::http::ContextPtr &ctx,
                                                  const evpp::http::HTTPSendResponseCallback &respcb)
                                           {
-                                              NFEvppHttMsg *pMsg = NF_NEW NFEvppHttMsg();
+                                              NFEvppHttMsg *pMsg = mFreeQueuePool.Alloc(); //NF_NEW NFEvppHttMsg();
                                               pMsg->mCtx = ctx;
                                               pMsg->mResponseCb = respcb;
                                               while (!mMsgQueue.Enqueue(pMsg)) {}
@@ -149,6 +149,7 @@ void NFCHttpServer::ProcessMsgLogicThread()
 
             mHttpRequestMap.emplace(pRequest->requestId, pRequest);
 
+            bool flag = true;
             if (mFilter)
             {
                 //return 401
@@ -159,47 +160,45 @@ void NFCHttpServer::ProcessMsgLogicThread()
                     {
                         //401
                         ResponseMsg(*pRequest, "Filter error", xWebStatus);
-                        return;
+                        flag = false;
                     }
                 }
                 catch (std::exception &e)
                 {
                     ResponseMsg(*pRequest, e.what(), NFWebStatus::WEB_ERROR);
-                    return;
+                    flag = false;
                 }
                 catch (...)
                 {
                     ResponseMsg(*pRequest, "UNKNOW ERROR", NFWebStatus::WEB_ERROR);
-                    return;
-                }
-
-            }
-
-            // call cb
-            try
-            {
-                if (mReceiveCB)
-                {
-                    mReceiveCB(mServerType, *pRequest);
-                    return;
-                } else
-                {
-                    ResponseMsg(*pRequest, "NO PROCESSER", NFWebStatus::WEB_ERROR);
-                    return;
+                    flag = false;
                 }
             }
-            catch (std::exception &e)
+
+            if (flag)
             {
-                ResponseMsg(*pRequest, e.what(), NFWebStatus::WEB_ERROR);
-                return;
-            }
-            catch (...)
-            {
-                ResponseMsg(*pRequest, "UNKNOW ERROR", NFWebStatus::WEB_ERROR);
-                return;
+                // call cb
+                try
+                {
+                    if (mReceiveCB)
+                    {
+                        mReceiveCB(mServerType, *pRequest);
+                    } else
+                    {
+                        ResponseMsg(*pRequest, "NO PROCESSER", NFWebStatus::WEB_ERROR);
+                    }
+                }
+                catch (std::exception &e)
+                {
+                    ResponseMsg(*pRequest, e.what(), NFWebStatus::WEB_ERROR);
+                }
+                catch (...)
+                {
+                    ResponseMsg(*pRequest, "UNKNOW ERROR", NFWebStatus::WEB_ERROR);
+                }
             }
 
-            NF_SAFE_DELETE(pMsg);
+            mFreeQueuePool.Free(pMsg);
         }
     }
 }

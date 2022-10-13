@@ -71,11 +71,60 @@ private:
     moodycamel::ConcurrentQueue<T> m_queue;
 };
 
-template<typename T>
-class NFFreeConcurrentQueue : public NFConcurrentQueue<T>
+template<typename TYPE>
+class NFConcurrentQueuePool
 {
 public:
-private:
+    NFConcurrentQueuePool(int maxPoolSize = 1000): m_maxPoolSize(maxPoolSize)
+    {
 
+    }
+
+    virtual ~NFConcurrentQueuePool()
+    {
+        while(!m_msgQueue.IsQueueEmpty())
+        {
+            std::vector<TYPE*> vec;
+            vec.resize(200);
+            if (m_msgQueue.TryDequeueBulk(vec))
+            {
+                for(int i = 0; i < (int)vec.size(); i++)
+                {
+                    if (vec[i])
+                    {
+                        NF_SAFE_DELETE(vec[i]);
+                    }
+                }
+            }
+        }
+    }
+public:
+    TYPE* Alloc()
+    {
+        TYPE* pType = NULL;
+        if (!m_msgQueue.TryDequeue(pType))
+        {
+            pType = new TYPE();
+        }
+        return pType;
+    }
+
+    bool Free(TYPE* pType)
+    {
+        if (m_msgQueue.GetQueueSize() > m_maxPoolSize)
+        {
+            NF_SAFE_DELETE(pType);
+        }
+        else {
+            if (!m_msgQueue.Enqueue(pType))
+            {
+                NF_SAFE_DELETE(pType);
+            }
+        }
+        return true;
+    }
+private:
+    NFConcurrentQueue<TYPE*> m_msgQueue;
+    std::atomic<int> m_maxPoolSize;
 };
 
