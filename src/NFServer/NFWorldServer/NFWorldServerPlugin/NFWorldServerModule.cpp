@@ -50,7 +50,9 @@ bool NFCWorldServerModule::Awake()
 	m_pObjPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, WORLD_SERVER_CONNECT_ROUTEAGENT_SERVER);
 	m_pObjPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_NEED_STORE_SERVER, WORLD_SERVER_CHECK_STORE_SERVER);
 
-	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
+
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_WORLD_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
@@ -63,7 +65,6 @@ bool NFCWorldServerModule::Awake()
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_WORLD_SERVER, worldServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
-            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
             NFLogInfo(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
@@ -84,7 +85,6 @@ bool NFCWorldServerModule::Awake()
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER) {
                             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnRouteAgentServerSocketEvent);
                             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnHandleRouteAgentOtherMessage);
-                            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
 
                             auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_WORLD_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
@@ -95,8 +95,6 @@ bool NFCWorldServerModule::Awake()
                                                                        &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
                             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this,
                                                                        &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
-                            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this,
-                                                                              &NFCWorldServerModule::OnCheckWorldServerAllMessage);
                         }
                     }
                 }
@@ -521,7 +519,6 @@ int NFCWorldServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 
 		FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnRouteAgentServerSocketEvent);
 		FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnHandleRouteAgentOtherMessage);
-        FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
 	}
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
@@ -534,7 +531,6 @@ int NFCWorldServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnRouteAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnHandleRouteAgentOtherMessage);;
-            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWorldServerModule::OnCheckWorldServerAllMessage);
         }
     }
 
@@ -622,8 +618,6 @@ int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 
         FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
-        FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this,
-                                                          &NFCWorldServerModule::OnCheckWorldServerAllMessage);
     }
     else {
         if (pServerData->mUnlinkId > 0 && pServerData->mServerInfo.url() != xData.url())
@@ -636,8 +630,6 @@ int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this, &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
-            FindModule<NFIMessageModule>()->AddAllMsgCallBack(NF_ST_WORLD_SERVER, pServerData->mUnlinkId, this,
-                                                              &NFCWorldServerModule::OnCheckWorldServerAllMessage);
         }
     }
 
@@ -696,6 +688,18 @@ int NFCWorldServerModule::OnCheckWorldServerAllMessage(uint64_t unLinkId, NFData
         packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP)
     {
         return 0;
+    }
+
+    if (!m_pObjPluginManager->IsInited())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        return -1;
     }
 
     if (m_allMsgCheckFunc)

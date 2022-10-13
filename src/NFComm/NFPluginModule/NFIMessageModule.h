@@ -171,13 +171,13 @@ public:
     * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
     * */
     template<typename BaseType>
-    bool AddAllMsgCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType *pBase,
+    bool AddAllMsgCallBack(NF_SERVER_TYPES eType, BaseType *pBase,
                            int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet))
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
 
-        return AddAllMsgCallBack(eType, linkId, pBase, functor);
+        return AddAllMsgCallBack(eType, pBase, functor);
     }
 
 public:
@@ -393,7 +393,7 @@ public:
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
 
     /*
      * 添加连接事件，掉线事件的处理函数

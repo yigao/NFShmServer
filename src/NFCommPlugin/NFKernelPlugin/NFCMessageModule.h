@@ -191,7 +191,7 @@ public:
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回true表示将处理这个消息，false将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTaraget, const NET_RECEIVE_FUNCTOR &cb) override;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTaraget, const NET_RECEIVE_FUNCTOR &cb) override;
 
     int OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
 

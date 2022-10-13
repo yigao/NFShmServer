@@ -450,16 +450,9 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 			}
 		}
 
-        for (auto iter = callBack.mxAllMsgCallBackList.begin(); iter != callBack.mxAllMsgCallBackList.end();)
+        if (callBack.mxAllMsgCallBackList.m_pTarget == pTarget)
         {
-            if (iter->second.m_pTarget == pTarget)
-            {
-                iter = callBack.mxAllMsgCallBackList.erase(iter);
-            }
-            else
-            {
-                iter++;
-            }
+            callBack.mxAllMsgCallBackList = NetReceiveFunctor();
         }
 	}
 	return true;
@@ -495,10 +488,10 @@ bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
     return false;
 }
 
-bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTarget, const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size()) {
-        mxCallBack[eType].mxAllMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxAllMsgCallBackList = NetReceiveFunctor(pTarget, cb);
         return true;
     }
     return false;
@@ -520,16 +513,12 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
 	if (eServerType < mxCallBack.size()) {
 		uint64_t startTime = NFGetMicroSecondTime();
         CallBack& callBack = mxCallBack[eServerType];
-        auto allIter = callBack.mxAllMsgCallBackList.find(connectionLink);
-        if (allIter != callBack.mxAllMsgCallBackList.end()) {
-            NET_RECEIVE_FUNCTOR &pFun = allIter->second.m_pFunctor;
-            if (pFun)
+        if (callBack.mxAllMsgCallBackList.m_pFunctor)
+        {
+            int iRet = callBack.mxAllMsgCallBackList.m_pFunctor(objectLinkId, packet);
+            if (iRet != 0)
             {
-                int iRet = pFun(objectLinkId, packet);
-                if (iRet != 0)
-                {
-                    return 0;
-                }
+                return 0;
             }
         }
 

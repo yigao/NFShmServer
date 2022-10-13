@@ -126,7 +126,7 @@ struct CallBack {
     std::vector<std::vector<NetReceiveFunctor>> mxReceiveCallBack;
     std::unordered_map<uint64_t, NetEventFunctor> mxEventCallBack;
     std::unordered_map<uint64_t, NetReceiveFunctor> mxOtherMsgCallBackList;
-    std::unordered_map<uint64_t, NetReceiveFunctor> mxAllMsgCallBackList;
+    NetReceiveFunctor mxAllMsgCallBackList;
     std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;

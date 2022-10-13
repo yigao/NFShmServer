@@ -222,17 +222,6 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
  */
 int NFCWorldPlayerModule::OnCheckWorldServerMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
-        return -1;
-    }
-
-    if (m_pObjPluginManager->IsServerStopping())
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
-        return -1;
-    }
     return 0;
 }
 
