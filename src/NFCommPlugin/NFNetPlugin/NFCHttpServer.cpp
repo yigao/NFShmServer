@@ -8,6 +8,7 @@
 // -------------------------------------------------------------------------
 
 
+#include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFCHttpServer.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFCommon.h"
@@ -26,6 +27,8 @@ NFCHttpServer::NFCHttpServer(uint32_t serverType, uint32_t netThreadNum)
                                                  const evpp::http::HTTPSendResponseCallback &respcb)
                                           {
                                               NFEvppHttMsg *pMsg = mFreeQueuePool.Alloc(); //NF_NEW NFEvppHttMsg();
+                                              CHECK_EXPR_NOT_RET(pMsg, "mFreeQueuePool.Alloc() Failed");
+                                              pMsg->Clear();
                                               pMsg->mCtx = ctx;
                                               pMsg->mResponseCb = respcb;
                                               while (!mMsgQueue.Enqueue(pMsg)) {}
@@ -198,6 +201,7 @@ void NFCHttpServer::ProcessMsgLogicThread()
                 }
             }
 
+            pMsg->Clear();
             mFreeQueuePool.Free(pMsg);
         }
     }
