@@ -16,11 +16,13 @@ NFCHttpClient::NFCHttpClient()
 {
     m_threadLoop.Start();
     m_staticReqId = 10000;
+    m_pHttpClientParamPool = NF_NEW NFObjectPool<NFCHttpClientParam>(1000, false);
 }
 
 NFCHttpClient::~NFCHttpClient()
 {
     m_threadLoop.Stop(true);
+    NF_SAFE_DELETE(m_pHttpClientParamPool);
 }
 
 void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Response> &response,
@@ -60,7 +62,10 @@ int NFCHttpClient::HttpGet(const string &strUri, const HTTP_CLIENT_RESPONE &resp
         req->AddHeader(iter->first, iter->second);
     }
 
-    NFCHttpClientParam *pParam = NF_NEW NFCHttpClientParam(req->GetId(), respone, timeout);
+    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObj();
+    CHECK_EXPR_ASSERT(pParam, -1, "m_pHttpClientParamPool->MallocObj() Failed");
+    pParam->Init(req->GetId(), respone, timeout);
+
     m_httpClientMap.emplace(pParam->m_id, pParam);
 
     req->Execute(std::bind(&NFCHttpClient::HandleHTTPGetResponse, this, std::placeholders::_1, req));
@@ -85,7 +90,9 @@ int NFCHttpClient::HttpPost(const string &strUri, const string &strPostData, con
         req->AddHeader(iter->first, iter->second);
     }
 
-    NFCHttpClientParam *pParam = NF_NEW NFCHttpClientParam(req->GetId(), respone, timeout);
+    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObj();
+    CHECK_EXPR_ASSERT(pParam, -1, "m_pHttpClientParamPool->MallocObj() Failed");
+    pParam->Init(req->GetId(), respone, timeout);
     m_httpClientMap.emplace(pParam->m_id, pParam);
 
     req->Execute(std::bind(&NFCHttpClient::HandleHTTPPostResponse, this, std::placeholders::_1, req));
@@ -128,6 +135,7 @@ void NFCHttpClient::ProcessMsgLogicThread()
                     if (pParam)
                     {
                         pParam->m_resp(pMsg->code, pMsg->body);
+                        m_pHttpClientParamPool->FreeObj(pParam);
                     }
                     m_httpClientMap.erase(iter);
                 }
@@ -153,6 +161,7 @@ bool NFCHttpClient::Execute()
                 iter++;
                 continue;
             }
+            m_pHttpClientParamPool->FreeObj(pParam);
         }
         iter = m_httpClientMap.erase(iter);
     }

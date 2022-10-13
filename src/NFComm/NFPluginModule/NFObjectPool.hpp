@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFObjectPool.h
+//    @FileName         :    NFNFObjectPool.h
 //    @Author           :    gaoyi
 //    @Date             :    2022/10/10
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFObjectPool
+//    @Module           :    NFNFObjectPool
 //
 // -------------------------------------------------------------------------
 
@@ -13,19 +13,23 @@
 #include "NFMemTracker.h"
 
 template<class TYPE>
-class ObjectPool : private ChunkPool
+class NFObjectPool : public NFChunkPool
 {
 public:
-    ObjectPool(uint32_t count_in_block = 0, bool auto_free = true);
-    virtual ~ObjectPool();
+    NFObjectPool(uint32_t count_in_block = 0, bool auto_free = true);
 
-    TYPE* Alloc();
-    bool  Free(TYPE* obj);
+    virtual ~NFObjectPool();
+
+    TYPE *Alloc();
+
+    bool Free(TYPE *obj);
+
 public:
-    TYPE* AllocTrack(const char* file,
-                     const char* func,
+    TYPE *AllocTrack(const char *file,
+                     const char *func,
                      uint32_t line);
-    bool  FreeTrack(TYPE* obj);
+
+    bool FreeTrack(TYPE *obj);
 
     uint32_t MemSize()
     {
@@ -41,49 +45,57 @@ public:
 #define  FreeObj            Free
 #endif  // CHECK_MEM_LEAK
 
-template<class TYPE> inline
-ObjectPool<TYPE>::ObjectPool(uint32_t count_in_block,
+template<class TYPE>
+inline
+NFObjectPool<TYPE>::NFObjectPool(uint32_t count_in_block,
                              bool auto_free /*= true*/)
-        :ChunkPool(0, sizeof(TYPE), count_in_block, auto_free) {}
-
-template<class TYPE> inline ObjectPool<TYPE>::~ObjectPool(void)
-{}
-
-template<class TYPE> inline TYPE* ObjectPool<TYPE>::Alloc()
+        :NFChunkPool(0, sizeof(TYPE), count_in_block, auto_free)
 {
-    TYPE* obj = (TYPE*)AllocChunk();
+
+}
+
+template<class TYPE>
+inline NFObjectPool<TYPE>::~NFObjectPool(void) {}
+
+template<class TYPE>
+inline TYPE *NFObjectPool<TYPE>::Alloc()
+{
+    TYPE *obj = (TYPE *) AllocChunk();
     if (obj)
     {
-        new (obj) TYPE();
+        new(obj) TYPE();
     }
     return obj;
 }
 
-template<class TYPE> inline bool ObjectPool<TYPE>::Free(TYPE* obj)
+template<class TYPE>
+inline bool NFObjectPool<TYPE>::Free(TYPE *obj)
 {
     MMO_ASSERT(obj);
     obj->~TYPE();
     return FreeChunk(obj);
 }
 
-template<class TYPE> inline TYPE* ObjectPool<TYPE>::AllocTrack(const char* file,
-                                                               const char* func,
-                                                               uint32_t line)
+template<class TYPE>
+inline TYPE *NFObjectPool<TYPE>::AllocTrack(const char *file,
+                                          const char *func,
+                                          uint32_t line)
 {
-    TYPE* obj = (TYPE*)AllocChunk();
+    TYPE *obj = (TYPE *) AllocChunk();
     if (obj)
     {
-        new (obj) TYPE();
-        g_MemTracker().TrackMalloc(obj, file, func, line);
+        new(obj) TYPE();
+        NFMemTracker::Instance()->TrackMalloc(obj, file, func, line);
     }
     return obj;
 }
 
-template<class TYPE> inline bool ObjectPool<TYPE>::FreeTrack(TYPE* obj)
+template<class TYPE>
+inline bool NFObjectPool<TYPE>::FreeTrack(TYPE *obj)
 {
-    MMO_ASSERT(obj);
+    NF_ASSERT(obj);
     obj->~TYPE();
-    g_MemTracker().TrackFree(obj);
+    NFMemTracker::Instance()->TrackFree(obj);
     return FreeChunk(obj);
 }
 

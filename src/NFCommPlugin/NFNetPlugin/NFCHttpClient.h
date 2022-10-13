@@ -16,6 +16,7 @@
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "evpp/httpc/request.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFPluginModule/NFObjectPool.hpp"
 
 class NFCHttpClient;
 
@@ -40,8 +41,17 @@ public:
 
 class NFCHttpClientParam {
 public:
-    NFCHttpClientParam(int id, const HTTP_CLIENT_RESPONE &func, uint32_t timeout = 3) : m_id(id), m_resp(func) {
+    NFCHttpClientParam(): m_id(0), m_resp(NULL), m_timeout(0)
+    {
+
+    }
+
+    int Init(int id, const HTTP_CLIENT_RESPONE &func, uint32_t timeout = 3)
+    {
+        m_id = id;
+        m_resp = func;
         m_timeout = NFTime::Now().UnixSec() + timeout*10;
+        return true;
     }
 
     ~NFCHttpClientParam() {
@@ -88,5 +98,6 @@ private:
     evpp::EventLoopThread m_threadLoop;
     NFConcurrentQueue<NFHttpClientMsg *> mMsgQueue;
     NFConcurrentQueuePool<NFHttpClientMsg> mFreeQueuePool;
+    NFObjectPool<NFCHttpClientParam>* m_pHttpClientParamPool;
     int m_staticReqId;
 };
