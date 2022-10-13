@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFIMessageDriver.h"
+#include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include <stdint.h>

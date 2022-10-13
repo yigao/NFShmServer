@@ -28,23 +28,23 @@
 
 #pragma once
 
-#include "NFComm/NFPluginModule/NFIMessageDriver.h"
+#include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFINetMessage.h"
 #include <NFComm/NFCore/NFBuffer.h>
 
-class NFCNetMessageDriverModule : public NFIMessageDriver
+class NFCNetModule: public NFINetModule
 {
 public:
 	/**
 	 * @brief 构造函数
 	 */
-	NFCNetMessageDriverModule(NFIPluginManager* p);
+	NFCNetModule(NFIPluginManager* p);
 
 	/**
 	 * @brief 析构函数
 	 */
-	virtual ~NFCNetMessageDriverModule();
+	virtual ~NFCNetModule();
 
 	/**
 	 *@brief  设置接收回调.

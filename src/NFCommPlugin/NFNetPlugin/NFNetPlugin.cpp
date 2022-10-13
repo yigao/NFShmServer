@@ -8,7 +8,7 @@
 
 #include "NFNetPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFCNetMessageDriverModule.h"
+#include "NFCNetModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -43,10 +43,10 @@ bool NFNetPlugin::IsDynamicLoad()
 
 void NFNetPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFINetModule, NFCNetModule);
 }
 
 void NFNetPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIMessageDriver, NFCNetMessageDriverModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFINetModule, NFCNetMessageDriverModule);
 }

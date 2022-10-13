@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusServer.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpClient.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetMessageDriverModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppClient.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppNetMessage.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppServer.cpp" />
@@ -48,7 +48,7 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusServer.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpClient.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetMessageDriverModule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppClient.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppNetMessage.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppServer.h" />

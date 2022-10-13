@@ -23,7 +23,7 @@
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
     m_pObjPluginManager = p;
-    m_driver = NULL;
+    m_netModule = NULL;
     mxCallBack.resize(NF_ST_MAX);
     mServerLinkData.resize(NF_ST_MAX);
     for (size_t i = 0; i < mServerLinkData.size(); i++) {
@@ -38,14 +38,14 @@ NFCMessageModule::~NFCMessageModule()
 
 bool NFCMessageModule::Awake()
 {
-    if (m_driver != NULL) {
+    if (m_netModule != NULL) {
         return true;
     }
 
-	NFIMessageDriver* pDriver = FindModule<NFIMessageDriver>();
+	NFINetModule* pDriver = FindModule<NFINetModule>();
 	if (pDriver)
 	{
-		SetMessageDriver(pDriver);
+        SetNetModule(pDriver);
 	}
 
     return true;
@@ -67,65 +67,65 @@ bool NFCMessageModule::OnReloadConfig()
 	return true;
 }
 
-void NFCMessageModule::SetMessageDriver(NFIMessageDriver* driver)
+void NFCMessageModule::SetNetModule(NFINetModule* driver)
 {
-	m_driver = driver;
-	m_driver->SetRecvCB(this, &NFCMessageModule::OnReceiveNetPack);
-	m_driver->SetEventCB(this, &NFCMessageModule::OnSocketNetEvent);
-    m_driver->SetHttpRecvCB(this, &NFCMessageModule::OnHttpReceiveNetPack);
-    m_driver->SetHttpFilterCB(this, &NFCMessageModule::OnHttpFilterPack);
+    m_netModule = driver;
+	m_netModule->SetRecvCB(this, &NFCMessageModule::OnReceiveNetPack);
+	m_netModule->SetEventCB(this, &NFCMessageModule::OnSocketNetEvent);
+    m_netModule->SetHttpRecvCB(this, &NFCMessageModule::OnHttpReceiveNetPack);
+    m_netModule->SetHttpFilterCB(this, &NFCMessageModule::OnHttpFilterPack);
 }
 
 int64_t NFCMessageModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
-	if (m_driver)
+	if (m_netModule)
 	{
-		return m_driver->BindServer(eServerType, url, nNetThreadNum, nMaxConnectNum, nPacketParseType, bSecurity);
+		return m_netModule->BindServer(eServerType, url, nNetThreadNum, nMaxConnectNum, nPacketParseType, bSecurity);
 	}
 	return -1;
 }
 
 int64_t NFCMessageModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
-	if (m_driver)
+	if (m_netModule)
 	{
-		return m_driver->ConnectServer(eServerType, url, nPacketParseType, bSecurity);
+		return m_netModule->ConnectServer(eServerType, url, nPacketParseType, bSecurity);
 	}
 	return -1;
 }
 
 int NFCMessageModule::ResumeConnect(NF_SERVER_TYPES eServerType)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->ResumeConnect(eServerType);
+        return m_netModule->ResumeConnect(eServerType);
     }
     return -1;
 }
 
 std::string NFCMessageModule::GetLinkIp(uint64_t usLinkId)
 {
-	if (m_driver)
+	if (m_netModule)
 	{
-		return m_driver->GetLinkIp(usLinkId);
+		return m_netModule->GetLinkIp(usLinkId);
 	}
 	return std::string();
 }
 
 uint32_t NFCMessageModule::GetPort(uint64_t usLinkId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->GetPort(usLinkId);
+        return m_netModule->GetPort(usLinkId);
     }
     return 0;
 }
 
 void NFCMessageModule::CloseLinkId(uint64_t usLinkId)
 {
-	if (m_driver)
+	if (m_netModule)
 	{
-		m_driver->CloseLinkId(usLinkId);
+		m_netModule->CloseLinkId(usLinkId);
 	}
 
     uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
@@ -139,57 +139,57 @@ void NFCMessageModule::CloseLinkId(uint64_t usLinkId)
 
 void NFCMessageModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->CopySend(usLinkId, packet);
+        m_netModule->CopySend(usLinkId, packet);
     }
 }
 
 void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, srcId, dstId);
+        m_netModule->Send(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, srcId, dstId);
     }
 }
 
 void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, srcId, dstId);
+        m_netModule->Send(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, srcId, dstId);
     }
 }
 
 void NFCMessageModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->Send(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, srcId, dstId);
+        m_netModule->Send(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, srcId, dstId);
     }
 }
 
 void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->SendServer(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, nSrcID, nDstId);
+        m_netModule->SendServer(usLinkId, nModuleId, nMsgID, strData, nParam1, nParam2, nSrcID, nDstId);
     }
 }
 
 void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->SendServer(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, nSrcID, nDstId);
+        m_netModule->SendServer(usLinkId, nModuleId, nMsgID, msg, nLen, nParam1, nParam2, nSrcID, nDstId);
     }
 }
 
 void NFCMessageModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        m_driver->SendServer(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, nSrcID, nDstId);
+        m_netModule->SendServer(usLinkId, nModuleId, nMsgID, xData, nParam1, nParam2, nSrcID, nDstId);
     }
 }
 
@@ -886,18 +886,18 @@ std::vector<std::string> NFCMessageModule::GetDBNames(NF_SERVER_TYPES eSendType)
 
 bool NFCMessageModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const string &strMsg,
                                        NFWebStatus code, const string &reason) {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->ResponseHttpMsg(serverType, req, strMsg, code, reason);
+        return m_netModule->ResponseHttpMsg(serverType, req, strMsg, code, reason);
     }
     return false;
 }
 
 bool NFCMessageModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, uint64_t requestId, const string &strMsg,
                                        NFWebStatus code, const string &reason) {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->ResponseHttpMsg(serverType, requestId, strMsg, code, reason);
+        return m_netModule->ResponseHttpMsg(serverType, requestId, strMsg, code, reason);
     }
     return false;
 }
@@ -1021,9 +1021,9 @@ NFWebStatus NFCMessageModule::OnHttpFilterPack(uint32_t serverType, const NFIHtt
 
 int NFCMessageModule::HttpGet(NF_SERVER_TYPES serverType, const string &strUri, const HTTP_CLIENT_RESPONE &respone,
                               const map<std::string, std::string> &xHeaders, int timeout) {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->HttpGet(serverType, strUri, respone, xHeaders, timeout);
+        return m_netModule->HttpGet(serverType, strUri, respone, xHeaders, timeout);
     }
     return -1;
 }
@@ -1031,18 +1031,18 @@ int NFCMessageModule::HttpGet(NF_SERVER_TYPES serverType, const string &strUri, 
 int NFCMessageModule::HttpPost(NF_SERVER_TYPES serverType, const string &strUri, const string &strPostData,
                                const HTTP_CLIENT_RESPONE &respone, const map<std::string, std::string> &xHeaders,
                                int timeout) {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->HttpPost(serverType, strUri, strPostData, respone, xHeaders, timeout);
+        return m_netModule->HttpPost(serverType, strUri, strPostData, respone, xHeaders, timeout);
     }
     return -1;
 }
 
 int NFCMessageModule::SendEmail(NF_SERVER_TYPES serverType, const string &title, const string &subject, const string &content)
 {
-    if (m_driver)
+    if (m_netModule)
     {
-        return m_driver->SendEmail(serverType, title, subject, content);
+        return m_netModule->SendEmail(serverType, title, subject, content);
     }
     return -1;
 }

@@ -7,7 +7,7 @@
 
 #include <NFComm/NFPluginModule/NFIConfigModule.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
-#include "NFCNetMessageDriverModule.h"
+#include "NFCNetModule.h"
 
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFIPacketParse.h"
@@ -21,7 +21,7 @@
 #include "evpp/httpc/ssl.h"
 #include "NFEmailSender.h"
 
-NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMessageDriver(p)
+NFCNetModule::NFCNetModule(NFIPluginManager* p): NFINetModule(p)
 {
 	NFSocketLibFunction::InitSocket();
 #if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
@@ -42,7 +42,7 @@ NFCNetMessageDriverModule::NFCNetMessageDriverModule(NFIPluginManager* p):NFIMes
 	}
 }
 
-NFCNetMessageDriverModule::~NFCNetMessageDriverModule()
+NFCNetModule::~NFCNetModule()
 {
 #if defined(EVPP_HTTP_CLIENT_SUPPORTS_SSL)
     if (evpp::httpc::GetSSLCtx())
@@ -52,17 +52,17 @@ NFCNetMessageDriverModule::~NFCNetMessageDriverModule()
 #endif
 }
 
-bool NFCNetMessageDriverModule::Awake()
+bool NFCNetModule::Awake()
 {
 	return true;
 }
 
-bool NFCNetMessageDriverModule::BeforeShut()
+bool NFCNetModule::BeforeShut()
 {
 	return true;
 }
 
-bool NFCNetMessageDriverModule::Shut()
+bool NFCNetModule::Shut()
 {
 	for (size_t i = 0; i < mNetServerArray.size(); i++)
 	{
@@ -81,7 +81,7 @@ bool NFCNetMessageDriverModule::Shut()
 	return true;
 }
 
-bool NFCNetMessageDriverModule::Finalize()
+bool NFCNetModule::Finalize()
 {
 	for (size_t i = 0; i < mNetServerArray.size(); i++)
 	{
@@ -118,7 +118,7 @@ bool NFCNetMessageDriverModule::Finalize()
 	return true;
 }
 
-bool NFCNetMessageDriverModule::ReadyExecute()
+bool NFCNetModule::ReadyExecute()
 {
     for (size_t i = 0; i < mNetServerArray.size(); i++)
     {
@@ -137,7 +137,7 @@ bool NFCNetMessageDriverModule::ReadyExecute()
     return true;
 }
 
-bool NFCNetMessageDriverModule::Execute()
+bool NFCNetModule::Execute()
 {
 	for (size_t i = 0; i < mNetServerArray.size(); i++)
 	{
@@ -156,7 +156,7 @@ bool NFCNetMessageDriverModule::Execute()
 	return true;
 }
 
-NFINetMessage* NFCNetMessageDriverModule::GetServerByServerType(NF_SERVER_TYPES eServerType)
+NFINetMessage* NFCNetModule::GetServerByServerType(NF_SERVER_TYPES eServerType)
 {
 	if (eServerType > NF_ST_NONE && eServerType < NF_ST_MAX)
 	{
@@ -165,7 +165,7 @@ NFINetMessage* NFCNetMessageDriverModule::GetServerByServerType(NF_SERVER_TYPES 
 	return nullptr;
 }
 
-int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
+int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
@@ -234,7 +234,7 @@ int64_t NFCNetMessageDriverModule::ConnectServer(NF_SERVER_TYPES eServerType, co
 	return -1;
 }
 
-int NFCNetMessageDriverModule::ResumeConnect(NF_SERVER_TYPES eServerType)
+int NFCNetModule::ResumeConnect(NF_SERVER_TYPES eServerType)
 {
     NFINetMessage* pServer = mBusServerArray[eServerType];
     if (pServer)
@@ -244,7 +244,7 @@ int NFCNetMessageDriverModule::ResumeConnect(NF_SERVER_TYPES eServerType)
     return -1;
 }
 
-int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
+int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
@@ -328,7 +328,7 @@ int64_t NFCNetMessageDriverModule::BindServer(NF_SERVER_TYPES eServerType, const
 	return -1;
 }
 
-std::string NFCNetMessageDriverModule::GetLinkIp(uint64_t usLinkId)
+std::string NFCNetModule::GetLinkIp(uint64_t usLinkId)
 {
 	uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
 	if (serverType > NF_ST_NONE && serverType < NF_ST_MAX)
@@ -362,7 +362,7 @@ std::string NFCNetMessageDriverModule::GetLinkIp(uint64_t usLinkId)
 	return std::string();
 }
 
-uint32_t NFCNetMessageDriverModule::GetPort(uint64_t usLinkId)
+uint32_t NFCNetModule::GetPort(uint64_t usLinkId)
 {
     uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
     if (serverType > NF_ST_NONE && serverType < NF_ST_MAX)
@@ -396,7 +396,7 @@ uint32_t NFCNetMessageDriverModule::GetPort(uint64_t usLinkId)
     return 0;
 }
 
-void NFCNetMessageDriverModule::CloseLinkId(uint64_t usLinkId)
+void NFCNetModule::CloseLinkId(uint64_t usLinkId)
 {
     if (usLinkId == 0) return;
 
@@ -435,7 +435,7 @@ void NFCNetMessageDriverModule::CloseLinkId(uint64_t usLinkId)
 	NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
+void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(strData.length());
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
@@ -450,7 +450,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
+void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
@@ -465,7 +465,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
+void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
 {
     int len = xData.ByteSize();
 
@@ -492,7 +492,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(strData.length());
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
@@ -507,7 +507,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const char* msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(nLen);
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
@@ -522,7 +522,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
+void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t nParam1, uint64_t nParam2, uint64_t nSrcID, uint64_t nDstId)
 {
     int len = xData.ByteSize();
 
@@ -547,7 +547,7 @@ void NFCNetMessageDriverModule::SendServer(uint64_t usLinkId, uint32_t nModuleId
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
+void NFCNetModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(packet.mBufferMsg.ReadableSize());
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
@@ -557,7 +557,7 @@ void NFCNetMessageDriverModule::CopySend(uint64_t usLinkId, NFDataPackage& packe
     Send(usLinkId, pPacket);
 }
 
-void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage* pPackage)
+void NFCNetModule::Send(uint64_t usLinkId, NFDataPackage* pPackage)
 {
     uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
 
@@ -605,7 +605,7 @@ void NFCNetMessageDriverModule::Send(uint64_t usLinkId, NFDataPackage* pPackage)
     NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 }
 
-void NFCNetMessageDriverModule::Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* pPackage)
+void NFCNetModule::Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* pPackage)
 {
     if (pServer)
     {
@@ -618,7 +618,7 @@ void NFCNetMessageDriverModule::Send(NFINetMessage* pServer, uint64_t usLinkId, 
 }
 
 bool
-NFCNetMessageDriverModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const string &strMsg,
+NFCNetModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const string &strMsg,
                                            NFWebStatus code, const string &reason) {
     if (serverType > NF_ST_NONE && serverType < NF_ST_MAX) {
         NFINetMessage *pServer = mNetServerArray[serverType];
@@ -630,7 +630,7 @@ NFCNetMessageDriverModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFI
     return false;
 }
 
-bool NFCNetMessageDriverModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, uint64_t requestId, const string &strMsg,
+bool NFCNetModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, uint64_t requestId, const string &strMsg,
                                                 NFWebStatus code, const string &reason) {
     if (serverType > NF_ST_NONE && serverType < NF_ST_MAX) {
         NFINetMessage *pServer = mNetServerArray[serverType];
@@ -642,7 +642,7 @@ bool NFCNetMessageDriverModule::ResponseHttpMsg(NF_SERVER_TYPES serverType, uint
     return false;
 }
 
-int NFCNetMessageDriverModule::HttpGet(NF_SERVER_TYPES serverType, const string &strUri, const HTTP_CLIENT_RESPONE &respone,
+int NFCNetModule::HttpGet(NF_SERVER_TYPES serverType, const string &strUri, const HTTP_CLIENT_RESPONE &respone,
                                        const map<std::string, std::string> &xHeaders, int timeout) {
     if (serverType > NF_ST_NONE && serverType < NF_ST_MAX) {
         NFINetMessage *pServer = mNetServerArray[serverType];
@@ -655,7 +655,7 @@ int NFCNetMessageDriverModule::HttpGet(NF_SERVER_TYPES serverType, const string 
 }
 
 int
-NFCNetMessageDriverModule::HttpPost(NF_SERVER_TYPES serverType, const string &strUri, const string &strPostData, const HTTP_CLIENT_RESPONE &respone,
+NFCNetModule::HttpPost(NF_SERVER_TYPES serverType, const string &strUri, const string &strPostData, const HTTP_CLIENT_RESPONE &respone,
                                     const map<std::string, std::string> &xHeaders, int timeout) {
     if (serverType > NF_ST_NONE && serverType < NF_ST_MAX) {
         NFINetMessage *pServer = mNetServerArray[serverType];
@@ -667,7 +667,7 @@ NFCNetMessageDriverModule::HttpPost(NF_SERVER_TYPES serverType, const string &st
     return -1;
 }
 
-int NFCNetMessageDriverModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content)
+int NFCNetModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content)
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);

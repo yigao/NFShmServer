@@ -17,11 +17,11 @@
 #include <stdint.h>
 
 /// @brief 网络驱动接口
-class NFIMessageDriver : public NFIModule
+class NFINetModule: public NFIModule
 {
 public:
-	NFIMessageDriver(NFIPluginManager* p):NFIModule(p) {}
-	virtual ~NFIMessageDriver() {}
+	NFINetModule(NFIPluginManager* p): NFIModule(p) {}
+	virtual ~NFINetModule() {}
 
 	/**
 	 *@brief  设置接收回调.

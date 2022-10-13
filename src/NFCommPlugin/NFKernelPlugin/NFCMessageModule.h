@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFIMessageDriver.h"
+#include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFServerLinkData.h"
@@ -153,7 +153,7 @@ public:
     /// @param driver 对MessageDriver接口实现的网络库
     /// @return 0 表示成功
     /// @return -1 表示失败
-    void SetMessageDriver(NFIMessageDriver *driver);
+    void SetNetModule(NFINetModule *driver);
 
 public:
     /*
@@ -232,7 +232,7 @@ protected:
     virtual NFWebStatus OnHttpFilterPack(uint32_t serverType, const NFIHttpHandle &req);
 
 protected:
-    NFIMessageDriver *m_driver;
+    NFINetModule *m_netModule;
 
     std::vector<CallBack> mxCallBack;
 

@@ -97,7 +97,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIKernelModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILogModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaModule.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageDriver.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINetModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMonitorModule.h" />
