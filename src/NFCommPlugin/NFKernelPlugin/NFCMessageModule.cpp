@@ -141,7 +141,7 @@ void NFCMessageModule::TransPackage(uint64_t usLinkId, NFDataPackage& packet)
 {
     if (m_netModule)
     {
-        m_netModule->CopySend(usLinkId, packet);
+        m_netModule->TransPackage(usLinkId, packet);
     }
 }
 

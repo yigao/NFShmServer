@@ -571,7 +571,7 @@ void NFCNetModule::SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nM
     }
 }
 
-void NFCNetModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
+void NFCNetModule::TransPackage(uint64_t usLinkId, NFDataPackage& packet)
 {
     NFDataPackage* pPacket = NFNetInfoPool<NFDataPackage>::Instance()->Alloc(packet.mBufferMsg.ReadableSize());
     CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");

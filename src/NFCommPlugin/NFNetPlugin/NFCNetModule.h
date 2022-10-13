@@ -176,7 +176,7 @@ public:
 
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message& xData, uint64_t param1, uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) override;
 
-    virtual void CopySend(uint64_t usLinkId, NFDataPackage& packet) override;
+    virtual void TransPackage(uint64_t usLinkId, NFDataPackage& packet) override;
 
     virtual bool Send(uint64_t usLinkId, NFDataPackage* packet);
 
