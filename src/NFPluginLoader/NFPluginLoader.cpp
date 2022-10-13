@@ -117,5 +117,7 @@ int main(int argc, char* argv[])
         pPluginManager->End();
     }
 
+    NFGlobalSystem::Instance()->ReleaseSingleton();
+
 	return 0;
 }

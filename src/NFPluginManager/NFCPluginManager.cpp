@@ -78,7 +78,7 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 
     m_idleSleepUs = 1000;
 
-	g_GetGlobalServerTime()->Init(m_nFrame);
+    NFServerTime::Instance()->Init(m_nFrame);
 
 	NFRandomSeed();
 #ifdef NF_DEBUG_MODE
@@ -322,7 +322,7 @@ bool NFCPluginManager::Execute()
 	uint64_t endTime = 0;
 	m_nCurFrameCount++;
 
-	g_GetGlobalServerTime()->Update(startTime);   //
+    NFServerTime::Instance()->Update(startTime);   //
 
 	BeginProfiler("MainLoop");
 

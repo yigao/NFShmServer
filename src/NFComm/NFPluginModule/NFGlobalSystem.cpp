@@ -7,6 +7,12 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFProtobufCommon.h"
 
+#include "NFComm/NFCore/NFServerTime.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFMemTracker.h"
+#include "NFComm/NFPluginModule/NFNetInfoPool.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
+
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_hotfixServer(false)
 {
 }
@@ -78,4 +84,23 @@ bool NFGlobalSystem::IsHotfixServer() const
 void NFGlobalSystem::SetHotfixServer(bool hotfixExitApp)
 {
     m_hotfixServer = hotfixExitApp;
+}
+
+/**
+ * @brief 释放singleton资源
+ */
+void NFGlobalSystem::ReleaseSingleton()
+{
+    /**
+     * @brief 释放网络信息包
+     */
+    NFNetInfoPool<NFDataPackage>::Instance()->ReleaseInstance();
+
+    NFMemTracker::Instance()->ReleaseInstance();
+
+    NFServerTime::Instance()->ReleaseInstance();
+    NFLogMgr::Instance()->ReleaseInstance();
+    NFShmMgr::Instance()->ReleaseInstance();
+    //最后释放
+    NFGlobalSystem::Instance()->ReleaseInstance();
 }

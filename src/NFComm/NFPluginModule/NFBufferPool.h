@@ -17,7 +17,7 @@
 #pragma warning(disable : 4201)
 #endif
 
-class BufferPool : public NFSingleton<BufferPool>
+class BufferPool
 {
 public:
     explicit BufferPool(uint32_t block_size = 1024*1024,

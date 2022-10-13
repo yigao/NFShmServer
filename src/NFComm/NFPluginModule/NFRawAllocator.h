@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFSingleton.hpp"
 
-class NFRawAllocator : public NFSingleton<NFRawAllocator>
+class NFRawAllocator
 {
 public:
     NFRawAllocator();

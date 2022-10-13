@@ -101,6 +101,15 @@ bool NFCNetMessageDriverModule::Finalize()
 	}
 	mNetServerArray.clear();
 	mBusServerArray.clear();
+
+	/**
+	 * @brief 释放网络信息包
+	 */
+    NFNetInfoPool<MsgFromNetInfo>::Instance()->ReleaseInstance();
+    /**
+     * @brief 释放网络信息包
+     */
+    NFNetInfoPool<MsgFromBusInfo>::Instance()->ReleaseInstance();
 	return true;
 }
 

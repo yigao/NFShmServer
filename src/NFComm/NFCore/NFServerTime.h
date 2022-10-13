@@ -58,5 +58,3 @@ private:
 	int32_t ms_curzone;			// current time zone
 
 };
-
-#define g_GetGlobalServerTime()  (NFServerTime::Instance())

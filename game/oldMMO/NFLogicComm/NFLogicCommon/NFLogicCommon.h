@@ -23,7 +23,7 @@
 #define MAX_ZONE_CONNECT_TIME_SEC   60000  //客户端连接zone的最大时间间隔(1分钟,这里单位ms)
 #define MAX_CENTER_LOGIN_TIME_SEC 60000  //客户端登陆center的最大时间间隔(1分钟,单位ms)
 
-class NFLogicCommon : public NFSingleton<NFLogicCommon> {
+class NFLogicCommon {
 public:
     NFLogicCommon();
     virtual ~NFLogicCommon();

@@ -121,7 +121,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         goto Exit0;
     } */
 
-    uint64_t tick = g_GetGlobalServerTime()->Tick();
+    uint64_t tick = NFServerTime::Instance()->Tick();
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(uid);
     if (pPlayer == NULL)
     {
