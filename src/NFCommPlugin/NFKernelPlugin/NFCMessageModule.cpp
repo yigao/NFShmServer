@@ -137,7 +137,7 @@ void NFCMessageModule::CloseLinkId(uint64_t usLinkId)
     }
 }
 
-void NFCMessageModule::CopySend(uint64_t usLinkId, NFDataPackage& packet)
+void NFCMessageModule::TransPackage(uint64_t usLinkId, NFDataPackage& packet)
 {
     if (m_netModule)
     {

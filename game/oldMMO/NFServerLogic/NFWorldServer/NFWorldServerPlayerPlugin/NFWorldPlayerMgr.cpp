@@ -13,13 +13,17 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include <map>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include "NFComm/NFCore/NFServerTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
 
-NFWorldPlayerMgr::NFWorldPlayerMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+NFWorldPlayerMgr::NFWorldPlayerMgr(NFIPluginManager *pPluginManager) : NFShmObj(pPluginManager)
+{
+    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+    {
         CreateInit();
-    } else {
+    } else
+    {
         ResumeInit();
     }
 }
@@ -33,13 +37,17 @@ NFWorldPlayerMgr::~NFWorldPlayerMgr()
     }
 }
 
-int NFWorldPlayerMgr::CreateInit() {
+int NFWorldPlayerMgr::CreateInit()
+{
+    m_currentLoginNum = 0;
+    m_maxQueueNum = 2000;    //排队总人数
+    m_startQueueNum = 0; //开始排队人数
     m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
     return 0;
 }
 
-
-int NFWorldPlayerMgr::ResumeInit() {
+int NFWorldPlayerMgr::ResumeInit()
+{
     return 0;
 }
 
@@ -80,7 +88,7 @@ int NFWorldPlayerMgr::PlayerTick()
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayer(uint64_t playerId)
 {
-    return dynamic_cast<NFWorldPlayer*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(playerId, EOT_WORLD_PLAYER_ID));
+    return dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(playerId, EOT_WORLD_PLAYER_ID));
 }
 
 NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
@@ -110,7 +118,7 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByCid(uint64_t cid)
 {
-    uint64_t* pPlayerId = m_charIdToPlayerIdMap.Find(cid);
+    uint64_t *pPlayerId = m_charIdToPlayerIdMap.Find(cid);
     if (pPlayerId)
     {
         return GetPlayer(*pPlayerId);
@@ -121,7 +129,7 @@ NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByCid(uint64_t cid)
 
 int NFWorldPlayerMgr::EraseCid(uint64_t cid)
 {
-    uint64_t* pPlayerId = m_charIdToPlayerIdMap.Find(cid);
+    uint64_t *pPlayerId = m_charIdToPlayerIdMap.Find(cid);
     if (pPlayerId)
     {
         m_charIdToPlayerIdMap.Erase(cid);
@@ -129,4 +137,100 @@ int NFWorldPlayerMgr::EraseCid(uint64_t cid)
     }
 
     return -1;
+}
+
+uint32_t NFWorldPlayerMgr::GetCurrentLoginNum() const
+{
+    return m_currentLoginNum;
+}
+
+void NFWorldPlayerMgr::SetCurrentLoginNum(uint32_t currentLoginNum)
+{
+    m_currentLoginNum = currentLoginNum;
+}
+
+uint32_t NFWorldPlayerMgr::GetMaxQueueNum() const
+{
+    return m_maxQueueNum;
+}
+
+void NFWorldPlayerMgr::SetMaxQueueNum(uint32_t maxQueueNum)
+{
+    m_maxQueueNum = maxQueueNum;
+}
+
+uint32_t NFWorldPlayerMgr::GetStartQueueNum() const
+{
+    return m_startQueueNum;
+}
+
+void NFWorldPlayerMgr::SetStartQueueNum(uint32_t startQueueNum)
+{
+    m_startQueueNum = startQueueNum;
+}
+
+bool NFWorldPlayerMgr::IsNeedLoginQueue() const
+{
+    if (m_currentLoginNum >= m_startQueueNum)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool NFWorldPlayerMgr::IsLoginQueueFull() const
+{
+    if ((uint32_t) m_loginQueueMap.GetUsedNum() >= m_maxQueueNum)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * @brief 是否在排队队列中
+ * @param playerId
+ * @return
+ */
+bool NFWorldPlayerMgr::IsInLoginQueue(uint64_t playerId) const
+{
+    auto pData = m_loginQueueMap.Find(playerId);
+    if (pData)
+    {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * @brief 加入到登陆排队中
+ * @param playerId
+ * @return
+ */
+bool NFWorldPlayerMgr::InsertLoginQueue(uint64_t playerId)
+{
+    auto pData = m_loginQueueMap.Insert(playerId);
+    if (pData)
+    {
+        pData->SetPlayerId(playerId);
+        pData->SetLastReqTime(NFServerTime::Instance()->UnixSec());
+        return true;
+    }
+    return false;
+}
+
+NFLoginQueue* NFWorldPlayerMgr::GetLoginQueue(uint64_t playerId)
+{
+    return m_loginQueueMap.Find(playerId);
+}
+
+/**
+ * @brief 获得当前排队人数
+ * @return
+ */
+uint32_t NFWorldPlayerMgr::GetLoginQueueNum() const
+{
+    return (uint32_t)m_loginQueueMap.GetUsedNum();
 }

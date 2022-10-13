@@ -20,6 +20,7 @@
 #include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include <ServerInternalCmd.pb.h>
 #include <NFComm/NFCore/NFServerTime.h>
+#include <ServerClientCmd.pb.h>
 #include "NFWorldPlayerModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
@@ -135,14 +136,14 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         uint32_t oldProxyId = pPlayer->GetProxyId();
         uint32_t oldStatus = pPlayer->GetStatus();
 
+        //如果是同一个连接在不断的请求发该协议 那么进行过滤
         if (oldProxyId == proxyId && oldClientId == clientId)
         {
-            //如果是同一个连接在不断的请求发该协议 那么进行过滤
-            if (clientId == oldClientId)
-            {
-                //NFLogError(NF_LOG_SYSTEMLOG, uid, "but same player send same cmd...clientid:{}, oldclientid:{}, uid:{}, cid:{}, logicid:{}, state:{}, bornZid:{}", clientId, oldClientId, pPlayer->GetPlayerId(), pPlayer->GetplayCid, oldUid->logicId, oldUid->state,oldUid->bronZid);
-                return 0;
-            }
+            NFLogError(NF_LOG_SYSTEMLOG, uid,
+                       "but same player send same cmd...clientid:{}, oldclientid:{}, uid:{}, cid:{}, logicid:{}, state:{}, bornZid:{}", clientId,
+                       oldClientId, pPlayer->GetPlayerId(), pPlayer->GetPlayCid(), pPlayer->GetLogicId(), pPlayer->GetStatus(),
+                       pPlayer->GetBornZid());
+            return 0;
         }
 
         //如果旧的游戏角色不处于断线状态 那么需要将旧角色的客户端session断开
@@ -151,6 +152,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             //强制断开之前的客户端session
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_REPLACE);
             CHECK_EXPR(retCode != 0, -1, "GateChangeLogic Failed!");
+            return 0;
         }
 
         //掉线重登或者被挤, 通知逻辑服退出
@@ -163,7 +165,8 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         {
             NFLogTrace(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(),
                        "same account login,notify logic kick player logout.. uid:{}, kick_player_cid:{}, logic_id:{},  clientid:{}, oldclientid:{},state:{}, bornZid:{}",
-                       pPlayer->GetPlayerId(), pPlayer->GetPlayCid(), pPlayer->GetLogicId(), clientId, oldClientId, pPlayer->GetStatus(), pPlayer->GetBornZid());
+                       pPlayer->GetPlayerId(), pPlayer->GetPlayCid(), pPlayer->GetLogicId(), clientId, oldClientId, pPlayer->GetStatus(),
+                       pPlayer->GetBornZid());
 
             NotifyLogicLeave(pPlayer, pPlayer->GetLogicId(), proto_ff::LOGOUT_TYPE_KICK_OUT);
 
@@ -172,10 +175,9 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             pPlayer->SetStatusTimeStamp(tick);
             //将在离线的角色clientId放到离线列表中
             //m_logoutUidMap[uid] = oldUid->clientId;
-        }
-        else if (oldStatus == PLAYER_STATE_LOGIN
-                 || oldStatus == PLAYER_STATE_LOADCHARLIS
-                 || oldStatus == PLAYER_STATE_QUEUE)
+        } else if (oldStatus == PLAYER_STATE_LOGIN
+                   || oldStatus == PLAYER_STATE_LOADCHARLIS
+                   || oldStatus == PLAYER_STATE_QUEUE)
         {
 /*            //如果旧账号处于 登录或者向DB请求角色列表或者排队状态，直接删除m_cidMap中旧账号的记录
             m_clientIdMap.erase(oldUid->clientId);
@@ -194,9 +196,6 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         }
     }
 
-    //以上情况都需要将m_uidMap先做下移除操作 最算之前没有旧的账号也可以先做下移除操作
-    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->DeleteClientIdByPlayerId(uid);
-
     pPlayer->SetTokenTimeStamp(tick);
     pPlayer->SetStatus(PLAYER_STATE_LOGIN);
     pPlayer->SetToken(srvToken);
@@ -209,7 +208,48 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
     pPlayer->SetChannelId(clogin.channelid());
     pPlayer->SetBornZid(bornZid);
 
-    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertClientByPlayerId(uid, clientId);
+    //如果到了排队为数，直接加进排队人数列表，返回排队消息
+    if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsNeedLoginQueue())
+    {
+        proto_ff::ServerToClientQueue_RSP  gateInfoRsp;
+
+        //超过排队人数，则直接通知不能排队，返回消息
+        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
+        {
+            gateInfoRsp.set_retcode(proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM);
+            pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
+
+            int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_NORMAL);
+            CHECK_EXPR(retCode != 0, -1, "GateChangeLogic Failed!");
+            return 0;
+        }
+        else
+        {
+            //如果不在排队列表中，加入到排队列表中
+            if (!NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(uid))
+            {
+                bool ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid);
+                CHECK_EXPR(ret, -1, "NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid) Failed");
+                return 0;
+            }
+
+            pPlayer->SetStatus(PLAYER_STATE_QUEUE);
+            pPlayer->SetStatusTimeStamp(tick);
+            gateInfoRsp.set_retcode(proto_ff::RET_SUCCESS);
+            gateInfoRsp.set_nnum(NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetLoginQueueNum());
+
+            pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
+        }
+    }
+    else
+    {
+        //如果没有旧角色正在下线中 那么直接去请求加载角色列表 如果有旧的账号 那么需要旧账号完全离开游戏后才去加载角色列表
+/*        if (!logoutUid || logoutUid->state != UID_STATE_LOGOUT)
+        {
+            retCode = CharLstReqToDB(zid, uid, clientId, pNewUid->bronZid);
+            MMOLOG_PROCESS_ERROR(retCode);
+        }*/
+    }
 
     return 0;
 }
@@ -273,8 +313,7 @@ int NFCWorldPlayerModule::GateChangeLogic(NFWorldPlayer *pPlayer, proto_ff::Noti
                ctype, pPlayer->GetClientId(), flag, (int32_t) force, pPlayer->GetPlayerId(), pPlayer->GetStatus(), pPlayer->GetPlayCid(),
                pPlayer->GetLogicId(), logicId);
 
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayer->GetProxyId(), proto_ff::WORLD_NOTIFY_PROXY_CHANGE_LOGIC,
-                                                               notify, pPlayer->GetPlayerId());
+    pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::WORLD_NOTIFY_PROXY_CHANGE_LOGIC, notify);
     return 0;
 }
 
@@ -285,7 +324,7 @@ int NFCWorldPlayerModule::GateChangeLogic(NFWorldPlayer *pPlayer, proto_ff::Noti
  * @param type
  * @return
  */
-int NFCWorldPlayerModule::NotifyLogicLeave(NFWorldPlayer* pPlayer, uint32_t logicId, proto_ff::LOGOUT_TYPE type /*= proto_ff::LOGOUT_TYPE_NONE*/)
+int NFCWorldPlayerModule::NotifyLogicLeave(NFWorldPlayer *pPlayer, uint32_t logicId, proto_ff::LOGOUT_TYPE type /*= proto_ff::LOGOUT_TYPE_NONE*/)
 {
     CHECK_NULL(pPlayer);
 

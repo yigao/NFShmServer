@@ -32,8 +32,13 @@ public:
     virtual void OnTimer(int timeId, int callcount);
 
 public:
-
-
+    /**
+     * @brief 玩家发信息到网关
+     * @param moduleId
+     * @param msgId
+     * @param xData
+     */
+    void SendMsgToProxyServer(uint32_t moduleId, uint32_t msgId, const google::protobuf::Message &xData);
 public:
     /**
      * @brief

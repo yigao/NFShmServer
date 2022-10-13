@@ -7,6 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
+#include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include "NFWorldPlayer.h"
 #include "NFComm/NFCore/NFTime.h"
 
@@ -260,6 +261,15 @@ void NFWorldPlayer::SetIsWhite(bool isWhite)
     m_isWhite = isWhite;
 }
 
-
+/**
+ * @brief 玩家发信息到网关
+ * @param moduleId
+ * @param msgId
+ * @param xData
+ */
+void NFWorldPlayer::SendMsgToProxyServer(uint32_t moduleId, uint32_t msgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, moduleId, msgId, xData, m_playerId);
+}
 
 

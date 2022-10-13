@@ -69,6 +69,18 @@ public:
      */
     int OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet);
 
+public:
+    /**
+     * @brief handle world server return msg
+     */
+
+    /**
+     * @brief 处理世界服务器返回的排队协议
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleClientQueueResult(uint64_t unLinkId, NFDataPackage &packet);
 private:
     /*
         对外部客户端监听唯一ID
