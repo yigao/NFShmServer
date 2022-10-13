@@ -93,6 +93,8 @@ bool NFCMasterServerModule::Awake()
             NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->HttpPort);
             return false;
         }
+
+        NFLogInfo(NF_LOG_MASTER_SERVER_PLUGIN, 0, "master server listen http success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->HttpPort);
 	}
 	else
 	{
