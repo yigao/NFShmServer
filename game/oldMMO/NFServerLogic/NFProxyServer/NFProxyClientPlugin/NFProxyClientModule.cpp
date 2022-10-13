@@ -18,6 +18,7 @@
 #include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include <ServerInternalCmd.pb.h>
 #include <NFLogicCommon/NFLogicCommon.h>
+#include <ServerInternal.pb.h>
 #include "NFProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -46,6 +47,9 @@ bool NFCProxyClientModule::Awake()
                                                        &NFCProxyClientModule::OnHandleClientCenterLogin);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, this,
                                                        &NFCProxyClientModule::OnHandleClientQueueResult);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_NONE, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, this,
+                                                       &NFCProxyClientModule::OnHandleNotifyProxyChangeLogic);
+
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
@@ -176,7 +180,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
     if (ret != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count, interval, ret, packet.ToString());
-        KickPlayer(unLinkId, proto_ff::LOGOUT_FLAG_KICK);
+        ProxyLeaveGame(unLinkId, true, proto_ff::LOGOUT_FLAG_KICK);
         return 0;
     }
 
@@ -184,7 +188,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
     if (pPlayerInfo == nullptr)
     {
         //NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count, interval, ret, packet.ToString());
-        KickPlayer(unLinkId, proto_ff::LOGOUT_FLAG_KICK);
+        ProxyLeaveGame(unLinkId, true, proto_ff::LOGOUT_FLAG_KICK);
         NFLogWarning(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "ip:{} not login,send packet:{}, the msg will not send",
                      ip, packet.ToString());
         return 0;
@@ -364,7 +368,7 @@ int NFCProxyClientModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         if (pPlayerInfo->GetLinkId() > 0 && pPlayerInfo->GetLinkId() != unLinkId) {
             auto pOtherInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
             if (pOtherInfo) {
-                KickPlayer(pPlayerInfo->GetLinkId(), proto_ff::LOGOUT_FLAG_KICK);
+                ProxyLeaveGame(pPlayerInfo->GetLinkId(), true, proto_ff::LOGOUT_FLAG_KICK);
                 pOtherInfo->SetPlayerId(0);
             }
         }
@@ -424,7 +428,6 @@ int NFCProxyClientModule::KickPlayer(uint64_t unLinkId, uint32_t flag)
     leave.set_flag((::proto_ff::LOGOUT_FLAG)flag);
 
     FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_CLIENT, proto_ff::CENTER_TO_CLIENT_LOGINOUT, leave);
-    FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
     return 0;
 }
 
@@ -452,6 +455,81 @@ int NFCProxyClientModule::OnHandleClientQueueResult(uint64_t unLinkId, NFDataPac
     else
     {
         NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "other server msg:{} not handle", packet.ToString());
+    }
+
+    return 0;
+}
+
+/**
+ * @brief 通知网管改变逻辑服务器
+ * @param unLinkId
+ * @param packet
+ * @return
+ */
+int NFCProxyClientModule::OnHandleNotifyProxyChangeLogic(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- begin --");
+    proto_ff::NotifyGateChangeLogic xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    uint64_t playerId = packet.nParam1;
+    uint64_t cid = xMsg.cid();
+    uint32_t logicId = xMsg.logicid();
+
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
+    if (pPlayerInfo)
+    {
+        if (xMsg.ctype() == proto_ff::NotifyGateChangeLogic_cType_ENTER_LOGIC)
+        {
+            pPlayerInfo->SetLogicBusId(logicId);
+            pPlayerInfo->SetCharId(cid);
+        }
+        else if (xMsg.ctype() == proto_ff::NotifyGateChangeLogic_cType_TTRANS_LOGIC)
+        {
+            pPlayerInfo->SetLogicBusId(logicId);
+            pPlayerInfo->SetCharId(cid);
+        }
+        else if (xMsg.ctype() == proto_ff::NotifyGateChangeLogic_cType_RETURN_ROLE_LIST)
+        {
+            pPlayerInfo->SetCharId(0);
+        }
+        else
+        {
+            ProxyLeaveGame(pPlayerInfo->GetLinkId(), xMsg.forceleave(), xMsg.leaveflag());
+        }
+    }
+    else
+    {
+        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "other server msg:{} not handle", packet.ToString());
+    }
+
+    return 0;
+
+    NFLogTrace(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyClientModule::ProxyLeaveGame(uint64_t clinetId, bool force, proto_ff::LOGOUT_FLAG flag)
+{
+    if (force)
+    {
+        NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(clinetId);
+        if (pLinkInfo == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, clinetId, "can't find player linkId, player disconnect:{}", clinetId);
+            return -1;
+        }
+
+        if(proto_ff::LOGOUT_FLAG_RECONNECT != flag) //重连时,断开旧的连接时,不需要通知客户端登出消息
+        {
+            KickPlayer(clinetId, flag);
+        }
+
+        FindModule<NFIMessageModule>()->CloseLinkId(clinetId);
+    }
+    else
+    {
+        KickPlayer(clinetId, flag);
     }
 
     return 0;

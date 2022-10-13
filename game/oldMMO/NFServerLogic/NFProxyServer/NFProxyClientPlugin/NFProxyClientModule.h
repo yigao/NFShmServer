@@ -15,6 +15,7 @@
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFProxySession.h"
 #include "NFProxyPlayerInfo.h"
+#include <ComDefine.pb.h>
 
 #define NF_PROXY_CLIENT_TIMER_ID 1
 #define NF_PROXY_CLIENT_INTERVAL_TIME 100
@@ -81,6 +82,23 @@ public:
      * @return
      */
     int OnHandleClientQueueResult(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief 通知网管改变逻辑服务器
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleNotifyProxyChangeLogic(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief
+     * @param clientId
+     * @param force
+     * @param flag
+     * @return
+     */
+    int ProxyLeaveGame(uint64_t clinetId, bool force, proto_ff::LOGOUT_FLAG flag);
 private:
     /*
         对外部客户端监听唯一ID

@@ -24,6 +24,7 @@ public:
         m_logicBusId = 0;
         m_disconnectTime = 0;
         m_online = true;
+        m_charId = 0;
     }
 
     virtual ~NFProxyPlayerInfo()
@@ -75,5 +76,12 @@ private:
     bool m_online;
     bool m_isLogin;
     uint64_t m_playerId;
+    uint64_t m_charId;
+public:
+    uint64_t GetCharId() const;
+
+    void SetCharId(uint64_t charId);
+
+private:
     std::string m_ipAddr;
 };

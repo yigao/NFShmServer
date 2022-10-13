@@ -151,8 +151,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         {
             //强制断开之前的客户端session
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_REPLACE);
-            CHECK_EXPR(retCode != 0, -1, "GateChangeLogic Failed!");
-            return 0;
+            CHECK_RET(retCode, "GateChangeLogic Failed!");
         }
 
         //掉线重登或者被挤, 通知逻辑服退出
@@ -220,7 +219,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
 
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_NORMAL);
-            CHECK_EXPR(retCode != 0, -1, "GateChangeLogic Failed!");
+            CHECK_RET(retCode, "GateChangeLogic Failed!");
             return 0;
         }
         else
@@ -230,7 +229,6 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             {
                 bool ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid);
                 CHECK_EXPR(ret, -1, "NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid) Failed");
-                return 0;
             }
 
             pPlayer->SetStatus(PLAYER_STATE_QUEUE);
@@ -313,7 +311,7 @@ int NFCWorldPlayerModule::GateChangeLogic(NFWorldPlayer *pPlayer, proto_ff::Noti
                ctype, pPlayer->GetClientId(), flag, (int32_t) force, pPlayer->GetPlayerId(), pPlayer->GetStatus(), pPlayer->GetPlayCid(),
                pPlayer->GetLogicId(), logicId);
 
-    pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::WORLD_NOTIFY_PROXY_CHANGE_LOGIC, notify);
+    pPlayer->SendMsgToProxyServer(NF_MODULE_NONE, proto_ff::WORLD_NOTIFY_PROXY_CHANGE_LOGIC, notify);
     return 0;
 }
 

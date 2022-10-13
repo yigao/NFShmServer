@@ -52,6 +52,8 @@ int NFWorldPlayer::CreateInit()
 
 int NFWorldPlayer::ResumeInit()
 {
+    m_isNotifyCloseProxy = false;
+    m_clientId = 0;
     return 0;
 }
 
