@@ -41,8 +41,11 @@ enum NF_SERVER_TYPES
 enum NF_MODULE_TYPE
 {
     NF_MODULE_NONE = 0, //服务器内网通讯
-    NF_MODULE_CLIENT = 0, //客户端外部协议
+    NF_MODULE_CLIENT = 1, //客户端外部协议
+    NF_MODULE_MAX = 2,
 };
+
+#define NF_NET_MAX_MSG_ID 10000
 
 enum PacketParseType
 {

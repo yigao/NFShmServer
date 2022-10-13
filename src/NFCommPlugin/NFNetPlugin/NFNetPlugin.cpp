@@ -48,5 +48,5 @@ void NFNetPlugin::Install()
 
 void NFNetPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFINetModule, NFCNetMessageDriverModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFINetModule, NFCNetModule);
 }

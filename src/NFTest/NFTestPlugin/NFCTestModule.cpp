@@ -52,7 +52,8 @@ NFCTestModule::~NFCTestModule()
 bool NFCTestModule::Init()
 {
     //²âÊÔNFShmHashMapµÄĞÔÄÜ
-    //TestShmHashMap();
+    TestShmHashMap();
+    TestShmHashMap2();
 
     //TestEmailSender();
 

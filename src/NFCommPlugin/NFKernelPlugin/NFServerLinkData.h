@@ -109,11 +109,25 @@ struct NetEventFunctor
 
 struct CallBack {
     //call back
-    std::unordered_map<uint32_t, std::unordered_map<uint32_t, NetReceiveFunctor>> mxReceiveCallBack;
+    CallBack()
+    {
+        mxReceiveCallBack.resize(NF_MODULE_MAX);
+        for(int i = 0; i < (int)mxReceiveCallBack.size(); i++)
+        {
+            mxReceiveCallBack[i].resize(NF_NET_MAX_MSG_ID);
+        }
+    }
+
+    virtual ~CallBack()
+    {
+
+    }
+
+    std::vector<std::vector<NetReceiveFunctor>> mxReceiveCallBack;
     std::unordered_map<uint64_t, NetEventFunctor> mxEventCallBack;
     std::unordered_map<uint64_t, NetReceiveFunctor> mxOtherMsgCallBackList;
     std::unordered_map<uint64_t, NetReceiveFunctor> mxAllMsgCallBackList;
-    std::unordered_map<uint32_t, map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
+    std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;
 };

@@ -414,18 +414,19 @@ bool NFCMessageModule::DelAllCallBack(NF_SERVER_TYPES eType, uint64_t unLinkId)
 
 bool NFCMessageModule::DelAllCallBack(void *pTarget) {
     for (size_t i = 0; i < mxCallBack.size(); i++) {
-        for(auto moduleIter = mxCallBack[i].mxReceiveCallBack.begin(); moduleIter != mxCallBack[i].mxReceiveCallBack.end(); moduleIter++)
+        CallBack& callBack = mxCallBack[i];
+        for(int i = 0; i < (int)callBack.mxReceiveCallBack.size(); i++)
         {
-            for (auto iter = moduleIter->second.begin(); iter != moduleIter->second.end();) {
-                if (iter->second.m_pTarget == pTarget) {
-                    iter = moduleIter->second.erase(iter);
-                } else {
-                    iter++;
+            for(int j = 0; j < (int)callBack.mxReceiveCallBack[i].size(); j++)
+            {
+                if (callBack.mxReceiveCallBack[i][j].m_pTarget != NULL)
+                {
+                    callBack.mxReceiveCallBack[i][j] = NetReceiveFunctor();
                 }
             }
         }
 
-		for (auto iter = mxCallBack[i].mxEventCallBack.begin(); iter != mxCallBack[i].mxEventCallBack.end();)
+		for (auto iter = callBack.mxEventCallBack.begin(); iter != callBack.mxEventCallBack.end();)
 		{
 			if (iter->second.m_pTarget == pTarget)
 			{
@@ -437,11 +438,11 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 			}
 		}
 
-		for (auto iter = mxCallBack[i].mxOtherMsgCallBackList.begin(); iter != mxCallBack[i].mxOtherMsgCallBackList.end();)
+		for (auto iter = callBack.mxOtherMsgCallBackList.begin(); iter != callBack.mxOtherMsgCallBackList.end();)
 		{
 			if (iter->second.m_pTarget == pTarget)
 			{
-				iter = mxCallBack[i].mxOtherMsgCallBackList.erase(iter);
+				iter = callBack.mxOtherMsgCallBackList.erase(iter);
 			}
 			else
 			{
@@ -449,11 +450,11 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 			}
 		}
 
-        for (auto iter = mxCallBack[i].mxAllMsgCallBackList.begin(); iter != mxCallBack[i].mxAllMsgCallBackList.end();)
+        for (auto iter = callBack.mxAllMsgCallBackList.begin(); iter != callBack.mxAllMsgCallBackList.end();)
         {
             if (iter->second.m_pTarget == pTarget)
             {
-                iter = mxCallBack[i].mxAllMsgCallBackList.erase(iter);
+                iter = callBack.mxAllMsgCallBackList.erase(iter);
             }
             else
             {
@@ -467,6 +468,7 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget) {
 bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTarget,
                                           const NET_RECEIVE_FUNCTOR &cb) {
     if (eType < mxCallBack.size()) {
+        CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
         mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb);
         return true;
     }
@@ -476,6 +478,8 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID
 bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void* pTarget, const NET_RECEIVE_FUNCTOR & cb)
 {
     if (eType < mxCallBack.size()) {
+        CHECK_EXPR_ASSERT(nModuleId < NF_MODULE_MAX, false, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
+        CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
         mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb);
         return true;
     }
@@ -515,8 +519,9 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
 	uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
 	if (eServerType < mxCallBack.size()) {
 		uint64_t startTime = NFGetMicroSecondTime();
-        auto allIter = mxCallBack[eServerType].mxAllMsgCallBackList.find(connectionLink);
-        if (allIter != mxCallBack[eServerType].mxAllMsgCallBackList.end()) {
+        CallBack& callBack = mxCallBack[eServerType];
+        auto allIter = callBack.mxAllMsgCallBackList.find(connectionLink);
+        if (allIter != callBack.mxAllMsgCallBackList.end()) {
             NET_RECEIVE_FUNCTOR &pFun = allIter->second.m_pFunctor;
             if (pFun)
             {
@@ -527,22 +532,25 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 }
             }
         }
-        auto it2 = mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].find(packet.nMsgId);
-        if (it2 != mxCallBack[eServerType].mxReceiveCallBack[packet.mModuleId].end()) {
-            NET_RECEIVE_FUNCTOR &pFun = it2->second.m_pFunctor;
+
+        CHECK_EXPR(packet.mModuleId < NF_MODULE_MAX, -1, "nModuleId:{} >= NF_MODULE_MAX", packet.mModuleId);
+        CHECK_EXPR(packet.nMsgId < NF_NET_MAX_MSG_ID, -1, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
+        NetReceiveFunctor& netFunctor = callBack.mxReceiveCallBack[packet.mModuleId][packet.nMsgId];
+        if (netFunctor.m_pTarget != NULL) {
+            NET_RECEIVE_FUNCTOR &pFun = netFunctor.m_pFunctor;
             if (pFun)
             {
                 int iRet = pFun(objectLinkId, packet);
-                it2->second.m_iCount++;
+                netFunctor.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
-                it2->second.m_iAllUseTime += useTime;
-                if (useTime > it2->second.m_iMaxTime)
+                netFunctor.m_iAllUseTime += useTime;
+                if (useTime > netFunctor.m_iMaxTime)
                 {
-                    it2->second.m_iMaxTime = useTime;
+                    netFunctor.m_iMaxTime = useTime;
                 }
-                if (useTime < it2->second.m_iMinTime)
+                if (useTime < netFunctor.m_iMinTime)
                 {
-                    it2->second.m_iMinTime = useTime;
+                    netFunctor.m_iMinTime = useTime;
                 }
                 if (useTime/1000 > 33)
                 {
@@ -553,7 +561,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                                                          || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG, 0, "packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
-                               packet.ToString(), useTime, it2->second.m_iCount, it2->second.m_iAllUseTime, it2->second.m_iAllUseTime/it2->second.m_iCount, it2->second.m_iMinTime, it2->second.m_iMaxTime);
+                               packet.ToString(), useTime, netFunctor.m_iCount, netFunctor.m_iAllUseTime, netFunctor.m_iAllUseTime/netFunctor.m_iCount, netFunctor.m_iMinTime, netFunctor.m_iMaxTime);
                 }
 
                 CHECK_RET(iRet, "packet:{}", packet.ToString());
@@ -562,8 +570,8 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             return 0;
         }
 
-        auto iterator2 = mxCallBack[eServerType].mxOtherMsgCallBackList.find(connectionLink);
-        if (iterator2 != mxCallBack[eServerType].mxOtherMsgCallBackList.end()) {
+        auto iterator2 = callBack.mxOtherMsgCallBackList.find(connectionLink);
+        if (iterator2 != callBack.mxOtherMsgCallBackList.end()) {
             NET_RECEIVE_FUNCTOR &pFun = iterator2->second.m_pFunctor;
             if (pFun)
             {
