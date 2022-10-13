@@ -30,7 +30,10 @@ void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Res
                response->http_code(), response->body().ToString());
     NF_ASSERT(request == response->request());
 
-    NFHttpClientMsg *pMsg = NF_NEW NFHttpClientMsg();
+    NFHttpClientMsg *pMsg = mFreeQueuePool.Alloc();
+    CHECK_EXPR_NOT_RET(pMsg, "mFreeQueuePool.Alloc() Failed");
+    pMsg->Clear();
+
     pMsg->code = response->http_code();
     pMsg->body = response->body().ToString();
     pMsg->reqid = request->GetId();
@@ -128,8 +131,10 @@ void NFCHttpClient::ProcessMsgLogicThread()
                     }
                     m_httpClientMap.erase(iter);
                 }
+
+                pMsg->Clear();
+                mFreeQueuePool.Free(pMsg);
             }
-            NF_SAFE_DELETE(pMsg);
         }
     }
 }

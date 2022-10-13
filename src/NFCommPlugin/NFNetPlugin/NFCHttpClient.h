@@ -26,6 +26,13 @@ public:
         reqid = 0;
     }
 
+    void Clear()
+    {
+        body.clear();
+        code = 0;
+        reqid = 0;
+    }
+
     std::string body;
     int code;
     int reqid;
@@ -80,5 +87,6 @@ private:
     std::unordered_map<int, NFCHttpClientParam *> m_httpClientMap;
     evpp::EventLoopThread m_threadLoop;
     NFConcurrentQueue<NFHttpClientMsg *> mMsgQueue;
+    NFConcurrentQueuePool<NFHttpClientMsg> mFreeQueuePool;
     int m_staticReqId;
 };
