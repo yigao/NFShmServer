@@ -238,7 +238,7 @@ struct NFDataPackage : public NFBaseDataPackage
     bool SerializeBuffer(int byte_size, const google::protobuf::Message& xData)
     {
         mBufferMsg.AssureSpace(byte_size);
-        if (mBufferMsg.Capacity() < byte_size)
+        if ((int)mBufferMsg.Capacity() < byte_size)
         {
             return false;
         }
