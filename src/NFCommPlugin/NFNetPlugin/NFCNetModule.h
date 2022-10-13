@@ -178,7 +178,7 @@ public:
 
     virtual void CopySend(uint64_t usLinkId, NFDataPackage& packet) override;
 
-    virtual void Send(uint64_t usLinkId, NFDataPackage* packet);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage* packet);
 
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK") override;
@@ -202,7 +202,7 @@ protected:
 	 * @brief 将消息编码后通过pServer发送出去
 	 *
 	 */
-    void Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* packet);
+    bool Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* packet);
 private:
 	/**
 	 * @brief	处理接受数据的回调

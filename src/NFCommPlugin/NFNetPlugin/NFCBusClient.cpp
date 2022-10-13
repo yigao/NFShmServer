@@ -173,17 +173,19 @@ bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDat
         mxBuffer.Clear();
         NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, m_bindFlag.mLinkId);
 
-        pPackage->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
-
         int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
-        if (iRet)
+        if (iRet == 0)
+        {
+            pPackage->Clear();
+            NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+            return true;
+        }
+        else
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
-            return false;
         }
     }
-    return true;
+    return false;
 }
 
 void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, int packetParseType, uint64_t linkId, NFDataPackage* pPackage)
@@ -207,24 +209,18 @@ bool NFCBusClient::Send(NFDataPackage* pPackage)
     if (pShmRecord == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed,");
-        pPackage->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
     if (pShmRecord->m_nOwner == true)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "bus owner can't send data, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        pPackage->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
     if (pShmRecord->m_nBuffer == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "buffer = null, uslinkId:{} ", pShmRecord->m_nUnLinkId);
-        pPackage->Clear();
-        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
         return false;
     }
 
@@ -236,7 +232,5 @@ bool NFCBusClient::Send(NFDataPackage* pPackage)
         return SendToLoop(pChannel, pShmRecord->mPacketParseType, pPackage);
     }
 
-    pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }

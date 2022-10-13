@@ -221,8 +221,6 @@ void NFCBusServer::ProcessMsgLogicThread()
 bool NFCBusServer::Send(NFDataPackage* pPackage)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., packet:{}", pPackage->ToString());
-    pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 

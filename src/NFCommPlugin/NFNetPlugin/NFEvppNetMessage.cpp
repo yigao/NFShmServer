@@ -599,8 +599,6 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage* pPackage)
         return Send(pObject, pPackage);
     }
 
-    pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 
@@ -623,7 +621,11 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 
                     pPacket->mModuleId = 0;
                     pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
-                    Send(pObject->GetLinkId(), pPacket);
+                    if (!Send(pObject->GetLinkId(), pPacket))
+                    {
+                        pPacket->Clear();
+                        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+                    }
                     return;
                 }
             }
@@ -715,8 +717,6 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
         return true;
     }
 
-    pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 
@@ -742,7 +742,11 @@ void  NFEvppNetMessage::SendHeartMsg()
             CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetInfoPool<NFDataPackage>::Instance()->Alloc()");
             pPacket->mModuleId = 0;
             pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
-			Send(m_connectionList[i]->GetLinkId(), pPacket);
+			if (!Send(m_connectionList[i]->GetLinkId(), pPacket))
+            {
+                pPacket->Clear();
+                NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+            }
 		}
 	}
 }

@@ -152,8 +152,6 @@ bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage* pPackage)
     }
 
     NFLogError(NF_LOG_SYSTEMLOG, 0, "usLinkId:{} not find", usLinkId);
-    pPackage->Clear();
-    NFNetInfoPool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
     return false;
 }
 

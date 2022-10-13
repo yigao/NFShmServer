@@ -1025,7 +1025,11 @@ int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
     pPacket->nParam2 = busLength;
     pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
 
-    Send(pPacket);
+    if (!Send(pPacket))
+    {
+        pPacket->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    }
     return 0;
 }
 
@@ -1039,7 +1043,11 @@ int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
     pPacket->nParam2 = busLength;
     pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
 
-    Send(pPacket);
+    if (!Send(pPacket))
+    {
+        pPacket->Clear();
+        NFNetInfoPool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
+    }
     return 0;
 }
 
