@@ -84,3 +84,19 @@
    obj:*
    fun:_ZN9NFIPlugin5AwakeEv
 }
+{
+   evpp::EventLoop::IsInLoopThread() const
+   Memcheck:Addr8
+   fun:_ZNK4evpp9EventLoop14IsInLoopThreadEv
+   fun:_ZNK4evpp9TCPClient4connEv
+   fun:_ZN4evpp9TCPClientD1Ev
+   fun:_ZNSt15_Sp_counted_ptrIPN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+   fun:_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+   fun:_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED1Ev
+   fun:_ZNSt12__shared_ptrIN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EED1Ev
+   fun:_ZNSt12__shared_ptrIN4evpp9TCPClientELN9__gnu_cxx12_Lock_policyE2EE5resetEv
+   fun:_ZN12NFEvppClient8FinalizeEv
+   fun:_ZN16NFEvppNetMessage8FinalizeEv
+   fun:_ZN12NFCNetModule8FinalizeEv
+   fun:_ZN9NFIPlugin8FinalizeEv
+}
