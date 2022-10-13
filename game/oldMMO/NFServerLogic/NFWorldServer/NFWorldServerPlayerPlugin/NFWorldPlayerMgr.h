@@ -126,6 +126,13 @@ public:
      * @return
      */
     uint32_t GetLoginQueueNum() const;
+
+    /**
+     * @brief 删除玩家的排队信息
+     * @param playerId
+     * @return
+     */
+    int DeleteLoginQueue(uint64_t playerId);
 public:
 
 private:

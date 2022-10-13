@@ -234,3 +234,13 @@ uint32_t NFWorldPlayerMgr::GetLoginQueueNum() const
 {
     return (uint32_t)m_loginQueueMap.GetUsedNum();
 }
+
+/**
+ * @brief 删除玩家的排队信息
+ * @param playerId
+ * @return
+ */
+int NFWorldPlayerMgr::DeleteLoginQueue(uint64_t playerId)
+{
+    return m_loginQueueMap.Erase(playerId);
+}

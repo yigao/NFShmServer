@@ -178,20 +178,15 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
                    || oldStatus == PLAYER_STATE_LOADCHARLIS
                    || oldStatus == PLAYER_STATE_QUEUE)
         {
-/*            //如果旧账号处于 登录或者向DB请求角色列表或者排队状态，直接删除m_cidMap中旧账号的记录
-            m_clientIdMap.erase(oldUid->clientId);
-            m_uidMap.erase(uid);
+            //如果旧账号处于 登录或者向DB请求角色列表或者排队状态，直接删除m_cidMap中旧账号的记录
             //如果是排队状态，需要从排队列表移除
-            if (oldUid->state == UID_STATE_QUEUE)
+            if (oldStatus == PLAYER_STATE_QUEUE)
             {
-                LoginQueue queueInfo;
-                queueInfo.uid = uid;
-                UID_QUEUE::iterator iterQueue = std::find(m_vUIDQueue.begin(), m_vUIDQueue.end(), queueInfo);
-                if (iterQueue != m_vUIDQueue.end())
+                if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(uid))
                 {
-                    m_vUIDQueue.erase(iterQueue);
+                    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->DeleteLoginQueue(uid);
                 }
-            }*/
+            }
         }
     }
 
