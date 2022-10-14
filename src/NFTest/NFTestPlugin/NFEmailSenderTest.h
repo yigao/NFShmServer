@@ -18,7 +18,7 @@
 void TestEmailSender()
 {
 
-    CSmtpSendMail sendMail;
+    NFSmtpSendMail sendMail;
     sendMail.SetSmtpServer("mangguoyi445@163.com","QQLMFJBVAMYDAOQQ","smtp.163.com", "465");
     sendMail.SetSendName("Server Dump Info");
     sendMail.SetSendMail("mangguoyi445@163.com");

@@ -113,7 +113,7 @@ std::string base64_decode(std::string const& encoded_string)
 	return std::move(ret);
 }
  
-CSmtpSendMail::CSmtpSendMail(const std::string & charset)
+NFSmtpSendMail::NFSmtpSendMail(const std::string & charset)
 {
     static bool curInit = false;
     if (!curInit)
@@ -125,7 +125,7 @@ CSmtpSendMail::CSmtpSendMail(const std::string & charset)
     m_vRecvMail.clear();
 }
  
-void CSmtpSendMail::SetSmtpServer(const std::string & username, const std::string &password, const std::string & servername, const std::string & port)
+void NFSmtpSendMail::SetSmtpServer(const std::string & username, const std::string &password, const std::string & servername, const std::string & port)
 {
     m_strUserName = username;
     m_strPassword = password;
@@ -133,7 +133,7 @@ void CSmtpSendMail::SetSmtpServer(const std::string & username, const std::strin
     m_strPort = port;
 }
  
-void CSmtpSendMail::SetSendName(const std::string & sendname)
+void NFSmtpSendMail::SetSendName(const std::string & sendname)
 {
     std::string strTemp = "";
     strTemp += "=?";
@@ -145,17 +145,17 @@ void CSmtpSendMail::SetSendName(const std::string & sendname)
     //m_strSendName = sendname;
 }
  
-void CSmtpSendMail::SetSendMail(const std::string & sendmail)
+void NFSmtpSendMail::SetSendMail(const std::string & sendmail)
 {
     m_strSendMail = sendmail;
 }
  
-void CSmtpSendMail::AddRecvMail(const std::string & recvmail)
+void NFSmtpSendMail::AddRecvMail(const std::string & recvmail)
 {
     m_vRecvMail.push_back(recvmail);
 }
  
-void CSmtpSendMail::SetSubject(const std::string & subject)
+void NFSmtpSendMail::SetSubject(const std::string & subject)
 {
     std::string strTemp = "";
     strTemp = "Subject: ";
@@ -167,17 +167,17 @@ void CSmtpSendMail::SetSubject(const std::string & subject)
     m_strSubject = strTemp;
 }
  
-void CSmtpSendMail::SetBodyContent(const std::string & content)
+void NFSmtpSendMail::SetBodyContent(const std::string & content)
 {
     m_strContent = content;
 }
  
-void CSmtpSendMail::AddAttachment(const std::string & filename)
+void NFSmtpSendMail::AddAttachment(const std::string & filename)
 {
     m_vAttachMent.push_back(filename);
 }
  
-bool CSmtpSendMail::SendMail()
+bool NFSmtpSendMail::SendMail()
 {
     CreatMessage();
     bool ret = true;
@@ -238,7 +238,7 @@ bool CSmtpSendMail::SendMail()
         /* We're using a callback function to specify the payload (the headers and
         * body of the message). You could just use the CURLOPT_READDATA option to
         * specify a FILE pointer to read from. */
-        curl_easy_setopt(curl, CURLOPT_READFUNCTION, &CSmtpSendMail::payload_source);
+        curl_easy_setopt(curl, CURLOPT_READFUNCTION, &NFSmtpSendMail::payload_source);
         curl_easy_setopt(curl, CURLOPT_READDATA, (void *)&stream);
         curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
         /* Since the traffic will be encrypted, it is very useful to turn on debug
@@ -271,7 +271,7 @@ bool CSmtpSendMail::SendMail()
     return ret;
 }
  
-size_t CSmtpSendMail::payload_source(void *ptr, size_t size, size_t nmemb, void *stream)
+size_t NFSmtpSendMail::payload_source(void *ptr, size_t size, size_t nmemb, void *stream)
 {
     size_t num_bytes = size * nmemb;
     char* data = (char*)ptr;
@@ -280,7 +280,7 @@ size_t CSmtpSendMail::payload_source(void *ptr, size_t size, size_t nmemb, void 
     return strstream->gcount();
 }
  
-void CSmtpSendMail::CreatMessage()
+void NFSmtpSendMail::CreatMessage()
 {
     m_strMessage = "From: ";
     m_strMessage += m_strSendName + "<" + m_strSendMail + ">"/*m_strSendMail*/;
@@ -359,7 +359,7 @@ void CSmtpSendMail::CreatMessage()
 }
  
  
-int CSmtpSendMail::GetFileType(std::string const & stype)
+int NFSmtpSendMail::GetFileType(std::string const & stype)
 {
     if (stype == "txt")
     {
@@ -392,7 +392,7 @@ int CSmtpSendMail::GetFileType(std::string const & stype)
     return -1;
 }
  
-void CSmtpSendMail::SetFileName(const std::string & FileName)
+void NFSmtpSendMail::SetFileName(const std::string & FileName)
 {
     std::string EncodedFileName = "=?";
     EncodedFileName += m_strCharset;
@@ -402,7 +402,7 @@ void CSmtpSendMail::SetFileName(const std::string & FileName)
     m_strFileName = EncodedFileName;
 }
  
-void CSmtpSendMail::SetContentType(std::string const & stype)
+void NFSmtpSendMail::SetContentType(std::string const & stype)
 {
     int type = GetFileType(stype);
     switch (type)
@@ -434,7 +434,7 @@ void CSmtpSendMail::SetContentType(std::string const & stype)
     }
 }
  
-void CSmtpSendMail::GetFileName(const std::string& file, std::string& filename)
+void NFSmtpSendMail::GetFileName(const std::string& file, std::string& filename)
 {
     std::string::size_type p = file.find_last_of('/');
     if (p == std::string::npos)
@@ -446,7 +446,7 @@ void CSmtpSendMail::GetFileName(const std::string& file, std::string& filename)
     }
 }
  
-void CSmtpSendMail::GetFileType(const std::string & file, std::string & stype)
+void NFSmtpSendMail::GetFileType(const std::string & file, std::string & stype)
 {
     std::string::size_type p = file.find_last_of('.');
     if (p != std::string::npos)

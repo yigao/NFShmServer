@@ -19,9 +19,9 @@
 #define SKIP_HOSTNAME_VERIFICATION  
  
  
-class CSmtpSendMail {
+class NFSmtpSendMail {
 public:
-	CSmtpSendMail(const std::string & charset = "UTF-8"); // 也可以传入utf
+	NFSmtpSendMail(const std::string & charset = "UTF-8"); // 也可以传入utf
  
 	//设置stmp用户名、密码、服务器、端口（端口其实不用指定，libcurl默认25，但如果是smtps则默认是465）  
 	void SetSmtpServer(const std::string &username, const std::string& password, const std::string& servername, const std::string &port = "25");

@@ -7,6 +7,7 @@
 
 #include <NFComm/NFPluginModule/NFIConfigModule.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include <NFComm/NFPluginModule/NFITaskModule.h>
 #include "NFCNetModule.h"
 
 #include "NFComm/NFPluginModule/NFIPlugin.h"
@@ -684,7 +685,9 @@ int NFCNetModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
 
-    CSmtpSendMail sendMail;
+    FindModule<NFITaskModule>()->
+
+    NFSmtpSendMail sendMail;
     sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
     sendMail.SetSendName(title);
     sendMail.SetSendMail(pConfig->sendEmail);
