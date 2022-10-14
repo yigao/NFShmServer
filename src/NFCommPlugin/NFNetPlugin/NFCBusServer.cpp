@@ -25,20 +25,13 @@ NFCBusServer::~NFCBusServer()
 
 bool NFCBusServer::Execute()
 {
-    if (!m_eventLoop)
-    {
-        ProcessMsgLogicThread();
-    }
     return true;
 }
 
 bool NFCBusServer::Init()
 {
-    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
-    {
-        m_eventLoop = NF_NEW evpp::EventLoopThread();
-        m_eventLoop->Start(true);
-    }
+    m_eventLoop = NF_NEW evpp::EventLoopThread();
+    m_eventLoop->Start(true);
 
     int64_t linkId = BindServer(mFlag);
     if (linkId <= 0)
@@ -91,10 +84,10 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
         return -1;
     }
 
-    int ret = AttachShm((key_t)flag.mBusId, (size_t)flag.mBusLength, NULL, NULL);
+    int ret = AttachShm((key_t)flag.mBusId, (size_t)flag.mBusLength);
     if (ret < 0)
     {
-        ret = InitShm((key_t)flag.mBusId, (size_t)flag.mBusLength, NULL, NULL);
+        ret = InitShm((key_t)flag.mBusId, (size_t)flag.mBusLength);
     }
 
     if (ret < 0)

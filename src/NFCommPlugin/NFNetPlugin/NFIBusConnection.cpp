@@ -286,42 +286,58 @@ std::pair<size_t, size_t> NFIBusConnection::LastAction()
     return std::make_pair(m_nLastActionChannelBeginNodeIndex, m_nLastActionChannelEndNodeIndex);
 }
 
-int NFIBusConnection::AttachShm(key_t shm_key, size_t len, NFShmChannel **channel, const NFShmConf *conf)
+int NFIBusConnection::AttachShmCheck(void *buffer, size_t len)
 {
-    size_t real_size;
-    void *buffer;
-
     // 缓冲区最小长度为数据头+空洞node的长度
     if (len < sizeof(NFShmChannelHead) + NFShmBlock::node_data_size + NFShmBlock::node_head_size)
     {
         return EN_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
     }
 
+    NFShmChannelHead *head = (NFShmChannelHead *)buffer;
+
+    if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nShmChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME))) {
+        return EN_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
+    }
+
+    // check channel version
+    if (SHM_CHANNEL_VERSION != head->m_nShmChannel.m_channelVersion) {
+        return EN_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
+    }
+
+    if (NFBUS_MACRO_DATA_ALIGN_SIZE != head->m_nShmChannel.m_channelAlignSize) {
+        return EN_NFBUS_ERR_CHANNEL_ALIGN_SIZE_MISMATCH;
+    }
+
+    if (sizeof(size_t) != head->m_nShmChannel.m_channelHostSize) {
+        return EN_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
+    }
+
+    return EN_NFBUS_ERR_SUCCESS;
+}
+
+int NFIBusConnection::AttachShm(key_t shm_key, size_t len)
+{
+    size_t real_size;
+    void *buffer;
+
     int ret = OpenShmBuffer(shm_key, len, &buffer, &real_size, false);
     if (ret < 0) return ret;
 
-    NFShmChannelHead *head = (NFShmChannelHead *)buffer;
-    if (channel) *channel = &head->m_nShmChannel;
-
-    if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nShmChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME))) {
+    ret = AttachShmCheck(buffer, real_size);
+    if (ret < 0) {
         CloseShmBuffer();
-        return EN_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
+        return ret;
     }
 
     return ret;
 }
 
-int NFIBusConnection::InitShm(key_t shm_key, size_t len, NFShmChannel **channel, const NFShmConf *conf)
+int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
 {
-    size_t real_size;
-    void *buffer;
-
     // 缓冲区最小长度为数据头+空洞node的长度
     if (len < sizeof(NFShmChannelHead) + NFShmBlock::node_data_size + NFShmBlock::node_head_size)
         return EN_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
-
-    int ret = OpenShmBuffer(shm_key, len, &buffer, &real_size, true);
-    if (ret < 0) return ret;
 
     memset(buffer, 0x00, len);
     NFShmChannelHead *head = (NFShmChannelHead *)buffer;
@@ -345,21 +361,31 @@ int NFIBusConnection::InitShm(key_t shm_key, size_t len, NFShmChannel **channel,
     head->m_nShmChannel.m_nAreaEndOffset = head->m_nShmChannel.m_nAreaDataOffset + head->m_nShmChannel.m_nNodeCount * head->m_nShmChannel.m_nNodeSize;
 
     // 配置初始化
-    if (NULL != conf) {
-        CopyConf(head->m_nShmChannel.m_nConf, *conf);
-    }
-    else {
-        CreateDefaultConf(&head->m_nShmChannel);
-    }
-
-    // 输出
-    if (channel) *channel = &head->m_nShmChannel;
+    CreateDefaultConf(&head->m_nShmChannel);
 
     static_assert(sizeof(head->m_nShmChannel.m_nNodeMagic) >= (sizeof(SHM_CHANNEL_NAME) - 1), "magic text size error");
 
     memcpy(head->m_nShmChannel.m_nNodeMagic, SHM_CHANNEL_NAME, sizeof(head->m_nShmChannel.m_nNodeMagic));
 
+    head->m_nShmChannel.m_channelVersion = SHM_CHANNEL_VERSION;
+    head->m_nShmChannel.m_channelAlignSize = NFBUS_MACRO_DATA_ALIGN_SIZE;
+    head->m_nShmChannel.m_channelHostSize = static_cast<uint16_t>(sizeof(size_t));
+
     return EN_NFBUS_ERR_SUCCESS;
+}
+
+int NFIBusConnection::InitShm(key_t shm_key, size_t len)
+{
+    size_t real_size;
+    void *buffer;
+
+    int ret = OpenShmBuffer(shm_key, len, &buffer, &real_size, true);
+    if (ret < 0) return ret;
+
+    ret = InitShmBuffer(buffer, real_size);
+    if (ret < 0) return ret;
+
+    return 0;
 }
 
 int NFIBusConnection::CloseShm()

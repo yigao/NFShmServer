@@ -32,7 +32,7 @@ struct NFShmStatsBlockError {
 	size_t m_ReadCheckHashFailedCount;       // 读到的数据hash值检查错误数量
 };
 
-#ifdef WIN32
+#if NF_PLATFORM == NF_PLATFORM_WIN
 struct NFShmRecordType {
     NFShmRecordType()
     {
@@ -66,6 +66,14 @@ struct NFShmRecordType{
 };
 #endif
 
+#if NF_PLATFORM == NF_PLATFORM_WIN
+__pragma(pack(push, 1))
+#  define NFBUS_MACRO_PACK_ATTR
+#else
+#  define NFBUS_MACRO_PACK_ATTR
+// #define NFBUS_MACRO_PACK_ATTR __attribute__((packed))
+#endif
+
 // 配置数据结构
 struct NFShmConf {
 	size_t m_nProtectNodeCount;
@@ -74,12 +82,15 @@ struct NFShmConf {
 
 	size_t m_nWriteRetryTimes;
 	// TODO 接收端校验号(用于保证只有一个接收者)
-	volatile NFAtomic<size_t> m_nAtomicRecverIdentify;
-};
+	volatile std::atomic<size_t> m_nAtomicRecverIdentify;
+} NFBUS_MACRO_PACK_ATTR;
 
 // 通道头
 struct NFShmChannel {
 	char m_nNodeMagic[8]; // 魔术串，用于标识数据类型
+    uint16_t m_channelVersion;
+    uint16_t m_channelAlignSize;
+    uint16_t m_channelHostSize;
 
 	// 数据节点
 	size_t m_nNodeSize;
@@ -89,13 +100,13 @@ struct NFShmChannel {
 	// [atomic_read_cur, atomic_write_cur) 内的数据块都是已使用的数据块
 	// atomic_write_cur指向的数据块一定是空块，故而必然有一个node的空洞
 	// c11的stdatomic.h在很多编译器不支持并且还有些潜规则(gcc 不能使用-fno-builtin 和 -march=xxx)，故而使用c++版本
-	volatile NFAtomic<size_t> m_nAtomicReadCur;  // util::lock::atomic_int_type也是POD类型
-	volatile NFAtomic<size_t> m_nAtomicWriteCur; // util::lock::atomic_int_type也是POD类型
+	volatile std::atomic<size_t> m_nAtomicReadCur;  //
+	volatile std::atomic<size_t> m_nAtomicWriteCur; //
 
 	// 第一次读到正在写入数据的时间
 	uint64_t m_nFirstFailedWritingTime;
 
-	volatile NFAtomic<uint32_t> m_nAtomicOperationSeq; // 操作序列号(用于保证只有一个接收者)
+	volatile std::atomic<uint32_t> m_nAtomicOperationSeq; // 操作序列号(用于保证只有一个接收者)
 
 	// 配置
 	NFShmConf m_nConf;
@@ -114,24 +125,29 @@ struct NFShmChannel {
 	size_t m_nReadCheckBlockSizeFailedCount; // 读到的数据块长度检查错误数量
 	size_t m_nReadCheckNodeSizeFailedCount;  // 读到的数据节点和长度检查错误数量
 	size_t m_nReadCheckHashFailedCount;       // 读到的数据节点和长度检查错误数量
-};
+} NFBUS_MACRO_PACK_ATTR;
+
+#if NF_PLATFORM == NF_PLATFORM_WIN
+__pragma(pack(pop))
+#endif
+
+
+static_assert(std::is_standard_layout<NFShmChannel>::value, "shm_channel must be a standard layout");
 
 struct NFShmAddr
 {
-    volatile NFAtomic<uint64_t> mDstLinkId;
-    volatile NFAtomic<uint64_t> mSrcLinkId[NFBUS_MACRO_SRC_BUS_LIMIT];
-    volatile NFAtomic<uint64_t> mSrcBusLength[NFBUS_MACRO_SRC_BUS_LIMIT];
-    volatile NFAtomic<uint32_t> mSrcParseType[NFBUS_MACRO_SRC_BUS_LIMIT];
-    volatile NFAtomic<bool>  bActiveConnect[NFBUS_MACRO_SRC_BUS_LIMIT];
+    volatile std::atomic<uint64_t> mDstLinkId;
+    volatile std::atomic<uint64_t> mSrcLinkId[NFBUS_MACRO_SRC_BUS_LIMIT];
+    volatile std::atomic<uint64_t> mSrcBusLength[NFBUS_MACRO_SRC_BUS_LIMIT];
+    volatile std::atomic<uint32_t> mSrcParseType[NFBUS_MACRO_SRC_BUS_LIMIT];
+    volatile std::atomic<bool>  bActiveConnect[NFBUS_MACRO_SRC_BUS_LIMIT];
 };
-
-static_assert(std::is_standard_layout<NFShmChannel>::value, "shm_channel must be a standard layout");
 
 // 对齐头
 typedef struct {
 	NFShmChannel m_nShmChannel;
 	NFShmAddr m_nShmAddr;
-	char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到4KB,用于以后拓展
+	char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到12KB,用于以后拓展
 } NFShmChannelHead;
 
 
@@ -148,7 +164,7 @@ typedef struct {
 // 数据头
 typedef struct {
 	size_t m_nBufferSize;
-	NFDataAlignType m_nFastCheck;
+    uint64_t m_nFastCheck;
 } NFShmBlockHead;
 
 
@@ -164,8 +180,8 @@ typedef enum {
 struct NFShmBlock {
 	enum size_def {
 		channel_head_size = sizeof(NFShmChannelHead),
-		block_head_size = ((sizeof(NFShmBlockHead) - 1) / sizeof(NFDataAlignType) + 1) * sizeof(NFDataAlignType),
-		node_head_size = ((sizeof(NFShmNodeHead) - 1) / sizeof(NFDataAlignType) + 1) * sizeof(NFDataAlignType),
+		block_head_size = ((sizeof(NFShmBlockHead) + NFBUS_MACRO_DATA_ALIGN_SIZE - 1) / NFBUS_MACRO_DATA_ALIGN_SIZE) * NFBUS_MACRO_DATA_ALIGN_SIZE,
+		node_head_size = ((sizeof(NFShmNodeHead) + NFBUS_MACRO_DATA_ALIGN_SIZE - 1) / NFBUS_MACRO_DATA_ALIGN_SIZE) * NFBUS_MACRO_DATA_ALIGN_SIZE,
 
 		node_data_size = NFBUS_MACRO_DATA_NODE_SIZE,
 		node_head_data_size = node_data_size - block_head_size,

@@ -111,21 +111,33 @@ public:
      * @brief attach上一块共享内存
      * @param shm_key 共享内存Key
      * @param len 共享内存长度
-     * @param channel 获得共享内存结构体
-     * @param conf 设置的共享内存配置
      * @return int
      */
-    virtual int AttachShm(key_t shm_key, size_t len, NFShmChannel **channel, const NFShmConf *conf);
+    virtual int AttachShm(key_t shm_key, size_t len);
+
+    /**
+     * @brief 对attach的内存进行检查
+     * @param buffer
+     * @param len
+     * @return
+     */
+    virtual int AttachShmCheck(void *buffer, size_t len);
 
     /**
      * @brief 初始化上一块共享内存
      * @param shm_key 共享内存Key
      * @param len 共享内存长度
-     * @param channel 获得共享内存结构体
-     * @param conf 设置的共享内存配置
      * @return int
      */
-    virtual int InitShm(key_t shm_key, size_t len, NFShmChannel **channel, const NFShmConf *conf);
+    virtual int InitShm(key_t shm_key, size_t len);
+
+    /**
+     * @brief 初始化上一块共享内存
+     * @param buffer
+     * @param len
+     * @return
+     */
+    virtual int InitShmBuffer(void *buffer, size_t len);
 
     /**
      * @brief 关闭一块共享内存
