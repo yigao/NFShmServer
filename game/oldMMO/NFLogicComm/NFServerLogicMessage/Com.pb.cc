@@ -29,9 +29,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Vector2PB_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Vector2PB_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Attr64_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Attr64_reflection_ = NULL;
 const ::google::protobuf::Descriptor* RoleDBInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RoleDBInfo_reflection_ = NULL;
@@ -41,15 +38,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* LoginSyncProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LoginSyncProto_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Attr_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Attr_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ItemProtoInfo_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ItemProtoInfo_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ItemProtoInfo_blustarAttr_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ItemProtoInfo_blustarAttr_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* EAttrGroup_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ECreatureAttr_descriptor_ = NULL;
 
@@ -109,23 +97,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Vector2PB));
-  Attr64_descriptor_ = file->message_type(3);
-  static const int Attr64_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr64, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr64, value_),
-  };
-  Attr64_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Attr64_descriptor_,
-      Attr64::default_instance_,
-      Attr64_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr64, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr64, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Attr64));
-  RoleDBInfo_descriptor_ = file->message_type(4);
+  RoleDBInfo_descriptor_ = file->message_type(3);
   static const int RoleDBInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, name_),
@@ -143,7 +115,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleDBInfo));
-  RoleFacadeProto_descriptor_ = file->message_type(5);
+  RoleFacadeProto_descriptor_ = file->message_type(4);
   static const int RoleFacadeProto_offsets_[1] = {
   };
   RoleFacadeProto_reflection_ =
@@ -157,7 +129,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleFacadeProto));
-  LoginSyncProto_descriptor_ = file->message_type(6);
+  LoginSyncProto_descriptor_ = file->message_type(5);
   static const int LoginSyncProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_name_),
@@ -175,62 +147,6 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LoginSyncProto));
-  Attr_descriptor_ = file->message_type(7);
-  static const int Attr_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr, val_),
-  };
-  Attr_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Attr_descriptor_,
-      Attr::default_instance_,
-      Attr_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Attr, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Attr));
-  ItemProtoInfo_descriptor_ = file->message_type(8);
-  static const int ItemProtoInfo_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, item_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, item_num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, bind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, baseattr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, index_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, refineex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, con_attr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, expiretime_),
-  };
-  ItemProtoInfo_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      ItemProtoInfo_descriptor_,
-      ItemProtoInfo::default_instance_,
-      ItemProtoInfo_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ItemProtoInfo));
-  ItemProtoInfo_blustarAttr_descriptor_ = ItemProtoInfo_descriptor_->nested_type(0);
-  static const int ItemProtoInfo_blustarAttr_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo_blustarAttr, attrid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo_blustarAttr, levelinterval_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo_blustarAttr, attrvalue_),
-  };
-  ItemProtoInfo_blustarAttr_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      ItemProtoInfo_blustarAttr_descriptor_,
-      ItemProtoInfo_blustarAttr::default_instance_,
-      ItemProtoInfo_blustarAttr_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo_blustarAttr, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemProtoInfo_blustarAttr, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ItemProtoInfo_blustarAttr));
   EAttrGroup_descriptor_ = file->enum_type(0);
   ECreatureAttr_descriptor_ = file->enum_type(1);
 }
@@ -252,19 +168,11 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Vector2PB_descriptor_, &Vector2PB::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Attr64_descriptor_, &Attr64::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RoleDBInfo_descriptor_, &RoleDBInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RoleFacadeProto_descriptor_, &RoleFacadeProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LoginSyncProto_descriptor_, &LoginSyncProto::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Attr_descriptor_, &Attr::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ItemProtoInfo_descriptor_, &ItemProtoInfo::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ItemProtoInfo_blustarAttr_descriptor_, &ItemProtoInfo_blustarAttr::default_instance());
 }
 
 }  // namespace
@@ -276,20 +184,12 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete Vector3PB_reflection_;
   delete Vector2PB::default_instance_;
   delete Vector2PB_reflection_;
-  delete Attr64::default_instance_;
-  delete Attr64_reflection_;
   delete RoleDBInfo::default_instance_;
   delete RoleDBInfo_reflection_;
   delete RoleFacadeProto::default_instance_;
   delete RoleFacadeProto_reflection_;
   delete LoginSyncProto::default_instance_;
   delete LoginSyncProto_reflection_;
-  delete Attr::default_instance_;
-  delete Attr_reflection_;
-  delete ItemProtoInfo::default_instance_;
-  delete ItemProtoInfo_reflection_;
-  delete ItemProtoInfo_blustarAttr::default_instance_;
-  delete ItemProtoInfo_blustarAttr_reflection_;
 }
 
 void protobuf_AddDesc_Com_2eproto() {
@@ -306,109 +206,91 @@ void protobuf_AddDesc_Com_2eproto() {
     "roto\032\022common_logic.proto\032\017ComDefine.prot"
     "o\"\016\n\014EmptyMessage\",\n\tVector3PB\022\t\n\001x\030\001 \002("
     "\002\022\t\n\001y\030\002 \002(\002\022\t\n\001z\030\003 \002(\002\"!\n\tVector2PB\022\t\n\001"
-    "x\030\001 \002(\002\022\t\n\001y\030\002 \002(\002\"#\n\006Attr64\022\n\n\002id\030\001 \002(\r"
-    "\022\r\n\005value\030\002 \002(\003\"D\n\nRoleDBInfo\022\013\n\003cid\030\001 \002"
-    "(\004\022\014\n\004name\030\002 \002(\t\022\014\n\004prof\030\003 \002(\r\022\r\n\005level\030"
-    "\004 \002(\r\"\021\n\017RoleFacadeProto\"`\n\016LoginSyncPro"
-    "to\022\020\n\010guild_id\030\001 \001(\r\022\022\n\nguild_name\030\002 \001(\t"
-    "\022\022\n\nguild_duty\030\003 \001(\005\022\024\n\014guild_leader\030\005 \001"
-    "(\004\"\037\n\004Attr\022\n\n\002id\030\001 \002(\r\022\013\n\003val\030\002 \002(\r\"\266\002\n\r"
-    "ItemProtoInfo\022\017\n\007item_id\030\001 \002(\004\022\020\n\010item_n"
-    "um\030\002 \002(\003\022\014\n\004bind\030\003 \001(\005\022 \n\010baseattr\030\004 \003(\013"
-    "2\016.proto_ff.Attr\022\r\n\005index\030\005 \001(\005\022\r\n\005level"
-    "\030\006 \001(\005\022 \n\010refineex\030\010 \003(\0132\016.proto_ff.Attr"
-    "\0225\n\010con_attr\030\t \003(\0132#.proto_ff.ItemProtoI"
-    "nfo.blustarAttr\022\022\n\nexpireTime\030\n \001(\004\032G\n\013b"
-    "lustarAttr\022\016\n\006attrid\030\001 \002(\r\022\025\n\rlevelinter"
-    "val\030\002 \002(\r\022\021\n\tattrvalue\030\003 \002(\r*c\n\nEAttrGro"
-    "up\022\024\n\020EAttrGroup_Level\020\001\022\024\n\020EAttrGroup_S"
-    "kill\020\002\022\023\n\017EAttrGroup_Buff\020\003\022\024\n\020EAttrGrou"
-    "p_Equip\020\004*\340\023\n\rECreatureAttr\022\n\n\006A_NONE\020\000\022"
-    "\020\n\014A_HP_RECOVER\020\001\022\013\n\007A_SPEED\020\002\022\014\n\010A_MAX_"
-    "HP\020\003\022\t\n\005A_ATK\020\004\022\t\n\005A_DEF\020\005\022\014\n\010A_PIERCE\020\006"
-    "\022\020\n\014A_DIVINE_ATK\020\007\022\020\n\014A_DIVINE_DEF\020\010\022\t\n\005"
-    "A_HIT\020\t\022\013\n\007A_DODGE\020\n\022\n\n\006A_CRIT\020\013\022\013\n\007A_TO"
-    "UGH\020\014\022\n\n\006A_KILL\020\r\022\013\n\007A_PARRY\020\016\022\016\n\nA_HIT_"
-    "RATE\020\017\022\020\n\014A_DODGE_RATE\020\020\022\017\n\013A_CRIT_RATE\020"
-    "\021\022\020\n\014A_TOUGH_RATE\020\022\022\017\n\013A_KILL_RATE\020\023\022\020\n\014"
-    "A_PARRY_RATE\020\024\022\016\n\nA_CRIT_DAM\020\025\022\017\n\013A_CRIT"
-    "_REDU\020\026\022\016\n\nA_KILL_DAM\020\027\022\017\n\013A_KILL_REDU\020\030"
-    "\022\r\n\tA_DAM_ADD\020\031\022\016\n\nA_DAM_REDU\020\032\022\r\n\tA_PVP"
-    "_DAM\020\033\022\017\n\013A_PVP_ARMOR\020\034\022\021\n\rA_MON_DAM_ADD"
-    "\020\035\022\022\n\016A_MON_DAM_REDU\020\036\022\022\n\016A_BOSS_DAM_ADD"
-    "\020\037\022\023\n\017A_BOSS_DAM_REDU\020 \022\021\n\rA_CONTROL_ADD"
-    "\020!\022\022\n\016A_CONTROL_REDU\020\"\022\020\n\014A_MAX_HP_ADD\020#"
-    "\022\r\n\tA_ATK_ADD\020$\022\r\n\tA_DEF_ADD\020%\022\020\n\014A_PIER"
-    "CE_ADD\020&\022\021\n\rA_DIV_ATK_ADD\020\'\022\021\n\rA_DIV_DEF"
-    "_ADD\020(\022\r\n\tA_HIT_ADD\020)\022\017\n\013A_DODGE_ADD\020*\022\016"
-    "\n\nA_CRIT_ADD\020+\022\017\n\013A_TOUGH_ADD\020,\022\016\n\nA_KIL"
-    "L_ADD\020-\022\017\n\013A_PARRY_ADD\020.\022\013\n\007A_BA_HP\020/\022\014\n"
-    "\010A_BA_ATK\0200\022\014\n\010A_BA_DEF\0201\022\017\n\013A_BA_PIERCE"
-    "\0202\022\014\n\010A_EQU_HP\0203\022\r\n\tA_EQU_ATK\0204\022\r\n\tA_EQU"
-    "_DEF\0205\022\020\n\014A_EQU_PIERCE\0206\022\r\n\tA_SUP_ATK\0207\022"
-    "\020\n\014A_SUP_PIERCE\0208\022\022\n\016A_PAR_ATTR_ADD\0209\022\020\n"
-    "\014A_PAR_HP_ADD\020:\022\021\n\rA_PAR_ATK_ADD\020;\022\021\n\rA_"
-    "PAR_DEF_ADD\020<\022\022\n\016A_PAR_PIER_ADD\020=\022\022\n\016A_S"
-    "TR_ATTR_ADD\020>\022\023\n\017A_WING_ATTR_ADD\020\?\022\022\n\016A_"
-    "MAG_ATTR_ADD\020@\022\022\n\016A_ART_ATTR_ADD\020A\022\025\n\021A_"
-    "ATKART_ATTR_ADD\020B\022\024\n\020A_HPART_ATTR_ADD\020C\022"
-    "\026\n\022A_CRITART_ATTR_ADD\020D\022\026\n\022A_KILLART_ATT"
-    "R_ADD\020E\022\022\n\016A_FAI_ATTR_ADD\020F\022\020\n\014A_FAI_HP_"
-    "ADD\020G\022\021\n\rA_FAI_ATK_ADD\020H\022\021\n\rA_FAI_DEF_AD"
-    "D\020I\022\022\n\016A_FAI_PIER_ADD\020J\022\017\n\013A_SPEED_ADD\020K"
-    "\022\r\n\tA_EXP_ADD\020L\022\017\n\013A_DROP_RATE\020M\022\023\n\017A_SK"
-    "ILL_DAM_ADD\020N\022\024\n\020A_SKILL_DAM_REDU\020O\022\017\n\013A"
-    "_FIGHT_END\020d\022\013\n\007A_FIGHT\020e\022\t\n\005A_EXP\020f\022\014\n\010"
-    "A_CUR_HP\020g\022\n\n\006A_PROF\020h\022\n\n\006A_GOLD\020i\022\r\n\tA_"
-    "DIAMOND\020j\022\022\n\016A_DIAMOND_BIND\020k\022\t\n\005A_SEX\020l"
-    "\022\013\n\007A_LEVEL\020m\022\020\n\014A_OCCUPATION\020n\022\016\n\nA_APT"
-    "ITUDE\020o\022\016\n\nA_WING_EXP\020p\022\017\n\013A_USE_TITLE\020q"
-    "\022\022\n\016A_DUPLICATE_ID\020r\022\r\n\tA_TEAM_ID\020s\022\021\n\rA"
-    "_TEAM_LEADER\020t\022\020\n\014A_ARENA_COIN\020u\022\022\n\016A_ST"
-    "AR_ESSENCE\020v\022\016\n\nA_STAR_EXP\020w\022\023\n\017A_STAR_F"
-    "RAGMENT\020x\022\016\n\nA_UNION_ID\020y\022\022\n\016A_UNION_LEA"
-    "DER\020z\022\017\n\013A_ESCORT_ID\020{\022\021\n\rA_HANGUP_TIME\020"
-    "|\022\020\n\014A_UNION_DUTY\020}\022\021\n\rA_UNION_LEVEL\020~\022\020"
-    "\n\014A_ACTIVE_NUM\020\177\022\024\n\017A_CLONESS_LEVEL\020\200\001\022\020"
-    "\n\013A_VIP_LEVEL\020\201\001\022\024\n\017A_WORLD_EXP_ADD\020\202\001\022\023"
-    "\n\016A_SMALL_SPIRIT\020\203\001\022\021\n\014A_BIG_SPIRIT\020\204\001\022\022"
-    "\n\rA_GODHOOD_EXP\020\205\001\022\016\n\tA_CAMP_ID\020\206\001\022\035\n\030A_"
-    "RECHARGE_DISCOUNT_DATE\020\207\001\022\023\n\016A_FRIEND_CO"
-    "UNT\020\210\001\022\020\n\013A_FIELD_EXP\020\211\001\022\025\n\020A_COMBAT_TEA"
-    "M_ID\020\212\001\022\021\n\014A_SOLO_SCORE\020\213\001\022\025\n\020A_SOLO_PRV"
-    "_SCORE\020\214\001\022\023\n\016A_TEAM_EXP_ADD\020\215\001\022\031\n\024A_MARR"
-    "Y_TEAM_EXP_ADD\020\216\001\022\022\n\rA_DUP_EXP_ADD\020\217\001\022\030\n"
-    "\023A_CONTINUS_KILL_NUM\020\220\001\022\022\n\rA_DRAGONS_NUM"
-    "\020\221\001\022\027\n\022A_VIP_CARD_DIAMOND\020\222\001\022\023\n\016A_HOLY_D"
-    "IAMOND\020\223\001\022\024\n\017A_GOLD_JUAN_NUM\020\224\001\022\026\n\021A_SIL"
-    "VER_JUAN_NUM\020\225\001\022\021\n\014A_RELIVE_NUM\020\226\001\022\027\n\022A_"
-    "LAST_RELIVE_TIME\020\227\001\022\022\n\rA_DEAD_MAP_ID\020\230\001\022"
-    "\026\n\021A_DEAD_STATIC_NUM\020\231\001\022\016\n\tA_DEAD_CD\020\232\001\022"
-    "\021\n\014A_FUSHI_TIME\020\233\001\022\021\n\014A_STAR_STONE\020\234\001\022\016\n"
-    "\tA_VOUCHER\020\235\001\022\016\n\tA_WAIGUAN\020\236\001\022\021\n\014A_COMMO"
-    "N_END\020\220\003\022\n\n\005A_MAX\020\270\027", 3380);
+    "x\030\001 \002(\002\022\t\n\001y\030\002 \002(\002\"D\n\nRoleDBInfo\022\013\n\003cid\030"
+    "\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\014\n\004prof\030\003 \002(\r\022\r\n\005lev"
+    "el\030\004 \002(\r\"\021\n\017RoleFacadeProto\"`\n\016LoginSync"
+    "Proto\022\020\n\010guild_id\030\001 \001(\r\022\022\n\nguild_name\030\002 "
+    "\001(\t\022\022\n\nguild_duty\030\003 \001(\005\022\024\n\014guild_leader\030"
+    "\005 \001(\004*c\n\nEAttrGroup\022\024\n\020EAttrGroup_Level\020"
+    "\001\022\024\n\020EAttrGroup_Skill\020\002\022\023\n\017EAttrGroup_Bu"
+    "ff\020\003\022\024\n\020EAttrGroup_Equip\020\004*\340\023\n\rECreature"
+    "Attr\022\n\n\006A_NONE\020\000\022\020\n\014A_HP_RECOVER\020\001\022\013\n\007A_"
+    "SPEED\020\002\022\014\n\010A_MAX_HP\020\003\022\t\n\005A_ATK\020\004\022\t\n\005A_DE"
+    "F\020\005\022\014\n\010A_PIERCE\020\006\022\020\n\014A_DIVINE_ATK\020\007\022\020\n\014A"
+    "_DIVINE_DEF\020\010\022\t\n\005A_HIT\020\t\022\013\n\007A_DODGE\020\n\022\n\n"
+    "\006A_CRIT\020\013\022\013\n\007A_TOUGH\020\014\022\n\n\006A_KILL\020\r\022\013\n\007A_"
+    "PARRY\020\016\022\016\n\nA_HIT_RATE\020\017\022\020\n\014A_DODGE_RATE\020"
+    "\020\022\017\n\013A_CRIT_RATE\020\021\022\020\n\014A_TOUGH_RATE\020\022\022\017\n\013"
+    "A_KILL_RATE\020\023\022\020\n\014A_PARRY_RATE\020\024\022\016\n\nA_CRI"
+    "T_DAM\020\025\022\017\n\013A_CRIT_REDU\020\026\022\016\n\nA_KILL_DAM\020\027"
+    "\022\017\n\013A_KILL_REDU\020\030\022\r\n\tA_DAM_ADD\020\031\022\016\n\nA_DA"
+    "M_REDU\020\032\022\r\n\tA_PVP_DAM\020\033\022\017\n\013A_PVP_ARMOR\020\034"
+    "\022\021\n\rA_MON_DAM_ADD\020\035\022\022\n\016A_MON_DAM_REDU\020\036\022"
+    "\022\n\016A_BOSS_DAM_ADD\020\037\022\023\n\017A_BOSS_DAM_REDU\020 "
+    "\022\021\n\rA_CONTROL_ADD\020!\022\022\n\016A_CONTROL_REDU\020\"\022"
+    "\020\n\014A_MAX_HP_ADD\020#\022\r\n\tA_ATK_ADD\020$\022\r\n\tA_DE"
+    "F_ADD\020%\022\020\n\014A_PIERCE_ADD\020&\022\021\n\rA_DIV_ATK_A"
+    "DD\020\'\022\021\n\rA_DIV_DEF_ADD\020(\022\r\n\tA_HIT_ADD\020)\022\017"
+    "\n\013A_DODGE_ADD\020*\022\016\n\nA_CRIT_ADD\020+\022\017\n\013A_TOU"
+    "GH_ADD\020,\022\016\n\nA_KILL_ADD\020-\022\017\n\013A_PARRY_ADD\020"
+    ".\022\013\n\007A_BA_HP\020/\022\014\n\010A_BA_ATK\0200\022\014\n\010A_BA_DEF"
+    "\0201\022\017\n\013A_BA_PIERCE\0202\022\014\n\010A_EQU_HP\0203\022\r\n\tA_E"
+    "QU_ATK\0204\022\r\n\tA_EQU_DEF\0205\022\020\n\014A_EQU_PIERCE\020"
+    "6\022\r\n\tA_SUP_ATK\0207\022\020\n\014A_SUP_PIERCE\0208\022\022\n\016A_"
+    "PAR_ATTR_ADD\0209\022\020\n\014A_PAR_HP_ADD\020:\022\021\n\rA_PA"
+    "R_ATK_ADD\020;\022\021\n\rA_PAR_DEF_ADD\020<\022\022\n\016A_PAR_"
+    "PIER_ADD\020=\022\022\n\016A_STR_ATTR_ADD\020>\022\023\n\017A_WING"
+    "_ATTR_ADD\020\?\022\022\n\016A_MAG_ATTR_ADD\020@\022\022\n\016A_ART"
+    "_ATTR_ADD\020A\022\025\n\021A_ATKART_ATTR_ADD\020B\022\024\n\020A_"
+    "HPART_ATTR_ADD\020C\022\026\n\022A_CRITART_ATTR_ADD\020D"
+    "\022\026\n\022A_KILLART_ATTR_ADD\020E\022\022\n\016A_FAI_ATTR_A"
+    "DD\020F\022\020\n\014A_FAI_HP_ADD\020G\022\021\n\rA_FAI_ATK_ADD\020"
+    "H\022\021\n\rA_FAI_DEF_ADD\020I\022\022\n\016A_FAI_PIER_ADD\020J"
+    "\022\017\n\013A_SPEED_ADD\020K\022\r\n\tA_EXP_ADD\020L\022\017\n\013A_DR"
+    "OP_RATE\020M\022\023\n\017A_SKILL_DAM_ADD\020N\022\024\n\020A_SKIL"
+    "L_DAM_REDU\020O\022\017\n\013A_FIGHT_END\020d\022\013\n\007A_FIGHT"
+    "\020e\022\t\n\005A_EXP\020f\022\014\n\010A_CUR_HP\020g\022\n\n\006A_PROF\020h\022"
+    "\n\n\006A_GOLD\020i\022\r\n\tA_DIAMOND\020j\022\022\n\016A_DIAMOND_"
+    "BIND\020k\022\t\n\005A_SEX\020l\022\013\n\007A_LEVEL\020m\022\020\n\014A_OCCU"
+    "PATION\020n\022\016\n\nA_APTITUDE\020o\022\016\n\nA_WING_EXP\020p"
+    "\022\017\n\013A_USE_TITLE\020q\022\022\n\016A_DUPLICATE_ID\020r\022\r\n"
+    "\tA_TEAM_ID\020s\022\021\n\rA_TEAM_LEADER\020t\022\020\n\014A_ARE"
+    "NA_COIN\020u\022\022\n\016A_STAR_ESSENCE\020v\022\016\n\nA_STAR_"
+    "EXP\020w\022\023\n\017A_STAR_FRAGMENT\020x\022\016\n\nA_UNION_ID"
+    "\020y\022\022\n\016A_UNION_LEADER\020z\022\017\n\013A_ESCORT_ID\020{\022"
+    "\021\n\rA_HANGUP_TIME\020|\022\020\n\014A_UNION_DUTY\020}\022\021\n\r"
+    "A_UNION_LEVEL\020~\022\020\n\014A_ACTIVE_NUM\020\177\022\024\n\017A_C"
+    "LONESS_LEVEL\020\200\001\022\020\n\013A_VIP_LEVEL\020\201\001\022\024\n\017A_W"
+    "ORLD_EXP_ADD\020\202\001\022\023\n\016A_SMALL_SPIRIT\020\203\001\022\021\n\014"
+    "A_BIG_SPIRIT\020\204\001\022\022\n\rA_GODHOOD_EXP\020\205\001\022\016\n\tA"
+    "_CAMP_ID\020\206\001\022\035\n\030A_RECHARGE_DISCOUNT_DATE\020"
+    "\207\001\022\023\n\016A_FRIEND_COUNT\020\210\001\022\020\n\013A_FIELD_EXP\020\211"
+    "\001\022\025\n\020A_COMBAT_TEAM_ID\020\212\001\022\021\n\014A_SOLO_SCORE"
+    "\020\213\001\022\025\n\020A_SOLO_PRV_SCORE\020\214\001\022\023\n\016A_TEAM_EXP"
+    "_ADD\020\215\001\022\031\n\024A_MARRY_TEAM_EXP_ADD\020\216\001\022\022\n\rA_"
+    "DUP_EXP_ADD\020\217\001\022\030\n\023A_CONTINUS_KILL_NUM\020\220\001"
+    "\022\022\n\rA_DRAGONS_NUM\020\221\001\022\027\n\022A_VIP_CARD_DIAMO"
+    "ND\020\222\001\022\023\n\016A_HOLY_DIAMOND\020\223\001\022\024\n\017A_GOLD_JUA"
+    "N_NUM\020\224\001\022\026\n\021A_SILVER_JUAN_NUM\020\225\001\022\021\n\014A_RE"
+    "LIVE_NUM\020\226\001\022\027\n\022A_LAST_RELIVE_TIME\020\227\001\022\022\n\r"
+    "A_DEAD_MAP_ID\020\230\001\022\026\n\021A_DEAD_STATIC_NUM\020\231\001"
+    "\022\016\n\tA_DEAD_CD\020\232\001\022\021\n\014A_FUSHI_TIME\020\233\001\022\021\n\014A"
+    "_STAR_STONE\020\234\001\022\016\n\tA_VOUCHER\020\235\001\022\016\n\tA_WAIG"
+    "UAN\020\236\001\022\021\n\014A_COMMON_END\020\220\003\022\n\n\005A_MAX\020\270\027", 2997);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
   Vector3PB::default_instance_ = new Vector3PB();
   Vector2PB::default_instance_ = new Vector2PB();
-  Attr64::default_instance_ = new Attr64();
   RoleDBInfo::default_instance_ = new RoleDBInfo();
   RoleFacadeProto::default_instance_ = new RoleFacadeProto();
   LoginSyncProto::default_instance_ = new LoginSyncProto();
-  Attr::default_instance_ = new Attr();
-  ItemProtoInfo::default_instance_ = new ItemProtoInfo();
-  ItemProtoInfo_blustarAttr::default_instance_ = new ItemProtoInfo_blustarAttr();
   EmptyMessage::default_instance_->InitAsDefaultInstance();
   Vector3PB::default_instance_->InitAsDefaultInstance();
   Vector2PB::default_instance_->InitAsDefaultInstance();
-  Attr64::default_instance_->InitAsDefaultInstance();
   RoleDBInfo::default_instance_->InitAsDefaultInstance();
   RoleFacadeProto::default_instance_->InitAsDefaultInstance();
   LoginSyncProto::default_instance_->InitAsDefaultInstance();
-  Attr::default_instance_->InitAsDefaultInstance();
-  ItemProtoInfo::default_instance_->InitAsDefaultInstance();
-  ItemProtoInfo_blustarAttr::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Com_2eproto);
 }
 
@@ -1275,255 +1157,6 @@ void Vector2PB::Swap(Vector2PB* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Attr64::kIdFieldNumber;
-const int Attr64::kValueFieldNumber;
-#endif  // !_MSC_VER
-
-Attr64::Attr64()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Attr64::InitAsDefaultInstance() {
-}
-
-Attr64::Attr64(const Attr64& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Attr64::SharedCtor() {
-  _cached_size_ = 0;
-  id_ = 0u;
-  value_ = GOOGLE_LONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Attr64::~Attr64() {
-  SharedDtor();
-}
-
-void Attr64::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Attr64::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Attr64::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Attr64_descriptor_;
-}
-
-const Attr64& Attr64::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-Attr64* Attr64::default_instance_ = NULL;
-
-Attr64* Attr64::New() const {
-  return new Attr64;
-}
-
-void Attr64::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0u;
-    value_ = GOOGLE_LONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Attr64::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &id_)));
-          set_has_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_value;
-        break;
-      }
-
-      // required int64 value = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &value_)));
-          set_has_value();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Attr64::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
-  }
-
-  // required int64 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->value(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Attr64::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
-  }
-
-  // required int64 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->value(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Attr64::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->id());
-    }
-
-    // required int64 value = 2;
-    if (has_value()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->value());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Attr64::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Attr64* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Attr64*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Attr64::MergeFrom(const Attr64& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
-    }
-    if (from.has_value()) {
-      set_value(from.value());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Attr64::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Attr64::CopyFrom(const Attr64& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Attr64::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-
-  return true;
-}
-
-void Attr64::Swap(Attr64* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(value_, other->value_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Attr64::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Attr64_descriptor_;
-  metadata.reflection = Attr64_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
 const int RoleDBInfo::kCidFieldNumber;
 const int RoleDBInfo::kNameFieldNumber;
 const int RoleDBInfo::kProfFieldNumber;
@@ -2364,1088 +1997,6 @@ void LoginSyncProto::Swap(LoginSyncProto* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = LoginSyncProto_descriptor_;
   metadata.reflection = LoginSyncProto_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Attr::kIdFieldNumber;
-const int Attr::kValFieldNumber;
-#endif  // !_MSC_VER
-
-Attr::Attr()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Attr::InitAsDefaultInstance() {
-}
-
-Attr::Attr(const Attr& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Attr::SharedCtor() {
-  _cached_size_ = 0;
-  id_ = 0u;
-  val_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Attr::~Attr() {
-  SharedDtor();
-}
-
-void Attr::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Attr::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Attr::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Attr_descriptor_;
-}
-
-const Attr& Attr::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-Attr* Attr::default_instance_ = NULL;
-
-Attr* Attr::New() const {
-  return new Attr;
-}
-
-void Attr::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0u;
-    val_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Attr::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &id_)));
-          set_has_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_val;
-        break;
-      }
-
-      // required uint32 val = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_val:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &val_)));
-          set_has_val();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Attr::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
-  }
-
-  // required uint32 val = 2;
-  if (has_val()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->val(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Attr::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
-  }
-
-  // required uint32 val = 2;
-  if (has_val()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->val(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Attr::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->id());
-    }
-
-    // required uint32 val = 2;
-    if (has_val()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->val());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Attr::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Attr* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Attr*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Attr::MergeFrom(const Attr& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
-    }
-    if (from.has_val()) {
-      set_val(from.val());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Attr::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Attr::CopyFrom(const Attr& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Attr::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-
-  return true;
-}
-
-void Attr::Swap(Attr* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(val_, other->val_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Attr::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Attr_descriptor_;
-  metadata.reflection = Attr_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int ItemProtoInfo_blustarAttr::kAttridFieldNumber;
-const int ItemProtoInfo_blustarAttr::kLevelintervalFieldNumber;
-const int ItemProtoInfo_blustarAttr::kAttrvalueFieldNumber;
-#endif  // !_MSC_VER
-
-ItemProtoInfo_blustarAttr::ItemProtoInfo_blustarAttr()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void ItemProtoInfo_blustarAttr::InitAsDefaultInstance() {
-}
-
-ItemProtoInfo_blustarAttr::ItemProtoInfo_blustarAttr(const ItemProtoInfo_blustarAttr& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void ItemProtoInfo_blustarAttr::SharedCtor() {
-  _cached_size_ = 0;
-  attrid_ = 0u;
-  levelinterval_ = 0u;
-  attrvalue_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-ItemProtoInfo_blustarAttr::~ItemProtoInfo_blustarAttr() {
-  SharedDtor();
-}
-
-void ItemProtoInfo_blustarAttr::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void ItemProtoInfo_blustarAttr::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* ItemProtoInfo_blustarAttr::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ItemProtoInfo_blustarAttr_descriptor_;
-}
-
-const ItemProtoInfo_blustarAttr& ItemProtoInfo_blustarAttr::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-ItemProtoInfo_blustarAttr* ItemProtoInfo_blustarAttr::default_instance_ = NULL;
-
-ItemProtoInfo_blustarAttr* ItemProtoInfo_blustarAttr::New() const {
-  return new ItemProtoInfo_blustarAttr;
-}
-
-void ItemProtoInfo_blustarAttr::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    attrid_ = 0u;
-    levelinterval_ = 0u;
-    attrvalue_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool ItemProtoInfo_blustarAttr::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 attrid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &attrid_)));
-          set_has_attrid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_levelinterval;
-        break;
-      }
-
-      // required uint32 levelinterval = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_levelinterval:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &levelinterval_)));
-          set_has_levelinterval();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_attrvalue;
-        break;
-      }
-
-      // required uint32 attrvalue = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_attrvalue:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &attrvalue_)));
-          set_has_attrvalue();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void ItemProtoInfo_blustarAttr::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint32 attrid = 1;
-  if (has_attrid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->attrid(), output);
-  }
-
-  // required uint32 levelinterval = 2;
-  if (has_levelinterval()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->levelinterval(), output);
-  }
-
-  // required uint32 attrvalue = 3;
-  if (has_attrvalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->attrvalue(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* ItemProtoInfo_blustarAttr::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint32 attrid = 1;
-  if (has_attrid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->attrid(), target);
-  }
-
-  // required uint32 levelinterval = 2;
-  if (has_levelinterval()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->levelinterval(), target);
-  }
-
-  // required uint32 attrvalue = 3;
-  if (has_attrvalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->attrvalue(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int ItemProtoInfo_blustarAttr::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 attrid = 1;
-    if (has_attrid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->attrid());
-    }
-
-    // required uint32 levelinterval = 2;
-    if (has_levelinterval()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->levelinterval());
-    }
-
-    // required uint32 attrvalue = 3;
-    if (has_attrvalue()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->attrvalue());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void ItemProtoInfo_blustarAttr::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const ItemProtoInfo_blustarAttr* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ItemProtoInfo_blustarAttr*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void ItemProtoInfo_blustarAttr::MergeFrom(const ItemProtoInfo_blustarAttr& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_attrid()) {
-      set_attrid(from.attrid());
-    }
-    if (from.has_levelinterval()) {
-      set_levelinterval(from.levelinterval());
-    }
-    if (from.has_attrvalue()) {
-      set_attrvalue(from.attrvalue());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void ItemProtoInfo_blustarAttr::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ItemProtoInfo_blustarAttr::CopyFrom(const ItemProtoInfo_blustarAttr& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ItemProtoInfo_blustarAttr::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
-
-  return true;
-}
-
-void ItemProtoInfo_blustarAttr::Swap(ItemProtoInfo_blustarAttr* other) {
-  if (other != this) {
-    std::swap(attrid_, other->attrid_);
-    std::swap(levelinterval_, other->levelinterval_);
-    std::swap(attrvalue_, other->attrvalue_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata ItemProtoInfo_blustarAttr::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ItemProtoInfo_blustarAttr_descriptor_;
-  metadata.reflection = ItemProtoInfo_blustarAttr_reflection_;
-  return metadata;
-}
-
-
-// -------------------------------------------------------------------
-
-#ifndef _MSC_VER
-const int ItemProtoInfo::kItemIdFieldNumber;
-const int ItemProtoInfo::kItemNumFieldNumber;
-const int ItemProtoInfo::kBindFieldNumber;
-const int ItemProtoInfo::kBaseattrFieldNumber;
-const int ItemProtoInfo::kIndexFieldNumber;
-const int ItemProtoInfo::kLevelFieldNumber;
-const int ItemProtoInfo::kRefineexFieldNumber;
-const int ItemProtoInfo::kConAttrFieldNumber;
-const int ItemProtoInfo::kExpireTimeFieldNumber;
-#endif  // !_MSC_VER
-
-ItemProtoInfo::ItemProtoInfo()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void ItemProtoInfo::InitAsDefaultInstance() {
-}
-
-ItemProtoInfo::ItemProtoInfo(const ItemProtoInfo& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void ItemProtoInfo::SharedCtor() {
-  _cached_size_ = 0;
-  item_id_ = GOOGLE_ULONGLONG(0);
-  item_num_ = GOOGLE_LONGLONG(0);
-  bind_ = 0;
-  index_ = 0;
-  level_ = 0;
-  expiretime_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-ItemProtoInfo::~ItemProtoInfo() {
-  SharedDtor();
-}
-
-void ItemProtoInfo::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void ItemProtoInfo::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* ItemProtoInfo::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ItemProtoInfo_descriptor_;
-}
-
-const ItemProtoInfo& ItemProtoInfo::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-ItemProtoInfo* ItemProtoInfo::default_instance_ = NULL;
-
-ItemProtoInfo* ItemProtoInfo::New() const {
-  return new ItemProtoInfo;
-}
-
-void ItemProtoInfo::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    item_id_ = GOOGLE_ULONGLONG(0);
-    item_num_ = GOOGLE_LONGLONG(0);
-    bind_ = 0;
-    index_ = 0;
-    level_ = 0;
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    expiretime_ = GOOGLE_ULONGLONG(0);
-  }
-  baseattr_.Clear();
-  refineex_.Clear();
-  con_attr_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool ItemProtoInfo::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 item_id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &item_id_)));
-          set_has_item_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_item_num;
-        break;
-      }
-
-      // required int64 item_num = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_item_num:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &item_num_)));
-          set_has_item_num();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_bind;
-        break;
-      }
-
-      // optional int32 bind = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bind:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bind_)));
-          set_has_bind();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_baseattr;
-        break;
-      }
-
-      // repeated .proto_ff.Attr baseattr = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_baseattr:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_baseattr()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_baseattr;
-        if (input->ExpectTag(40)) goto parse_index;
-        break;
-      }
-
-      // optional int32 index = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_index:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &index_)));
-          set_has_index();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_level;
-        break;
-      }
-
-      // optional int32 level = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_level:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &level_)));
-          set_has_level();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(66)) goto parse_refineex;
-        break;
-      }
-
-      // repeated .proto_ff.Attr refineex = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_refineex:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_refineex()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(66)) goto parse_refineex;
-        if (input->ExpectTag(74)) goto parse_con_attr;
-        break;
-      }
-
-      // repeated .proto_ff.ItemProtoInfo.blustarAttr con_attr = 9;
-      case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_con_attr:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_con_attr()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(74)) goto parse_con_attr;
-        if (input->ExpectTag(80)) goto parse_expireTime;
-        break;
-      }
-
-      // optional uint64 expireTime = 10;
-      case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_expireTime:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &expiretime_)));
-          set_has_expiretime();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void ItemProtoInfo::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint64 item_id = 1;
-  if (has_item_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->item_id(), output);
-  }
-
-  // required int64 item_num = 2;
-  if (has_item_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->item_num(), output);
-  }
-
-  // optional int32 bind = 3;
-  if (has_bind()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->bind(), output);
-  }
-
-  // repeated .proto_ff.Attr baseattr = 4;
-  for (int i = 0; i < this->baseattr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->baseattr(i), output);
-  }
-
-  // optional int32 index = 5;
-  if (has_index()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->index(), output);
-  }
-
-  // optional int32 level = 6;
-  if (has_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->level(), output);
-  }
-
-  // repeated .proto_ff.Attr refineex = 8;
-  for (int i = 0; i < this->refineex_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->refineex(i), output);
-  }
-
-  // repeated .proto_ff.ItemProtoInfo.blustarAttr con_attr = 9;
-  for (int i = 0; i < this->con_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->con_attr(i), output);
-  }
-
-  // optional uint64 expireTime = 10;
-  if (has_expiretime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->expiretime(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* ItemProtoInfo::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint64 item_id = 1;
-  if (has_item_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->item_id(), target);
-  }
-
-  // required int64 item_num = 2;
-  if (has_item_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->item_num(), target);
-  }
-
-  // optional int32 bind = 3;
-  if (has_bind()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->bind(), target);
-  }
-
-  // repeated .proto_ff.Attr baseattr = 4;
-  for (int i = 0; i < this->baseattr_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->baseattr(i), target);
-  }
-
-  // optional int32 index = 5;
-  if (has_index()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->index(), target);
-  }
-
-  // optional int32 level = 6;
-  if (has_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->level(), target);
-  }
-
-  // repeated .proto_ff.Attr refineex = 8;
-  for (int i = 0; i < this->refineex_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        8, this->refineex(i), target);
-  }
-
-  // repeated .proto_ff.ItemProtoInfo.blustarAttr con_attr = 9;
-  for (int i = 0; i < this->con_attr_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        9, this->con_attr(i), target);
-  }
-
-  // optional uint64 expireTime = 10;
-  if (has_expiretime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->expiretime(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int ItemProtoInfo::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint64 item_id = 1;
-    if (has_item_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->item_id());
-    }
-
-    // required int64 item_num = 2;
-    if (has_item_num()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->item_num());
-    }
-
-    // optional int32 bind = 3;
-    if (has_bind()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->bind());
-    }
-
-    // optional int32 index = 5;
-    if (has_index()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->index());
-    }
-
-    // optional int32 level = 6;
-    if (has_level()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->level());
-    }
-
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional uint64 expireTime = 10;
-    if (has_expiretime()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->expiretime());
-    }
-
-  }
-  // repeated .proto_ff.Attr baseattr = 4;
-  total_size += 1 * this->baseattr_size();
-  for (int i = 0; i < this->baseattr_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->baseattr(i));
-  }
-
-  // repeated .proto_ff.Attr refineex = 8;
-  total_size += 1 * this->refineex_size();
-  for (int i = 0; i < this->refineex_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->refineex(i));
-  }
-
-  // repeated .proto_ff.ItemProtoInfo.blustarAttr con_attr = 9;
-  total_size += 1 * this->con_attr_size();
-  for (int i = 0; i < this->con_attr_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->con_attr(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void ItemProtoInfo::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const ItemProtoInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ItemProtoInfo*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void ItemProtoInfo::MergeFrom(const ItemProtoInfo& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  baseattr_.MergeFrom(from.baseattr_);
-  refineex_.MergeFrom(from.refineex_);
-  con_attr_.MergeFrom(from.con_attr_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_item_id()) {
-      set_item_id(from.item_id());
-    }
-    if (from.has_item_num()) {
-      set_item_num(from.item_num());
-    }
-    if (from.has_bind()) {
-      set_bind(from.bind());
-    }
-    if (from.has_index()) {
-      set_index(from.index());
-    }
-    if (from.has_level()) {
-      set_level(from.level());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_expiretime()) {
-      set_expiretime(from.expiretime());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void ItemProtoInfo::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ItemProtoInfo::CopyFrom(const ItemProtoInfo& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ItemProtoInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-
-  for (int i = 0; i < baseattr_size(); i++) {
-    if (!this->baseattr(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < refineex_size(); i++) {
-    if (!this->refineex(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < con_attr_size(); i++) {
-    if (!this->con_attr(i).IsInitialized()) return false;
-  }
-  return true;
-}
-
-void ItemProtoInfo::Swap(ItemProtoInfo* other) {
-  if (other != this) {
-    std::swap(item_id_, other->item_id_);
-    std::swap(item_num_, other->item_num_);
-    std::swap(bind_, other->bind_);
-    baseattr_.Swap(&other->baseattr_);
-    std::swap(index_, other->index_);
-    std::swap(level_, other->level_);
-    refineex_.Swap(&other->refineex_);
-    con_attr_.Swap(&other->con_attr_);
-    std::swap(expiretime_, other->expiretime_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata ItemProtoInfo::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ItemProtoInfo_descriptor_;
-  metadata.reflection = ItemProtoInfo_reflection_;
   return metadata;
 }
 

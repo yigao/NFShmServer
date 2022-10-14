@@ -156,6 +156,92 @@ message CharacterDBBaseInfo
   optional int64 gmpoint_limit 	= 72;	//GM点数上限
 }
 
+//属性通用结构体
+message Attr
+{
+  optional uint32 AttrNum = 1;    //属性索引id
+  optional uint32 Attrvalue = 2;  //属性值
+}
+
+//64位属性通信结构
+message Attr64
+{
+  optional uint32 AttrNum = 1;    //属性索引id
+  optional int64 Attrvalue = 2;   //属性值
+}
+
+//领域材料属性
+message FieldItemAttrInfo
+{
+  repeated Attr   base_attr		= 1[(yd_fieldoptions.field_arysize)=128];		// 基础属性
+  repeated Attr	star_attr		= 2[(yd_fieldoptions.field_arysize)=128];		// 星级属性
+  repeated Attr 	blue_star_attr	= 3[(yd_fieldoptions.field_arysize)=128];		// 蓝星属性
+  optional int32	refine_level	= 4;		// 精炼等级
+}
+
+//结婚装备信息,只有装备孔是13,14时候有用
+message MarryEquipInfo
+{
+  optional int32 	strong_lv		= 1;
+  optional int32 	strong_exp		= 2;
+  optional int32 	stage_lv		= 3;
+}
+
+//合成装备时 扣除的 单个装备信息
+message ComposeSingleCostProto
+{
+  optional uint64 itemid = 1;	//装备ID，配置ID
+  optional int32 bind = 2;	//是否绑定
+}
+
+//合成装备 扣除的所有装备 信息
+message ComposeCostProto
+{
+  repeated ComposeSingleCostProto info = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message blustarAttr
+{
+  optional uint32 attrid =1; //属性id
+  optional uint32 levelinterval =2;	//所加属性的等级间隔
+  optional uint32 attrvalue   =3;		//每个间隔所加属性值
+}
+
+//物品结构
+message ItemProtoInfo
+{
+  optional uint64 item_id			= 1;		//物品ID(配置ID)
+  optional int64  item_num		= 2;		//物品数量
+  optional int32  bind			= 3;		//绑定状态 0 非绑定，1 绑定
+  repeated Attr   baseattr		= 4[(yd_fieldoptions.field_arysize)=128];		//基础属性
+  optional int32  index			= 5;		//索引(穿戴装备标示穿戴位置,背包中表示格子索引)
+  optional int32  level			= 6;		//等级
+  repeated Attr   refineex		= 8[(yd_fieldoptions.field_arysize)=128];		//星级属性
+  repeated blustarAttr   con_attr	= 9[(yd_fieldoptions.field_arysize)=128];		//固定附加属性(对应蓝色星条属性值)
+  optional uint64 expireTime		= 10;		//过期时间
+  optional FieldItemAttrInfo		field_data = 11;	// 领域材料属性数据
+  optional MarryEquipInfo			marry_equip_data = 12;	//结婚装备信息
+  optional ComposeCostProto		compose = 13;	//装备合成时 扣除的整备信息 (废弃)
+  optional uint64  out_time		= 14;			//过期时间(0 不会过期，>0 有过期时间)
+
+}
+
+//背包数据
+message CharacterDBPackageBag
+{
+  optional uint32 package_type = 1;
+  optional uint32 expand_num   = 2;
+  repeated ItemProtoInfo items = 3[(yd_fieldoptions.field_arysize)=128];
+  optional int32 	offset = 4;
+}
+
+
+//背包数据
+message CharacterDBPackageData
+{
+  repeated CharacterDBPackageBag bags = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
 message tbRoleInfo
 {
   optional uint64 charId = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
@@ -164,4 +250,5 @@ message tbRoleInfo
   optional string charName = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
   optional string platId = 5[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
   optional CharacterDBBaseInfo    baseData				= 20;    // 基础信息
+  optional CharacterDBPackageData itemData				= 21;    // 物品信息，暂时不知物品结构，先以bytes占位 @temp by JinnM
 }

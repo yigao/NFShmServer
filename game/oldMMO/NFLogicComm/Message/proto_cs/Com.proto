@@ -25,16 +25,6 @@ message Vector2PB{
   required float y	=2;
 }
 
-//64位属性通信结构
-message Attr64
-{
-  required uint32 id = 1;    //属性索引id
-  required int64 value = 2;   //属性值
-}
-
-
-
-
 //角色DB信息
 message RoleDBInfo
 {
@@ -231,31 +221,3 @@ enum ECreatureAttr
 
 }
 
-
-//属性通用结构体
-message Attr
-{
-  required uint32 id = 1;    //属性索引id
-  required uint32 val = 2;   //属性值
-}
-
-//物品结构
-message ItemProtoInfo
-{
-  message blustarAttr
-  {
-    required uint32 attrid =1; //属性id
-    required uint32 levelinterval =2;	//所加属性的等级间隔
-    required uint32 attrvalue   =3;		//每个间隔所加属性值
-  }
-  required uint64 item_id			= 1;		//物品ID(配置ID)
-  required int64  item_num		= 2;		//物品数量
-  optional int32  bind			= 3;		//绑定状态 0 非绑定，1 绑定
-  repeated Attr   baseattr		= 4;		//基础属性
-  optional int32  index			= 5;		//索引(穿戴装备标示穿戴位置,背包中表示格子索引)
-  optional int32  level			= 6;		//等级
-  repeated Attr   refineex		= 8;		//星级属性
-  repeated blustarAttr   con_attr	= 9;		//固定附加属性(对应蓝色星条属性值)
-  optional uint64 expireTime		= 10;		//过期时间
-
-}

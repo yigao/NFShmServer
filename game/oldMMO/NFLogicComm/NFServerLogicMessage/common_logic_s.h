@@ -203,6 +203,161 @@ namespace proto_ff_s {
 	};
 	typedef struct CharacterDBBaseInfo_s CharacterDBBaseInfo_t;
 
+	struct Attr_s : public NFDescStoreSeqOP {
+		Attr_s();
+		int CreateInit();
+		int ResumeInit();
+		uint32_t AttrNum;
+		uint32_t Attrvalue;
+
+		virtual void write_to_pbmsg(::proto_ff::Attr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Attr & msg);
+		static ::proto_ff::Attr* new_pbmsg(){ return new ::proto_ff::Attr(); }
+		static ::proto_ff::Attr make_pbmsg(){ return ::proto_ff::Attr(); }
+	};
+	typedef struct Attr_s Attr_t;
+
+	struct Attr64_s : public NFDescStoreSeqOP {
+		Attr64_s();
+		int CreateInit();
+		int ResumeInit();
+		uint32_t AttrNum;
+		int64_t Attrvalue;
+
+		virtual void write_to_pbmsg(::proto_ff::Attr64 & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Attr64 & msg);
+		static ::proto_ff::Attr64* new_pbmsg(){ return new ::proto_ff::Attr64(); }
+		static ::proto_ff::Attr64 make_pbmsg(){ return ::proto_ff::Attr64(); }
+	};
+	typedef struct Attr64_s Attr64_t;
+
+	struct FieldItemAttrInfo_s : public NFDescStoreSeqOP {
+		FieldItemAttrInfo_s();
+		int CreateInit();
+		int ResumeInit();
+		NFArray<struct Attr_s, 128> base_attr;
+		NFArray<struct Attr_s, 128> star_attr;
+		NFArray<struct Attr_s, 128> blue_star_attr;
+		int32_t refine_level;
+
+		virtual void write_to_pbmsg(::proto_ff::FieldItemAttrInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FieldItemAttrInfo & msg);
+		static ::proto_ff::FieldItemAttrInfo* new_pbmsg(){ return new ::proto_ff::FieldItemAttrInfo(); }
+		static ::proto_ff::FieldItemAttrInfo make_pbmsg(){ return ::proto_ff::FieldItemAttrInfo(); }
+	};
+	typedef struct FieldItemAttrInfo_s FieldItemAttrInfo_t;
+
+	struct MarryEquipInfo_s : public NFDescStoreSeqOP {
+		MarryEquipInfo_s();
+		int CreateInit();
+		int ResumeInit();
+		int32_t strong_lv;
+		int32_t strong_exp;
+		int32_t stage_lv;
+
+		virtual void write_to_pbmsg(::proto_ff::MarryEquipInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MarryEquipInfo & msg);
+		static ::proto_ff::MarryEquipInfo* new_pbmsg(){ return new ::proto_ff::MarryEquipInfo(); }
+		static ::proto_ff::MarryEquipInfo make_pbmsg(){ return ::proto_ff::MarryEquipInfo(); }
+	};
+	typedef struct MarryEquipInfo_s MarryEquipInfo_t;
+
+	struct ComposeSingleCostProto_s : public NFDescStoreSeqOP {
+		ComposeSingleCostProto_s();
+		int CreateInit();
+		int ResumeInit();
+		uint64_t itemid;
+		int32_t bind;
+
+		virtual void write_to_pbmsg(::proto_ff::ComposeSingleCostProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ComposeSingleCostProto & msg);
+		static ::proto_ff::ComposeSingleCostProto* new_pbmsg(){ return new ::proto_ff::ComposeSingleCostProto(); }
+		static ::proto_ff::ComposeSingleCostProto make_pbmsg(){ return ::proto_ff::ComposeSingleCostProto(); }
+	};
+	typedef struct ComposeSingleCostProto_s ComposeSingleCostProto_t;
+
+	struct ComposeCostProto_s : public NFDescStoreSeqOP {
+		ComposeCostProto_s();
+		int CreateInit();
+		int ResumeInit();
+		NFArray<struct ComposeSingleCostProto_s, 128> info;
+
+		virtual void write_to_pbmsg(::proto_ff::ComposeCostProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ComposeCostProto & msg);
+		static ::proto_ff::ComposeCostProto* new_pbmsg(){ return new ::proto_ff::ComposeCostProto(); }
+		static ::proto_ff::ComposeCostProto make_pbmsg(){ return ::proto_ff::ComposeCostProto(); }
+	};
+	typedef struct ComposeCostProto_s ComposeCostProto_t;
+
+	struct blustarAttr_s : public NFDescStoreSeqOP {
+		blustarAttr_s();
+		int CreateInit();
+		int ResumeInit();
+		uint32_t attrid;
+		uint32_t levelinterval;
+		uint32_t attrvalue;
+
+		virtual void write_to_pbmsg(::proto_ff::blustarAttr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::blustarAttr & msg);
+		static ::proto_ff::blustarAttr* new_pbmsg(){ return new ::proto_ff::blustarAttr(); }
+		static ::proto_ff::blustarAttr make_pbmsg(){ return ::proto_ff::blustarAttr(); }
+	};
+	typedef struct blustarAttr_s blustarAttr_t;
+
+	struct ItemProtoInfo_s : public NFDescStoreSeqOP {
+		ItemProtoInfo_s();
+		int CreateInit();
+		int ResumeInit();
+		uint64_t item_id;
+		int64_t item_num;
+		int32_t bind;
+		NFArray<struct Attr_s, 128> baseattr;
+		int32_t index;
+		int32_t level;
+		NFArray<struct Attr_s, 128> refineex;
+		NFArray<struct blustarAttr_s, 128> con_attr;
+		uint64_t expireTime;
+		struct FieldItemAttrInfo_s field_data;
+		struct MarryEquipInfo_s marry_equip_data;
+		struct ComposeCostProto_s compose;
+		uint64_t out_time;
+
+		virtual void write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg);
+		static ::proto_ff::ItemProtoInfo* new_pbmsg(){ return new ::proto_ff::ItemProtoInfo(); }
+		static ::proto_ff::ItemProtoInfo make_pbmsg(){ return ::proto_ff::ItemProtoInfo(); }
+	};
+	typedef struct ItemProtoInfo_s ItemProtoInfo_t;
+
+	struct CharacterDBPackageBag_s : public NFDescStoreSeqOP {
+		CharacterDBPackageBag_s();
+		int CreateInit();
+		int ResumeInit();
+		uint32_t package_type;
+		uint32_t expand_num;
+		NFArray<struct ItemProtoInfo_s, 128> items;
+		int32_t offset;
+
+		virtual void write_to_pbmsg(::proto_ff::CharacterDBPackageBag & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBPackageBag & msg);
+		static ::proto_ff::CharacterDBPackageBag* new_pbmsg(){ return new ::proto_ff::CharacterDBPackageBag(); }
+		static ::proto_ff::CharacterDBPackageBag make_pbmsg(){ return ::proto_ff::CharacterDBPackageBag(); }
+	};
+	typedef struct CharacterDBPackageBag_s CharacterDBPackageBag_t;
+
+	struct CharacterDBPackageData_s : public NFDescStoreSeqOP {
+		CharacterDBPackageData_s();
+		int CreateInit();
+		int ResumeInit();
+		NFArray<struct CharacterDBPackageBag_s, 128> bags;
+
+		virtual void write_to_pbmsg(::proto_ff::CharacterDBPackageData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBPackageData & msg);
+		static ::proto_ff::CharacterDBPackageData* new_pbmsg(){ return new ::proto_ff::CharacterDBPackageData(); }
+		static ::proto_ff::CharacterDBPackageData make_pbmsg(){ return ::proto_ff::CharacterDBPackageData(); }
+	};
+	typedef struct CharacterDBPackageData_s CharacterDBPackageData_t;
+
 	struct tbRoleInfo_s : public NFDescStoreSeqOP {
 		tbRoleInfo_s();
 		int CreateInit();
@@ -213,6 +368,7 @@ namespace proto_ff_s {
 		NFSizeString<128> charName;
 		NFSizeString<128> platId;
 		struct CharacterDBBaseInfo_s baseData;
+		struct CharacterDBPackageData_s itemData;
 
 		virtual void write_to_pbmsg(::proto_ff::tbRoleInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbRoleInfo & msg);

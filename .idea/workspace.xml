@@ -46,18 +46,15 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="login handle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/oldMMO/Sql/create_tbRoleInfo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/oldMMO/Sql/create_tbRoleInfo.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common/common_logic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common/common_logic.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/Com.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs/Com.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/sql_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFLogicComm/makefiles/sql_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRoleList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRoleList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -516,14 +513,7 @@
       <workItem from="1665481483079" duration="4756000" />
       <workItem from="1665542504686" duration="3544000" />
       <workItem from="1665546109694" duration="21810000" />
-      <workItem from="1665725573969" duration="16293000" />
-    </task>
-    <task id="LOCAL-00157" summary="msg handle">
-      <created>1665193208079</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1665193208079</updated>
+      <workItem from="1665725573969" duration="17643000" />
     </task>
     <task id="LOCAL-00158" summary="server dump">
       <created>1665194719495</created>
@@ -861,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665736884748</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="login handle">
+      <created>1665742686785</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1665742686785</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1034,7 +1031,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp</url>
-          <line>50</line>
+          <line>51</line>
           <option name="timeStamp" value="466" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -1059,13 +1056,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRoleList.cpp</url>
-          <line>53</line>
+          <line>57</line>
           <option name="timeStamp" value="473" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRoleList.cpp</url>
-          <line>59</line>
-          <option name="timeStamp" value="474" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp</url>

@@ -474,6 +474,398 @@ void CharacterDBBaseInfo_s::read_from_pbmsg(const ::proto_ff::CharacterDBBaseInf
 	gmpoint_limit = msg.gmpoint_limit();
 }
 
+Attr_s::Attr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Attr_s::CreateInit() {
+	AttrNum = (uint32_t)0;
+	Attrvalue = (uint32_t)0;
+	return 0;
+}
+
+int Attr_s::ResumeInit() {
+	return 0;
+}
+
+void Attr_s::write_to_pbmsg(::proto_ff::Attr & msg) const {
+	msg.set_attrnum((uint32_t)AttrNum);
+	msg.set_attrvalue((uint32_t)Attrvalue);
+}
+
+void Attr_s::read_from_pbmsg(const ::proto_ff::Attr & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Attr_s));
+	AttrNum = msg.attrnum();
+	Attrvalue = msg.attrvalue();
+}
+
+Attr64_s::Attr64_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Attr64_s::CreateInit() {
+	AttrNum = (uint32_t)0;
+	Attrvalue = (int64_t)0;
+	return 0;
+}
+
+int Attr64_s::ResumeInit() {
+	return 0;
+}
+
+void Attr64_s::write_to_pbmsg(::proto_ff::Attr64 & msg) const {
+	msg.set_attrnum((uint32_t)AttrNum);
+	msg.set_attrvalue((int64_t)Attrvalue);
+}
+
+void Attr64_s::read_from_pbmsg(const ::proto_ff::Attr64 & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Attr64_s));
+	AttrNum = msg.attrnum();
+	Attrvalue = msg.attrvalue();
+}
+
+FieldItemAttrInfo_s::FieldItemAttrInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FieldItemAttrInfo_s::CreateInit() {
+	refine_level = (int32_t)0;
+	return 0;
+}
+
+int FieldItemAttrInfo_s::ResumeInit() {
+	return 0;
+}
+
+void FieldItemAttrInfo_s::write_to_pbmsg(::proto_ff::FieldItemAttrInfo & msg) const {
+	for(int32_t i = 0; i < (int32_t)base_attr.GetSize() && i < base_attr.GetMaxSize(); ++i) {
+		::proto_ff::Attr* temp_base_attr = msg.add_base_attr();
+		base_attr[i].write_to_pbmsg(*temp_base_attr);
+	}
+	for(int32_t i = 0; i < (int32_t)star_attr.GetSize() && i < star_attr.GetMaxSize(); ++i) {
+		::proto_ff::Attr* temp_star_attr = msg.add_star_attr();
+		star_attr[i].write_to_pbmsg(*temp_star_attr);
+	}
+	for(int32_t i = 0; i < (int32_t)blue_star_attr.GetSize() && i < blue_star_attr.GetMaxSize(); ++i) {
+		::proto_ff::Attr* temp_blue_star_attr = msg.add_blue_star_attr();
+		blue_star_attr[i].write_to_pbmsg(*temp_blue_star_attr);
+	}
+	msg.set_refine_level((int32_t)refine_level);
+}
+
+void FieldItemAttrInfo_s::read_from_pbmsg(const ::proto_ff::FieldItemAttrInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FieldItemAttrInfo_s));
+	base_attr.SetSize(msg.base_attr_size() > base_attr.GetMaxSize() ? base_attr.GetMaxSize() : msg.base_attr_size());
+	for(int32_t i = 0; i < (int32_t)base_attr.GetSize(); ++i) {
+		const ::proto_ff::Attr & temp_base_attr = msg.base_attr(i);
+		base_attr[i].read_from_pbmsg(temp_base_attr);
+	}
+	star_attr.SetSize(msg.star_attr_size() > star_attr.GetMaxSize() ? star_attr.GetMaxSize() : msg.star_attr_size());
+	for(int32_t i = 0; i < (int32_t)star_attr.GetSize(); ++i) {
+		const ::proto_ff::Attr & temp_star_attr = msg.star_attr(i);
+		star_attr[i].read_from_pbmsg(temp_star_attr);
+	}
+	blue_star_attr.SetSize(msg.blue_star_attr_size() > blue_star_attr.GetMaxSize() ? blue_star_attr.GetMaxSize() : msg.blue_star_attr_size());
+	for(int32_t i = 0; i < (int32_t)blue_star_attr.GetSize(); ++i) {
+		const ::proto_ff::Attr & temp_blue_star_attr = msg.blue_star_attr(i);
+		blue_star_attr[i].read_from_pbmsg(temp_blue_star_attr);
+	}
+	refine_level = msg.refine_level();
+}
+
+MarryEquipInfo_s::MarryEquipInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MarryEquipInfo_s::CreateInit() {
+	strong_lv = (int32_t)0;
+	strong_exp = (int32_t)0;
+	stage_lv = (int32_t)0;
+	return 0;
+}
+
+int MarryEquipInfo_s::ResumeInit() {
+	return 0;
+}
+
+void MarryEquipInfo_s::write_to_pbmsg(::proto_ff::MarryEquipInfo & msg) const {
+	msg.set_strong_lv((int32_t)strong_lv);
+	msg.set_strong_exp((int32_t)strong_exp);
+	msg.set_stage_lv((int32_t)stage_lv);
+}
+
+void MarryEquipInfo_s::read_from_pbmsg(const ::proto_ff::MarryEquipInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MarryEquipInfo_s));
+	strong_lv = msg.strong_lv();
+	strong_exp = msg.strong_exp();
+	stage_lv = msg.stage_lv();
+}
+
+ComposeSingleCostProto_s::ComposeSingleCostProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ComposeSingleCostProto_s::CreateInit() {
+	itemid = (uint64_t)0;
+	bind = (int32_t)0;
+	return 0;
+}
+
+int ComposeSingleCostProto_s::ResumeInit() {
+	return 0;
+}
+
+void ComposeSingleCostProto_s::write_to_pbmsg(::proto_ff::ComposeSingleCostProto & msg) const {
+	msg.set_itemid((uint64_t)itemid);
+	msg.set_bind((int32_t)bind);
+}
+
+void ComposeSingleCostProto_s::read_from_pbmsg(const ::proto_ff::ComposeSingleCostProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComposeSingleCostProto_s));
+	itemid = msg.itemid();
+	bind = msg.bind();
+}
+
+ComposeCostProto_s::ComposeCostProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ComposeCostProto_s::CreateInit() {
+	return 0;
+}
+
+int ComposeCostProto_s::ResumeInit() {
+	return 0;
+}
+
+void ComposeCostProto_s::write_to_pbmsg(::proto_ff::ComposeCostProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+		::proto_ff::ComposeSingleCostProto* temp_info = msg.add_info();
+		info[i].write_to_pbmsg(*temp_info);
+	}
+}
+
+void ComposeCostProto_s::read_from_pbmsg(const ::proto_ff::ComposeCostProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComposeCostProto_s));
+	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+		const ::proto_ff::ComposeSingleCostProto & temp_info = msg.info(i);
+		info[i].read_from_pbmsg(temp_info);
+	}
+}
+
+blustarAttr_s::blustarAttr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int blustarAttr_s::CreateInit() {
+	attrid = (uint32_t)0;
+	levelinterval = (uint32_t)0;
+	attrvalue = (uint32_t)0;
+	return 0;
+}
+
+int blustarAttr_s::ResumeInit() {
+	return 0;
+}
+
+void blustarAttr_s::write_to_pbmsg(::proto_ff::blustarAttr & msg) const {
+	msg.set_attrid((uint32_t)attrid);
+	msg.set_levelinterval((uint32_t)levelinterval);
+	msg.set_attrvalue((uint32_t)attrvalue);
+}
+
+void blustarAttr_s::read_from_pbmsg(const ::proto_ff::blustarAttr & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct blustarAttr_s));
+	attrid = msg.attrid();
+	levelinterval = msg.levelinterval();
+	attrvalue = msg.attrvalue();
+}
+
+ItemProtoInfo_s::ItemProtoInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ItemProtoInfo_s::CreateInit() {
+	item_id = (uint64_t)0;
+	item_num = (int64_t)0;
+	bind = (int32_t)0;
+	index = (int32_t)0;
+	level = (int32_t)0;
+	expireTime = (uint64_t)0;
+	out_time = (uint64_t)0;
+	return 0;
+}
+
+int ItemProtoInfo_s::ResumeInit() {
+	return 0;
+}
+
+void ItemProtoInfo_s::write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const {
+	msg.set_item_id((uint64_t)item_id);
+	msg.set_item_num((int64_t)item_num);
+	msg.set_bind((int32_t)bind);
+	for(int32_t i = 0; i < (int32_t)baseattr.GetSize() && i < baseattr.GetMaxSize(); ++i) {
+		::proto_ff::Attr* temp_baseattr = msg.add_baseattr();
+		baseattr[i].write_to_pbmsg(*temp_baseattr);
+	}
+	msg.set_index((int32_t)index);
+	msg.set_level((int32_t)level);
+	for(int32_t i = 0; i < (int32_t)refineex.GetSize() && i < refineex.GetMaxSize(); ++i) {
+		::proto_ff::Attr* temp_refineex = msg.add_refineex();
+		refineex[i].write_to_pbmsg(*temp_refineex);
+	}
+	for(int32_t i = 0; i < (int32_t)con_attr.GetSize() && i < con_attr.GetMaxSize(); ++i) {
+		::proto_ff::blustarAttr* temp_con_attr = msg.add_con_attr();
+		con_attr[i].write_to_pbmsg(*temp_con_attr);
+	}
+	msg.set_expiretime((uint64_t)expireTime);
+	::proto_ff::FieldItemAttrInfo* temp_field_data = msg.mutable_field_data();
+	field_data.write_to_pbmsg(*temp_field_data);
+	::proto_ff::MarryEquipInfo* temp_marry_equip_data = msg.mutable_marry_equip_data();
+	marry_equip_data.write_to_pbmsg(*temp_marry_equip_data);
+	::proto_ff::ComposeCostProto* temp_compose = msg.mutable_compose();
+	compose.write_to_pbmsg(*temp_compose);
+	msg.set_out_time((uint64_t)out_time);
+}
+
+void ItemProtoInfo_s::read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ItemProtoInfo_s));
+	item_id = msg.item_id();
+	item_num = msg.item_num();
+	bind = msg.bind();
+	baseattr.SetSize(msg.baseattr_size() > baseattr.GetMaxSize() ? baseattr.GetMaxSize() : msg.baseattr_size());
+	for(int32_t i = 0; i < (int32_t)baseattr.GetSize(); ++i) {
+		const ::proto_ff::Attr & temp_baseattr = msg.baseattr(i);
+		baseattr[i].read_from_pbmsg(temp_baseattr);
+	}
+	index = msg.index();
+	level = msg.level();
+	refineex.SetSize(msg.refineex_size() > refineex.GetMaxSize() ? refineex.GetMaxSize() : msg.refineex_size());
+	for(int32_t i = 0; i < (int32_t)refineex.GetSize(); ++i) {
+		const ::proto_ff::Attr & temp_refineex = msg.refineex(i);
+		refineex[i].read_from_pbmsg(temp_refineex);
+	}
+	con_attr.SetSize(msg.con_attr_size() > con_attr.GetMaxSize() ? con_attr.GetMaxSize() : msg.con_attr_size());
+	for(int32_t i = 0; i < (int32_t)con_attr.GetSize(); ++i) {
+		const ::proto_ff::blustarAttr & temp_con_attr = msg.con_attr(i);
+		con_attr[i].read_from_pbmsg(temp_con_attr);
+	}
+	expireTime = msg.expiretime();
+	const ::proto_ff::FieldItemAttrInfo & temp_field_data = msg.field_data();
+	field_data.read_from_pbmsg(temp_field_data);
+	const ::proto_ff::MarryEquipInfo & temp_marry_equip_data = msg.marry_equip_data();
+	marry_equip_data.read_from_pbmsg(temp_marry_equip_data);
+	const ::proto_ff::ComposeCostProto & temp_compose = msg.compose();
+	compose.read_from_pbmsg(temp_compose);
+	out_time = msg.out_time();
+}
+
+CharacterDBPackageBag_s::CharacterDBPackageBag_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CharacterDBPackageBag_s::CreateInit() {
+	package_type = (uint32_t)0;
+	expand_num = (uint32_t)0;
+	offset = (int32_t)0;
+	return 0;
+}
+
+int CharacterDBPackageBag_s::ResumeInit() {
+	return 0;
+}
+
+void CharacterDBPackageBag_s::write_to_pbmsg(::proto_ff::CharacterDBPackageBag & msg) const {
+	msg.set_package_type((uint32_t)package_type);
+	msg.set_expand_num((uint32_t)expand_num);
+	for(int32_t i = 0; i < (int32_t)items.GetSize() && i < items.GetMaxSize(); ++i) {
+		::proto_ff::ItemProtoInfo* temp_items = msg.add_items();
+		items[i].write_to_pbmsg(*temp_items);
+	}
+	msg.set_offset((int32_t)offset);
+}
+
+void CharacterDBPackageBag_s::read_from_pbmsg(const ::proto_ff::CharacterDBPackageBag & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CharacterDBPackageBag_s));
+	package_type = msg.package_type();
+	expand_num = msg.expand_num();
+	items.SetSize(msg.items_size() > items.GetMaxSize() ? items.GetMaxSize() : msg.items_size());
+	for(int32_t i = 0; i < (int32_t)items.GetSize(); ++i) {
+		const ::proto_ff::ItemProtoInfo & temp_items = msg.items(i);
+		items[i].read_from_pbmsg(temp_items);
+	}
+	offset = msg.offset();
+}
+
+CharacterDBPackageData_s::CharacterDBPackageData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CharacterDBPackageData_s::CreateInit() {
+	return 0;
+}
+
+int CharacterDBPackageData_s::ResumeInit() {
+	return 0;
+}
+
+void CharacterDBPackageData_s::write_to_pbmsg(::proto_ff::CharacterDBPackageData & msg) const {
+	for(int32_t i = 0; i < (int32_t)bags.GetSize() && i < bags.GetMaxSize(); ++i) {
+		::proto_ff::CharacterDBPackageBag* temp_bags = msg.add_bags();
+		bags[i].write_to_pbmsg(*temp_bags);
+	}
+}
+
+void CharacterDBPackageData_s::read_from_pbmsg(const ::proto_ff::CharacterDBPackageData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CharacterDBPackageData_s));
+	bags.SetSize(msg.bags_size() > bags.GetMaxSize() ? bags.GetMaxSize() : msg.bags_size());
+	for(int32_t i = 0; i < (int32_t)bags.GetSize(); ++i) {
+		const ::proto_ff::CharacterDBPackageBag & temp_bags = msg.bags(i);
+		bags[i].read_from_pbmsg(temp_bags);
+	}
+}
+
 tbRoleInfo_s::tbRoleInfo_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -501,6 +893,8 @@ void tbRoleInfo_s::write_to_pbmsg(::proto_ff::tbRoleInfo & msg) const {
 	msg.set_platid((const char*)platId.Get());
 	::proto_ff::CharacterDBBaseInfo* temp_basedata = msg.mutable_basedata();
 	baseData.write_to_pbmsg(*temp_basedata);
+	::proto_ff::CharacterDBPackageData* temp_itemdata = msg.mutable_itemdata();
+	itemData.write_to_pbmsg(*temp_itemdata);
 }
 
 void tbRoleInfo_s::read_from_pbmsg(const ::proto_ff::tbRoleInfo & msg) {
@@ -512,6 +906,8 @@ void tbRoleInfo_s::read_from_pbmsg(const ::proto_ff::tbRoleInfo & msg) {
 	platId.Copy(msg.platid());
 	const ::proto_ff::CharacterDBBaseInfo & temp_basedata = msg.basedata();
 	baseData.read_from_pbmsg(temp_basedata);
+	const ::proto_ff::CharacterDBPackageData & temp_itemdata = msg.itemdata();
+	itemData.read_from_pbmsg(temp_itemdata);
 }
 
 }

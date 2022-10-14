@@ -42,6 +42,16 @@ class CharTrimProto;
 class ForceDupProto;
 class CharMultTrimProto;
 class CharacterDBBaseInfo;
+class Attr;
+class Attr64;
+class FieldItemAttrInfo;
+class MarryEquipInfo;
+class ComposeSingleCostProto;
+class ComposeCostProto;
+class blustarAttr;
+class ItemProtoInfo;
+class CharacterDBPackageBag;
+class CharacterDBPackageData;
 class tbRoleInfo;
 
 // ===================================================================
@@ -1619,6 +1629,1109 @@ class CharacterDBBaseInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Attr : public ::google::protobuf::Message {
+ public:
+  Attr();
+  virtual ~Attr();
+
+  Attr(const Attr& from);
+
+  inline Attr& operator=(const Attr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Attr& default_instance();
+
+  void Swap(Attr* other);
+
+  // implements Message ----------------------------------------------
+
+  Attr* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Attr& from);
+  void MergeFrom(const Attr& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 AttrNum = 1;
+  inline bool has_attrnum() const;
+  inline void clear_attrnum();
+  static const int kAttrNumFieldNumber = 1;
+  inline ::google::protobuf::uint32 attrnum() const;
+  inline void set_attrnum(::google::protobuf::uint32 value);
+
+  // optional uint32 Attrvalue = 2;
+  inline bool has_attrvalue() const;
+  inline void clear_attrvalue();
+  static const int kAttrvalueFieldNumber = 2;
+  inline ::google::protobuf::uint32 attrvalue() const;
+  inline void set_attrvalue(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Attr)
+ private:
+  inline void set_has_attrnum();
+  inline void clear_has_attrnum();
+  inline void set_has_attrvalue();
+  inline void clear_has_attrvalue();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 attrnum_;
+  ::google::protobuf::uint32 attrvalue_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static Attr* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Attr64 : public ::google::protobuf::Message {
+ public:
+  Attr64();
+  virtual ~Attr64();
+
+  Attr64(const Attr64& from);
+
+  inline Attr64& operator=(const Attr64& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Attr64& default_instance();
+
+  void Swap(Attr64* other);
+
+  // implements Message ----------------------------------------------
+
+  Attr64* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Attr64& from);
+  void MergeFrom(const Attr64& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 AttrNum = 1;
+  inline bool has_attrnum() const;
+  inline void clear_attrnum();
+  static const int kAttrNumFieldNumber = 1;
+  inline ::google::protobuf::uint32 attrnum() const;
+  inline void set_attrnum(::google::protobuf::uint32 value);
+
+  // optional int64 Attrvalue = 2;
+  inline bool has_attrvalue() const;
+  inline void clear_attrvalue();
+  static const int kAttrvalueFieldNumber = 2;
+  inline ::google::protobuf::int64 attrvalue() const;
+  inline void set_attrvalue(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Attr64)
+ private:
+  inline void set_has_attrnum();
+  inline void clear_has_attrnum();
+  inline void set_has_attrvalue();
+  inline void clear_has_attrvalue();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 attrvalue_;
+  ::google::protobuf::uint32 attrnum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static Attr64* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FieldItemAttrInfo : public ::google::protobuf::Message {
+ public:
+  FieldItemAttrInfo();
+  virtual ~FieldItemAttrInfo();
+
+  FieldItemAttrInfo(const FieldItemAttrInfo& from);
+
+  inline FieldItemAttrInfo& operator=(const FieldItemAttrInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FieldItemAttrInfo& default_instance();
+
+  void Swap(FieldItemAttrInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  FieldItemAttrInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FieldItemAttrInfo& from);
+  void MergeFrom(const FieldItemAttrInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.Attr base_attr = 1;
+  inline int base_attr_size() const;
+  inline void clear_base_attr();
+  static const int kBaseAttrFieldNumber = 1;
+  inline const ::proto_ff::Attr& base_attr(int index) const;
+  inline ::proto_ff::Attr* mutable_base_attr(int index);
+  inline ::proto_ff::Attr* add_base_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      base_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_base_attr();
+
+  // repeated .proto_ff.Attr star_attr = 2;
+  inline int star_attr_size() const;
+  inline void clear_star_attr();
+  static const int kStarAttrFieldNumber = 2;
+  inline const ::proto_ff::Attr& star_attr(int index) const;
+  inline ::proto_ff::Attr* mutable_star_attr(int index);
+  inline ::proto_ff::Attr* add_star_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      star_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_star_attr();
+
+  // repeated .proto_ff.Attr blue_star_attr = 3;
+  inline int blue_star_attr_size() const;
+  inline void clear_blue_star_attr();
+  static const int kBlueStarAttrFieldNumber = 3;
+  inline const ::proto_ff::Attr& blue_star_attr(int index) const;
+  inline ::proto_ff::Attr* mutable_blue_star_attr(int index);
+  inline ::proto_ff::Attr* add_blue_star_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      blue_star_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_blue_star_attr();
+
+  // optional int32 refine_level = 4;
+  inline bool has_refine_level() const;
+  inline void clear_refine_level();
+  static const int kRefineLevelFieldNumber = 4;
+  inline ::google::protobuf::int32 refine_level() const;
+  inline void set_refine_level(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FieldItemAttrInfo)
+ private:
+  inline void set_has_refine_level();
+  inline void clear_has_refine_level();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > base_attr_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > star_attr_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > blue_star_attr_;
+  ::google::protobuf::int32 refine_level_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static FieldItemAttrInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MarryEquipInfo : public ::google::protobuf::Message {
+ public:
+  MarryEquipInfo();
+  virtual ~MarryEquipInfo();
+
+  MarryEquipInfo(const MarryEquipInfo& from);
+
+  inline MarryEquipInfo& operator=(const MarryEquipInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MarryEquipInfo& default_instance();
+
+  void Swap(MarryEquipInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  MarryEquipInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MarryEquipInfo& from);
+  void MergeFrom(const MarryEquipInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 strong_lv = 1;
+  inline bool has_strong_lv() const;
+  inline void clear_strong_lv();
+  static const int kStrongLvFieldNumber = 1;
+  inline ::google::protobuf::int32 strong_lv() const;
+  inline void set_strong_lv(::google::protobuf::int32 value);
+
+  // optional int32 strong_exp = 2;
+  inline bool has_strong_exp() const;
+  inline void clear_strong_exp();
+  static const int kStrongExpFieldNumber = 2;
+  inline ::google::protobuf::int32 strong_exp() const;
+  inline void set_strong_exp(::google::protobuf::int32 value);
+
+  // optional int32 stage_lv = 3;
+  inline bool has_stage_lv() const;
+  inline void clear_stage_lv();
+  static const int kStageLvFieldNumber = 3;
+  inline ::google::protobuf::int32 stage_lv() const;
+  inline void set_stage_lv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MarryEquipInfo)
+ private:
+  inline void set_has_strong_lv();
+  inline void clear_has_strong_lv();
+  inline void set_has_strong_exp();
+  inline void clear_has_strong_exp();
+  inline void set_has_stage_lv();
+  inline void clear_has_stage_lv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 strong_lv_;
+  ::google::protobuf::int32 strong_exp_;
+  ::google::protobuf::int32 stage_lv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static MarryEquipInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ComposeSingleCostProto : public ::google::protobuf::Message {
+ public:
+  ComposeSingleCostProto();
+  virtual ~ComposeSingleCostProto();
+
+  ComposeSingleCostProto(const ComposeSingleCostProto& from);
+
+  inline ComposeSingleCostProto& operator=(const ComposeSingleCostProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ComposeSingleCostProto& default_instance();
+
+  void Swap(ComposeSingleCostProto* other);
+
+  // implements Message ----------------------------------------------
+
+  ComposeSingleCostProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ComposeSingleCostProto& from);
+  void MergeFrom(const ComposeSingleCostProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 itemid = 1;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemidFieldNumber = 1;
+  inline ::google::protobuf::uint64 itemid() const;
+  inline void set_itemid(::google::protobuf::uint64 value);
+
+  // optional int32 bind = 2;
+  inline bool has_bind() const;
+  inline void clear_bind();
+  static const int kBindFieldNumber = 2;
+  inline ::google::protobuf::int32 bind() const;
+  inline void set_bind(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ComposeSingleCostProto)
+ private:
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_bind();
+  inline void clear_has_bind();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 itemid_;
+  ::google::protobuf::int32 bind_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static ComposeSingleCostProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ComposeCostProto : public ::google::protobuf::Message {
+ public:
+  ComposeCostProto();
+  virtual ~ComposeCostProto();
+
+  ComposeCostProto(const ComposeCostProto& from);
+
+  inline ComposeCostProto& operator=(const ComposeCostProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ComposeCostProto& default_instance();
+
+  void Swap(ComposeCostProto* other);
+
+  // implements Message ----------------------------------------------
+
+  ComposeCostProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ComposeCostProto& from);
+  void MergeFrom(const ComposeCostProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ComposeSingleCostProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::ComposeSingleCostProto& info(int index) const;
+  inline ::proto_ff::ComposeSingleCostProto* mutable_info(int index);
+  inline ::proto_ff::ComposeSingleCostProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComposeSingleCostProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComposeSingleCostProto >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ComposeCostProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComposeSingleCostProto > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static ComposeCostProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class blustarAttr : public ::google::protobuf::Message {
+ public:
+  blustarAttr();
+  virtual ~blustarAttr();
+
+  blustarAttr(const blustarAttr& from);
+
+  inline blustarAttr& operator=(const blustarAttr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const blustarAttr& default_instance();
+
+  void Swap(blustarAttr* other);
+
+  // implements Message ----------------------------------------------
+
+  blustarAttr* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const blustarAttr& from);
+  void MergeFrom(const blustarAttr& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 attrid = 1;
+  inline bool has_attrid() const;
+  inline void clear_attrid();
+  static const int kAttridFieldNumber = 1;
+  inline ::google::protobuf::uint32 attrid() const;
+  inline void set_attrid(::google::protobuf::uint32 value);
+
+  // optional uint32 levelinterval = 2;
+  inline bool has_levelinterval() const;
+  inline void clear_levelinterval();
+  static const int kLevelintervalFieldNumber = 2;
+  inline ::google::protobuf::uint32 levelinterval() const;
+  inline void set_levelinterval(::google::protobuf::uint32 value);
+
+  // optional uint32 attrvalue = 3;
+  inline bool has_attrvalue() const;
+  inline void clear_attrvalue();
+  static const int kAttrvalueFieldNumber = 3;
+  inline ::google::protobuf::uint32 attrvalue() const;
+  inline void set_attrvalue(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.blustarAttr)
+ private:
+  inline void set_has_attrid();
+  inline void clear_has_attrid();
+  inline void set_has_levelinterval();
+  inline void clear_has_levelinterval();
+  inline void set_has_attrvalue();
+  inline void clear_has_attrvalue();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 attrid_;
+  ::google::protobuf::uint32 levelinterval_;
+  ::google::protobuf::uint32 attrvalue_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static blustarAttr* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ItemProtoInfo : public ::google::protobuf::Message {
+ public:
+  ItemProtoInfo();
+  virtual ~ItemProtoInfo();
+
+  ItemProtoInfo(const ItemProtoInfo& from);
+
+  inline ItemProtoInfo& operator=(const ItemProtoInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ItemProtoInfo& default_instance();
+
+  void Swap(ItemProtoInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  ItemProtoInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ItemProtoInfo& from);
+  void MergeFrom(const ItemProtoInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 item_id = 1;
+  inline bool has_item_id() const;
+  inline void clear_item_id();
+  static const int kItemIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 item_id() const;
+  inline void set_item_id(::google::protobuf::uint64 value);
+
+  // optional int64 item_num = 2;
+  inline bool has_item_num() const;
+  inline void clear_item_num();
+  static const int kItemNumFieldNumber = 2;
+  inline ::google::protobuf::int64 item_num() const;
+  inline void set_item_num(::google::protobuf::int64 value);
+
+  // optional int32 bind = 3;
+  inline bool has_bind() const;
+  inline void clear_bind();
+  static const int kBindFieldNumber = 3;
+  inline ::google::protobuf::int32 bind() const;
+  inline void set_bind(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.Attr baseattr = 4;
+  inline int baseattr_size() const;
+  inline void clear_baseattr();
+  static const int kBaseattrFieldNumber = 4;
+  inline const ::proto_ff::Attr& baseattr(int index) const;
+  inline ::proto_ff::Attr* mutable_baseattr(int index);
+  inline ::proto_ff::Attr* add_baseattr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      baseattr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_baseattr();
+
+  // optional int32 index = 5;
+  inline bool has_index() const;
+  inline void clear_index();
+  static const int kIndexFieldNumber = 5;
+  inline ::google::protobuf::int32 index() const;
+  inline void set_index(::google::protobuf::int32 value);
+
+  // optional int32 level = 6;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 6;
+  inline ::google::protobuf::int32 level() const;
+  inline void set_level(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.Attr refineex = 8;
+  inline int refineex_size() const;
+  inline void clear_refineex();
+  static const int kRefineexFieldNumber = 8;
+  inline const ::proto_ff::Attr& refineex(int index) const;
+  inline ::proto_ff::Attr* mutable_refineex(int index);
+  inline ::proto_ff::Attr* add_refineex();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      refineex() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_refineex();
+
+  // repeated .proto_ff.blustarAttr con_attr = 9;
+  inline int con_attr_size() const;
+  inline void clear_con_attr();
+  static const int kConAttrFieldNumber = 9;
+  inline const ::proto_ff::blustarAttr& con_attr(int index) const;
+  inline ::proto_ff::blustarAttr* mutable_con_attr(int index);
+  inline ::proto_ff::blustarAttr* add_con_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::blustarAttr >&
+      con_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::blustarAttr >*
+      mutable_con_attr();
+
+  // optional uint64 expireTime = 10;
+  inline bool has_expiretime() const;
+  inline void clear_expiretime();
+  static const int kExpireTimeFieldNumber = 10;
+  inline ::google::protobuf::uint64 expiretime() const;
+  inline void set_expiretime(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.FieldItemAttrInfo field_data = 11;
+  inline bool has_field_data() const;
+  inline void clear_field_data();
+  static const int kFieldDataFieldNumber = 11;
+  inline const ::proto_ff::FieldItemAttrInfo& field_data() const;
+  inline ::proto_ff::FieldItemAttrInfo* mutable_field_data();
+  inline ::proto_ff::FieldItemAttrInfo* release_field_data();
+  inline void set_allocated_field_data(::proto_ff::FieldItemAttrInfo* field_data);
+
+  // optional .proto_ff.MarryEquipInfo marry_equip_data = 12;
+  inline bool has_marry_equip_data() const;
+  inline void clear_marry_equip_data();
+  static const int kMarryEquipDataFieldNumber = 12;
+  inline const ::proto_ff::MarryEquipInfo& marry_equip_data() const;
+  inline ::proto_ff::MarryEquipInfo* mutable_marry_equip_data();
+  inline ::proto_ff::MarryEquipInfo* release_marry_equip_data();
+  inline void set_allocated_marry_equip_data(::proto_ff::MarryEquipInfo* marry_equip_data);
+
+  // optional .proto_ff.ComposeCostProto compose = 13;
+  inline bool has_compose() const;
+  inline void clear_compose();
+  static const int kComposeFieldNumber = 13;
+  inline const ::proto_ff::ComposeCostProto& compose() const;
+  inline ::proto_ff::ComposeCostProto* mutable_compose();
+  inline ::proto_ff::ComposeCostProto* release_compose();
+  inline void set_allocated_compose(::proto_ff::ComposeCostProto* compose);
+
+  // optional uint64 out_time = 14;
+  inline bool has_out_time() const;
+  inline void clear_out_time();
+  static const int kOutTimeFieldNumber = 14;
+  inline ::google::protobuf::uint64 out_time() const;
+  inline void set_out_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ItemProtoInfo)
+ private:
+  inline void set_has_item_id();
+  inline void clear_has_item_id();
+  inline void set_has_item_num();
+  inline void clear_has_item_num();
+  inline void set_has_bind();
+  inline void clear_has_bind();
+  inline void set_has_index();
+  inline void clear_has_index();
+  inline void set_has_level();
+  inline void clear_has_level();
+  inline void set_has_expiretime();
+  inline void clear_has_expiretime();
+  inline void set_has_field_data();
+  inline void clear_has_field_data();
+  inline void set_has_marry_equip_data();
+  inline void clear_has_marry_equip_data();
+  inline void set_has_compose();
+  inline void clear_has_compose();
+  inline void set_has_out_time();
+  inline void clear_has_out_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 item_id_;
+  ::google::protobuf::int64 item_num_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > baseattr_;
+  ::google::protobuf::int32 bind_;
+  ::google::protobuf::int32 index_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > refineex_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::blustarAttr > con_attr_;
+  ::google::protobuf::uint64 expiretime_;
+  ::proto_ff::FieldItemAttrInfo* field_data_;
+  ::proto_ff::MarryEquipInfo* marry_equip_data_;
+  ::proto_ff::ComposeCostProto* compose_;
+  ::google::protobuf::uint64 out_time_;
+  ::google::protobuf::int32 level_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static ItemProtoInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharacterDBPackageBag : public ::google::protobuf::Message {
+ public:
+  CharacterDBPackageBag();
+  virtual ~CharacterDBPackageBag();
+
+  CharacterDBPackageBag(const CharacterDBPackageBag& from);
+
+  inline CharacterDBPackageBag& operator=(const CharacterDBPackageBag& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharacterDBPackageBag& default_instance();
+
+  void Swap(CharacterDBPackageBag* other);
+
+  // implements Message ----------------------------------------------
+
+  CharacterDBPackageBag* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharacterDBPackageBag& from);
+  void MergeFrom(const CharacterDBPackageBag& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 package_type = 1;
+  inline bool has_package_type() const;
+  inline void clear_package_type();
+  static const int kPackageTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 package_type() const;
+  inline void set_package_type(::google::protobuf::uint32 value);
+
+  // optional uint32 expand_num = 2;
+  inline bool has_expand_num() const;
+  inline void clear_expand_num();
+  static const int kExpandNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 expand_num() const;
+  inline void set_expand_num(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.ItemProtoInfo items = 3;
+  inline int items_size() const;
+  inline void clear_items();
+  static const int kItemsFieldNumber = 3;
+  inline const ::proto_ff::ItemProtoInfo& items(int index) const;
+  inline ::proto_ff::ItemProtoInfo* mutable_items(int index);
+  inline ::proto_ff::ItemProtoInfo* add_items();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemProtoInfo >&
+      items() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemProtoInfo >*
+      mutable_items();
+
+  // optional int32 offset = 4;
+  inline bool has_offset() const;
+  inline void clear_offset();
+  static const int kOffsetFieldNumber = 4;
+  inline ::google::protobuf::int32 offset() const;
+  inline void set_offset(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharacterDBPackageBag)
+ private:
+  inline void set_has_package_type();
+  inline void clear_has_package_type();
+  inline void set_has_expand_num();
+  inline void clear_has_expand_num();
+  inline void set_has_offset();
+  inline void clear_has_offset();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 package_type_;
+  ::google::protobuf::uint32 expand_num_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemProtoInfo > items_;
+  ::google::protobuf::int32 offset_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharacterDBPackageBag* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharacterDBPackageData : public ::google::protobuf::Message {
+ public:
+  CharacterDBPackageData();
+  virtual ~CharacterDBPackageData();
+
+  CharacterDBPackageData(const CharacterDBPackageData& from);
+
+  inline CharacterDBPackageData& operator=(const CharacterDBPackageData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharacterDBPackageData& default_instance();
+
+  void Swap(CharacterDBPackageData* other);
+
+  // implements Message ----------------------------------------------
+
+  CharacterDBPackageData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharacterDBPackageData& from);
+  void MergeFrom(const CharacterDBPackageData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.CharacterDBPackageBag bags = 1;
+  inline int bags_size() const;
+  inline void clear_bags();
+  static const int kBagsFieldNumber = 1;
+  inline const ::proto_ff::CharacterDBPackageBag& bags(int index) const;
+  inline ::proto_ff::CharacterDBPackageBag* mutable_bags(int index);
+  inline ::proto_ff::CharacterDBPackageBag* add_bags();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBPackageBag >&
+      bags() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBPackageBag >*
+      mutable_bags();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharacterDBPackageData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBPackageBag > bags_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharacterDBPackageData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class tbRoleInfo : public ::google::protobuf::Message {
  public:
   tbRoleInfo();
@@ -1727,6 +2840,15 @@ class tbRoleInfo : public ::google::protobuf::Message {
   inline ::proto_ff::CharacterDBBaseInfo* release_basedata();
   inline void set_allocated_basedata(::proto_ff::CharacterDBBaseInfo* basedata);
 
+  // optional .proto_ff.CharacterDBPackageData itemData = 21;
+  inline bool has_itemdata() const;
+  inline void clear_itemdata();
+  static const int kItemDataFieldNumber = 21;
+  inline const ::proto_ff::CharacterDBPackageData& itemdata() const;
+  inline ::proto_ff::CharacterDBPackageData* mutable_itemdata();
+  inline ::proto_ff::CharacterDBPackageData* release_itemdata();
+  inline void set_allocated_itemdata(::proto_ff::CharacterDBPackageData* itemdata);
+
   // @@protoc_insertion_point(class_scope:proto_ff.tbRoleInfo)
  private:
   inline void set_has_charid();
@@ -1741,6 +2863,8 @@ class tbRoleInfo : public ::google::protobuf::Message {
   inline void clear_has_platid();
   inline void set_has_basedata();
   inline void clear_has_basedata();
+  inline void set_has_itemdata();
+  inline void clear_has_itemdata();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1750,9 +2874,10 @@ class tbRoleInfo : public ::google::protobuf::Message {
   ::std::string* charname_;
   ::std::string* platid_;
   ::proto_ff::CharacterDBBaseInfo* basedata_;
+  ::proto_ff::CharacterDBPackageData* itemdata_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_common_5flogic_2eproto();
   friend void protobuf_AssignDesc_common_5flogic_2eproto();
@@ -4130,6 +5255,891 @@ inline void CharacterDBBaseInfo::set_gmpoint_limit(::google::protobuf::int64 val
 
 // -------------------------------------------------------------------
 
+// Attr
+
+// optional uint32 AttrNum = 1;
+inline bool Attr::has_attrnum() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Attr::set_has_attrnum() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Attr::clear_has_attrnum() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Attr::clear_attrnum() {
+  attrnum_ = 0u;
+  clear_has_attrnum();
+}
+inline ::google::protobuf::uint32 Attr::attrnum() const {
+  return attrnum_;
+}
+inline void Attr::set_attrnum(::google::protobuf::uint32 value) {
+  set_has_attrnum();
+  attrnum_ = value;
+}
+
+// optional uint32 Attrvalue = 2;
+inline bool Attr::has_attrvalue() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Attr::set_has_attrvalue() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Attr::clear_has_attrvalue() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Attr::clear_attrvalue() {
+  attrvalue_ = 0u;
+  clear_has_attrvalue();
+}
+inline ::google::protobuf::uint32 Attr::attrvalue() const {
+  return attrvalue_;
+}
+inline void Attr::set_attrvalue(::google::protobuf::uint32 value) {
+  set_has_attrvalue();
+  attrvalue_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Attr64
+
+// optional uint32 AttrNum = 1;
+inline bool Attr64::has_attrnum() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Attr64::set_has_attrnum() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Attr64::clear_has_attrnum() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Attr64::clear_attrnum() {
+  attrnum_ = 0u;
+  clear_has_attrnum();
+}
+inline ::google::protobuf::uint32 Attr64::attrnum() const {
+  return attrnum_;
+}
+inline void Attr64::set_attrnum(::google::protobuf::uint32 value) {
+  set_has_attrnum();
+  attrnum_ = value;
+}
+
+// optional int64 Attrvalue = 2;
+inline bool Attr64::has_attrvalue() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Attr64::set_has_attrvalue() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Attr64::clear_has_attrvalue() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Attr64::clear_attrvalue() {
+  attrvalue_ = GOOGLE_LONGLONG(0);
+  clear_has_attrvalue();
+}
+inline ::google::protobuf::int64 Attr64::attrvalue() const {
+  return attrvalue_;
+}
+inline void Attr64::set_attrvalue(::google::protobuf::int64 value) {
+  set_has_attrvalue();
+  attrvalue_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FieldItemAttrInfo
+
+// repeated .proto_ff.Attr base_attr = 1;
+inline int FieldItemAttrInfo::base_attr_size() const {
+  return base_attr_.size();
+}
+inline void FieldItemAttrInfo::clear_base_attr() {
+  base_attr_.Clear();
+}
+inline const ::proto_ff::Attr& FieldItemAttrInfo::base_attr(int index) const {
+  return base_attr_.Get(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::mutable_base_attr(int index) {
+  return base_attr_.Mutable(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::add_base_attr() {
+  return base_attr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+FieldItemAttrInfo::base_attr() const {
+  return base_attr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+FieldItemAttrInfo::mutable_base_attr() {
+  return &base_attr_;
+}
+
+// repeated .proto_ff.Attr star_attr = 2;
+inline int FieldItemAttrInfo::star_attr_size() const {
+  return star_attr_.size();
+}
+inline void FieldItemAttrInfo::clear_star_attr() {
+  star_attr_.Clear();
+}
+inline const ::proto_ff::Attr& FieldItemAttrInfo::star_attr(int index) const {
+  return star_attr_.Get(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::mutable_star_attr(int index) {
+  return star_attr_.Mutable(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::add_star_attr() {
+  return star_attr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+FieldItemAttrInfo::star_attr() const {
+  return star_attr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+FieldItemAttrInfo::mutable_star_attr() {
+  return &star_attr_;
+}
+
+// repeated .proto_ff.Attr blue_star_attr = 3;
+inline int FieldItemAttrInfo::blue_star_attr_size() const {
+  return blue_star_attr_.size();
+}
+inline void FieldItemAttrInfo::clear_blue_star_attr() {
+  blue_star_attr_.Clear();
+}
+inline const ::proto_ff::Attr& FieldItemAttrInfo::blue_star_attr(int index) const {
+  return blue_star_attr_.Get(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::mutable_blue_star_attr(int index) {
+  return blue_star_attr_.Mutable(index);
+}
+inline ::proto_ff::Attr* FieldItemAttrInfo::add_blue_star_attr() {
+  return blue_star_attr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+FieldItemAttrInfo::blue_star_attr() const {
+  return blue_star_attr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+FieldItemAttrInfo::mutable_blue_star_attr() {
+  return &blue_star_attr_;
+}
+
+// optional int32 refine_level = 4;
+inline bool FieldItemAttrInfo::has_refine_level() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FieldItemAttrInfo::set_has_refine_level() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FieldItemAttrInfo::clear_has_refine_level() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void FieldItemAttrInfo::clear_refine_level() {
+  refine_level_ = 0;
+  clear_has_refine_level();
+}
+inline ::google::protobuf::int32 FieldItemAttrInfo::refine_level() const {
+  return refine_level_;
+}
+inline void FieldItemAttrInfo::set_refine_level(::google::protobuf::int32 value) {
+  set_has_refine_level();
+  refine_level_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MarryEquipInfo
+
+// optional int32 strong_lv = 1;
+inline bool MarryEquipInfo::has_strong_lv() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MarryEquipInfo::set_has_strong_lv() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MarryEquipInfo::clear_has_strong_lv() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MarryEquipInfo::clear_strong_lv() {
+  strong_lv_ = 0;
+  clear_has_strong_lv();
+}
+inline ::google::protobuf::int32 MarryEquipInfo::strong_lv() const {
+  return strong_lv_;
+}
+inline void MarryEquipInfo::set_strong_lv(::google::protobuf::int32 value) {
+  set_has_strong_lv();
+  strong_lv_ = value;
+}
+
+// optional int32 strong_exp = 2;
+inline bool MarryEquipInfo::has_strong_exp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MarryEquipInfo::set_has_strong_exp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MarryEquipInfo::clear_has_strong_exp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MarryEquipInfo::clear_strong_exp() {
+  strong_exp_ = 0;
+  clear_has_strong_exp();
+}
+inline ::google::protobuf::int32 MarryEquipInfo::strong_exp() const {
+  return strong_exp_;
+}
+inline void MarryEquipInfo::set_strong_exp(::google::protobuf::int32 value) {
+  set_has_strong_exp();
+  strong_exp_ = value;
+}
+
+// optional int32 stage_lv = 3;
+inline bool MarryEquipInfo::has_stage_lv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MarryEquipInfo::set_has_stage_lv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MarryEquipInfo::clear_has_stage_lv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MarryEquipInfo::clear_stage_lv() {
+  stage_lv_ = 0;
+  clear_has_stage_lv();
+}
+inline ::google::protobuf::int32 MarryEquipInfo::stage_lv() const {
+  return stage_lv_;
+}
+inline void MarryEquipInfo::set_stage_lv(::google::protobuf::int32 value) {
+  set_has_stage_lv();
+  stage_lv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ComposeSingleCostProto
+
+// optional uint64 itemid = 1;
+inline bool ComposeSingleCostProto::has_itemid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ComposeSingleCostProto::set_has_itemid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ComposeSingleCostProto::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ComposeSingleCostProto::clear_itemid() {
+  itemid_ = GOOGLE_ULONGLONG(0);
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint64 ComposeSingleCostProto::itemid() const {
+  return itemid_;
+}
+inline void ComposeSingleCostProto::set_itemid(::google::protobuf::uint64 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// optional int32 bind = 2;
+inline bool ComposeSingleCostProto::has_bind() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ComposeSingleCostProto::set_has_bind() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ComposeSingleCostProto::clear_has_bind() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ComposeSingleCostProto::clear_bind() {
+  bind_ = 0;
+  clear_has_bind();
+}
+inline ::google::protobuf::int32 ComposeSingleCostProto::bind() const {
+  return bind_;
+}
+inline void ComposeSingleCostProto::set_bind(::google::protobuf::int32 value) {
+  set_has_bind();
+  bind_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ComposeCostProto
+
+// repeated .proto_ff.ComposeSingleCostProto info = 1;
+inline int ComposeCostProto::info_size() const {
+  return info_.size();
+}
+inline void ComposeCostProto::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::ComposeSingleCostProto& ComposeCostProto::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::ComposeSingleCostProto* ComposeCostProto::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::ComposeSingleCostProto* ComposeCostProto::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComposeSingleCostProto >&
+ComposeCostProto::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComposeSingleCostProto >*
+ComposeCostProto::mutable_info() {
+  return &info_;
+}
+
+// -------------------------------------------------------------------
+
+// blustarAttr
+
+// optional uint32 attrid = 1;
+inline bool blustarAttr::has_attrid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void blustarAttr::set_has_attrid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void blustarAttr::clear_has_attrid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void blustarAttr::clear_attrid() {
+  attrid_ = 0u;
+  clear_has_attrid();
+}
+inline ::google::protobuf::uint32 blustarAttr::attrid() const {
+  return attrid_;
+}
+inline void blustarAttr::set_attrid(::google::protobuf::uint32 value) {
+  set_has_attrid();
+  attrid_ = value;
+}
+
+// optional uint32 levelinterval = 2;
+inline bool blustarAttr::has_levelinterval() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void blustarAttr::set_has_levelinterval() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void blustarAttr::clear_has_levelinterval() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void blustarAttr::clear_levelinterval() {
+  levelinterval_ = 0u;
+  clear_has_levelinterval();
+}
+inline ::google::protobuf::uint32 blustarAttr::levelinterval() const {
+  return levelinterval_;
+}
+inline void blustarAttr::set_levelinterval(::google::protobuf::uint32 value) {
+  set_has_levelinterval();
+  levelinterval_ = value;
+}
+
+// optional uint32 attrvalue = 3;
+inline bool blustarAttr::has_attrvalue() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void blustarAttr::set_has_attrvalue() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void blustarAttr::clear_has_attrvalue() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void blustarAttr::clear_attrvalue() {
+  attrvalue_ = 0u;
+  clear_has_attrvalue();
+}
+inline ::google::protobuf::uint32 blustarAttr::attrvalue() const {
+  return attrvalue_;
+}
+inline void blustarAttr::set_attrvalue(::google::protobuf::uint32 value) {
+  set_has_attrvalue();
+  attrvalue_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ItemProtoInfo
+
+// optional uint64 item_id = 1;
+inline bool ItemProtoInfo::has_item_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ItemProtoInfo::set_has_item_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ItemProtoInfo::clear_has_item_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ItemProtoInfo::clear_item_id() {
+  item_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_item_id();
+}
+inline ::google::protobuf::uint64 ItemProtoInfo::item_id() const {
+  return item_id_;
+}
+inline void ItemProtoInfo::set_item_id(::google::protobuf::uint64 value) {
+  set_has_item_id();
+  item_id_ = value;
+}
+
+// optional int64 item_num = 2;
+inline bool ItemProtoInfo::has_item_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ItemProtoInfo::set_has_item_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ItemProtoInfo::clear_has_item_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ItemProtoInfo::clear_item_num() {
+  item_num_ = GOOGLE_LONGLONG(0);
+  clear_has_item_num();
+}
+inline ::google::protobuf::int64 ItemProtoInfo::item_num() const {
+  return item_num_;
+}
+inline void ItemProtoInfo::set_item_num(::google::protobuf::int64 value) {
+  set_has_item_num();
+  item_num_ = value;
+}
+
+// optional int32 bind = 3;
+inline bool ItemProtoInfo::has_bind() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ItemProtoInfo::set_has_bind() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ItemProtoInfo::clear_has_bind() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ItemProtoInfo::clear_bind() {
+  bind_ = 0;
+  clear_has_bind();
+}
+inline ::google::protobuf::int32 ItemProtoInfo::bind() const {
+  return bind_;
+}
+inline void ItemProtoInfo::set_bind(::google::protobuf::int32 value) {
+  set_has_bind();
+  bind_ = value;
+}
+
+// repeated .proto_ff.Attr baseattr = 4;
+inline int ItemProtoInfo::baseattr_size() const {
+  return baseattr_.size();
+}
+inline void ItemProtoInfo::clear_baseattr() {
+  baseattr_.Clear();
+}
+inline const ::proto_ff::Attr& ItemProtoInfo::baseattr(int index) const {
+  return baseattr_.Get(index);
+}
+inline ::proto_ff::Attr* ItemProtoInfo::mutable_baseattr(int index) {
+  return baseattr_.Mutable(index);
+}
+inline ::proto_ff::Attr* ItemProtoInfo::add_baseattr() {
+  return baseattr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+ItemProtoInfo::baseattr() const {
+  return baseattr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+ItemProtoInfo::mutable_baseattr() {
+  return &baseattr_;
+}
+
+// optional int32 index = 5;
+inline bool ItemProtoInfo::has_index() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ItemProtoInfo::set_has_index() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ItemProtoInfo::clear_has_index() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void ItemProtoInfo::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 ItemProtoInfo::index() const {
+  return index_;
+}
+inline void ItemProtoInfo::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+}
+
+// optional int32 level = 6;
+inline bool ItemProtoInfo::has_level() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void ItemProtoInfo::set_has_level() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void ItemProtoInfo::clear_has_level() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void ItemProtoInfo::clear_level() {
+  level_ = 0;
+  clear_has_level();
+}
+inline ::google::protobuf::int32 ItemProtoInfo::level() const {
+  return level_;
+}
+inline void ItemProtoInfo::set_level(::google::protobuf::int32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// repeated .proto_ff.Attr refineex = 8;
+inline int ItemProtoInfo::refineex_size() const {
+  return refineex_.size();
+}
+inline void ItemProtoInfo::clear_refineex() {
+  refineex_.Clear();
+}
+inline const ::proto_ff::Attr& ItemProtoInfo::refineex(int index) const {
+  return refineex_.Get(index);
+}
+inline ::proto_ff::Attr* ItemProtoInfo::mutable_refineex(int index) {
+  return refineex_.Mutable(index);
+}
+inline ::proto_ff::Attr* ItemProtoInfo::add_refineex() {
+  return refineex_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+ItemProtoInfo::refineex() const {
+  return refineex_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+ItemProtoInfo::mutable_refineex() {
+  return &refineex_;
+}
+
+// repeated .proto_ff.blustarAttr con_attr = 9;
+inline int ItemProtoInfo::con_attr_size() const {
+  return con_attr_.size();
+}
+inline void ItemProtoInfo::clear_con_attr() {
+  con_attr_.Clear();
+}
+inline const ::proto_ff::blustarAttr& ItemProtoInfo::con_attr(int index) const {
+  return con_attr_.Get(index);
+}
+inline ::proto_ff::blustarAttr* ItemProtoInfo::mutable_con_attr(int index) {
+  return con_attr_.Mutable(index);
+}
+inline ::proto_ff::blustarAttr* ItemProtoInfo::add_con_attr() {
+  return con_attr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::blustarAttr >&
+ItemProtoInfo::con_attr() const {
+  return con_attr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::blustarAttr >*
+ItemProtoInfo::mutable_con_attr() {
+  return &con_attr_;
+}
+
+// optional uint64 expireTime = 10;
+inline bool ItemProtoInfo::has_expiretime() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void ItemProtoInfo::set_has_expiretime() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void ItemProtoInfo::clear_has_expiretime() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void ItemProtoInfo::clear_expiretime() {
+  expiretime_ = GOOGLE_ULONGLONG(0);
+  clear_has_expiretime();
+}
+inline ::google::protobuf::uint64 ItemProtoInfo::expiretime() const {
+  return expiretime_;
+}
+inline void ItemProtoInfo::set_expiretime(::google::protobuf::uint64 value) {
+  set_has_expiretime();
+  expiretime_ = value;
+}
+
+// optional .proto_ff.FieldItemAttrInfo field_data = 11;
+inline bool ItemProtoInfo::has_field_data() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void ItemProtoInfo::set_has_field_data() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void ItemProtoInfo::clear_has_field_data() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void ItemProtoInfo::clear_field_data() {
+  if (field_data_ != NULL) field_data_->::proto_ff::FieldItemAttrInfo::Clear();
+  clear_has_field_data();
+}
+inline const ::proto_ff::FieldItemAttrInfo& ItemProtoInfo::field_data() const {
+  return field_data_ != NULL ? *field_data_ : *default_instance_->field_data_;
+}
+inline ::proto_ff::FieldItemAttrInfo* ItemProtoInfo::mutable_field_data() {
+  set_has_field_data();
+  if (field_data_ == NULL) field_data_ = new ::proto_ff::FieldItemAttrInfo;
+  return field_data_;
+}
+inline ::proto_ff::FieldItemAttrInfo* ItemProtoInfo::release_field_data() {
+  clear_has_field_data();
+  ::proto_ff::FieldItemAttrInfo* temp = field_data_;
+  field_data_ = NULL;
+  return temp;
+}
+inline void ItemProtoInfo::set_allocated_field_data(::proto_ff::FieldItemAttrInfo* field_data) {
+  delete field_data_;
+  field_data_ = field_data;
+  if (field_data) {
+    set_has_field_data();
+  } else {
+    clear_has_field_data();
+  }
+}
+
+// optional .proto_ff.MarryEquipInfo marry_equip_data = 12;
+inline bool ItemProtoInfo::has_marry_equip_data() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void ItemProtoInfo::set_has_marry_equip_data() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void ItemProtoInfo::clear_has_marry_equip_data() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void ItemProtoInfo::clear_marry_equip_data() {
+  if (marry_equip_data_ != NULL) marry_equip_data_->::proto_ff::MarryEquipInfo::Clear();
+  clear_has_marry_equip_data();
+}
+inline const ::proto_ff::MarryEquipInfo& ItemProtoInfo::marry_equip_data() const {
+  return marry_equip_data_ != NULL ? *marry_equip_data_ : *default_instance_->marry_equip_data_;
+}
+inline ::proto_ff::MarryEquipInfo* ItemProtoInfo::mutable_marry_equip_data() {
+  set_has_marry_equip_data();
+  if (marry_equip_data_ == NULL) marry_equip_data_ = new ::proto_ff::MarryEquipInfo;
+  return marry_equip_data_;
+}
+inline ::proto_ff::MarryEquipInfo* ItemProtoInfo::release_marry_equip_data() {
+  clear_has_marry_equip_data();
+  ::proto_ff::MarryEquipInfo* temp = marry_equip_data_;
+  marry_equip_data_ = NULL;
+  return temp;
+}
+inline void ItemProtoInfo::set_allocated_marry_equip_data(::proto_ff::MarryEquipInfo* marry_equip_data) {
+  delete marry_equip_data_;
+  marry_equip_data_ = marry_equip_data;
+  if (marry_equip_data) {
+    set_has_marry_equip_data();
+  } else {
+    clear_has_marry_equip_data();
+  }
+}
+
+// optional .proto_ff.ComposeCostProto compose = 13;
+inline bool ItemProtoInfo::has_compose() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void ItemProtoInfo::set_has_compose() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void ItemProtoInfo::clear_has_compose() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void ItemProtoInfo::clear_compose() {
+  if (compose_ != NULL) compose_->::proto_ff::ComposeCostProto::Clear();
+  clear_has_compose();
+}
+inline const ::proto_ff::ComposeCostProto& ItemProtoInfo::compose() const {
+  return compose_ != NULL ? *compose_ : *default_instance_->compose_;
+}
+inline ::proto_ff::ComposeCostProto* ItemProtoInfo::mutable_compose() {
+  set_has_compose();
+  if (compose_ == NULL) compose_ = new ::proto_ff::ComposeCostProto;
+  return compose_;
+}
+inline ::proto_ff::ComposeCostProto* ItemProtoInfo::release_compose() {
+  clear_has_compose();
+  ::proto_ff::ComposeCostProto* temp = compose_;
+  compose_ = NULL;
+  return temp;
+}
+inline void ItemProtoInfo::set_allocated_compose(::proto_ff::ComposeCostProto* compose) {
+  delete compose_;
+  compose_ = compose;
+  if (compose) {
+    set_has_compose();
+  } else {
+    clear_has_compose();
+  }
+}
+
+// optional uint64 out_time = 14;
+inline bool ItemProtoInfo::has_out_time() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void ItemProtoInfo::set_has_out_time() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void ItemProtoInfo::clear_has_out_time() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void ItemProtoInfo::clear_out_time() {
+  out_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_out_time();
+}
+inline ::google::protobuf::uint64 ItemProtoInfo::out_time() const {
+  return out_time_;
+}
+inline void ItemProtoInfo::set_out_time(::google::protobuf::uint64 value) {
+  set_has_out_time();
+  out_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CharacterDBPackageBag
+
+// optional uint32 package_type = 1;
+inline bool CharacterDBPackageBag::has_package_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CharacterDBPackageBag::set_has_package_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CharacterDBPackageBag::clear_has_package_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CharacterDBPackageBag::clear_package_type() {
+  package_type_ = 0u;
+  clear_has_package_type();
+}
+inline ::google::protobuf::uint32 CharacterDBPackageBag::package_type() const {
+  return package_type_;
+}
+inline void CharacterDBPackageBag::set_package_type(::google::protobuf::uint32 value) {
+  set_has_package_type();
+  package_type_ = value;
+}
+
+// optional uint32 expand_num = 2;
+inline bool CharacterDBPackageBag::has_expand_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CharacterDBPackageBag::set_has_expand_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CharacterDBPackageBag::clear_has_expand_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CharacterDBPackageBag::clear_expand_num() {
+  expand_num_ = 0u;
+  clear_has_expand_num();
+}
+inline ::google::protobuf::uint32 CharacterDBPackageBag::expand_num() const {
+  return expand_num_;
+}
+inline void CharacterDBPackageBag::set_expand_num(::google::protobuf::uint32 value) {
+  set_has_expand_num();
+  expand_num_ = value;
+}
+
+// repeated .proto_ff.ItemProtoInfo items = 3;
+inline int CharacterDBPackageBag::items_size() const {
+  return items_.size();
+}
+inline void CharacterDBPackageBag::clear_items() {
+  items_.Clear();
+}
+inline const ::proto_ff::ItemProtoInfo& CharacterDBPackageBag::items(int index) const {
+  return items_.Get(index);
+}
+inline ::proto_ff::ItemProtoInfo* CharacterDBPackageBag::mutable_items(int index) {
+  return items_.Mutable(index);
+}
+inline ::proto_ff::ItemProtoInfo* CharacterDBPackageBag::add_items() {
+  return items_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemProtoInfo >&
+CharacterDBPackageBag::items() const {
+  return items_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemProtoInfo >*
+CharacterDBPackageBag::mutable_items() {
+  return &items_;
+}
+
+// optional int32 offset = 4;
+inline bool CharacterDBPackageBag::has_offset() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CharacterDBPackageBag::set_has_offset() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CharacterDBPackageBag::clear_has_offset() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CharacterDBPackageBag::clear_offset() {
+  offset_ = 0;
+  clear_has_offset();
+}
+inline ::google::protobuf::int32 CharacterDBPackageBag::offset() const {
+  return offset_;
+}
+inline void CharacterDBPackageBag::set_offset(::google::protobuf::int32 value) {
+  set_has_offset();
+  offset_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CharacterDBPackageData
+
+// repeated .proto_ff.CharacterDBPackageBag bags = 1;
+inline int CharacterDBPackageData::bags_size() const {
+  return bags_.size();
+}
+inline void CharacterDBPackageData::clear_bags() {
+  bags_.Clear();
+}
+inline const ::proto_ff::CharacterDBPackageBag& CharacterDBPackageData::bags(int index) const {
+  return bags_.Get(index);
+}
+inline ::proto_ff::CharacterDBPackageBag* CharacterDBPackageData::mutable_bags(int index) {
+  return bags_.Mutable(index);
+}
+inline ::proto_ff::CharacterDBPackageBag* CharacterDBPackageData::add_bags() {
+  return bags_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBPackageBag >&
+CharacterDBPackageData::bags() const {
+  return bags_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBPackageBag >*
+CharacterDBPackageData::mutable_bags() {
+  return &bags_;
+}
+
+// -------------------------------------------------------------------
+
 // tbRoleInfo
 
 // optional uint64 charId = 1;
@@ -4373,6 +6383,44 @@ inline void tbRoleInfo::set_allocated_basedata(::proto_ff::CharacterDBBaseInfo* 
     set_has_basedata();
   } else {
     clear_has_basedata();
+  }
+}
+
+// optional .proto_ff.CharacterDBPackageData itemData = 21;
+inline bool tbRoleInfo::has_itemdata() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void tbRoleInfo::set_has_itemdata() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void tbRoleInfo::clear_has_itemdata() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void tbRoleInfo::clear_itemdata() {
+  if (itemdata_ != NULL) itemdata_->::proto_ff::CharacterDBPackageData::Clear();
+  clear_has_itemdata();
+}
+inline const ::proto_ff::CharacterDBPackageData& tbRoleInfo::itemdata() const {
+  return itemdata_ != NULL ? *itemdata_ : *default_instance_->itemdata_;
+}
+inline ::proto_ff::CharacterDBPackageData* tbRoleInfo::mutable_itemdata() {
+  set_has_itemdata();
+  if (itemdata_ == NULL) itemdata_ = new ::proto_ff::CharacterDBPackageData;
+  return itemdata_;
+}
+inline ::proto_ff::CharacterDBPackageData* tbRoleInfo::release_itemdata() {
+  clear_has_itemdata();
+  ::proto_ff::CharacterDBPackageData* temp = itemdata_;
+  itemdata_ = NULL;
+  return temp;
+}
+inline void tbRoleInfo::set_allocated_itemdata(::proto_ff::CharacterDBPackageData* itemdata) {
+  delete itemdata_;
+  itemdata_ = itemdata;
+  if (itemdata) {
+    set_has_itemdata();
+  } else {
+    clear_has_itemdata();
   }
 }
 
