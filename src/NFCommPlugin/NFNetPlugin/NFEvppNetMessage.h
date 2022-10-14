@@ -256,6 +256,7 @@ protected:
 private:
 	std::vector<NFIConnection* > m_connectionList;
 	std::list<uint64_t>  mFreeLinks;
+    std::shared_ptr<evpp::EventLoopThreadPool> m_coonectionThreadPool;
 private:
 	NFCHttpServer* m_httpServer;
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)

@@ -41,7 +41,7 @@ public:
 		m_tcpClient = NULL;
 	}
 
-	virtual bool Init() override;
+	virtual bool Init(evpp::EventLoop* loop);
 
 	virtual bool Shut() override;
 

@@ -34,6 +34,12 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
     m_httpServerEnableSSL = false;
 #endif
     m_httpClient = NULL;
+
+    if (m_pObjPluginManager->IsLoadAllServer())
+    {
+        m_coonectionThreadPool.reset(NF_NEW evpp::EventLoopThreadPool(NULL, 1));
+        m_coonectionThreadPool->Start(true);
+    }
 }
 
 NFEvppNetMessage::~NFEvppNetMessage()
@@ -371,12 +377,23 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
 		pClient->SetLinkId(unLinkId);
 		pClient->SetConnCallback(std::bind(&NFEvppNetMessage::ConnectionCallback, this, std::placeholders::_1, unLinkId));
 		pClient->SetMessageCallback(std::bind(&NFEvppNetMessage::MessageCallback, this, std::placeholders::_1, std::placeholders::_2, unLinkId, flag.mPacketParseType, flag.mSecurity));
-		if (pClient->Init())
-		{
-			m_connectionList.push_back(pClient);
+        if (m_pObjPluginManager->IsLoadAllServer() && m_coonectionThreadPool)
+        {
+            if (pClient->Init(m_coonectionThreadPool->GetNextLoop()))
+            {
+                m_connectionList.push_back(pClient);
 
-			return (int64_t)unLinkId;
-		}
+                return (int64_t)unLinkId;
+            }
+        }
+        else {
+            if (pClient->Init(NULL))
+            {
+                m_connectionList.push_back(pClient);
+
+                return (int64_t)unLinkId;
+            }
+        }
 	}
 	return -1;
 }
@@ -576,6 +593,15 @@ bool NFEvppNetMessage::Finalize()
             }
         }
     }
+
+    if (m_coonectionThreadPool)
+    {
+        m_coonectionThreadPool->Stop(true);
+        NF_ASSERT(m_coonectionThreadPool->IsStopped());
+        m_coonectionThreadPool->Join();
+        m_coonectionThreadPool.reset();
+    }
+
 	return true;
 }
 

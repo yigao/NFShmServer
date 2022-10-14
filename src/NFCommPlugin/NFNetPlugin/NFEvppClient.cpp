@@ -29,18 +29,31 @@
 
 #include "NFEvppClient.h"
 
-bool NFEvppClient::Init()
+bool NFEvppClient::Init(evpp::EventLoop* loop)
 {
-    m_eventLoop.reset(NF_NEW evpp::EventLoopThread());
-    m_eventLoop->set_name(GetServerName(mServerType));
-    m_eventLoop->Start(true);
-
-    std::string strIpPort = NF_FORMAT("{}:{}", mFlag.mStrIp, mFlag.nPort);
-
-    m_tcpClient.reset(NF_NEW evpp::TCPClient(m_eventLoop->loop(), strIpPort, "NFEvppClient"));
-    if (!m_tcpClient)
+    if (!loop)
     {
-        return false;
+        m_eventLoop.reset(NF_NEW evpp::EventLoopThread());
+        m_eventLoop->set_name(GetServerName(mServerType));
+        m_eventLoop->Start(true);
+
+        std::string strIpPort = NF_FORMAT("{}:{}", mFlag.mStrIp, mFlag.nPort);
+
+        m_tcpClient.reset(NF_NEW evpp::TCPClient(m_eventLoop->loop(), strIpPort, "NFEvppClient"));
+        if (!m_tcpClient)
+        {
+            return false;
+        }
+    }
+    else
+    {
+        std::string strIpPort = NF_FORMAT("{}:{}", mFlag.mStrIp, mFlag.nPort);
+
+        m_tcpClient.reset(NF_NEW evpp::TCPClient(loop, strIpPort, "NFEvppClient"));
+        if (!m_tcpClient)
+        {
+            return false;
+        }
     }
 
     mConnectionType = NF_CONNECTION_TYPE_TCP_CLIENT;
@@ -66,15 +79,25 @@ bool NFEvppClient::Shut()
         m_tcpClient->Disconnect();
     }
 
-    m_eventLoop->Stop(true);
+    if (m_eventLoop)
+    {
+        m_eventLoop->Stop(true);
+    }
 
     return true;
 }
 
 bool NFEvppClient::Finalize()
 {
-    m_eventLoop.reset();
-    m_tcpClient.reset();
+    if (m_eventLoop)
+    {
+        m_eventLoop.reset();
+    }
+
+    if (m_tcpClient)
+    {
+        m_tcpClient.reset();
+    }
     return true;
 }
 
