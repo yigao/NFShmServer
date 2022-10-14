@@ -11,4 +11,5 @@ enum ServerInternalCmd
   //登录
   SERVER_INTERNAL_BEGIN = 300;
   WORLD_NOTIFY_PROXY_CHANGE_LOGIC = 301;   //中心服通知网关玩家逻辑节点变化
+  WORLD_TO_LOGIC_GET_ROLE_LIST = 302; //获取服务器角色列表
 };

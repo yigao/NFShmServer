@@ -249,7 +249,12 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_ENTER_LOGIC, pLogicServer->mServerInfo.bus_id(), false, proto_ff::LOGOUT_FLAG_NULL);
             CHECK_RET(retCode, "GateChangeLogic Failed!");
 
-            pPlayer->SendMsgToLogicServer(NF_MODULE_CLIENT, packet.nMsgId, clogin);
+            proto_ff::WorldToLogicGetRoleList xData;
+            xData.set_player_id(pPlayer->GetPlayerId());
+            xData.set_born_zone_id(bornZid);
+            xData.set_proxy_id(proxyId);
+            xData.set_client_id(clientId);
+            pPlayer->SendMsgToLogicServer(NF_MODULE_CLIENT, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST, xData);
         }
         else {
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_CRASH);

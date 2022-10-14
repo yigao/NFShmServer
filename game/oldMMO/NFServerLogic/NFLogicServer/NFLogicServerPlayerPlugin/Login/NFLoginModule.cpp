@@ -14,6 +14,7 @@
 #include <ClientServer.pb.h>
 #include <NFLogicCommon/NFServerFrameTypeDefines.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include <ServerInternalCmd.pb.h>
 #include "NFLoginModule.h"
 
 #include "Trans/NFTransGetRoleList.h"
@@ -31,7 +32,7 @@ NFLoginModule::~NFLoginModule()
 
 bool NFLoginModule::Awake()
 {
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, NF_MODULE_CLIENT, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST, this,
                                                        &NFLoginModule::OnHandleGetRoleList);
     return true;
 }
@@ -49,13 +50,12 @@ bool NFLoginModule::OnDynamicPlugin()
 int NFLoginModule::OnHandleGetRoleList(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    proto_ff::ClientLoginGateReq clogin;
+    proto_ff::WorldToLogicGetRoleList clogin;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, clogin);
 
-    uint32_t playerId = clogin.uid();
     NFTransGetRoleList* pTrans = dynamic_cast<NFTransGetRoleList *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_GET_ROLE_LIST));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransGetRoleList failed!");
-    pTrans->Init(playerId, 0, packet.nMsgId);
+    pTrans->Init(clogin.player_id(), 0, packet.nMsgId);
     int iRetCode = pTrans->HandleCSMsgReq(&clogin);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 

@@ -7,6 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
+#include <Player/NFPlayerMgr.h>
 #include "NFLogicServerPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -59,8 +60,9 @@ bool NFLogicServerPlayerPlugin::InitShmObjectRegister()
 
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum * 120 / 100;
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, EOT_LOGIC_PLAYER_ID, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ_WITH_HASH(NFTransPlayerBase, EOT_TRANS_LOGIC_PLAYER_BASE, 1);
-    REGISTER_SHM_OBJ_WITH_HASH(NFTransGetRoleList, EOT_TRANS_LOGIC_GET_ROLE_LIST, maxOnlinePlayerNum);
+    REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID);
+    REGISTER_SHM_OBJ(NFTransPlayerBase, EOT_TRANS_LOGIC_PLAYER_BASE, 1);
+    REGISTER_SHM_OBJ(NFTransGetRoleList, EOT_TRANS_LOGIC_GET_ROLE_LIST, maxOnlinePlayerNum);
 /*
     REGISTER_SINGLETON_SHM_OBJ(NFUserDetailMgr, EOT_USER_DETAIL_HASH_TABLE_ID, 1);
     REGISTER_SHM_OBJ(NFTransGetUserDetail, EOT_TRANS_GET_USER_DETAIL, maxOnlinePlayerNum);

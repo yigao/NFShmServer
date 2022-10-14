@@ -37,11 +37,12 @@ void protobuf_ShutdownFile_ServerInternalCmd_2eproto();
 
 enum ServerInternalCmd {
   SERVER_INTERNAL_BEGIN = 300,
-  WORLD_NOTIFY_PROXY_CHANGE_LOGIC = 301
+  WORLD_NOTIFY_PROXY_CHANGE_LOGIC = 301,
+  WORLD_TO_LOGIC_GET_ROLE_LIST = 302
 };
 bool ServerInternalCmd_IsValid(int value);
 const ServerInternalCmd ServerInternalCmd_MIN = SERVER_INTERNAL_BEGIN;
-const ServerInternalCmd ServerInternalCmd_MAX = WORLD_NOTIFY_PROXY_CHANGE_LOGIC;
+const ServerInternalCmd ServerInternalCmd_MAX = WORLD_TO_LOGIC_GET_ROLE_LIST;
 const int ServerInternalCmd_ARRAYSIZE = ServerInternalCmd_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerInternalCmd_descriptor();

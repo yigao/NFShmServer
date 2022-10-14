@@ -24,6 +24,9 @@ const ::google::protobuf::Descriptor* NotifyGateChangeLogic_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyGateChangeLogic_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* NotifyGateChangeLogic_cType_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* WorldToLogicGetRoleList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  WorldToLogicGetRoleList_reflection_ = NULL;
 
 }  // namespace
 
@@ -56,6 +59,24 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyGateChangeLogic));
   NotifyGateChangeLogic_cType_descriptor_ = NotifyGateChangeLogic_descriptor_->enum_type(0);
+  WorldToLogicGetRoleList_descriptor_ = file->message_type(1);
+  static const int WorldToLogicGetRoleList_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, born_zone_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, proxy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, client_id_),
+  };
+  WorldToLogicGetRoleList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      WorldToLogicGetRoleList_descriptor_,
+      WorldToLogicGetRoleList::default_instance_,
+      WorldToLogicGetRoleList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicGetRoleList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(WorldToLogicGetRoleList));
 }
 
 namespace {
@@ -70,6 +91,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyGateChangeLogic_descriptor_, &NotifyGateChangeLogic::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    WorldToLogicGetRoleList_descriptor_, &WorldToLogicGetRoleList::default_instance());
 }
 
 }  // namespace
@@ -77,6 +100,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete NotifyGateChangeLogic::default_instance_;
   delete NotifyGateChangeLogic_reflection_;
+  delete WorldToLogicGetRoleList::default_instance_;
+  delete WorldToLogicGetRoleList_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -99,11 +124,16 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     " \001(\r\022\022\n\nforceLeave\030\006 \001(\010\022(\n\tleaveFlag\030\007 "
     "\001(\0162\025.proto_ff.LOGOUT_FLAG\"Q\n\005cType\022\017\n\013E"
     "NTER_LOGIC\020\001\022\017\n\013LEAVE_LOGIC\020\002\022\020\n\014TTRANS_"
-    "LOGIC\020\003\022\024\n\020RETURN_ROLE_LIST\020\004", 389);
+    "LOGIC\020\003\022\024\n\020RETURN_ROLE_LIST\020\004\"g\n\027WorldTo"
+    "LogicGetRoleList\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014b"
+    "orn_zone_id\030\002 \001(\r\022\020\n\010proxy_id\030\003 \001(\004\022\021\n\tc"
+    "lient_id\030\004 \001(\004", 494);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   NotifyGateChangeLogic::default_instance_ = new NotifyGateChangeLogic();
+  WorldToLogicGetRoleList::default_instance_ = new WorldToLogicGetRoleList();
   NotifyGateChangeLogic::default_instance_->InitAsDefaultInstance();
+  WorldToLogicGetRoleList::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -594,6 +624,334 @@ void NotifyGateChangeLogic::Swap(NotifyGateChangeLogic* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NotifyGateChangeLogic_descriptor_;
   metadata.reflection = NotifyGateChangeLogic_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int WorldToLogicGetRoleList::kPlayerIdFieldNumber;
+const int WorldToLogicGetRoleList::kBornZoneIdFieldNumber;
+const int WorldToLogicGetRoleList::kProxyIdFieldNumber;
+const int WorldToLogicGetRoleList::kClientIdFieldNumber;
+#endif  // !_MSC_VER
+
+WorldToLogicGetRoleList::WorldToLogicGetRoleList()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void WorldToLogicGetRoleList::InitAsDefaultInstance() {
+}
+
+WorldToLogicGetRoleList::WorldToLogicGetRoleList(const WorldToLogicGetRoleList& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void WorldToLogicGetRoleList::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  born_zone_id_ = 0u;
+  proxy_id_ = GOOGLE_ULONGLONG(0);
+  client_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+WorldToLogicGetRoleList::~WorldToLogicGetRoleList() {
+  SharedDtor();
+}
+
+void WorldToLogicGetRoleList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void WorldToLogicGetRoleList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WorldToLogicGetRoleList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return WorldToLogicGetRoleList_descriptor_;
+}
+
+const WorldToLogicGetRoleList& WorldToLogicGetRoleList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+WorldToLogicGetRoleList* WorldToLogicGetRoleList::default_instance_ = NULL;
+
+WorldToLogicGetRoleList* WorldToLogicGetRoleList::New() const {
+  return new WorldToLogicGetRoleList;
+}
+
+void WorldToLogicGetRoleList::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+    born_zone_id_ = 0u;
+    proxy_id_ = GOOGLE_ULONGLONG(0);
+    client_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool WorldToLogicGetRoleList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_born_zone_id;
+        break;
+      }
+
+      // optional uint32 born_zone_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_born_zone_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &born_zone_id_)));
+          set_has_born_zone_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_proxy_id;
+        break;
+      }
+
+      // optional uint64 proxy_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_proxy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &proxy_id_)));
+          set_has_proxy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_client_id;
+        break;
+      }
+
+      // optional uint64 client_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_client_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &client_id_)));
+          set_has_client_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void WorldToLogicGetRoleList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  // optional uint32 born_zone_id = 2;
+  if (has_born_zone_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->born_zone_id(), output);
+  }
+
+  // optional uint64 proxy_id = 3;
+  if (has_proxy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->proxy_id(), output);
+  }
+
+  // optional uint64 client_id = 4;
+  if (has_client_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->client_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* WorldToLogicGetRoleList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  // optional uint32 born_zone_id = 2;
+  if (has_born_zone_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->born_zone_id(), target);
+  }
+
+  // optional uint64 proxy_id = 3;
+  if (has_proxy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->proxy_id(), target);
+  }
+
+  // optional uint64 client_id = 4;
+  if (has_client_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->client_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int WorldToLogicGetRoleList::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+    // optional uint32 born_zone_id = 2;
+    if (has_born_zone_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->born_zone_id());
+    }
+
+    // optional uint64 proxy_id = 3;
+    if (has_proxy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->proxy_id());
+    }
+
+    // optional uint64 client_id = 4;
+    if (has_client_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->client_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WorldToLogicGetRoleList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const WorldToLogicGetRoleList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const WorldToLogicGetRoleList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void WorldToLogicGetRoleList::MergeFrom(const WorldToLogicGetRoleList& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+    if (from.has_born_zone_id()) {
+      set_born_zone_id(from.born_zone_id());
+    }
+    if (from.has_proxy_id()) {
+      set_proxy_id(from.proxy_id());
+    }
+    if (from.has_client_id()) {
+      set_client_id(from.client_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void WorldToLogicGetRoleList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WorldToLogicGetRoleList::CopyFrom(const WorldToLogicGetRoleList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WorldToLogicGetRoleList::IsInitialized() const {
+
+  return true;
+}
+
+void WorldToLogicGetRoleList::Swap(WorldToLogicGetRoleList* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(born_zone_id_, other->born_zone_id_);
+    std::swap(proxy_id_, other->proxy_id_);
+    std::swap(client_id_, other->client_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata WorldToLogicGetRoleList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = WorldToLogicGetRoleList_descriptor_;
+  metadata.reflection = WorldToLogicGetRoleList_reflection_;
   return metadata;
 }
 

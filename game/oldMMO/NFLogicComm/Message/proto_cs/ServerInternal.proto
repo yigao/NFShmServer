@@ -26,3 +26,11 @@ message NotifyGateChangeLogic
   optional bool   forceLeave = 6;
   optional LOGOUT_FLAG leaveFlag =7;
 }
+
+message WorldToLogicGetRoleList
+{
+  optional uint64 player_id = 1;
+  optional uint32 born_zone_id = 2;
+  optional uint64 proxy_id = 3;
+  optional uint64 client_id = 4;
+}

@@ -61,10 +61,10 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   ::proto_ff::protobuf_AddDesc_common_5flogic_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\027ServerInternalCmd.proto\022\010proto_ff\032\025yd_"
-    "fieldoptions.proto\032\022common_logic.proto*U"
+    "fieldoptions.proto\032\022common_logic.proto*x"
     "\n\021ServerInternalCmd\022\032\n\025SERVER_INTERNAL_B"
     "EGIN\020\254\002\022$\n\037WORLD_NOTIFY_PROXY_CHANGE_LOG"
-    "IC\020\255\002", 165);
+    "IC\020\255\002\022!\n\034WORLD_TO_LOGIC_GET_ROLE_LIST\020\256\002", 200);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -84,6 +84,7 @@ bool ServerInternalCmd_IsValid(int value) {
   switch(value) {
     case 300:
     case 301:
+    case 302:
       return true;
     default:
       return false;

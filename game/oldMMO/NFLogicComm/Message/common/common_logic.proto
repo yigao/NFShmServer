@@ -1,12 +1,10 @@
-
-
 package proto_ff;
 
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
 
 message PacketMsg {
-  optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl)=true];
+  optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl) = true];
   optional uint32 serverType = 2;
   optional uint32 upper_limit = 3;
   optional uint32 min_interval = 4;
@@ -14,9 +12,156 @@ message PacketMsg {
 }
 
 message ServerPacketMsg {
-  repeated PacketMsg PacketMsg = 1[(yd_fieldoptions.field_use_stl)=true];
+  repeated PacketMsg PacketMsg = 1[(yd_fieldoptions.field_use_stl) = true];
 }
 
 message WorldExternalConfig {
-  optional bool TokenTimeCheck = 1[(yd_fieldoptions.field_use_stl)=true];
+  optional bool TokenTimeCheck = 1[(yd_fieldoptions.field_use_stl) = true];
+}
+
+//角色外观信息
+message CharFacadeProto
+{
+  optional uint64 cur_mount_id		= 1;	// 当前坐骑ID
+  optional uint64 wing_id				= 2;	// 翅膀ID
+  optional uint64 fashion_clothes_id	= 3;	// 时装衣服ID
+  optional uint64 fashion_weapon_id	= 4;	// 时装武器ID
+  optional uint64 occupationId		= 5;	// 转职ID
+  optional uint64 treasure_id			= 6;	// 宝具ID
+  optional int32  treasure_type		= 7;	// 宝具Type TREASURE_TYPE
+  optional uint64 artifact_id			= 8;	// 神器ID
+  optional uint64 cur_select_mount_id = 9;	// 当前牵出来的坐骑
+  optional uint64 partner_id			= 10;	// 伙伴ID，目前只供服务器用
+  optional uint64 head_id				= 11;	// 头像ID
+  optional uint64 frame_id			= 12;	// 边框ID
+  optional uint64 bubble_id			= 13;	// 气泡ID
+}
+
+//角色工会精修信息
+message CharTrimProto
+{
+  optional int32 trim_type = 1;	//精修类型
+  optional int32 trim_level = 2;	//精修等级
+}
+
+//第一次强制进副本信息
+message ForceDupProto
+{
+  optional int32 treasure_state = 1;	//第一次打宝副本的状态	0-未完成，1-正在进行，2-已完成
+  optional int32 ladder_state = 2;	//第一次天梯(纹章)副本的状态 0-未完成，1-正在进行，2-已完成
+}
+
+//角色工会精修数据
+message CharMultTrimProto
+{
+  repeated CharTrimProto trim_lst = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+// 角色基础数据 注意每加一个字段，计算下最大值 2058+3*1024+4 = 5134B
+message CharacterDBBaseInfo
+{
+  optional uint64 createTime      = 1;    // 创建时间（UTC时间）
+  optional uint64 lastSaveTime    = 2;	// 最后一次存盘的时间（UTC时间）
+  optional uint64 onlineTime      = 3;    // 总在线游戏时间(秒)
+  optional uint64 loginTime       = 4;    // 上一次登陆的时间（UTC时间）
+  optional uint64 logoutTime      = 5;    // 上一次下线时间（UTC时间）
+
+  optional string name            = 6[(yd_fieldoptions.field_bufsize)=128];	// 名字
+  optional uint32 sex             = 7;	// 性别
+  optional uint32 prof            = 8;	// 职业
+  optional uint32 level           = 9;    // 等级
+  optional int64  exp             = 10;   // 经验
+  optional int64 hp				= 11;   // 生命
+  optional int64 fight			= 12;   // 战斗力
+
+  optional uint64 gold			= 13;	 //金币
+  optional uint64 diamond			= 14;	 //钻石
+  optional uint64 binddiamond		= 15;	 //绑定钻石
+
+
+  optional uint64 enter_scene_id  = 16;   // 上线场景Id
+  optional uint64 enter_map_id    = 17;	// 上线的地图模板ID
+  optional float enterPosX        = 18;   // 上线位置X
+  optional float enterPosY        = 19;   // 上线位置Y
+  optional float enterPosZ        = 20;   // 上线位置Y
+
+  optional uint64 lastSceneId		= 21;    //玩家进入上个地图的场景Id
+  optional uint64 lastMapId		= 22;    //玩家进入上个地图Id
+  optional float  lastPosX		= 23;    //玩家上个地图的x坐标
+  optional float  lastPosY		= 24;    //玩家上个地图的y坐标
+  optional float  lastPosZ		= 25;    //玩家上个地图的z坐标
+
+  optional uint64 lastReviveTime  = 26;   //上次复活时间戳
+  optional uint32 curState	    = 27;   //玩家当前状态
+
+  optional float  clx				= 28;    //客户端移动最后一次正确坐标的x坐标
+  optional float  cly				= 29;    //客户端移动最后一次正确坐标的y坐标
+  optional float  clz				= 30;    //客户端移动最后一次正确坐标的z坐标
+
+  optional uint64 occupation 		= 31;	//转职职业
+  optional uint64 aptitude		= 32;	//境界
+
+  optional CharFacadeProto facade = 33;	//外观(离线数据用)
+  optional int64 arenacoin		= 34;	//竞技币
+  optional int64 starEssence		= 35;	//命星精华
+  optional int64 starExp			= 36;	//命星经验
+  optional int64 starFragment		= 37;	//命星碎片
+  optional int64 hangUpTime		= 38;	//挂机时长
+  optional uint32 active_num		= 39;	//活跃度
+  optional int64 vipLevel			= 40;	//vip等级
+  optional int64 godhoodExp		= 41;	//神格经验
+  optional int64 smallSpirit		= 42;	//小灵魄(合成货币)
+  optional int64 bigSpirit		= 43;	//大灵魄(合成货币)
+
+  optional CharMultTrimProto trim = 44;	//工会精修
+
+  optional int32 finish_flag		= 45;	//新手副本是否完成
+  optional string guide			= 46[(yd_fieldoptions.field_bufsize)=128];	//新手指引信息
+
+  optional ForceDupProto force	= 47;	//第一次强制进副本信息
+
+  optional int64 useTitle			= 48;	//装备的称号
+
+  optional int32 subpack_type		= 49;	//分包类型 1 小包，2 大包
+  optional int32 subpack_fetch	= 50;	//是否已领取分包下载奖励
+  optional int32 rechargeDiscountDate = 51;//购买每日最惠日期
+
+  optional int32 friendNum		= 52;	//好友数量
+
+  optional string platid			= 53 [(yd_fieldoptions.field_bufsize)=128];	//平台ID，运营日志需要记录
+  optional int32 solo_score		= 54;	//solo积分
+  optional int32 solo_prv_score	= 55;	//solo赛上次比赛积分
+  optional int32 dragons_num		= 56;	//龙鳞数量
+
+  optional uint32 total_login_day = 57;   //总登录天数
+  optional uint64 login_day_time = 58;	//总登录天数变更时间
+
+  optional int32 login_gift = 59;			//登录礼包是否已领取，0-未领取，1-已经领取
+  optional int64 vipCardDiamond = 60;		//特权卡兑换的钻石
+
+  optional uint64 holydia			= 61;	 //神钻
+
+  optional int32 relive_num 		= 62;	//原地复活次数
+  optional int64 last_relive_time = 63;	//上次原地复活时间
+  optional int64 dead_static_map_id = 64;	//死亡的静态地图ID
+  optional int32 dead_static_num	= 65;	//静态地图死亡次数
+  optional int64 dead_static_cd = 66;		//静态地图原地复活CD(毫秒)
+  optional int32 fushi_time = 67;			//符石剩余秒数
+
+  optional int64 starStone		= 68;	//命星神石
+
+  optional int64 voucher 			= 69;	//金券
+  optional int64 waiguan			= 70;	//外观碎片
+  optional int64 gmpoint 		  	= 71;	//gm点数
+  optional int64 gmpoint_limit 	= 72;	//GM点数上限
+}
+
+message tbRoleInfo
+{
+  optional uint64 charId = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+  optional uint64 playerId = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];
+  optional uint64 bornZoneId = 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];
+  optional string charName = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional string platId = 5[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional CharacterDBBaseInfo    baseData				= 20;    // 基础信息
 }

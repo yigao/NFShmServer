@@ -37,6 +37,12 @@ void protobuf_ShutdownFile_common_5flogic_2eproto();
 class PacketMsg;
 class ServerPacketMsg;
 class WorldExternalConfig;
+class CharFacadeProto;
+class CharTrimProto;
+class ForceDupProto;
+class CharMultTrimProto;
+class CharacterDBBaseInfo;
+class tbRoleInfo;
 
 // ===================================================================
 
@@ -327,6 +333,1434 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static WorldExternalConfig* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class CharFacadeProto : public ::google::protobuf::Message {
+ public:
+  CharFacadeProto();
+  virtual ~CharFacadeProto();
+
+  CharFacadeProto(const CharFacadeProto& from);
+
+  inline CharFacadeProto& operator=(const CharFacadeProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharFacadeProto& default_instance();
+
+  void Swap(CharFacadeProto* other);
+
+  // implements Message ----------------------------------------------
+
+  CharFacadeProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharFacadeProto& from);
+  void MergeFrom(const CharFacadeProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cur_mount_id = 1;
+  inline bool has_cur_mount_id() const;
+  inline void clear_cur_mount_id();
+  static const int kCurMountIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 cur_mount_id() const;
+  inline void set_cur_mount_id(::google::protobuf::uint64 value);
+
+  // optional uint64 wing_id = 2;
+  inline bool has_wing_id() const;
+  inline void clear_wing_id();
+  static const int kWingIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 wing_id() const;
+  inline void set_wing_id(::google::protobuf::uint64 value);
+
+  // optional uint64 fashion_clothes_id = 3;
+  inline bool has_fashion_clothes_id() const;
+  inline void clear_fashion_clothes_id();
+  static const int kFashionClothesIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 fashion_clothes_id() const;
+  inline void set_fashion_clothes_id(::google::protobuf::uint64 value);
+
+  // optional uint64 fashion_weapon_id = 4;
+  inline bool has_fashion_weapon_id() const;
+  inline void clear_fashion_weapon_id();
+  static const int kFashionWeaponIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 fashion_weapon_id() const;
+  inline void set_fashion_weapon_id(::google::protobuf::uint64 value);
+
+  // optional uint64 occupationId = 5;
+  inline bool has_occupationid() const;
+  inline void clear_occupationid();
+  static const int kOccupationIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 occupationid() const;
+  inline void set_occupationid(::google::protobuf::uint64 value);
+
+  // optional uint64 treasure_id = 6;
+  inline bool has_treasure_id() const;
+  inline void clear_treasure_id();
+  static const int kTreasureIdFieldNumber = 6;
+  inline ::google::protobuf::uint64 treasure_id() const;
+  inline void set_treasure_id(::google::protobuf::uint64 value);
+
+  // optional int32 treasure_type = 7;
+  inline bool has_treasure_type() const;
+  inline void clear_treasure_type();
+  static const int kTreasureTypeFieldNumber = 7;
+  inline ::google::protobuf::int32 treasure_type() const;
+  inline void set_treasure_type(::google::protobuf::int32 value);
+
+  // optional uint64 artifact_id = 8;
+  inline bool has_artifact_id() const;
+  inline void clear_artifact_id();
+  static const int kArtifactIdFieldNumber = 8;
+  inline ::google::protobuf::uint64 artifact_id() const;
+  inline void set_artifact_id(::google::protobuf::uint64 value);
+
+  // optional uint64 cur_select_mount_id = 9;
+  inline bool has_cur_select_mount_id() const;
+  inline void clear_cur_select_mount_id();
+  static const int kCurSelectMountIdFieldNumber = 9;
+  inline ::google::protobuf::uint64 cur_select_mount_id() const;
+  inline void set_cur_select_mount_id(::google::protobuf::uint64 value);
+
+  // optional uint64 partner_id = 10;
+  inline bool has_partner_id() const;
+  inline void clear_partner_id();
+  static const int kPartnerIdFieldNumber = 10;
+  inline ::google::protobuf::uint64 partner_id() const;
+  inline void set_partner_id(::google::protobuf::uint64 value);
+
+  // optional uint64 head_id = 11;
+  inline bool has_head_id() const;
+  inline void clear_head_id();
+  static const int kHeadIdFieldNumber = 11;
+  inline ::google::protobuf::uint64 head_id() const;
+  inline void set_head_id(::google::protobuf::uint64 value);
+
+  // optional uint64 frame_id = 12;
+  inline bool has_frame_id() const;
+  inline void clear_frame_id();
+  static const int kFrameIdFieldNumber = 12;
+  inline ::google::protobuf::uint64 frame_id() const;
+  inline void set_frame_id(::google::protobuf::uint64 value);
+
+  // optional uint64 bubble_id = 13;
+  inline bool has_bubble_id() const;
+  inline void clear_bubble_id();
+  static const int kBubbleIdFieldNumber = 13;
+  inline ::google::protobuf::uint64 bubble_id() const;
+  inline void set_bubble_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharFacadeProto)
+ private:
+  inline void set_has_cur_mount_id();
+  inline void clear_has_cur_mount_id();
+  inline void set_has_wing_id();
+  inline void clear_has_wing_id();
+  inline void set_has_fashion_clothes_id();
+  inline void clear_has_fashion_clothes_id();
+  inline void set_has_fashion_weapon_id();
+  inline void clear_has_fashion_weapon_id();
+  inline void set_has_occupationid();
+  inline void clear_has_occupationid();
+  inline void set_has_treasure_id();
+  inline void clear_has_treasure_id();
+  inline void set_has_treasure_type();
+  inline void clear_has_treasure_type();
+  inline void set_has_artifact_id();
+  inline void clear_has_artifact_id();
+  inline void set_has_cur_select_mount_id();
+  inline void clear_has_cur_select_mount_id();
+  inline void set_has_partner_id();
+  inline void clear_has_partner_id();
+  inline void set_has_head_id();
+  inline void clear_has_head_id();
+  inline void set_has_frame_id();
+  inline void clear_has_frame_id();
+  inline void set_has_bubble_id();
+  inline void clear_has_bubble_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_mount_id_;
+  ::google::protobuf::uint64 wing_id_;
+  ::google::protobuf::uint64 fashion_clothes_id_;
+  ::google::protobuf::uint64 fashion_weapon_id_;
+  ::google::protobuf::uint64 occupationid_;
+  ::google::protobuf::uint64 treasure_id_;
+  ::google::protobuf::uint64 artifact_id_;
+  ::google::protobuf::uint64 cur_select_mount_id_;
+  ::google::protobuf::uint64 partner_id_;
+  ::google::protobuf::uint64 head_id_;
+  ::google::protobuf::uint64 frame_id_;
+  ::google::protobuf::uint64 bubble_id_;
+  ::google::protobuf::int32 treasure_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharFacadeProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharTrimProto : public ::google::protobuf::Message {
+ public:
+  CharTrimProto();
+  virtual ~CharTrimProto();
+
+  CharTrimProto(const CharTrimProto& from);
+
+  inline CharTrimProto& operator=(const CharTrimProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharTrimProto& default_instance();
+
+  void Swap(CharTrimProto* other);
+
+  // implements Message ----------------------------------------------
+
+  CharTrimProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharTrimProto& from);
+  void MergeFrom(const CharTrimProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 trim_type = 1;
+  inline bool has_trim_type() const;
+  inline void clear_trim_type();
+  static const int kTrimTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 trim_type() const;
+  inline void set_trim_type(::google::protobuf::int32 value);
+
+  // optional int32 trim_level = 2;
+  inline bool has_trim_level() const;
+  inline void clear_trim_level();
+  static const int kTrimLevelFieldNumber = 2;
+  inline ::google::protobuf::int32 trim_level() const;
+  inline void set_trim_level(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharTrimProto)
+ private:
+  inline void set_has_trim_type();
+  inline void clear_has_trim_type();
+  inline void set_has_trim_level();
+  inline void clear_has_trim_level();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 trim_type_;
+  ::google::protobuf::int32 trim_level_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharTrimProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ForceDupProto : public ::google::protobuf::Message {
+ public:
+  ForceDupProto();
+  virtual ~ForceDupProto();
+
+  ForceDupProto(const ForceDupProto& from);
+
+  inline ForceDupProto& operator=(const ForceDupProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ForceDupProto& default_instance();
+
+  void Swap(ForceDupProto* other);
+
+  // implements Message ----------------------------------------------
+
+  ForceDupProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ForceDupProto& from);
+  void MergeFrom(const ForceDupProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 treasure_state = 1;
+  inline bool has_treasure_state() const;
+  inline void clear_treasure_state();
+  static const int kTreasureStateFieldNumber = 1;
+  inline ::google::protobuf::int32 treasure_state() const;
+  inline void set_treasure_state(::google::protobuf::int32 value);
+
+  // optional int32 ladder_state = 2;
+  inline bool has_ladder_state() const;
+  inline void clear_ladder_state();
+  static const int kLadderStateFieldNumber = 2;
+  inline ::google::protobuf::int32 ladder_state() const;
+  inline void set_ladder_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ForceDupProto)
+ private:
+  inline void set_has_treasure_state();
+  inline void clear_has_treasure_state();
+  inline void set_has_ladder_state();
+  inline void clear_has_ladder_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 treasure_state_;
+  ::google::protobuf::int32 ladder_state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static ForceDupProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharMultTrimProto : public ::google::protobuf::Message {
+ public:
+  CharMultTrimProto();
+  virtual ~CharMultTrimProto();
+
+  CharMultTrimProto(const CharMultTrimProto& from);
+
+  inline CharMultTrimProto& operator=(const CharMultTrimProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharMultTrimProto& default_instance();
+
+  void Swap(CharMultTrimProto* other);
+
+  // implements Message ----------------------------------------------
+
+  CharMultTrimProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharMultTrimProto& from);
+  void MergeFrom(const CharMultTrimProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.CharTrimProto trim_lst = 1;
+  inline int trim_lst_size() const;
+  inline void clear_trim_lst();
+  static const int kTrimLstFieldNumber = 1;
+  inline const ::proto_ff::CharTrimProto& trim_lst(int index) const;
+  inline ::proto_ff::CharTrimProto* mutable_trim_lst(int index);
+  inline ::proto_ff::CharTrimProto* add_trim_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharTrimProto >&
+      trim_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharTrimProto >*
+      mutable_trim_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharMultTrimProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::CharTrimProto > trim_lst_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharMultTrimProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharacterDBBaseInfo : public ::google::protobuf::Message {
+ public:
+  CharacterDBBaseInfo();
+  virtual ~CharacterDBBaseInfo();
+
+  CharacterDBBaseInfo(const CharacterDBBaseInfo& from);
+
+  inline CharacterDBBaseInfo& operator=(const CharacterDBBaseInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharacterDBBaseInfo& default_instance();
+
+  void Swap(CharacterDBBaseInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CharacterDBBaseInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharacterDBBaseInfo& from);
+  void MergeFrom(const CharacterDBBaseInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 createTime = 1;
+  inline bool has_createtime() const;
+  inline void clear_createtime();
+  static const int kCreateTimeFieldNumber = 1;
+  inline ::google::protobuf::uint64 createtime() const;
+  inline void set_createtime(::google::protobuf::uint64 value);
+
+  // optional uint64 lastSaveTime = 2;
+  inline bool has_lastsavetime() const;
+  inline void clear_lastsavetime();
+  static const int kLastSaveTimeFieldNumber = 2;
+  inline ::google::protobuf::uint64 lastsavetime() const;
+  inline void set_lastsavetime(::google::protobuf::uint64 value);
+
+  // optional uint64 onlineTime = 3;
+  inline bool has_onlinetime() const;
+  inline void clear_onlinetime();
+  static const int kOnlineTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 onlinetime() const;
+  inline void set_onlinetime(::google::protobuf::uint64 value);
+
+  // optional uint64 loginTime = 4;
+  inline bool has_logintime() const;
+  inline void clear_logintime();
+  static const int kLoginTimeFieldNumber = 4;
+  inline ::google::protobuf::uint64 logintime() const;
+  inline void set_logintime(::google::protobuf::uint64 value);
+
+  // optional uint64 logoutTime = 5;
+  inline bool has_logouttime() const;
+  inline void clear_logouttime();
+  static const int kLogoutTimeFieldNumber = 5;
+  inline ::google::protobuf::uint64 logouttime() const;
+  inline void set_logouttime(::google::protobuf::uint64 value);
+
+  // optional string name = 6;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 6;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional uint32 sex = 7;
+  inline bool has_sex() const;
+  inline void clear_sex();
+  static const int kSexFieldNumber = 7;
+  inline ::google::protobuf::uint32 sex() const;
+  inline void set_sex(::google::protobuf::uint32 value);
+
+  // optional uint32 prof = 8;
+  inline bool has_prof() const;
+  inline void clear_prof();
+  static const int kProfFieldNumber = 8;
+  inline ::google::protobuf::uint32 prof() const;
+  inline void set_prof(::google::protobuf::uint32 value);
+
+  // optional uint32 level = 9;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 9;
+  inline ::google::protobuf::uint32 level() const;
+  inline void set_level(::google::protobuf::uint32 value);
+
+  // optional int64 exp = 10;
+  inline bool has_exp() const;
+  inline void clear_exp();
+  static const int kExpFieldNumber = 10;
+  inline ::google::protobuf::int64 exp() const;
+  inline void set_exp(::google::protobuf::int64 value);
+
+  // optional int64 hp = 11;
+  inline bool has_hp() const;
+  inline void clear_hp();
+  static const int kHpFieldNumber = 11;
+  inline ::google::protobuf::int64 hp() const;
+  inline void set_hp(::google::protobuf::int64 value);
+
+  // optional int64 fight = 12;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 12;
+  inline ::google::protobuf::int64 fight() const;
+  inline void set_fight(::google::protobuf::int64 value);
+
+  // optional uint64 gold = 13;
+  inline bool has_gold() const;
+  inline void clear_gold();
+  static const int kGoldFieldNumber = 13;
+  inline ::google::protobuf::uint64 gold() const;
+  inline void set_gold(::google::protobuf::uint64 value);
+
+  // optional uint64 diamond = 14;
+  inline bool has_diamond() const;
+  inline void clear_diamond();
+  static const int kDiamondFieldNumber = 14;
+  inline ::google::protobuf::uint64 diamond() const;
+  inline void set_diamond(::google::protobuf::uint64 value);
+
+  // optional uint64 binddiamond = 15;
+  inline bool has_binddiamond() const;
+  inline void clear_binddiamond();
+  static const int kBinddiamondFieldNumber = 15;
+  inline ::google::protobuf::uint64 binddiamond() const;
+  inline void set_binddiamond(::google::protobuf::uint64 value);
+
+  // optional uint64 enter_scene_id = 16;
+  inline bool has_enter_scene_id() const;
+  inline void clear_enter_scene_id();
+  static const int kEnterSceneIdFieldNumber = 16;
+  inline ::google::protobuf::uint64 enter_scene_id() const;
+  inline void set_enter_scene_id(::google::protobuf::uint64 value);
+
+  // optional uint64 enter_map_id = 17;
+  inline bool has_enter_map_id() const;
+  inline void clear_enter_map_id();
+  static const int kEnterMapIdFieldNumber = 17;
+  inline ::google::protobuf::uint64 enter_map_id() const;
+  inline void set_enter_map_id(::google::protobuf::uint64 value);
+
+  // optional float enterPosX = 18;
+  inline bool has_enterposx() const;
+  inline void clear_enterposx();
+  static const int kEnterPosXFieldNumber = 18;
+  inline float enterposx() const;
+  inline void set_enterposx(float value);
+
+  // optional float enterPosY = 19;
+  inline bool has_enterposy() const;
+  inline void clear_enterposy();
+  static const int kEnterPosYFieldNumber = 19;
+  inline float enterposy() const;
+  inline void set_enterposy(float value);
+
+  // optional float enterPosZ = 20;
+  inline bool has_enterposz() const;
+  inline void clear_enterposz();
+  static const int kEnterPosZFieldNumber = 20;
+  inline float enterposz() const;
+  inline void set_enterposz(float value);
+
+  // optional uint64 lastSceneId = 21;
+  inline bool has_lastsceneid() const;
+  inline void clear_lastsceneid();
+  static const int kLastSceneIdFieldNumber = 21;
+  inline ::google::protobuf::uint64 lastsceneid() const;
+  inline void set_lastsceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 lastMapId = 22;
+  inline bool has_lastmapid() const;
+  inline void clear_lastmapid();
+  static const int kLastMapIdFieldNumber = 22;
+  inline ::google::protobuf::uint64 lastmapid() const;
+  inline void set_lastmapid(::google::protobuf::uint64 value);
+
+  // optional float lastPosX = 23;
+  inline bool has_lastposx() const;
+  inline void clear_lastposx();
+  static const int kLastPosXFieldNumber = 23;
+  inline float lastposx() const;
+  inline void set_lastposx(float value);
+
+  // optional float lastPosY = 24;
+  inline bool has_lastposy() const;
+  inline void clear_lastposy();
+  static const int kLastPosYFieldNumber = 24;
+  inline float lastposy() const;
+  inline void set_lastposy(float value);
+
+  // optional float lastPosZ = 25;
+  inline bool has_lastposz() const;
+  inline void clear_lastposz();
+  static const int kLastPosZFieldNumber = 25;
+  inline float lastposz() const;
+  inline void set_lastposz(float value);
+
+  // optional uint64 lastReviveTime = 26;
+  inline bool has_lastrevivetime() const;
+  inline void clear_lastrevivetime();
+  static const int kLastReviveTimeFieldNumber = 26;
+  inline ::google::protobuf::uint64 lastrevivetime() const;
+  inline void set_lastrevivetime(::google::protobuf::uint64 value);
+
+  // optional uint32 curState = 27;
+  inline bool has_curstate() const;
+  inline void clear_curstate();
+  static const int kCurStateFieldNumber = 27;
+  inline ::google::protobuf::uint32 curstate() const;
+  inline void set_curstate(::google::protobuf::uint32 value);
+
+  // optional float clx = 28;
+  inline bool has_clx() const;
+  inline void clear_clx();
+  static const int kClxFieldNumber = 28;
+  inline float clx() const;
+  inline void set_clx(float value);
+
+  // optional float cly = 29;
+  inline bool has_cly() const;
+  inline void clear_cly();
+  static const int kClyFieldNumber = 29;
+  inline float cly() const;
+  inline void set_cly(float value);
+
+  // optional float clz = 30;
+  inline bool has_clz() const;
+  inline void clear_clz();
+  static const int kClzFieldNumber = 30;
+  inline float clz() const;
+  inline void set_clz(float value);
+
+  // optional uint64 occupation = 31;
+  inline bool has_occupation() const;
+  inline void clear_occupation();
+  static const int kOccupationFieldNumber = 31;
+  inline ::google::protobuf::uint64 occupation() const;
+  inline void set_occupation(::google::protobuf::uint64 value);
+
+  // optional uint64 aptitude = 32;
+  inline bool has_aptitude() const;
+  inline void clear_aptitude();
+  static const int kAptitudeFieldNumber = 32;
+  inline ::google::protobuf::uint64 aptitude() const;
+  inline void set_aptitude(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.CharFacadeProto facade = 33;
+  inline bool has_facade() const;
+  inline void clear_facade();
+  static const int kFacadeFieldNumber = 33;
+  inline const ::proto_ff::CharFacadeProto& facade() const;
+  inline ::proto_ff::CharFacadeProto* mutable_facade();
+  inline ::proto_ff::CharFacadeProto* release_facade();
+  inline void set_allocated_facade(::proto_ff::CharFacadeProto* facade);
+
+  // optional int64 arenacoin = 34;
+  inline bool has_arenacoin() const;
+  inline void clear_arenacoin();
+  static const int kArenacoinFieldNumber = 34;
+  inline ::google::protobuf::int64 arenacoin() const;
+  inline void set_arenacoin(::google::protobuf::int64 value);
+
+  // optional int64 starEssence = 35;
+  inline bool has_staressence() const;
+  inline void clear_staressence();
+  static const int kStarEssenceFieldNumber = 35;
+  inline ::google::protobuf::int64 staressence() const;
+  inline void set_staressence(::google::protobuf::int64 value);
+
+  // optional int64 starExp = 36;
+  inline bool has_starexp() const;
+  inline void clear_starexp();
+  static const int kStarExpFieldNumber = 36;
+  inline ::google::protobuf::int64 starexp() const;
+  inline void set_starexp(::google::protobuf::int64 value);
+
+  // optional int64 starFragment = 37;
+  inline bool has_starfragment() const;
+  inline void clear_starfragment();
+  static const int kStarFragmentFieldNumber = 37;
+  inline ::google::protobuf::int64 starfragment() const;
+  inline void set_starfragment(::google::protobuf::int64 value);
+
+  // optional int64 hangUpTime = 38;
+  inline bool has_hanguptime() const;
+  inline void clear_hanguptime();
+  static const int kHangUpTimeFieldNumber = 38;
+  inline ::google::protobuf::int64 hanguptime() const;
+  inline void set_hanguptime(::google::protobuf::int64 value);
+
+  // optional uint32 active_num = 39;
+  inline bool has_active_num() const;
+  inline void clear_active_num();
+  static const int kActiveNumFieldNumber = 39;
+  inline ::google::protobuf::uint32 active_num() const;
+  inline void set_active_num(::google::protobuf::uint32 value);
+
+  // optional int64 vipLevel = 40;
+  inline bool has_viplevel() const;
+  inline void clear_viplevel();
+  static const int kVipLevelFieldNumber = 40;
+  inline ::google::protobuf::int64 viplevel() const;
+  inline void set_viplevel(::google::protobuf::int64 value);
+
+  // optional int64 godhoodExp = 41;
+  inline bool has_godhoodexp() const;
+  inline void clear_godhoodexp();
+  static const int kGodhoodExpFieldNumber = 41;
+  inline ::google::protobuf::int64 godhoodexp() const;
+  inline void set_godhoodexp(::google::protobuf::int64 value);
+
+  // optional int64 smallSpirit = 42;
+  inline bool has_smallspirit() const;
+  inline void clear_smallspirit();
+  static const int kSmallSpiritFieldNumber = 42;
+  inline ::google::protobuf::int64 smallspirit() const;
+  inline void set_smallspirit(::google::protobuf::int64 value);
+
+  // optional int64 bigSpirit = 43;
+  inline bool has_bigspirit() const;
+  inline void clear_bigspirit();
+  static const int kBigSpiritFieldNumber = 43;
+  inline ::google::protobuf::int64 bigspirit() const;
+  inline void set_bigspirit(::google::protobuf::int64 value);
+
+  // optional .proto_ff.CharMultTrimProto trim = 44;
+  inline bool has_trim() const;
+  inline void clear_trim();
+  static const int kTrimFieldNumber = 44;
+  inline const ::proto_ff::CharMultTrimProto& trim() const;
+  inline ::proto_ff::CharMultTrimProto* mutable_trim();
+  inline ::proto_ff::CharMultTrimProto* release_trim();
+  inline void set_allocated_trim(::proto_ff::CharMultTrimProto* trim);
+
+  // optional int32 finish_flag = 45;
+  inline bool has_finish_flag() const;
+  inline void clear_finish_flag();
+  static const int kFinishFlagFieldNumber = 45;
+  inline ::google::protobuf::int32 finish_flag() const;
+  inline void set_finish_flag(::google::protobuf::int32 value);
+
+  // optional string guide = 46;
+  inline bool has_guide() const;
+  inline void clear_guide();
+  static const int kGuideFieldNumber = 46;
+  inline const ::std::string& guide() const;
+  inline void set_guide(const ::std::string& value);
+  inline void set_guide(const char* value);
+  inline void set_guide(const char* value, size_t size);
+  inline ::std::string* mutable_guide();
+  inline ::std::string* release_guide();
+  inline void set_allocated_guide(::std::string* guide);
+
+  // optional .proto_ff.ForceDupProto force = 47;
+  inline bool has_force() const;
+  inline void clear_force();
+  static const int kForceFieldNumber = 47;
+  inline const ::proto_ff::ForceDupProto& force() const;
+  inline ::proto_ff::ForceDupProto* mutable_force();
+  inline ::proto_ff::ForceDupProto* release_force();
+  inline void set_allocated_force(::proto_ff::ForceDupProto* force);
+
+  // optional int64 useTitle = 48;
+  inline bool has_usetitle() const;
+  inline void clear_usetitle();
+  static const int kUseTitleFieldNumber = 48;
+  inline ::google::protobuf::int64 usetitle() const;
+  inline void set_usetitle(::google::protobuf::int64 value);
+
+  // optional int32 subpack_type = 49;
+  inline bool has_subpack_type() const;
+  inline void clear_subpack_type();
+  static const int kSubpackTypeFieldNumber = 49;
+  inline ::google::protobuf::int32 subpack_type() const;
+  inline void set_subpack_type(::google::protobuf::int32 value);
+
+  // optional int32 subpack_fetch = 50;
+  inline bool has_subpack_fetch() const;
+  inline void clear_subpack_fetch();
+  static const int kSubpackFetchFieldNumber = 50;
+  inline ::google::protobuf::int32 subpack_fetch() const;
+  inline void set_subpack_fetch(::google::protobuf::int32 value);
+
+  // optional int32 rechargeDiscountDate = 51;
+  inline bool has_rechargediscountdate() const;
+  inline void clear_rechargediscountdate();
+  static const int kRechargeDiscountDateFieldNumber = 51;
+  inline ::google::protobuf::int32 rechargediscountdate() const;
+  inline void set_rechargediscountdate(::google::protobuf::int32 value);
+
+  // optional int32 friendNum = 52;
+  inline bool has_friendnum() const;
+  inline void clear_friendnum();
+  static const int kFriendNumFieldNumber = 52;
+  inline ::google::protobuf::int32 friendnum() const;
+  inline void set_friendnum(::google::protobuf::int32 value);
+
+  // optional string platid = 53;
+  inline bool has_platid() const;
+  inline void clear_platid();
+  static const int kPlatidFieldNumber = 53;
+  inline const ::std::string& platid() const;
+  inline void set_platid(const ::std::string& value);
+  inline void set_platid(const char* value);
+  inline void set_platid(const char* value, size_t size);
+  inline ::std::string* mutable_platid();
+  inline ::std::string* release_platid();
+  inline void set_allocated_platid(::std::string* platid);
+
+  // optional int32 solo_score = 54;
+  inline bool has_solo_score() const;
+  inline void clear_solo_score();
+  static const int kSoloScoreFieldNumber = 54;
+  inline ::google::protobuf::int32 solo_score() const;
+  inline void set_solo_score(::google::protobuf::int32 value);
+
+  // optional int32 solo_prv_score = 55;
+  inline bool has_solo_prv_score() const;
+  inline void clear_solo_prv_score();
+  static const int kSoloPrvScoreFieldNumber = 55;
+  inline ::google::protobuf::int32 solo_prv_score() const;
+  inline void set_solo_prv_score(::google::protobuf::int32 value);
+
+  // optional int32 dragons_num = 56;
+  inline bool has_dragons_num() const;
+  inline void clear_dragons_num();
+  static const int kDragonsNumFieldNumber = 56;
+  inline ::google::protobuf::int32 dragons_num() const;
+  inline void set_dragons_num(::google::protobuf::int32 value);
+
+  // optional uint32 total_login_day = 57;
+  inline bool has_total_login_day() const;
+  inline void clear_total_login_day();
+  static const int kTotalLoginDayFieldNumber = 57;
+  inline ::google::protobuf::uint32 total_login_day() const;
+  inline void set_total_login_day(::google::protobuf::uint32 value);
+
+  // optional uint64 login_day_time = 58;
+  inline bool has_login_day_time() const;
+  inline void clear_login_day_time();
+  static const int kLoginDayTimeFieldNumber = 58;
+  inline ::google::protobuf::uint64 login_day_time() const;
+  inline void set_login_day_time(::google::protobuf::uint64 value);
+
+  // optional int32 login_gift = 59;
+  inline bool has_login_gift() const;
+  inline void clear_login_gift();
+  static const int kLoginGiftFieldNumber = 59;
+  inline ::google::protobuf::int32 login_gift() const;
+  inline void set_login_gift(::google::protobuf::int32 value);
+
+  // optional int64 vipCardDiamond = 60;
+  inline bool has_vipcarddiamond() const;
+  inline void clear_vipcarddiamond();
+  static const int kVipCardDiamondFieldNumber = 60;
+  inline ::google::protobuf::int64 vipcarddiamond() const;
+  inline void set_vipcarddiamond(::google::protobuf::int64 value);
+
+  // optional uint64 holydia = 61;
+  inline bool has_holydia() const;
+  inline void clear_holydia();
+  static const int kHolydiaFieldNumber = 61;
+  inline ::google::protobuf::uint64 holydia() const;
+  inline void set_holydia(::google::protobuf::uint64 value);
+
+  // optional int32 relive_num = 62;
+  inline bool has_relive_num() const;
+  inline void clear_relive_num();
+  static const int kReliveNumFieldNumber = 62;
+  inline ::google::protobuf::int32 relive_num() const;
+  inline void set_relive_num(::google::protobuf::int32 value);
+
+  // optional int64 last_relive_time = 63;
+  inline bool has_last_relive_time() const;
+  inline void clear_last_relive_time();
+  static const int kLastReliveTimeFieldNumber = 63;
+  inline ::google::protobuf::int64 last_relive_time() const;
+  inline void set_last_relive_time(::google::protobuf::int64 value);
+
+  // optional int64 dead_static_map_id = 64;
+  inline bool has_dead_static_map_id() const;
+  inline void clear_dead_static_map_id();
+  static const int kDeadStaticMapIdFieldNumber = 64;
+  inline ::google::protobuf::int64 dead_static_map_id() const;
+  inline void set_dead_static_map_id(::google::protobuf::int64 value);
+
+  // optional int32 dead_static_num = 65;
+  inline bool has_dead_static_num() const;
+  inline void clear_dead_static_num();
+  static const int kDeadStaticNumFieldNumber = 65;
+  inline ::google::protobuf::int32 dead_static_num() const;
+  inline void set_dead_static_num(::google::protobuf::int32 value);
+
+  // optional int64 dead_static_cd = 66;
+  inline bool has_dead_static_cd() const;
+  inline void clear_dead_static_cd();
+  static const int kDeadStaticCdFieldNumber = 66;
+  inline ::google::protobuf::int64 dead_static_cd() const;
+  inline void set_dead_static_cd(::google::protobuf::int64 value);
+
+  // optional int32 fushi_time = 67;
+  inline bool has_fushi_time() const;
+  inline void clear_fushi_time();
+  static const int kFushiTimeFieldNumber = 67;
+  inline ::google::protobuf::int32 fushi_time() const;
+  inline void set_fushi_time(::google::protobuf::int32 value);
+
+  // optional int64 starStone = 68;
+  inline bool has_starstone() const;
+  inline void clear_starstone();
+  static const int kStarStoneFieldNumber = 68;
+  inline ::google::protobuf::int64 starstone() const;
+  inline void set_starstone(::google::protobuf::int64 value);
+
+  // optional int64 voucher = 69;
+  inline bool has_voucher() const;
+  inline void clear_voucher();
+  static const int kVoucherFieldNumber = 69;
+  inline ::google::protobuf::int64 voucher() const;
+  inline void set_voucher(::google::protobuf::int64 value);
+
+  // optional int64 waiguan = 70;
+  inline bool has_waiguan() const;
+  inline void clear_waiguan();
+  static const int kWaiguanFieldNumber = 70;
+  inline ::google::protobuf::int64 waiguan() const;
+  inline void set_waiguan(::google::protobuf::int64 value);
+
+  // optional int64 gmpoint = 71;
+  inline bool has_gmpoint() const;
+  inline void clear_gmpoint();
+  static const int kGmpointFieldNumber = 71;
+  inline ::google::protobuf::int64 gmpoint() const;
+  inline void set_gmpoint(::google::protobuf::int64 value);
+
+  // optional int64 gmpoint_limit = 72;
+  inline bool has_gmpoint_limit() const;
+  inline void clear_gmpoint_limit();
+  static const int kGmpointLimitFieldNumber = 72;
+  inline ::google::protobuf::int64 gmpoint_limit() const;
+  inline void set_gmpoint_limit(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CharacterDBBaseInfo)
+ private:
+  inline void set_has_createtime();
+  inline void clear_has_createtime();
+  inline void set_has_lastsavetime();
+  inline void clear_has_lastsavetime();
+  inline void set_has_onlinetime();
+  inline void clear_has_onlinetime();
+  inline void set_has_logintime();
+  inline void clear_has_logintime();
+  inline void set_has_logouttime();
+  inline void clear_has_logouttime();
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_sex();
+  inline void clear_has_sex();
+  inline void set_has_prof();
+  inline void clear_has_prof();
+  inline void set_has_level();
+  inline void clear_has_level();
+  inline void set_has_exp();
+  inline void clear_has_exp();
+  inline void set_has_hp();
+  inline void clear_has_hp();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+  inline void set_has_gold();
+  inline void clear_has_gold();
+  inline void set_has_diamond();
+  inline void clear_has_diamond();
+  inline void set_has_binddiamond();
+  inline void clear_has_binddiamond();
+  inline void set_has_enter_scene_id();
+  inline void clear_has_enter_scene_id();
+  inline void set_has_enter_map_id();
+  inline void clear_has_enter_map_id();
+  inline void set_has_enterposx();
+  inline void clear_has_enterposx();
+  inline void set_has_enterposy();
+  inline void clear_has_enterposy();
+  inline void set_has_enterposz();
+  inline void clear_has_enterposz();
+  inline void set_has_lastsceneid();
+  inline void clear_has_lastsceneid();
+  inline void set_has_lastmapid();
+  inline void clear_has_lastmapid();
+  inline void set_has_lastposx();
+  inline void clear_has_lastposx();
+  inline void set_has_lastposy();
+  inline void clear_has_lastposy();
+  inline void set_has_lastposz();
+  inline void clear_has_lastposz();
+  inline void set_has_lastrevivetime();
+  inline void clear_has_lastrevivetime();
+  inline void set_has_curstate();
+  inline void clear_has_curstate();
+  inline void set_has_clx();
+  inline void clear_has_clx();
+  inline void set_has_cly();
+  inline void clear_has_cly();
+  inline void set_has_clz();
+  inline void clear_has_clz();
+  inline void set_has_occupation();
+  inline void clear_has_occupation();
+  inline void set_has_aptitude();
+  inline void clear_has_aptitude();
+  inline void set_has_facade();
+  inline void clear_has_facade();
+  inline void set_has_arenacoin();
+  inline void clear_has_arenacoin();
+  inline void set_has_staressence();
+  inline void clear_has_staressence();
+  inline void set_has_starexp();
+  inline void clear_has_starexp();
+  inline void set_has_starfragment();
+  inline void clear_has_starfragment();
+  inline void set_has_hanguptime();
+  inline void clear_has_hanguptime();
+  inline void set_has_active_num();
+  inline void clear_has_active_num();
+  inline void set_has_viplevel();
+  inline void clear_has_viplevel();
+  inline void set_has_godhoodexp();
+  inline void clear_has_godhoodexp();
+  inline void set_has_smallspirit();
+  inline void clear_has_smallspirit();
+  inline void set_has_bigspirit();
+  inline void clear_has_bigspirit();
+  inline void set_has_trim();
+  inline void clear_has_trim();
+  inline void set_has_finish_flag();
+  inline void clear_has_finish_flag();
+  inline void set_has_guide();
+  inline void clear_has_guide();
+  inline void set_has_force();
+  inline void clear_has_force();
+  inline void set_has_usetitle();
+  inline void clear_has_usetitle();
+  inline void set_has_subpack_type();
+  inline void clear_has_subpack_type();
+  inline void set_has_subpack_fetch();
+  inline void clear_has_subpack_fetch();
+  inline void set_has_rechargediscountdate();
+  inline void clear_has_rechargediscountdate();
+  inline void set_has_friendnum();
+  inline void clear_has_friendnum();
+  inline void set_has_platid();
+  inline void clear_has_platid();
+  inline void set_has_solo_score();
+  inline void clear_has_solo_score();
+  inline void set_has_solo_prv_score();
+  inline void clear_has_solo_prv_score();
+  inline void set_has_dragons_num();
+  inline void clear_has_dragons_num();
+  inline void set_has_total_login_day();
+  inline void clear_has_total_login_day();
+  inline void set_has_login_day_time();
+  inline void clear_has_login_day_time();
+  inline void set_has_login_gift();
+  inline void clear_has_login_gift();
+  inline void set_has_vipcarddiamond();
+  inline void clear_has_vipcarddiamond();
+  inline void set_has_holydia();
+  inline void clear_has_holydia();
+  inline void set_has_relive_num();
+  inline void clear_has_relive_num();
+  inline void set_has_last_relive_time();
+  inline void clear_has_last_relive_time();
+  inline void set_has_dead_static_map_id();
+  inline void clear_has_dead_static_map_id();
+  inline void set_has_dead_static_num();
+  inline void clear_has_dead_static_num();
+  inline void set_has_dead_static_cd();
+  inline void clear_has_dead_static_cd();
+  inline void set_has_fushi_time();
+  inline void clear_has_fushi_time();
+  inline void set_has_starstone();
+  inline void clear_has_starstone();
+  inline void set_has_voucher();
+  inline void clear_has_voucher();
+  inline void set_has_waiguan();
+  inline void clear_has_waiguan();
+  inline void set_has_gmpoint();
+  inline void clear_has_gmpoint();
+  inline void set_has_gmpoint_limit();
+  inline void clear_has_gmpoint_limit();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 createtime_;
+  ::google::protobuf::uint64 lastsavetime_;
+  ::google::protobuf::uint64 onlinetime_;
+  ::google::protobuf::uint64 logintime_;
+  ::google::protobuf::uint64 logouttime_;
+  ::std::string* name_;
+  ::google::protobuf::uint32 sex_;
+  ::google::protobuf::uint32 prof_;
+  ::google::protobuf::int64 exp_;
+  ::google::protobuf::int64 hp_;
+  ::google::protobuf::int64 fight_;
+  ::google::protobuf::uint64 gold_;
+  ::google::protobuf::uint32 level_;
+  float enterposx_;
+  ::google::protobuf::uint64 diamond_;
+  ::google::protobuf::uint64 binddiamond_;
+  ::google::protobuf::uint64 enter_scene_id_;
+  ::google::protobuf::uint64 enter_map_id_;
+  float enterposy_;
+  float enterposz_;
+  ::google::protobuf::uint64 lastsceneid_;
+  ::google::protobuf::uint64 lastmapid_;
+  float lastposx_;
+  float lastposy_;
+  float lastposz_;
+  ::google::protobuf::uint32 curstate_;
+  ::google::protobuf::uint64 lastrevivetime_;
+  float clx_;
+  float cly_;
+  ::google::protobuf::uint64 occupation_;
+  ::google::protobuf::uint64 aptitude_;
+  ::proto_ff::CharFacadeProto* facade_;
+  ::google::protobuf::int64 arenacoin_;
+  float clz_;
+  ::google::protobuf::uint32 active_num_;
+  ::google::protobuf::int64 staressence_;
+  ::google::protobuf::int64 starexp_;
+  ::google::protobuf::int64 starfragment_;
+  ::google::protobuf::int64 hanguptime_;
+  ::google::protobuf::int64 viplevel_;
+  ::google::protobuf::int64 godhoodexp_;
+  ::google::protobuf::int64 smallspirit_;
+  ::google::protobuf::int64 bigspirit_;
+  ::proto_ff::CharMultTrimProto* trim_;
+  ::std::string* guide_;
+  ::google::protobuf::int32 finish_flag_;
+  ::google::protobuf::int32 subpack_type_;
+  ::proto_ff::ForceDupProto* force_;
+  ::google::protobuf::int64 usetitle_;
+  ::google::protobuf::int32 subpack_fetch_;
+  ::google::protobuf::int32 rechargediscountdate_;
+  ::google::protobuf::int32 friendnum_;
+  ::google::protobuf::int32 solo_score_;
+  ::std::string* platid_;
+  ::google::protobuf::int32 solo_prv_score_;
+  ::google::protobuf::int32 dragons_num_;
+  ::google::protobuf::uint32 total_login_day_;
+  ::google::protobuf::int32 login_gift_;
+  ::google::protobuf::uint64 login_day_time_;
+  ::google::protobuf::int64 vipcarddiamond_;
+  ::google::protobuf::uint64 holydia_;
+  ::google::protobuf::int64 last_relive_time_;
+  ::google::protobuf::int32 relive_num_;
+  ::google::protobuf::int32 dead_static_num_;
+  ::google::protobuf::int64 dead_static_map_id_;
+  ::google::protobuf::int64 dead_static_cd_;
+  ::google::protobuf::int64 starstone_;
+  ::google::protobuf::int64 voucher_;
+  ::google::protobuf::int64 waiguan_;
+  ::google::protobuf::int64 gmpoint_;
+  ::google::protobuf::int64 gmpoint_limit_;
+  ::google::protobuf::int32 fushi_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(72 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharacterDBBaseInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tbRoleInfo : public ::google::protobuf::Message {
+ public:
+  tbRoleInfo();
+  virtual ~tbRoleInfo();
+
+  tbRoleInfo(const tbRoleInfo& from);
+
+  inline tbRoleInfo& operator=(const tbRoleInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tbRoleInfo& default_instance();
+
+  void Swap(tbRoleInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  tbRoleInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tbRoleInfo& from);
+  void MergeFrom(const tbRoleInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 charId = 1;
+  inline bool has_charid() const;
+  inline void clear_charid();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 charid() const;
+  inline void set_charid(::google::protobuf::uint64 value);
+
+  // optional uint64 playerId = 2;
+  inline bool has_playerid() const;
+  inline void clear_playerid();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 playerid() const;
+  inline void set_playerid(::google::protobuf::uint64 value);
+
+  // optional uint64 bornZoneId = 3;
+  inline bool has_bornzoneid() const;
+  inline void clear_bornzoneid();
+  static const int kBornZoneIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 bornzoneid() const;
+  inline void set_bornzoneid(::google::protobuf::uint64 value);
+
+  // optional string charName = 4;
+  inline bool has_charname() const;
+  inline void clear_charname();
+  static const int kCharNameFieldNumber = 4;
+  inline const ::std::string& charname() const;
+  inline void set_charname(const ::std::string& value);
+  inline void set_charname(const char* value);
+  inline void set_charname(const char* value, size_t size);
+  inline ::std::string* mutable_charname();
+  inline ::std::string* release_charname();
+  inline void set_allocated_charname(::std::string* charname);
+
+  // optional string platId = 5;
+  inline bool has_platid() const;
+  inline void clear_platid();
+  static const int kPlatIdFieldNumber = 5;
+  inline const ::std::string& platid() const;
+  inline void set_platid(const ::std::string& value);
+  inline void set_platid(const char* value);
+  inline void set_platid(const char* value, size_t size);
+  inline ::std::string* mutable_platid();
+  inline ::std::string* release_platid();
+  inline void set_allocated_platid(::std::string* platid);
+
+  // optional .proto_ff.CharacterDBBaseInfo baseData = 20;
+  inline bool has_basedata() const;
+  inline void clear_basedata();
+  static const int kBaseDataFieldNumber = 20;
+  inline const ::proto_ff::CharacterDBBaseInfo& basedata() const;
+  inline ::proto_ff::CharacterDBBaseInfo* mutable_basedata();
+  inline ::proto_ff::CharacterDBBaseInfo* release_basedata();
+  inline void set_allocated_basedata(::proto_ff::CharacterDBBaseInfo* basedata);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.tbRoleInfo)
+ private:
+  inline void set_has_charid();
+  inline void clear_has_charid();
+  inline void set_has_playerid();
+  inline void clear_has_playerid();
+  inline void set_has_bornzoneid();
+  inline void clear_has_bornzoneid();
+  inline void set_has_charname();
+  inline void clear_has_charname();
+  inline void set_has_platid();
+  inline void clear_has_platid();
+  inline void set_has_basedata();
+  inline void clear_has_basedata();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 charid_;
+  ::google::protobuf::uint64 playerid_;
+  ::google::protobuf::uint64 bornzoneid_;
+  ::std::string* charname_;
+  ::std::string* platid_;
+  ::proto_ff::CharacterDBBaseInfo* basedata_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_common_5flogic_2eproto();
+  friend void protobuf_AssignDesc_common_5flogic_2eproto();
+  friend void protobuf_ShutdownFile_common_5flogic_2eproto();
+
+  void InitAsDefaultInstance();
+  static tbRoleInfo* default_instance_;
+};
 // ===================================================================
 
 
@@ -497,6 +1931,2449 @@ inline bool WorldExternalConfig::tokentimecheck() const {
 inline void WorldExternalConfig::set_tokentimecheck(bool value) {
   set_has_tokentimecheck();
   tokentimecheck_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CharFacadeProto
+
+// optional uint64 cur_mount_id = 1;
+inline bool CharFacadeProto::has_cur_mount_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CharFacadeProto::set_has_cur_mount_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CharFacadeProto::clear_has_cur_mount_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CharFacadeProto::clear_cur_mount_id() {
+  cur_mount_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_mount_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::cur_mount_id() const {
+  return cur_mount_id_;
+}
+inline void CharFacadeProto::set_cur_mount_id(::google::protobuf::uint64 value) {
+  set_has_cur_mount_id();
+  cur_mount_id_ = value;
+}
+
+// optional uint64 wing_id = 2;
+inline bool CharFacadeProto::has_wing_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CharFacadeProto::set_has_wing_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CharFacadeProto::clear_has_wing_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CharFacadeProto::clear_wing_id() {
+  wing_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_wing_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::wing_id() const {
+  return wing_id_;
+}
+inline void CharFacadeProto::set_wing_id(::google::protobuf::uint64 value) {
+  set_has_wing_id();
+  wing_id_ = value;
+}
+
+// optional uint64 fashion_clothes_id = 3;
+inline bool CharFacadeProto::has_fashion_clothes_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CharFacadeProto::set_has_fashion_clothes_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CharFacadeProto::clear_has_fashion_clothes_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CharFacadeProto::clear_fashion_clothes_id() {
+  fashion_clothes_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fashion_clothes_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::fashion_clothes_id() const {
+  return fashion_clothes_id_;
+}
+inline void CharFacadeProto::set_fashion_clothes_id(::google::protobuf::uint64 value) {
+  set_has_fashion_clothes_id();
+  fashion_clothes_id_ = value;
+}
+
+// optional uint64 fashion_weapon_id = 4;
+inline bool CharFacadeProto::has_fashion_weapon_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CharFacadeProto::set_has_fashion_weapon_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CharFacadeProto::clear_has_fashion_weapon_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CharFacadeProto::clear_fashion_weapon_id() {
+  fashion_weapon_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fashion_weapon_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::fashion_weapon_id() const {
+  return fashion_weapon_id_;
+}
+inline void CharFacadeProto::set_fashion_weapon_id(::google::protobuf::uint64 value) {
+  set_has_fashion_weapon_id();
+  fashion_weapon_id_ = value;
+}
+
+// optional uint64 occupationId = 5;
+inline bool CharFacadeProto::has_occupationid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CharFacadeProto::set_has_occupationid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CharFacadeProto::clear_has_occupationid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CharFacadeProto::clear_occupationid() {
+  occupationid_ = GOOGLE_ULONGLONG(0);
+  clear_has_occupationid();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::occupationid() const {
+  return occupationid_;
+}
+inline void CharFacadeProto::set_occupationid(::google::protobuf::uint64 value) {
+  set_has_occupationid();
+  occupationid_ = value;
+}
+
+// optional uint64 treasure_id = 6;
+inline bool CharFacadeProto::has_treasure_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CharFacadeProto::set_has_treasure_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CharFacadeProto::clear_has_treasure_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CharFacadeProto::clear_treasure_id() {
+  treasure_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_treasure_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::treasure_id() const {
+  return treasure_id_;
+}
+inline void CharFacadeProto::set_treasure_id(::google::protobuf::uint64 value) {
+  set_has_treasure_id();
+  treasure_id_ = value;
+}
+
+// optional int32 treasure_type = 7;
+inline bool CharFacadeProto::has_treasure_type() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CharFacadeProto::set_has_treasure_type() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CharFacadeProto::clear_has_treasure_type() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CharFacadeProto::clear_treasure_type() {
+  treasure_type_ = 0;
+  clear_has_treasure_type();
+}
+inline ::google::protobuf::int32 CharFacadeProto::treasure_type() const {
+  return treasure_type_;
+}
+inline void CharFacadeProto::set_treasure_type(::google::protobuf::int32 value) {
+  set_has_treasure_type();
+  treasure_type_ = value;
+}
+
+// optional uint64 artifact_id = 8;
+inline bool CharFacadeProto::has_artifact_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CharFacadeProto::set_has_artifact_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CharFacadeProto::clear_has_artifact_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CharFacadeProto::clear_artifact_id() {
+  artifact_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_artifact_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::artifact_id() const {
+  return artifact_id_;
+}
+inline void CharFacadeProto::set_artifact_id(::google::protobuf::uint64 value) {
+  set_has_artifact_id();
+  artifact_id_ = value;
+}
+
+// optional uint64 cur_select_mount_id = 9;
+inline bool CharFacadeProto::has_cur_select_mount_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CharFacadeProto::set_has_cur_select_mount_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CharFacadeProto::clear_has_cur_select_mount_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CharFacadeProto::clear_cur_select_mount_id() {
+  cur_select_mount_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_select_mount_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::cur_select_mount_id() const {
+  return cur_select_mount_id_;
+}
+inline void CharFacadeProto::set_cur_select_mount_id(::google::protobuf::uint64 value) {
+  set_has_cur_select_mount_id();
+  cur_select_mount_id_ = value;
+}
+
+// optional uint64 partner_id = 10;
+inline bool CharFacadeProto::has_partner_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void CharFacadeProto::set_has_partner_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void CharFacadeProto::clear_has_partner_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void CharFacadeProto::clear_partner_id() {
+  partner_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_partner_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::partner_id() const {
+  return partner_id_;
+}
+inline void CharFacadeProto::set_partner_id(::google::protobuf::uint64 value) {
+  set_has_partner_id();
+  partner_id_ = value;
+}
+
+// optional uint64 head_id = 11;
+inline bool CharFacadeProto::has_head_id() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void CharFacadeProto::set_has_head_id() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void CharFacadeProto::clear_has_head_id() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void CharFacadeProto::clear_head_id() {
+  head_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_head_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::head_id() const {
+  return head_id_;
+}
+inline void CharFacadeProto::set_head_id(::google::protobuf::uint64 value) {
+  set_has_head_id();
+  head_id_ = value;
+}
+
+// optional uint64 frame_id = 12;
+inline bool CharFacadeProto::has_frame_id() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void CharFacadeProto::set_has_frame_id() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void CharFacadeProto::clear_has_frame_id() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void CharFacadeProto::clear_frame_id() {
+  frame_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_frame_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::frame_id() const {
+  return frame_id_;
+}
+inline void CharFacadeProto::set_frame_id(::google::protobuf::uint64 value) {
+  set_has_frame_id();
+  frame_id_ = value;
+}
+
+// optional uint64 bubble_id = 13;
+inline bool CharFacadeProto::has_bubble_id() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void CharFacadeProto::set_has_bubble_id() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void CharFacadeProto::clear_has_bubble_id() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void CharFacadeProto::clear_bubble_id() {
+  bubble_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_bubble_id();
+}
+inline ::google::protobuf::uint64 CharFacadeProto::bubble_id() const {
+  return bubble_id_;
+}
+inline void CharFacadeProto::set_bubble_id(::google::protobuf::uint64 value) {
+  set_has_bubble_id();
+  bubble_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CharTrimProto
+
+// optional int32 trim_type = 1;
+inline bool CharTrimProto::has_trim_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CharTrimProto::set_has_trim_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CharTrimProto::clear_has_trim_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CharTrimProto::clear_trim_type() {
+  trim_type_ = 0;
+  clear_has_trim_type();
+}
+inline ::google::protobuf::int32 CharTrimProto::trim_type() const {
+  return trim_type_;
+}
+inline void CharTrimProto::set_trim_type(::google::protobuf::int32 value) {
+  set_has_trim_type();
+  trim_type_ = value;
+}
+
+// optional int32 trim_level = 2;
+inline bool CharTrimProto::has_trim_level() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CharTrimProto::set_has_trim_level() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CharTrimProto::clear_has_trim_level() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CharTrimProto::clear_trim_level() {
+  trim_level_ = 0;
+  clear_has_trim_level();
+}
+inline ::google::protobuf::int32 CharTrimProto::trim_level() const {
+  return trim_level_;
+}
+inline void CharTrimProto::set_trim_level(::google::protobuf::int32 value) {
+  set_has_trim_level();
+  trim_level_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ForceDupProto
+
+// optional int32 treasure_state = 1;
+inline bool ForceDupProto::has_treasure_state() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ForceDupProto::set_has_treasure_state() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ForceDupProto::clear_has_treasure_state() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ForceDupProto::clear_treasure_state() {
+  treasure_state_ = 0;
+  clear_has_treasure_state();
+}
+inline ::google::protobuf::int32 ForceDupProto::treasure_state() const {
+  return treasure_state_;
+}
+inline void ForceDupProto::set_treasure_state(::google::protobuf::int32 value) {
+  set_has_treasure_state();
+  treasure_state_ = value;
+}
+
+// optional int32 ladder_state = 2;
+inline bool ForceDupProto::has_ladder_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ForceDupProto::set_has_ladder_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ForceDupProto::clear_has_ladder_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ForceDupProto::clear_ladder_state() {
+  ladder_state_ = 0;
+  clear_has_ladder_state();
+}
+inline ::google::protobuf::int32 ForceDupProto::ladder_state() const {
+  return ladder_state_;
+}
+inline void ForceDupProto::set_ladder_state(::google::protobuf::int32 value) {
+  set_has_ladder_state();
+  ladder_state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CharMultTrimProto
+
+// repeated .proto_ff.CharTrimProto trim_lst = 1;
+inline int CharMultTrimProto::trim_lst_size() const {
+  return trim_lst_.size();
+}
+inline void CharMultTrimProto::clear_trim_lst() {
+  trim_lst_.Clear();
+}
+inline const ::proto_ff::CharTrimProto& CharMultTrimProto::trim_lst(int index) const {
+  return trim_lst_.Get(index);
+}
+inline ::proto_ff::CharTrimProto* CharMultTrimProto::mutable_trim_lst(int index) {
+  return trim_lst_.Mutable(index);
+}
+inline ::proto_ff::CharTrimProto* CharMultTrimProto::add_trim_lst() {
+  return trim_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharTrimProto >&
+CharMultTrimProto::trim_lst() const {
+  return trim_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharTrimProto >*
+CharMultTrimProto::mutable_trim_lst() {
+  return &trim_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// CharacterDBBaseInfo
+
+// optional uint64 createTime = 1;
+inline bool CharacterDBBaseInfo::has_createtime() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_createtime() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_has_createtime() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_createtime() {
+  createtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_createtime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::createtime() const {
+  return createtime_;
+}
+inline void CharacterDBBaseInfo::set_createtime(::google::protobuf::uint64 value) {
+  set_has_createtime();
+  createtime_ = value;
+}
+
+// optional uint64 lastSaveTime = 2;
+inline bool CharacterDBBaseInfo::has_lastsavetime() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastsavetime() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastsavetime() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_lastsavetime() {
+  lastsavetime_ = GOOGLE_ULONGLONG(0);
+  clear_has_lastsavetime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::lastsavetime() const {
+  return lastsavetime_;
+}
+inline void CharacterDBBaseInfo::set_lastsavetime(::google::protobuf::uint64 value) {
+  set_has_lastsavetime();
+  lastsavetime_ = value;
+}
+
+// optional uint64 onlineTime = 3;
+inline bool CharacterDBBaseInfo::has_onlinetime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_onlinetime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_has_onlinetime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_onlinetime() {
+  onlinetime_ = GOOGLE_ULONGLONG(0);
+  clear_has_onlinetime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::onlinetime() const {
+  return onlinetime_;
+}
+inline void CharacterDBBaseInfo::set_onlinetime(::google::protobuf::uint64 value) {
+  set_has_onlinetime();
+  onlinetime_ = value;
+}
+
+// optional uint64 loginTime = 4;
+inline bool CharacterDBBaseInfo::has_logintime() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_logintime() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_has_logintime() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_logintime() {
+  logintime_ = GOOGLE_ULONGLONG(0);
+  clear_has_logintime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::logintime() const {
+  return logintime_;
+}
+inline void CharacterDBBaseInfo::set_logintime(::google::protobuf::uint64 value) {
+  set_has_logintime();
+  logintime_ = value;
+}
+
+// optional uint64 logoutTime = 5;
+inline bool CharacterDBBaseInfo::has_logouttime() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_logouttime() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_has_logouttime() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_logouttime() {
+  logouttime_ = GOOGLE_ULONGLONG(0);
+  clear_has_logouttime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::logouttime() const {
+  return logouttime_;
+}
+inline void CharacterDBBaseInfo::set_logouttime(::google::protobuf::uint64 value) {
+  set_has_logouttime();
+  logouttime_ = value;
+}
+
+// optional string name = 6;
+inline bool CharacterDBBaseInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& CharacterDBBaseInfo::name() const {
+  return *name_;
+}
+inline void CharacterDBBaseInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CharacterDBBaseInfo::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* CharacterDBBaseInfo::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CharacterDBBaseInfo::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 sex = 7;
+inline bool CharacterDBBaseInfo::has_sex() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_sex() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_has_sex() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_sex() {
+  sex_ = 0u;
+  clear_has_sex();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::sex() const {
+  return sex_;
+}
+inline void CharacterDBBaseInfo::set_sex(::google::protobuf::uint32 value) {
+  set_has_sex();
+  sex_ = value;
+}
+
+// optional uint32 prof = 8;
+inline bool CharacterDBBaseInfo::has_prof() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_prof() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_has_prof() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_prof() {
+  prof_ = 0u;
+  clear_has_prof();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::prof() const {
+  return prof_;
+}
+inline void CharacterDBBaseInfo::set_prof(::google::protobuf::uint32 value) {
+  set_has_prof();
+  prof_ = value;
+}
+
+// optional uint32 level = 9;
+inline bool CharacterDBBaseInfo::has_level() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_level() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CharacterDBBaseInfo::clear_has_level() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CharacterDBBaseInfo::clear_level() {
+  level_ = 0u;
+  clear_has_level();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::level() const {
+  return level_;
+}
+inline void CharacterDBBaseInfo::set_level(::google::protobuf::uint32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// optional int64 exp = 10;
+inline bool CharacterDBBaseInfo::has_exp() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_exp() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void CharacterDBBaseInfo::clear_has_exp() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void CharacterDBBaseInfo::clear_exp() {
+  exp_ = GOOGLE_LONGLONG(0);
+  clear_has_exp();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::exp() const {
+  return exp_;
+}
+inline void CharacterDBBaseInfo::set_exp(::google::protobuf::int64 value) {
+  set_has_exp();
+  exp_ = value;
+}
+
+// optional int64 hp = 11;
+inline bool CharacterDBBaseInfo::has_hp() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_hp() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void CharacterDBBaseInfo::clear_has_hp() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void CharacterDBBaseInfo::clear_hp() {
+  hp_ = GOOGLE_LONGLONG(0);
+  clear_has_hp();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::hp() const {
+  return hp_;
+}
+inline void CharacterDBBaseInfo::set_hp(::google::protobuf::int64 value) {
+  set_has_hp();
+  hp_ = value;
+}
+
+// optional int64 fight = 12;
+inline bool CharacterDBBaseInfo::has_fight() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_fight() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void CharacterDBBaseInfo::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void CharacterDBBaseInfo::clear_fight() {
+  fight_ = GOOGLE_LONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::fight() const {
+  return fight_;
+}
+inline void CharacterDBBaseInfo::set_fight(::google::protobuf::int64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// optional uint64 gold = 13;
+inline bool CharacterDBBaseInfo::has_gold() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_gold() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void CharacterDBBaseInfo::clear_has_gold() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void CharacterDBBaseInfo::clear_gold() {
+  gold_ = GOOGLE_ULONGLONG(0);
+  clear_has_gold();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::gold() const {
+  return gold_;
+}
+inline void CharacterDBBaseInfo::set_gold(::google::protobuf::uint64 value) {
+  set_has_gold();
+  gold_ = value;
+}
+
+// optional uint64 diamond = 14;
+inline bool CharacterDBBaseInfo::has_diamond() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_diamond() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void CharacterDBBaseInfo::clear_has_diamond() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void CharacterDBBaseInfo::clear_diamond() {
+  diamond_ = GOOGLE_ULONGLONG(0);
+  clear_has_diamond();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::diamond() const {
+  return diamond_;
+}
+inline void CharacterDBBaseInfo::set_diamond(::google::protobuf::uint64 value) {
+  set_has_diamond();
+  diamond_ = value;
+}
+
+// optional uint64 binddiamond = 15;
+inline bool CharacterDBBaseInfo::has_binddiamond() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_binddiamond() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void CharacterDBBaseInfo::clear_has_binddiamond() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void CharacterDBBaseInfo::clear_binddiamond() {
+  binddiamond_ = GOOGLE_ULONGLONG(0);
+  clear_has_binddiamond();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::binddiamond() const {
+  return binddiamond_;
+}
+inline void CharacterDBBaseInfo::set_binddiamond(::google::protobuf::uint64 value) {
+  set_has_binddiamond();
+  binddiamond_ = value;
+}
+
+// optional uint64 enter_scene_id = 16;
+inline bool CharacterDBBaseInfo::has_enter_scene_id() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_enter_scene_id() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void CharacterDBBaseInfo::clear_has_enter_scene_id() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void CharacterDBBaseInfo::clear_enter_scene_id() {
+  enter_scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_enter_scene_id();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::enter_scene_id() const {
+  return enter_scene_id_;
+}
+inline void CharacterDBBaseInfo::set_enter_scene_id(::google::protobuf::uint64 value) {
+  set_has_enter_scene_id();
+  enter_scene_id_ = value;
+}
+
+// optional uint64 enter_map_id = 17;
+inline bool CharacterDBBaseInfo::has_enter_map_id() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_enter_map_id() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void CharacterDBBaseInfo::clear_has_enter_map_id() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void CharacterDBBaseInfo::clear_enter_map_id() {
+  enter_map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_enter_map_id();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::enter_map_id() const {
+  return enter_map_id_;
+}
+inline void CharacterDBBaseInfo::set_enter_map_id(::google::protobuf::uint64 value) {
+  set_has_enter_map_id();
+  enter_map_id_ = value;
+}
+
+// optional float enterPosX = 18;
+inline bool CharacterDBBaseInfo::has_enterposx() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_enterposx() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void CharacterDBBaseInfo::clear_has_enterposx() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void CharacterDBBaseInfo::clear_enterposx() {
+  enterposx_ = 0;
+  clear_has_enterposx();
+}
+inline float CharacterDBBaseInfo::enterposx() const {
+  return enterposx_;
+}
+inline void CharacterDBBaseInfo::set_enterposx(float value) {
+  set_has_enterposx();
+  enterposx_ = value;
+}
+
+// optional float enterPosY = 19;
+inline bool CharacterDBBaseInfo::has_enterposy() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_enterposy() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void CharacterDBBaseInfo::clear_has_enterposy() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void CharacterDBBaseInfo::clear_enterposy() {
+  enterposy_ = 0;
+  clear_has_enterposy();
+}
+inline float CharacterDBBaseInfo::enterposy() const {
+  return enterposy_;
+}
+inline void CharacterDBBaseInfo::set_enterposy(float value) {
+  set_has_enterposy();
+  enterposy_ = value;
+}
+
+// optional float enterPosZ = 20;
+inline bool CharacterDBBaseInfo::has_enterposz() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_enterposz() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void CharacterDBBaseInfo::clear_has_enterposz() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void CharacterDBBaseInfo::clear_enterposz() {
+  enterposz_ = 0;
+  clear_has_enterposz();
+}
+inline float CharacterDBBaseInfo::enterposz() const {
+  return enterposz_;
+}
+inline void CharacterDBBaseInfo::set_enterposz(float value) {
+  set_has_enterposz();
+  enterposz_ = value;
+}
+
+// optional uint64 lastSceneId = 21;
+inline bool CharacterDBBaseInfo::has_lastsceneid() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastsceneid() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastsceneid() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void CharacterDBBaseInfo::clear_lastsceneid() {
+  lastsceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_lastsceneid();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::lastsceneid() const {
+  return lastsceneid_;
+}
+inline void CharacterDBBaseInfo::set_lastsceneid(::google::protobuf::uint64 value) {
+  set_has_lastsceneid();
+  lastsceneid_ = value;
+}
+
+// optional uint64 lastMapId = 22;
+inline bool CharacterDBBaseInfo::has_lastmapid() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastmapid() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastmapid() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void CharacterDBBaseInfo::clear_lastmapid() {
+  lastmapid_ = GOOGLE_ULONGLONG(0);
+  clear_has_lastmapid();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::lastmapid() const {
+  return lastmapid_;
+}
+inline void CharacterDBBaseInfo::set_lastmapid(::google::protobuf::uint64 value) {
+  set_has_lastmapid();
+  lastmapid_ = value;
+}
+
+// optional float lastPosX = 23;
+inline bool CharacterDBBaseInfo::has_lastposx() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastposx() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastposx() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void CharacterDBBaseInfo::clear_lastposx() {
+  lastposx_ = 0;
+  clear_has_lastposx();
+}
+inline float CharacterDBBaseInfo::lastposx() const {
+  return lastposx_;
+}
+inline void CharacterDBBaseInfo::set_lastposx(float value) {
+  set_has_lastposx();
+  lastposx_ = value;
+}
+
+// optional float lastPosY = 24;
+inline bool CharacterDBBaseInfo::has_lastposy() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastposy() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastposy() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void CharacterDBBaseInfo::clear_lastposy() {
+  lastposy_ = 0;
+  clear_has_lastposy();
+}
+inline float CharacterDBBaseInfo::lastposy() const {
+  return lastposy_;
+}
+inline void CharacterDBBaseInfo::set_lastposy(float value) {
+  set_has_lastposy();
+  lastposy_ = value;
+}
+
+// optional float lastPosZ = 25;
+inline bool CharacterDBBaseInfo::has_lastposz() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastposz() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastposz() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void CharacterDBBaseInfo::clear_lastposz() {
+  lastposz_ = 0;
+  clear_has_lastposz();
+}
+inline float CharacterDBBaseInfo::lastposz() const {
+  return lastposz_;
+}
+inline void CharacterDBBaseInfo::set_lastposz(float value) {
+  set_has_lastposz();
+  lastposz_ = value;
+}
+
+// optional uint64 lastReviveTime = 26;
+inline bool CharacterDBBaseInfo::has_lastrevivetime() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_lastrevivetime() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_lastrevivetime() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline void CharacterDBBaseInfo::clear_lastrevivetime() {
+  lastrevivetime_ = GOOGLE_ULONGLONG(0);
+  clear_has_lastrevivetime();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::lastrevivetime() const {
+  return lastrevivetime_;
+}
+inline void CharacterDBBaseInfo::set_lastrevivetime(::google::protobuf::uint64 value) {
+  set_has_lastrevivetime();
+  lastrevivetime_ = value;
+}
+
+// optional uint32 curState = 27;
+inline bool CharacterDBBaseInfo::has_curstate() const {
+  return (_has_bits_[0] & 0x04000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_curstate() {
+  _has_bits_[0] |= 0x04000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_curstate() {
+  _has_bits_[0] &= ~0x04000000u;
+}
+inline void CharacterDBBaseInfo::clear_curstate() {
+  curstate_ = 0u;
+  clear_has_curstate();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::curstate() const {
+  return curstate_;
+}
+inline void CharacterDBBaseInfo::set_curstate(::google::protobuf::uint32 value) {
+  set_has_curstate();
+  curstate_ = value;
+}
+
+// optional float clx = 28;
+inline bool CharacterDBBaseInfo::has_clx() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_clx() {
+  _has_bits_[0] |= 0x08000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_clx() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+inline void CharacterDBBaseInfo::clear_clx() {
+  clx_ = 0;
+  clear_has_clx();
+}
+inline float CharacterDBBaseInfo::clx() const {
+  return clx_;
+}
+inline void CharacterDBBaseInfo::set_clx(float value) {
+  set_has_clx();
+  clx_ = value;
+}
+
+// optional float cly = 29;
+inline bool CharacterDBBaseInfo::has_cly() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_cly() {
+  _has_bits_[0] |= 0x10000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_cly() {
+  _has_bits_[0] &= ~0x10000000u;
+}
+inline void CharacterDBBaseInfo::clear_cly() {
+  cly_ = 0;
+  clear_has_cly();
+}
+inline float CharacterDBBaseInfo::cly() const {
+  return cly_;
+}
+inline void CharacterDBBaseInfo::set_cly(float value) {
+  set_has_cly();
+  cly_ = value;
+}
+
+// optional float clz = 30;
+inline bool CharacterDBBaseInfo::has_clz() const {
+  return (_has_bits_[0] & 0x20000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_clz() {
+  _has_bits_[0] |= 0x20000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_clz() {
+  _has_bits_[0] &= ~0x20000000u;
+}
+inline void CharacterDBBaseInfo::clear_clz() {
+  clz_ = 0;
+  clear_has_clz();
+}
+inline float CharacterDBBaseInfo::clz() const {
+  return clz_;
+}
+inline void CharacterDBBaseInfo::set_clz(float value) {
+  set_has_clz();
+  clz_ = value;
+}
+
+// optional uint64 occupation = 31;
+inline bool CharacterDBBaseInfo::has_occupation() const {
+  return (_has_bits_[0] & 0x40000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_occupation() {
+  _has_bits_[0] |= 0x40000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_occupation() {
+  _has_bits_[0] &= ~0x40000000u;
+}
+inline void CharacterDBBaseInfo::clear_occupation() {
+  occupation_ = GOOGLE_ULONGLONG(0);
+  clear_has_occupation();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::occupation() const {
+  return occupation_;
+}
+inline void CharacterDBBaseInfo::set_occupation(::google::protobuf::uint64 value) {
+  set_has_occupation();
+  occupation_ = value;
+}
+
+// optional uint64 aptitude = 32;
+inline bool CharacterDBBaseInfo::has_aptitude() const {
+  return (_has_bits_[0] & 0x80000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_aptitude() {
+  _has_bits_[0] |= 0x80000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_aptitude() {
+  _has_bits_[0] &= ~0x80000000u;
+}
+inline void CharacterDBBaseInfo::clear_aptitude() {
+  aptitude_ = GOOGLE_ULONGLONG(0);
+  clear_has_aptitude();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::aptitude() const {
+  return aptitude_;
+}
+inline void CharacterDBBaseInfo::set_aptitude(::google::protobuf::uint64 value) {
+  set_has_aptitude();
+  aptitude_ = value;
+}
+
+// optional .proto_ff.CharFacadeProto facade = 33;
+inline bool CharacterDBBaseInfo::has_facade() const {
+  return (_has_bits_[1] & 0x00000001u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_facade() {
+  _has_bits_[1] |= 0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_has_facade() {
+  _has_bits_[1] &= ~0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_facade() {
+  if (facade_ != NULL) facade_->::proto_ff::CharFacadeProto::Clear();
+  clear_has_facade();
+}
+inline const ::proto_ff::CharFacadeProto& CharacterDBBaseInfo::facade() const {
+  return facade_ != NULL ? *facade_ : *default_instance_->facade_;
+}
+inline ::proto_ff::CharFacadeProto* CharacterDBBaseInfo::mutable_facade() {
+  set_has_facade();
+  if (facade_ == NULL) facade_ = new ::proto_ff::CharFacadeProto;
+  return facade_;
+}
+inline ::proto_ff::CharFacadeProto* CharacterDBBaseInfo::release_facade() {
+  clear_has_facade();
+  ::proto_ff::CharFacadeProto* temp = facade_;
+  facade_ = NULL;
+  return temp;
+}
+inline void CharacterDBBaseInfo::set_allocated_facade(::proto_ff::CharFacadeProto* facade) {
+  delete facade_;
+  facade_ = facade;
+  if (facade) {
+    set_has_facade();
+  } else {
+    clear_has_facade();
+  }
+}
+
+// optional int64 arenacoin = 34;
+inline bool CharacterDBBaseInfo::has_arenacoin() const {
+  return (_has_bits_[1] & 0x00000002u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_arenacoin() {
+  _has_bits_[1] |= 0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_has_arenacoin() {
+  _has_bits_[1] &= ~0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_arenacoin() {
+  arenacoin_ = GOOGLE_LONGLONG(0);
+  clear_has_arenacoin();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::arenacoin() const {
+  return arenacoin_;
+}
+inline void CharacterDBBaseInfo::set_arenacoin(::google::protobuf::int64 value) {
+  set_has_arenacoin();
+  arenacoin_ = value;
+}
+
+// optional int64 starEssence = 35;
+inline bool CharacterDBBaseInfo::has_staressence() const {
+  return (_has_bits_[1] & 0x00000004u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_staressence() {
+  _has_bits_[1] |= 0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_has_staressence() {
+  _has_bits_[1] &= ~0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_staressence() {
+  staressence_ = GOOGLE_LONGLONG(0);
+  clear_has_staressence();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::staressence() const {
+  return staressence_;
+}
+inline void CharacterDBBaseInfo::set_staressence(::google::protobuf::int64 value) {
+  set_has_staressence();
+  staressence_ = value;
+}
+
+// optional int64 starExp = 36;
+inline bool CharacterDBBaseInfo::has_starexp() const {
+  return (_has_bits_[1] & 0x00000008u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_starexp() {
+  _has_bits_[1] |= 0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_has_starexp() {
+  _has_bits_[1] &= ~0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_starexp() {
+  starexp_ = GOOGLE_LONGLONG(0);
+  clear_has_starexp();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::starexp() const {
+  return starexp_;
+}
+inline void CharacterDBBaseInfo::set_starexp(::google::protobuf::int64 value) {
+  set_has_starexp();
+  starexp_ = value;
+}
+
+// optional int64 starFragment = 37;
+inline bool CharacterDBBaseInfo::has_starfragment() const {
+  return (_has_bits_[1] & 0x00000010u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_starfragment() {
+  _has_bits_[1] |= 0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_has_starfragment() {
+  _has_bits_[1] &= ~0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_starfragment() {
+  starfragment_ = GOOGLE_LONGLONG(0);
+  clear_has_starfragment();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::starfragment() const {
+  return starfragment_;
+}
+inline void CharacterDBBaseInfo::set_starfragment(::google::protobuf::int64 value) {
+  set_has_starfragment();
+  starfragment_ = value;
+}
+
+// optional int64 hangUpTime = 38;
+inline bool CharacterDBBaseInfo::has_hanguptime() const {
+  return (_has_bits_[1] & 0x00000020u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_hanguptime() {
+  _has_bits_[1] |= 0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_has_hanguptime() {
+  _has_bits_[1] &= ~0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_hanguptime() {
+  hanguptime_ = GOOGLE_LONGLONG(0);
+  clear_has_hanguptime();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::hanguptime() const {
+  return hanguptime_;
+}
+inline void CharacterDBBaseInfo::set_hanguptime(::google::protobuf::int64 value) {
+  set_has_hanguptime();
+  hanguptime_ = value;
+}
+
+// optional uint32 active_num = 39;
+inline bool CharacterDBBaseInfo::has_active_num() const {
+  return (_has_bits_[1] & 0x00000040u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_active_num() {
+  _has_bits_[1] |= 0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_has_active_num() {
+  _has_bits_[1] &= ~0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_active_num() {
+  active_num_ = 0u;
+  clear_has_active_num();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::active_num() const {
+  return active_num_;
+}
+inline void CharacterDBBaseInfo::set_active_num(::google::protobuf::uint32 value) {
+  set_has_active_num();
+  active_num_ = value;
+}
+
+// optional int64 vipLevel = 40;
+inline bool CharacterDBBaseInfo::has_viplevel() const {
+  return (_has_bits_[1] & 0x00000080u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_viplevel() {
+  _has_bits_[1] |= 0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_has_viplevel() {
+  _has_bits_[1] &= ~0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_viplevel() {
+  viplevel_ = GOOGLE_LONGLONG(0);
+  clear_has_viplevel();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::viplevel() const {
+  return viplevel_;
+}
+inline void CharacterDBBaseInfo::set_viplevel(::google::protobuf::int64 value) {
+  set_has_viplevel();
+  viplevel_ = value;
+}
+
+// optional int64 godhoodExp = 41;
+inline bool CharacterDBBaseInfo::has_godhoodexp() const {
+  return (_has_bits_[1] & 0x00000100u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_godhoodexp() {
+  _has_bits_[1] |= 0x00000100u;
+}
+inline void CharacterDBBaseInfo::clear_has_godhoodexp() {
+  _has_bits_[1] &= ~0x00000100u;
+}
+inline void CharacterDBBaseInfo::clear_godhoodexp() {
+  godhoodexp_ = GOOGLE_LONGLONG(0);
+  clear_has_godhoodexp();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::godhoodexp() const {
+  return godhoodexp_;
+}
+inline void CharacterDBBaseInfo::set_godhoodexp(::google::protobuf::int64 value) {
+  set_has_godhoodexp();
+  godhoodexp_ = value;
+}
+
+// optional int64 smallSpirit = 42;
+inline bool CharacterDBBaseInfo::has_smallspirit() const {
+  return (_has_bits_[1] & 0x00000200u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_smallspirit() {
+  _has_bits_[1] |= 0x00000200u;
+}
+inline void CharacterDBBaseInfo::clear_has_smallspirit() {
+  _has_bits_[1] &= ~0x00000200u;
+}
+inline void CharacterDBBaseInfo::clear_smallspirit() {
+  smallspirit_ = GOOGLE_LONGLONG(0);
+  clear_has_smallspirit();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::smallspirit() const {
+  return smallspirit_;
+}
+inline void CharacterDBBaseInfo::set_smallspirit(::google::protobuf::int64 value) {
+  set_has_smallspirit();
+  smallspirit_ = value;
+}
+
+// optional int64 bigSpirit = 43;
+inline bool CharacterDBBaseInfo::has_bigspirit() const {
+  return (_has_bits_[1] & 0x00000400u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_bigspirit() {
+  _has_bits_[1] |= 0x00000400u;
+}
+inline void CharacterDBBaseInfo::clear_has_bigspirit() {
+  _has_bits_[1] &= ~0x00000400u;
+}
+inline void CharacterDBBaseInfo::clear_bigspirit() {
+  bigspirit_ = GOOGLE_LONGLONG(0);
+  clear_has_bigspirit();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::bigspirit() const {
+  return bigspirit_;
+}
+inline void CharacterDBBaseInfo::set_bigspirit(::google::protobuf::int64 value) {
+  set_has_bigspirit();
+  bigspirit_ = value;
+}
+
+// optional .proto_ff.CharMultTrimProto trim = 44;
+inline bool CharacterDBBaseInfo::has_trim() const {
+  return (_has_bits_[1] & 0x00000800u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_trim() {
+  _has_bits_[1] |= 0x00000800u;
+}
+inline void CharacterDBBaseInfo::clear_has_trim() {
+  _has_bits_[1] &= ~0x00000800u;
+}
+inline void CharacterDBBaseInfo::clear_trim() {
+  if (trim_ != NULL) trim_->::proto_ff::CharMultTrimProto::Clear();
+  clear_has_trim();
+}
+inline const ::proto_ff::CharMultTrimProto& CharacterDBBaseInfo::trim() const {
+  return trim_ != NULL ? *trim_ : *default_instance_->trim_;
+}
+inline ::proto_ff::CharMultTrimProto* CharacterDBBaseInfo::mutable_trim() {
+  set_has_trim();
+  if (trim_ == NULL) trim_ = new ::proto_ff::CharMultTrimProto;
+  return trim_;
+}
+inline ::proto_ff::CharMultTrimProto* CharacterDBBaseInfo::release_trim() {
+  clear_has_trim();
+  ::proto_ff::CharMultTrimProto* temp = trim_;
+  trim_ = NULL;
+  return temp;
+}
+inline void CharacterDBBaseInfo::set_allocated_trim(::proto_ff::CharMultTrimProto* trim) {
+  delete trim_;
+  trim_ = trim;
+  if (trim) {
+    set_has_trim();
+  } else {
+    clear_has_trim();
+  }
+}
+
+// optional int32 finish_flag = 45;
+inline bool CharacterDBBaseInfo::has_finish_flag() const {
+  return (_has_bits_[1] & 0x00001000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_finish_flag() {
+  _has_bits_[1] |= 0x00001000u;
+}
+inline void CharacterDBBaseInfo::clear_has_finish_flag() {
+  _has_bits_[1] &= ~0x00001000u;
+}
+inline void CharacterDBBaseInfo::clear_finish_flag() {
+  finish_flag_ = 0;
+  clear_has_finish_flag();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::finish_flag() const {
+  return finish_flag_;
+}
+inline void CharacterDBBaseInfo::set_finish_flag(::google::protobuf::int32 value) {
+  set_has_finish_flag();
+  finish_flag_ = value;
+}
+
+// optional string guide = 46;
+inline bool CharacterDBBaseInfo::has_guide() const {
+  return (_has_bits_[1] & 0x00002000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_guide() {
+  _has_bits_[1] |= 0x00002000u;
+}
+inline void CharacterDBBaseInfo::clear_has_guide() {
+  _has_bits_[1] &= ~0x00002000u;
+}
+inline void CharacterDBBaseInfo::clear_guide() {
+  if (guide_ != &::google::protobuf::internal::kEmptyString) {
+    guide_->clear();
+  }
+  clear_has_guide();
+}
+inline const ::std::string& CharacterDBBaseInfo::guide() const {
+  return *guide_;
+}
+inline void CharacterDBBaseInfo::set_guide(const ::std::string& value) {
+  set_has_guide();
+  if (guide_ == &::google::protobuf::internal::kEmptyString) {
+    guide_ = new ::std::string;
+  }
+  guide_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_guide(const char* value) {
+  set_has_guide();
+  if (guide_ == &::google::protobuf::internal::kEmptyString) {
+    guide_ = new ::std::string;
+  }
+  guide_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_guide(const char* value, size_t size) {
+  set_has_guide();
+  if (guide_ == &::google::protobuf::internal::kEmptyString) {
+    guide_ = new ::std::string;
+  }
+  guide_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CharacterDBBaseInfo::mutable_guide() {
+  set_has_guide();
+  if (guide_ == &::google::protobuf::internal::kEmptyString) {
+    guide_ = new ::std::string;
+  }
+  return guide_;
+}
+inline ::std::string* CharacterDBBaseInfo::release_guide() {
+  clear_has_guide();
+  if (guide_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = guide_;
+    guide_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CharacterDBBaseInfo::set_allocated_guide(::std::string* guide) {
+  if (guide_ != &::google::protobuf::internal::kEmptyString) {
+    delete guide_;
+  }
+  if (guide) {
+    set_has_guide();
+    guide_ = guide;
+  } else {
+    clear_has_guide();
+    guide_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .proto_ff.ForceDupProto force = 47;
+inline bool CharacterDBBaseInfo::has_force() const {
+  return (_has_bits_[1] & 0x00004000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_force() {
+  _has_bits_[1] |= 0x00004000u;
+}
+inline void CharacterDBBaseInfo::clear_has_force() {
+  _has_bits_[1] &= ~0x00004000u;
+}
+inline void CharacterDBBaseInfo::clear_force() {
+  if (force_ != NULL) force_->::proto_ff::ForceDupProto::Clear();
+  clear_has_force();
+}
+inline const ::proto_ff::ForceDupProto& CharacterDBBaseInfo::force() const {
+  return force_ != NULL ? *force_ : *default_instance_->force_;
+}
+inline ::proto_ff::ForceDupProto* CharacterDBBaseInfo::mutable_force() {
+  set_has_force();
+  if (force_ == NULL) force_ = new ::proto_ff::ForceDupProto;
+  return force_;
+}
+inline ::proto_ff::ForceDupProto* CharacterDBBaseInfo::release_force() {
+  clear_has_force();
+  ::proto_ff::ForceDupProto* temp = force_;
+  force_ = NULL;
+  return temp;
+}
+inline void CharacterDBBaseInfo::set_allocated_force(::proto_ff::ForceDupProto* force) {
+  delete force_;
+  force_ = force;
+  if (force) {
+    set_has_force();
+  } else {
+    clear_has_force();
+  }
+}
+
+// optional int64 useTitle = 48;
+inline bool CharacterDBBaseInfo::has_usetitle() const {
+  return (_has_bits_[1] & 0x00008000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_usetitle() {
+  _has_bits_[1] |= 0x00008000u;
+}
+inline void CharacterDBBaseInfo::clear_has_usetitle() {
+  _has_bits_[1] &= ~0x00008000u;
+}
+inline void CharacterDBBaseInfo::clear_usetitle() {
+  usetitle_ = GOOGLE_LONGLONG(0);
+  clear_has_usetitle();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::usetitle() const {
+  return usetitle_;
+}
+inline void CharacterDBBaseInfo::set_usetitle(::google::protobuf::int64 value) {
+  set_has_usetitle();
+  usetitle_ = value;
+}
+
+// optional int32 subpack_type = 49;
+inline bool CharacterDBBaseInfo::has_subpack_type() const {
+  return (_has_bits_[1] & 0x00010000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_subpack_type() {
+  _has_bits_[1] |= 0x00010000u;
+}
+inline void CharacterDBBaseInfo::clear_has_subpack_type() {
+  _has_bits_[1] &= ~0x00010000u;
+}
+inline void CharacterDBBaseInfo::clear_subpack_type() {
+  subpack_type_ = 0;
+  clear_has_subpack_type();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::subpack_type() const {
+  return subpack_type_;
+}
+inline void CharacterDBBaseInfo::set_subpack_type(::google::protobuf::int32 value) {
+  set_has_subpack_type();
+  subpack_type_ = value;
+}
+
+// optional int32 subpack_fetch = 50;
+inline bool CharacterDBBaseInfo::has_subpack_fetch() const {
+  return (_has_bits_[1] & 0x00020000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_subpack_fetch() {
+  _has_bits_[1] |= 0x00020000u;
+}
+inline void CharacterDBBaseInfo::clear_has_subpack_fetch() {
+  _has_bits_[1] &= ~0x00020000u;
+}
+inline void CharacterDBBaseInfo::clear_subpack_fetch() {
+  subpack_fetch_ = 0;
+  clear_has_subpack_fetch();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::subpack_fetch() const {
+  return subpack_fetch_;
+}
+inline void CharacterDBBaseInfo::set_subpack_fetch(::google::protobuf::int32 value) {
+  set_has_subpack_fetch();
+  subpack_fetch_ = value;
+}
+
+// optional int32 rechargeDiscountDate = 51;
+inline bool CharacterDBBaseInfo::has_rechargediscountdate() const {
+  return (_has_bits_[1] & 0x00040000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_rechargediscountdate() {
+  _has_bits_[1] |= 0x00040000u;
+}
+inline void CharacterDBBaseInfo::clear_has_rechargediscountdate() {
+  _has_bits_[1] &= ~0x00040000u;
+}
+inline void CharacterDBBaseInfo::clear_rechargediscountdate() {
+  rechargediscountdate_ = 0;
+  clear_has_rechargediscountdate();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::rechargediscountdate() const {
+  return rechargediscountdate_;
+}
+inline void CharacterDBBaseInfo::set_rechargediscountdate(::google::protobuf::int32 value) {
+  set_has_rechargediscountdate();
+  rechargediscountdate_ = value;
+}
+
+// optional int32 friendNum = 52;
+inline bool CharacterDBBaseInfo::has_friendnum() const {
+  return (_has_bits_[1] & 0x00080000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_friendnum() {
+  _has_bits_[1] |= 0x00080000u;
+}
+inline void CharacterDBBaseInfo::clear_has_friendnum() {
+  _has_bits_[1] &= ~0x00080000u;
+}
+inline void CharacterDBBaseInfo::clear_friendnum() {
+  friendnum_ = 0;
+  clear_has_friendnum();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::friendnum() const {
+  return friendnum_;
+}
+inline void CharacterDBBaseInfo::set_friendnum(::google::protobuf::int32 value) {
+  set_has_friendnum();
+  friendnum_ = value;
+}
+
+// optional string platid = 53;
+inline bool CharacterDBBaseInfo::has_platid() const {
+  return (_has_bits_[1] & 0x00100000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_platid() {
+  _has_bits_[1] |= 0x00100000u;
+}
+inline void CharacterDBBaseInfo::clear_has_platid() {
+  _has_bits_[1] &= ~0x00100000u;
+}
+inline void CharacterDBBaseInfo::clear_platid() {
+  if (platid_ != &::google::protobuf::internal::kEmptyString) {
+    platid_->clear();
+  }
+  clear_has_platid();
+}
+inline const ::std::string& CharacterDBBaseInfo::platid() const {
+  return *platid_;
+}
+inline void CharacterDBBaseInfo::set_platid(const ::std::string& value) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_platid(const char* value) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(value);
+}
+inline void CharacterDBBaseInfo::set_platid(const char* value, size_t size) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CharacterDBBaseInfo::mutable_platid() {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  return platid_;
+}
+inline ::std::string* CharacterDBBaseInfo::release_platid() {
+  clear_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = platid_;
+    platid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CharacterDBBaseInfo::set_allocated_platid(::std::string* platid) {
+  if (platid_ != &::google::protobuf::internal::kEmptyString) {
+    delete platid_;
+  }
+  if (platid) {
+    set_has_platid();
+    platid_ = platid;
+  } else {
+    clear_has_platid();
+    platid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 solo_score = 54;
+inline bool CharacterDBBaseInfo::has_solo_score() const {
+  return (_has_bits_[1] & 0x00200000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_solo_score() {
+  _has_bits_[1] |= 0x00200000u;
+}
+inline void CharacterDBBaseInfo::clear_has_solo_score() {
+  _has_bits_[1] &= ~0x00200000u;
+}
+inline void CharacterDBBaseInfo::clear_solo_score() {
+  solo_score_ = 0;
+  clear_has_solo_score();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::solo_score() const {
+  return solo_score_;
+}
+inline void CharacterDBBaseInfo::set_solo_score(::google::protobuf::int32 value) {
+  set_has_solo_score();
+  solo_score_ = value;
+}
+
+// optional int32 solo_prv_score = 55;
+inline bool CharacterDBBaseInfo::has_solo_prv_score() const {
+  return (_has_bits_[1] & 0x00400000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_solo_prv_score() {
+  _has_bits_[1] |= 0x00400000u;
+}
+inline void CharacterDBBaseInfo::clear_has_solo_prv_score() {
+  _has_bits_[1] &= ~0x00400000u;
+}
+inline void CharacterDBBaseInfo::clear_solo_prv_score() {
+  solo_prv_score_ = 0;
+  clear_has_solo_prv_score();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::solo_prv_score() const {
+  return solo_prv_score_;
+}
+inline void CharacterDBBaseInfo::set_solo_prv_score(::google::protobuf::int32 value) {
+  set_has_solo_prv_score();
+  solo_prv_score_ = value;
+}
+
+// optional int32 dragons_num = 56;
+inline bool CharacterDBBaseInfo::has_dragons_num() const {
+  return (_has_bits_[1] & 0x00800000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_dragons_num() {
+  _has_bits_[1] |= 0x00800000u;
+}
+inline void CharacterDBBaseInfo::clear_has_dragons_num() {
+  _has_bits_[1] &= ~0x00800000u;
+}
+inline void CharacterDBBaseInfo::clear_dragons_num() {
+  dragons_num_ = 0;
+  clear_has_dragons_num();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::dragons_num() const {
+  return dragons_num_;
+}
+inline void CharacterDBBaseInfo::set_dragons_num(::google::protobuf::int32 value) {
+  set_has_dragons_num();
+  dragons_num_ = value;
+}
+
+// optional uint32 total_login_day = 57;
+inline bool CharacterDBBaseInfo::has_total_login_day() const {
+  return (_has_bits_[1] & 0x01000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_total_login_day() {
+  _has_bits_[1] |= 0x01000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_total_login_day() {
+  _has_bits_[1] &= ~0x01000000u;
+}
+inline void CharacterDBBaseInfo::clear_total_login_day() {
+  total_login_day_ = 0u;
+  clear_has_total_login_day();
+}
+inline ::google::protobuf::uint32 CharacterDBBaseInfo::total_login_day() const {
+  return total_login_day_;
+}
+inline void CharacterDBBaseInfo::set_total_login_day(::google::protobuf::uint32 value) {
+  set_has_total_login_day();
+  total_login_day_ = value;
+}
+
+// optional uint64 login_day_time = 58;
+inline bool CharacterDBBaseInfo::has_login_day_time() const {
+  return (_has_bits_[1] & 0x02000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_login_day_time() {
+  _has_bits_[1] |= 0x02000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_login_day_time() {
+  _has_bits_[1] &= ~0x02000000u;
+}
+inline void CharacterDBBaseInfo::clear_login_day_time() {
+  login_day_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_login_day_time();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::login_day_time() const {
+  return login_day_time_;
+}
+inline void CharacterDBBaseInfo::set_login_day_time(::google::protobuf::uint64 value) {
+  set_has_login_day_time();
+  login_day_time_ = value;
+}
+
+// optional int32 login_gift = 59;
+inline bool CharacterDBBaseInfo::has_login_gift() const {
+  return (_has_bits_[1] & 0x04000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_login_gift() {
+  _has_bits_[1] |= 0x04000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_login_gift() {
+  _has_bits_[1] &= ~0x04000000u;
+}
+inline void CharacterDBBaseInfo::clear_login_gift() {
+  login_gift_ = 0;
+  clear_has_login_gift();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::login_gift() const {
+  return login_gift_;
+}
+inline void CharacterDBBaseInfo::set_login_gift(::google::protobuf::int32 value) {
+  set_has_login_gift();
+  login_gift_ = value;
+}
+
+// optional int64 vipCardDiamond = 60;
+inline bool CharacterDBBaseInfo::has_vipcarddiamond() const {
+  return (_has_bits_[1] & 0x08000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_vipcarddiamond() {
+  _has_bits_[1] |= 0x08000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_vipcarddiamond() {
+  _has_bits_[1] &= ~0x08000000u;
+}
+inline void CharacterDBBaseInfo::clear_vipcarddiamond() {
+  vipcarddiamond_ = GOOGLE_LONGLONG(0);
+  clear_has_vipcarddiamond();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::vipcarddiamond() const {
+  return vipcarddiamond_;
+}
+inline void CharacterDBBaseInfo::set_vipcarddiamond(::google::protobuf::int64 value) {
+  set_has_vipcarddiamond();
+  vipcarddiamond_ = value;
+}
+
+// optional uint64 holydia = 61;
+inline bool CharacterDBBaseInfo::has_holydia() const {
+  return (_has_bits_[1] & 0x10000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_holydia() {
+  _has_bits_[1] |= 0x10000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_holydia() {
+  _has_bits_[1] &= ~0x10000000u;
+}
+inline void CharacterDBBaseInfo::clear_holydia() {
+  holydia_ = GOOGLE_ULONGLONG(0);
+  clear_has_holydia();
+}
+inline ::google::protobuf::uint64 CharacterDBBaseInfo::holydia() const {
+  return holydia_;
+}
+inline void CharacterDBBaseInfo::set_holydia(::google::protobuf::uint64 value) {
+  set_has_holydia();
+  holydia_ = value;
+}
+
+// optional int32 relive_num = 62;
+inline bool CharacterDBBaseInfo::has_relive_num() const {
+  return (_has_bits_[1] & 0x20000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_relive_num() {
+  _has_bits_[1] |= 0x20000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_relive_num() {
+  _has_bits_[1] &= ~0x20000000u;
+}
+inline void CharacterDBBaseInfo::clear_relive_num() {
+  relive_num_ = 0;
+  clear_has_relive_num();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::relive_num() const {
+  return relive_num_;
+}
+inline void CharacterDBBaseInfo::set_relive_num(::google::protobuf::int32 value) {
+  set_has_relive_num();
+  relive_num_ = value;
+}
+
+// optional int64 last_relive_time = 63;
+inline bool CharacterDBBaseInfo::has_last_relive_time() const {
+  return (_has_bits_[1] & 0x40000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_last_relive_time() {
+  _has_bits_[1] |= 0x40000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_last_relive_time() {
+  _has_bits_[1] &= ~0x40000000u;
+}
+inline void CharacterDBBaseInfo::clear_last_relive_time() {
+  last_relive_time_ = GOOGLE_LONGLONG(0);
+  clear_has_last_relive_time();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::last_relive_time() const {
+  return last_relive_time_;
+}
+inline void CharacterDBBaseInfo::set_last_relive_time(::google::protobuf::int64 value) {
+  set_has_last_relive_time();
+  last_relive_time_ = value;
+}
+
+// optional int64 dead_static_map_id = 64;
+inline bool CharacterDBBaseInfo::has_dead_static_map_id() const {
+  return (_has_bits_[1] & 0x80000000u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_dead_static_map_id() {
+  _has_bits_[1] |= 0x80000000u;
+}
+inline void CharacterDBBaseInfo::clear_has_dead_static_map_id() {
+  _has_bits_[1] &= ~0x80000000u;
+}
+inline void CharacterDBBaseInfo::clear_dead_static_map_id() {
+  dead_static_map_id_ = GOOGLE_LONGLONG(0);
+  clear_has_dead_static_map_id();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::dead_static_map_id() const {
+  return dead_static_map_id_;
+}
+inline void CharacterDBBaseInfo::set_dead_static_map_id(::google::protobuf::int64 value) {
+  set_has_dead_static_map_id();
+  dead_static_map_id_ = value;
+}
+
+// optional int32 dead_static_num = 65;
+inline bool CharacterDBBaseInfo::has_dead_static_num() const {
+  return (_has_bits_[2] & 0x00000001u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_dead_static_num() {
+  _has_bits_[2] |= 0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_has_dead_static_num() {
+  _has_bits_[2] &= ~0x00000001u;
+}
+inline void CharacterDBBaseInfo::clear_dead_static_num() {
+  dead_static_num_ = 0;
+  clear_has_dead_static_num();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::dead_static_num() const {
+  return dead_static_num_;
+}
+inline void CharacterDBBaseInfo::set_dead_static_num(::google::protobuf::int32 value) {
+  set_has_dead_static_num();
+  dead_static_num_ = value;
+}
+
+// optional int64 dead_static_cd = 66;
+inline bool CharacterDBBaseInfo::has_dead_static_cd() const {
+  return (_has_bits_[2] & 0x00000002u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_dead_static_cd() {
+  _has_bits_[2] |= 0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_has_dead_static_cd() {
+  _has_bits_[2] &= ~0x00000002u;
+}
+inline void CharacterDBBaseInfo::clear_dead_static_cd() {
+  dead_static_cd_ = GOOGLE_LONGLONG(0);
+  clear_has_dead_static_cd();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::dead_static_cd() const {
+  return dead_static_cd_;
+}
+inline void CharacterDBBaseInfo::set_dead_static_cd(::google::protobuf::int64 value) {
+  set_has_dead_static_cd();
+  dead_static_cd_ = value;
+}
+
+// optional int32 fushi_time = 67;
+inline bool CharacterDBBaseInfo::has_fushi_time() const {
+  return (_has_bits_[2] & 0x00000004u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_fushi_time() {
+  _has_bits_[2] |= 0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_has_fushi_time() {
+  _has_bits_[2] &= ~0x00000004u;
+}
+inline void CharacterDBBaseInfo::clear_fushi_time() {
+  fushi_time_ = 0;
+  clear_has_fushi_time();
+}
+inline ::google::protobuf::int32 CharacterDBBaseInfo::fushi_time() const {
+  return fushi_time_;
+}
+inline void CharacterDBBaseInfo::set_fushi_time(::google::protobuf::int32 value) {
+  set_has_fushi_time();
+  fushi_time_ = value;
+}
+
+// optional int64 starStone = 68;
+inline bool CharacterDBBaseInfo::has_starstone() const {
+  return (_has_bits_[2] & 0x00000008u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_starstone() {
+  _has_bits_[2] |= 0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_has_starstone() {
+  _has_bits_[2] &= ~0x00000008u;
+}
+inline void CharacterDBBaseInfo::clear_starstone() {
+  starstone_ = GOOGLE_LONGLONG(0);
+  clear_has_starstone();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::starstone() const {
+  return starstone_;
+}
+inline void CharacterDBBaseInfo::set_starstone(::google::protobuf::int64 value) {
+  set_has_starstone();
+  starstone_ = value;
+}
+
+// optional int64 voucher = 69;
+inline bool CharacterDBBaseInfo::has_voucher() const {
+  return (_has_bits_[2] & 0x00000010u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_voucher() {
+  _has_bits_[2] |= 0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_has_voucher() {
+  _has_bits_[2] &= ~0x00000010u;
+}
+inline void CharacterDBBaseInfo::clear_voucher() {
+  voucher_ = GOOGLE_LONGLONG(0);
+  clear_has_voucher();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::voucher() const {
+  return voucher_;
+}
+inline void CharacterDBBaseInfo::set_voucher(::google::protobuf::int64 value) {
+  set_has_voucher();
+  voucher_ = value;
+}
+
+// optional int64 waiguan = 70;
+inline bool CharacterDBBaseInfo::has_waiguan() const {
+  return (_has_bits_[2] & 0x00000020u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_waiguan() {
+  _has_bits_[2] |= 0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_has_waiguan() {
+  _has_bits_[2] &= ~0x00000020u;
+}
+inline void CharacterDBBaseInfo::clear_waiguan() {
+  waiguan_ = GOOGLE_LONGLONG(0);
+  clear_has_waiguan();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::waiguan() const {
+  return waiguan_;
+}
+inline void CharacterDBBaseInfo::set_waiguan(::google::protobuf::int64 value) {
+  set_has_waiguan();
+  waiguan_ = value;
+}
+
+// optional int64 gmpoint = 71;
+inline bool CharacterDBBaseInfo::has_gmpoint() const {
+  return (_has_bits_[2] & 0x00000040u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_gmpoint() {
+  _has_bits_[2] |= 0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_has_gmpoint() {
+  _has_bits_[2] &= ~0x00000040u;
+}
+inline void CharacterDBBaseInfo::clear_gmpoint() {
+  gmpoint_ = GOOGLE_LONGLONG(0);
+  clear_has_gmpoint();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::gmpoint() const {
+  return gmpoint_;
+}
+inline void CharacterDBBaseInfo::set_gmpoint(::google::protobuf::int64 value) {
+  set_has_gmpoint();
+  gmpoint_ = value;
+}
+
+// optional int64 gmpoint_limit = 72;
+inline bool CharacterDBBaseInfo::has_gmpoint_limit() const {
+  return (_has_bits_[2] & 0x00000080u) != 0;
+}
+inline void CharacterDBBaseInfo::set_has_gmpoint_limit() {
+  _has_bits_[2] |= 0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_has_gmpoint_limit() {
+  _has_bits_[2] &= ~0x00000080u;
+}
+inline void CharacterDBBaseInfo::clear_gmpoint_limit() {
+  gmpoint_limit_ = GOOGLE_LONGLONG(0);
+  clear_has_gmpoint_limit();
+}
+inline ::google::protobuf::int64 CharacterDBBaseInfo::gmpoint_limit() const {
+  return gmpoint_limit_;
+}
+inline void CharacterDBBaseInfo::set_gmpoint_limit(::google::protobuf::int64 value) {
+  set_has_gmpoint_limit();
+  gmpoint_limit_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// tbRoleInfo
+
+// optional uint64 charId = 1;
+inline bool tbRoleInfo::has_charid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tbRoleInfo::set_has_charid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tbRoleInfo::clear_has_charid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tbRoleInfo::clear_charid() {
+  charid_ = GOOGLE_ULONGLONG(0);
+  clear_has_charid();
+}
+inline ::google::protobuf::uint64 tbRoleInfo::charid() const {
+  return charid_;
+}
+inline void tbRoleInfo::set_charid(::google::protobuf::uint64 value) {
+  set_has_charid();
+  charid_ = value;
+}
+
+// optional uint64 playerId = 2;
+inline bool tbRoleInfo::has_playerid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tbRoleInfo::set_has_playerid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tbRoleInfo::clear_has_playerid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tbRoleInfo::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+  clear_has_playerid();
+}
+inline ::google::protobuf::uint64 tbRoleInfo::playerid() const {
+  return playerid_;
+}
+inline void tbRoleInfo::set_playerid(::google::protobuf::uint64 value) {
+  set_has_playerid();
+  playerid_ = value;
+}
+
+// optional uint64 bornZoneId = 3;
+inline bool tbRoleInfo::has_bornzoneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void tbRoleInfo::set_has_bornzoneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void tbRoleInfo::clear_has_bornzoneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void tbRoleInfo::clear_bornzoneid() {
+  bornzoneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_bornzoneid();
+}
+inline ::google::protobuf::uint64 tbRoleInfo::bornzoneid() const {
+  return bornzoneid_;
+}
+inline void tbRoleInfo::set_bornzoneid(::google::protobuf::uint64 value) {
+  set_has_bornzoneid();
+  bornzoneid_ = value;
+}
+
+// optional string charName = 4;
+inline bool tbRoleInfo::has_charname() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void tbRoleInfo::set_has_charname() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void tbRoleInfo::clear_has_charname() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void tbRoleInfo::clear_charname() {
+  if (charname_ != &::google::protobuf::internal::kEmptyString) {
+    charname_->clear();
+  }
+  clear_has_charname();
+}
+inline const ::std::string& tbRoleInfo::charname() const {
+  return *charname_;
+}
+inline void tbRoleInfo::set_charname(const ::std::string& value) {
+  set_has_charname();
+  if (charname_ == &::google::protobuf::internal::kEmptyString) {
+    charname_ = new ::std::string;
+  }
+  charname_->assign(value);
+}
+inline void tbRoleInfo::set_charname(const char* value) {
+  set_has_charname();
+  if (charname_ == &::google::protobuf::internal::kEmptyString) {
+    charname_ = new ::std::string;
+  }
+  charname_->assign(value);
+}
+inline void tbRoleInfo::set_charname(const char* value, size_t size) {
+  set_has_charname();
+  if (charname_ == &::google::protobuf::internal::kEmptyString) {
+    charname_ = new ::std::string;
+  }
+  charname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbRoleInfo::mutable_charname() {
+  set_has_charname();
+  if (charname_ == &::google::protobuf::internal::kEmptyString) {
+    charname_ = new ::std::string;
+  }
+  return charname_;
+}
+inline ::std::string* tbRoleInfo::release_charname() {
+  clear_has_charname();
+  if (charname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = charname_;
+    charname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbRoleInfo::set_allocated_charname(::std::string* charname) {
+  if (charname_ != &::google::protobuf::internal::kEmptyString) {
+    delete charname_;
+  }
+  if (charname) {
+    set_has_charname();
+    charname_ = charname;
+  } else {
+    clear_has_charname();
+    charname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string platId = 5;
+inline bool tbRoleInfo::has_platid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void tbRoleInfo::set_has_platid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void tbRoleInfo::clear_has_platid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void tbRoleInfo::clear_platid() {
+  if (platid_ != &::google::protobuf::internal::kEmptyString) {
+    platid_->clear();
+  }
+  clear_has_platid();
+}
+inline const ::std::string& tbRoleInfo::platid() const {
+  return *platid_;
+}
+inline void tbRoleInfo::set_platid(const ::std::string& value) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(value);
+}
+inline void tbRoleInfo::set_platid(const char* value) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(value);
+}
+inline void tbRoleInfo::set_platid(const char* value, size_t size) {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  platid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbRoleInfo::mutable_platid() {
+  set_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    platid_ = new ::std::string;
+  }
+  return platid_;
+}
+inline ::std::string* tbRoleInfo::release_platid() {
+  clear_has_platid();
+  if (platid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = platid_;
+    platid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbRoleInfo::set_allocated_platid(::std::string* platid) {
+  if (platid_ != &::google::protobuf::internal::kEmptyString) {
+    delete platid_;
+  }
+  if (platid) {
+    set_has_platid();
+    platid_ = platid;
+  } else {
+    clear_has_platid();
+    platid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .proto_ff.CharacterDBBaseInfo baseData = 20;
+inline bool tbRoleInfo::has_basedata() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void tbRoleInfo::set_has_basedata() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void tbRoleInfo::clear_has_basedata() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void tbRoleInfo::clear_basedata() {
+  if (basedata_ != NULL) basedata_->::proto_ff::CharacterDBBaseInfo::Clear();
+  clear_has_basedata();
+}
+inline const ::proto_ff::CharacterDBBaseInfo& tbRoleInfo::basedata() const {
+  return basedata_ != NULL ? *basedata_ : *default_instance_->basedata_;
+}
+inline ::proto_ff::CharacterDBBaseInfo* tbRoleInfo::mutable_basedata() {
+  set_has_basedata();
+  if (basedata_ == NULL) basedata_ = new ::proto_ff::CharacterDBBaseInfo;
+  return basedata_;
+}
+inline ::proto_ff::CharacterDBBaseInfo* tbRoleInfo::release_basedata() {
+  clear_has_basedata();
+  ::proto_ff::CharacterDBBaseInfo* temp = basedata_;
+  basedata_ = NULL;
+  return temp;
+}
+inline void tbRoleInfo::set_allocated_basedata(::proto_ff::CharacterDBBaseInfo* basedata) {
+  delete basedata_;
+  basedata_ = basedata;
+  if (basedata) {
+    set_has_basedata();
+  } else {
+    clear_has_basedata();
+  }
 }
 
 

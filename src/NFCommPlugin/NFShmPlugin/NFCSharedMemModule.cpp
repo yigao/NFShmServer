@@ -957,7 +957,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 	NFShmObj *pObj = NULL;
     if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj use hash, crete obj use CreateObjByHashKey(uint64_t hashKey, int iType)");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj use hash, create obj use CreateObjByHashKey(uint64_t hashKey, int iType)");
         return NULL;
     }
 
