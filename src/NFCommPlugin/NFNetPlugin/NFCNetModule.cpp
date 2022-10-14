@@ -685,8 +685,6 @@ int NFCNetModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
 
-    FindModule<NFITaskModule>()->
-
     NFSmtpSendMail sendMail;
     sendMail.SetSmtpServer(pConfig->sendEmail, pConfig->sendEmailPass,pConfig->sendEmailUrl, pConfig->sendEmailPort);
     sendMail.SetSendName(title);
