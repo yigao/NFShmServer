@@ -39,6 +39,14 @@ public:
      * @param xData
      */
     void SendMsgToProxyServer(uint32_t moduleId, uint32_t msgId, const google::protobuf::Message &xData);
+
+    /**
+     * @brief
+     * @param moduleId
+     * @param msgId
+     * @param xData
+     */
+    void SendMsgToLogicServer(uint32_t moduleId, uint32_t msgId, const google::protobuf::Message &xData);
 public:
     /**
      * @brief

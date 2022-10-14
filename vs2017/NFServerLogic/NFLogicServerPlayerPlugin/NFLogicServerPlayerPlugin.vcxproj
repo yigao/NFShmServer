@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetEventLog.cpp" />
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetUserDetail.cpp" />
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransHandleEventLog.cpp" />
-    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransLogicUserBase.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransPlayerBase.cpp" />
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.cpp" />
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.cpp" />
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSendEventLog.cpp" />
@@ -44,7 +44,7 @@
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetEventLog.h" />
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransGetUserDetail.h" />
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransHandleEventLog.h" />
-    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransLogicUserBase.h" />
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransPlayerBase.h" />
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.h" />
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.h" />
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSendEventLog.h" />

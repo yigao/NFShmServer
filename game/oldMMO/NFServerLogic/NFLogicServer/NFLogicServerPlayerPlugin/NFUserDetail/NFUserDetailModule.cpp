@@ -7,17 +7,17 @@
 //
 // -------------------------------------------------------------------------
 #include "NFUserDetailModule.h"
-#include "NFUserDetail/NFTransGetUserDetail.h"
+#include "NFTransGetUserDetail.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs.pb.h"
-#include "NFUserDetail/NFUserDetail.h"
-#include "NFUserDetail/NFUserDetailMgr.h"
-#include "NFUserDetail/NFTransGetEventLog.h"
-#include "NFUserDetail/NFPlayerBindPhoneTrans.h"
+#include "NFUserDetail.h"
+#include "NFUserDetailMgr.h"
+#include "NFTransGetEventLog.h"
+#include "NFPlayerBindPhoneTrans.h"
 #include "NFLogicCommon/NFICommLogicModule.h"
 
 

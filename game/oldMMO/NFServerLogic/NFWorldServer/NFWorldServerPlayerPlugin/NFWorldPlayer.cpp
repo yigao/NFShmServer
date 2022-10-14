@@ -274,4 +274,9 @@ void NFWorldPlayer::SendMsgToProxyServer(uint32_t moduleId, uint32_t msgId, cons
     FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, moduleId, msgId, xData, m_playerId);
 }
 
+void NFWorldPlayer::SendMsgToLogicServer(uint32_t moduleId, uint32_t msgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, moduleId, msgId, xData, m_playerId);
+}
+
 

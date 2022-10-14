@@ -242,6 +242,19 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             retCode = CharLstReqToDB(zid, uid, clientId, pNewUid->bronZid);
             MMOLOG_PROCESS_ERROR(retCode);
         }*/
+        auto pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayer->GetPlayerId());
+        if (pLogicServer)
+        {
+            pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
+            int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_ENTER_LOGIC, pLogicServer->mServerInfo.bus_id(), false, proto_ff::LOGOUT_FLAG_NULL);
+            CHECK_RET(retCode, "GateChangeLogic Failed!");
+
+            pPlayer->SendMsgToLogicServer(NF_MODULE_CLIENT, packet.nMsgId, clogin);
+        }
+        else {
+            int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_CRASH);
+            CHECK_RET(retCode, "GateChangeLogic Failed!");
+        }
     }
 
     return 0;

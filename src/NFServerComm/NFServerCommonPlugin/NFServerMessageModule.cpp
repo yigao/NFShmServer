@@ -108,6 +108,16 @@ int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t n
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
+int NFServerMessageModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return SendMsgToLogicServer(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFServerMessageModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
 std::string storesvr_selectbycond(const std::string &dbname, const std::string &tbname,
                                   uint64_t mod_key, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                                   const std::string &additional_conds = "", const std::string& cls_name = "") {

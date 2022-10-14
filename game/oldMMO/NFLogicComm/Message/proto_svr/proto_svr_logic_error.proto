@@ -4,4 +4,5 @@ package proto_ff;
 enum Proto_Logic_ErrorCode {
   ERR_CODE_SERVER_LOGIC_ERROR = -1;
   ERR_CODE_SERVER_LOGIC_OK = 0;
+  ERR_CODE_SERVER_TRANS_TIMEOUT = 1;
 }

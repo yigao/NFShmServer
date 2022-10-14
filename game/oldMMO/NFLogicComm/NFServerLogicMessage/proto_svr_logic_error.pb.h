@@ -35,11 +35,12 @@ void protobuf_ShutdownFile_proto_5fsvr_5flogic_5ferror_2eproto();
 
 enum Proto_Logic_ErrorCode {
   ERR_CODE_SERVER_LOGIC_ERROR = -1,
-  ERR_CODE_SERVER_LOGIC_OK = 0
+  ERR_CODE_SERVER_LOGIC_OK = 0,
+  ERR_CODE_SERVER_TRANS_TIMEOUT = 1
 };
 bool Proto_Logic_ErrorCode_IsValid(int value);
 const Proto_Logic_ErrorCode Proto_Logic_ErrorCode_MIN = ERR_CODE_SERVER_LOGIC_ERROR;
-const Proto_Logic_ErrorCode Proto_Logic_ErrorCode_MAX = ERR_CODE_SERVER_LOGIC_OK;
+const Proto_Logic_ErrorCode Proto_Logic_ErrorCode_MAX = ERR_CODE_SERVER_TRANS_TIMEOUT;
 const int Proto_Logic_ErrorCode_ARRAYSIZE = Proto_Logic_ErrorCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_Logic_ErrorCode_descriptor();

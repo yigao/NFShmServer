@@ -59,9 +59,10 @@ void protobuf_AddDesc_proto_5fsvr_5flogic_5ferror_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\033proto_svr_logic_error.proto\022\010proto_ff*"
-    "_\n\025Proto_Logic_ErrorCode\022(\n\033ERR_CODE_SER"
-    "VER_LOGIC_ERROR\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030ERR_CODE_S"
-    "ERVER_LOGIC_OK\020\000", 136);
+    "\202\001\n\025Proto_Logic_ErrorCode\022(\n\033ERR_CODE_SE"
+    "RVER_LOGIC_ERROR\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030ERR_CODE_"
+    "SERVER_LOGIC_OK\020\000\022!\n\035ERR_CODE_SERVER_TRA"
+    "NS_TIMEOUT\020\001", 172);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_logic_error.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5flogic_5ferror_2eproto);
@@ -81,6 +82,7 @@ bool Proto_Logic_ErrorCode_IsValid(int value) {
   switch(value) {
     case -1:
     case 0:
+    case 1:
       return true;
     default:
       return false;

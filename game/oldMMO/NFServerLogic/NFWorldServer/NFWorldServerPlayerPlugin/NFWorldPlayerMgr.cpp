@@ -41,7 +41,7 @@ int NFWorldPlayerMgr::CreateInit()
 {
     m_currentLoginNum = 0;
     m_maxQueueNum = 2000;    //排队总人数
-    m_startQueueNum = 0; //开始排队人数
+    m_startQueueNum = 2000; //开始排队人数
     m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
     return 0;
 }
@@ -75,7 +75,7 @@ int NFWorldPlayerMgr::PlayerTick()
 
     for(int i = 0; i < (int)willRemovePlayer.size(); i++)
     {
-        pPlayer = GetPlayer(willRemovePlayer[i]);
+        pPlayer = GetPlayerByRoleId(willRemovePlayer[i]);
         if (pPlayer)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} be erase from memory", pPlayer->GetPlayerId());

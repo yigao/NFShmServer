@@ -66,3 +66,24 @@ protected:
     int m_iRunLogicRetCode;
 DECLARE_IDCREATE(NFTransBase)
 };
+
+#define CHECK_ERR_AND_FIN_TRANS( iRetCode, pTrans, format, ...)\
+    if( iRetCode != 0 )\
+    {\
+        pTrans->SetFinished( iRetCode );\
+        std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "CHCK TRANS RetCode:{} failed:{}", iRetCode, log_event);\
+        return iRetCode;\
+    }\
+
+
+#define CHECK_EXPR_AND_FIN_TRANS( expr, iRetCode, pTrans, format, ...)\
+    if( !(expr) )\
+    {\
+        pTrans->SetFinished( iRetCode );\
+        std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK Trans:{} RetCode:{} failed:{}", #expr, iRetCode, log_event);\
+        return iRetCode;\
+    }\
+
+
