@@ -24,7 +24,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "Encrypt.h"
 
-NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p)
+NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p),m_netObjectPool(1000, false)
 {
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
 	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
@@ -43,7 +43,7 @@ NFEvppNetMessage::~NFEvppNetMessage()
 		auto pObject = iter->second;
 		if (pObject)
 		{
-			NF_SAFE_DELETE(pObject);
+            m_netObjectPool.FreeObj(pObject);
 		}
 	}
 	mNetObjectArray.clear();
@@ -422,7 +422,9 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCP
 		return nullptr;
 	}
 
-	auto pObject = NF_NEW NetEvppObject(conn);
+	auto pObject = m_netObjectPool.MallocObjWithArgs(conn);
+	CHECK_EXPR_ASSERT(pObject, NULL, "m_netObjectPool.Alloc() Failed");
+
 	mNetObjectArray.emplace(unLinkId, pObject);
 
 	pObject->SetLinkId(unLinkId);
@@ -673,7 +675,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 if (iter != mNetObjectArray.end())
                 {
                     mNetObjectArray.erase(iter);
-                    NF_SAFE_DELETE(pObject);
+                    m_netObjectPool.FreeObj(pObject);
 
                     mFreeLinks.push_back(objectLinkId);
                 }

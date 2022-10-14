@@ -17,11 +17,11 @@ namespace
     static const size_t STEP_64B_SIZE_MAX   = 1024;  // slot_num=12
     static const size_t STEP_128B_SIZE_MAX  = 2048;  // slot_num=8
     static const size_t STEP_256B_SIZE_MAX  = 4096;  // slot_num=8
-    static const size_t EXT_SIZE_BYTE = sizeof(BufferPool::IndexType);
-    static const BufferPool::IndexType INVALID_MAX_INDEX = 0xFFFF;
+    static const size_t EXT_SIZE_BYTE = sizeof(NFBufferPool::IndexType);
+    static const NFBufferPool::IndexType INVALID_MAX_INDEX = 0xFFFF;
 }
 
-BufferPool::BufferPool(uint32_t block_size, uint32_t max_size /*= 4096*/)
+NFBufferPool::NFBufferPool(uint32_t block_size, uint32_t max_size /*= 4096*/)
         : array_num_(0),
           max_size_(max_size),
           block_size_(block_size),
@@ -30,42 +30,42 @@ BufferPool::BufferPool(uint32_t block_size, uint32_t max_size /*= 4096*/)
     AllocChunkPool();
 }
 
-BufferPool::~BufferPool()
+NFBufferPool::~NFBufferPool()
 {
     ReleaseChunkPool();
 }
 
-BufferPool::IndexType GetArrayIdx(size_t size)
+NFBufferPool::IndexType GetArrayIdx(size_t size)
 {
-    BufferPool::IndexType idx = 0;
+    NFBufferPool::IndexType idx = 0;
     if (size <= STEP_32B_SIZE_MAX)
     {
-        idx = (BufferPool::IndexType)((size-1)/32);
+        idx = (NFBufferPool::IndexType)((size - 1) / 32);
     }
     else if (size <= STEP_64B_SIZE_MAX)
     {
         idx = GetArrayIdx(STEP_32B_SIZE_MAX) + 1;
-        idx += (BufferPool::IndexType)((size-STEP_32B_SIZE_MAX-1)/64);
+        idx += (NFBufferPool::IndexType)((size - STEP_32B_SIZE_MAX - 1) / 64);
     }
     else if (size <= STEP_128B_SIZE_MAX)
     {
         idx = GetArrayIdx(STEP_64B_SIZE_MAX) + 1;
-        idx += (BufferPool::IndexType)((size-STEP_64B_SIZE_MAX -1)/128);
+        idx += (NFBufferPool::IndexType)((size - STEP_64B_SIZE_MAX - 1) / 128);
     }
     else if (size <= STEP_256B_SIZE_MAX)
     {
         idx = GetArrayIdx(STEP_128B_SIZE_MAX) + 1;
-        idx += (BufferPool::IndexType)((size - STEP_128B_SIZE_MAX - 1)/256);
+        idx += (NFBufferPool::IndexType)((size - STEP_128B_SIZE_MAX - 1) / 256);
     }
     else
     {
         idx = GetArrayIdx(STEP_256B_SIZE_MAX) + 1;
-        idx += (BufferPool::IndexType)((size - STEP_256B_SIZE_MAX -1)/512);
+        idx += (NFBufferPool::IndexType)((size - STEP_256B_SIZE_MAX - 1) / 512);
     }
     return idx;
 }
 
-void BufferPool::ReleaseChunkPool()
+void NFBufferPool::ReleaseChunkPool()
 {
     if (mini_mem_alloc_)
     {
@@ -77,7 +77,7 @@ void BufferPool::ReleaseChunkPool()
     }
 }
 
-size_t BufferPool::GetBufferLength(void* ptr)
+size_t NFBufferPool::GetBufferLength(void* ptr)
 {
     IndexType* buf_idx = static_cast<IndexType*>(ptr);
     IndexType  idx = *(--buf_idx);
@@ -92,7 +92,7 @@ size_t BufferPool::GetBufferLength(void* ptr)
     }
 }
 
-void BufferPool::AllocChunkPool()
+void NFBufferPool::AllocChunkPool()
 {
     array_num_ = GetArrayIdx(max_size_) + 1;
     mini_mem_alloc_ = new NFChunkPool*[array_num_];
@@ -125,7 +125,7 @@ void BufferPool::AllocChunkPool()
     }
 }
 
-void* BufferPool::Alloc(size_t size)
+void* NFBufferPool::Alloc(size_t size)
 {
     size_t need_size = size;
     if (need_size > max_size_)
@@ -147,7 +147,7 @@ void* BufferPool::Alloc(size_t size)
     }
 }
 
-void* BufferPool::Realloc(void* ptr, size_t size)
+void* NFBufferPool::Realloc(void* ptr, size_t size)
 {
     if (ptr == NULL)
     {
@@ -171,7 +171,7 @@ void* BufferPool::Realloc(void* ptr, size_t size)
     }
 }
 
-void BufferPool::Free(void* ptr)
+void NFBufferPool::Free(void* ptr)
 {
     IndexType* all_buf = static_cast<IndexType*>(ptr);
     IndexType idx = *(--all_buf);
@@ -188,10 +188,10 @@ void BufferPool::Free(void* ptr)
     }
 }
 
-void* BufferPool::AllocTrack(size_t size,
-                             const char* file,
-                             const char* func,
-                             uint32_t line)
+void* NFBufferPool::AllocTrack(size_t size,
+                               const char* file,
+                               const char* func,
+                               uint32_t line)
 {
     void* ret = Alloc(size);
     if (ret)
@@ -201,11 +201,11 @@ void* BufferPool::AllocTrack(size_t size,
     return ret;
 }
 
-void* BufferPool::ReallocTrack(void* ptr,
-                               size_t size,
-                               const char* file,
-                               const char* func,
-                               uint32_t line)
+void* NFBufferPool::ReallocTrack(void* ptr,
+                                 size_t size,
+                                 const char* file,
+                                 const char* func,
+                                 uint32_t line)
 {
     if (ptr == NULL)
     {
@@ -230,7 +230,7 @@ void* BufferPool::ReallocTrack(void* ptr,
     }
 }
 
-void  BufferPool::FreeTrack(void* ptr)
+void  NFBufferPool::FreeTrack(void* ptr)
 {
     assert(ptr);
     NFMemTracker::Instance()->TrackFree(ptr);

@@ -62,9 +62,8 @@ int NFCHttpClient::HttpGet(const string &strUri, const HTTP_CLIENT_RESPONE &resp
         req->AddHeader(iter->first, iter->second);
     }
 
-    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObj();
+    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObjWithArgs(req->GetId(), respone, timeout);
     CHECK_EXPR_ASSERT(pParam, -1, "m_pHttpClientParamPool->MallocObj() Failed");
-    pParam->Init(req->GetId(), respone, timeout);
 
     m_httpClientMap.emplace(pParam->m_id, pParam);
 
@@ -90,9 +89,8 @@ int NFCHttpClient::HttpPost(const string &strUri, const string &strPostData, con
         req->AddHeader(iter->first, iter->second);
     }
 
-    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObj();
+    NFCHttpClientParam *pParam = m_pHttpClientParamPool->MallocObjWithArgs(req->GetId(), respone, timeout);
     CHECK_EXPR_ASSERT(pParam, -1, "m_pHttpClientParamPool->MallocObj() Failed");
-    pParam->Init(req->GetId(), respone, timeout);
     m_httpClientMap.emplace(pParam->m_id, pParam);
 
     req->Execute(std::bind(&NFCHttpClient::HandleHTTPPostResponse, this, std::placeholders::_1, req));

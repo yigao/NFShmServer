@@ -24,10 +24,14 @@ public:
 
     bool Free(TYPE *obj);
 
+    template<class U, class... Args>
+    void Construct(U *p, Args &&... args);
+
 public:
+    template<class... Args>
     TYPE *AllocTrack(const char *file,
                      const char *func,
-                     uint32_t line);
+                     uint32_t line, Args &&... args);
 
     bool FreeTrack(TYPE *obj);
 
@@ -39,6 +43,7 @@ public:
 
 #ifdef CHECK_MEM_LEAK
 #define  MallocObj()        AllocTrack(__FILE__, __FUNCTION__, __LINE__)
+#define  MallocObjWithArgs(...)        AllocTrack(__FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)
 #define  FreeObj            FreeTrack
 #else
 #define  MallocObj()        Alloc()
@@ -76,15 +81,24 @@ inline bool NFObjectPool<TYPE>::Free(TYPE *obj)
     return FreeChunk(obj);
 }
 
+template<typename T>
+template<class U, class... Args>
+inline void
+NFObjectPool<T>::Construct(U *p, Args &&... args)
+{
+    new(p) U(std::forward<Args>(args)...);
+}
+
 template<class TYPE>
+template<class... Args>
 inline TYPE *NFObjectPool<TYPE>::AllocTrack(const char *file,
                                           const char *func,
-                                          uint32_t line)
+                                          uint32_t line, Args &&... args)
 {
     TYPE *obj = (TYPE *) AllocChunk();
     if (obj)
     {
-        new(obj) TYPE();
+        Construct<TYPE>(obj, std::forward<Args>(args)...);
         NFMemTracker::Instance()->TrackMalloc(obj, file, func, line);
     }
     return obj;

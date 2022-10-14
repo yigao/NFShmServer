@@ -17,12 +17,12 @@
 #pragma warning(disable : 4201)
 #endif
 
-class BufferPool
+class NFBufferPool
 {
 public:
-    explicit BufferPool(uint32_t block_size = 1024*1024,
-                        uint32_t max_size   = 32*1024);
-    ~BufferPool();
+    explicit NFBufferPool(uint32_t block_size = 1024 * 1024,
+                          uint32_t max_size   = 32*1024);
+    ~NFBufferPool();
 
     void* Alloc(size_t size);
     void* Realloc(void* ptr, size_t size);

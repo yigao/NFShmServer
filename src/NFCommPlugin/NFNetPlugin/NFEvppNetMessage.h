@@ -272,6 +272,11 @@ private:
 	std::unordered_map<uint64_t, NetEvppObject*> mNetObjectArray;
 
 	/**
+	 * @brief 网络对象池
+	 */
+    NFObjectPool<NetEvppObject> m_netObjectPool;
+
+	/**
 	* @brief 需要删除的连接对象
 	*/
 	std::vector<uint64_t> mvRemoveObject;
