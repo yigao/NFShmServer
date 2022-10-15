@@ -41,8 +41,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="net package">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="open ssl">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -496,14 +496,7 @@
       <workItem from="1665583001701" duration="1672000" />
       <workItem from="1665584705999" duration="6104000" />
       <workItem from="1665592004227" duration="4073000" />
-      <workItem from="1665829887269" duration="4476000" />
-    </task>
-    <task id="LOCAL-00129" summary="chong gou">
-      <created>1663460244554</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1663460244554</updated>
+      <workItem from="1665829887269" duration="5638000" />
     </task>
     <task id="LOCAL-00130" summary="chong gou">
       <created>1663462680068</created>
@@ -841,7 +834,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665833964587</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="open ssl">
+      <created>1665834653917</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1665834653917</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -970,7 +970,8 @@
     <MESSAGE value="hotfix app" />
     <MESSAGE value="send msg" />
     <MESSAGE value="net package" />
-    <option name="LAST_COMMIT_MESSAGE" value="net package" />
+    <MESSAGE value="open ssl" />
+    <option name="LAST_COMMIT_MESSAGE" value="open ssl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
