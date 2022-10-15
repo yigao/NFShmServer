@@ -42,18 +42,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="net package">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2022_10_8_8_33____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_10_8_上午8_33_取消提交了变更_[默认变更列表]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript_BusPlugin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript_BusPlugin.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript_TcpPlugin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/CreateScript_TcpPlugin.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Release/shmnframe_lib.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIBusConnection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIBusConnection.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -507,14 +496,7 @@
       <workItem from="1665583001701" duration="1672000" />
       <workItem from="1665584705999" duration="6104000" />
       <workItem from="1665592004227" duration="4073000" />
-      <workItem from="1665829887269" duration="3839000" />
-    </task>
-    <task id="LOCAL-00128" summary="chong gou">
-      <created>1663430811716</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1663430811716</updated>
+      <workItem from="1665829887269" duration="4476000" />
     </task>
     <task id="LOCAL-00129" summary="chong gou">
       <created>1663460244554</created>
@@ -852,7 +834,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665802146712</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="net package">
+      <created>1665833964587</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1665833964587</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
