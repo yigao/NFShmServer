@@ -29,9 +29,12 @@ bool NFCBusClient::Execute()
 
 bool NFCBusClient::Init()
 {
-    m_eventLoop = NF_NEW evpp::EventLoopThread();
-    m_eventLoop->set_name(GetServerName(mServerType));
-    m_eventLoop->Start(true);
+    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
+    {
+        m_eventLoop = NF_NEW evpp::EventLoopThread();
+        m_eventLoop->set_name(GetServerName(mServerType));
+        m_eventLoop->Start(true);
+    }
 
     int64_t linkId = ConnectServer(mFlag, m_bindFlag);
     if (linkId <= 0)
@@ -164,6 +167,23 @@ bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDat
     {
         m_eventLoop->loop()->QueueInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, packetParseType, m_bindFlag.mLinkId, pPackage));
         return true;
+    }
+    else
+    {
+        mxBuffer.Clear();
+        NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, m_bindFlag.mLinkId);
+
+        int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
+        if (iRet == 0)
+        {
+            pPackage->Clear();
+            NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
+            return true;
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
+        }
     }
     return false;
 }
