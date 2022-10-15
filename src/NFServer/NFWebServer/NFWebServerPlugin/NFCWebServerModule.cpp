@@ -37,6 +37,8 @@ bool NFCWebServerModule::Awake() {
 
     /////////////////route agent msg///////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCWebServerModule::OnRegisterRouteAgentRspProcess);
+    ////////////////test other server msg///////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, this, &NFCWebServerModule::OnHandleTestWorldServerMsg);
 
 
     //注册要完成的服务器启动任务
@@ -224,6 +226,7 @@ bool NFCWebServerModule::Init()
 bool NFCWebServerModule::Execute()
 {
     ServerReport();
+    TestOtherServerToWorldServer();
     return true;
 }
 
@@ -493,5 +496,36 @@ int NFCWebServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFData
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_WEB_SERVER);
 
     NFLogTrace(NF_LOG_WEB_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}
+
+int NFCWebServerModule::TestOtherServerToWorldServer()
+{
+#ifdef TEST_SERVER_SEND_MSG
+    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
+    {
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
+        CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
+
+        proto_ff::Proto_TestOtherServerToWorldServer xData;
+        xData.set_server_id(pConfig->ServerId);
+        xData.set_server_name(pConfig->ServerName);
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_WEB_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    }
+#endif
+
+    return 0;
+}
+
+int NFCWebServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+
+    proto_ff::Proto_TestSendWorldMsgToOtherServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;
 }

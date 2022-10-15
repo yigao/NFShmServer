@@ -42,7 +42,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="net package">
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_TcpPlugin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_TcpPlugin.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/LogConfig.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/LogConfig.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -500,13 +517,6 @@
       <workItem from="1665584705999" duration="6104000" />
       <workItem from="1665592004227" duration="4073000" />
     </task>
-    <task id="LOCAL-00125" summary="chong gou">
-      <created>1663424331911</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1663424331911</updated>
-    </task>
     <task id="LOCAL-00126" summary="chong gou">
       <created>1663424434807</created>
       <option name="number" value="00126" />
@@ -843,7 +853,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665767662515</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="net package">
+      <created>1665792270527</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1665792270527</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -999,7 +1016,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp</url>
-          <line>566</line>
+          <line>570</line>
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

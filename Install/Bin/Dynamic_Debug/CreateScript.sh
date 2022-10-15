@@ -92,4 +92,3 @@ echo "rm *_globalid -rf" >> Clear.sh
 echo "rm *.pid -rf" >> Clear.sh
 echo "rm *.uid -rf" >> Clear.sh
 echo "rm *_dump.log -rf" >> Clear.sh
-echo "rm shmnframe_lib.bin" >> Clear.sh

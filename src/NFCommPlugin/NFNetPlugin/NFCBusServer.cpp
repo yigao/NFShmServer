@@ -49,7 +49,7 @@ bool NFCBusServer::Init()
 
     if (m_eventLoop)
     {
-        m_eventLoop->loop()->RunEvery(evpp::Duration((int64_t)100000), std::bind(&NFCBusServer::ProcessMsgLogicThread, this ));
+        m_eventLoop->loop()->RunEvery(evpp::Duration((int64_t)5000000), std::bind(&NFCBusServer::ProcessMsgLogicThread, this ));
     }
 
     return true;
@@ -143,6 +143,10 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
 void NFCBusServer::ProcessMsgLogicThread()
 {
     size_t max_times = 10000;
+    if (!m_pObjPluginManager->IsLoadAllServer() && !m_eventLoop && m_pObjPluginManager->IsFixedFrame())
+    {
+        max_times = 200;
+    }
 
     NFShmRecordType* pShmRecord = GetShmRecord();
     if (pShmRecord->m_nOwner)

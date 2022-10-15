@@ -17,6 +17,7 @@
 /**
 * @brief 用来实现动态加载的模块，所有可以动态加载的引擎的module都需要继承这个类
 */
+
 class NFIDynamicModule : public NFIModule, public NFTimerObj, public NFEventObj
 {
 public:

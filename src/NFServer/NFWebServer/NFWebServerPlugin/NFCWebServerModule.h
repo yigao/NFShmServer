@@ -53,4 +53,7 @@ public:
     int OnWebSocketEvent(eMsgType nEvent, uint64_t unLinkId);
     int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packetn);
     int OnHandleServerDisconnect(uint64_t unLinkId);
+    ////////////////////////////////test send msg/////////////////////////////////////////////////
+    int TestOtherServerToWorldServer();
+    int OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet);
 };

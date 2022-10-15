@@ -40,8 +40,11 @@ bool NFCLoginServerModule::Awake()
 
     /////////////////route agent msg///////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCLoginServerModule::OnRegisterRouteAgentRspProcess);
+    ////////////////test other server msg///////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIN_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, this, &NFCLoginServerModule::OnHandleTestWorldServerMsg);
 
-	//注册要完成的服务器启动任务
+
+    //注册要完成的服务器启动任务
 	m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_CONNECT_MASTER, LOGIN_SERVER_CONNECT_MASTER_SERVER);
 	m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, LOGIN_SERVER_CONNECT_ROUTEAGENT_SERVER);
     m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_NEED_STORE_SERVER, LOGIN_SERVER_CHECK_STORE_SERVER);
@@ -307,6 +310,7 @@ int NFCLoginServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRe
 bool NFCLoginServerModule::Execute()
 {
 	ServerReport();
+    TestOtherServerToWorldServer();
 	return true;
 }
 
@@ -670,4 +674,33 @@ int NFCLoginServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDa
     return 0;
 }
 
+int NFCLoginServerModule::TestOtherServerToWorldServer()
+{
+#ifdef TEST_SERVER_SEND_MSG
+    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
+    {
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
+        CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
+        proto_ff::Proto_TestOtherServerToWorldServer xData;
+        xData.set_server_id(pConfig->ServerId);
+        xData.set_server_name(pConfig->ServerName);
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIN_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    }
+#endif
+
+    return 0;
+}
+
+int NFCLoginServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+
+    proto_ff::Proto_TestSendWorldMsgToOtherServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    return 0;
+}

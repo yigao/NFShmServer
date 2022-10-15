@@ -326,6 +326,7 @@ int NFCGameServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRep
 
 bool NFCGameServerModule::Execute()
 {
+    TestOtherServerToWorldServer();
     ServerReport();
 	return true;
 }
@@ -719,15 +720,21 @@ int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& 
 
 int NFCGameServerModule::TestOtherServerToWorldServer()
 {
-    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
-    CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
+#ifdef TEST_SERVER_SEND_MSG
+    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
+    {
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+        CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
-    proto_ff::Proto_TestOtherServerToWorldServer xData;
-    xData.set_server_id(pConfig->ServerId);
-    xData.set_server_name(pConfig->ServerName);
-    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
-    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+        proto_ff::Proto_TestOtherServerToWorldServer xData;
+        xData.set_server_id(pConfig->ServerId);
+        xData.set_server_name(pConfig->ServerName);
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    }
+#endif
+
     return 0;
 }
 
