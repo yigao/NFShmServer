@@ -58,6 +58,11 @@ NFEvppNetMessage::~NFEvppNetMessage()
 void NFEvppNetMessage::ProcessMsgLogicThread()
 {
     int max_times = 10000;
+    if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
+    {
+        max_times = 200;
+    }
+
     while(!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
         std::vector<MsgFromNetInfo*> vecMsg;
@@ -310,6 +315,11 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                 }
 
 				msg->Skip(allLen);
+
+                if (msg->length() <= 0)
+                {
+                    break;
+                }
 				continue;
 			}
 		}

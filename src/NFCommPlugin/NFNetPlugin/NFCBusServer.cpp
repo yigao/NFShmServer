@@ -34,11 +34,11 @@ bool NFCBusServer::Execute()
 
 bool NFCBusServer::Init()
 {
-    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
+/*    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
     {
         m_eventLoop = NF_NEW evpp::EventLoopThread();
         m_eventLoop->Start(true);
-    }
+    }*/
 
     int64_t linkId = BindServer(mFlag);
     if (linkId <= 0)

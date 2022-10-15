@@ -96,12 +96,12 @@ int64_t NFCBusMessage::BindServer(const NFMessageFlag& flag)
     NF_SHARE_PTR<NFCBusServer> pServer = NF_SHARE_PTR<NFCBusServer>(NF_NEW NFCBusServer(m_pObjPluginManager, mServerType, flag));
     NF_ASSERT(pServer);
 
-    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
+/*    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
     {
         pServer->SetMsgPeerCallback(std::bind(&NFCBusMessage::OnHandleMsgPeerThread, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3,
                                               std::placeholders::_4));
     }
-    else
+    else*/
     {
         pServer->SetMsgPeerCallback(std::bind(&NFCBusMessage::OnHandleMsgPeer, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3,
                                               std::placeholders::_4));
@@ -197,6 +197,11 @@ void NFCBusMessage::OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId
 void NFCBusMessage::OnHandleMsgQueue()
 {
     uint32_t max_times = 10000;
+    if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
+    {
+        max_times = 200;
+    }
+
     while (!m_msgQueue.IsQueueEmpty() && max_times > 0)
     {
         std::vector<MsgFromBusInfo*> vecMsg;

@@ -57,7 +57,7 @@ LogInfo = {
 	{logid = NFLogId.NF_LOG_DEFAULT, display=true, level=0, logname = "DefaultLog", guid = {0}, desc = "默认LOG"},
 	{logid = NFLogId.NF_LOG_SYSTEMLOG, display=true, level=0, logname = "SystemLog", guid = 0, desc = "系统LOG"},
 	{logid = NFLogId.NF_LOG_RECV_MSG, display=false, level=0, logname = "RecvMsg", guid = 0, desc = "接受消息LOG"},
-	{logid = NFLogId.NF_LOG_RECV_MSG_JSON_PRINTF, display=true, level=0, logname = "RecvMsgJson", guid = 0, desc = "接受消息Json输出LOG"},
+	{logid = NFLogId.NF_LOG_RECV_MSG_JSON_PRINTF, display=false, level=0, logname = "RecvMsgJson", guid = 0, desc = "接受消息Json输出LOG"},
 	{logid = NFLogId.NF_LOG_PLUGIN_MANAGER, display=true, level=0, logname = "PluginLog", guid = 0, desc = "引擎管理LOG"},
 	{logid = NFLogId.NF_LOG_LOAD_CONFIG, display=true, level=0, logname = "LoadConfigLog", guid = 0, desc = "加载配置LOG"},
 	{logid = NFLogId.NF_LOG_PROTOBUF_PARSE, display=true, level=0, logname = "ProtobufParse", guid = 0, desc = "protobuf解析出错LOG"},
