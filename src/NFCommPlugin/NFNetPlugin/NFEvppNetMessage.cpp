@@ -61,10 +61,10 @@ NFEvppNetMessage::~NFEvppNetMessage()
 
 void NFEvppNetMessage::ProcessMsgLogicThread()
 {
-    int max_times = 10000;
+    int max_times = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
     if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
     {
-        max_times = 200;
+        max_times = NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT;
     }
 
     while(!mMsgQueue.IsQueueEmpty() && max_times >= 0)

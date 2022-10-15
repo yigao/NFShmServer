@@ -196,10 +196,10 @@ void NFCBusMessage::OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId
 
 void NFCBusMessage::OnHandleMsgQueue()
 {
-    uint32_t max_times = 10000;
+    uint32_t max_times = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
     if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
     {
-        max_times = 2000;
+        max_times = NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT;
     }
 
     while (!m_msgQueue.IsQueueEmpty() && max_times > 0)

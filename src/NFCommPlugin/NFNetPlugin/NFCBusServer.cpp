@@ -142,10 +142,10 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
  */
 void NFCBusServer::ProcessMsgLogicThread()
 {
-    size_t max_times = 10000;
+    size_t max_times = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
     if (!m_pObjPluginManager->IsLoadAllServer() && !m_eventLoop && m_pObjPluginManager->IsFixedFrame())
     {
-        max_times = 2000;
+        max_times = NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT;
     }
 
     NFShmRecordType* pShmRecord = GetShmRecord();

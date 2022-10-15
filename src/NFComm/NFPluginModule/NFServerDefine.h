@@ -91,6 +91,9 @@ enum
 #define NF_CLIENT_TO_SERVER_HEART_BEAT 10
 #define NF_CLIENT_TO_SERVER_HEART_BEAT_RSP 11
 
+#define NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT 10000
+#define NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT 2000    //release test handle 2000 msg => cpu 20%
+
 const std::string gArrayServer[NF_ST_MAX] = {
         "NoneServer",
         "MasterServer", //1
