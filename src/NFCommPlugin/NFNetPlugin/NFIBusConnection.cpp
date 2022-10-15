@@ -595,6 +595,7 @@ int NFIBusConnection::ShmSend(NFShmChannel *channel, const void *buf, size_t len
 
         // 原子操作序列冲突，重试
         if (EN_NFBUS_ERR_NODE_BAD_BLOCK_CSEQ_ID == ret || EN_NFBUS_ERR_NODE_BAD_BLOCK_WSEQ_ID == ret) {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend 原子操作序列冲突，重试");
             ++channel->m_nWriteRetryCount;
             continue;
         }

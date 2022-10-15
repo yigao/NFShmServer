@@ -722,7 +722,7 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
         proto_ff::Proto_TestSendWorldMsgToOtherServer xData;
         xData.set_server_id(pConfig->ServerId);
         xData.set_server_name(pConfig->ServerName);
-        FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
+        FindModule<NFIMessageModule>()->SendMsgToServer(NF_ST_WORLD_SERVER, NF_ST_NONE, 0, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
     }
 
     NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");

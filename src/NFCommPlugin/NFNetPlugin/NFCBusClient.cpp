@@ -29,12 +29,12 @@ bool NFCBusClient::Execute()
 
 bool NFCBusClient::Init()
 {
-/*    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
+    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
     {
         m_eventLoop = NF_NEW evpp::EventLoopThread();
         m_eventLoop->set_name(GetServerName(mServerType));
         m_eventLoop->Start(true);
-    }*/
+    }
 
     int64_t linkId = ConnectServer(mFlag, m_bindFlag);
     if (linkId <= 0)
