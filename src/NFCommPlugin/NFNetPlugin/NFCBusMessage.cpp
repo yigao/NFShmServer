@@ -199,7 +199,7 @@ void NFCBusMessage::OnHandleMsgQueue()
     uint32_t max_times = 10000;
     if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
     {
-        max_times = 200;
+        max_times = 2000;
     }
 
     while (!m_msgQueue.IsQueueEmpty() && max_times > 0)

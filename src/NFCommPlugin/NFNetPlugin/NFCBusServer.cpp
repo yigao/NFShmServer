@@ -145,7 +145,7 @@ void NFCBusServer::ProcessMsgLogicThread()
     size_t max_times = 10000;
     if (!m_pObjPluginManager->IsLoadAllServer() && !m_eventLoop && m_pObjPluginManager->IsFixedFrame())
     {
-        max_times = 200;
+        max_times = 2000;
     }
 
     NFShmRecordType* pShmRecord = GetShmRecord();
