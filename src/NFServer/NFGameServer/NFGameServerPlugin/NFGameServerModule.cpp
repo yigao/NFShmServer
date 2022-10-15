@@ -721,7 +721,7 @@ int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& 
 int NFCGameServerModule::TestOtherServerToWorldServer()
 {
 #ifdef TEST_SERVER_SEND_MSG
-    for(int i = 0; i < 1; i++)
+    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
         NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
