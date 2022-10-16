@@ -165,7 +165,7 @@ bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDat
 {
     if (m_eventLoop)
     {
-        m_eventLoop->loop()->QueueInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, packetParseType, m_bindFlag.mLinkId, pPackage));
+        m_eventLoop->loop()->RunInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, packetParseType, m_bindFlag.mLinkId, pPackage));
         return true;
     }
     else
