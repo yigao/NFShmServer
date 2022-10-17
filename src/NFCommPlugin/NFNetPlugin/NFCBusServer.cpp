@@ -25,31 +25,17 @@ NFCBusServer::~NFCBusServer()
 
 bool NFCBusServer::Execute()
 {
-    if (!m_eventLoop)
-    {
-        ProcessMsgLogicThread();
-    }
+    ProcessMsgLogicThread();
     return true;
 }
 
 bool NFCBusServer::Init()
 {
-/*    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
-    {
-        m_eventLoop = NF_NEW evpp::EventLoopThread();
-        m_eventLoop->Start(true);
-    }*/
-
     int64_t linkId = BindServer(mFlag);
     if (linkId <= 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "BindServer Failed!");
         return false;
-    }
-
-    if (m_eventLoop)
-    {
-        m_eventLoop->loop()->RunEvery(evpp::Duration((int64_t)5000000), std::bind(&NFCBusServer::ProcessMsgLogicThread, this ));
     }
 
     return true;
@@ -58,23 +44,12 @@ bool NFCBusServer::Init()
 bool NFCBusServer::Shut()
 {
     m_busMsgPeerCb = NULL;
-    if (m_eventLoop)
-    {
-        while(m_eventLoop->IsRunning())
-        {
-            m_eventLoop->Stop(true);
-        }
-    }
 
     return true;
 }
 
 bool NFCBusServer::Finalize()
 {
-    if (m_eventLoop)
-    {
-        NF_SAFE_DELETE(m_eventLoop);
-    }
     return true;
 }
 
@@ -143,7 +118,7 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
 void NFCBusServer::ProcessMsgLogicThread()
 {
     size_t max_times = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
-    if (!m_pObjPluginManager->IsLoadAllServer() && !m_eventLoop && m_pObjPluginManager->IsFixedFrame())
+    if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
     {
         max_times = NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT;
     }

@@ -26,7 +26,6 @@ public:
     explicit NFCBusClient(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag, const NFMessageFlag& bindFlag):NFIBusConnection(p, serverType, flag)
     {
         m_bindFlag = bindFlag;
-        m_eventLoop = NULL;
     }
 
     virtual ~NFCBusClient();
@@ -55,8 +54,5 @@ public:
      */
     virtual bool Send(NFDataPackage* packet) override;
 
-    virtual bool SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet);
-    virtual void SendStringInLoop(NFShmChannel *pChannel, int packetParseType, uint64_t linkId, NFDataPackage* pPackage);
-private:
-    evpp::EventLoopThread* m_eventLoop;
+    virtual bool Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet);
 };

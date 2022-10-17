@@ -25,7 +25,6 @@ class NFCBusServer : public NFIBusConnection
 public:
     explicit NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIBusConnection(p, serverType, flag)
     {
-        m_eventLoop = NULL;
     }
 
     virtual ~NFCBusServer();
@@ -51,6 +50,4 @@ public:
     virtual void ProcessMsgLogicThread();
 
     virtual bool Send(NFDataPackage* packet) override;
-private:
-    evpp::EventLoopThread* m_eventLoop;
 };

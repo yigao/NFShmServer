@@ -79,10 +79,6 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeerThread(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet);
-
-	virtual void OnHandleMsgQueue();
-
     virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet);
 
     virtual int ResumeConnect() override;

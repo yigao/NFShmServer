@@ -29,15 +29,6 @@ bool NFCBusClient::Execute()
 
 bool NFCBusClient::Init()
 {
-/*
-    if (mServerType == NF_ST_ROUTE_AGENT_SERVER || mServerType == NF_ST_ROUTE_SERVER || mServerType == NF_ST_PROXY_AGENT_SERVER)
-    {
-        m_eventLoop = NF_NEW evpp::EventLoopThread();
-        m_eventLoop->set_name(GetServerName(mServerType));
-        m_eventLoop->Start(true);
-    }
-*/
-
     int64_t linkId = ConnectServer(mFlag, m_bindFlag);
     if (linkId <= 0)
     {
@@ -49,24 +40,11 @@ bool NFCBusClient::Init()
 
 bool NFCBusClient::Shut()
 {
-    if (m_eventLoop)
-    {
-        while(m_eventLoop->IsRunning())
-        {
-            m_eventLoop->Stop(true);
-        }
-    }
-
     return true;
 }
 
 bool NFCBusClient::Finalize()
 {
-    if (m_eventLoop)
-    {
-        NF_SAFE_DELETE(m_eventLoop);
-        m_eventLoop = NULL;
-    }
     return true;
 }
 
@@ -163,46 +141,23 @@ int64_t NFCBusClient::ConnectServer(const NFMessageFlag& flag, const NFMessageFl
     return (int64_t)pShmRecord->m_nUnLinkId;
 }
 
-bool NFCBusClient::SendToLoop(NFShmChannel *pChannel, int packetParseType, NFDataPackage* pPackage)
+bool NFCBusClient::Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet)
 {
-    if (m_eventLoop)
+    mxBuffer.Clear();
+    NFIPacketParse::EnCode(packetParseType, *packet, mxBuffer, m_bindFlag.mLinkId);
+
+    int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
+    if (iRet == 0)
     {
-        m_eventLoop->loop()->RunInLoop(std::bind(&NFCBusClient::SendStringInLoop, this, pChannel, packetParseType, m_bindFlag.mLinkId, pPackage));
+        packet->Clear();
+        NFNetPackagePool<NFDataPackage>::Instance()->Free(packet, packet->mBufferMsg.Capacity());
         return true;
     }
     else
     {
-        mxBuffer.Clear();
-        NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, m_bindFlag.mLinkId);
-
-        int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
-        if (iRet == 0)
-        {
-            pPackage->Clear();
-            NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
-            return true;
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
-        }
-    }
-    return false;
-}
-
-void NFCBusClient::SendStringInLoop(NFShmChannel *pChannel, int packetParseType, uint64_t linkId, NFDataPackage* pPackage)
-{
-    mxBuffer.Clear();
-    NFIPacketParse::EnCode(packetParseType, *pPackage, mxBuffer, linkId);
-
-    pPackage->Clear();
-    NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
-
-    int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
-    if (iRet != 0)
-    {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend from:{} to:{} error:{}", NFServerIDUtil::GetBusNameFromBusID(m_bindFlag.mBusId), NFServerIDUtil::GetBusNameFromBusID(mFlag.mBusId), iRet);
     }
+    return false;
 }
 
 bool NFCBusClient::Send(NFDataPackage* pPackage)
@@ -231,7 +186,7 @@ bool NFCBusClient::Send(NFDataPackage* pPackage)
     NFShmChannel *pChannel = &head->m_nShmChannel;
     if (pChannel)
     {
-        return SendToLoop(pChannel, pShmRecord->mPacketParseType, pPackage);
+        return Send(pChannel, pShmRecord->mPacketParseType, pPackage);
     }
 
     return false;
