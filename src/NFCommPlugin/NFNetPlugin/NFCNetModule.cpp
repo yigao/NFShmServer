@@ -262,7 +262,7 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 			flag.mStrIp = addr.mHost;
 			flag.nPort = addr.mPort;
 			flag.mPacketParseType = nPacketParseType;
-			flag.nWorkThreadNum = nNetThreadNum;
+			flag.nNetThreadNum = nNetThreadNum;
 			flag.mMaxConnectNum = nMaxConnectNum;
 			flag.mSecurity = bSecurity;
 			if (addr.mScheme == "http")
@@ -303,7 +303,7 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 			flag.mBusId = busid;
 			flag.mBusLength = addr.mPort;
 			flag.mPacketParseType = nPacketParseType;
-            flag.nWorkThreadNum = nNetThreadNum;
+            flag.nNetThreadNum = nNetThreadNum;
             flag.mMaxConnectNum = nMaxConnectNum;
             flag.mSecurity = bSecurity;
 

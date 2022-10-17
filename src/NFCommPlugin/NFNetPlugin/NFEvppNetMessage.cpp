@@ -35,16 +35,12 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
 #endif
     m_httpClient = NULL;
 
-#ifdef NF_USE_SINGLE_THREAD_NET
-    m_eventLoop = NF_NEW evpp::event_loop();
-#else
     if (m_pObjPluginManager->IsLoadAllServer())
     {
         m_coonectionThreadPool.reset(NF_NEW evpp::EventLoopThreadPool(NULL, 1));
         m_coonectionThreadPool->Start(true);
     }
 }
-#endif
 
 NFEvppNetMessage::~NFEvppNetMessage()
 {
@@ -334,7 +330,7 @@ int64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
 {
     if (flag.bHttp)
     {
-        int iRet = BindHttpServer(flag.nPort, flag.nWorkThreadNum);
+        int iRet = BindHttpServer(flag.nPort, flag.nNetThreadNum);
         if (iRet)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "BindHttpServer Failed! port:{}", flag.nPort);
@@ -391,15 +387,7 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
 		pClient->SetLinkId(unLinkId);
 		pClient->SetConnCallback(std::bind(&NFEvppNetMessage::ConnectionCallback, this, std::placeholders::_1, unLinkId));
 		pClient->SetMessageCallback(std::bind(&NFEvppNetMessage::MessageCallback, this, std::placeholders::_1, std::placeholders::_2, unLinkId, flag.mPacketParseType, flag.mSecurity));
-#ifdef NF_USE_SINGLE_THREAD_NET
-        if (pClient->Init(m_eventLoop))
-        {
-            m_connectionList.push_back(pClient);
 
-            return (int64_t)unLinkId;
-        }
-	}
-#else
         if (m_pObjPluginManager->IsLoadAllServer() && m_coonectionThreadPool)
         {
             if (pClient->Init(m_coonectionThreadPool->GetNextLoop()))
@@ -418,7 +406,6 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
             }
         }
 	}
-#endif
 	return -1;
 }
 
@@ -617,9 +604,7 @@ bool NFEvppNetMessage::Finalize()
             }
         }
     }
-#ifdef NF_USE_SINGLE_THREAD_NET
-    m_evppLoop.reset();
-#else
+
     if (m_coonectionThreadPool)
     {
         m_coonectionThreadPool->Stop(true);
@@ -627,7 +612,6 @@ bool NFEvppNetMessage::Finalize()
         m_coonectionThreadPool->Join();
         m_coonectionThreadPool.reset();
     }
-#endif
 
 	return true;
 }
@@ -643,9 +627,7 @@ bool NFEvppNetMessage::Execute()
     {
         m_httpClient->Execute();
     }
-#ifdef NF_USE_SINGLE_THREAD_NET
-    m_evppLoop.run();
-#endif
+
 	return true;
 }
 

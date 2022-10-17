@@ -49,7 +49,7 @@ typedef struct linger 		    LINGER;
 
 struct NFMessageFlag
 {
-	uint32_t nWorkThreadNum; //工作线程个数
+	uint32_t nNetThreadNum; //工作线程个数
 	uint16_t nPort; //端口
 	uint32_t nMaxMsgNumPerTick; //每一分钟最大的消息包数
 	uint32_t mPacketParseType; //解码消息类型
@@ -65,7 +65,7 @@ struct NFMessageFlag
 	NFMessageFlag()
 	{
         mLinkId = 0;
-		nWorkThreadNum = 1;
+        nNetThreadNum = 1;
 		nPort = 0;
         nMaxMsgNumPerTick = 200;
         mMaxConnectNum = 100;

@@ -256,11 +256,7 @@ protected:
 private:
 	std::vector<NFIConnection* > m_connectionList;
 	std::list<uint64_t>  mFreeLinks;
-#ifdef NF_USE_SINGLE_THREAD_NET
-    std::shared_ptr<evpp::EventLoop> m_evppLoop;
-#else
     std::shared_ptr<evpp::EventLoopThreadPool> m_coonectionThreadPool;
-#endif
 private:
 	NFCHttpServer* m_httpServer;
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)

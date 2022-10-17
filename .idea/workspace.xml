@@ -46,10 +46,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="bus msg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,6 +296,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="excel2bin_mmo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mmo-nfshm-server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -501,21 +502,7 @@
       <workItem from="1665725573969" duration="19351000" />
       <workItem from="1665968471548" duration="50000" />
       <workItem from="1665968543175" duration="13000" />
-      <workItem from="1665968656493" duration="1851000" />
-    </task>
-    <task id="LOCAL-00159" summary="server dump">
-      <created>1665195590329</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1665195590329</updated>
-    </task>
-    <task id="LOCAL-00160" summary="server dump">
-      <created>1665196993627</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1665196993627</updated>
+      <workItem from="1665968656493" duration="4722000" />
     </task>
     <task id="LOCAL-00161" summary="lua plugin">
       <created>1665200705899</created>
@@ -846,7 +833,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665743407208</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="bus msg">
+      <created>1665978916108</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1665978916109</updated>
+    </task>
+    <task id="LOCAL-00209" summary="bus msg">
+      <created>1665984115652</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1665984115652</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -962,7 +963,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tb server mgr" />
     <MESSAGE value="check" />
     <MESSAGE value="serial nmber" />
     <MESSAGE value="frame" />
@@ -987,7 +987,8 @@
     <MESSAGE value="net module" />
     <MESSAGE value="delete code" />
     <MESSAGE value="login handle" />
-    <option name="LAST_COMMIT_MESSAGE" value="login handle" />
+    <MESSAGE value="bus msg" />
+    <option name="LAST_COMMIT_MESSAGE" value="bus msg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

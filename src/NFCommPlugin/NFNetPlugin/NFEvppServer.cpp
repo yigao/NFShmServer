@@ -17,7 +17,7 @@ bool NFEvppServer::Init()
         listenAddr = NF_FORMAT("0.0.0.0:{}", mFlag.nPort);
     }
 
-    m_tcpServer.reset(NF_NEW evpp::TCPServer(m_eventLoop->loop(), listenAddr, GetServerName(mServerType), mFlag.nWorkThreadNum, mFlag.mMaxConnectNum));
+    m_tcpServer.reset(NF_NEW evpp::TCPServer(m_eventLoop->loop(), listenAddr, GetServerName(mServerType), mFlag.nNetThreadNum, mFlag.mMaxConnectNum));
     if (!m_tcpServer)
     {
         return false;
