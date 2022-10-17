@@ -47,6 +47,8 @@ typedef struct linger 		    LINGER;
 #define MAX_SEND_BUFFER_SIZE (1024 * 100)
 #define MAX_RECV_BUFFER_SIZE (1024 * 100)
 
+
+
 struct NFMessageFlag
 {
 	uint32_t nNetThreadNum; //工作线程个数

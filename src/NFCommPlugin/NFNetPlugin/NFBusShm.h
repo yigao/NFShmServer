@@ -52,8 +52,19 @@ struct NFShmRecordType {
 struct NFShmRecordType{
     NFShmRecordType()
     {
-        memset(this, 0, sizeof(NFShmRecordType));
+        m_nShmFd = 0;
+        m_nShmId = 0;
+        m_nBuffer = NULL;
+        m_nSize = 0;
+        m_ReferenceCount = 0;
+        m_nOwner = false;
+        m_nBusId = 0;
+        m_nBusLenth = 0;
+        m_nUnLinkId = 0;
+        mPacketParseType = 0;
     }
+    int m_nShmFd;
+    std::string m_nShmPath;
 	int m_nShmId;
 	void *m_nBuffer;
 	size_t m_nSize;
