@@ -24,7 +24,6 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include "yd_fieldoptions.pb.h"
-#include "common_logic.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {

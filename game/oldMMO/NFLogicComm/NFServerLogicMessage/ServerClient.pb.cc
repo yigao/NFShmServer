@@ -32,6 +32,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NotifyLogoutGame_SwitchServerParam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyLogoutGame_SwitchServerParam_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ClientLoginGateRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ClientLoginGateRsp_reflection_ = NULL;
 
 }  // namespace
 
@@ -107,6 +110,22 @@ void protobuf_AssignDesc_ServerClient_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyLogoutGame_SwitchServerParam));
+  ClientLoginGateRsp_descriptor_ = file->message_type(3);
+  static const int ClientLoginGateRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLoginGateRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLoginGateRsp, charinfolist_),
+  };
+  ClientLoginGateRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ClientLoginGateRsp_descriptor_,
+      ClientLoginGateRsp::default_instance_,
+      ClientLoginGateRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLoginGateRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLoginGateRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ClientLoginGateRsp));
 }
 
 namespace {
@@ -127,6 +146,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     NotifyLogoutGame_descriptor_, &NotifyLogoutGame::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyLogoutGame_SwitchServerParam_descriptor_, &NotifyLogoutGame_SwitchServerParam::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ClientLoginGateRsp_descriptor_, &ClientLoginGateRsp::default_instance());
 }
 
 }  // namespace
@@ -140,6 +161,8 @@ void protobuf_ShutdownFile_ServerClient_2eproto() {
   delete NotifyLogoutGame_reflection_;
   delete NotifyLogoutGame_SwitchServerParam::default_instance_;
   delete NotifyLogoutGame_SwitchServerParam_reflection_;
+  delete ClientLoginGateRsp::default_instance_;
+  delete ClientLoginGateRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerClient_2eproto() {
@@ -163,17 +186,21 @@ void protobuf_AddDesc_ServerClient_2eproto() {
     "o_ff.NotifyLogoutGame.SwitchServerParam\032"
     "b\n\021SwitchServerParam\022\027\n\017logic_server_ip\030"
     "\001 \002(\t\022\031\n\021logic_server_port\030\002 \002(\r\022\031\n\021scen"
-    "e_template_id\030\003 \002(\r", 459);
+    "e_template_id\030\003 \002(\r\"X\n\022ClientLoginGateRs"
+    "p\022\013\n\003ret\030\001 \002(\r\0225\n\014charInfoList\030\002 \003(\0132\037.p"
+    "roto_ff.CharacterDBSimpleInfo", 549);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerClient.proto", &protobuf_RegisterTypes);
   PingRsp::default_instance_ = new PingRsp();
   ServerToClientQueue_RSP::default_instance_ = new ServerToClientQueue_RSP();
   NotifyLogoutGame::default_instance_ = new NotifyLogoutGame();
   NotifyLogoutGame_SwitchServerParam::default_instance_ = new NotifyLogoutGame_SwitchServerParam();
+  ClientLoginGateRsp::default_instance_ = new ClientLoginGateRsp();
   PingRsp::default_instance_->InitAsDefaultInstance();
   ServerToClientQueue_RSP::default_instance_->InitAsDefaultInstance();
   NotifyLogoutGame::default_instance_->InitAsDefaultInstance();
   NotifyLogoutGame_SwitchServerParam::default_instance_->InitAsDefaultInstance();
+  ClientLoginGateRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerClient_2eproto);
 }
 
@@ -1253,6 +1280,255 @@ void NotifyLogoutGame::Swap(NotifyLogoutGame* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NotifyLogoutGame_descriptor_;
   metadata.reflection = NotifyLogoutGame_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ClientLoginGateRsp::kRetFieldNumber;
+const int ClientLoginGateRsp::kCharInfoListFieldNumber;
+#endif  // !_MSC_VER
+
+ClientLoginGateRsp::ClientLoginGateRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ClientLoginGateRsp::InitAsDefaultInstance() {
+}
+
+ClientLoginGateRsp::ClientLoginGateRsp(const ClientLoginGateRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ClientLoginGateRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ClientLoginGateRsp::~ClientLoginGateRsp() {
+  SharedDtor();
+}
+
+void ClientLoginGateRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ClientLoginGateRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ClientLoginGateRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ClientLoginGateRsp_descriptor_;
+}
+
+const ClientLoginGateRsp& ClientLoginGateRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerClient_2eproto();
+  return *default_instance_;
+}
+
+ClientLoginGateRsp* ClientLoginGateRsp::default_instance_ = NULL;
+
+ClientLoginGateRsp* ClientLoginGateRsp::New() const {
+  return new ClientLoginGateRsp;
+}
+
+void ClientLoginGateRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0u;
+  }
+  charinfolist_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ClientLoginGateRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_charInfoList;
+        break;
+      }
+
+      // repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_charInfoList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_charinfolist()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_charInfoList;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ClientLoginGateRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->ret(), output);
+  }
+
+  // repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+  for (int i = 0; i < this->charinfolist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->charinfolist(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ClientLoginGateRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->ret(), target);
+  }
+
+  // repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+  for (int i = 0; i < this->charinfolist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->charinfolist(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ClientLoginGateRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->ret());
+    }
+
+  }
+  // repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+  total_size += 1 * this->charinfolist_size();
+  for (int i = 0; i < this->charinfolist_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->charinfolist(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ClientLoginGateRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ClientLoginGateRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ClientLoginGateRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ClientLoginGateRsp::MergeFrom(const ClientLoginGateRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  charinfolist_.MergeFrom(from.charinfolist_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ClientLoginGateRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ClientLoginGateRsp::CopyFrom(const ClientLoginGateRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ClientLoginGateRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void ClientLoginGateRsp::Swap(ClientLoginGateRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    charinfolist_.Swap(&other->charinfolist_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ClientLoginGateRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ClientLoginGateRsp_descriptor_;
+  metadata.reflection = ClientLoginGateRsp_reflection_;
   return metadata;
 }
 

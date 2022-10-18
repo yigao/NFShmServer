@@ -40,6 +40,9 @@ bool NFCProxyClientModule::Awake()
 {
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FindModule<NFIProxyServerModule>()->SetOtherServerMsgHandle(this, &NFCProxyClientModule::OnHandleOtherServerToClientMsg);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_LOGIC_PING, this,
                                                        &NFCProxyClientModule::OnHandleClientHeartBeat);
@@ -47,7 +50,10 @@ bool NFCProxyClientModule::Awake()
                                                        &NFCProxyClientModule::OnHandleClientCenterLogin);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, this,
                                                        &NFCProxyClientModule::OnHandleClientQueueResult);
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_NONE, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_CLIENT, proto_ff::CENTER_TO_CLIENT_LOGIN, this,
+                                                       &NFCProxyClientModule::OnHandleClientLoginRep);
+    /////////////////////////////////////////////////////////////////////////other server msg//////////////////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, NF_MODULE_NONE, proto_ff::WORLD_NOTIFY_PROXY_CHANGE_LOGIC, this,
                                                        &NFCProxyClientModule::OnHandleNotifyProxyChangeLogic);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
@@ -443,6 +449,7 @@ int NFCProxyClientModule::OnHandleClientQueueResult(uint64_t unLinkId, NFDataPac
     NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
     if (pPlayerInfo)
     {
+        pPlayerInfo->SetIsLogin(true);
         NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
         if (pLinkInfo == NULL)
         {
@@ -530,6 +537,53 @@ int NFCProxyClientModule::ProxyLeaveGame(uint64_t clinetId, bool force, proto_ff
     else
     {
         KickPlayer(clinetId, flag);
+    }
+
+    return 0;
+}
+
+int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet)
+{
+    uint64_t playerId = packet.nParam1;
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
+    if (pPlayerInfo)
+    {
+        NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
+        if (pLinkInfo == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
+            return -1;
+        }
+
+        FindModule<NFIMessageModule>()->TransPackage(pPlayerInfo->GetLinkId(), packet);
+    }
+    else
+    {
+        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "other server msg:{} not handle", packet.ToString());
+    }
+
+    return 0;
+}
+
+int NFCProxyClientModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackage &packet)
+{
+    uint64_t playerId = packet.nParam1;
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
+    if (pPlayerInfo)
+    {
+        pPlayerInfo->SetIsLogin(true);
+        NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
+        if (pLinkInfo == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
+            return -1;
+        }
+
+        FindModule<NFIMessageModule>()->TransPackage(pPlayerInfo->GetLinkId(), packet);
+    }
+    else
+    {
+        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "other server msg:{} not handle", packet.ToString());
     }
 
     return 0;

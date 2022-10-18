@@ -12,6 +12,7 @@
 #include <NFComm/NFCore/NFCommon.h>
 #include <ClientServer.pb.h>
 #include <ServerInternal.pb.h>
+#include <ServerInternalCmd.pb.h>
 #include "NFTransGetRoleList.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
@@ -95,14 +96,46 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
     {
         const storesvr_sqldata::storesvr_sel_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_sel_res *>(pSSMsgRes);
         CHECK_EXPR(pRes, -1, "pRes == NULL");
-        CHECK_EXPR(pRes->is_lastbatch(), -1, "pRes->is_lastbatch() error");
-        if (pRes->row_count() == 0)
-        {
 
+        proto_ff::LogicToWorldGetRoleListRsp xData;
+        xData.set_player_id(m_playerId);
+        xData.set_client_id(m_clientId);
+        xData.set_proxy_id(m_proxyId);
+        xData.set_born_zone_id(m_bornZid);
+
+        if (err_code == 0)
+        {
+            xData.set_ret_code(err_code);
+            CHECK_EXPR(pRes->is_lastbatch(), -1, "pRes->is_lastbatch() error");
+            for(int i = 0; i < (int)pRes->sel_records_size(); i++)
+            {
+                auto pRoleInfo = xData.add_role_info_list();
+                pRoleInfo->ParsePartialFromString(pRes->sel_records(i));
+            }
         }
         else {
-
+            xData.set_ret_code(err_code);
         }
+
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, NF_MODULE_NONE, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData);
+        SetFinished(0);
+    }
+    return 0;
+}
+
+int NFTransGetRoleList::HandleTransFinished(int iRunLogicRetCode)
+{
+    if (iRunLogicRetCode != 0)
+    {
+        proto_ff::LogicToWorldGetRoleListRsp xData;
+        xData.set_player_id(m_playerId);
+        xData.set_client_id(m_clientId);
+        xData.set_proxy_id(m_proxyId);
+        xData.set_born_zone_id(m_bornZid);
+
+        xData.set_ret_code(iRunLogicRetCode);
+
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, NF_MODULE_NONE, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData);
     }
     return 0;
 }

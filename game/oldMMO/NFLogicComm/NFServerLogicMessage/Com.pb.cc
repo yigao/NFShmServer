@@ -29,15 +29,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Vector2PB_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Vector2PB_reflection_ = NULL;
-const ::google::protobuf::Descriptor* RoleDBInfo_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* ComPair_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  RoleDBInfo_reflection_ = NULL;
-const ::google::protobuf::Descriptor* RoleFacadeProto_descriptor_ = NULL;
+  ComPair_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ComPair64_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  RoleFacadeProto_reflection_ = NULL;
-const ::google::protobuf::Descriptor* LoginSyncProto_descriptor_ = NULL;
+  ComPair64_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ComPairBool_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  LoginSyncProto_reflection_ = NULL;
+  ComPairBool_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* EAttrGroup_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ECreatureAttr_descriptor_ = NULL;
 
@@ -97,56 +97,54 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Vector2PB));
-  RoleDBInfo_descriptor_ = file->message_type(3);
-  static const int RoleDBInfo_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, cid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, prof_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, level_),
+  ComPair_descriptor_ = file->message_type(3);
+  static const int ComPair_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair, value_),
   };
-  RoleDBInfo_reflection_ =
+  ComPair_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      RoleDBInfo_descriptor_,
-      RoleDBInfo::default_instance_,
-      RoleDBInfo_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBInfo, _unknown_fields_),
+      ComPair_descriptor_,
+      ComPair::default_instance_,
+      ComPair_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(RoleDBInfo));
-  RoleFacadeProto_descriptor_ = file->message_type(4);
-  static const int RoleFacadeProto_offsets_[1] = {
+      sizeof(ComPair));
+  ComPair64_descriptor_ = file->message_type(4);
+  static const int ComPair64_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair64, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair64, value_),
   };
-  RoleFacadeProto_reflection_ =
+  ComPair64_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      RoleFacadeProto_descriptor_,
-      RoleFacadeProto::default_instance_,
-      RoleFacadeProto_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleFacadeProto, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleFacadeProto, _unknown_fields_),
+      ComPair64_descriptor_,
+      ComPair64::default_instance_,
+      ComPair64_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair64, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPair64, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(RoleFacadeProto));
-  LoginSyncProto_descriptor_ = file->message_type(5);
-  static const int LoginSyncProto_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_duty_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, guild_leader_),
+      sizeof(ComPair64));
+  ComPairBool_descriptor_ = file->message_type(5);
+  static const int ComPairBool_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPairBool, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPairBool, value_),
   };
-  LoginSyncProto_reflection_ =
+  ComPairBool_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      LoginSyncProto_descriptor_,
-      LoginSyncProto::default_instance_,
-      LoginSyncProto_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginSyncProto, _unknown_fields_),
+      ComPairBool_descriptor_,
+      ComPairBool::default_instance_,
+      ComPairBool_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPairBool, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComPairBool, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LoginSyncProto));
+      sizeof(ComPairBool));
   EAttrGroup_descriptor_ = file->enum_type(0);
   ECreatureAttr_descriptor_ = file->enum_type(1);
 }
@@ -168,11 +166,11 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Vector2PB_descriptor_, &Vector2PB::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    RoleDBInfo_descriptor_, &RoleDBInfo::default_instance());
+    ComPair_descriptor_, &ComPair::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    RoleFacadeProto_descriptor_, &RoleFacadeProto::default_instance());
+    ComPair64_descriptor_, &ComPair64::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LoginSyncProto_descriptor_, &LoginSyncProto::default_instance());
+    ComPairBool_descriptor_, &ComPairBool::default_instance());
 }
 
 }  // namespace
@@ -184,12 +182,12 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete Vector3PB_reflection_;
   delete Vector2PB::default_instance_;
   delete Vector2PB_reflection_;
-  delete RoleDBInfo::default_instance_;
-  delete RoleDBInfo_reflection_;
-  delete RoleFacadeProto::default_instance_;
-  delete RoleFacadeProto_reflection_;
-  delete LoginSyncProto::default_instance_;
-  delete LoginSyncProto_reflection_;
+  delete ComPair::default_instance_;
+  delete ComPair_reflection_;
+  delete ComPair64::default_instance_;
+  delete ComPair64_reflection_;
+  delete ComPairBool::default_instance_;
+  delete ComPairBool_reflection_;
 }
 
 void protobuf_AddDesc_Com_2eproto() {
@@ -199,98 +197,95 @@ void protobuf_AddDesc_Com_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
-  ::proto_ff::protobuf_AddDesc_common_5flogic_2eproto();
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tCom.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\032\022common_logic.proto\032\017ComDefine.prot"
-    "o\"\016\n\014EmptyMessage\",\n\tVector3PB\022\t\n\001x\030\001 \002("
-    "\002\022\t\n\001y\030\002 \002(\002\022\t\n\001z\030\003 \002(\002\"!\n\tVector2PB\022\t\n\001"
-    "x\030\001 \002(\002\022\t\n\001y\030\002 \002(\002\"D\n\nRoleDBInfo\022\013\n\003cid\030"
-    "\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\014\n\004prof\030\003 \002(\r\022\r\n\005lev"
-    "el\030\004 \002(\r\"\021\n\017RoleFacadeProto\"`\n\016LoginSync"
-    "Proto\022\020\n\010guild_id\030\001 \001(\r\022\022\n\nguild_name\030\002 "
-    "\001(\t\022\022\n\nguild_duty\030\003 \001(\005\022\024\n\014guild_leader\030"
-    "\005 \001(\004*c\n\nEAttrGroup\022\024\n\020EAttrGroup_Level\020"
-    "\001\022\024\n\020EAttrGroup_Skill\020\002\022\023\n\017EAttrGroup_Bu"
-    "ff\020\003\022\024\n\020EAttrGroup_Equip\020\004*\340\023\n\rECreature"
-    "Attr\022\n\n\006A_NONE\020\000\022\020\n\014A_HP_RECOVER\020\001\022\013\n\007A_"
-    "SPEED\020\002\022\014\n\010A_MAX_HP\020\003\022\t\n\005A_ATK\020\004\022\t\n\005A_DE"
-    "F\020\005\022\014\n\010A_PIERCE\020\006\022\020\n\014A_DIVINE_ATK\020\007\022\020\n\014A"
-    "_DIVINE_DEF\020\010\022\t\n\005A_HIT\020\t\022\013\n\007A_DODGE\020\n\022\n\n"
-    "\006A_CRIT\020\013\022\013\n\007A_TOUGH\020\014\022\n\n\006A_KILL\020\r\022\013\n\007A_"
-    "PARRY\020\016\022\016\n\nA_HIT_RATE\020\017\022\020\n\014A_DODGE_RATE\020"
-    "\020\022\017\n\013A_CRIT_RATE\020\021\022\020\n\014A_TOUGH_RATE\020\022\022\017\n\013"
-    "A_KILL_RATE\020\023\022\020\n\014A_PARRY_RATE\020\024\022\016\n\nA_CRI"
-    "T_DAM\020\025\022\017\n\013A_CRIT_REDU\020\026\022\016\n\nA_KILL_DAM\020\027"
-    "\022\017\n\013A_KILL_REDU\020\030\022\r\n\tA_DAM_ADD\020\031\022\016\n\nA_DA"
-    "M_REDU\020\032\022\r\n\tA_PVP_DAM\020\033\022\017\n\013A_PVP_ARMOR\020\034"
-    "\022\021\n\rA_MON_DAM_ADD\020\035\022\022\n\016A_MON_DAM_REDU\020\036\022"
-    "\022\n\016A_BOSS_DAM_ADD\020\037\022\023\n\017A_BOSS_DAM_REDU\020 "
-    "\022\021\n\rA_CONTROL_ADD\020!\022\022\n\016A_CONTROL_REDU\020\"\022"
-    "\020\n\014A_MAX_HP_ADD\020#\022\r\n\tA_ATK_ADD\020$\022\r\n\tA_DE"
-    "F_ADD\020%\022\020\n\014A_PIERCE_ADD\020&\022\021\n\rA_DIV_ATK_A"
-    "DD\020\'\022\021\n\rA_DIV_DEF_ADD\020(\022\r\n\tA_HIT_ADD\020)\022\017"
-    "\n\013A_DODGE_ADD\020*\022\016\n\nA_CRIT_ADD\020+\022\017\n\013A_TOU"
-    "GH_ADD\020,\022\016\n\nA_KILL_ADD\020-\022\017\n\013A_PARRY_ADD\020"
-    ".\022\013\n\007A_BA_HP\020/\022\014\n\010A_BA_ATK\0200\022\014\n\010A_BA_DEF"
-    "\0201\022\017\n\013A_BA_PIERCE\0202\022\014\n\010A_EQU_HP\0203\022\r\n\tA_E"
-    "QU_ATK\0204\022\r\n\tA_EQU_DEF\0205\022\020\n\014A_EQU_PIERCE\020"
-    "6\022\r\n\tA_SUP_ATK\0207\022\020\n\014A_SUP_PIERCE\0208\022\022\n\016A_"
-    "PAR_ATTR_ADD\0209\022\020\n\014A_PAR_HP_ADD\020:\022\021\n\rA_PA"
-    "R_ATK_ADD\020;\022\021\n\rA_PAR_DEF_ADD\020<\022\022\n\016A_PAR_"
-    "PIER_ADD\020=\022\022\n\016A_STR_ATTR_ADD\020>\022\023\n\017A_WING"
-    "_ATTR_ADD\020\?\022\022\n\016A_MAG_ATTR_ADD\020@\022\022\n\016A_ART"
-    "_ATTR_ADD\020A\022\025\n\021A_ATKART_ATTR_ADD\020B\022\024\n\020A_"
-    "HPART_ATTR_ADD\020C\022\026\n\022A_CRITART_ATTR_ADD\020D"
-    "\022\026\n\022A_KILLART_ATTR_ADD\020E\022\022\n\016A_FAI_ATTR_A"
-    "DD\020F\022\020\n\014A_FAI_HP_ADD\020G\022\021\n\rA_FAI_ATK_ADD\020"
-    "H\022\021\n\rA_FAI_DEF_ADD\020I\022\022\n\016A_FAI_PIER_ADD\020J"
-    "\022\017\n\013A_SPEED_ADD\020K\022\r\n\tA_EXP_ADD\020L\022\017\n\013A_DR"
-    "OP_RATE\020M\022\023\n\017A_SKILL_DAM_ADD\020N\022\024\n\020A_SKIL"
-    "L_DAM_REDU\020O\022\017\n\013A_FIGHT_END\020d\022\013\n\007A_FIGHT"
-    "\020e\022\t\n\005A_EXP\020f\022\014\n\010A_CUR_HP\020g\022\n\n\006A_PROF\020h\022"
-    "\n\n\006A_GOLD\020i\022\r\n\tA_DIAMOND\020j\022\022\n\016A_DIAMOND_"
-    "BIND\020k\022\t\n\005A_SEX\020l\022\013\n\007A_LEVEL\020m\022\020\n\014A_OCCU"
-    "PATION\020n\022\016\n\nA_APTITUDE\020o\022\016\n\nA_WING_EXP\020p"
-    "\022\017\n\013A_USE_TITLE\020q\022\022\n\016A_DUPLICATE_ID\020r\022\r\n"
-    "\tA_TEAM_ID\020s\022\021\n\rA_TEAM_LEADER\020t\022\020\n\014A_ARE"
-    "NA_COIN\020u\022\022\n\016A_STAR_ESSENCE\020v\022\016\n\nA_STAR_"
-    "EXP\020w\022\023\n\017A_STAR_FRAGMENT\020x\022\016\n\nA_UNION_ID"
-    "\020y\022\022\n\016A_UNION_LEADER\020z\022\017\n\013A_ESCORT_ID\020{\022"
-    "\021\n\rA_HANGUP_TIME\020|\022\020\n\014A_UNION_DUTY\020}\022\021\n\r"
-    "A_UNION_LEVEL\020~\022\020\n\014A_ACTIVE_NUM\020\177\022\024\n\017A_C"
-    "LONESS_LEVEL\020\200\001\022\020\n\013A_VIP_LEVEL\020\201\001\022\024\n\017A_W"
-    "ORLD_EXP_ADD\020\202\001\022\023\n\016A_SMALL_SPIRIT\020\203\001\022\021\n\014"
-    "A_BIG_SPIRIT\020\204\001\022\022\n\rA_GODHOOD_EXP\020\205\001\022\016\n\tA"
-    "_CAMP_ID\020\206\001\022\035\n\030A_RECHARGE_DISCOUNT_DATE\020"
-    "\207\001\022\023\n\016A_FRIEND_COUNT\020\210\001\022\020\n\013A_FIELD_EXP\020\211"
-    "\001\022\025\n\020A_COMBAT_TEAM_ID\020\212\001\022\021\n\014A_SOLO_SCORE"
-    "\020\213\001\022\025\n\020A_SOLO_PRV_SCORE\020\214\001\022\023\n\016A_TEAM_EXP"
-    "_ADD\020\215\001\022\031\n\024A_MARRY_TEAM_EXP_ADD\020\216\001\022\022\n\rA_"
-    "DUP_EXP_ADD\020\217\001\022\030\n\023A_CONTINUS_KILL_NUM\020\220\001"
-    "\022\022\n\rA_DRAGONS_NUM\020\221\001\022\027\n\022A_VIP_CARD_DIAMO"
-    "ND\020\222\001\022\023\n\016A_HOLY_DIAMOND\020\223\001\022\024\n\017A_GOLD_JUA"
-    "N_NUM\020\224\001\022\026\n\021A_SILVER_JUAN_NUM\020\225\001\022\021\n\014A_RE"
-    "LIVE_NUM\020\226\001\022\027\n\022A_LAST_RELIVE_TIME\020\227\001\022\022\n\r"
-    "A_DEAD_MAP_ID\020\230\001\022\026\n\021A_DEAD_STATIC_NUM\020\231\001"
-    "\022\016\n\tA_DEAD_CD\020\232\001\022\021\n\014A_FUSHI_TIME\020\233\001\022\021\n\014A"
-    "_STAR_STONE\020\234\001\022\016\n\tA_VOUCHER\020\235\001\022\016\n\tA_WAIG"
-    "UAN\020\236\001\022\021\n\014A_COMMON_END\020\220\003\022\n\n\005A_MAX\020\270\027", 2997);
+    "roto\032\017ComDefine.proto\"\016\n\014EmptyMessage\",\n"
+    "\tVector3PB\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 "
+    "\001(\002\"!\n\tVector2PB\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"%"
+    "\n\007ComPair\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r\"\'\n"
+    "\tComPair64\022\013\n\003key\030\001 \001(\004\022\r\n\005value\030\002 \001(\004\")"
+    "\n\013ComPairBool\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001("
+    "\010*c\n\nEAttrGroup\022\024\n\020EAttrGroup_Level\020\001\022\024\n"
+    "\020EAttrGroup_Skill\020\002\022\023\n\017EAttrGroup_Buff\020\003"
+    "\022\024\n\020EAttrGroup_Equip\020\004*\340\023\n\rECreatureAttr"
+    "\022\n\n\006A_NONE\020\000\022\020\n\014A_HP_RECOVER\020\001\022\013\n\007A_SPEE"
+    "D\020\002\022\014\n\010A_MAX_HP\020\003\022\t\n\005A_ATK\020\004\022\t\n\005A_DEF\020\005\022"
+    "\014\n\010A_PIERCE\020\006\022\020\n\014A_DIVINE_ATK\020\007\022\020\n\014A_DIV"
+    "INE_DEF\020\010\022\t\n\005A_HIT\020\t\022\013\n\007A_DODGE\020\n\022\n\n\006A_C"
+    "RIT\020\013\022\013\n\007A_TOUGH\020\014\022\n\n\006A_KILL\020\r\022\013\n\007A_PARR"
+    "Y\020\016\022\016\n\nA_HIT_RATE\020\017\022\020\n\014A_DODGE_RATE\020\020\022\017\n"
+    "\013A_CRIT_RATE\020\021\022\020\n\014A_TOUGH_RATE\020\022\022\017\n\013A_KI"
+    "LL_RATE\020\023\022\020\n\014A_PARRY_RATE\020\024\022\016\n\nA_CRIT_DA"
+    "M\020\025\022\017\n\013A_CRIT_REDU\020\026\022\016\n\nA_KILL_DAM\020\027\022\017\n\013"
+    "A_KILL_REDU\020\030\022\r\n\tA_DAM_ADD\020\031\022\016\n\nA_DAM_RE"
+    "DU\020\032\022\r\n\tA_PVP_DAM\020\033\022\017\n\013A_PVP_ARMOR\020\034\022\021\n\r"
+    "A_MON_DAM_ADD\020\035\022\022\n\016A_MON_DAM_REDU\020\036\022\022\n\016A"
+    "_BOSS_DAM_ADD\020\037\022\023\n\017A_BOSS_DAM_REDU\020 \022\021\n\r"
+    "A_CONTROL_ADD\020!\022\022\n\016A_CONTROL_REDU\020\"\022\020\n\014A"
+    "_MAX_HP_ADD\020#\022\r\n\tA_ATK_ADD\020$\022\r\n\tA_DEF_AD"
+    "D\020%\022\020\n\014A_PIERCE_ADD\020&\022\021\n\rA_DIV_ATK_ADD\020\'"
+    "\022\021\n\rA_DIV_DEF_ADD\020(\022\r\n\tA_HIT_ADD\020)\022\017\n\013A_"
+    "DODGE_ADD\020*\022\016\n\nA_CRIT_ADD\020+\022\017\n\013A_TOUGH_A"
+    "DD\020,\022\016\n\nA_KILL_ADD\020-\022\017\n\013A_PARRY_ADD\020.\022\013\n"
+    "\007A_BA_HP\020/\022\014\n\010A_BA_ATK\0200\022\014\n\010A_BA_DEF\0201\022\017"
+    "\n\013A_BA_PIERCE\0202\022\014\n\010A_EQU_HP\0203\022\r\n\tA_EQU_A"
+    "TK\0204\022\r\n\tA_EQU_DEF\0205\022\020\n\014A_EQU_PIERCE\0206\022\r\n"
+    "\tA_SUP_ATK\0207\022\020\n\014A_SUP_PIERCE\0208\022\022\n\016A_PAR_"
+    "ATTR_ADD\0209\022\020\n\014A_PAR_HP_ADD\020:\022\021\n\rA_PAR_AT"
+    "K_ADD\020;\022\021\n\rA_PAR_DEF_ADD\020<\022\022\n\016A_PAR_PIER"
+    "_ADD\020=\022\022\n\016A_STR_ATTR_ADD\020>\022\023\n\017A_WING_ATT"
+    "R_ADD\020\?\022\022\n\016A_MAG_ATTR_ADD\020@\022\022\n\016A_ART_ATT"
+    "R_ADD\020A\022\025\n\021A_ATKART_ATTR_ADD\020B\022\024\n\020A_HPAR"
+    "T_ATTR_ADD\020C\022\026\n\022A_CRITART_ATTR_ADD\020D\022\026\n\022"
+    "A_KILLART_ATTR_ADD\020E\022\022\n\016A_FAI_ATTR_ADD\020F"
+    "\022\020\n\014A_FAI_HP_ADD\020G\022\021\n\rA_FAI_ATK_ADD\020H\022\021\n"
+    "\rA_FAI_DEF_ADD\020I\022\022\n\016A_FAI_PIER_ADD\020J\022\017\n\013"
+    "A_SPEED_ADD\020K\022\r\n\tA_EXP_ADD\020L\022\017\n\013A_DROP_R"
+    "ATE\020M\022\023\n\017A_SKILL_DAM_ADD\020N\022\024\n\020A_SKILL_DA"
+    "M_REDU\020O\022\017\n\013A_FIGHT_END\020d\022\013\n\007A_FIGHT\020e\022\t"
+    "\n\005A_EXP\020f\022\014\n\010A_CUR_HP\020g\022\n\n\006A_PROF\020h\022\n\n\006A"
+    "_GOLD\020i\022\r\n\tA_DIAMOND\020j\022\022\n\016A_DIAMOND_BIND"
+    "\020k\022\t\n\005A_SEX\020l\022\013\n\007A_LEVEL\020m\022\020\n\014A_OCCUPATI"
+    "ON\020n\022\016\n\nA_APTITUDE\020o\022\016\n\nA_WING_EXP\020p\022\017\n\013"
+    "A_USE_TITLE\020q\022\022\n\016A_DUPLICATE_ID\020r\022\r\n\tA_T"
+    "EAM_ID\020s\022\021\n\rA_TEAM_LEADER\020t\022\020\n\014A_ARENA_C"
+    "OIN\020u\022\022\n\016A_STAR_ESSENCE\020v\022\016\n\nA_STAR_EXP\020"
+    "w\022\023\n\017A_STAR_FRAGMENT\020x\022\016\n\nA_UNION_ID\020y\022\022"
+    "\n\016A_UNION_LEADER\020z\022\017\n\013A_ESCORT_ID\020{\022\021\n\rA"
+    "_HANGUP_TIME\020|\022\020\n\014A_UNION_DUTY\020}\022\021\n\rA_UN"
+    "ION_LEVEL\020~\022\020\n\014A_ACTIVE_NUM\020\177\022\024\n\017A_CLONE"
+    "SS_LEVEL\020\200\001\022\020\n\013A_VIP_LEVEL\020\201\001\022\024\n\017A_WORLD"
+    "_EXP_ADD\020\202\001\022\023\n\016A_SMALL_SPIRIT\020\203\001\022\021\n\014A_BI"
+    "G_SPIRIT\020\204\001\022\022\n\rA_GODHOOD_EXP\020\205\001\022\016\n\tA_CAM"
+    "P_ID\020\206\001\022\035\n\030A_RECHARGE_DISCOUNT_DATE\020\207\001\022\023"
+    "\n\016A_FRIEND_COUNT\020\210\001\022\020\n\013A_FIELD_EXP\020\211\001\022\025\n"
+    "\020A_COMBAT_TEAM_ID\020\212\001\022\021\n\014A_SOLO_SCORE\020\213\001\022"
+    "\025\n\020A_SOLO_PRV_SCORE\020\214\001\022\023\n\016A_TEAM_EXP_ADD"
+    "\020\215\001\022\031\n\024A_MARRY_TEAM_EXP_ADD\020\216\001\022\022\n\rA_DUP_"
+    "EXP_ADD\020\217\001\022\030\n\023A_CONTINUS_KILL_NUM\020\220\001\022\022\n\r"
+    "A_DRAGONS_NUM\020\221\001\022\027\n\022A_VIP_CARD_DIAMOND\020\222"
+    "\001\022\023\n\016A_HOLY_DIAMOND\020\223\001\022\024\n\017A_GOLD_JUAN_NU"
+    "M\020\224\001\022\026\n\021A_SILVER_JUAN_NUM\020\225\001\022\021\n\014A_RELIVE"
+    "_NUM\020\226\001\022\027\n\022A_LAST_RELIVE_TIME\020\227\001\022\022\n\rA_DE"
+    "AD_MAP_ID\020\230\001\022\026\n\021A_DEAD_STATIC_NUM\020\231\001\022\016\n\t"
+    "A_DEAD_CD\020\232\001\022\021\n\014A_FUSHI_TIME\020\233\001\022\021\n\014A_STA"
+    "R_STONE\020\234\001\022\016\n\tA_VOUCHER\020\235\001\022\016\n\tA_WAIGUAN\020"
+    "\236\001\022\021\n\014A_COMMON_END\020\220\003\022\n\n\005A_MAX\020\270\027", 2913);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
   Vector3PB::default_instance_ = new Vector3PB();
   Vector2PB::default_instance_ = new Vector2PB();
-  RoleDBInfo::default_instance_ = new RoleDBInfo();
-  RoleFacadeProto::default_instance_ = new RoleFacadeProto();
-  LoginSyncProto::default_instance_ = new LoginSyncProto();
+  ComPair::default_instance_ = new ComPair();
+  ComPair64::default_instance_ = new ComPair64();
+  ComPairBool::default_instance_ = new ComPairBool();
   EmptyMessage::default_instance_->InitAsDefaultInstance();
   Vector3PB::default_instance_->InitAsDefaultInstance();
   Vector2PB::default_instance_->InitAsDefaultInstance();
-  RoleDBInfo::default_instance_->InitAsDefaultInstance();
-  RoleFacadeProto::default_instance_->InitAsDefaultInstance();
-  LoginSyncProto::default_instance_->InitAsDefaultInstance();
+  ComPair::default_instance_->InitAsDefaultInstance();
+  ComPair64::default_instance_->InitAsDefaultInstance();
+  ComPairBool::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Com_2eproto);
 }
 
@@ -702,7 +697,7 @@ bool Vector3PB::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required float x = 1;
+      // optional float x = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
@@ -717,7 +712,7 @@ bool Vector3PB::MergePartialFromCodedStream(
         break;
       }
 
-      // required float y = 2;
+      // optional float y = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
@@ -733,7 +728,7 @@ bool Vector3PB::MergePartialFromCodedStream(
         break;
       }
 
-      // required float z = 3;
+      // optional float z = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
@@ -767,17 +762,17 @@ bool Vector3PB::MergePartialFromCodedStream(
 
 void Vector3PB::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required float x = 1;
+  // optional float x = 1;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
   }
 
-  // required float y = 2;
+  // optional float y = 2;
   if (has_y()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
 
-  // required float z = 3;
+  // optional float z = 3;
   if (has_z()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->z(), output);
   }
@@ -790,17 +785,17 @@ void Vector3PB::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Vector3PB::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required float x = 1;
+  // optional float x = 1;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
   }
 
-  // required float y = 2;
+  // optional float y = 2;
   if (has_y()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
 
-  // required float z = 3;
+  // optional float z = 3;
   if (has_z()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->z(), target);
   }
@@ -816,17 +811,17 @@ int Vector3PB::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required float x = 1;
+    // optional float x = 1;
     if (has_x()) {
       total_size += 1 + 4;
     }
 
-    // required float y = 2;
+    // optional float y = 2;
     if (has_y()) {
       total_size += 1 + 4;
     }
 
-    // required float z = 3;
+    // optional float z = 3;
     if (has_z()) {
       total_size += 1 + 4;
     }
@@ -884,7 +879,6 @@ void Vector3PB::CopyFrom(const Vector3PB& from) {
 }
 
 bool Vector3PB::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -982,7 +976,7 @@ bool Vector2PB::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required float x = 1;
+      // optional float x = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
@@ -997,7 +991,7 @@ bool Vector2PB::MergePartialFromCodedStream(
         break;
       }
 
-      // required float y = 2;
+      // optional float y = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
@@ -1031,12 +1025,12 @@ bool Vector2PB::MergePartialFromCodedStream(
 
 void Vector2PB::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required float x = 1;
+  // optional float x = 1;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
   }
 
-  // required float y = 2;
+  // optional float y = 2;
   if (has_y()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
@@ -1049,12 +1043,12 @@ void Vector2PB::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Vector2PB::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required float x = 1;
+  // optional float x = 1;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
   }
 
-  // required float y = 2;
+  // optional float y = 2;
   if (has_y()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
@@ -1070,12 +1064,12 @@ int Vector2PB::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required float x = 1;
+    // optional float x = 1;
     if (has_x()) {
       total_size += 1 + 4;
     }
 
-    // required float y = 2;
+    // optional float y = 2;
     if (has_y()) {
       total_size += 1 + 4;
     }
@@ -1130,7 +1124,6 @@ void Vector2PB::CopyFrom(const Vector2PB& from) {
 }
 
 bool Vector2PB::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -1157,146 +1150,100 @@ void Vector2PB::Swap(Vector2PB* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int RoleDBInfo::kCidFieldNumber;
-const int RoleDBInfo::kNameFieldNumber;
-const int RoleDBInfo::kProfFieldNumber;
-const int RoleDBInfo::kLevelFieldNumber;
+const int ComPair::kKeyFieldNumber;
+const int ComPair::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-RoleDBInfo::RoleDBInfo()
+ComPair::ComPair()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void RoleDBInfo::InitAsDefaultInstance() {
+void ComPair::InitAsDefaultInstance() {
 }
 
-RoleDBInfo::RoleDBInfo(const RoleDBInfo& from)
+ComPair::ComPair(const ComPair& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void RoleDBInfo::SharedCtor() {
+void ComPair::SharedCtor() {
   _cached_size_ = 0;
-  cid_ = GOOGLE_ULONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  prof_ = 0u;
-  level_ = 0u;
+  key_ = 0u;
+  value_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-RoleDBInfo::~RoleDBInfo() {
+ComPair::~ComPair() {
   SharedDtor();
 }
 
-void RoleDBInfo::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
-  }
+void ComPair::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void RoleDBInfo::SetCachedSize(int size) const {
+void ComPair::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* RoleDBInfo::descriptor() {
+const ::google::protobuf::Descriptor* ComPair::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return RoleDBInfo_descriptor_;
+  return ComPair_descriptor_;
 }
 
-const RoleDBInfo& RoleDBInfo::default_instance() {
+const ComPair& ComPair::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
   return *default_instance_;
 }
 
-RoleDBInfo* RoleDBInfo::default_instance_ = NULL;
+ComPair* ComPair::default_instance_ = NULL;
 
-RoleDBInfo* RoleDBInfo::New() const {
-  return new RoleDBInfo;
+ComPair* ComPair::New() const {
+  return new ComPair;
 }
 
-void RoleDBInfo::Clear() {
+void ComPair::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    cid_ = GOOGLE_ULONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
-      }
-    }
-    prof_ = 0u;
-    level_ = 0u;
+    key_ = 0u;
+    value_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool RoleDBInfo::MergePartialFromCodedStream(
+bool ComPair::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 cid = 1;
+      // optional uint32 key = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &cid_)));
-          set_has_cid();
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &key_)));
+          set_has_key();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(16)) goto parse_value;
         break;
       }
 
-      // required string name = 2;
+      // optional uint32 value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_prof;
-        break;
-      }
-
-      // required uint32 prof = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_prof:
+         parse_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &prof_)));
-          set_has_prof();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_level;
-        break;
-      }
-
-      // required uint32 level = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_level:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &level_)));
-          set_has_level();
+                 input, &value_)));
+          set_has_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -1320,30 +1267,16 @@ bool RoleDBInfo::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void RoleDBInfo::SerializeWithCachedSizes(
+void ComPair::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint64 cid = 1;
-  if (has_cid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  // optional uint32 key = 1;
+  if (has_key()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->key(), output);
   }
 
-  // required string name = 2;
-  if (has_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
-  }
-
-  // required uint32 prof = 3;
-  if (has_prof()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->prof(), output);
-  }
-
-  // required uint32 level = 4;
-  if (has_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->level(), output);
+  // optional uint32 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1352,31 +1285,16 @@ void RoleDBInfo::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* RoleDBInfo::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ComPair::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required uint64 cid = 1;
-  if (has_cid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  // optional uint32 key = 1;
+  if (has_key()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->key(), target);
   }
 
-  // required string name = 2;
-  if (has_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
-  }
-
-  // required uint32 prof = 3;
-  if (has_prof()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->prof(), target);
-  }
-
-  // required uint32 level = 4;
-  if (has_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->level(), target);
+  // optional uint32 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1386,36 +1304,22 @@ void RoleDBInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int RoleDBInfo::ByteSize() const {
+int ComPair::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint64 cid = 1;
-    if (has_cid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->cid());
-    }
-
-    // required string name = 2;
-    if (has_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
-    }
-
-    // required uint32 prof = 3;
-    if (has_prof()) {
+    // optional uint32 key = 1;
+    if (has_key()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->prof());
+          this->key());
     }
 
-    // required uint32 level = 4;
-    if (has_level()) {
+    // optional uint32 value = 2;
+    if (has_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->level());
+          this->value());
     }
 
   }
@@ -1430,10 +1334,10 @@ int RoleDBInfo::ByteSize() const {
   return total_size;
 }
 
-void RoleDBInfo::MergeFrom(const ::google::protobuf::Message& from) {
+void ComPair::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const RoleDBInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const RoleDBInfo*>(
+  const ComPair* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ComPair*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1442,60 +1346,51 @@ void RoleDBInfo::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void RoleDBInfo::MergeFrom(const RoleDBInfo& from) {
+void ComPair::MergeFrom(const ComPair& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_cid()) {
-      set_cid(from.cid());
+    if (from.has_key()) {
+      set_key(from.key());
     }
-    if (from.has_name()) {
-      set_name(from.name());
-    }
-    if (from.has_prof()) {
-      set_prof(from.prof());
-    }
-    if (from.has_level()) {
-      set_level(from.level());
+    if (from.has_value()) {
+      set_value(from.value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void RoleDBInfo::CopyFrom(const ::google::protobuf::Message& from) {
+void ComPair::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RoleDBInfo::CopyFrom(const RoleDBInfo& from) {
+void ComPair::CopyFrom(const ComPair& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RoleDBInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+bool ComPair::IsInitialized() const {
 
   return true;
 }
 
-void RoleDBInfo::Swap(RoleDBInfo* other) {
+void ComPair::Swap(ComPair* other) {
   if (other != this) {
-    std::swap(cid_, other->cid_);
-    std::swap(name_, other->name_);
-    std::swap(prof_, other->prof_);
-    std::swap(level_, other->level_);
+    std::swap(key_, other->key_);
+    std::swap(value_, other->value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata RoleDBInfo::GetMetadata() const {
+::google::protobuf::Metadata ComPair::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = RoleDBInfo_descriptor_;
-  metadata.reflection = RoleDBInfo_reflection_;
+  metadata.descriptor = ComPair_descriptor_;
+  metadata.reflection = ComPair_reflection_;
   return metadata;
 }
 
@@ -1503,302 +1398,100 @@ void RoleDBInfo::Swap(RoleDBInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int ComPair64::kKeyFieldNumber;
+const int ComPair64::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-RoleFacadeProto::RoleFacadeProto()
+ComPair64::ComPair64()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void RoleFacadeProto::InitAsDefaultInstance() {
+void ComPair64::InitAsDefaultInstance() {
 }
 
-RoleFacadeProto::RoleFacadeProto(const RoleFacadeProto& from)
+ComPair64::ComPair64(const ComPair64& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void RoleFacadeProto::SharedCtor() {
+void ComPair64::SharedCtor() {
   _cached_size_ = 0;
+  key_ = GOOGLE_ULONGLONG(0);
+  value_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-RoleFacadeProto::~RoleFacadeProto() {
+ComPair64::~ComPair64() {
   SharedDtor();
 }
 
-void RoleFacadeProto::SharedDtor() {
+void ComPair64::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void RoleFacadeProto::SetCachedSize(int size) const {
+void ComPair64::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* RoleFacadeProto::descriptor() {
+const ::google::protobuf::Descriptor* ComPair64::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return RoleFacadeProto_descriptor_;
+  return ComPair64_descriptor_;
 }
 
-const RoleFacadeProto& RoleFacadeProto::default_instance() {
+const ComPair64& ComPair64::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
   return *default_instance_;
 }
 
-RoleFacadeProto* RoleFacadeProto::default_instance_ = NULL;
+ComPair64* ComPair64::default_instance_ = NULL;
 
-RoleFacadeProto* RoleFacadeProto::New() const {
-  return new RoleFacadeProto;
+ComPair64* ComPair64::New() const {
+  return new ComPair64;
 }
 
-void RoleFacadeProto::Clear() {
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool RoleFacadeProto::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      return true;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, mutable_unknown_fields()));
-  }
-  return true;
-#undef DO_
-}
-
-void RoleFacadeProto::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* RoleFacadeProto::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int RoleFacadeProto::ByteSize() const {
-  int total_size = 0;
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void RoleFacadeProto::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const RoleFacadeProto* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const RoleFacadeProto*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void RoleFacadeProto::MergeFrom(const RoleFacadeProto& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void RoleFacadeProto::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void RoleFacadeProto::CopyFrom(const RoleFacadeProto& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool RoleFacadeProto::IsInitialized() const {
-
-  return true;
-}
-
-void RoleFacadeProto::Swap(RoleFacadeProto* other) {
-  if (other != this) {
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata RoleFacadeProto::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = RoleFacadeProto_descriptor_;
-  metadata.reflection = RoleFacadeProto_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int LoginSyncProto::kGuildIdFieldNumber;
-const int LoginSyncProto::kGuildNameFieldNumber;
-const int LoginSyncProto::kGuildDutyFieldNumber;
-const int LoginSyncProto::kGuildLeaderFieldNumber;
-#endif  // !_MSC_VER
-
-LoginSyncProto::LoginSyncProto()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void LoginSyncProto::InitAsDefaultInstance() {
-}
-
-LoginSyncProto::LoginSyncProto(const LoginSyncProto& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void LoginSyncProto::SharedCtor() {
-  _cached_size_ = 0;
-  guild_id_ = 0u;
-  guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  guild_duty_ = 0;
-  guild_leader_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-LoginSyncProto::~LoginSyncProto() {
-  SharedDtor();
-}
-
-void LoginSyncProto::SharedDtor() {
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete guild_name_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void LoginSyncProto::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* LoginSyncProto::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return LoginSyncProto_descriptor_;
-}
-
-const LoginSyncProto& LoginSyncProto::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-LoginSyncProto* LoginSyncProto::default_instance_ = NULL;
-
-LoginSyncProto* LoginSyncProto::New() const {
-  return new LoginSyncProto;
-}
-
-void LoginSyncProto::Clear() {
+void ComPair64::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    guild_id_ = 0u;
-    if (has_guild_name()) {
-      if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-        guild_name_->clear();
-      }
-    }
-    guild_duty_ = 0;
-    guild_leader_ = GOOGLE_ULONGLONG(0);
+    key_ = GOOGLE_ULONGLONG(0);
+    value_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool LoginSyncProto::MergePartialFromCodedStream(
+bool ComPair64::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 guild_id = 1;
+      // optional uint64 key = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &guild_id_)));
-          set_has_guild_id();
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &key_)));
+          set_has_key();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_guild_name;
+        if (input->ExpectTag(16)) goto parse_value;
         break;
       }
 
-      // optional string guild_name = 2;
+      // optional uint64 value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_guild_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_guild_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->guild_name().data(), this->guild_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_guild_duty;
-        break;
-      }
-
-      // optional int32 guild_duty = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_guild_duty:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &guild_duty_)));
-          set_has_guild_duty();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_guild_leader;
-        break;
-      }
-
-      // optional uint64 guild_leader = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_guild_leader:
+         parse_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &guild_leader_)));
-          set_has_guild_leader();
+                 input, &value_)));
+          set_has_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -1822,30 +1515,16 @@ bool LoginSyncProto::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void LoginSyncProto::SerializeWithCachedSizes(
+void ComPair64::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 guild_id = 1;
-  if (has_guild_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->guild_id(), output);
+  // optional uint64 key = 1;
+  if (has_key()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->key(), output);
   }
 
-  // optional string guild_name = 2;
-  if (has_guild_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->guild_name().data(), this->guild_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->guild_name(), output);
-  }
-
-  // optional int32 guild_duty = 3;
-  if (has_guild_duty()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->guild_duty(), output);
-  }
-
-  // optional uint64 guild_leader = 5;
-  if (has_guild_leader()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->guild_leader(), output);
+  // optional uint64 value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1854,31 +1533,16 @@ void LoginSyncProto::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* LoginSyncProto::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ComPair64::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional uint32 guild_id = 1;
-  if (has_guild_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->guild_id(), target);
+  // optional uint64 key = 1;
+  if (has_key()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->key(), target);
   }
 
-  // optional string guild_name = 2;
-  if (has_guild_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->guild_name().data(), this->guild_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->guild_name(), target);
-  }
-
-  // optional int32 guild_duty = 3;
-  if (has_guild_duty()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->guild_duty(), target);
-  }
-
-  // optional uint64 guild_leader = 5;
-  if (has_guild_leader()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->guild_leader(), target);
+  // optional uint64 value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1888,36 +1552,22 @@ void LoginSyncProto::SerializeWithCachedSizes(
   return target;
 }
 
-int LoginSyncProto::ByteSize() const {
+int ComPair64::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 guild_id = 1;
-    if (has_guild_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->guild_id());
-    }
-
-    // optional string guild_name = 2;
-    if (has_guild_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->guild_name());
-    }
-
-    // optional int32 guild_duty = 3;
-    if (has_guild_duty()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->guild_duty());
-    }
-
-    // optional uint64 guild_leader = 5;
-    if (has_guild_leader()) {
+    // optional uint64 key = 1;
+    if (has_key()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->guild_leader());
+          this->key());
+    }
+
+    // optional uint64 value = 2;
+    if (has_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->value());
     }
 
   }
@@ -1932,10 +1582,10 @@ int LoginSyncProto::ByteSize() const {
   return total_size;
 }
 
-void LoginSyncProto::MergeFrom(const ::google::protobuf::Message& from) {
+void ComPair64::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const LoginSyncProto* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LoginSyncProto*>(
+  const ComPair64* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ComPair64*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1944,59 +1594,297 @@ void LoginSyncProto::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void LoginSyncProto::MergeFrom(const LoginSyncProto& from) {
+void ComPair64::MergeFrom(const ComPair64& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_guild_id()) {
-      set_guild_id(from.guild_id());
+    if (from.has_key()) {
+      set_key(from.key());
     }
-    if (from.has_guild_name()) {
-      set_guild_name(from.guild_name());
-    }
-    if (from.has_guild_duty()) {
-      set_guild_duty(from.guild_duty());
-    }
-    if (from.has_guild_leader()) {
-      set_guild_leader(from.guild_leader());
+    if (from.has_value()) {
+      set_value(from.value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void LoginSyncProto::CopyFrom(const ::google::protobuf::Message& from) {
+void ComPair64::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void LoginSyncProto::CopyFrom(const LoginSyncProto& from) {
+void ComPair64::CopyFrom(const ComPair64& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool LoginSyncProto::IsInitialized() const {
+bool ComPair64::IsInitialized() const {
 
   return true;
 }
 
-void LoginSyncProto::Swap(LoginSyncProto* other) {
+void ComPair64::Swap(ComPair64* other) {
   if (other != this) {
-    std::swap(guild_id_, other->guild_id_);
-    std::swap(guild_name_, other->guild_name_);
-    std::swap(guild_duty_, other->guild_duty_);
-    std::swap(guild_leader_, other->guild_leader_);
+    std::swap(key_, other->key_);
+    std::swap(value_, other->value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata LoginSyncProto::GetMetadata() const {
+::google::protobuf::Metadata ComPair64::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LoginSyncProto_descriptor_;
-  metadata.reflection = LoginSyncProto_reflection_;
+  metadata.descriptor = ComPair64_descriptor_;
+  metadata.reflection = ComPair64_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ComPairBool::kKeyFieldNumber;
+const int ComPairBool::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+ComPairBool::ComPairBool()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ComPairBool::InitAsDefaultInstance() {
+}
+
+ComPairBool::ComPairBool(const ComPairBool& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ComPairBool::SharedCtor() {
+  _cached_size_ = 0;
+  key_ = 0u;
+  value_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ComPairBool::~ComPairBool() {
+  SharedDtor();
+}
+
+void ComPairBool::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ComPairBool::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ComPairBool::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ComPairBool_descriptor_;
+}
+
+const ComPairBool& ComPairBool::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
+  return *default_instance_;
+}
+
+ComPairBool* ComPairBool::default_instance_ = NULL;
+
+ComPairBool* ComPairBool::New() const {
+  return new ComPairBool;
+}
+
+void ComPairBool::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    key_ = 0u;
+    value_ = false;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ComPairBool::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 key = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &key_)));
+          set_has_key();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_value;
+        break;
+      }
+
+      // optional bool value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ComPairBool::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 key = 1;
+  if (has_key()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->key(), output);
+  }
+
+  // optional bool value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ComPairBool::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 key = 1;
+  if (has_key()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->key(), target);
+  }
+
+  // optional bool value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ComPairBool::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 key = 1;
+    if (has_key()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->key());
+    }
+
+    // optional bool value = 2;
+    if (has_value()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ComPairBool::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ComPairBool* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ComPairBool*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ComPairBool::MergeFrom(const ComPairBool& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_key()) {
+      set_key(from.key());
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ComPairBool::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ComPairBool::CopyFrom(const ComPairBool& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ComPairBool::IsInitialized() const {
+
+  return true;
+}
+
+void ComPairBool::Swap(ComPairBool* other) {
+  if (other != this) {
+    std::swap(key_, other->key_);
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ComPairBool::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ComPairBool_descriptor_;
+  metadata.reflection = ComPairBool_reflection_;
   return metadata;
 }
 

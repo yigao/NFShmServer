@@ -45,8 +45,19 @@ public:
     */
     int OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
+    /**
+     * @brief
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
     int OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
+    /**
+     * @brief
+     * @param unLinkId
+     * @return
+     */
     int OnHandleClientDisconnect(uint64_t unLinkId);
 
     /*
@@ -58,6 +69,14 @@ public:
      * 踢掉玩家
      * */
     int KickPlayer(uint64_t unLinkId, uint32_t flag);
+
+    /**
+     * @brief 处理其他服务器发给客户的 信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet);
 public:
     /*
      * 处理心跳包
@@ -65,11 +84,21 @@ public:
     int OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage &packet);
 
 public:
-    /*
-     * 处理登录协议
+    /**
+     * @brief 处理登录协议
+     * @param unLinkId
+     * @param packet
+     * @return
      */
     int OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet);
 
+    /**
+     * @brief 处理登录协议
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackage &packet);
 public:
     /**
      * @brief handle world server return msg

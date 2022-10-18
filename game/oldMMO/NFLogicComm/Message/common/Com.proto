@@ -4,7 +4,6 @@ package proto_ff;
 
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
-import "common_logic.proto";
 import "ComDefine.proto";
 
 // 空消息
@@ -14,41 +13,36 @@ message EmptyMessage
 
 //位置
 message Vector3PB{
-  required float x	=1;		//x坐标
-  required float y	=2;		//y坐标
-  required float z	=3;		//z坐标
+  optional float x	=1;		//x坐标
+  optional float y	=2;		//y坐标
+  optional float z	=3;		//z坐标
 }
 
 //方向(只有 x, z 坐标)
 message Vector2PB{
-  required float x	=1;
-  required float y	=2;
+  optional float x	=1;
+  optional float y	=2;
 }
 
-//角色DB信息
-message RoleDBInfo
+//通用键值对结构
+message ComPair
 {
-  required uint64 cid 			= 1;
-  required string name            = 2;   		// 名字
-  required uint32 prof            = 3;   		// 职业
-  required uint32 level           = 4;   		// 等级
+  optional uint32 key = 1;
+  optional uint32 value = 2;
 }
 
-//角色外观信息
-message RoleFacadeProto
+message ComPair64
 {
+  optional uint64 key = 1;
+  optional uint64 value = 2;
 }
 
-
-//玩家登录时需要从中心服同步到逻辑服的数据
-message LoginSyncProto
+//通用键值对结构
+message ComPairBool
 {
-  optional uint32 guild_id = 1;				//工会ID
-  optional string guild_name = 2;				//工会名字
-  optional int32  guild_duty = 3;				//工会中的职务
-  optional uint64 guild_leader = 5;			//工会会长
+  optional uint32 key = 1;
+  optional bool value = 2;
 }
-
 
 //生物属性组，用于计算生物战斗属性
 enum EAttrGroup

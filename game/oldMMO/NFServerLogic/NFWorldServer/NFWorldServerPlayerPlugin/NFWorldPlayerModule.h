@@ -44,6 +44,26 @@ public:
     int OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPackage &packet);
 public:
     /**
+     * @brief logic msg
+     */
+
+    /**
+     * @brief 获取角色列表
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleLogicGetRoleListRsp(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief
+     * @param charDBBaseInfo
+     * @param charSimpleInfo
+     * @return
+     */
+    int CharDBToCharSimpleDB(const proto_ff::tbRoleInfo& charDBBaseInfo, proto_ff::CharacterDBSimpleInfo& charSimpleInfo);
+public:
+    /**
      * @brief 世界服通知网关改变逻辑服
      * @param pPlayer
      * @param ctype

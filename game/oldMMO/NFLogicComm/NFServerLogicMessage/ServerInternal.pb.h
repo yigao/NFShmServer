@@ -40,6 +40,7 @@ void protobuf_ShutdownFile_ServerInternal_2eproto();
 
 class NotifyGateChangeLogic;
 class WorldToLogicGetRoleList;
+class LogicToWorldGetRoleListRsp;
 
 enum NotifyGateChangeLogic_cType {
   NotifyGateChangeLogic_cType_ENTER_LOGIC = 1,
@@ -342,6 +343,141 @@ class WorldToLogicGetRoleList : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static WorldToLogicGetRoleList* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LogicToWorldGetRoleListRsp : public ::google::protobuf::Message {
+ public:
+  LogicToWorldGetRoleListRsp();
+  virtual ~LogicToWorldGetRoleListRsp();
+
+  LogicToWorldGetRoleListRsp(const LogicToWorldGetRoleListRsp& from);
+
+  inline LogicToWorldGetRoleListRsp& operator=(const LogicToWorldGetRoleListRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToWorldGetRoleListRsp& default_instance();
+
+  void Swap(LogicToWorldGetRoleListRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToWorldGetRoleListRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToWorldGetRoleListRsp& from);
+  void MergeFrom(const LogicToWorldGetRoleListRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 player_id = 2;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 born_zone_id = 3;
+  inline bool has_born_zone_id() const;
+  inline void clear_born_zone_id();
+  static const int kBornZoneIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 born_zone_id() const;
+  inline void set_born_zone_id(::google::protobuf::uint32 value);
+
+  // optional uint64 proxy_id = 4;
+  inline bool has_proxy_id() const;
+  inline void clear_proxy_id();
+  static const int kProxyIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 proxy_id() const;
+  inline void set_proxy_id(::google::protobuf::uint64 value);
+
+  // optional uint64 client_id = 5;
+  inline bool has_client_id() const;
+  inline void clear_client_id();
+  static const int kClientIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 client_id() const;
+  inline void set_client_id(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.tbRoleInfo role_info_list = 6;
+  inline int role_info_list_size() const;
+  inline void clear_role_info_list();
+  static const int kRoleInfoListFieldNumber = 6;
+  inline const ::proto_ff::tbRoleInfo& role_info_list(int index) const;
+  inline ::proto_ff::tbRoleInfo* mutable_role_info_list(int index);
+  inline ::proto_ff::tbRoleInfo* add_role_info_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tbRoleInfo >&
+      role_info_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tbRoleInfo >*
+      mutable_role_info_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LogicToWorldGetRoleListRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_born_zone_id();
+  inline void clear_has_born_zone_id();
+  inline void set_has_proxy_id();
+  inline void clear_has_proxy_id();
+  inline void set_has_client_id();
+  inline void clear_has_client_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 born_zone_id_;
+  ::google::protobuf::uint64 proxy_id_;
+  ::google::protobuf::uint64 client_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::tbRoleInfo > role_info_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToWorldGetRoleListRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -595,6 +731,145 @@ inline ::google::protobuf::uint64 WorldToLogicGetRoleList::client_id() const {
 inline void WorldToLogicGetRoleList::set_client_id(::google::protobuf::uint64 value) {
   set_has_client_id();
   client_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToWorldGetRoleListRsp
+
+// optional int32 ret_code = 1;
+inline bool LogicToWorldGetRoleListRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToWorldGetRoleListRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 LogicToWorldGetRoleListRsp::ret_code() const {
+  return ret_code_;
+}
+inline void LogicToWorldGetRoleListRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 player_id = 2;
+inline bool LogicToWorldGetRoleListRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToWorldGetRoleListRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldGetRoleListRsp::player_id() const {
+  return player_id_;
+}
+inline void LogicToWorldGetRoleListRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 born_zone_id = 3;
+inline bool LogicToWorldGetRoleListRsp::has_born_zone_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LogicToWorldGetRoleListRsp::set_has_born_zone_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_has_born_zone_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_born_zone_id() {
+  born_zone_id_ = 0u;
+  clear_has_born_zone_id();
+}
+inline ::google::protobuf::uint32 LogicToWorldGetRoleListRsp::born_zone_id() const {
+  return born_zone_id_;
+}
+inline void LogicToWorldGetRoleListRsp::set_born_zone_id(::google::protobuf::uint32 value) {
+  set_has_born_zone_id();
+  born_zone_id_ = value;
+}
+
+// optional uint64 proxy_id = 4;
+inline bool LogicToWorldGetRoleListRsp::has_proxy_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LogicToWorldGetRoleListRsp::set_has_proxy_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_has_proxy_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_proxy_id() {
+  proxy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_proxy_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldGetRoleListRsp::proxy_id() const {
+  return proxy_id_;
+}
+inline void LogicToWorldGetRoleListRsp::set_proxy_id(::google::protobuf::uint64 value) {
+  set_has_proxy_id();
+  proxy_id_ = value;
+}
+
+// optional uint64 client_id = 5;
+inline bool LogicToWorldGetRoleListRsp::has_client_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LogicToWorldGetRoleListRsp::set_has_client_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_has_client_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LogicToWorldGetRoleListRsp::clear_client_id() {
+  client_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_client_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldGetRoleListRsp::client_id() const {
+  return client_id_;
+}
+inline void LogicToWorldGetRoleListRsp::set_client_id(::google::protobuf::uint64 value) {
+  set_has_client_id();
+  client_id_ = value;
+}
+
+// repeated .proto_ff.tbRoleInfo role_info_list = 6;
+inline int LogicToWorldGetRoleListRsp::role_info_list_size() const {
+  return role_info_list_.size();
+}
+inline void LogicToWorldGetRoleListRsp::clear_role_info_list() {
+  role_info_list_.Clear();
+}
+inline const ::proto_ff::tbRoleInfo& LogicToWorldGetRoleListRsp::role_info_list(int index) const {
+  return role_info_list_.Get(index);
+}
+inline ::proto_ff::tbRoleInfo* LogicToWorldGetRoleListRsp::mutable_role_info_list(int index) {
+  return role_info_list_.Mutable(index);
+}
+inline ::proto_ff::tbRoleInfo* LogicToWorldGetRoleListRsp::add_role_info_list() {
+  return role_info_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tbRoleInfo >&
+LogicToWorldGetRoleListRsp::role_info_list() const {
+  return role_info_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tbRoleInfo >*
+LogicToWorldGetRoleListRsp::mutable_role_info_list() {
+  return &role_info_list_;
 }
 
 

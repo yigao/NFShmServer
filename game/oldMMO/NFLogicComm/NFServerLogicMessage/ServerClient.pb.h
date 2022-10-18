@@ -40,6 +40,7 @@ class PingRsp;
 class ServerToClientQueue_RSP;
 class NotifyLogoutGame;
 class NotifyLogoutGame_SwitchServerParam;
+class ClientLoginGateRsp;
 
 // ===================================================================
 
@@ -428,6 +429,101 @@ class NotifyLogoutGame : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static NotifyLogoutGame* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class ClientLoginGateRsp : public ::google::protobuf::Message {
+ public:
+  ClientLoginGateRsp();
+  virtual ~ClientLoginGateRsp();
+
+  ClientLoginGateRsp(const ClientLoginGateRsp& from);
+
+  inline ClientLoginGateRsp& operator=(const ClientLoginGateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ClientLoginGateRsp& default_instance();
+
+  void Swap(ClientLoginGateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  ClientLoginGateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ClientLoginGateRsp& from);
+  void MergeFrom(const ClientLoginGateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::uint32 ret() const;
+  inline void set_ret(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+  inline int charinfolist_size() const;
+  inline void clear_charinfolist();
+  static const int kCharInfoListFieldNumber = 2;
+  inline const ::proto_ff::CharacterDBSimpleInfo& charinfolist(int index) const;
+  inline ::proto_ff::CharacterDBSimpleInfo* mutable_charinfolist(int index);
+  inline ::proto_ff::CharacterDBSimpleInfo* add_charinfolist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBSimpleInfo >&
+      charinfolist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBSimpleInfo >*
+      mutable_charinfolist();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ClientLoginGateRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBSimpleInfo > charinfolist_;
+  ::google::protobuf::uint32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerClient_2eproto();
+  friend void protobuf_AssignDesc_ServerClient_2eproto();
+  friend void protobuf_ShutdownFile_ServerClient_2eproto();
+
+  void InitAsDefaultInstance();
+  static ClientLoginGateRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -709,6 +805,57 @@ inline void NotifyLogoutGame::set_allocated_switch_server_param(::proto_ff::Noti
   } else {
     clear_has_switch_server_param();
   }
+}
+
+// -------------------------------------------------------------------
+
+// ClientLoginGateRsp
+
+// required uint32 ret = 1;
+inline bool ClientLoginGateRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ClientLoginGateRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ClientLoginGateRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ClientLoginGateRsp::clear_ret() {
+  ret_ = 0u;
+  clear_has_ret();
+}
+inline ::google::protobuf::uint32 ClientLoginGateRsp::ret() const {
+  return ret_;
+}
+inline void ClientLoginGateRsp::set_ret(::google::protobuf::uint32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated .proto_ff.CharacterDBSimpleInfo charInfoList = 2;
+inline int ClientLoginGateRsp::charinfolist_size() const {
+  return charinfolist_.size();
+}
+inline void ClientLoginGateRsp::clear_charinfolist() {
+  charinfolist_.Clear();
+}
+inline const ::proto_ff::CharacterDBSimpleInfo& ClientLoginGateRsp::charinfolist(int index) const {
+  return charinfolist_.Get(index);
+}
+inline ::proto_ff::CharacterDBSimpleInfo* ClientLoginGateRsp::mutable_charinfolist(int index) {
+  return charinfolist_.Mutable(index);
+}
+inline ::proto_ff::CharacterDBSimpleInfo* ClientLoginGateRsp::add_charinfolist() {
+  return charinfolist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBSimpleInfo >&
+ClientLoginGateRsp::charinfolist() const {
+  return charinfolist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBSimpleInfo >*
+ClientLoginGateRsp::mutable_charinfolist() {
+  return &charinfolist_;
 }
 
 

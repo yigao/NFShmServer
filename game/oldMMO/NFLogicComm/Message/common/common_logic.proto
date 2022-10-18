@@ -2,6 +2,8 @@ package proto_ff;
 
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
+import "Com.proto";
+import "ComDefine.proto";
 
 message PacketMsg {
   optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl) = true];
@@ -54,7 +56,7 @@ message ForceDupProto
 //角色工会精修数据
 message CharMultTrimProto
 {
-  repeated CharTrimProto trim_lst = 1[(yd_fieldoptions.field_arysize)=128];
+  repeated CharTrimProto trim_lst = 1[(yd_fieldoptions.field_arysize)=12];
 }
 
 // 角色基础数据 注意每加一个字段，计算下最大值 2058+3*1024+4 = 5134B
@@ -170,12 +172,20 @@ message Attr64
   optional int64 Attrvalue = 2;   //属性值
 }
 
+//64位属性通信结构
+message AttrEx64
+{
+  optional uint32 AttrNum = 1;    //属性索引id
+  optional uint64 Attrvalue = 2;  //属性值
+  optional uint32 AttrIndex = 3;	//索引
+}
+
 //领域材料属性
 message FieldItemAttrInfo
 {
-  repeated Attr   base_attr		= 1[(yd_fieldoptions.field_arysize)=128];		// 基础属性
-  repeated Attr	star_attr		= 2[(yd_fieldoptions.field_arysize)=128];		// 星级属性
-  repeated Attr 	blue_star_attr	= 3[(yd_fieldoptions.field_arysize)=128];		// 蓝星属性
+  repeated Attr   base_attr		= 1[(yd_fieldoptions.field_arysize)=12];		// 基础属性
+  repeated Attr	star_attr		= 2[(yd_fieldoptions.field_arysize)=12];		// 星级属性
+  repeated Attr 	blue_star_attr	= 3[(yd_fieldoptions.field_arysize)=12];		// 蓝星属性
   optional int32	refine_level	= 4;		// 精炼等级
 }
 
@@ -197,7 +207,7 @@ message ComposeSingleCostProto
 //合成装备 扣除的所有装备 信息
 message ComposeCostProto
 {
-  repeated ComposeSingleCostProto info = 1[(yd_fieldoptions.field_arysize)=128];
+  repeated ComposeSingleCostProto info = 1[(yd_fieldoptions.field_arysize)=12];
 }
 
 message blustarAttr
@@ -213,11 +223,11 @@ message ItemProtoInfo
   optional uint64 item_id			= 1;		//物品ID(配置ID)
   optional int64  item_num		= 2;		//物品数量
   optional int32  bind			= 3;		//绑定状态 0 非绑定，1 绑定
-  repeated Attr   baseattr		= 4[(yd_fieldoptions.field_arysize)=128];		//基础属性
+  repeated Attr   baseattr		= 4[(yd_fieldoptions.field_arysize)=12];		//基础属性
   optional int32  index			= 5;		//索引(穿戴装备标示穿戴位置,背包中表示格子索引)
   optional int32  level			= 6;		//等级
-  repeated Attr   refineex		= 8[(yd_fieldoptions.field_arysize)=128];		//星级属性
-  repeated blustarAttr   con_attr	= 9[(yd_fieldoptions.field_arysize)=128];		//固定附加属性(对应蓝色星条属性值)
+  repeated Attr   refineex		= 8[(yd_fieldoptions.field_arysize)=12];		//星级属性
+  repeated blustarAttr   con_attr	= 9[(yd_fieldoptions.field_arysize)=12];		//固定附加属性(对应蓝色星条属性值)
   optional uint64 expireTime		= 10;		//过期时间
   optional FieldItemAttrInfo		field_data = 11;	// 领域材料属性数据
   optional MarryEquipInfo			marry_equip_data = 12;	//结婚装备信息
@@ -231,7 +241,7 @@ message CharacterDBPackageBag
 {
   optional uint32 package_type = 1;
   optional uint32 expand_num   = 2;
-  repeated ItemProtoInfo items = 3[(yd_fieldoptions.field_arysize)=128];
+  repeated ItemProtoInfo items = 3[(yd_fieldoptions.field_arysize)=12];
   optional int32 	offset = 4;
 }
 
@@ -239,8 +249,1678 @@ message CharacterDBPackageBag
 //背包数据
 message CharacterDBPackageData
 {
-  repeated CharacterDBPackageBag bags = 1[(yd_fieldoptions.field_arysize)=128];
+  repeated CharacterDBPackageBag bags = 1[(yd_fieldoptions.field_arysize)=12];
 }
+
+// =======================================角色任务数据===============================
+//任务步骤信息
+message CharacterDBMissionItemInfo
+{
+  optional uint32 type			= 1; //物品类型
+  optional uint64 id				= 2; //目标id
+  optional uint32 currentValue	= 3; //当前值
+  optional uint32 finalValue		= 4; //完成值
+  optional bool completedFlag		= 5; //是否完成标记
+  optional uint64 parma1			= 6; //可选参数1
+  optional uint64 parma2			= 7; //可选参数2
+  optional uint64 parma3			= 8; //可选参数3
+}
+
+//玩家单个任务数据
+message CharacterDBMissionTrack
+{
+  optional uint64 missionId					 = 1; //任务ID
+  optional uint64 dynamicid					 = 2; //动态任务ID
+  optional uint32 status						 = 3; //任务当前状态
+  optional uint64 acceptMissionTime			 = 4; //接收任务时间
+  repeated CharacterDBMissionItemInfo itemInfo = 5[(yd_fieldoptions.field_arysize)=12]; //任务的步骤信息数据
+  optional uint64 textid						 = 6; //前端显示用的id(对应taskcontent中text表)
+}
+
+//动态任务次数
+message CharacterDBDyMissionInfo
+{
+  optional int32 mission_type = 1; //任务类型
+  optional uint64 lastfresh = 2;	 //最近刷新时间
+  optional int32 accept_num = 3;	 //已经接取次数
+}
+
+//最近提交的任务
+message CharacterDBRecentSubmitMission
+{
+  optional int32 mission_type = 1; //任务类型
+  optional uint64 mission_id = 2;	 //任务ID
+}
+
+//任务数据总和
+message CharacterDBTaskData
+{
+  repeated CharacterDBMissionTrack missionTrack	= 1[(yd_fieldoptions.field_arysize)=12]; //当前任务列表
+  repeated CharacterDBDyMissionInfo dyinfo = 2[(yd_fieldoptions.field_arysize)=12];	//动态任务次数信息
+  repeated uint64 already_submit = 3[(yd_fieldoptions.field_arysize)=12];			//已经提交的任务列表
+  repeated CharacterDBRecentSubmitMission recent_submit = 4[(yd_fieldoptions.field_arysize)=12]; //最近提交的任务列表
+}
+// =======================================角色任务数据===============================
+
+// =======================================角色技能数据===============================
+// 单个技能数据
+message CharacterDBSkillItem
+{
+  optional int64 skillID			= 1;
+  optional int32 skillLevel		= 2;
+  optional uint64 cd              = 3;
+  optional int32  unlock          = 4;
+  optional int64 replace_skillid	= 5; //被哪个技能替换掉了
+}
+
+// 角色技能数据
+message CharacterDBSkillData
+{
+  repeated CharacterDBSkillItem	skillList	= 1[(yd_fieldoptions.field_arysize)=20];    // 技能列表
+  repeated uint32					skillAttrs	= 2[(yd_fieldoptions.field_arysize)=12];    // 技能(激活 使用)属性
+  repeated int64					skillslot	= 3[(yd_fieldoptions.field_arysize)=12];	//技能槽信息
+}
+// =======================================角色技能数据===============================
+
+// =======================================扩展信息数据===============================
+// 扩展角色详细属性信息
+message CharacterDBAttrDetailInfo
+{
+  repeated  Attr64 attrs = 1[(yd_fieldoptions.field_arysize)=12];			//战斗相关的总属性,详细的查看 ECreatureAttr 枚举中定义的战斗属性
+  optional Vector3PB cur_pos = 2;		//玩家当前坐标
+}
+
+// 角色扩展信息，预留做扩充
+message CharacterDBExtendData
+{
+  optional CharacterDBAttrDetailInfo attr_detail = 1;	//详细属性信息
+}
+// =======================================扩展信息数据===============================
+
+// =======================================装备信息数据===============================
+
+
+// =======================================装备信息数据===============================
+//装备槽位信息
+message EquipSlotProto
+{
+  optional int32  		index					= 1;			//穿戴位置索引(即槽位)
+  optional int32			strenlv					= 2;			//强化等级
+  optional int32  		refinelv				= 3;			//精炼等级
+  repeated uint64 		inlay					= 4[(yd_fieldoptions.field_arysize)=12];			//镶嵌的宝石
+  optional int32			strenexp				= 5;			//强化当前经验值
+  optional int32  		refineexp				= 6;			//精炼当前经验值
+  repeated Attr			strenAttr				= 7[(yd_fieldoptions.field_arysize)=12];			//强化所加属性
+  optional int64			refinepecent 			= 8;			//精炼属性加成，万分比
+  optional int32  		scrutinyTrepanningNum 	= 9;  			//洗炼开孔数量
+  repeated AttrEx64 		scrutinyAttr 			= 10[(yd_fieldoptions.field_arysize)=12];			//洗炼属性
+  optional int32 			clearStep	  			= 11;			//洗炼装备的段位
+  optional int64 			clearCombat	  			= 12;			//当前槽位洗炼的战力
+  optional int32 			suitlv		  			= 13;			//当前槽位套装等级
+  optional int32 			suit_record_max_lv 		= 14;			//槽位曾经套装最大等级
+  optional int32 			awaklv					= 15;			//觉醒等级
+  optional int32 			enchantinglv			= 16;			//附魔等级
+}
+
+//穿戴装备数据
+message CharacterDBEquipData
+{
+  repeated ItemProtoInfo equip		= 1[(yd_fieldoptions.field_arysize)=12];	//装备数据
+  repeated EquipSlotProto equip_slot	= 2[(yd_fieldoptions.field_arysize)=12];	//装备槽位数据
+}
+// =======================================装备信息数据===============================
+
+// =======================================副本数据===============================
+//副本信息
+message DuplicateSingleProto
+{
+  optional uint64 duplicate_id = 1;		//副本ID
+  optional int32 star = 2;				//星级
+  optional int32 cur_layer = 3;			//当前层数
+}
+
+//副本组信息
+message DuplicateGroupProto
+{
+  optional uint64 group_id = 1;		//副本组ID
+  optional int32 enter_num = 2;		//已经进入次数
+  optional int32 total_num = 3;		//总的可进入次数
+  optional int32 buy_num = 4;			//已经购买的次数
+  optional uint64 last_fresh = 5;		//上次进入时间
+}
+
+//天梯副本额外信息
+message DuplicateLadderExProto
+{
+  optional int32 cur_layer = 1[(yd_fieldoptions.field_arysize)=12];	  //当前层数
+  optional uint64 last_mail_time = 2;	//上次发送通关层数邮件奖励
+}
+
+//副本历史最高经验
+message DupHistoryExpProto
+{
+  optional uint64 duplicate_id = 1;		//副本ID
+  optional uint64 exp = 2;				//历史最高经验
+}
+
+//工会BOSS副本信息
+message DupUnionBossDBProto
+{
+  repeated uint64 mutex_id	= 1[(yd_fieldoptions.field_arysize)=12];  //已经通关的BOSS互斥ID列表
+  optional uint64 last_pass	= 2;  //最近一次通关工会BOSS副本时间
+  optional uint64 last_fail	= 3;  //最近一次通关失败的时间
+}
+
+//工会 地宫副本奖励领取信息
+message DupPalaceFetchDBProto
+{
+  optional int32 layer = 1;		//层数
+  optional int32 pass_num = 2;	//通关当前层数副本的次数
+  repeated uint32 num_lst = 3[(yd_fieldoptions.field_arysize)=12];	//已经领取的奖励id列表
+}
+//工会 多层 地宫副本奖励领取信息
+message DupPalaceMultFetchDBProto
+{
+  repeated DupPalaceFetchDBProto fetch_progress = 1[(yd_fieldoptions.field_arysize)=12]; //领奖进度
+}
+
+//工会 地宫副本信息
+message DupUnionPalaceDBProto
+{
+  optional int32 layer = 1;  //当前层数
+  repeated int32 fetched_lst = 2[(yd_fieldoptions.field_arysize)=12];//已经领取完奖励的层数列表
+  optional DupPalaceMultFetchDBProto fetch = 3;
+  optional int32 break_count = 4; //突破次数
+}
+
+//副本数据
+message CharacterDBDuplicateData
+{
+  repeated DuplicateSingleProto duplicate = 1[(yd_fieldoptions.field_arysize)=12];	//副本数据
+  repeated DuplicateGroupProto group = 2[(yd_fieldoptions.field_arysize)=12];			//副本组数据
+  repeated uint32 open_dup = 3[(yd_fieldoptions.field_arysize)=12];					//开启副本
+  optional DuplicateLadderExProto ladder = 4;		//天梯副本额外信息
+  repeated DupHistoryExpProto dup_exp = 5[(yd_fieldoptions.field_arysize)=12];		//副本历史最高经验
+  optional DupUnionBossDBProto union_boss = 6;	//工会BOSS副本
+  optional DupUnionPalaceDBProto palace = 7;		//工会地宫副本
+}
+// =======================================副本数据===============================
+
+// =======================================成就数据===============================
+//单个成就的数据
+message SingleAchievementDBData
+{
+  optional uint64 id = 1;				//成就ID
+  optional uint32 status = 2;			//当前状态1,代表未完成，2代表完成未领取，3代表已领取
+  optional uint32 completeCount = 3;	//完成数
+}
+
+//每类成就分组信息
+message GroupAchievementDBData
+{
+  optional uint32 sortType = 1;								//成就分类信息，根据配置项来确定
+  repeated SingleAchievementDBData achievementInfoList = 2[(yd_fieldoptions.field_arysize)=12];	//成就列表
+  optional uint32 achievementReward = 3;						//成就宝箱领取状态 每个比特位表示一项
+}
+
+//成就数据
+message CharacterAchievementDBData
+{
+  repeated GroupAchievementDBData groupAchievementData = 1[(yd_fieldoptions.field_arysize)=12];
+}
+// =======================================成就数据===============================
+
+// =======================================buff info===============================
+
+//buff效果参数(需要存DB的参数)
+message EffectParamProto
+{
+  optional int64		param1 = 1;	//效果参数1，参数的意义根据效果类型来定
+  optional int64		param2 = 2;	//效果参数2，参数的意义根据效果类型来定
+}
+//多个buff效果参数
+message MultEffectParamProto
+{
+  repeated EffectParamProto param_lst = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message BuffBagInfo
+{
+  optional uint32   buffBagInstId		=		1;
+  optional uint64   stateBagId		=		2;
+  optional uint32	  stateBagTime		=		3; //状态包持续时间
+  optional uint32   delayedTime		=		4; //延时时间
+
+  optional bool	  isForever			=		6; //是否永久性BUFF
+  optional uint64   skillId			=		7;
+  optional uint32   skillLevel		=		8;
+
+  optional uint64	  senderCid			=		10; //buff效果触发者的id
+
+  //旧的buff效果参数会转移到eparam 字段上
+  //为了兼容现有外网数据，这个字段依然保留，数据转移到 eparam 字段之后，此字段就不会再赋值了
+  //原来每种效果类型只支持一个参数,为了后续的扩展性，现在每种效果类型都有一个 EffeectParamProto 结构存储效果参数
+  repeated uint64   params  			=		11[(yd_fieldoptions.field_arysize)=12];	//
+
+  optional uint32   status			=		12; //buff状态
+  optional uint32   targettype		=		13;
+  optional uint64   startTime			=		14; //开始时间
+  optional MultEffectParamProto eparam =		15; //效果参数
+}
+
+message CharacterBuffData
+{
+  repeated BuffBagInfo	delayedBag	=		1[(yd_fieldoptions.field_arysize)=12];
+  repeated BuffBagInfo	buffbagLst  =		2[(yd_fieldoptions.field_arysize)=12];
+}
+// =======================================竞技场数据===============================
+//竞技场数据
+message CharacterArenaData
+{
+  optional uint32 challengeTimes = 1;			//剩余挑战次数
+  optional uint64 updateTime = 2;				//刷新的时间
+  optional uint32 historyRankId = 3[default=5001];	//历史最高排名
+  optional uint32 buyChallengeTimes	= 4;	//今天已购买挑战次数
+}
+// =======================================竞技场数据===============================
+// =======================================称号信息===============================
+//角色称号信息
+message CharacterTitleInfo
+{
+  optional uint64 id			=1;	//称号id
+  optional uint32 param		=2;	//参数值
+  optional uint64 startTime	=3; //称号激活时间
+  optional string name  		=4[(yd_fieldoptions.field_bufsize)=128];	//称号名称
+}
+
+//存数据库称号信息
+message CharacterTitleSaveData
+{
+  repeated CharacterTitleInfo titelData = 1[(yd_fieldoptions.field_arysize)=12];	//称号信息
+}
+// =======================================称号信息===============================
+// =======================================统计信息===============================
+message CharacterDBSingleOperateLimitInfo
+{
+  optional uint32 type = 1;
+  optional uint32 value = 2;
+  optional uint32 lastTime = 3;
+}
+
+//统计数据子项
+message CharacterDBOperateProto
+{
+  optional uint32 id = 1;		//累计的ID
+  optional uint64 num = 2;	//累计ID对应的数值
+}
+//统计数据多个子项
+message CharacterDBOperateMutProto
+{
+  repeated CharacterDBOperateProto operate_lst = 1[(yd_fieldoptions.field_arysize)=12];
+}
+//统计数据
+message CharacterDBOperateInfo
+{
+  optional CharacterDBOperateMutProto kill_mons = 1;			//杀怪数量
+  optional CharacterDBOperateMutProto last_kill_mons = 2;		//杀怪数量（最后一刀）
+  optional CharacterDBOperateMutProto attend_act = 3;			//参加活动次数
+  optional CharacterDBOperateMutProto last_attend_act = 4;	//上一次参加活动时间
+  optional CharacterDBOperateMutProto finish_act = 5;			//完成活动次数
+  optional CharacterDBOperateMutProto pass_dup = 6;			//通关副本次数
+  optional CharacterDBOperateMutProto coll_action = 7;		//收集副业行为次数
+  optional CharacterDBOperateMutProto make_action = 8;		//制造副业行为次数
+  optional CharacterDBOperateMutProto collect = 9;			//采集次数
+  optional CharacterDBOperateMutProto make = 10;				//制造次数
+  optional uint64 make_gold_quip = 11;						//打造金色装备次数
+  optional uint64 identify = 12;								//鉴定次数
+  optional uint64 arena_success = 13;							//竞技场胜利次数
+  optional uint64 die = 14;									//死亡次数
+  optional uint64 kill_enemy = 15;							//杀死仇人人数
+  optional uint64 kill_enemy_camp = 16;						//击杀敌对阵营人数
+  optional uint64 charge = 17;								//充值金额
+  optional uint64 gold = 18;									//获得金币数量
+  optional uint64 treasure = 19;								//挖宝次数
+  optional uint64 pandos_trans = 20;							//星盘传送次数
+  optional uint64 world_chat = 21;							//世界喊话次数
+  optional uint64 refine_success = 22;						//精炼成功次数
+  optional uint64 refine_fail = 23;							//精炼失败次数
+}
+
+//游戏中需要统计次数数据
+message CharacterDBOperateLimitInfo
+{
+  repeated CharacterDBSingleOperateLimitInfo operateLimitInfo = 1[(yd_fieldoptions.field_arysize)=12];
+  optional CharacterDBOperateInfo operate_data = 2;
+}
+
+// =======================================统计信息===============================
+// =======================================运营活动数据===============================
+message CharacterDBSingleHuoYueDuInfoInfo
+{
+  optional uint32 type = 1;
+  optional uint32 value = 2;
+  optional uint32 time = 3;
+  optional uint32 sin_process = 4;	//单次的进度
+}
+
+message CharacterDBHuoYueDuInfo
+{
+  repeated CharacterDBSingleHuoYueDuInfoInfo huoYueDuInfo = 1[(yd_fieldoptions.field_arysize)=12];
+}
+// =======================================buff info===============================
+//---------------------------------------- Indult任务----------------------------------------
+// Indult任务
+message IndultTaskEntry
+{
+  optional uint64 task_cfg_id 						= 1;	//任务配置ID
+  optional int32	cur_num								= 2;	//当前任务次数进度
+  optional int32 	task_state							= 3;	//任务状态 0:未完成。1已完成
+}
+
+// Indult任务单个任务组信息
+message IndultTaskGroupEntry
+{
+  optional uint64 group_cfg_id 						= 1;	//任务组ID
+  repeated IndultTaskEntry entrys 						= 2[(yd_fieldoptions.field_arysize)=12];	//任务列表(服务器只记录有进度的任务)
+  optional int32 	normal_reward_state					= 3;	//0：未激活 1:未领取 2:奖励已领取
+}
+
+//---------------------------------------- ColPoints任务----------------------------------------
+// 集点ColPoints任务
+message ColPointsTaskEntry
+{
+  optional uint64 task_cfg_id 						= 1;	//任务配置ID
+  optional int32	cur_num								= 2;	//当前任务次数进度
+  optional int32 	task_state							= 3;	//任务状态 0:未完成。1已完成
+}
+
+// 集点ColPoints任务单个任务组信息
+message ColPointsTaskGroupEntry
+{
+  optional uint64 group_cfg_id 						= 1;	//任务组ID
+  repeated ColPointsTaskEntry entrys 						= 2[(yd_fieldoptions.field_arysize)=12];	//任务列表(服务器只记录有进度的任务)
+  optional int32 	normal_reward_state					= 3;	//0：未领取 1:奖励已领取
+  optional int32 cur_points = 4; //
+  optional uint64 create_time = 5;
+}
+
+message ColPointsTaskData {
+  optional ColPointsTaskGroupEntry data = 1;
+  optional uint64 last_refresh_time = 2;
+  optional uint64 online_time = 3;
+}
+
+//每日签到数据
+message WelfareDailySignInDBData
+{
+  optional uint64 id = 1;
+  optional uint32 dayIndex = 2;
+  optional uint32 nState = 3;
+  optional uint64 lastResetTime = 4;
+  optional bool bRecharge = 5;//是否充过值
+}
+
+//登陆礼包数据
+message WelfareLoginGiftDBData
+{
+  optional uint64 id = 1;
+  optional uint32 LoninCount = 2;
+  optional uint64 lastResetTime = 3;
+  repeated ComPair getState = 4[(yd_fieldoptions.field_arysize)=12];
+  optional uint32 nState = 5;
+}
+
+//等级礼包数据
+message WelfareLevelGiftDBData
+{
+  optional uint64 id = 1;
+  repeated ComPair getState = 2[(yd_fieldoptions.field_arysize)=12];
+}
+
+//---------------------------------------- 限时商店----------------------------------------
+// 商品信息
+message CommodityEntry
+{
+  optional uint64 commodity_id 						= 1;	//商品ID
+  optional int32	cur_buy_num							= 2;	//该商品当前的购买次数
+}
+
+// 限时商店单个商店信息
+message LimitShopGroupEntry
+{
+  optional uint64 group_cfg_id 						= 1;	//商店组ID
+  optional int32	open_time 							= 2;	//开放时间
+  repeated CommodityEntry entrys 						= 3[(yd_fieldoptions.field_arysize)=12];	//商品列表(服务器只记录买过的商品，未买的不记录)
+}
+// 单个活动限时商店数据
+message LimitShopData
+{
+  optional uint64 id 									= 1;	//限时商店活动ID
+  repeated LimitShopGroupEntry groups					= 2[(yd_fieldoptions.field_arysize)=12];	//限时商店组信息
+}
+
+//---------------------------------------- 限时任务----------------------------------------
+// 限时任务
+message LimitTaskEntry
+{
+  optional uint64 task_cfg_id 						= 1;	//任务配置ID
+  optional int32	cur_num								= 2;	//当前任务次数进度
+  optional int32 	task_state							= 3;	//任务状态 0:未完成。1已完成
+}
+
+// 限时任务单个任务组信息
+message LimitTaskGroupEntry
+{
+  optional uint64 group_cfg_id 						= 1;	//任务组ID
+  optional int32	open_time 							= 2;	//开放时间
+  repeated LimitTaskEntry entrys 						= 3[(yd_fieldoptions.field_arysize)=12];	//任务列表(服务器只记录有进度的任务)
+  optional int32 	normal_reward_state					= 4;	//0:未领取 1:普通奖励已领取
+  optional int32 	senior_reward_state					= 5;	//0:未领取 1:困难奖励已领取
+}
+// 单个活动限时任务数据
+message LimitTaskData
+{
+  optional uint64 id 									= 1;	//限时任务活动ID
+  repeated LimitTaskGroupEntry groups					= 2[(yd_fieldoptions.field_arysize)=12];	//限时任务组信息
+}
+
+//---------------------------------------- 祈愿数据----------------------------------------
+//祈愿类型数据
+
+message WishDBTypeEntry
+{
+  optional int32 	wish_type  							= 1;	//1金币祈愿 2：经验祈愿
+  optional int32	wished_num 							= 2;	//已祈愿的次数(免费祈愿不计数)
+  optional uint64	refresh_time						= 3;	//下次免费时间(经验祈愿这个字段无效)
+  optional uint64 last_time							= 4;	//上次保存时间
+}
+//单个祈愿数据
+message WishDBData
+{
+  optional uint64 id 									= 1;	//祈愿活动ID
+  repeated WishDBTypeEntry type_entry					= 2[(yd_fieldoptions.field_arysize)=12];	//金币祈愿。经验祈愿信息
+}
+
+/////---------------------------------------限时节日活动-------------------------------------------------------
+//节日投资
+message FestivalInvestDBData
+{
+  optional uint64 nActiveId = 1;	//活动ID
+  optional bool	bInvest = 2;     //是否已投资
+  optional uint64 nLastResetTime = 3; //上次刷新时间
+  optional int32 nLoninCount = 4; //登陆天数
+  repeated ComPair getState = 5[(yd_fieldoptions.field_arysize)=12]; //领取状态
+  repeated ComPair params = 6[(yd_fieldoptions.field_arysize)=12];	//参数列表
+  optional int64	investTime = 7;	//投资的时间点
+}
+
+//节日兑换
+message FestivalExchangeDBData
+{
+  optional uint64 nActiveId = 1;	//活动ID
+  repeated ComPair exchangeCount = 2[(yd_fieldoptions.field_arysize)=12];  //已兑换次数
+}
+
+//节日登陆
+message FestivalLoginDBData
+{
+  optional uint64 activeId = 1;	//活动ID
+  optional uint64 nLastResetTime = 2; //上次刷新时间
+  optional uint32 nLoninCount = 3; //登陆天数
+  repeated ComPair getState = 4[(yd_fieldoptions.field_arysize)=12]; //领取状态
+}
+
+//节日累计充值
+message FestivalTotalRechargeDBData
+{
+  optional uint64 activeId = 1;	//活动ID
+  optional uint32 nRechargeCount = 2; //充值数据
+  repeated ComPair getState = 3[(yd_fieldoptions.field_arysize)=12]; //领取状态
+  optional uint32 nRechargeHoly = 4; //神钻充值数据
+}
+
+//节日累计消费
+message FestivalConsumptionDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  optional uint32 nConsumptionValue = 2;	//消费数值
+  repeated ComPair getState = 3[(yd_fieldoptions.field_arysize)=12];			//领取状态
+  optional uint32 nConsumptionHoly = 4;	//消费神钻
+  optional uint32 nConsumptionVoucher = 5;//消费金券
+}
+
+//boss 首杀
+message FestivalKillBossData
+{
+  optional uint64 activeId = 1;			//活动ID
+  repeated ComPair getState = 2[(yd_fieldoptions.field_arysize)=12];			//领取状态
+}
+
+//直充
+message FestivalZhiChongData
+{
+  optional uint64 activeId = 1;			//活动ID
+  repeated ComPair getState = 2[(yd_fieldoptions.field_arysize)=12];			//领取状态
+  repeated int64 	pointList = 3[(yd_fieldoptions.field_arysize)=12];			//计费点列表
+}
+
+//预充值(金券)
+message FestivalPreRechargeData
+{
+  optional uint64 activeId 	= 1;			//活动ID
+  repeated ComPair buy 		= 2[(yd_fieldoptions.field_arysize)=12];			//已购买列表
+  repeated int64 	pointList	= 3[(yd_fieldoptions.field_arysize)=12];			//计费点列表
+}
+
+//超级加倍
+message FestivalSuperDBData
+{
+  optional uint64 activeId = 1;	//活动ID
+  optional uint64 nLastResetTime = 2; //上次刷新时间
+  optional uint32 nLoninCount = 3; //登陆天数
+  optional int32  getId	= 4;	//领取的ID
+  optional int32 	active_state = 5;	//激活状态
+}
+
+//超级加倍礼包(在线特惠)
+message FestivalSuperDoubleDBData
+{
+  optional uint64 activeId = 1;	//活动ID
+  optional uint64 nLastResetTime = 2; //上次刷新时间
+  optional uint32 curGiftId = 3; 	//当前ID
+  optional int32  curGiftState = 4;	//当前档位是否领取
+  optional int32 	curDailyState = 5;	//当前每日礼包状态
+}
+
+//节日活跃度
+message FestivalHuoYueDuDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  optional uint32 nHuoYueDu = 2;			//消费数值
+  repeated ComPair getState = 3[(yd_fieldoptions.field_arysize)=12];			//领取状态
+}
+
+//节日首冲数据
+message FestivalFirstRechargeDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  optional uint32 rechargeTime = 2;		//充值时间
+  repeated ComPair getState = 3[(yd_fieldoptions.field_arysize)=12];			//领取状态
+}
+
+//节日 烟花庆典
+message FestivalYanHuaDBData
+{
+  optional uint64 activeId = 1;		//活动ID
+  repeated uint64 getItems = 2[(yd_fieldoptions.field_arysize)=12];		//已获得的奖励
+}
+
+//节日 烟花庆典(大烟花)
+message FestivalBigYanHuaDBData
+{
+  optional uint64 activeId = 1;		//活动ID
+  repeated uint64 getItems = 2[(yd_fieldoptions.field_arysize)=12];		//已获得的奖励
+}
+
+//节日 烟花商城
+message FestivalShopDBData
+{
+  optional uint64 activeId = 1;		//活动ID
+  repeated ComPair64 buyCount = 2[(yd_fieldoptions.field_arysize)=12];	//已购买次数
+}
+////////////////////限时礼包/////////////////////////////////////////////////////////////////
+////////////////////限时礼包/////////////////////////////////////////////////////////////////
+
+//限时礼包玩家数据
+message LimitGiftDBData
+{
+  optional uint32 giftId = 1;				//礼包id
+  optional uint64 buyTime = 2;			//购买时间 0表示未购买
+  optional uint32 getState = 3;			//领取状态 (已买后有次状态，为每日返还按钮状态)
+  optional uint32 totalBack = 4;			//剩余总返还数量
+  optional uint32 openTime = 5;			//此礼包开启时间
+  optional uint64 lastResetTime = 6;		//上次刷新时间
+}
+
+//限时礼包数据
+message LimitGiftActiveDBData
+{
+  optional uint64 activeId = 1;	//活动ID
+  optional bool  isFinish = 2;			//是否已结束
+  repeated LimitGiftDBData giftList = 3[(yd_fieldoptions.field_arysize)=12]; //礼包数据
+}
+
+
+//充值活动数据
+message FRechargeDBData
+{
+  optional uint64 pointId = 1;	//档位ID
+  optional uint32 state = 2;		//状态
+}
+
+//充值活动数据
+message FRechargeActiveDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  repeated FRechargeDBData dataList = 2[(yd_fieldoptions.field_arysize)=12];  //数据
+}
+
+//蛋的数据
+message FSmashEggDBData
+{
+  optional uint64 itemId = 1;			//物品ID
+  optional uint32 position = 2;		//位置
+  optional uint32 quality = 3;		//品质
+  optional uint32 itemNum = 4;		//物品数量
+}
+
+//砸蛋数据
+message FestivalSmashEggDBData
+{
+  optional uint64 activeId = 1;				//活动ID
+  optional uint64 smashCount = 2;				//砸蛋的次数
+  optional uint64 smashCountToday = 3;		//今天砸蛋的次数
+  optional uint64 freeTimeDeadLine = 4;		//免费时间
+  optional uint32 addRateCount = 5;			//增加彩色蛋几率的数值（未刷出彩色蛋加1）
+  optional uint32 resetRewardTime = 6;		//上次重置次数奖励的时间
+  repeated FSmashEggDBData eggData = 7[(yd_fieldoptions.field_arysize)=12];		//蛋的数据
+  repeated ComPair rewardGetState = 8[(yd_fieldoptions.field_arysize)=12];		//福气奖励领取状态
+  optional int32	 daynum = 9;
+  optional int64	 lastTime = 10;
+}
+
+//////////////福利数据//////start////////////////////////////
+
+//活动奖励项
+message OperateReward
+{
+  optional uint64 key_id = 1;//条件ID,如果月卡，表示天数
+  optional bool isFinish = 2;//是否达成
+  optional bool isReceiveReward = 3;//是否已领
+  optional ComPair rechargeDays = 4;//每日首充用，<key:days,value:money> 累计充值多少天(一天内充值达到指定的值算一天)
+}
+
+//每日充值
+message OperateDailyRechargeData
+{
+  optional uint64 id = 1;
+  optional uint32 rmbToday = 2;//今日累计充值金额
+  optional uint32 rmbTotal = 3;//全部累计充值
+  optional uint32 lastRechargeDate = 4;//上次充值日期
+  repeated OperateReward list = 5[(yd_fieldoptions.field_arysize)=12];//奖励列表
+}
+
+//月卡
+message OperateMoonCardData
+{
+  optional uint64 id = 1;
+  optional uint32 buyDate = 2;//月卡购买日期
+  repeated OperateReward list = 3[(yd_fieldoptions.field_arysize)=12];//奖励列表
+}
+
+//基金
+message OperateFundData
+{
+  optional uint64 id = 1;
+  optional uint32 level = 2;//基金等级:0:没有，1初级，2高级
+  optional uint32 buyDate = 3;//购买日期，0：未购买
+  repeated OperateReward list = 4[(yd_fieldoptions.field_arysize)=12];//奖励列表
+}
+
+message OperateFirstRechargeType
+{
+  optional int32 type = 1;
+  optional uint64 updateTime = 2;
+  optional int32  loginDay = 3;
+}
+
+//首充
+message OperateFirstRechargeData
+{
+  optional uint64 id = 1;
+  repeated OperateReward list = 2[(yd_fieldoptions.field_arysize)=12];//奖励列表
+  repeated OperateFirstRechargeType firstType = 3[(yd_fieldoptions.field_arysize)=12]; //首冲类型
+  optional int32 rmb = 4;
+}
+
+//福利-VIP礼包数据
+message WelfareVipGiftDBData
+{
+  optional uint64 id = 1;
+  repeated ComPair getState = 2[(yd_fieldoptions.field_arysize)=12];
+}
+
+//装备寻宝奖池数据
+message HoroscopeJackpotDBData
+{
+  optional uint32	id = 1;
+  optional bool	bOpen = 2;			//是否开启
+  optional uint32 nNeedLevel = 3;		//开启等级
+  optional uint32 luckyValue = 4;     //幸运值
+  optional uint32 welfareValue = 5;   //福气值
+  optional uint32 getLuckyCount = 6;  //触发幸运值奖励次数
+  repeated ComPair welfareGetState = 7[(yd_fieldoptions.field_arysize)=12]; //福气奖励领取状态
+  optional int64  lastTime = 8;				//上次抽奖时间
+  optional int32  curNum = 9;				//当前抽奖次数
+}
+
+//装备寻宝数据
+message HoroscopeActiveDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  optional uint64 drawCount = 2;          //抽奖次数
+  optional uint32 freeOpId = 3;			//当前免费的奖池id
+  optional uint64 lastFreeGetTime = 4;	//上次免费领取时间
+  repeated HoroscopeJackpotDBData jackpotList = 5[(yd_fieldoptions.field_arysize)=12]; //奖池数据
+}
+
+//福利-在线礼包数据
+message WelfareOnlineGiftDBData
+{
+  optional uint64 id = 1;
+  optional uint64 lastRefreshTime = 2;
+  optional uint64 OnlineTime = 3;
+  repeated ComPair getState = 4[(yd_fieldoptions.field_arysize)=12];
+
+}
+
+//幸运抽奖任务数据
+message OperationTurntableTaskDBData
+{
+  optional uint64 taskId = 1;			//任务ID
+  optional uint64 progress = 2;       //进度
+  optional uint32 state = 3;			//状态
+}
+
+
+//幸运抽奖数据
+message OperationTurntableDBData
+{
+  optional uint64 activeId = 1;			//活动ID
+  optional uint64 lastRefreshTime = 2;    //上传刷新时间
+  repeated OperationTurntableTaskDBData tasklist = 3[(yd_fieldoptions.field_arysize)=12]; //任务数据
+}
+
+//师徒任务数据
+message OperationTutoraskDBData
+{
+  optional uint64 taskId = 1;			//任务ID
+  optional uint64 progress = 2;       //进度
+  optional uint32 state = 3;			//状态
+}
+
+
+//师徒数据
+message OperationTutorDBData
+{
+  optional uint64 activeId = 1;					//活动ID
+  optional uint64 lastRefreshTime = 2;			//上传刷新时间
+  optional uint64 diligentValue = 3;				//上传刷新时间
+  repeated OperationTutoraskDBData tasklist = 4[(yd_fieldoptions.field_arysize)=12];	//任务数据
+}
+
+//无限领取
+message limitInfo
+{
+  optional uint64		id								= 1;	//活动ID
+  repeated ComPair64 infos = 2[(yd_fieldoptions.field_arysize)=12];
+}
+
+//世界BOSS
+message FestivalWorldBossData
+{
+  optional uint64 activeId = 1;			//活动ID
+  repeated ComPair getState = 2[(yd_fieldoptions.field_arysize)=12];			//领取状态
+}
+
+//
+message OperateCommonEntryData
+{
+  optional uint64 id = 1;
+  optional int32 	state = 2;	//0未达成，1已达成，2已领取
+  optional int64  value = 3;
+}
+// 在线翅膀礼包
+message OperateWingGiftData
+{
+  optional uint64 activeId = 1;						//活动ID
+  repeated OperateCommonEntryData entrys = 2[(yd_fieldoptions.field_arysize)=12];			//活动条目
+  optional int64 	refreshTime = 3;					//最近登录的时间
+  optional int32 	loginDay = 4;						//登录天数
+}
+
+// 首冲礼包
+message OperateRechargeGiftData
+{
+  optional uint64 activeId = 1;						//活动ID
+  repeated OperateCommonEntryData entrys = 2[(yd_fieldoptions.field_arysize)=12];			//活动条目
+  optional int32 	rechargeRmb = 3;					//当前充值额度
+}
+
+//运营活动数据
+message CharacterDBOperateData
+{
+  repeated WelfareDailySignInDBData signInData	= 1[(yd_fieldoptions.field_arysize)=12]; //每日签到数据
+  repeated WelfareLoginGiftDBData loginGiftData	= 2[(yd_fieldoptions.field_arysize)=12]; //登陆礼包数据
+  repeated WelfareLevelGiftDBData levelGiftData	= 3[(yd_fieldoptions.field_arysize)=12]; //等级礼包数据
+
+  repeated LimitShopData 			shopData		= 4[(yd_fieldoptions.field_arysize)=12]; //限时商店数据
+  repeated LimitTaskData			taskData		= 5[(yd_fieldoptions.field_arysize)=12]; //限时任务数据
+  repeated WishDBData				wishData		= 6[(yd_fieldoptions.field_arysize)=12]; //祈愿数据
+  optional OperateDailyRechargeData dailyRecharge = 7; //每日首充
+  optional OperateFirstRechargeData firstRecharge = 8; //首充
+  optional OperateMoonCardData moonCard			= 9; //月卡
+  optional OperateFundData noviceFund				= 10; //新萌基金
+  optional OperateFundData growthFund				= 11; //成长基金
+  optional OperateFundData dreamFund				= 12; //梦想基金
+  optional OperateFundData noviceFundHigh			= 13; //新萌基金-高级版
+  optional OperateFundData growthFundHigh			= 14; //成长基金-高级版
+  optional OperateFundData dreamFundHigh			= 15; //梦想基金-高级版
+
+  repeated FestivalInvestDBData			fInvestDBData		= 16[(yd_fieldoptions.field_arysize)=12]; //节日投资
+  repeated FestivalExchangeDBData			fExchangeDBData		= 17[(yd_fieldoptions.field_arysize)=12]; //节日兑换
+  repeated FestivalLoginDBData			fLoginDBData		= 18[(yd_fieldoptions.field_arysize)=12]; //节日登陆
+  repeated FestivalTotalRechargeDBData	fRechargeDBData		= 19[(yd_fieldoptions.field_arysize)=12]; //节日累计充值
+  repeated FestivalConsumptionDBData		fConsumptionDBData	= 20[(yd_fieldoptions.field_arysize)=12]; //累计消费
+  repeated FestivalFirstRechargeDBData	fFirstRechargeDBData= 21[(yd_fieldoptions.field_arysize)=12]; //节日首充
+  repeated FestivalYanHuaDBData			fYanHuaDBData		= 22[(yd_fieldoptions.field_arysize)=12]; //节日烟花庆典
+  repeated FestivalShopDBData				fShopDBData			= 23[(yd_fieldoptions.field_arysize)=12]; //节日庆典商城
+
+  repeated LimitGiftActiveDBData limitGiftDBData = 24[(yd_fieldoptions.field_arysize)=12];			//限时礼包数据
+  repeated HoroscopeActiveDBData horoscopeDBData = 25[(yd_fieldoptions.field_arysize)=12];			//装备寻宝数据
+
+  repeated FRechargeActiveDBData festivalRechargeDBData = 26[(yd_fieldoptions.field_arysize)=12];    //充值活动数据
+
+  repeated FestivalSmashEggDBData	fSmashEggDBData = 27[(yd_fieldoptions.field_arysize)=12]; 			//砸蛋数据
+
+  repeated ComPair64 redPointClickData = 28[(yd_fieldoptions.field_arysize)=12];  					//红点点击数据
+
+
+  repeated WelfareVipGiftDBData wVipDBData = 29[(yd_fieldoptions.field_arysize)=12]; 					//福利-vip礼包数据
+  repeated WelfareOnlineGiftDBData wOnlineDBData = 30[(yd_fieldoptions.field_arysize)=12]; 			//福利-在线礼包数据
+  repeated FestivalKillBossData fBossDBData = 31[(yd_fieldoptions.field_arysize)=12];					//玩家个人BOSS数据
+  repeated FestivalHuoYueDuDBData fHuoYueDuDBData = 32[(yd_fieldoptions.field_arysize)=12];			//玩家活跃度数据
+
+  repeated OperationTurntableDBData fTurntableDBData = 33[(yd_fieldoptions.field_arysize)=12];		//玩家幸运抽奖数据
+
+  repeated OperationTutorDBData TutorDBData = 34[(yd_fieldoptions.field_arysize)=12]; 				//师徒数据
+  repeated FestivalZhiChongData zhiChongData = 35[(yd_fieldoptions.field_arysize)=12];				//直充数据
+  repeated limitInfo		limitData = 36[(yd_fieldoptions.field_arysize)=12];
+  repeated FestivalSuperDBData superData = 37[(yd_fieldoptions.field_arysize)=12];					//超级加倍
+
+  repeated FestivalBigYanHuaDBData fBigYanHuaDBData = 38[(yd_fieldoptions.field_arysize)=12]; 		//节日烟花庆典(大烟花)
+  repeated FestivalWorldBossData worldBossData = 39[(yd_fieldoptions.field_arysize)=12];				//世界BOSS数据
+
+  repeated FestivalPreRechargeData prerechargedata = 40[(yd_fieldoptions.field_arysize)=12];			//预充值(金券)数据
+  optional OperateWingGiftData	winggiftdata = 41;	//在线翅膀礼包
+  optional OperateRechargeGiftData	rechargegiftdata = 42;	//在线翅膀礼包
+  repeated FestivalSuperDoubleDBData superDoubleData = 43[(yd_fieldoptions.field_arysize)=12];					//超级加倍
+  repeated IndultTaskGroupEntry IndultTaskDBData = 44[(yd_fieldoptions.field_arysize)=12];			//Indult任务数据
+  optional ColPointsTaskData ColPointsTaskData = 45; //colPoints任务数据
+}
+// =======================================运营活动数据===============================
+//玩家个人活动数据 28+4*20 =108B
+message PlayerActiveAnswerData
+{
+  optional uint32   answerIndex =1; //答题索引
+  repeated uint32   answerList  = 2[(yd_fieldoptions.field_arysize)=12]; //玩家题目列表
+  optional uint32	  allexp	  = 3;	//获得的总经验
+  optional uint32   allmoney	  = 4;	//获得的总经验
+  optional uint32	  correctnum  = 5;	//正确的题目数量
+  optional uint32   isGetReward = 6;  //是否已领取最终奖励  0表示没领取，1表示已领取
+  optional uint64	  lastAnswerTime=7;	//上一次答题时间
+}
+
+message CharacterDBActiveInfo
+{
+  optional PlayerActiveAnswerData playerActiveAnswerInfo	= 1;	//答题活动数据
+  optional PlayerActiveAnswerData playerActiveDailyAnswerInfo	= 2;	//每日答题活动数据
+}
+// =======================================答题活动数据===============================
+// =======================================答题活动数据===============================
+// =======================================玩家个人充值数据===============================
+//充值次数信息
+message PayCountDBProto
+{
+  optional int32 charge_id = 1;   //充值配置ID，recharge.xlsx-recharge 表 id字段
+  optional uint32 count = 2;		//今日已充值次数
+}
+
+//线下返钻数据
+message OfflineRetDBProto
+{
+  optional int64 diamond = 1;    //充值的钻石数
+  optional uint64 time = 2;    //最近一次充值钻石的时间
+  optional uint64 freshtime = 3;  //最新刷新时间
+}
+
+//玩家充值数据
+message CharacterPayData
+{
+  optional uint32  rmb      = 1;
+  optional uint32  maxPayId = 2;
+  repeated string  payedProducts = 3[(yd_fieldoptions.field_arysize)=12, (yd_fieldoptions.field_bufsize)=128];
+  optional uint32 today_rmb = 4;				//今日充值人名币
+  optional uint64 last_time = 5;				//今日最近充值时间
+  repeated PayCountDBProto pay_count = 6[(yd_fieldoptions.field_arysize)=12];		//充值次数信息
+  optional uint64 pay_count_time = 7;			//上次刷新充值次数时间
+  optional int64 diamond = 8;					//上次充值钻石数(已废弃，用于旧的线下返钻活动，为了和线上兼容，不要删除)
+  optional uint64	 real_rmb = 9;				//真实RMB额度
+  optional int64 freshtime = 10;				//最新刷新时间 (已废弃，用于旧的线下返钻活动，为了和线上兼容，不要删除)
+  optional int32	openwindow = 11;			//是否弹窗
+  optional OfflineRetDBProto offline_ret = 12;//线下返利数据
+}
+
+// =======================================玩家个人充值数据===============================
+// =======================================功能解锁===============================
+  //功能解锁信息
+  message FunctionUnlockInfo
+  {
+    repeated uint64 unlockIds	= 1[(yd_fieldoptions.field_arysize)=12]; //所有已解锁的 功能id
+  }
+// =======================================功能解锁===============================
+// =======================================纹章数据===============================
+  //纹章槽
+  message EmblemSlot
+  {
+    optional uint32 slotId = 1;//配置ID
+    optional uint32 groupId = 2;//初级-中级-高级
+    optional uint32 posId = 3;//槽位置
+    optional uint32 attrType = 4;//属性类型
+    optional bool open = 5;//是否开放
+    optional uint64 itemId = 6;//纹章ID
+    optional uint32 bind = 7;//绑定状态
+  }
+
+  //纹章数据
+  message CharacterDBEmblemData
+  {
+    repeated EmblemSlot slots = 1[(yd_fieldoptions.field_arysize)=12];
+    repeated ComPair groupSuitIds = 2[(yd_fieldoptions.field_arysize)=12];
+    repeated ComPair suitSkillId = 3[(yd_fieldoptions.field_arysize)=12];
+  }
+// =======================================纹章数据===============================
+// =======================================图鉴数据===============================
+  //图鉴数据
+  message CharacterDBIdentifyData
+  {
+    repeated ComPair64 identifys = 1[(yd_fieldoptions.field_arysize)=12];		//图鉴数据
+    repeated ComPair64 identifyfates = 2[(yd_fieldoptions.field_arysize)=12];	//图鉴羁绊数据
+  }
+// =======================================图鉴数据===============================
+// =======================================buff info===============================
+  //元素数据
+  message ElementInfoData
+  {
+    optional uint32 type = 1;	//类型
+    optional uint32 level = 2;	//等级
+    optional uint64 exp = 3;	//经验值
+  }
+
+  //元素数据
+  message CharacterDBElementData
+  {
+    repeated ElementInfoData elements = 1[(yd_fieldoptions.field_arysize)=12];		//元素数据
+    repeated ComPair64 fragments = 2[(yd_fieldoptions.field_arysize)=12];			//元素碎片数据
+  }
+// =======================================时装数据===============================
+  //时装数据
+  message CharacterDBFashionData
+  {
+    repeated ComPair64 fashions = 1[(yd_fieldoptions.field_arysize)=12];			//激活的时装
+    optional uint64 dressClothesFashionID = 2;	//装备的衣服类时装ID
+    optional uint64 dressWeaponFashionID = 3;	//装备的武器类时装ID
+  }
+
+  // =======================================时装数据===============================
+// =======================================翅膀数据===============================
+  //翅膀数据
+  message CharacterDBWingData
+  {
+    optional uint64 advanceWingExp = 1;			//进阶翅膀经验
+    optional uint32 advanceWingLev = 2;			//进阶翅膀等级
+    optional uint64 equipWingID = 3;			//装备的翅膀ID
+    repeated ComPair64 fantasyWings = 4[(yd_fieldoptions.field_arysize)=12];		//拥有的幻化翅膀列表
+    repeated ComPair64 fragments = 5[(yd_fieldoptions.field_arysize)=12];			//羽灵信息
+    optional int32 isbreak = 6;					//是否已经突破 1-是, 0-否
+  }
+// =======================================翅膀数据===============================
+// =======================================伙伴数据===============================
+  //伙伴数据
+  message CharacterDBPartnerData
+  {
+    optional uint64 advancePartnerExp = 1;			//进阶伙伴经验
+    optional uint32 advancePartnerLev = 2;			//进阶伙伴等级
+    optional uint64 equipPartnerID = 3;			//装备的伙伴ID
+    repeated ComPair64 fantasyPartners = 4[(yd_fieldoptions.field_arysize)=12];		//拥有的幻化伙伴列表
+    repeated ComPair64 fragments = 5[(yd_fieldoptions.field_arysize)=12];			//羽灵信息
+    optional uint64 commonPartnerExp=6;			//通用伙伴经验(吞噬获得,出战伙伴属性用)
+    optional uint32 autoSwallowFlag=7;			//自动吞噬标志(品质)
+    optional uint64 autoSwallowClass=8;			//自动吞噬标志(品阶)
+    optional int32 isbreak = 9;					//是否已经突破 1-是, 0-否
+  }
+// =======================================伙伴数据===============================
+// =======================================坐骑数据===============================
+  //坐骑数据
+  message CharacterDBMountData
+  {
+    repeated ComPair64 mounts = 1[(yd_fieldoptions.field_arysize)=12];	//激活的坐骑
+    optional uint64 mountID = 2;	//当前牵出来使用的坐骑
+    optional uint32 rideState = 3;	//乖骑状态EMountRideState_RideOff=0,EMountRideState_RideOn=1
+  }
+// =======================================坐骑数据===============================
+// =======================================buff info===============================
+  message PlayerBossDataInfo
+  {
+    optional int32  group_type 		= 1;		// 组类型
+    optional int32	cur_num			= 2;		// 当前使用的次数
+    optional int32 	max_num			= 3;		// 最大次数
+    optional int32 	vip_buy_num 	= 4;		// 当前VIP已购买次数
+    optional int32 	boss_type		= 5;		// 类型
+
+  }
+  message CharacterDBBossAttentInfo
+  {
+    optional uint64 id = 1;
+    optional int32 	type = 2;
+  }
+
+  message CharacterDBBossData {
+    repeated PlayerBossDataInfo infos = 1[(yd_fieldoptions.field_arysize)=12];
+    optional uint64 	lastTime = 2;
+    repeated int64 	attent_list = 3[(yd_fieldoptions.field_arysize)=12];
+  }
+// =======================================buff info===============================
+
+  // =======================================角色PVP信息===============================
+  message RedPlayerInfo
+  {
+    optional uint64 cid = 1;
+    optional uint64 time = 2;
+  }
+
+  // 角色PVP信息
+  message CharacterDBPvpData
+  {
+    optional uint32 pk_mode = 1; //PK模式
+    optional uint32 pk_killing_value = 2; //PK杀谬值
+    repeated RedPlayerInfo red_player = 3[(yd_fieldoptions.field_arysize)=12]; //红名玩家
+    optional uint64 online_time = 4;
+    optional int32	kill_num = 5;			//杀人数
+    optional int32  be_kill_num = 6;		//被击杀数
+    optional int64  lastTime = 7;			//上次刷新时间
+    optional string be_kill_name = 8[(yd_fieldoptions.field_bufsize)=128];		//上次被那个玩家击杀
+  }
+
+  // =======================================角色PVP信息===============================
+  // =======================================宝具数据===============================
+  // 宝具数据
+  message CharacterDBTreasureData
+  {
+    optional uint64 advanceTreasureExp = 1;			//进阶宝具经验
+    optional uint32 advanceTreasureLev = 2;			//进阶宝具等级
+    optional uint64 equipTreasureID = 3;			//装备的宝具ID
+    repeated ComPair64 fantasyTreasures = 4[(yd_fieldoptions.field_arysize)=12];		//拥有的幻化宝具列表
+    repeated ComPair64 fragments = 5[(yd_fieldoptions.field_arysize)=12];				//法灵灵信息
+    optional uint64 skillTreasureID = 6;			//穿戴技能的宝具ID
+    optional int32 isbreak = 7;						//是否已经突破 1-是, 0-否
+  }
+  // =======================================宝具数据===============================
+  // =======================================buff info===============================
+  message ArtifactInfo
+  {
+    optional uint64 id 				= 1;			// 	配置ID
+    optional int32  star_lv 		= 2;			//	-1 未激活
+  }
+
+  // 神器数据
+  message CharacterDBArtifactData
+  {
+    repeated ArtifactInfo infos 	= 1[(yd_fieldoptions.field_arysize)=12];
+    optional uint64 	 dress_id   = 2;
+  }
+  // =======================================buff info===============================
+  // 命星数据
+  message CharacterDBFateStarData
+  {
+    optional uint64  freeTime	= 1;	   //免费时间
+    optional uint32  towerLevel	= 2;	   //命星塔等级
+    optional uint32	 nbless = 3;		   //祝福值
+    repeated ComPair soltData = 4[(yd_fieldoptions.field_arysize)=12];         //槽位数据
+    repeated ItemProtoInfo equipStars = 5[(yd_fieldoptions.field_arysize)=12]; //已装备命星
+    optional uint32  curnum = 6;		   //今日已抽奖次数
+    optional uint64 lasttime = 7;		   //最近一次抽奖的时间
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //护送数据
+  message CharacterDBConvoyData
+  {
+    optional uint32 doTimes = 1;//护送次数
+    optional uint32 convoyDate = 2;//最后护送日期
+    optional uint64 escortid  = 3;//当前镖车ID
+    optional uint64 acceptTime= 4;//当前镖车接受时间
+    optional uint32 refreshTimes = 5;//免费刷新的次数
+    optional uint64 selectEscortId = 6;//随机到的镖车ID
+    optional uint64 refreshTimeStamp=7;//刷新的时间
+    optional uint64 LastResetTime = 8; //上次重置次数时间
+  }
+
+  // =======================================buff info===============================
+  message CharacterDBDailyEntry
+  {
+    optional uint64	cfg_id = 1;
+    optional int32	cur_num = 2;
+  }
+
+  // 日常活动数据
+  message CharacterDBDailyData
+  {
+    repeated CharacterDBDailyEntry	daily_entry = 1[(yd_fieldoptions.field_arysize)=12];
+    repeated uint64	rewards = 2[(yd_fieldoptions.field_arysize)=12];
+    optional uint64 lasttime = 3;
+  }
+
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //领域水晶信息
+  message FieldCylstalInfo
+  {
+    optional int32 	 slotIndex = 1;
+    optional int64 	 itemid = 2;
+  }
+
+  // 领域数据
+  message FieldExInfo
+  {
+    optional int32 	actived 				= 1; 		// 0: 未激活 1：激活
+    repeated ItemProtoInfo slotInfos 		= 2[(yd_fieldoptions.field_arysize)=12];		// 每个槽位的物品信息(物品信息里面index 代表索引)
+    optional uint64  fieldId				= 3;		// 领域配置的ID
+    optional uint64  fightNum				= 4;		// 战斗力
+    repeated FieldCylstalInfo cylstalInfos  = 5[(yd_fieldoptions.field_arysize)=12];		// 领域已镶嵌的水晶信息
+    optional bool 	 first_active			= 6;		// 首次激活
+  }
+
+  // 领域数据
+  message CharacterDBFieldData
+  {
+    repeated FieldExInfo fieldInfos = 1[(yd_fieldoptions.field_arysize)=12];
+    optional uint64 curExp	 = 2;
+    optional int32	maxNum 	 = 3;
+  }
+
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //VIP礼包数据
+  message vipGiftDBData
+  {
+    optional uint64	giftId = 1;
+    optional uint64	activeTime = 2;
+    optional uint64	lastGetTime = 3;
+  }
+  //月卡
+  message VipTCardInfo
+  {
+    optional int32	 id = 1;			//特权卡配表ID
+    optional int64 	 endTime = 2;		//(失效时间。特权卡才有效。）
+    optional int32 	 state = 3;			//(是否激活 0：未激活 1：激活 ）
+    optional int32 	 rewardState = 4;	//(每日领奖状态 0:未领 1：已领)
+  }
+
+  message VipTCardData
+  {
+    repeated VipTCardInfo cardInfo = 1[(yd_fieldoptions.field_arysize)=12];
+    optional int32 	giftState = 2;			//三张特权卡礼包状态(0:未领。1已领)
+    optional int32 	point = 3;				//活跃度
+  }
+
+  //vip数据
+  message CharacterDBVipData
+  {
+    optional uint32 vipState = 1;			//vip状态
+    optional uint64 vipExp = 2;				//玩家当前的vip经验
+    optional uint64 getRewardTime = 3;		//领奖时间
+    optional uint64 expDiamond = 4;			//加经验剩余的钻石消耗
+    repeated ComPair64  timeLimitExp = 5[(yd_fieldoptions.field_arysize)=12];	//限时经验
+    repeated vipGiftDBData  vipGift = 6[(yd_fieldoptions.field_arysize)=12];	//VIP礼包领取时间
+    optional VipTCardData 	cardData = 7;	//特权卡
+    optional int64 	cardLastTime = 8;		//刷新时间
+    optional int64 	curAddVipExp = 9;		//当前增加的VIP经验值
+    optional int32 	point = 10;				//活跃度
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  message CharacterDBMallData
+  {
+    optional uint64 refreshTime = 1;	//上次刷新时间
+    repeated ComPair64 goodsInfo = 2[(yd_fieldoptions.field_arysize)=12];	//购买过的商品信息
+    optional uint64 dailyRefreshTime=3; //上次每日限购刷新时间
+    optional int32	refreshNum = 4;		//已刷新次数
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  message GodhoodSlot
+  {
+    optional uint32 idx		=1;	//索引
+    optional bool open = 2;		//是否开放
+    optional ItemProtoInfo item = 3;
+  }
+
+  message CharacterDBGodhoodData
+  {
+    repeated GodhoodSlot godhoodSlot =1[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //完成次数数据
+  message RecoveryCompleteDBData
+  {
+    optional uint32 level = 1;		 //结算时的等级
+    optional uint32 vipLevel = 2;		 //结算时的vip等级
+    optional uint64 time = 3;          //时间
+    repeated ComPair completeList = 4[(yd_fieldoptions.field_arysize)=12]; //各功能完成数据<groupid, completeCount>
+    repeated ComPairBool funUnlock = 5[(yd_fieldoptions.field_arysize)=12]; //各功能开放数据<groupid, bool>
+  }
+
+  //可找回资源数据
+  message RecoveryDBReward
+  {
+    optional uint32 groupid = 1;
+    optional uint32 day1CountMax = 2;
+    optional uint32 day2CountMax = 3;
+    optional uint32 day1VipCountMax = 4;
+    optional uint32 day2VipCountMax = 5;
+    optional uint32 commonCount = 6;			//普通可领取次数
+    optional uint32 vipCount = 7;				//额外可领取次数
+    optional uint32 goldExp = 8;				//金币可领经验
+    optional uint32 diamondsExp = 9;			//钻石可领经验
+    optional uint32 goldItemCount = 10;		//金币可领物品数量
+    optional uint32 diamondsItemCount = 11;	//钻石可领物品数量
+    optional uint32 needGold = 12;
+    optional uint32 needDiamonds = 13;
+    optional uint64 ItemId = 14;				//可领物品id
+    optional uint32 confid = 15;
+  }
+
+  //结算数据
+  message RecoveryDBData
+  {
+    optional uint64 time = 1;
+    repeated RecoveryDBReward list = 2[(yd_fieldoptions.field_arysize)=12];
+  }
+
+  //资源找回数据
+  message CharacterDBRecoveryData
+  {
+    repeated RecoveryCompleteDBData completeDBData = 1[(yd_fieldoptions.field_arysize)=12];
+    optional RecoveryDBData recoveryDBData = 2;
+
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //玩家水牢逃杀数据
+  message CharacterDBActivityScuffleData
+  {
+    optional uint64 cur_cfg_id = 1;
+    optional int32	cur_points = 2;
+    optional uint64 activity_id = 3;
+    optional uint64	before_map_id = 4;
+    optional Vector3PB before_map_point = 5;
+    optional int32 last_time = 6;
+    optional int32 end_time = 7;
+    optional int32 kill_num = 8;
+    optional int32 last_kill_num = 9;
+  }
+  message CharacterDBActivityChaosDragonsData
+  {
+    optional uint64	before_map_id = 1;
+    optional Vector3PB before_map_point = 2;
+  }
+
+  message CharacterDBActivityAsharmData
+  {
+    optional int32 		step	 = 1;	//第几场
+    optional uint64	end_time     = 2;	//活动结束时间
+    optional uint64 		last_time = 3;	//上次的时间
+    optional int32 		cur_num	  = 4;	//已使用次数
+  }
+
+  message CharacterDBCombatTeamData
+  {
+    optional int32 		team_id = 1;
+    optional uint64 	team_end_time = 2;
+  }
+
+  //solo数据
+  message CharacterDBSoloData
+  {
+    repeated int32 			rewarded_join_index		 = 1[(yd_fieldoptions.field_arysize)=12];			// 已领取的参与solo的索引(1场，5场，10场)
+    optional int32 			my_solo_num				 = 2;			// 自己的solo次数
+    repeated int32 			rewarded_stage_index	 = 3[(yd_fieldoptions.field_arysize)=12];			// 已领取段位奖励的索引
+    repeated int32 			rewarded_day_stage_index = 4[(yd_fieldoptions.field_arysize)=12];			// 已领取段位每日奖励的索引
+    optional uint64			solo_time_end			 = 5;			// 本赛季结束时间
+    optional int32			solo_season				 = 6;			// 第几赛季
+    optional int32 			cur_buy_num				 = 7;			// 当前购买的次数
+    optional uint64 		last_time				 = 8;			// 上次时间
+    optional int32 			lose_num				 = 9;			// 连输次数
+  }
+
+  //刷宝箱数据
+  message CharacterDBAtBoxData
+  {
+    optional int32 			use_count= 1;			// 已采集次数
+    optional uint64 		time = 2;			// 时间
+  }
+
+  //远古龙域积分商店物品
+  message CharDBAncientShopProto
+  {
+    optional int32 idx = 1;			//商店位置ID dragonWorldWar.xlsx-goldShop 表ID字段
+    optional int32 exchge = 4;		//是否已兑换 1-已兑换，0-没有
+  }
+  //远古龙域积分商店
+  message CharDBAncientShopData
+  {
+    repeated CharDBAncientShopProto info = 1[(yd_fieldoptions.field_arysize)=12];	//商店物品列表
+    optional int64 score				= 2;	//积分
+    optional int32 score_cnt			= 3;    //已经积分刷新次数
+    optional int32 dia_cnt				= 4;	//已经钻石刷新次数
+    optional int32 free_cnt				= 5;	//已经免费刷新次数
+    optional uint64 fresh_time			= 6;	//商店最近刷新时间
+    optional uint64 reset_time			= 7;	//刷新次数最近重置时间
+  }
+
+  //远古龙域数据
+  message CharacterDBAncientData
+  {
+    optional int64 bless_value = 1;			//祝福值
+    optional int64 score_incr = 2;			//积分加成
+    optional CharDBAncientShopData shop = 3;//积分商店
+    optional uint64 bless_reset_time = 4;	//祝福值和积分加成最近重置时间
+  }
+  message ChooseGiftData
+  {
+    optional uint64 activeTime =1 ;	//激活时间
+    optional int32 	headState = 2;	//头礼包状态(0,未完成，1可领，2 已领）
+    optional int32  rechargeIndex = 3;	//激活的礼包索引（1,2)
+    optional int32 	rechargeIndexState = 4;	//激活礼包索引状态 0 未领， 1已领取
+
+  }
+  //玩家活动数据
+  message CharacterDBActivityData
+  {
+    optional CharacterDBActivityScuffleData scuffle_cross_data = 1;		//跨服水牢逃杀数据
+    optional CharacterDBActivityScuffleData scuffle_local_data = 2;		//本服水牢逃杀数据
+    optional CharacterDBActivityChaosDragonsData chaos_dragons_data = 3;//混沌之龙数据
+    optional CharacterDBActivityAsharmData			asharm_data = 4;	//武道会数据
+    optional CharacterDBSoloData					solo_data	= 5;	//solo数据
+    optional CharacterDBAtBoxData					box_data = 6;		//刷宝箱数据
+    optional CharacterDBAncientData					ancient_data = 7;	//远古龙域数据
+    optional ChooseGiftData							choosegift_data = 8;	//在线特惠数据
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //开服活动累计充值数据
+  message SOAcitveTotalRechargeData
+  {
+    optional uint64	activeId = 1;		//活动id
+    optional uint32	pageId = 2;			//页签id
+    optional uint64 rechargeValue = 3;	//累计充值
+    repeated ComPair getState = 4[(yd_fieldoptions.field_arysize)=12];		//领取状态
+    optional uint64 rechargeholy = 5;	//累计充值神钻
+  }
+
+  //开服活动进阶数据
+  message SOAcitveAdvanceData
+  {
+    optional uint64	activeId = 1;		//活动id
+    optional uint32	pageId = 2;			//页签id
+    optional uint64 advanceValue = 3;	//进阶数值
+    repeated ComPair getState = 4[(yd_fieldoptions.field_arysize)=12];		//领取状态
+    repeated ComPair64 advanceValueMap = 5[(yd_fieldoptions.field_arysize)=12];		//进阶数值列表（新）
+  }
+
+  //开服活动抢购数据
+  message SOAcitveGoodsData
+  {
+    optional uint64	activeId = 1;		//活动id
+    optional uint32	pageId = 2;			//页签id
+    repeated ComPair64 buyCount = 3[(yd_fieldoptions.field_arysize)=12];	//购买数量
+  }
+
+
+  //开服活动数据
+  message CharacterDBSOAcitveData
+  {
+    repeated SOAcitveTotalRechargeData totalRecharge = 1[(yd_fieldoptions.field_arysize)=12];	//累计充值数据
+    repeated SOAcitveAdvanceData advance = 2[(yd_fieldoptions.field_arysize)=12];				//进阶数据
+    repeated SOAcitveGoodsData goods = 3[(yd_fieldoptions.field_arysize)=12];					//抢购数据
+    repeated ComPair64 redPointClickData = 4[(yd_fieldoptions.field_arysize)=12];               //红点数据
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //物品加固定属性
+  message CharacterDBUseItemData
+  {
+    repeated ComPair64 itemUseTimes = 1[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //每日使用物品次数
+  message CharacterDBDayUseItemData
+  {
+    optional uint64 day = 1;
+    repeated ComPair64 itemUseTimes = 2[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //神秘商店单个数据
+  message MysteryShopDBData
+  {
+    optional uint32	nId = 1;			//id
+    optional uint64 nStartTime = 2;		//开始时间
+    optional uint64 nFinishTime = 3;	//结束时间
+    optional uint32	nState = 4;			//状态
+  }
+
+  //神秘商店数据
+  message CharacterDBMysteryShopData
+  {
+    repeated MysteryShopDBData dataList = 1[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //封测返利数据
+  message CharacterDBPackageTestRebateData
+  {
+    optional bool bChecked = 1;
+    optional uint32 state = 2;
+    optional uint32 rechargeValue = 3;
+    optional uint32 powerRank = 4;
+    optional uint64 deadline = 5;
+    repeated ComPair64 rewardStateMap = 6[(yd_fieldoptions.field_arysize)=12];  //封测奖励
+    repeated ComPair64 backStateMap = 7[(yd_fieldoptions.field_arysize)=12];   //封测返利
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //各个功能战力数据
+  message FuncFightDBData
+  {
+    optional int64 equip_total = 1;			//装备系统总战力
+    optional int64 equip_base = 2;			//装备基础战力
+    optional int64 equip_strong = 3;		//装备强化(淬炼)战力
+    optional int64 stone = 4;				//宝石战力
+    optional int64 equip_scrutiny = 5;		//装备洗练战力
+    optional int64 equip_suit = 6;			//装备套装战力
+    optional int64 equip_awake = 7;			//装备觉醒战力
+    optional int64 equip_enchant = 8;		//装备附魔战力
+    optional int64 fatestar = 9;			//纹章(命星)战力
+    optional int64 godhood = 10;			//神格战力
+    optional int64 identify = 11;			//图鉴战力
+    optional int64 partner = 12;			//契灵战力
+    optional int64 field = 13;				//领域战力
+    optional int64 element = 14;			//元素战力
+    optional int64 wing = 15;				//翅膀战力
+    optional int64 treasure = 16;			//宝具战力
+    optional int64 fantasty_total = 17;		//幻化总战力
+    optional int64 artifact_fantasty = 18;	//神器幻化战力
+    optional int64 horse_fantasty = 19;		//坐骑幻化战力
+    optional int64 wing_fantasty = 20;		//翅膀幻化战力
+    optional int64 fashion_fantasty = 21;	//时装幻化战力
+    optional int64 partner_fantasty = 22;	//契灵幻化战力
+    optional int64 treasure_fantasty = 23;	//宝具幻化战力
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //-----神力觉醒
+  message PowerInfo
+  {
+    optional int32 	titleId = 1;
+    optional int32	curBuyNum = 2;
+    optional int32 	skillUpdateId = 3;
+  }
+
+  //服务器存储
+  message PowerInfoDBList
+  {
+    repeated PowerInfo infos = 1[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //转职任务条件
+  message OccupationTaskInfo
+  {
+    optional int32 		taskID = 1;
+    optional int32 		curValue = 2;
+    optional int32 		taskState = 3;		//0:未完成 1完成
+  }
+  // 任务列表
+  message OccupationTakeList
+  {
+    repeated OccupationTaskInfo tasks = 1[(yd_fieldoptions.field_arysize)=12];
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  // 星级信息
+  message ComStarInfo
+  {
+    optional uint64 id 				= 1;			// 	配置ID
+    optional int32  star_lv 		= 2;			//	-1 未激活
+  }
+  message CharacterDBHeadSetData
+  {
+    repeated ComStarInfo 	headList 		= 1[(yd_fieldoptions.field_arysize)=12];		//头像
+    optional uint64			cur_head_id 	= 2;		//当前头像
+    repeated ComStarInfo 	frameList 		= 3[(yd_fieldoptions.field_arysize)=12];		//相框
+    optional uint64			cur_frame_id 	= 4;		//当前相框
+    repeated ComStarInfo 	bubbleList 		= 5[(yd_fieldoptions.field_arysize)=12];		//气泡
+    optional uint64			cur_bubble_id 	= 6;		//当前气泡
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  message CharacterDBOnlineGiftInfo
+  {
+    optional int32 id = 1;
+    optional int32 state = 2;
+  }
+
+  message CharacterDBOnlineGiftData
+  {
+    optional int32 	online_time = 1;
+    repeated CharacterDBOnlineGiftInfo infos = 2[(yd_fieldoptions.field_arysize)=12];
+    optional int32	reset_day = 3;
+    optional int64	lasttime = 4;
+  }
+  // =======================================buff info===============================
+  // =======================================buff info===============================
+  //掉落物品数据
+  message CharDropItemDBProto
+  {
+    optional uint64 itemid = 1;		//物品ID
+    optional int64 num = 2;			//已经掉落了的数量
+  }
+  //多个掉落物品数据
+  message CharDropMultItemDBProto
+  {
+    repeated CharDropItemDBProto info = 1[(yd_fieldoptions.field_arysize)=12];
+  }
+
+  //掉落限制数据
+  message CharDropLimitDBData
+  {
+    optional CharDropMultItemDBProto limit = 1;
+    optional uint64 fresh_time = 2;
+  }
+  // =======================================buff info===============================
+  message CharacterDBGmHelpData
+  {
+    optional int64 	timeEnd = 1;	//活动结束时间
+    optional int64 	helpTime = 2;	//赞助的刷新时间
+    optional int32 	helpDay = 3;	//当前赞助的天数
+    optional int64 	applyTime = 4;	//申请的刷新时间
+    optional int32 	applyDay = 5;	//当前申请的天数
+    optional int64 	helpcid  = 6;	//赞助人ID
+    repeated ComPair helpState = 7[(yd_fieldoptions.field_arysize)=12];	//赞助领取状态key(id) value(0,不可领，1可领，2已领 )
+    optional int32  applyResult = 8;	//申请人奖励是否发放完 (0未发放，1已发放)
+  }
+
+  message GMToolsDB
+  {
+    repeated int32 gifts = 1[(yd_fieldoptions.field_arysize)=12]; //已领取的列表
+    repeated ComPair unlimits = 2[(yd_fieldoptions.field_arysize)=12]; //无限列表
+    optional uint64 refresh_time = 3; //时间
+    optional uint64	cur_use = 4;	//当前使用的GM点
+  }
+
+  message CharacterDBGodGMData
+  {
+    optional int32 curType = 1; // 0:没有特权 1:临时特权 2:永久特权
+    optional int64 timeEnd = 2;	// 临时特权结束时间
+    optional int32 curExchangeNum = 3;	//当前兑换次数 (永久神权可兑换)
+    optional int32 normalGiftState = 4;	//普通礼包状态 (0:无 1:可领 2:已领)
+    optional int32 seniorGiftState = 5;	//豪华礼包状态 (0:无 1:可领 2:已领 )
+    optional int64 lastTime = 6;		//刷新时间
+    optional int32 unlock = 7;			//功能是否解锁
+    optional GMToolsDB  gmtool = 8;		//gm工具
+  }
+
+  //聚宝盆可领取奖励信息
+  message BowlDBRewardProto
+  {
+    optional uint32 recharge_id = 1;
+    optional uint32 count = 2;
+  }
+
+  //聚宝盆DB存储结构
+  message BowlDBData
+  {
+    optional uint32 level = 1;				//等级
+    optional int32 active = 2;				//是否激活
+    repeated BowlDBRewardProto info = 3[(yd_fieldoptions.field_arysize)=12];	//可领取奖励信息
+  }
+
+  //时间段充值数据
+  message HidePeriodDBProto
+  {
+    optional int32 id = 1;			//配置ID
+    optional uint64 total = 2;		//时间段内累计充值
+    optional int32 reward = 3;		//奖励是否已经发放
+    optional uint64 lasttime = 4;
+  }
+
+  message CharacterDBHideData
+  {
+    optional int32 	forever_quota 	= 1;		//永久充值额度
+    optional int64 	lastTime = 2;				//更新时间
+    optional int32 	unit_quota = 3;				//单日充值额度
+    repeated int32 	unit_ids = 4[(yd_fieldoptions.field_arysize)=12];				//单日累计id列表
+    repeated int32  unit_once_ids = 5[(yd_fieldoptions.field_arysize)=12];			//单日单笔id列表
+    repeated int32  f_ids = 6[(yd_fieldoptions.field_arysize)=12];					//永久id列表
+    optional int64 	ctime = 7;					//连续充值时间
+    optional int32 	days = 8;
+    repeated HidePeriodDBProto period = 9[(yd_fieldoptions.field_arysize)=12];		//时间段充值数据
+  }
+  // =======================================buff info===============================
 
 message tbRoleInfo
 {
@@ -249,6 +1929,104 @@ message tbRoleInfo
   optional uint64 bornZoneId = 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];
   optional string charName = 4[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
   optional string platId = 5[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional uint64 deletechartime = 6;
+  optional int32	dirty			= 7;		//是否有脏数据
   optional CharacterDBBaseInfo    baseData				= 20;    // 基础信息
-  optional CharacterDBPackageData itemData				= 21;    // 物品信息，暂时不知物品结构，先以bytes占位 @temp by JinnM
+  optional CharacterDBPackageData itemData				= 21;    // 物品信息
+  optional CharacterDBTaskData	taskData				  = 22;    // 任务信息
+  optional CharacterDBSkillData   skillData				= 23;    // 技能信息
+  optional CharacterDBExtendData  extendData      = 24;    // 扩展信息
+  optional CharacterDBEquipData	equipData         = 25;   // 装备信息
+  optional CharacterDBDuplicateData duplicateData			= 26;	// 副本数据
+  optional CharacterAchievementDBData achievementData = 27;	//成就数据
+
+  optional CharacterBuffData		buffData          = 28;	//buff info
+  optional CharacterArenaData   arenaData         = 29;	//竞技场数据
+  optional CharacterTitleSaveData	titleData				= 30;	//称号信息
+  optional CharacterDBOperateLimitInfo operateLimitData	= 31;	//统计信息
+  optional CharacterDBHuoYueDuInfo huoYueDuData			= 32;	//活跃度信息
+  optional CharacterDBOperateData operateData				= 33;	//运营活动数据
+  optional CharacterDBActiveInfo playerActiveInfo		= 34;	//答题活动数据 200B
+  optional CharacterPayData       cPayData				  = 35;   //玩家个人充值数据
+  optional FunctionUnlockInfo unlockInfo					  = 36;	//功能解锁
+  optional CharacterDBEmblemData emblemData				  = 37;	//纹章数据
+  optional CharacterDBIdentifyData identifyData			= 38;	//图鉴数据
+  optional CharacterDBElementData elementData				= 39; 	//元素数据
+  optional CharacterDBFashionData fashionData				= 40; 	//时装数据
+  optional CharacterDBWingData wingData					    = 41; 	//翅膀数据
+  optional CharacterDBMountData mountData					  = 42; 	//坐骑数据
+  optional CharacterDBBossData	bossData				    = 43;	// 玩家BOSS数据
+  optional CharacterDBPvpData pvpData						    = 44;	//pvp数据
+  optional CharacterDBTreasureData 	treasure_data		= 45;	// 宝具数据
+  optional CharacterDBArtifactData	artifact_data		= 46;	// 神器数据
+  optional CharacterDBFateStarData 	fateStarData		= 47;	// 命星数据
+  optional CharacterDBConvoyData 	convoyData				= 48;	// 护送数据
+  optional CharacterDBDailyData		daily_data			  = 49;	// 日常活动数据
+  optional CharacterDBFieldData		field_data			  = 50;	// 领域数据
+  optional CharacterDBVipData         vipData				= 51;	//vip数据
+  optional CharacterDBPartnerData partnerData				= 52; 	//伙伴数据
+  optional CharacterDBMallData mallData					    = 53;	//商城数据
+  optional CharacterDBGodhoodData godhoodData				= 54;	//神格数据
+  optional CharacterDBRecoveryData recoveryData			= 55;	//资源找回数据
+  optional CharacterDBActivityData	activityData		= 56;	//活动数据
+  optional CharacterDBSOAcitveData	soActivityData	= 57;	//开服活动数据
+  optional CharacterDBUseItemData		useitemData			= 58;	//使用物品信息(加属性)
+  optional CharacterDBDayUseItemData  dayUseItemData		= 59;	//每日使用物品次数
+  optional CharacterDBMysteryShopData  mysteryshop_data	= 60;	//神秘商店数据
+  optional CharacterDBPackageTestRebateData packagetestrebate_data = 61; //封测返利数据
+  optional FuncFightDBData			 fight_data			= 62;	//各个功能战力数据
+  optional PowerInfoDBList			 power_data			= 63;	//神力觉醒数据
+  optional OccupationTakeList			 occupation_data	= 64;	//转职任务数据
+  optional CharacterDBHeadSetData		 headset_data	    = 65;	//头像数据
+  optional CharacterDBOnlineGiftData	 online_gift_data 	= 66;	//在线有礼数据
+  optional CharDropLimitDBData		 droplimit_data		= 67;	//掉落限制数据
+  optional CharacterDBGmHelpData		 gmhelp_data 		= 68;	//gm助力活动数据
+  optional CharacterDBGodGMData		 godgm_data 		= 69;	//神权数据
+  optional BowlDBData					 bowl_data			= 70;	//聚宝盆数据
+  optional CharacterDBPackageData		 bagitemData		= 71;	//物品背包数据
+  optional CharacterDBHideData		 hide_data			= 72;	//隐藏活动
+}
+
+// 角色的简单数据，CharacterDBInfo的子集
+message CharacterDBSimpleInfo
+{
+  optional uint64 charId 			= 1[(yd_fieldoptions.field_use_stl) = true];
+  optional string name            = 2;   		// 名字
+  optional uint32 sex             = 3;   		// 性别
+  optional uint32 prof            = 4;   		// 职业
+  optional uint32 level           = 5;   		// 等级
+  optional int64  exp             = 6;   		// 经验
+  optional uint64 hp              = 7;   		// 生命
+  optional uint64 fightPower      = 8;   		// 战斗力
+  optional uint64 enter_scene_id  = 9;		// 上线场景Id
+  optional uint64 enter_map_id    = 10;		// 上线的地图模板ID
+  optional float enterPosX        = 11;		// 上线位置X
+  optional float enterPosY        = 12;		// 上线位置Y
+  optional float enterPosZ        = 13;		// 上线位置Y
+  optional uint64 lastSceneId		= 14;		// 玩家进入上个地图的场景Id
+  optional uint64 lastMapId		= 15;		// 玩家进入上个地图Id
+  optional float  lastPosX		= 16;		// 玩家上个地图的x坐标
+  optional float  lastPosY		= 17;		// 玩家上个地图的y坐标
+  optional float  lastPosZ		= 18;		// 玩家上个地图的z坐标
+  optional CharFacadeProto facade = 19;		// 装备
+  optional int32 curstate			= 20;		// 当前状态（中心服登录用的，主要是登录时死亡状态的处理）
+  optional uint64	deletechartime	= 21;		// 删除角色时间
+  optional uint64 createTime		= 22;		// 角色创建时间
+  optional uint32 totalpay		= 23;		// 总充值(登录同步到中心服用)
+
+  optional float  clx				= 24;		//客户端移动最后一次正确坐标的x坐标
+  optional float  cly				= 25;		//客户端移动最后一次正确坐标的y坐标
+  optional float  clz				= 26;		//客户端移动最后一次正确坐标的z坐标
+
+  optional uint64 occupation 		= 27;		//转职职业
+  optional uint64 aptitude		= 28;		//境界
+
+  optional int32 finish_flag		= 29;		//新手副本是否完成
+
+  optional string platid			= 30;		//平台ID，运营统计日志需要记录
+
+  optional int32 palace_layer		= 31;		//工会地宫副本当前通关的层数
+
+  optional int32 palace_break_count = 32;		//工会地宫副本当前突破次数
+  optional int32	dirty			= 33;		//是否有脏数据
 }

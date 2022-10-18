@@ -32,7 +32,7 @@ NFLoginModule::~NFLoginModule()
 
 bool NFLoginModule::Awake()
 {
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, NF_MODULE_CLIENT, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST, this,
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, NF_MODULE_NONE, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ, this,
                                                        &NFLoginModule::OnHandleGetRoleList);
     return true;
 }

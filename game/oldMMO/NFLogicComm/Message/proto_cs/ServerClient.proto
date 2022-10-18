@@ -32,3 +32,11 @@ message NotifyLogoutGame
   required LOGOUT_FLAG flag               = 1;
   optional SwitchServerParam switch_server_param = 2; // 当flag==LOGOUT_FLAG_SWITCH_SERVER时候有效
 };
+
+//客户端登陆请求(连上网关第一个请求)
+//CENTER_TO_CLIENT_LOGIN
+message ClientLoginGateRsp
+{
+  required uint32   ret = 1;
+  repeated CharacterDBSimpleInfo charInfoList = 2;
+}

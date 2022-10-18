@@ -26,7 +26,6 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
-#include "common_logic.pb.h"
 #include "ComDefine.pb.h"
 // @@protoc_insertion_point(includes)
 
@@ -40,9 +39,9 @@ void protobuf_ShutdownFile_Com_2eproto();
 class EmptyMessage;
 class Vector3PB;
 class Vector2PB;
-class RoleDBInfo;
-class RoleFacadeProto;
-class LoginSyncProto;
+class ComPair;
+class ComPair64;
+class ComPairBool;
 
 enum EAttrGroup {
   EAttrGroup_Level = 1,
@@ -351,21 +350,21 @@ class Vector3PB : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required float x = 1;
+  // optional float x = 1;
   inline bool has_x() const;
   inline void clear_x();
   static const int kXFieldNumber = 1;
   inline float x() const;
   inline void set_x(float value);
 
-  // required float y = 2;
+  // optional float y = 2;
   inline bool has_y() const;
   inline void clear_y();
   static const int kYFieldNumber = 2;
   inline float y() const;
   inline void set_y(float value);
 
-  // required float z = 3;
+  // optional float z = 3;
   inline bool has_z() const;
   inline void clear_z();
   static const int kZFieldNumber = 3;
@@ -453,14 +452,14 @@ class Vector2PB : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required float x = 1;
+  // optional float x = 1;
   inline bool has_x() const;
   inline void clear_x();
   static const int kXFieldNumber = 1;
   inline float x() const;
   inline void set_x(float value);
 
-  // required float y = 2;
+  // optional float y = 2;
   inline bool has_y() const;
   inline void clear_y();
   static const int kYFieldNumber = 2;
@@ -491,14 +490,14 @@ class Vector2PB : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class RoleDBInfo : public ::google::protobuf::Message {
+class ComPair : public ::google::protobuf::Message {
  public:
-  RoleDBInfo();
-  virtual ~RoleDBInfo();
+  ComPair();
+  virtual ~ComPair();
 
-  RoleDBInfo(const RoleDBInfo& from);
+  ComPair(const ComPair& from);
 
-  inline RoleDBInfo& operator=(const RoleDBInfo& from) {
+  inline ComPair& operator=(const ComPair& from) {
     CopyFrom(from);
     return *this;
   }
@@ -512,17 +511,17 @@ class RoleDBInfo : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const RoleDBInfo& default_instance();
+  static const ComPair& default_instance();
 
-  void Swap(RoleDBInfo* other);
+  void Swap(ComPair* other);
 
   // implements Message ----------------------------------------------
 
-  RoleDBInfo* New() const;
+  ComPair* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const RoleDBInfo& from);
-  void MergeFrom(const RoleDBInfo& from);
+  void CopyFrom(const ComPair& from);
+  void MergeFrom(const ComPair& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -545,77 +544,52 @@ class RoleDBInfo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required uint64 cid = 1;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 1;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
+  // optional uint32 key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline ::google::protobuf::uint32 key() const;
+  inline void set_key(::google::protobuf::uint32 value);
 
-  // required string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional uint32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::uint32 value() const;
+  inline void set_value(::google::protobuf::uint32 value);
 
-  // required uint32 prof = 3;
-  inline bool has_prof() const;
-  inline void clear_prof();
-  static const int kProfFieldNumber = 3;
-  inline ::google::protobuf::uint32 prof() const;
-  inline void set_prof(::google::protobuf::uint32 value);
-
-  // required uint32 level = 4;
-  inline bool has_level() const;
-  inline void clear_level();
-  static const int kLevelFieldNumber = 4;
-  inline ::google::protobuf::uint32 level() const;
-  inline void set_level(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.RoleDBInfo)
+  // @@protoc_insertion_point(class_scope:proto_ff.ComPair)
  private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_prof();
-  inline void clear_has_prof();
-  inline void set_has_level();
-  inline void clear_has_level();
+  inline void set_has_key();
+  inline void clear_has_key();
+  inline void set_has_value();
+  inline void clear_has_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint64 cid_;
-  ::std::string* name_;
-  ::google::protobuf::uint32 prof_;
-  ::google::protobuf::uint32 level_;
+  ::google::protobuf::uint32 key_;
+  ::google::protobuf::uint32 value_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
   friend void protobuf_ShutdownFile_Com_2eproto();
 
   void InitAsDefaultInstance();
-  static RoleDBInfo* default_instance_;
+  static ComPair* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class RoleFacadeProto : public ::google::protobuf::Message {
+class ComPair64 : public ::google::protobuf::Message {
  public:
-  RoleFacadeProto();
-  virtual ~RoleFacadeProto();
+  ComPair64();
+  virtual ~ComPair64();
 
-  RoleFacadeProto(const RoleFacadeProto& from);
+  ComPair64(const ComPair64& from);
 
-  inline RoleFacadeProto& operator=(const RoleFacadeProto& from) {
+  inline ComPair64& operator=(const ComPair64& from) {
     CopyFrom(from);
     return *this;
   }
@@ -629,17 +603,17 @@ class RoleFacadeProto : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const RoleFacadeProto& default_instance();
+  static const ComPair64& default_instance();
 
-  void Swap(RoleFacadeProto* other);
+  void Swap(ComPair64* other);
 
   // implements Message ----------------------------------------------
 
-  RoleFacadeProto* New() const;
+  ComPair64* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const RoleFacadeProto& from);
-  void MergeFrom(const RoleFacadeProto& from);
+  void CopyFrom(const ComPair64& from);
+  void MergeFrom(const ComPair64& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -662,32 +636,52 @@ class RoleFacadeProto : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:proto_ff.RoleFacadeProto)
+  // optional uint64 key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline ::google::protobuf::uint64 key() const;
+  inline void set_key(::google::protobuf::uint64 value);
+
+  // optional uint64 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::uint64 value() const;
+  inline void set_value(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ComPair64)
  private:
+  inline void set_has_key();
+  inline void clear_has_key();
+  inline void set_has_value();
+  inline void clear_has_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::uint64 key_;
+  ::google::protobuf::uint64 value_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[1];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
   friend void protobuf_ShutdownFile_Com_2eproto();
 
   void InitAsDefaultInstance();
-  static RoleFacadeProto* default_instance_;
+  static ComPair64* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class LoginSyncProto : public ::google::protobuf::Message {
+class ComPairBool : public ::google::protobuf::Message {
  public:
-  LoginSyncProto();
-  virtual ~LoginSyncProto();
+  ComPairBool();
+  virtual ~ComPairBool();
 
-  LoginSyncProto(const LoginSyncProto& from);
+  ComPairBool(const ComPairBool& from);
 
-  inline LoginSyncProto& operator=(const LoginSyncProto& from) {
+  inline ComPairBool& operator=(const ComPairBool& from) {
     CopyFrom(from);
     return *this;
   }
@@ -701,17 +695,17 @@ class LoginSyncProto : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LoginSyncProto& default_instance();
+  static const ComPairBool& default_instance();
 
-  void Swap(LoginSyncProto* other);
+  void Swap(ComPairBool* other);
 
   // implements Message ----------------------------------------------
 
-  LoginSyncProto* New() const;
+  ComPairBool* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LoginSyncProto& from);
-  void MergeFrom(const LoginSyncProto& from);
+  void CopyFrom(const ComPairBool& from);
+  void MergeFrom(const ComPairBool& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -734,66 +728,41 @@ class LoginSyncProto : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint32 guild_id = 1;
-  inline bool has_guild_id() const;
-  inline void clear_guild_id();
-  static const int kGuildIdFieldNumber = 1;
-  inline ::google::protobuf::uint32 guild_id() const;
-  inline void set_guild_id(::google::protobuf::uint32 value);
+  // optional uint32 key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline ::google::protobuf::uint32 key() const;
+  inline void set_key(::google::protobuf::uint32 value);
 
-  // optional string guild_name = 2;
-  inline bool has_guild_name() const;
-  inline void clear_guild_name();
-  static const int kGuildNameFieldNumber = 2;
-  inline const ::std::string& guild_name() const;
-  inline void set_guild_name(const ::std::string& value);
-  inline void set_guild_name(const char* value);
-  inline void set_guild_name(const char* value, size_t size);
-  inline ::std::string* mutable_guild_name();
-  inline ::std::string* release_guild_name();
-  inline void set_allocated_guild_name(::std::string* guild_name);
+  // optional bool value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline bool value() const;
+  inline void set_value(bool value);
 
-  // optional int32 guild_duty = 3;
-  inline bool has_guild_duty() const;
-  inline void clear_guild_duty();
-  static const int kGuildDutyFieldNumber = 3;
-  inline ::google::protobuf::int32 guild_duty() const;
-  inline void set_guild_duty(::google::protobuf::int32 value);
-
-  // optional uint64 guild_leader = 5;
-  inline bool has_guild_leader() const;
-  inline void clear_guild_leader();
-  static const int kGuildLeaderFieldNumber = 5;
-  inline ::google::protobuf::uint64 guild_leader() const;
-  inline void set_guild_leader(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.LoginSyncProto)
+  // @@protoc_insertion_point(class_scope:proto_ff.ComPairBool)
  private:
-  inline void set_has_guild_id();
-  inline void clear_has_guild_id();
-  inline void set_has_guild_name();
-  inline void clear_has_guild_name();
-  inline void set_has_guild_duty();
-  inline void clear_has_guild_duty();
-  inline void set_has_guild_leader();
-  inline void clear_has_guild_leader();
+  inline void set_has_key();
+  inline void clear_has_key();
+  inline void set_has_value();
+  inline void clear_has_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* guild_name_;
-  ::google::protobuf::uint32 guild_id_;
-  ::google::protobuf::int32 guild_duty_;
-  ::google::protobuf::uint64 guild_leader_;
+  ::google::protobuf::uint32 key_;
+  bool value_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
   friend void protobuf_ShutdownFile_Com_2eproto();
 
   void InitAsDefaultInstance();
-  static LoginSyncProto* default_instance_;
+  static ComPairBool* default_instance_;
 };
 // ===================================================================
 
@@ -806,7 +775,7 @@ class LoginSyncProto : public ::google::protobuf::Message {
 
 // Vector3PB
 
-// required float x = 1;
+// optional float x = 1;
 inline bool Vector3PB::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -828,7 +797,7 @@ inline void Vector3PB::set_x(float value) {
   x_ = value;
 }
 
-// required float y = 2;
+// optional float y = 2;
 inline bool Vector3PB::has_y() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -850,7 +819,7 @@ inline void Vector3PB::set_y(float value) {
   y_ = value;
 }
 
-// required float z = 3;
+// optional float z = 3;
 inline bool Vector3PB::has_z() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -876,7 +845,7 @@ inline void Vector3PB::set_z(float value) {
 
 // Vector2PB
 
-// required float x = 1;
+// optional float x = 1;
 inline bool Vector2PB::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -898,7 +867,7 @@ inline void Vector2PB::set_x(float value) {
   x_ = value;
 }
 
-// required float y = 2;
+// optional float y = 2;
 inline bool Vector2PB::has_y() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -922,286 +891,146 @@ inline void Vector2PB::set_y(float value) {
 
 // -------------------------------------------------------------------
 
-// RoleDBInfo
+// ComPair
 
-// required uint64 cid = 1;
-inline bool RoleDBInfo::has_cid() const {
+// optional uint32 key = 1;
+inline bool ComPair::has_key() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void RoleDBInfo::set_has_cid() {
+inline void ComPair::set_has_key() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void RoleDBInfo::clear_has_cid() {
+inline void ComPair::clear_has_key() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void RoleDBInfo::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
+inline void ComPair::clear_key() {
+  key_ = 0u;
+  clear_has_key();
 }
-inline ::google::protobuf::uint64 RoleDBInfo::cid() const {
-  return cid_;
+inline ::google::protobuf::uint32 ComPair::key() const {
+  return key_;
 }
-inline void RoleDBInfo::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
+inline void ComPair::set_key(::google::protobuf::uint32 value) {
+  set_has_key();
+  key_ = value;
 }
 
-// required string name = 2;
-inline bool RoleDBInfo::has_name() const {
+// optional uint32 value = 2;
+inline bool ComPair::has_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void RoleDBInfo::set_has_name() {
+inline void ComPair::set_has_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void RoleDBInfo::clear_has_name() {
+inline void ComPair::clear_has_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void RoleDBInfo::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
-  }
-  clear_has_name();
+inline void ComPair::clear_value() {
+  value_ = 0u;
+  clear_has_value();
 }
-inline const ::std::string& RoleDBInfo::name() const {
-  return *name_;
+inline ::google::protobuf::uint32 ComPair::value() const {
+  return value_;
 }
-inline void RoleDBInfo::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
-}
-inline void RoleDBInfo::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
-}
-inline void RoleDBInfo::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* RoleDBInfo::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
-  }
-  return name_;
-}
-inline ::std::string* RoleDBInfo::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void RoleDBInfo::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
-  }
-  if (name) {
-    set_has_name();
-    name_ = name;
-  } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// required uint32 prof = 3;
-inline bool RoleDBInfo::has_prof() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void RoleDBInfo::set_has_prof() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void RoleDBInfo::clear_has_prof() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void RoleDBInfo::clear_prof() {
-  prof_ = 0u;
-  clear_has_prof();
-}
-inline ::google::protobuf::uint32 RoleDBInfo::prof() const {
-  return prof_;
-}
-inline void RoleDBInfo::set_prof(::google::protobuf::uint32 value) {
-  set_has_prof();
-  prof_ = value;
-}
-
-// required uint32 level = 4;
-inline bool RoleDBInfo::has_level() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void RoleDBInfo::set_has_level() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void RoleDBInfo::clear_has_level() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void RoleDBInfo::clear_level() {
-  level_ = 0u;
-  clear_has_level();
-}
-inline ::google::protobuf::uint32 RoleDBInfo::level() const {
-  return level_;
-}
-inline void RoleDBInfo::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
-  level_ = value;
+inline void ComPair::set_value(::google::protobuf::uint32 value) {
+  set_has_value();
+  value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// RoleFacadeProto
+// ComPair64
+
+// optional uint64 key = 1;
+inline bool ComPair64::has_key() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ComPair64::set_has_key() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ComPair64::clear_has_key() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ComPair64::clear_key() {
+  key_ = GOOGLE_ULONGLONG(0);
+  clear_has_key();
+}
+inline ::google::protobuf::uint64 ComPair64::key() const {
+  return key_;
+}
+inline void ComPair64::set_key(::google::protobuf::uint64 value) {
+  set_has_key();
+  key_ = value;
+}
+
+// optional uint64 value = 2;
+inline bool ComPair64::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ComPair64::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ComPair64::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ComPair64::clear_value() {
+  value_ = GOOGLE_ULONGLONG(0);
+  clear_has_value();
+}
+inline ::google::protobuf::uint64 ComPair64::value() const {
+  return value_;
+}
+inline void ComPair64::set_value(::google::protobuf::uint64 value) {
+  set_has_value();
+  value_ = value;
+}
 
 // -------------------------------------------------------------------
 
-// LoginSyncProto
+// ComPairBool
 
-// optional uint32 guild_id = 1;
-inline bool LoginSyncProto::has_guild_id() const {
+// optional uint32 key = 1;
+inline bool ComPairBool::has_key() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LoginSyncProto::set_has_guild_id() {
+inline void ComPairBool::set_has_key() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LoginSyncProto::clear_has_guild_id() {
+inline void ComPairBool::clear_has_key() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LoginSyncProto::clear_guild_id() {
-  guild_id_ = 0u;
-  clear_has_guild_id();
+inline void ComPairBool::clear_key() {
+  key_ = 0u;
+  clear_has_key();
 }
-inline ::google::protobuf::uint32 LoginSyncProto::guild_id() const {
-  return guild_id_;
+inline ::google::protobuf::uint32 ComPairBool::key() const {
+  return key_;
 }
-inline void LoginSyncProto::set_guild_id(::google::protobuf::uint32 value) {
-  set_has_guild_id();
-  guild_id_ = value;
+inline void ComPairBool::set_key(::google::protobuf::uint32 value) {
+  set_has_key();
+  key_ = value;
 }
 
-// optional string guild_name = 2;
-inline bool LoginSyncProto::has_guild_name() const {
+// optional bool value = 2;
+inline bool ComPairBool::has_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LoginSyncProto::set_has_guild_name() {
+inline void ComPairBool::set_has_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LoginSyncProto::clear_has_guild_name() {
+inline void ComPairBool::clear_has_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LoginSyncProto::clear_guild_name() {
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    guild_name_->clear();
-  }
-  clear_has_guild_name();
+inline void ComPairBool::clear_value() {
+  value_ = false;
+  clear_has_value();
 }
-inline const ::std::string& LoginSyncProto::guild_name() const {
-  return *guild_name_;
+inline bool ComPairBool::value() const {
+  return value_;
 }
-inline void LoginSyncProto::set_guild_name(const ::std::string& value) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
-  }
-  guild_name_->assign(value);
-}
-inline void LoginSyncProto::set_guild_name(const char* value) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
-  }
-  guild_name_->assign(value);
-}
-inline void LoginSyncProto::set_guild_name(const char* value, size_t size) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
-  }
-  guild_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* LoginSyncProto::mutable_guild_name() {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
-  }
-  return guild_name_;
-}
-inline ::std::string* LoginSyncProto::release_guild_name() {
-  clear_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = guild_name_;
-    guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void LoginSyncProto::set_allocated_guild_name(::std::string* guild_name) {
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete guild_name_;
-  }
-  if (guild_name) {
-    set_has_guild_name();
-    guild_name_ = guild_name;
-  } else {
-    clear_has_guild_name();
-    guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 guild_duty = 3;
-inline bool LoginSyncProto::has_guild_duty() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void LoginSyncProto::set_has_guild_duty() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void LoginSyncProto::clear_has_guild_duty() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void LoginSyncProto::clear_guild_duty() {
-  guild_duty_ = 0;
-  clear_has_guild_duty();
-}
-inline ::google::protobuf::int32 LoginSyncProto::guild_duty() const {
-  return guild_duty_;
-}
-inline void LoginSyncProto::set_guild_duty(::google::protobuf::int32 value) {
-  set_has_guild_duty();
-  guild_duty_ = value;
-}
-
-// optional uint64 guild_leader = 5;
-inline bool LoginSyncProto::has_guild_leader() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void LoginSyncProto::set_has_guild_leader() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void LoginSyncProto::clear_has_guild_leader() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void LoginSyncProto::clear_guild_leader() {
-  guild_leader_ = GOOGLE_ULONGLONG(0);
-  clear_has_guild_leader();
-}
-inline ::google::protobuf::uint64 LoginSyncProto::guild_leader() const {
-  return guild_leader_;
-}
-inline void LoginSyncProto::set_guild_leader(::google::protobuf::uint64 value) {
-  set_has_guild_leader();
-  guild_leader_ = value;
+inline void ComPairBool::set_value(bool value) {
+  set_has_value();
+  value_ = value;
 }
 
 

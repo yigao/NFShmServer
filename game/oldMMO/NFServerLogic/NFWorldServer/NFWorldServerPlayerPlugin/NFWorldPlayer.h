@@ -320,6 +320,7 @@ private:
      * @brief
      */
     bool m_isWhite;
+private:
 
 
 DECLARE_IDCREATE(NFWorldPlayer)

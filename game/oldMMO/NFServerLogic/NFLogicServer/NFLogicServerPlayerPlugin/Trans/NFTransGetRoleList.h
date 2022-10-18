@@ -49,6 +49,13 @@ public:
      */
     virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
                                uint32_t seq, uint32_t err_code);
+
+    /**
+     * @brief
+     * @param iRunLogicRetCode
+     * @return
+     */
+    int HandleTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_bornZid;
     uint64_t m_proxyId;

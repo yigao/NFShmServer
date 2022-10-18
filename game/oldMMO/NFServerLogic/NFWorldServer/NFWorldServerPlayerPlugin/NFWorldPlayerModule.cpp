@@ -44,6 +44,11 @@ bool NFCWorldPlayerModule::Awake()
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, NF_MODULE_CLIENT, proto_ff::CLIENT_TO_CENTER_LOGIN, this,
                                                        &NFCWorldPlayerModule::OnHandleClientCenterLogin);
+
+    ///////////logic msg//////////////////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, NF_MODULE_NONE, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, this,
+                                                       &NFCWorldPlayerModule::OnHandleLogicGetRoleListRsp);
+
     //////////check proxy msg///////////////////////
     FindModule<NFIWorldServerModule>()->AddProxyMsgCheckCallBack(this, &NFCWorldPlayerModule::OnCheckWorldServerMsg);
 
@@ -205,7 +210,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
     //如果到了排队为数，直接加进排队人数列表，返回排队消息
     if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsNeedLoginQueue())
     {
-        proto_ff::ServerToClientQueue_RSP  gateInfoRsp;
+        proto_ff::ServerToClientQueue_RSP gateInfoRsp;
 
         //超过排队人数，则直接通知不能排队，返回消息
         if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
@@ -216,8 +221,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_NORMAL);
             CHECK_RET(retCode, "GateChangeLogic Failed!");
             return 0;
-        }
-        else
+        } else
         {
             //如果不在排队列表中，加入到排队列表中
             if (!NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(uid))
@@ -233,8 +237,7 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
 
             pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::SERVER_TO_CLIENT_QUEUE_RESULT, gateInfoRsp);
         }
-    }
-    else
+    } else
     {
         //如果没有旧角色正在下线中 那么直接去请求加载角色列表 如果有旧的账号 那么需要旧账号完全离开游戏后才去加载角色列表
 /*        if (!logoutUid || logoutUid->state != UID_STATE_LOGOUT)
@@ -246,7 +249,8 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
         if (pLogicServer)
         {
             pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
-            int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_ENTER_LOGIC, pLogicServer->mServerInfo.bus_id(), false, proto_ff::LOGOUT_FLAG_NULL);
+            int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_ENTER_LOGIC, pLogicServer->mServerInfo.bus_id(), false,
+                                          proto_ff::LOGOUT_FLAG_NULL);
             CHECK_RET(retCode, "GateChangeLogic Failed!");
 
             proto_ff::WorldToLogicGetRoleList xData;
@@ -254,9 +258,9 @@ int NFCWorldPlayerModule::OnHandleClientCenterLogin(uint64_t unLinkId, NFDataPac
             xData.set_born_zone_id(bornZid);
             xData.set_proxy_id(proxyId);
             xData.set_client_id(clientId);
-            pPlayer->SendMsgToLogicServer(NF_MODULE_CLIENT, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST, xData);
-        }
-        else {
+            pPlayer->SendMsgToLogicServer(NF_MODULE_NONE, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ, xData);
+        } else
+        {
             int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_CRASH);
             CHECK_RET(retCode, "GateChangeLogic Failed!");
         }
@@ -339,6 +343,145 @@ int NFCWorldPlayerModule::NotifyLogicLeave(NFWorldPlayer *pPlayer, uint32_t logi
 {
     CHECK_NULL(pPlayer);
 
+    return 0;
+}
+
+int NFCWorldPlayerModule::CharDBToCharSimpleDB(const proto_ff::tbRoleInfo& charDBBaseInfo, proto_ff::CharacterDBSimpleInfo& charSimpleInfo)
+{
+    charSimpleInfo.set_charid(charDBBaseInfo.charid());
+    charSimpleInfo.set_name(charDBBaseInfo.basedata().name());
+    charSimpleInfo.set_sex(charDBBaseInfo.basedata().sex());
+    charSimpleInfo.set_prof(charDBBaseInfo.basedata().prof());
+    charSimpleInfo.set_occupation(charDBBaseInfo.basedata().occupation());
+    charSimpleInfo.set_level(charDBBaseInfo.basedata().level());
+    charSimpleInfo.set_exp(charDBBaseInfo.basedata().exp());
+    charSimpleInfo.set_hp(charDBBaseInfo.basedata().hp());
+    charSimpleInfo.set_fightpower(charDBBaseInfo.basedata().fight());
+
+    charSimpleInfo.set_enter_scene_id(charDBBaseInfo.basedata().enter_scene_id());
+    charSimpleInfo.set_enter_map_id(charDBBaseInfo.basedata().enter_map_id());
+    charSimpleInfo.set_enterposx(charDBBaseInfo.basedata().enterposx());
+    charSimpleInfo.set_enterposy(charDBBaseInfo.basedata().enterposy());
+    charSimpleInfo.set_enterposz(charDBBaseInfo.basedata().enterposz());
+    charSimpleInfo.set_lastsceneid(charDBBaseInfo.basedata().lastsceneid());
+    charSimpleInfo.set_lastmapid(charDBBaseInfo.basedata().lastmapid());
+    charSimpleInfo.set_lastposx(charDBBaseInfo.basedata().lastposx());
+    charSimpleInfo.set_lastposy(charDBBaseInfo.basedata().lastposy());
+    charSimpleInfo.set_lastposz(charDBBaseInfo.basedata().lastposz());
+    charSimpleInfo.set_curstate(charDBBaseInfo.basedata().curstate());
+    charSimpleInfo.set_deletechartime(charDBBaseInfo.deletechartime());
+    charSimpleInfo.set_createtime(charDBBaseInfo.basedata().createtime());
+
+    charSimpleInfo.set_finish_flag(charDBBaseInfo.basedata().finish_flag());
+
+    charSimpleInfo.set_platid(charDBBaseInfo.basedata().platid());
+    charSimpleInfo.set_dirty(charDBBaseInfo.dirty());
+    if (charDBBaseInfo.basedata().has_facade())
+    {
+        proto_ff::CharFacadeProto *facade = charSimpleInfo.mutable_facade();
+        if (nullptr != facade)
+        {
+            facade->CopyFrom(charDBBaseInfo.basedata().facade());
+        }
+    }
+
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnHandleLogicGetRoleListRsp(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::LogicToWorldGetRoleListRsp xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    uint64_t playerId = xData.player_id();
+    uint64_t proxyId = xData.proxy_id();
+    uint64_t clientId = xData.client_id();
+    int err_code = xData.ret_code();
+
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_EXPR(pPlayer, -1,
+               "OnHandleLogicGetRoleListRsp, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId) return NULL, playerId:{}",
+               playerId);
+
+    //这种情况表示有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
+    //这种情况直接把旧的连接断开
+    if ((pPlayer->GetProxyId() != 0 && pPlayer->GetProxyId() != proxyId) ||
+        (pPlayer->GetProxyId() != 0 && pPlayer->GetProxyId() == proxyId && pPlayer->GetClientId() != clientId))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "OnHandleLogicGetRoleListRsp....playerId:{} req proxyId:{} clientId:{}, cur proxyId:{} clientId:{}",
+                   playerId, proxyId, clientId, pPlayer->GetProxyId(), pPlayer->GetClientId());
+        int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_REPLACE);
+        CHECK_RET(retCode, "GateChangeLogic Failed!");
+        return 0;
+    }
+
+    //再加一下状态判断 状态出错直接断开连接
+    if (pPlayer->GetStatus() != PLAYER_STATE_LOGIN)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "Player->GetStatus():{} != PLAYER_STATE_LOGIN", pPlayer->GetStatus());
+        int retCode = GateChangeLogic(pPlayer, proto_ff::NotifyGateChangeLogic_cType_LEAVE_LOGIC, 0, true, proto_ff::LOGOUT_FLAG_KICK);
+        CHECK_RET(retCode, "GateChangeLogic Failed!");
+        return 0;
+    }
+
+    proto_ff::ClientLoginGateRsp loginrsp;
+    loginrsp.set_ret(err_code);
+    if (err_code == 0)
+    {
+        //先判断是否注册人数已满,新号，且注册人数已超，则不让进
+        if (xData.role_info_list_size() <=0)
+        {
+            loginrsp.set_ret(proto_ff::RET_ACCOUNT_FULL);
+        }
+        else
+        {
+            //先清空下数据
+            //pUid->cidSceneIdMap.clear();
+            //
+            proto_ff::CharacterDBSimpleInfo *pCharSimpleDB = nullptr;
+            for (int i = 0; i < (int)xData.role_info_list_size(); i++)
+            {
+                pCharSimpleDB = loginrsp.add_charinfolist();
+                if (nullptr != pCharSimpleDB)
+                {
+                    CharDBToCharSimpleDB(xData.role_info_list(i), *pCharSimpleDB);
+                }
+
+/*                CidCurAndLastScene cidScene;
+                cidScene.sceneId = charLstrsp.charinfolist(i).enter_scene_id();
+                cidScene.mapId = charLstrsp.charinfolist(i).enter_map_id();
+                cidScene.prof = charLstrsp.charinfolist(i).prof();
+                cidScene.sex = charLstrsp.charinfolist(i).sex();
+                cidScene.x = charLstrsp.charinfolist(i).enterposx();
+                cidScene.y = charLstrsp.charinfolist(i).enterposy();
+                cidScene.z = charLstrsp.charinfolist(i).enterposz();
+                cidScene.lastSceneId = charLstrsp.charinfolist(i).lastsceneid();
+                cidScene.lastMapId = charLstrsp.charinfolist(i).lastmapid();
+                cidScene.lastx = charLstrsp.charinfolist(i).lastposx();
+                cidScene.lasty = charLstrsp.charinfolist(i).lastposy();
+                cidScene.lastz = charLstrsp.charinfolist(i).lastposz();
+                cidScene.curstate = charLstrsp.charinfolist(i).curstate();
+                cidScene.clx = charLstrsp.charinfolist(i).clx();
+                cidScene.cly = charLstrsp.charinfolist(i).cly();
+                cidScene.clz = charLstrsp.charinfolist(i).clz();
+                cidScene.finishFlag = charLstrsp.charinfolist(i).finish_flag();
+                cidScene.dirty = charLstrsp.charinfolist(i).dirty();
+                //
+                pUid->cidSceneIdMap[charLstrsp.charinfolist(i).charid()] = cidScene;*/
+            }
+        }
+
+        //标记一下拉取角色列表完毕
+        pPlayer->SetStatus(PLAYER_STATE_LOADCHARLIS);
+        pPlayer->SetStatusTimeStamp(NFServerTime::Instance()->Tick());
+
+        pPlayer->SendMsgToProxyServer(NF_MODULE_CLIENT, proto_ff::CENTER_TO_CLIENT_LOGIN, xData);
+
+        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "client login  account ok, playerId:{},bornzid:{}", playerId, pPlayer->GetBornZid());
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
