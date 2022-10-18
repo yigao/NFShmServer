@@ -141,7 +141,7 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
 	ExternalMsg packHead;
-	packHead.SetModule(0);
+	packHead.SetModule(recvPackage.mModuleId);
 	packHead.SetCmd(recvPackage.nMsgId);
 	packHead.SetLength(recvPackage.mBufferMsg.ReadableSize() + sizeof(ExternalMsg));
 

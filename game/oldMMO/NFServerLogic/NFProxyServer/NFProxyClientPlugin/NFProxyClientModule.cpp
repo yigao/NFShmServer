@@ -555,7 +555,7 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
             return -1;
         }
 
-        FindModule<NFIMessageModule>()->TransPackage(pPlayerInfo->GetLinkId(), packet);
+        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, (const char*)packet.mBufferMsg.ReadAddr(), (uint32_t)packet.mBufferMsg.ReadableSize());
     }
     else
     {
@@ -579,7 +579,7 @@ int NFCProxyClientModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackag
             return -1;
         }
 
-        FindModule<NFIMessageModule>()->TransPackage(pPlayerInfo->GetLinkId(), packet);
+        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), 3, packet.nMsgId, (const char*)packet.mBufferMsg.ReadAddr(), (uint32_t)packet.mBufferMsg.ReadableSize());
     }
     else
     {
