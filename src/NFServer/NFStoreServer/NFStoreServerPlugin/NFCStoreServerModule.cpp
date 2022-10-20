@@ -31,7 +31,7 @@ NFCStoreServerModule::~NFCStoreServerModule()
 
 bool NFCStoreServerModule::Awake() {
     //不需要固定帧，需要尽可能跑得快
-    m_pObjPluginManager->SetFixedFrame(false);
+    //m_pObjPluginManager->SetFixedFrame(false);
 
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 

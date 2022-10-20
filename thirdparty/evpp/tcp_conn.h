@@ -118,8 +118,6 @@ public:
         close_delay_ = d;
     }
 
-	void SetLinkId(uint32_t linkId) { linkId_ = linkId; }
-	uint32_t GetLinkId() const { return linkId_; }
 public:
     void SetTCPNoDelay(bool on);
 
@@ -167,7 +165,6 @@ private:
     EventLoop* loop_;
     int fd_;
     uint64_t id_ = 0;
-	uint32_t linkId_ = 0;
     std::string name_;
     std::string local_addr_; // the local address with form : "ip:port"
     std::string remote_addr_; // the remote address with form : "ip:port"

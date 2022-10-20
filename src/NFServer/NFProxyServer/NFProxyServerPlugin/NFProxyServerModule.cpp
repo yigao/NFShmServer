@@ -35,7 +35,7 @@ NFCProxyServerModule::~NFCProxyServerModule()
 bool NFCProxyServerModule::Awake()
 {
     //不需要固定帧，需要尽可能跑得快
-    m_pObjPluginManager->SetFixedFrame(false);
+    //m_pObjPluginManager->SetFixedFrame(false);
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_PROXY_SERVER);
 	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                  &NFCProxyServerModule::OnHandleMasterServerReport);

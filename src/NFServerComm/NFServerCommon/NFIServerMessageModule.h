@@ -21,7 +21,7 @@
 #include <map>
 #include <functional>
 
-//#define TEST_SERVER_SEND_MSG
+#define TEST_SERVER_SEND_MSG
 #define TEST_SERVER_SEND_MSG_FRAME_COUNT 10
 
 /// @brief 基于消息的通讯接口类

@@ -96,7 +96,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 {
                                     pObject->SetConnPtr(pMsg->mTCPConPtr);
                                     pObject->SetIsServer(false);
-                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
+                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject->m_usLinkId));
                                     NFDataPackage tmpPacket;
                                     OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
                                 }
@@ -111,7 +111,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 NetEvppObject* pObject = AddNetObject(pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
                                 if (pObject)
                                 {
-                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject));
+                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject->m_usLinkId));
                                     NFDataPackage tmpPacket;
                                     OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
                                 }
@@ -132,7 +132,8 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                 {
                     if (!pMsg->mTCPConPtr->context().IsEmpty())
                     {
-                        NetEvppObject* pObject = evpp::any_cast<NetEvppObject*>(pMsg->mTCPConPtr->context());
+                        uint64_t objectLinkId = evpp::any_cast<uint64_t>(pMsg->mTCPConPtr->context());
+                        NetEvppObject* pObject = GetNetObject(objectLinkId);
                         if (pObject)
                         {
                             if (pObject->GetNeedRemove() == false)
@@ -170,7 +171,6 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                                 }
                             }
                         }
-
                     }
                 }
             }
@@ -180,10 +180,11 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                 {
                     if (!pMsg->mTCPConPtr->context().IsEmpty())
                     {
-                        NetEvppObject* pObject = evpp::any_cast<NetEvppObject*>(pMsg->mTCPConPtr->context());
+                        uint64_t objectLinkId = evpp::any_cast<uint64_t>(pMsg->mTCPConPtr->context());
+                        NetEvppObject* pObject = GetNetObject(objectLinkId);
                         if (pObject)
                         {
-                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, pObject->m_usLinkId, pMsg->mPacket);
+                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, objectLinkId, pMsg->mPacket);
                         }
                         else
                         {

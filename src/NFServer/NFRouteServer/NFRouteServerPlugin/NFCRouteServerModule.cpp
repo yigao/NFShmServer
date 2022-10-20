@@ -31,7 +31,7 @@ NFCRouteServerModule::~NFCRouteServerModule()
 bool NFCRouteServerModule::Awake()
 {
     //不需要固定帧，需要尽可能跑得快
-    m_pObjPluginManager->SetFixedFrame(false);
+    //m_pObjPluginManager->SetFixedFrame(false);
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_ROUTE_SERVER);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_ROUTE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
                                                        &NFCRouteServerModule::OnServerRegisterProcess);
