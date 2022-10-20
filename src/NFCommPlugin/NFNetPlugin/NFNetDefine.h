@@ -46,6 +46,7 @@ typedef struct linger 		    LINGER;
 
 #define MAX_SEND_BUFFER_SIZE (1024 * 100)
 #define MAX_RECV_BUFFER_SIZE (1024 * 100)
+#define MAX_CODE_QUEUE_SIZE (1024 * 1024 * 20)
 
 
 

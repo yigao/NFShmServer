@@ -36,6 +36,7 @@
 #include <evpp/tcp_server.h>
 #include <evpp/buffer.h>
 #include <evpp/tcp_conn.h>
+#include <NFComm/NFPluginModule/NFCodeQueue.h>
 #include "NFComm/NFCore/NFQueue.hpp"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
@@ -44,6 +45,10 @@
 #include "NFCHttpServer.h"
 #include "NFCHttpClient.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
+
+#define EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV 0
+#define EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND 1
+#define EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER 2
 
 enum EnumNFEvppClientTimer
 {
@@ -61,11 +66,13 @@ struct MsgFromNetInfo
         mTCPConPtr = NULL;
         nLinkId = 0;
         nType = eMsgType_Num;
+        pRecvBuffer = NULL;
     }
 
 	MsgFromNetInfo(const evpp::TCPConnPtr TCPConPtr, uint64_t linkId) : mTCPConPtr(TCPConPtr), nLinkId(linkId)
 	{
 		nType = eMsgType_Num;
+        pRecvBuffer = NULL;
 	}
 
 	virtual ~MsgFromNetInfo()
@@ -79,11 +86,13 @@ struct MsgFromNetInfo
         mTCPConPtr = NULL;
         nLinkId = 0;
         mPacket.Clear();
+        pRecvBuffer = NULL;
     }
 
 	eMsgType nType;
 	evpp::TCPConnPtr mTCPConPtr;
 	uint64_t nLinkId;
+    NF_SHARE_PTR<NFBuffer> pRecvBuffer;
 	NFDataPackage mPacket;
 };
 
@@ -232,6 +241,8 @@ protected:
 	 * @brief 主线程处理消息队列
 	 */
 	virtual void ProcessMsgLogicThread();
+    virtual void ProcessCodeQueue();
+    virtual void ProcessCodeQueue(NFCodeQueue* pRecvQueue);
 
 	/**
 	 * @brief	对解析出来的数据进行处理
@@ -257,6 +268,7 @@ private:
 	std::vector<NFIConnection* > m_connectionList;
 	std::list<uint64_t>  mFreeLinks;
     std::shared_ptr<evpp::EventLoopThreadPool> m_coonectionThreadPool;
+    std::vector<NF_SHARE_PTR<NFBuffer>> m_recvCodeQueueList;
 private:
 	NFCHttpServer* m_httpServer;
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
@@ -291,4 +303,9 @@ private:
 	* @brief 发送BUFF
 	*/
 	NFBuffer mxSendBuffer;
+
+    /**
+    * @brief recv BUFF
+    */
+    NFBuffer mxRecvBuffer;
 };

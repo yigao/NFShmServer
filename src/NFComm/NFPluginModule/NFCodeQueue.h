@@ -7,6 +7,8 @@
 //
 // -------------------------------------------------------------------------
 
+#pragma once
+
 #include "NFComm/NFCore/NFPlatform.h"
 
 #include <stdio.h>
@@ -73,6 +75,14 @@ public:
 			return size_ - write_ + read_ - SPACE - sizeof(int);
 		}
 	}
+
+    /**
+    * 判断接收队列中有没有Code
+    */
+    bool HasCode() const
+    {
+        return GetCodeLen() > 0;
+    }
 
     /**
     * 向队列放入一个Code
@@ -448,8 +458,8 @@ public:
 
 	void Dump() const
 	{
-		CT_DEBUG(("this=%p offset=%d size=%d read=%d write=%d\n",
-			this, offset_, size_, read_, write_));
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "offset={} size={} read={} write={}\n",
+			offset_, size_, read_, write_);
 	}
 
 protected:

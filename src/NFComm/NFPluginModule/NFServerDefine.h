@@ -188,6 +188,68 @@ struct NFBaseDataPackage
     bool bCompress;
 };
 
+struct NFCodeQueuePackage
+{
+    NFCodeQueuePackage()
+    {
+
+    }
+
+    virtual ~NFCodeQueuePackage()
+    {
+
+    }
+
+    NFCodeQueuePackage &operator=(const NFBaseDataPackage &packet)
+    {
+        Copy(packet);
+        return *this;
+    }
+
+    void Copy(const NFBaseDataPackage &packet)
+    {
+        mModuleId = packet.mModuleId;
+        nMsgId = packet.nMsgId;
+        nParam1 = packet.nParam1;
+        nParam2 = packet.nParam2;
+        nSrcId = packet.nSrcId;
+        nDstId = packet.nDstId;
+        nSendBusLinkId = packet.nSendBusLinkId;
+        bCompress = packet.bCompress;
+    }
+
+    std::string ToString() const
+    {
+        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{} nConnectLinkId:{} nObjectLinkId:{} nMsgLen:{})", mModuleId, nMsgId, nParam1, nParam2, nConnectLinkId, nObjectLinkId, nMsgLen);
+    }
+
+    virtual void Clear()
+    {
+        mModuleId = 0;
+        nMsgId = 0;
+        nParam1 = 0;
+        nParam2 = 0;
+        nSrcId = 0;
+        nDstId = 0;
+        nSendBusLinkId = 0;
+        bCompress = false;
+        nMsgLen = 0;
+        nConnectLinkId = 0;
+        nObjectLinkId = 0;
+    }
+
+    uint32_t mModuleId;
+    uint32_t nMsgId;
+    uint64_t nParam1;
+    uint64_t nParam2;
+    uint64_t nSrcId;
+    uint64_t nDstId;
+    uint64_t nSendBusLinkId;
+    bool bCompress;
+    uint64_t nConnectLinkId;
+    uint64_t nObjectLinkId;
+    uint64_t nMsgLen;
+};
 
 struct NFDataPackage : public NFBaseDataPackage
 {
@@ -211,6 +273,18 @@ struct NFDataPackage : public NFBaseDataPackage
     }
 
     void Copy(const NFBaseDataPackage &packet)
+    {
+        mModuleId = packet.mModuleId;
+        nMsgId = packet.nMsgId;
+        nParam1 = packet.nParam1;
+        nParam2 = packet.nParam2;
+        nSrcId = packet.nSrcId;
+        nDstId = packet.nDstId;
+        nSendBusLinkId = packet.nSendBusLinkId;
+        bCompress = packet.bCompress;
+    }
+
+    void Copy(const NFCodeQueuePackage &packet)
     {
         mModuleId = packet.mModuleId;
         nMsgId = packet.nMsgId;
@@ -260,6 +334,7 @@ private:
 
     void operator=(const NFDataPackage &);
 };
+
 
 typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
 

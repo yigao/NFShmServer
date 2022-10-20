@@ -18,6 +18,7 @@
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFCodeQueue.h"
 #include "NFEvppClient.h"
 #include "NFEvppServer.h"
 #include "NFIPacketParse.h"
@@ -27,6 +28,7 @@
 NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p),m_netObjectPool(1000, false)
 {
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
+    mxRecvBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
 	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
 	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
     m_httpServer = NULL;
@@ -78,6 +80,11 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
 
             if (pMsg->nType == eMsgType_CONNECTED)
             {
+                if (pMsg->pRecvBuffer)
+                {
+                    m_recvCodeQueueList.push_back(pMsg->pRecvBuffer);
+                }
+
                 if (pMsg->mTCPConPtr && pMsg->mTCPConPtr->IsConnected())
                 {
                     for (size_t i = 0; i < m_connectionList.size(); i++)
@@ -208,6 +215,60 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
     }
 }
 
+void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
+{
+    NF_ASSERT_MSG(pRecvQueue != NULL, "pRecvQueue == NULL");
+    while(pRecvQueue->HasCode())
+    {
+        mxRecvBuffer.Clear();
+        int iCodeLen = 0;
+        int iRet = pRecvQueue->Get(mxRecvBuffer.WriteAddr(), mxRecvBuffer.WritableSize(), iCodeLen);
+        if (iRet || iCodeLen < (int)sizeof(NFCodeQueuePackage))
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
+            continue;
+        }
+        mxRecvBuffer.Produce(iCodeLen);
+
+        // 先获取NetHead
+        NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)mxRecvBuffer.ReadAddr();
+        if (iCodeLen != (int)sizeof(NFCodeQueuePackage) + (int)pCodePackage->nMsgLen) // 长度不一致
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFCodeQueuePackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
+                    sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+            continue;
+        }
+
+        NetEvppObject* pObject = GetNetObject(pCodePackage->nObjectLinkId);
+        if (pObject)
+        {
+            NFDataPackage package;
+            package.Copy(*pCodePackage);
+            package.mBufferMsg.PushData(mxRecvBuffer.ReadAddr()+sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+            NFLogTrace(NF_LOG_RECV_MSG, 0, "get one code msg:{} ", package.ToString());
+            OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nConnectLinkId, pCodePackage->nObjectLinkId, package);
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server recv data, tcp context error");
+        }
+    }
+}
+
+
+void NFEvppNetMessage::ProcessCodeQueue()
+{
+    for(int i = 0; i < (int)m_recvCodeQueueList.size(); i++)
+    {
+        NF_SHARE_PTR<NFBuffer> pRecvBuffer = m_recvCodeQueueList[i];
+        if (pRecvBuffer)
+        {
+            NFCodeQueue* pQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+            ProcessCodeQueue(pQueue);
+        }
+    }
+}
+
 /**
 * @brief 连接回调
 *
@@ -223,6 +284,27 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         pMsg->mTCPConPtr = conn;
         pMsg->nLinkId = linkId;
         pMsg->nType = eMsgType_CONNECTED;
+
+        if (conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+        {
+            NF_SHARE_PTR<NFBuffer> pRecvBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+            pRecvBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
+            pRecvBuffer->Produce(MAX_CODE_QUEUE_SIZE);
+            NFCodeQueue* pQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+            pQueue->Init(pRecvBuffer->ReadableSize());
+            conn->loop()->set_context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV, evpp::Any(pRecvBuffer));
+            pMsg->pRecvBuffer = pRecvBuffer;
+        }
+
+        if (conn->loop()->context(EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty())
+        {
+            NF_SHARE_PTR<NFBuffer> pSendBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+            pSendBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
+            pSendBuffer->Produce(MAX_CODE_QUEUE_SIZE);
+            NFCodeQueue* pQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
+            pQueue->Init(pSendBuffer->ReadableSize());
+            conn->loop()->set_context(EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND, evpp::Any(pSendBuffer));
+        }
 		while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 	else
@@ -254,8 +336,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
             {
                 Decryption((char*)msg->data(), msg->size());
             }
-            NFBaseDataPackage packet;
-            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, packet);
+            NFBaseDataPackage basePacket;
+            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, basePacket);
 			if (ret < 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed!");
@@ -268,51 +350,104 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
-                || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                if (!(basePacket.mModuleId == 0 && (basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                                                    || basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
-                    NFLogTrace(NF_LOG_RECV_MSG,0,"recv msg:{} ", packet.ToString());
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", basePacket.ToString());
                 }
 
-                if (packet.bCompress)
+                if (basePacket.bCompress)
                 {
-                    if (conn->loop()->context().IsEmpty())
+                    if (conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
                     {
                         NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
                         pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
-                        conn->loop()->set_context(evpp::Any(pComBuffer));
+                        conn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
                     }
 
-                    NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context());
+                    NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
                     pComBuffer->Clear();
 
                     int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)pComBuffer->WriteAddr(), (int)pComBuffer->WritableSize());
                     if (decompressLen < 0)
                     {
-                        NFLogError(NF_LOG_RECV_MSG,0,"recv msg:{}, decompress failed!", packet.ToString());
+                        NFLogError(NF_LOG_RECV_MSG, 0, "recv msg:{}, decompress failed!", basePacket.ToString());
                         msg->Skip(allLen);
                         continue;
                     }
                     pComBuffer->Produce(decompressLen);
 
-                    MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
-                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                    pMsg->mTCPConPtr = conn;
-                    pMsg->nLinkId = linkId;
-                    pMsg->mPacket = packet;
-                    pMsg->nType = eMsgType_RECIVEDATA;
-                    pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-                    while(!mMsgQueue.Enqueue(pMsg)) {}
+                    if (!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+                    {
+                        NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                        NF_ASSERT(pRecvBuffer != NULL);
+                        NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+                        NF_ASSERT(pRecvQueue != NULL);
+
+                        NFCodeQueuePackage codePackage;
+                        codePackage.Copy(basePacket);
+                        codePackage.nMsgLen = pComBuffer->ReadableSize();
+                        codePackage.nConnectLinkId = linkId;
+                        if (!conn->context().IsEmpty())
+                        {
+                            codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                        }
+                        else {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
+                            codePackage.nObjectLinkId = 0;
+                        }
+                        pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                    }
+                    else {
+                        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
+                        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+                        pMsg->mTCPConPtr = conn;
+                        pMsg->nLinkId = linkId;
+                        pMsg->mPacket = basePacket;
+                        pMsg->nType = eMsgType_RECIVEDATA;
+                        pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                        while(!mMsgQueue.Enqueue(pMsg)) {}
+                    }
                 }
                 else {
-                    MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
-                    NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                    pMsg->mTCPConPtr = conn;
-                    pMsg->nLinkId = linkId;
-                    pMsg->mPacket = packet;
-                    pMsg->nType = eMsgType_RECIVEDATA;
-                    pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
-                    while(!mMsgQueue.Enqueue(pMsg)) {}
+                    if (!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+                    {
+                        NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                        NF_ASSERT(pRecvBuffer != NULL);
+                        NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+                        NF_ASSERT(pRecvQueue != NULL);
+
+                        NFCodeQueuePackage codePackage;
+                        codePackage.Copy(basePacket);
+                        codePackage.nMsgLen = outLen;
+                        codePackage.nConnectLinkId = linkId;
+                        if (!conn->context().IsEmpty())
+                        {
+                            codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                        }
+                        else {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
+                            codePackage.nObjectLinkId = 0;
+                        }
+
+                        if (!(basePacket.mModuleId == 0 && (basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                                                            || basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                        {
+                            NFLogTrace(NF_LOG_RECV_MSG, 0, "put one code msg:{} ", codePackage.ToString());
+                        }
+
+                        pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
+                    }
+                    else {
+                        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
+                        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+                        pMsg->mTCPConPtr = conn;
+                        pMsg->nLinkId = linkId;
+                        pMsg->mPacket = basePacket;
+                        pMsg->nType = eMsgType_RECIVEDATA;
+                        pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
+                        while(!mMsgQueue.Enqueue(pMsg)) {}
+                    }
                 }
 
 				msg->Skip(allLen);
@@ -481,7 +616,7 @@ NetEvppObject* NFEvppNetMessage::GetNetObject(uint64_t usLinkId)
 	uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
 	if (serverType != mServerType)
 	{
-		NFLogError(NF_LOG_NET_PLUGIN, 0, "serverType != mServerType, this usLinkId:%s is not of the server:%s", usLinkId, GetServerName(mServerType).c_str());
+		NFLogError(NF_LOG_NET_PLUGIN, 0, "serverType != mServerType, this usLinkId:{} is not of the server:{}", usLinkId, GetServerName(mServerType).c_str());
 		return nullptr;
 	}
 
@@ -620,6 +755,7 @@ bool NFEvppNetMessage::Finalize()
 bool NFEvppNetMessage::Execute()
 {
 	ProcessMsgLogicThread();
+    ProcessCodeQueue();
 	if (m_httpServer)
     {
 	    m_httpServer->Execute();
