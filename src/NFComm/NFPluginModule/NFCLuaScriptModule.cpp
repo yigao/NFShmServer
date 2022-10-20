@@ -268,7 +268,8 @@ void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::strin
 
 void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::string& str)
 {
-    NFLogError(logId, guid, "{}", str);}
+    NFLogError(logId, guid, "{}", str);
+}
 
 
 void NFCLuaScriptModule::ProcessWork(const std::string& luaFunc, const NFLuaRef& dataStr)
