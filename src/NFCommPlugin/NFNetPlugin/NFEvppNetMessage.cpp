@@ -868,14 +868,14 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
     if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
     {
         pObject->mConnPtr->loop()->RunInLoop(std::bind([](NFDataPackage* pPackage, evpp::TCPConnPtr pConn, int packetParseType, bool isSecurity){
-            if (pConn->loop()->context().IsEmpty())
+            if (pConn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
             {
                 NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
                 pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
-                pConn->loop()->set_context(evpp::Any(pComBuffer));
+                pConn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
             }
 
-            NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pConn->loop()->context());
+            NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pConn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
             pComBuffer->Clear();
 
             NFIPacketParse::EnCode(packetParseType, *pPackage, *pComBuffer);
