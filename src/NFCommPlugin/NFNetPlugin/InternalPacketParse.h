@@ -17,6 +17,6 @@ class InternalPacketParse : public NFIPacketParse
 public:
 	InternalPacketParse();
 	////////////////////////////////////////////////////////////////////
-	virtual int DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage) override;
-	virtual int EnCodeImpl(const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId = 0) override;
+	virtual int DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFCodeQueuePackage& recvPackage) override;
+	virtual int EnCodeImpl(const NFCodeQueuePackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId = 0) override;
 };

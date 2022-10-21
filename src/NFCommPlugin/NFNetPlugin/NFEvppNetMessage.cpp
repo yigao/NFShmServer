@@ -301,6 +301,13 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         conn->loop()->set_context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP, evpp::Any(pConnMap));
     }
 
+    if (conn->loop()->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER).IsEmpty())
+    {
+        NF_SHARE_PTR<NFBuffer> pCodeQueueBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+        pCodeQueueBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
+        conn->loop()->set_context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER, evpp::Any(pCodeQueueBuffer));
+    }
+
 	if (conn->IsConnected())
 	{
 		conn->SetTCPNoDelay(true);
@@ -430,8 +437,9 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
             {
                 Decryption((char*)msg->data(), msg->size());
             }
-            NFBaseDataPackage basePacket;
-            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, basePacket);
+
+            NFCodeQueuePackage codePackage;
+            int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, codePackage);
 			if (ret < 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed!");
@@ -444,13 +452,13 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!(basePacket.mModuleId == 0 && (basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
-                                                    || basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                if (!(codePackage.mModuleId == 0 && (codePackage.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
+                                                    || codePackage.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || codePackage.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || codePackage.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
                 {
-                    NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", basePacket.ToString());
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", codePackage.ToString());
                 }
 
-                if (basePacket.bCompress)
+                if (codePackage.bCompress)
                 {
                     CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty()");
 
@@ -460,7 +468,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     int decompressLen = NFIPacketParse::Decompress(packetparse, outData, outLen, (void *)pComBuffer->WriteAddr(), (int)pComBuffer->WritableSize());
                     if (decompressLen < 0)
                     {
-                        NFLogError(NF_LOG_RECV_MSG, 0, "recv msg:{}, decompress failed!", basePacket.ToString());
+                        NFLogError(NF_LOG_RECV_MSG, 0, "recv msg:{}, decompress failed!", codePackage.ToString());
                         msg->Skip(allLen);
                         continue;
                     }
@@ -472,8 +480,6 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
                     NF_ASSERT(pRecvQueue != NULL);
 
-                    NFCodeQueuePackage codePackage;
-                    codePackage.Copy(basePacket);
                     codePackage.nMsgLen = pComBuffer->ReadableSize();
                     codePackage.nConnectLinkId = linkId;
                     if (!conn->context().IsEmpty())
@@ -504,8 +510,6 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
                     NF_ASSERT(pRecvQueue != NULL);
 
-                    NFCodeQueuePackage codePackage;
-                    codePackage.Copy(basePacket);
                     codePackage.nMsgLen = outLen;
                     codePackage.nConnectLinkId = linkId;
                     if (!conn->context().IsEmpty())
@@ -978,21 +982,26 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
 
             CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty() ERROR");
             NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
+            CHECK_EXPR_ASSERT_NOT_RET(pComBuffer != NULL, "pComBuffer NULL");
+
+            CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER).IsEmpty() ERROR");
+            NF_SHARE_PTR<NFBuffer> pCodeQueueBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER));
+            CHECK_EXPR_ASSERT_NOT_RET(pCodeQueueBuffer != NULL, "pCodeQueueBuffer NULL");
 
             while(pSendQueue->HasCode())
             {
-                pComBuffer->Clear();
+                pCodeQueueBuffer->Clear();
                 int iCodeLen = 0;
-                int iRet = pSendQueue->Get(pComBuffer->WriteAddr(), pComBuffer->WritableSize(), iCodeLen);
+                int iRet = pSendQueue->Get(pCodeQueueBuffer->WriteAddr(), pCodeQueueBuffer->WritableSize(), iCodeLen);
                 if (iRet || iCodeLen < (int)sizeof(NFCodeQueuePackage))
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
                     continue;
                 }
-                pComBuffer->Produce(iCodeLen);
+                pCodeQueueBuffer->Produce(iCodeLen);
 
                 // 先获取NetHead
-                NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)pComBuffer->ReadAddr();
+                NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)pCodeQueueBuffer->ReadAddr();
                 if (iCodeLen != (int)sizeof(NFCodeQueuePackage) + (int)pCodePackage->nMsgLen) // 长度不一致
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFCodeQueuePackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
@@ -1009,12 +1018,10 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
                 auto iter = pConnMap->find(pCodePackage->nObjectLinkId);
                 CHECK_EXPR_ASSERT_NOT_RET(iter != pConnMap->end(), "pConnMap->find(pCodePackage->nObjectLinkId) Failed", pCodePackage->nObjectLinkId);
                 evpp::TCPConnPtr pConn = iter->second;
-                NFDataPackage package;
-                package.Copy(*pCodePackage);
-                package.mBufferMsg.PushData(pComBuffer->ReadAddr()+sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
 
                 pComBuffer->Clear();
-                NFIPacketParse::EnCode(parsePackageType, package, *pComBuffer);
+                NFIPacketParse::EnCode(parsePackageType, *pCodePackage, pCodeQueueBuffer->ReadAddr() + sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen, *pComBuffer);
+                pCodeQueueBuffer->Clear();
 
                 if (isSecurity)
                 {

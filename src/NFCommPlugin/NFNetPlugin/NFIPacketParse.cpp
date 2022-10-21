@@ -43,7 +43,7 @@ NFIPacketParse* NFIPacketParse::CreatePacketParse(int parseType)
 	}
 }
 
-int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFBaseDataPackage& recvPackage)
+int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFCodeQueuePackage& recvPackage)
 {
 	if (packetType >= m_pPacketParse.size())
 	{
@@ -52,13 +52,13 @@ int NFIPacketParse::DeCode(uint32_t packetType, const char* strData, uint32_t un
 	return m_pPacketParse[packetType]->DeCodeImpl(strData, unLen, outData, outLen, allLen, recvPackage);
 }
 
-int NFIPacketParse::EnCode(uint32_t packetType, const NFDataPackage& recvPackage, NFBuffer& buffer, uint64_t nSendBusLinkId)
+int NFIPacketParse::EnCode(uint32_t packetType, const NFCodeQueuePackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
 	if (packetType >= m_pPacketParse.size())
 	{
-		return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->EnCodeImpl(recvPackage, buffer, nSendBusLinkId);
+		return m_pPacketParse[PACKET_PARSE_TYPE_INTERNAL]->EnCodeImpl(recvPackage, strData, unLen, buffer, nSendBusLinkId);
 	}
-	return m_pPacketParse[packetType]->EnCodeImpl(recvPackage, buffer, nSendBusLinkId);
+	return m_pPacketParse[packetType]->EnCodeImpl(recvPackage, strData, unLen, buffer, nSendBusLinkId);
 }
 
 // 使用 lzf 算法 压缩、解压
