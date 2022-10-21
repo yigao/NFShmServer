@@ -315,7 +315,13 @@ int NFCWorldServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogDebug(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server connect master success!");
-		RegisterMasterServer(proto_ff::EST_INIT);
+        if (!m_pObjPluginManager->IsInited())
+        {
+            RegisterMasterServer(proto_ff::EST_INIT);
+        }
+        else {
+            RegisterMasterServer(proto_ff::EST_NARMAL);
+        }
 
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited())
