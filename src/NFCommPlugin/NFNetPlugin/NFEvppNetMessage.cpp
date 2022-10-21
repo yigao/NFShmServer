@@ -956,32 +956,80 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
     {
         NFCodeQueuePackage codePackage;
         codePackage.Copy(*pPackage);
+        codePackage.nPacketParseType = pObject->mPacketParseType;
+        codePackage.isSecurity = pObject->IsSecurity();
+        codePackage.nObjectLinkId = pObject->GetLinkId();
         codePackage.nMsgLen = pPackage->mBufferMsg.ReadableSize();
+        CHECK_EXPR_ASSERT(!pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty(), false, "pConn->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty() ERROR");
+        NF_SHARE_PTR<NFBuffer> pSendBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND));
+        CHECK_EXPR_ASSERT(pSendBuffer != NULL, false, "evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND) NULL");
+        NFCodeQueue* pSendQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
+        CHECK_EXPR_ASSERT(pSendQueue != NULL, false, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
 
-        pObject->mConnPtr->loop()->RunInLoop(std::bind([](NFDataPackage* pPackage, evpp::TCPConnPtr pConn, int packetParseType, bool isSecurity){
-            if (pConn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
+        pSendQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), pPackage->mBufferMsg.ReadAddr(), pPackage->mBufferMsg.ReadableSize());
+
+        pObject->mConnPtr->loop()->RunInLoop(std::bind([](evpp::EventLoop* loop){
+            CHECK_EXPR_ASSERT_NOT_RET(loop != NULL, "loop == NULL ERROR");
+            CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty() ERROR");
+            NF_SHARE_PTR<NFBuffer> pSendBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND));
+            CHECK_EXPR_ASSERT_NOT_RET(pSendBuffer != NULL,  "evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND) NULL");
+            NFCodeQueue* pSendQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
+            CHECK_EXPR_ASSERT_NOT_RET(pSendQueue != NULL, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
+
+            CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty() ERROR");
+            NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
+
+            while(pSendQueue->HasCode())
             {
-                NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
-                pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
-                pConn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
+                pComBuffer->Clear();
+                int iCodeLen = 0;
+                int iRet = pSendQueue->Get(pComBuffer->WriteAddr(), pComBuffer->WritableSize(), iCodeLen);
+                if (iRet || iCodeLen < (int)sizeof(NFCodeQueuePackage))
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
+                    continue;
+                }
+                pComBuffer->Produce(iCodeLen);
+
+                // 先获取NetHead
+                NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)pComBuffer->ReadAddr();
+                if (iCodeLen != (int)sizeof(NFCodeQueuePackage) + (int)pCodePackage->nMsgLen) // 长度不一致
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFCodeQueuePackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
+                               sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+                    continue;
+                }
+
+                uint32_t parsePackageType = pCodePackage->nPacketParseType;
+                bool isSecurity = pCodePackage->isSecurity;
+
+                NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(loop->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
+                CHECK_EXPR_ASSERT_NOT_RET(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(loop->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
+
+                auto iter = pConnMap->find(pCodePackage->nObjectLinkId);
+                CHECK_EXPR_ASSERT_NOT_RET(iter != pConnMap->end(), "pConnMap->find(pCodePackage->nObjectLinkId) Failed", pCodePackage->nObjectLinkId);
+                evpp::TCPConnPtr pConn = iter->second;
+                NFDataPackage package;
+                package.Copy(*pCodePackage);
+                package.mBufferMsg.PushData(pComBuffer->ReadAddr()+sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+
+                pComBuffer->Clear();
+                NFIPacketParse::EnCode(parsePackageType, package, *pComBuffer);
+
+                if (isSecurity)
+                {
+                    Encryption(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                }
+
+                pConn->Send((const void*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+
+                pComBuffer->Clear();
             }
+        }, pObject->mConnPtr->loop()));
 
-            NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pConn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
-            pComBuffer->Clear();
+        pPackage->Clear();
+        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 
-            NFIPacketParse::EnCode(packetParseType, *pPackage, *pComBuffer);
-
-            if (isSecurity)
-            {
-                Encryption(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-            }
-
-            pConn->Send((const void*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-
-            pComBuffer->Clear();
-            pPackage->Clear();
-            NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
-        }, pPackage, pObject->mConnPtr, pObject->mPacketParseType, pObject->IsSecurity()));
         return true;
     }
 

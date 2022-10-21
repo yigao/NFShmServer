@@ -193,7 +193,7 @@ struct NFCodeQueuePackage
 {
     NFCodeQueuePackage()
     {
-
+        Clear();
     }
 
     virtual ~NFCodeQueuePackage()
@@ -237,6 +237,8 @@ struct NFCodeQueuePackage
         nMsgLen = 0;
         nConnectLinkId = 0;
         nObjectLinkId = 0;
+        nPacketParseType = 0;
+        isSecurity = false;
     }
 
     uint32_t mModuleId;
@@ -249,6 +251,8 @@ struct NFCodeQueuePackage
     bool bCompress;
     uint64_t nConnectLinkId;
     uint64_t nObjectLinkId;
+    uint32_t nPacketParseType;
+    bool isSecurity;
     uint64_t nMsgLen;
 };
 
