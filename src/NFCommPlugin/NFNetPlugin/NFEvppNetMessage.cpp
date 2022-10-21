@@ -89,13 +89,15 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
             CHECK_EXPR_CONTINUE(pMsg, "pMsg == NULL");
             CHECK_EXPR_ASSERT_NOT_RET(pMsg->mTCPConPtr != NULL, "");
 
-            if (pMsg->nType == eMsgType_CONNECTED)
+            if (pMsg->nType == eMsgType_SENDBUFFER)
             {
                 if (pMsg->pRecvBuffer)
                 {
                     m_recvCodeQueueList.push_back(pMsg->pRecvBuffer);
                 }
-
+            }
+            else if (pMsg->nType == eMsgType_CONNECTED)
+            {
                 for (size_t i = 0; i < m_connectionList.size(); i++)
                 {
                     if (m_connectionList[i]->GetLinkId() == pMsg->nConnectLinkId)
@@ -257,14 +259,62 @@ void NFEvppNetMessage::ProcessCodeQueue()
 */
 void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t connectLinkId)
 {
+    if (conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+    {
+        NF_SHARE_PTR<NFBuffer> pRecvBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+        pRecvBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
+        pRecvBuffer->Produce(MAX_CODE_QUEUE_SIZE);
+        NFCodeQueue* pQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+        pQueue->Init(pRecvBuffer->ReadableSize());
+        conn->loop()->set_context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV, evpp::Any(pRecvBuffer));
+
+        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
+        pMsg->Clear();
+        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+        pMsg->nType = eMsgType_SENDBUFFER;
+        pMsg->mTCPConPtr = conn;
+        pMsg->nConnectLinkId = connectLinkId;
+        pMsg->pRecvBuffer = pRecvBuffer;
+        while(!mMsgQueue.Enqueue(pMsg)) {}
+    }
+
+    if (conn->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty())
+    {
+        NF_SHARE_PTR<NFBuffer> pSendBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+        pSendBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
+        pSendBuffer->Produce(MAX_CODE_QUEUE_SIZE);
+        NFCodeQueue* pQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
+        pQueue->Init(pSendBuffer->ReadableSize());
+        conn->loop()->set_context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND, evpp::Any(pSendBuffer));
+    }
+
+    if (conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
+    {
+        NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+        pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
+        conn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
+    }
+
+    if (conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP).IsEmpty())
+    {
+        NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>(NF_NEW std::unordered_map<uint64_t, evpp::TCPConnPtr>());
+        conn->loop()->set_context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP, evpp::Any(pConnMap));
+    }
+
 	if (conn->IsConnected())
 	{
 		conn->SetTCPNoDelay(true);
+
+        NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
+        NF_ASSERT_MSG(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
+
         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
+        pMsg->Clear();
         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
         pMsg->mTCPConPtr = conn;
         pMsg->nConnectLinkId = connectLinkId;
         pMsg->nType = eMsgType_CONNECTED;
+
         //client connect
         if (conn->type() == evpp::TCPConn::kOutgoing)
         {
@@ -274,6 +324,8 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
             pMsg->nObjectLinkId = connectLinkId;
             pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
+            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(connectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+            pConnMap->emplace(connectLinkId, pMsg->mTCPConPtr);
         }
         else {
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
@@ -293,39 +345,17 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
                 return;
             }
             pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
+            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(pMsg->nObjectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+            pConnMap->emplace(pMsg->nObjectLinkId, pMsg->mTCPConPtr);
         }
 
-        if (conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
-        {
-            NF_SHARE_PTR<NFBuffer> pRecvBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
-            pRecvBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
-            pRecvBuffer->Produce(MAX_CODE_QUEUE_SIZE);
-            NFCodeQueue* pQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
-            pQueue->Init(pRecvBuffer->ReadableSize());
-            conn->loop()->set_context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV, evpp::Any(pRecvBuffer));
-            pMsg->pRecvBuffer = pRecvBuffer;
-        }
-
-        if (conn->loop()->context(EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty())
-        {
-            NF_SHARE_PTR<NFBuffer> pSendBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
-            pSendBuffer->AssureSpace(MAX_CODE_QUEUE_SIZE);
-            pSendBuffer->Produce(MAX_CODE_QUEUE_SIZE);
-            NFCodeQueue* pQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
-            pQueue->Init(pSendBuffer->ReadableSize());
-            conn->loop()->set_context(EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND, evpp::Any(pSendBuffer));
-        }
-
-        if (conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
-        {
-            NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
-            pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
-            conn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
-        }
 		while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 	else
 	{
+        NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
+        NF_ASSERT_MSG(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
+
         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
         pMsg->Clear();
@@ -341,12 +371,13 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
             {
                 pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
                 pMsg->mTCPConPtr->set_context(evpp::Any());
+                pConnMap->erase(pMsg->nObjectLinkId);
             }
             else {
                 /**
                  * @brief   处理NFClient客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上, 这里的conn其实是一个临时的对象.
                  */
-
+                CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(pMsg->nConnectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
                 pMsg->nObjectLinkId = 0;
             }
         }
@@ -358,6 +389,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
             {
                 pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
                 pMsg->mTCPConPtr->set_context(evpp::Any());
+                pConnMap->erase(pMsg->nObjectLinkId);
             }
             else {
                 /**
@@ -434,8 +466,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
                     pComBuffer->Produce(decompressLen);
 
-                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
-                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
+                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV));
                     NF_ASSERT(pRecvBuffer != NULL);
                     NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
                     NF_ASSERT(pRecvQueue != NULL);
@@ -466,8 +498,8 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
                 }
                 else {
-                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
-                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
+                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV));
                     NF_ASSERT(pRecvBuffer != NULL);
                     NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
                     NF_ASSERT(pRecvQueue != NULL);
@@ -790,6 +822,8 @@ bool NFEvppNetMessage::Finalize()
         m_coonectionThreadPool->Join();
         m_coonectionThreadPool.reset();
     }
+
+    m_recvCodeQueueList.clear();
 
 	return true;
 }

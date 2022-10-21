@@ -125,6 +125,7 @@ enum eMsgType
     eMsgType_CONNECTED = 1,
     eMsgType_DISCONNECTED = 2,
     eMsgType_RECIVEDATA = 3,
+    eMsgType_SENDBUFFER = 4,
 };
 
 enum eAccountEventType
