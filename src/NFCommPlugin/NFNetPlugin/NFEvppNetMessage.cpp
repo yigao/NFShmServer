@@ -315,6 +315,13 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
             pQueue->Init(pSendBuffer->ReadableSize());
             conn->loop()->set_context(EVPP_LLOP_CONTEXT_1_MAIN_THREAD_SEND, evpp::Any(pSendBuffer));
         }
+
+        if (conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
+        {
+            NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
+            pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
+            conn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
+        }
 		while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 	else
@@ -413,12 +420,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 
                 if (basePacket.bCompress)
                 {
-                    if (conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
-                    {
-                        NF_SHARE_PTR<NFBuffer> pComBuffer = NF_SHARE_PTR<NFBuffer>(NF_NEW NFBuffer());
-                        pComBuffer->AssureSpace(MAX_RECV_BUFFER_SIZE);
-                        conn->loop()->set_context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER, evpp::Any(pComBuffer));
-                    }
+                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty()");
 
                     NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
                     pComBuffer->Clear();
@@ -432,116 +434,68 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     }
                     pComBuffer->Produce(decompressLen);
 
-                    if (!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
+                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                    NF_ASSERT(pRecvBuffer != NULL);
+                    NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+                    NF_ASSERT(pRecvQueue != NULL);
+
+                    NFCodeQueuePackage codePackage;
+                    codePackage.Copy(basePacket);
+                    codePackage.nMsgLen = pComBuffer->ReadableSize();
+                    codePackage.nConnectLinkId = linkId;
+                    if (!conn->context().IsEmpty())
                     {
-                        NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
-                        NF_ASSERT(pRecvBuffer != NULL);
-                        NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
-                        NF_ASSERT(pRecvQueue != NULL);
-
-                        NFCodeQueuePackage codePackage;
-                        codePackage.Copy(basePacket);
-                        codePackage.nMsgLen = pComBuffer->ReadableSize();
-                        codePackage.nConnectLinkId = linkId;
-                        if (!conn->context().IsEmpty())
-                        {
-                            codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
-                        }
-                        else {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
-                            codePackage.nObjectLinkId = 0;
-                        }
-                        int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-                        if (iRet != 0)
-                        {
-                            if (iRet == -1)
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
-                            }
-                            else if (iRet == -1)
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, can't put the error");
-                            }
-
-                            MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
-                            NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                            pMsg->mTCPConPtr = conn;
-                            pMsg->nConnectLinkId = linkId;
-                            pMsg->mPacket = basePacket;
-                            pMsg->nType = eMsgType_RECIVEDATA;
-                            pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-                            while(!mMsgQueue.Enqueue(pMsg)) {}
-                        }
+                        codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
                     }
                     else {
-                        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
-                        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                        pMsg->mTCPConPtr = conn;
-                        pMsg->nConnectLinkId = linkId;
-                        pMsg->mPacket = basePacket;
-                        pMsg->nType = eMsgType_RECIVEDATA;
-                        pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
-                        while(!mMsgQueue.Enqueue(pMsg)) {}
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
+                        codePackage.nObjectLinkId = 0;
+                    }
+                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                    if (iRet != 0)
+                    {
+                        if (iRet == -1)
+                        {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                        }
+                        else if (iRet == -2)
+                        {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, can't put the error");
+                        }
                     }
                 }
                 else {
-                    if (!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
+                    CHECK_EXPR_ASSERT_NOT_RET(!conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), "conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty(), Recv Code Queue Not Exist, Can't Parse Data");
+                    NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
+                    NF_ASSERT(pRecvBuffer != NULL);
+                    NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
+                    NF_ASSERT(pRecvQueue != NULL);
+
+                    NFCodeQueuePackage codePackage;
+                    codePackage.Copy(basePacket);
+                    codePackage.nMsgLen = outLen;
+                    codePackage.nConnectLinkId = linkId;
+                    if (!conn->context().IsEmpty())
                     {
-                        NF_SHARE_PTR<NFBuffer> pRecvBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV));
-                        NF_ASSERT(pRecvBuffer != NULL);
-                        NFCodeQueue* pRecvQueue = (NFCodeQueue*)pRecvBuffer->ReadAddr();
-                        NF_ASSERT(pRecvQueue != NULL);
-
-                        NFCodeQueuePackage codePackage;
-                        codePackage.Copy(basePacket);
-                        codePackage.nMsgLen = outLen;
-                        codePackage.nConnectLinkId = linkId;
-                        if (!conn->context().IsEmpty())
-                        {
-                            codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
-                        }
-                        else {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
-                            codePackage.nObjectLinkId = 0;
-                        }
-
-                        if (!(basePacket.mModuleId == 0 && (basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
-                                                            || basePacket.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || basePacket.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
-                        {
-                            NFLogTrace(NF_LOG_RECV_MSG, 0, "put one code msg:{} ", codePackage.ToString());
-                        }
-
-                        int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
-                        if (iRet != 0)
-                        {
-                            if (iRet == -1)
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
-                            }
-                            else if (iRet == -1)
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, can't put the error");
-                            }
-
-                            MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
-                            NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                            pMsg->mTCPConPtr = conn;
-                            pMsg->nConnectLinkId = linkId;
-                            pMsg->mPacket = basePacket;
-                            pMsg->nType = eMsgType_RECIVEDATA;
-                            pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
-                            while(!mMsgQueue.Enqueue(pMsg)) {}
-                        }
+                        codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
                     }
                     else {
-                        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
-                        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-                        pMsg->mTCPConPtr = conn;
-                        pMsg->nConnectLinkId = linkId;
-                        pMsg->mPacket = basePacket;
-                        pMsg->nType = eMsgType_RECIVEDATA;
-                        pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
-                        while(!mMsgQueue.Enqueue(pMsg)) {}
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
+                        codePackage.nObjectLinkId = 0;
+                    }
+
+                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
+                    if (iRet != 0)
+                    {
+                        if (iRet == -1)
+                        {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                        }
+                        else if (iRet == -2)
+                        {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, Can't Parse Data");
+                        }
                     }
                 }
 
@@ -966,6 +920,10 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
 {
     if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
     {
+        NFCodeQueuePackage codePackage;
+        codePackage.Copy(*pPackage);
+        codePackage.nMsgLen = pPackage->mBufferMsg.ReadableSize();
+
         pObject->mConnPtr->loop()->RunInLoop(std::bind([](NFDataPackage* pPackage, evpp::TCPConnPtr pConn, int packetParseType, bool isSecurity){
             if (pConn->loop()->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty())
             {
