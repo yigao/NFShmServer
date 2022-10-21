@@ -120,6 +120,8 @@ public:
     */
     virtual void SetIsServer(bool b);
 
+    virtual bool IsServer() const;
+
     /**
     * @brief 设置解析方法
     *

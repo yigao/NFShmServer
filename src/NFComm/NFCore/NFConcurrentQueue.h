@@ -27,7 +27,7 @@ public:
     //no malloc, return false
     inline bool TryEnqueue(T const& item)
     {
-        return m_queue.try_dequeue(item);
+        return m_queue.try_enqueue(item);
     }
 
     template<typename It>

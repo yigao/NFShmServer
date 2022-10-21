@@ -42,6 +42,16 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
         m_coonectionThreadPool.reset(NF_NEW evpp::EventLoopThreadPool(NULL, 1));
         m_coonectionThreadPool->Start(true);
     }
+
+    /**
+     * @brief 0作废，作为一个错误处理，从1开始
+     */
+    for(int i = 1; i < MAX_CLIENT_INDEX; i++)
+    {
+        uint64_t unlinkId = GetUnLinkId(NF_IS_NET, mServerType, i);
+        while (!mFreeLinks.Enqueue(unlinkId)) {
+        }
+    }
 }
 
 NFEvppNetMessage::~NFEvppNetMessage()
@@ -77,6 +87,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
             max_times--;
             MsgFromNetInfo* pMsg = vecMsg[index];
             CHECK_EXPR_CONTINUE(pMsg, "pMsg == NULL");
+            CHECK_EXPR_ASSERT_NOT_RET(pMsg->mTCPConPtr != NULL, "");
 
             if (pMsg->nType == eMsgType_CONNECTED)
             {
@@ -85,100 +96,71 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                     m_recvCodeQueueList.push_back(pMsg->pRecvBuffer);
                 }
 
-                if (pMsg->mTCPConPtr && pMsg->mTCPConPtr->IsConnected())
+                for (size_t i = 0; i < m_connectionList.size(); i++)
                 {
-                    for (size_t i = 0; i < m_connectionList.size(); i++)
+                    if (m_connectionList[i]->GetLinkId() == pMsg->nConnectLinkId)
                     {
-                        if (m_connectionList[i]->GetLinkId() == pMsg->nLinkId)
+                        if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
                         {
-                            if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
-                            {
-                                NetEvppObject* pObject = GetNetObject(m_connectionList[i]->GetLinkId());
-                                if (pObject == NULL)
-                                {
-                                    pObject = AddNetObject(m_connectionList[i]->GetLinkId(), pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
-                                }
+                            CHECK_EXPR_ASSERT_NOT_RET(m_connectionList[i]->GetLinkId() == pMsg->nObjectLinkId, "m_connectionList[i]->GetLinkId() != pMsg->nObjectLinkId, Error..........");
 
-                                if (pObject)
-                                {
-                                    pObject->SetConnPtr(pMsg->mTCPConPtr);
-                                    pObject->SetIsServer(false);
-                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject->m_usLinkId));
-                                    NFDataPackage tmpPacket;
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
-                                }
-                                else
-                                {
-                                    //这里应该断开链接
-                                    pMsg->mTCPConPtr->Close();
-                                }
-                            }
-                            else
+                            NetEvppObject* pObject = GetNetObject(pMsg->nObjectLinkId);
+                            if (pObject == NULL)
                             {
-                                NetEvppObject* pObject = AddNetObject(pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
-                                if (pObject)
-                                {
-                                    pMsg->mTCPConPtr->set_context(evpp::Any(pObject->m_usLinkId));
-                                    NFDataPackage tmpPacket;
-                                    OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
-                                }
-                                else
-                                {
-                                    //这里应该断开链接
-                                    pMsg->mTCPConPtr->Close();
-                                }
+                                pObject = AddNetObject(pMsg->nObjectLinkId, pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
+                                CHECK_EXPR_ASSERT_NOT_RET(pObject != NULL, "AddNetObject Failed");
                             }
-                            break;
+                            CHECK_EXPR_ASSERT_NOT_RET(m_connectionList[i]->GetLinkId() == pObject->m_usLinkId, "m_connectionList[i]->GetLinkId() != pObject->m_usLinkId, Error..........");
+
+                            pObject->SetConnPtr(pMsg->mTCPConPtr);
+                            pObject->SetIsServer(false);
+                            NFDataPackage tmpPacket;
+                            OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
                         }
+                        else
+                        {
+                            NetEvppObject* pObject = GetNetObject(pMsg->nObjectLinkId);
+                            CHECK_EXPR_ASSERT_NOT_RET(pObject == NULL, "GetNetObject(pMsg->nObjectLinkId:{}) Exist", pMsg->nObjectLinkId);
+                            pObject = AddNetObject(pMsg->nObjectLinkId, pMsg->mTCPConPtr, m_connectionList[i]->GetPacketParseType(), m_connectionList[i]->IsSecurity());
+                            CHECK_EXPR_ASSERT_NOT_RET(pObject != NULL, "AddNetObject Failed");
+
+                            NFDataPackage tmpPacket;
+                            OnHandleMsgPeer(eMsgType_CONNECTED, m_connectionList[i]->GetLinkId(), pObject->m_usLinkId, tmpPacket);
+                        }
+                        break;
                     }
                 }
             }
             else if (pMsg->nType == eMsgType_DISCONNECTED)
             {
-                if (pMsg->mTCPConPtr)
+                if (pMsg->nObjectLinkId != 0)
                 {
-                    if (!pMsg->mTCPConPtr->context().IsEmpty())
+                    /**
+                     * @brief 不允许出现pMsg->nObjectLinkId找不到的情况，说明代码设置有考虑不周到的情况
+                     */
+                    NetEvppObject* pObject = GetNetObject(pMsg->nObjectLinkId);
+                    CHECK_EXPR_ASSERT_NOT_RET(pObject != NULL, "net diconnect, tcp context error, can't find the net object:{}", pMsg->nObjectLinkId);
+                    if (pObject->GetNeedRemove() == false)
                     {
-                        uint64_t objectLinkId = evpp::any_cast<uint64_t>(pMsg->mTCPConPtr->context());
-                        NetEvppObject* pObject = GetNetObject(objectLinkId);
-                        if (pObject)
+                        if (pObject->IsServer())
                         {
-                            if (pObject->GetNeedRemove() == false)
-                            {
-                                if (pObject->mIsServer)
-                                {
-                                    pObject->SetNeedRemove(true);
-                                }
-                                else
-                                {
-                                    pObject->SetNeedRemove(false);
-                                }
-                            }
-
-                            pObject->mConnPtr = NULL;
-                            NFDataPackage tmpPacket;
-                            OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pObject->m_usLinkId, tmpPacket);
-                        }
-
-                        pMsg->mTCPConPtr->set_context(evpp::Any());
-                    }
-                    else
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
-                        for (size_t i = 0; i < m_connectionList.size(); i++) {
-                            if (m_connectionList[i]->GetLinkId() == pMsg->nLinkId) {
-                                if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT) {
-                                    NFDataPackage tmpPacket;
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, pMsg->nLinkId, tmpPacket);
-                                }
-                                else
-                                {
-                                    NFDataPackage tmpPacket;
-                                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nLinkId, 0, tmpPacket);
-                                }
-                            }
+                            pObject->SetNeedRemove(true);
                         }
                     }
+
+                    pObject->mConnPtr = NULL;
+                    NFDataPackage tmpPacket;
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nConnectLinkId, pMsg->nObjectLinkId, tmpPacket);
+                }
+                else {
+                    /**
+                     * @brief   处理客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上
+                     *         这里的conn其实是一个临时的对象
+                     */
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "net client:{} diconnect, can't connect the server", pMsg->nConnectLinkId);
+
+                    NFDataPackage tmpPacket;
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nConnectLinkId, pMsg->nConnectLinkId, tmpPacket);
                 }
             }
             else if (pMsg->nType == eMsgType_RECIVEDATA)
@@ -191,7 +173,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                         NetEvppObject* pObject = GetNetObject(objectLinkId);
                         if (pObject)
                         {
-                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nLinkId, objectLinkId, pMsg->mPacket);
+                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nConnectLinkId, objectLinkId, pMsg->mPacket);
                         }
                         else
                         {
@@ -245,7 +227,6 @@ void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
             NFDataPackage package;
             package.Copy(*pCodePackage);
             package.mBufferMsg.PushData(mxRecvBuffer.ReadAddr()+sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
-            NFLogTrace(NF_LOG_RECV_MSG, 0, "get one code msg:{} ", package.ToString());
             OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nConnectLinkId, pCodePackage->nObjectLinkId, package);
         }
         else
@@ -274,7 +255,7 @@ void NFEvppNetMessage::ProcessCodeQueue()
 *
 * @return
 */
-void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t linkId)
+void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t connectLinkId)
 {
 	if (conn->IsConnected())
 	{
@@ -282,8 +263,37 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
         pMsg->mTCPConPtr = conn;
-        pMsg->nLinkId = linkId;
+        pMsg->nConnectLinkId = connectLinkId;
         pMsg->nType = eMsgType_CONNECTED;
+        //client connect
+        if (conn->type() == evpp::TCPConn::kOutgoing)
+        {
+            /**
+             * @brief 客户端掉线，一定会清理调conn->context(), 不如程序有问题
+             */
+            CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
+            pMsg->nObjectLinkId = connectLinkId;
+            pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
+        }
+        else {
+            CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
+            pMsg->nObjectLinkId = GetFreeUnLinkId();
+            if (pMsg->nObjectLinkId == 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId() Failed, No Free UnlinkId");
+                pMsg->mTCPConPtr->Close();
+
+                /**
+                 * @brief 用来区分GetFreeUnLinkId Failed
+                 */
+                pMsg->mTCPConPtr->set_context(1, evpp::Any(pMsg->nObjectLinkId));
+
+                pMsg->Clear();
+                NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, 0);
+                return;
+            }
+            pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
+        }
 
         if (conn->loop()->context(EVPP_LLOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
         {
@@ -311,9 +321,54 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 	{
         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+        pMsg->Clear();
         pMsg->mTCPConPtr = conn;
-        pMsg->nLinkId = linkId;
+        pMsg->nConnectLinkId = connectLinkId;
         pMsg->nType = eMsgType_DISCONNECTED;
+        /**
+         * @brief 处理客户端连接服务器掉线
+         */
+        if (conn->type() == evpp::TCPConn::kOutgoing)
+        {
+            if (!conn->context().IsEmpty())
+            {
+                pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                pMsg->mTCPConPtr->set_context(evpp::Any());
+            }
+            else {
+                /**
+                 * @brief   处理NFClient客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上, 这里的conn其实是一个临时的对象.
+                 */
+
+                pMsg->nObjectLinkId = 0;
+            }
+        }
+        else {
+            /**
+             * @brief 处理服务器的连接掉线
+             */
+            if (!conn->context().IsEmpty())
+            {
+                pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                pMsg->mTCPConPtr->set_context(evpp::Any());
+            }
+            else {
+                /**
+                 * @brief  GetFreeUnLinkId() Failed, NFServer的连接被主动关闭导致
+                 */
+                if (!conn->context(1).IsEmpty())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId() Failed, net client disconnect, can't find the net context!");
+                    pMsg->Clear();
+                    NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, 0);
+                    return;
+                }
+
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Unknow Failed, net client disconnect, can't find the net context!");
+                pMsg->nObjectLinkId = 0;
+            }
+        }
+
         while(!mMsgQueue.Enqueue(pMsg)) {}
 	}
 }
@@ -396,13 +451,33 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                             NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
                             codePackage.nObjectLinkId = 0;
                         }
-                        pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                        int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                        if (iRet != 0)
+                        {
+                            if (iRet == -1)
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                            }
+                            else if (iRet == -1)
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, can't put the error");
+                            }
+
+                            MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
+                            NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+                            pMsg->mTCPConPtr = conn;
+                            pMsg->nConnectLinkId = linkId;
+                            pMsg->mPacket = basePacket;
+                            pMsg->nType = eMsgType_RECIVEDATA;
+                            pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                            while(!mMsgQueue.Enqueue(pMsg)) {}
+                        }
                     }
                     else {
                         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(decompressLen);
                         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
                         pMsg->mTCPConPtr = conn;
-                        pMsg->nLinkId = linkId;
+                        pMsg->nConnectLinkId = linkId;
                         pMsg->mPacket = basePacket;
                         pMsg->nType = eMsgType_RECIVEDATA;
                         pMsg->mPacket.mBufferMsg.PushData(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
@@ -436,13 +511,33 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                             NFLogTrace(NF_LOG_RECV_MSG, 0, "put one code msg:{} ", codePackage.ToString());
                         }
 
-                        pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
+                        int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
+                        if (iRet != 0)
+                        {
+                            if (iRet == -1)
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                            }
+                            else if (iRet == -1)
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "Recv Queue Full error, can't put the error");
+                            }
+
+                            MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
+                            NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
+                            pMsg->mTCPConPtr = conn;
+                            pMsg->nConnectLinkId = linkId;
+                            pMsg->mPacket = basePacket;
+                            pMsg->nType = eMsgType_RECIVEDATA;
+                            pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
+                            while(!mMsgQueue.Enqueue(pMsg)) {}
+                        }
                     }
                     else {
                         MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(outLen);
                         NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
                         pMsg->mTCPConPtr = conn;
-                        pMsg->nLinkId = linkId;
+                        pMsg->nConnectLinkId = linkId;
                         pMsg->mPacket = basePacket;
                         pMsg->nType = eMsgType_RECIVEDATA;
                         pMsg->mPacket.mBufferMsg.PushData(outData, outLen);
@@ -639,53 +734,46 @@ NetEvppObject* NFEvppNetMessage::GetNetObject(uint64_t usLinkId)
 
 void NFEvppNetMessage::CloseLinkId(uint64_t usLinkId)
 {
-	for (auto iter = m_connectionList.begin(); iter != m_connectionList.end(); iter++)
-	{
-		NFIConnection* pConnection = *iter;
-		if (pConnection->GetLinkId() == usLinkId)
-		{
-			pConnection->Shut();
-			pConnection->Finalize();
-			NF_SAFE_DELETE(pConnection);
-			m_connectionList.erase(iter);
-			break;
-		}
-	}
-	
-	auto iter = mNetObjectArray.find(usLinkId);
-	if (iter != mNetObjectArray.end())
-	{
-	    iter->second->SetNeedRemove(true);
-        iter->second->CloseObject();
-	}
+    auto pObject = GetNetObject(usLinkId);
+    if (pObject)
+    {
+        if (pObject->mIsServer == false)
+        {
+            for (auto iter = m_connectionList.begin(); iter != m_connectionList.end(); iter++)
+            {
+                NFIConnection* pConnection = *iter;
+                if (pConnection->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
+                {
+                    if (pConnection->GetLinkId() == usLinkId)
+                    {
+                        pConnection->Shut();
+                        pConnection->Finalize();
+                        NF_SAFE_DELETE(pConnection);
+                        m_connectionList.erase(iter);
+                        break;
+                    }
+                }
+            }
+        }
+
+        pObject->SetNeedRemove(true);
+        pObject->CloseObject();
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find the unLinkId:{}", usLinkId);
+    }
 }
 
 uint64_t NFEvppNetMessage::GetFreeUnLinkId()
 {
 	uint64_t unlinkId = 0;
-	if (mFreeLinks.size() > 1000)
+	if (!mFreeLinks.IsQueueEmpty())
 	{
-		unlinkId = mFreeLinks.front();
-		mFreeLinks.pop_front();
-		return unlinkId;
-	}
-
-	int count = 10000;
-	while(--count >= 0)
-    {
-        if (mNetObjectMaxIndex >= MAX_CLIENT_INDEX-10)
-        {
-            mNetObjectMaxIndex = 0;
-        }
-
-        mNetObjectMaxIndex++;
-        unlinkId = GetUnLinkId(NF_IS_NET, mServerType, mNetObjectMaxIndex);
-
-        if (mNetObjectArray.find(unlinkId) == mNetObjectArray.end())
-        {
+        if (mFreeLinks.TryDequeue(unlinkId)) {
             return unlinkId;
         }
-    }
+	}
+
     NFLogError(NF_LOG_NET_PLUGIN, 0, "GetFreeUnLinkId failed!");
     return 0;
 }
@@ -843,6 +931,16 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
         {
             uint32_t serverType = GetServerTypeFromUnlinkId(objectLinkId);
             NF_ASSERT_MSG(serverType == mServerType, "the unlinkId is not of the server");
+
+            uint32_t index = GetServerIndexFromUnlinkId(objectLinkId);
+            /**
+             * @brief 处理特殊情况，比如客户端主动连接服务器，连接不上
+             */
+            if (index == 0)
+            {
+                return;
+            }
+
             auto pObject = GetNetObject(objectLinkId);
             if (pObject && pObject->GetNeedRemove())
             {
@@ -852,7 +950,8 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                     mNetObjectArray.erase(iter);
                     m_netObjectPool.FreeObj(pObject);
 
-                    mFreeLinks.push_back(objectLinkId);
+                    while (!mFreeLinks.Enqueue(objectLinkId)) {
+                    }
                 }
             }
         }

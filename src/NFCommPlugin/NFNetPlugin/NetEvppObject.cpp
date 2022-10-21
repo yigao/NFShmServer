@@ -49,6 +49,11 @@ void NetEvppObject::SetIsServer(bool b)
 	mIsServer = b;
 }
 
+bool NetEvppObject::IsServer() const
+{
+    return mIsServer;
+}
+
 uint64_t NetEvppObject::GetLinkId() const
 {
 	return m_usLinkId;

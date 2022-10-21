@@ -64,12 +64,12 @@ struct MsgFromNetInfo
     MsgFromNetInfo()
     {
         mTCPConPtr = NULL;
-        nLinkId = 0;
+        nConnectLinkId = 0;
         nType = eMsgType_Num;
         pRecvBuffer = NULL;
     }
 
-	MsgFromNetInfo(const evpp::TCPConnPtr TCPConPtr, uint64_t linkId) : mTCPConPtr(TCPConPtr), nLinkId(linkId)
+	MsgFromNetInfo(const evpp::TCPConnPtr TCPConPtr, uint64_t linkId) : mTCPConPtr(TCPConPtr), nConnectLinkId(linkId)
 	{
 		nType = eMsgType_Num;
         pRecvBuffer = NULL;
@@ -84,14 +84,16 @@ struct MsgFromNetInfo
     {
         nType = eMsgType_Num;
         mTCPConPtr = NULL;
-        nLinkId = 0;
+        nConnectLinkId = 0;
+        nObjectLinkId = 0;
         mPacket.Clear();
         pRecvBuffer = NULL;
     }
 
 	eMsgType nType;
 	evpp::TCPConnPtr mTCPConPtr;
-	uint64_t nLinkId;
+	uint64_t nConnectLinkId;
+	uint64_t nObjectLinkId;
     NF_SHARE_PTR<NFBuffer> pRecvBuffer;
 	NFDataPackage mPacket;
 };
@@ -152,7 +154,7 @@ public:
 	*
 	* @return
 	*/
-	void ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t linkId);
+	void ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t connectLinkId);
 
 	/**
 	* @brief 消息回调
@@ -266,7 +268,7 @@ protected:
     virtual bool Send(NetEvppObject* pObject, NFDataPackage* package);
 private:
 	std::vector<NFIConnection* > m_connectionList;
-	std::list<uint64_t>  mFreeLinks;
+	NFConcurrentQueue<uint64_t>  mFreeLinks;
     std::shared_ptr<evpp::EventLoopThreadPool> m_coonectionThreadPool;
     std::vector<NF_SHARE_PTR<NFBuffer>> m_recvCodeQueueList;
 private:

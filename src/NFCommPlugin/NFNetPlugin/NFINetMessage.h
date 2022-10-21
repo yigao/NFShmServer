@@ -44,7 +44,6 @@ public:
 	 */
 	NFINetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFIModule(p), mServerType(serverType)
 	{
-		mNetObjectMaxIndex = 1;
 		assert(serverType > NF_ST_NONE && serverType < NF_ST_MAX);
 	}
 
