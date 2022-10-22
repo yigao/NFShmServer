@@ -1021,6 +1021,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
         pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
         uint32_t sendCount = pObject->AddSendMsgCount();
 
+/*
         if (sendCount % 100 != 0)
         {
             return true;
@@ -1087,6 +1088,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
                 pComBuffer->Clear();
             }
         }, pObject->mConnPtr->loop()));
+*/
 
         return true;
     }
