@@ -512,6 +512,7 @@ int NFCSnsServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& p
 int NFCSnsServerModule::TestOtherServerToWorldServer()
 {
 #ifdef TEST_SERVER_SEND_MSG
+    static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
         NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
@@ -521,6 +522,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
         proto_ff::Proto_TestOtherServerToWorldServer xData;
         xData.set_server_id(pConfig->ServerId);
         xData.set_server_name(pConfig->ServerName);
+        xData.set_seq(++req);
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_SNS_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
         NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     }
@@ -533,8 +535,19 @@ int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPack
 {
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
 
+    static int last_seq = -1;
+
     proto_ff::Proto_TestSendWorldMsgToOtherServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    if (last_seq < 0)
+    {
+        last_seq = xMsg.seq();
+    }
+    else {
+        CHECK_EXPR(last_seq + 1 == xMsg.seq(), 0, "world server send seq error");
+        last_seq = xMsg.seq();
+    }
 
     NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
     return 0;

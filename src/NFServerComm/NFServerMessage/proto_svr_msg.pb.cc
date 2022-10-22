@@ -252,9 +252,10 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_StoreTSCheckRsp));
   Proto_TestSendProxyMsgToOtherServer_descriptor_ = file->message_type(11);
-  static const int Proto_TestSendProxyMsgToOtherServer_offsets_[2] = {
+  static const int Proto_TestSendProxyMsgToOtherServer_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendProxyMsgToOtherServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendProxyMsgToOtherServer, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendProxyMsgToOtherServer, seq_),
   };
   Proto_TestSendProxyMsgToOtherServer_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -268,9 +269,10 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestSendProxyMsgToOtherServer));
   Proto_TestOtherServerSendMsgToProxyServer_descriptor_ = file->message_type(12);
-  static const int Proto_TestOtherServerSendMsgToProxyServer_offsets_[2] = {
+  static const int Proto_TestOtherServerSendMsgToProxyServer_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerSendMsgToProxyServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerSendMsgToProxyServer, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerSendMsgToProxyServer, seq_),
   };
   Proto_TestOtherServerSendMsgToProxyServer_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -284,9 +286,10 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestOtherServerSendMsgToProxyServer));
   Proto_TestSendWorldMsgToOtherServer_descriptor_ = file->message_type(13);
-  static const int Proto_TestSendWorldMsgToOtherServer_offsets_[2] = {
+  static const int Proto_TestSendWorldMsgToOtherServer_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestSendWorldMsgToOtherServer, seq_),
   };
   Proto_TestSendWorldMsgToOtherServer_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -300,9 +303,10 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_TestSendWorldMsgToOtherServer));
   Proto_TestOtherServerToWorldServer_descriptor_ = file->message_type(14);
-  static const int Proto_TestOtherServerToWorldServer_offsets_[2] = {
+  static const int Proto_TestOtherServerToWorldServer_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TestOtherServerToWorldServer, seq_),
   };
   Proto_TestOtherServerToWorldServer_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -425,23 +429,24 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
     "d\030\003 \001(\t\"U\n\033Proto_MonitorTMasterStopRsp\022\016"
     "\n\006result\030\001 \001(\005\022\023\n\013server_name\030\002 \001(\t\022\021\n\ts"
     "erver_id\030\003 \001(\t\"\027\n\025Proto_STStoreCheckReq\""
-    "\027\n\025Proto_StoreTSCheckRsp\"M\n#Proto_TestSe"
+    "\027\n\025Proto_StoreTSCheckRsp\"Z\n#Proto_TestSe"
     "ndProxyMsgToOtherServer\022\021\n\tserver_id\030\001 \001"
-    "(\t\022\023\n\013server_name\030\002 \001(\t\"S\n)Proto_TestOth"
-    "erServerSendMsgToProxyServer\022\021\n\tserver_i"
-    "d\030\003 \001(\t\022\023\n\013server_name\030\004 \001(\t\"M\n#Proto_Te"
-    "stSendWorldMsgToOtherServer\022\021\n\tserver_id"
-    "\030\001 \001(\t\022\023\n\013server_name\030\002 \001(\t\"L\n\"Proto_Tes"
-    "tOtherServerToWorldServer\022\021\n\tserver_id\030\003"
-    " \001(\t\022\023\n\013server_name\030\004 \001(\t*\245\002\n\016Proto_SvrM"
-    "sgID\022%\n!NF_STSTORE_CHECK_STORE_SERVER_RE"
-    "Q\020(\022%\n!NF_STORETS_CHECK_STORE_SERVER_RSP"
-    "\020)\022.\n*NF_TEST_SEND_PROXY_MSG_TO_OTHER_SE"
-    "RVER_REQ\020*\0221\n-NF_TEST_OTHER_SERVER_SEND_"
-    "MSG_TO_PROXY_SERVER\020+\0220\n,NF_TEST_OTHER_S"
-    "ERVER_MSG_TO_WORLD_SERVER_REQ\020,\0220\n,NF_TE"
-    "ST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ\020"
-    "-", 1441);
+    "(\t\022\023\n\013server_name\030\002 \001(\t\022\013\n\003seq\030\003 \001(\005\"`\n)"
+    "Proto_TestOtherServerSendMsgToProxyServe"
+    "r\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013server_name\030\002 \001("
+    "\t\022\013\n\003seq\030\003 \001(\005\"Z\n#Proto_TestSendWorldMsg"
+    "ToOtherServer\022\021\n\tserver_id\030\001 \001(\t\022\023\n\013serv"
+    "er_name\030\002 \001(\t\022\013\n\003seq\030\003 \001(\005\"Y\n\"Proto_Test"
+    "OtherServerToWorldServer\022\021\n\tserver_id\030\001 "
+    "\001(\t\022\023\n\013server_name\030\002 \001(\t\022\013\n\003seq\030\003 \001(\005*\245\002"
+    "\n\016Proto_SvrMsgID\022%\n!NF_STSTORE_CHECK_STO"
+    "RE_SERVER_REQ\020(\022%\n!NF_STORETS_CHECK_STOR"
+    "E_SERVER_RSP\020)\022.\n*NF_TEST_SEND_PROXY_MSG"
+    "_TO_OTHER_SERVER_REQ\020*\0221\n-NF_TEST_OTHER_"
+    "SERVER_SEND_MSG_TO_PROXY_SERVER\020+\0220\n,NF_"
+    "TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_RE"
+    "Q\020,\0220\n,NF_TEST_WORLD_SERVER_MSG_TO_OTHER"
+    "_SERVER_REQ\020-", 1493);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_msg.proto", &protobuf_RegisterTypes);
   CommonMsgRsp::default_instance_ = new CommonMsgRsp();
@@ -3443,6 +3448,7 @@ void Proto_StoreTSCheckRsp::Swap(Proto_StoreTSCheckRsp* other) {
 #ifndef _MSC_VER
 const int Proto_TestSendProxyMsgToOtherServer::kServerIdFieldNumber;
 const int Proto_TestSendProxyMsgToOtherServer::kServerNameFieldNumber;
+const int Proto_TestSendProxyMsgToOtherServer::kSeqFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_TestSendProxyMsgToOtherServer::Proto_TestSendProxyMsgToOtherServer()
@@ -3463,6 +3469,7 @@ void Proto_TestSendProxyMsgToOtherServer::SharedCtor() {
   _cached_size_ = 0;
   server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  seq_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3514,6 +3521,7 @@ void Proto_TestSendProxyMsgToOtherServer::Clear() {
         server_name_->clear();
       }
     }
+    seq_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3551,6 +3559,22 @@ bool Proto_TestSendProxyMsgToOtherServer::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->server_name().data(), this->server_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_seq;
+        break;
+      }
+
+      // optional int32 seq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seq:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seq_)));
+          set_has_seq();
         } else {
           goto handle_uninterpreted;
         }
@@ -3594,6 +3618,11 @@ void Proto_TestSendProxyMsgToOtherServer::SerializeWithCachedSizes(
       2, this->server_name(), output);
   }
 
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->seq(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3622,6 +3651,11 @@ void Proto_TestSendProxyMsgToOtherServer::SerializeWithCachedSizes(
         2, this->server_name(), target);
   }
 
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->seq(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -3645,6 +3679,13 @@ int Proto_TestSendProxyMsgToOtherServer::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_name());
+    }
+
+    // optional int32 seq = 3;
+    if (has_seq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seq());
     }
 
   }
@@ -3680,6 +3721,9 @@ void Proto_TestSendProxyMsgToOtherServer::MergeFrom(const Proto_TestSendProxyMsg
     if (from.has_server_name()) {
       set_server_name(from.server_name());
     }
+    if (from.has_seq()) {
+      set_seq(from.seq());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3705,6 +3749,7 @@ void Proto_TestSendProxyMsgToOtherServer::Swap(Proto_TestSendProxyMsgToOtherServ
   if (other != this) {
     std::swap(server_id_, other->server_id_);
     std::swap(server_name_, other->server_name_);
+    std::swap(seq_, other->seq_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3725,6 +3770,7 @@ void Proto_TestSendProxyMsgToOtherServer::Swap(Proto_TestSendProxyMsgToOtherServ
 #ifndef _MSC_VER
 const int Proto_TestOtherServerSendMsgToProxyServer::kServerIdFieldNumber;
 const int Proto_TestOtherServerSendMsgToProxyServer::kServerNameFieldNumber;
+const int Proto_TestOtherServerSendMsgToProxyServer::kSeqFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_TestOtherServerSendMsgToProxyServer::Proto_TestOtherServerSendMsgToProxyServer()
@@ -3745,6 +3791,7 @@ void Proto_TestOtherServerSendMsgToProxyServer::SharedCtor() {
   _cached_size_ = 0;
   server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  seq_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3796,6 +3843,7 @@ void Proto_TestOtherServerSendMsgToProxyServer::Clear() {
         server_name_->clear();
       }
     }
+    seq_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3807,8 +3855,8 @@ bool Proto_TestOtherServerSendMsgToProxyServer::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string server_id = 3;
-      case 3: {
+      // optional string server_id = 1;
+      case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
@@ -3819,12 +3867,12 @@ bool Proto_TestOtherServerSendMsgToProxyServer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_server_name;
+        if (input->ExpectTag(18)) goto parse_server_name;
         break;
       }
 
-      // optional string server_name = 4;
-      case 4: {
+      // optional string server_name = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_server_name:
@@ -3833,6 +3881,22 @@ bool Proto_TestOtherServerSendMsgToProxyServer::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->server_name().data(), this->server_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_seq;
+        break;
+      }
+
+      // optional int32 seq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seq:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seq_)));
+          set_has_seq();
         } else {
           goto handle_uninterpreted;
         }
@@ -3858,22 +3922,27 @@ bool Proto_TestOtherServerSendMsgToProxyServer::MergePartialFromCodedStream(
 
 void Proto_TestOtherServerSendMsgToProxyServer::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   if (has_server_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_id().data(), this->server_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->server_id(), output);
+      1, this->server_id(), output);
   }
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->server_name(), output);
+      2, this->server_name(), output);
+  }
+
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->seq(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3884,24 +3953,29 @@ void Proto_TestOtherServerSendMsgToProxyServer::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Proto_TestOtherServerSendMsgToProxyServer::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   if (has_server_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_id().data(), this->server_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->server_id(), target);
+        1, this->server_id(), target);
   }
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->server_name(), target);
+        2, this->server_name(), target);
+  }
+
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->seq(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3915,18 +3989,25 @@ int Proto_TestOtherServerSendMsgToProxyServer::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string server_id = 3;
+    // optional string server_id = 1;
     if (has_server_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_id());
     }
 
-    // optional string server_name = 4;
+    // optional string server_name = 2;
     if (has_server_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_name());
+    }
+
+    // optional int32 seq = 3;
+    if (has_seq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seq());
     }
 
   }
@@ -3962,6 +4043,9 @@ void Proto_TestOtherServerSendMsgToProxyServer::MergeFrom(const Proto_TestOtherS
     if (from.has_server_name()) {
       set_server_name(from.server_name());
     }
+    if (from.has_seq()) {
+      set_seq(from.seq());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3987,6 +4071,7 @@ void Proto_TestOtherServerSendMsgToProxyServer::Swap(Proto_TestOtherServerSendMs
   if (other != this) {
     std::swap(server_id_, other->server_id_);
     std::swap(server_name_, other->server_name_);
+    std::swap(seq_, other->seq_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4007,6 +4092,7 @@ void Proto_TestOtherServerSendMsgToProxyServer::Swap(Proto_TestOtherServerSendMs
 #ifndef _MSC_VER
 const int Proto_TestSendWorldMsgToOtherServer::kServerIdFieldNumber;
 const int Proto_TestSendWorldMsgToOtherServer::kServerNameFieldNumber;
+const int Proto_TestSendWorldMsgToOtherServer::kSeqFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_TestSendWorldMsgToOtherServer::Proto_TestSendWorldMsgToOtherServer()
@@ -4027,6 +4113,7 @@ void Proto_TestSendWorldMsgToOtherServer::SharedCtor() {
   _cached_size_ = 0;
   server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  seq_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4078,6 +4165,7 @@ void Proto_TestSendWorldMsgToOtherServer::Clear() {
         server_name_->clear();
       }
     }
+    seq_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4115,6 +4203,22 @@ bool Proto_TestSendWorldMsgToOtherServer::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->server_name().data(), this->server_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_seq;
+        break;
+      }
+
+      // optional int32 seq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seq:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seq_)));
+          set_has_seq();
         } else {
           goto handle_uninterpreted;
         }
@@ -4158,6 +4262,11 @@ void Proto_TestSendWorldMsgToOtherServer::SerializeWithCachedSizes(
       2, this->server_name(), output);
   }
 
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->seq(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4186,6 +4295,11 @@ void Proto_TestSendWorldMsgToOtherServer::SerializeWithCachedSizes(
         2, this->server_name(), target);
   }
 
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->seq(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -4209,6 +4323,13 @@ int Proto_TestSendWorldMsgToOtherServer::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_name());
+    }
+
+    // optional int32 seq = 3;
+    if (has_seq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seq());
     }
 
   }
@@ -4244,6 +4365,9 @@ void Proto_TestSendWorldMsgToOtherServer::MergeFrom(const Proto_TestSendWorldMsg
     if (from.has_server_name()) {
       set_server_name(from.server_name());
     }
+    if (from.has_seq()) {
+      set_seq(from.seq());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4269,6 +4393,7 @@ void Proto_TestSendWorldMsgToOtherServer::Swap(Proto_TestSendWorldMsgToOtherServ
   if (other != this) {
     std::swap(server_id_, other->server_id_);
     std::swap(server_name_, other->server_name_);
+    std::swap(seq_, other->seq_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4289,6 +4414,7 @@ void Proto_TestSendWorldMsgToOtherServer::Swap(Proto_TestSendWorldMsgToOtherServ
 #ifndef _MSC_VER
 const int Proto_TestOtherServerToWorldServer::kServerIdFieldNumber;
 const int Proto_TestOtherServerToWorldServer::kServerNameFieldNumber;
+const int Proto_TestOtherServerToWorldServer::kSeqFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_TestOtherServerToWorldServer::Proto_TestOtherServerToWorldServer()
@@ -4309,6 +4435,7 @@ void Proto_TestOtherServerToWorldServer::SharedCtor() {
   _cached_size_ = 0;
   server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  seq_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4360,6 +4487,7 @@ void Proto_TestOtherServerToWorldServer::Clear() {
         server_name_->clear();
       }
     }
+    seq_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4371,8 +4499,8 @@ bool Proto_TestOtherServerToWorldServer::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string server_id = 3;
-      case 3: {
+      // optional string server_id = 1;
+      case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
@@ -4383,12 +4511,12 @@ bool Proto_TestOtherServerToWorldServer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_server_name;
+        if (input->ExpectTag(18)) goto parse_server_name;
         break;
       }
 
-      // optional string server_name = 4;
-      case 4: {
+      // optional string server_name = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_server_name:
@@ -4397,6 +4525,22 @@ bool Proto_TestOtherServerToWorldServer::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->server_name().data(), this->server_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_seq;
+        break;
+      }
+
+      // optional int32 seq = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seq:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seq_)));
+          set_has_seq();
         } else {
           goto handle_uninterpreted;
         }
@@ -4422,22 +4566,27 @@ bool Proto_TestOtherServerToWorldServer::MergePartialFromCodedStream(
 
 void Proto_TestOtherServerToWorldServer::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   if (has_server_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_id().data(), this->server_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->server_id(), output);
+      1, this->server_id(), output);
   }
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->server_name(), output);
+      2, this->server_name(), output);
+  }
+
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->seq(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4448,24 +4597,29 @@ void Proto_TestOtherServerToWorldServer::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Proto_TestOtherServerToWorldServer::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   if (has_server_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_id().data(), this->server_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->server_id(), target);
+        1, this->server_id(), target);
   }
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->server_name(), target);
+        2, this->server_name(), target);
+  }
+
+  // optional int32 seq = 3;
+  if (has_seq()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->seq(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4479,18 +4633,25 @@ int Proto_TestOtherServerToWorldServer::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string server_id = 3;
+    // optional string server_id = 1;
     if (has_server_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_id());
     }
 
-    // optional string server_name = 4;
+    // optional string server_name = 2;
     if (has_server_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->server_name());
+    }
+
+    // optional int32 seq = 3;
+    if (has_seq()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seq());
     }
 
   }
@@ -4526,6 +4687,9 @@ void Proto_TestOtherServerToWorldServer::MergeFrom(const Proto_TestOtherServerTo
     if (from.has_server_name()) {
       set_server_name(from.server_name());
     }
+    if (from.has_seq()) {
+      set_seq(from.seq());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4551,6 +4715,7 @@ void Proto_TestOtherServerToWorldServer::Swap(Proto_TestOtherServerToWorldServer
   if (other != this) {
     std::swap(server_id_, other->server_id_);
     std::swap(server_name_, other->server_name_);
+    std::swap(seq_, other->seq_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -1238,20 +1238,30 @@ class Proto_TestSendProxyMsgToOtherServer : public ::google::protobuf::Message {
   inline ::std::string* release_server_name();
   inline void set_allocated_server_name(::std::string* server_name);
 
+  // optional int32 seq = 3;
+  inline bool has_seq() const;
+  inline void clear_seq();
+  static const int kSeqFieldNumber = 3;
+  inline ::google::protobuf::int32 seq() const;
+  inline void set_seq(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestSendProxyMsgToOtherServer)
  private:
   inline void set_has_server_id();
   inline void clear_has_server_id();
   inline void set_has_server_name();
   inline void clear_has_server_name();
+  inline void set_has_seq();
+  inline void clear_has_seq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* server_id_;
   ::std::string* server_name_;
+  ::google::protobuf::int32 seq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
   friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
@@ -1316,10 +1326,10 @@ class Proto_TestOtherServerSendMsgToProxyServer : public ::google::protobuf::Mes
 
   // accessors -------------------------------------------------------
 
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   inline bool has_server_id() const;
   inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
+  static const int kServerIdFieldNumber = 1;
   inline const ::std::string& server_id() const;
   inline void set_server_id(const ::std::string& value);
   inline void set_server_id(const char* value);
@@ -1328,10 +1338,10 @@ class Proto_TestOtherServerSendMsgToProxyServer : public ::google::protobuf::Mes
   inline ::std::string* release_server_id();
   inline void set_allocated_server_id(::std::string* server_id);
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   inline bool has_server_name() const;
   inline void clear_server_name();
-  static const int kServerNameFieldNumber = 4;
+  static const int kServerNameFieldNumber = 2;
   inline const ::std::string& server_name() const;
   inline void set_server_name(const ::std::string& value);
   inline void set_server_name(const char* value);
@@ -1340,20 +1350,30 @@ class Proto_TestOtherServerSendMsgToProxyServer : public ::google::protobuf::Mes
   inline ::std::string* release_server_name();
   inline void set_allocated_server_name(::std::string* server_name);
 
+  // optional int32 seq = 3;
+  inline bool has_seq() const;
+  inline void clear_seq();
+  static const int kSeqFieldNumber = 3;
+  inline ::google::protobuf::int32 seq() const;
+  inline void set_seq(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestOtherServerSendMsgToProxyServer)
  private:
   inline void set_has_server_id();
   inline void clear_has_server_id();
   inline void set_has_server_name();
   inline void clear_has_server_name();
+  inline void set_has_seq();
+  inline void clear_has_seq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* server_id_;
   ::std::string* server_name_;
+  ::google::protobuf::int32 seq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
   friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
@@ -1442,20 +1462,30 @@ class Proto_TestSendWorldMsgToOtherServer : public ::google::protobuf::Message {
   inline ::std::string* release_server_name();
   inline void set_allocated_server_name(::std::string* server_name);
 
+  // optional int32 seq = 3;
+  inline bool has_seq() const;
+  inline void clear_seq();
+  static const int kSeqFieldNumber = 3;
+  inline ::google::protobuf::int32 seq() const;
+  inline void set_seq(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestSendWorldMsgToOtherServer)
  private:
   inline void set_has_server_id();
   inline void clear_has_server_id();
   inline void set_has_server_name();
   inline void clear_has_server_name();
+  inline void set_has_seq();
+  inline void clear_has_seq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* server_id_;
   ::std::string* server_name_;
+  ::google::protobuf::int32 seq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
   friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
@@ -1520,10 +1550,10 @@ class Proto_TestOtherServerToWorldServer : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string server_id = 3;
+  // optional string server_id = 1;
   inline bool has_server_id() const;
   inline void clear_server_id();
-  static const int kServerIdFieldNumber = 3;
+  static const int kServerIdFieldNumber = 1;
   inline const ::std::string& server_id() const;
   inline void set_server_id(const ::std::string& value);
   inline void set_server_id(const char* value);
@@ -1532,10 +1562,10 @@ class Proto_TestOtherServerToWorldServer : public ::google::protobuf::Message {
   inline ::std::string* release_server_id();
   inline void set_allocated_server_id(::std::string* server_id);
 
-  // optional string server_name = 4;
+  // optional string server_name = 2;
   inline bool has_server_name() const;
   inline void clear_server_name();
-  static const int kServerNameFieldNumber = 4;
+  static const int kServerNameFieldNumber = 2;
   inline const ::std::string& server_name() const;
   inline void set_server_name(const ::std::string& value);
   inline void set_server_name(const char* value);
@@ -1544,20 +1574,30 @@ class Proto_TestOtherServerToWorldServer : public ::google::protobuf::Message {
   inline ::std::string* release_server_name();
   inline void set_allocated_server_name(::std::string* server_name);
 
+  // optional int32 seq = 3;
+  inline bool has_seq() const;
+  inline void clear_seq();
+  static const int kSeqFieldNumber = 3;
+  inline ::google::protobuf::int32 seq() const;
+  inline void set_seq(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_TestOtherServerToWorldServer)
  private:
   inline void set_has_server_id();
   inline void clear_has_server_id();
   inline void set_has_server_name();
   inline void clear_has_server_name();
+  inline void set_has_seq();
+  inline void clear_has_seq();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* server_id_;
   ::std::string* server_name_;
+  ::google::protobuf::int32 seq_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
   friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
@@ -2987,11 +3027,33 @@ inline void Proto_TestSendProxyMsgToOtherServer::set_allocated_server_name(::std
   }
 }
 
+// optional int32 seq = 3;
+inline bool Proto_TestSendProxyMsgToOtherServer::has_seq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_TestSendProxyMsgToOtherServer::set_has_seq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_TestSendProxyMsgToOtherServer::clear_has_seq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_TestSendProxyMsgToOtherServer::clear_seq() {
+  seq_ = 0;
+  clear_has_seq();
+}
+inline ::google::protobuf::int32 Proto_TestSendProxyMsgToOtherServer::seq() const {
+  return seq_;
+}
+inline void Proto_TestSendProxyMsgToOtherServer::set_seq(::google::protobuf::int32 value) {
+  set_has_seq();
+  seq_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Proto_TestOtherServerSendMsgToProxyServer
 
-// optional string server_id = 3;
+// optional string server_id = 1;
 inline bool Proto_TestOtherServerSendMsgToProxyServer::has_server_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3061,7 +3123,7 @@ inline void Proto_TestOtherServerSendMsgToProxyServer::set_allocated_server_id(:
   }
 }
 
-// optional string server_name = 4;
+// optional string server_name = 2;
 inline bool Proto_TestOtherServerSendMsgToProxyServer::has_server_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3129,6 +3191,28 @@ inline void Proto_TestOtherServerSendMsgToProxyServer::set_allocated_server_name
     clear_has_server_name();
     server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// optional int32 seq = 3;
+inline bool Proto_TestOtherServerSendMsgToProxyServer::has_seq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_TestOtherServerSendMsgToProxyServer::set_has_seq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_TestOtherServerSendMsgToProxyServer::clear_has_seq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_TestOtherServerSendMsgToProxyServer::clear_seq() {
+  seq_ = 0;
+  clear_has_seq();
+}
+inline ::google::protobuf::int32 Proto_TestOtherServerSendMsgToProxyServer::seq() const {
+  return seq_;
+}
+inline void Proto_TestOtherServerSendMsgToProxyServer::set_seq(::google::protobuf::int32 value) {
+  set_has_seq();
+  seq_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -3275,11 +3359,33 @@ inline void Proto_TestSendWorldMsgToOtherServer::set_allocated_server_name(::std
   }
 }
 
+// optional int32 seq = 3;
+inline bool Proto_TestSendWorldMsgToOtherServer::has_seq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_has_seq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_has_seq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::clear_seq() {
+  seq_ = 0;
+  clear_has_seq();
+}
+inline ::google::protobuf::int32 Proto_TestSendWorldMsgToOtherServer::seq() const {
+  return seq_;
+}
+inline void Proto_TestSendWorldMsgToOtherServer::set_seq(::google::protobuf::int32 value) {
+  set_has_seq();
+  seq_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Proto_TestOtherServerToWorldServer
 
-// optional string server_id = 3;
+// optional string server_id = 1;
 inline bool Proto_TestOtherServerToWorldServer::has_server_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3349,7 +3455,7 @@ inline void Proto_TestOtherServerToWorldServer::set_allocated_server_id(::std::s
   }
 }
 
-// optional string server_name = 4;
+// optional string server_name = 2;
 inline bool Proto_TestOtherServerToWorldServer::has_server_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3417,6 +3523,28 @@ inline void Proto_TestOtherServerToWorldServer::set_allocated_server_name(::std:
     clear_has_server_name();
     server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// optional int32 seq = 3;
+inline bool Proto_TestOtherServerToWorldServer::has_seq() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_TestOtherServerToWorldServer::set_has_seq() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_has_seq() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_TestOtherServerToWorldServer::clear_seq() {
+  seq_ = 0;
+  clear_has_seq();
+}
+inline ::google::protobuf::int32 Proto_TestOtherServerToWorldServer::seq() const {
+  return seq_;
+}
+inline void Proto_TestOtherServerToWorldServer::set_seq(::google::protobuf::int32 value) {
+  set_has_seq();
+  seq_ = value;
 }
 
 

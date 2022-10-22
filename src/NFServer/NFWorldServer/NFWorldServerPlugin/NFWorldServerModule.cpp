@@ -722,12 +722,25 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
     proto_ff::Proto_TestOtherServerToWorldServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
+    static std::unordered_map<std::string, int32_t> serverIdMap;
+    auto iter = serverIdMap.find(xMsg.server_id());
+    if (iter == serverIdMap.end())
+    {
+        serverIdMap[xMsg.server_id()] = xMsg.seq();
+    }
+    else {
+        CHECK_EXPR(iter->second + 1 == xMsg.seq(), -1, "serverId:{} serverName:{} last_seq:{} seq:{} Error", xMsg.server_id(), xMsg.server_name(), iter->second, xMsg.seq());
+        iter->second = xMsg.seq();
+    }
+
+
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
     {
         proto_ff::Proto_TestSendWorldMsgToOtherServer xData;
         xData.set_server_id(pConfig->ServerId);
         xData.set_server_name(pConfig->ServerName);
+        xData.set_seq(xMsg.seq());
         FindModule<NFIMessageModule>()->SendMsgToServer(NF_ST_WORLD_SERVER, NF_ST_NONE, 0, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
     }
 

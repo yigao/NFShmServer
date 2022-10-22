@@ -89,22 +89,26 @@ message Proto_TestSendProxyMsgToOtherServer
 {
   optional string server_id = 1;
   optional string server_name = 2;
+  optional int32 seq = 3;
 }
 
 message Proto_TestOtherServerSendMsgToProxyServer
 {
-  optional string server_id = 3;
-  optional string server_name = 4;
+  optional string server_id = 1;
+  optional string server_name = 2;
+  optional int32 seq = 3;
 }
 
 message Proto_TestSendWorldMsgToOtherServer
 {
   optional string server_id = 1;
   optional string server_name = 2;
+  optional int32 seq = 3;
 }
 
 message Proto_TestOtherServerToWorldServer
 {
-  optional string server_id = 3;
-  optional string server_name = 4;
+  optional string server_id = 1;
+  optional string server_name = 2;
+  optional int32 seq = 3;
 }
