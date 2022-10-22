@@ -38,8 +38,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="net handle">
-      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,18 +102,18 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Install/TcpPlugin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Install/BusPlugin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="dynamic.analysis.tools.valgrind" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Install/BusPlugin" />
       <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
       <recent name="$PROJECT_DIR$/Install" />
       <recent name="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
       <recent name="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_svr" />
-      <recent name="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/proto_cs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common" />
@@ -467,20 +466,6 @@
       <workItem from="1665968543175" duration="13000" />
       <workItem from="1665968656493" duration="4722000" />
     </task>
-    <task id="LOCAL-00167" summary="net">
-      <created>1665376162488</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1665376162488</updated>
-    </task>
-    <task id="LOCAL-00168" summary="net">
-      <created>1665380837197</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1665380837197</updated>
-    </task>
     <task id="LOCAL-00169" summary="net">
       <created>1665382219405</created>
       <option name="number" value="00169" />
@@ -810,7 +795,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666426139832</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="net handle">
+      <created>1666427259890</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1666427259890</updated>
+    </task>
+    <task id="LOCAL-00217" summary="net handle">
+      <created>1666429481710</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1666429481710</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

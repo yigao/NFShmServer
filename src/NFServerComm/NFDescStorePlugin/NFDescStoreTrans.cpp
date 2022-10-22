@@ -8,7 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFDescStoreTrans.h"
-#include "../../../game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
