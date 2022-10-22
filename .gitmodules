@@ -1,0 +1,6 @@
+[submodule "game/oldMMO"]
+	path = game/oldMMO
+	url = https://gitee.com/xiaoyi445_admin/nfshm-frame2_oldmmo.git
+[submodule "game/MMO"]
+	path = game/MMO
+	url = https://gitee.com/xiaoyi445_admin/nfshm-frame2_newmmo.git
