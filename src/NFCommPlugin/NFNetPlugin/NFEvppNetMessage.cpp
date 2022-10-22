@@ -47,6 +47,12 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
     /**
      * @brief 0作废，作为一个错误处理，从1开始
      */
+    mNetObjectArray.resize(MAX_CLIENT_INDEX);
+    for(int i = 1; i < (int)mNetObjectArray.size(); i++)
+    {
+        mNetObjectArray[i] = NULL;
+    }
+
     for(int i = 1; i < MAX_CLIENT_INDEX; i++)
     {
         uint64_t unlinkId = GetUnLinkId(NF_IS_NET, mServerType, i);
@@ -65,7 +71,7 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
 
 NFEvppNetMessage::~NFEvppNetMessage()
 {
-	for (auto iter = mNetObjectArray.begin(); iter != mNetObjectArray.end(); ++iter)
+	for (auto iter = mNetObjectMap.begin(); iter != mNetObjectMap.end(); ++iter)
 	{
 		auto pObject = iter->second;
 		if (pObject)
@@ -73,7 +79,11 @@ NFEvppNetMessage::~NFEvppNetMessage()
             m_netObjectPool.FreeObj(pObject);
 		}
 	}
-	mNetObjectArray.clear();
+    mNetObjectMap.clear();
+    for(int i = 1; i < (int)mNetObjectArray.size(); i++)
+    {
+        mNetObjectArray[i] = NULL;
+    }
 }
 
 void NFEvppNetMessage::ProcessMsgLogicThread()
@@ -625,7 +635,7 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint3
 	uint64_t usLinkId = GetFreeUnLinkId();
 	if (usLinkId == 0)
 	{
-		NFLogError(NF_LOG_NET_PLUGIN, 0, "connected count:{}  Can't add connect", mNetObjectArray.size());
+		NFLogError(NF_LOG_NET_PLUGIN, 0, "GetFreeUnLinkId Failed, connected count:{}  Can't add connect", mNetObjectArray.size());
 		return nullptr;
 	}
 
@@ -634,16 +644,16 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint3
 
 NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCPConnPtr conn, uint32_t parseType, bool bSecurity)
 {
-	if (mNetObjectArray.find(unLinkId) != mNetObjectArray.end())
-	{
-		NFLogError(NF_LOG_NET_PLUGIN, 0, "GetServerIndexFromUnLinkId Failed!");
-		return nullptr;
-	}
+    int index = GetServerIndexFromUnlinkId(unLinkId);
+    CHECK_EXPR_ASSERT(index > 0 && index < (int)mNetObjectArray.size(), NULL, "unLinkId:{} index:{} > 0 && index < mNetObjectArray.size()", unLinkId, index);
+    CHECK_EXPR_ASSERT(mNetObjectArray[index] == NULL, NULL, "unLinkId:{} index:{} Exist", unLinkId, index);
+    CHECK_EXPR_ASSERT(mNetObjectMap.find(unLinkId) == mNetObjectMap.end(), NULL, "unLinkId:{} index:{} Exist", unLinkId, index);
 
 	auto pObject = m_netObjectPool.MallocObjWithArgs(conn);
 	CHECK_EXPR_ASSERT(pObject, NULL, "m_netObjectPool.Alloc() Failed");
 
-	mNetObjectArray.emplace(unLinkId, pObject);
+    mNetObjectArray[index] = pObject;
+    mNetObjectMap.emplace(unLinkId, pObject);
 
 	pObject->SetLinkId(unLinkId);
 
@@ -668,26 +678,21 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(uint64_t unLinkId, const evpp::TCP
 NetEvppObject* NFEvppNetMessage::GetNetObject(uint64_t usLinkId)
 {
 	uint32_t serverType = GetServerTypeFromUnlinkId(usLinkId);
-	if (serverType != mServerType)
-	{
-		NFLogError(NF_LOG_NET_PLUGIN, 0, "serverType != mServerType, this usLinkId:{} is not of the server:{}", usLinkId, GetServerName(mServerType).c_str());
-		return nullptr;
-	}
+	CHECK_EXPR(serverType == mServerType, NULL, "serverType != mServerType, this usLinkId:{} is not of the server:{}", usLinkId, GetServerName(mServerType).c_str());
 
-	auto iter = mNetObjectArray.find(usLinkId);
+    int index = GetServerIndexFromUnlinkId(usLinkId);
+    CHECK_EXPR_ASSERT(index > 0 && index < (int)mNetObjectArray.size(), NULL, "unLinkId:{} index:{} > 0 && index < mNetObjectArray.size()", usLinkId, index);
 
-	if (iter != mNetObjectArray.end())
+    auto pObject = mNetObjectArray[index];
+
+	if (pObject)
 	{
-		auto pObject = iter->second;
-		if (pObject)
-		{
-			return pObject;
-		}
-		else
-		{
-			NFLogError(NF_LOG_NET_PLUGIN, 0, "the usLinkId:{} is nullptr", usLinkId);
-		}
+        return pObject;
 	}
+    else
+    {
+        NFLogError(NF_LOG_NET_PLUGIN, 0, "the usLinkId:{} Index:{} Not Exist", usLinkId, index);
+    }
 	return nullptr;
 }
 
@@ -904,14 +909,12 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
             auto pObject = GetNetObject(objectLinkId);
             if (pObject && pObject->GetNeedRemove())
             {
-                auto iter = mNetObjectArray.find(objectLinkId);
-                if (iter != mNetObjectArray.end())
-                {
-                    mNetObjectArray.erase(iter);
-                    m_netObjectPool.FreeObj(pObject);
-
-                    while (!mFreeLinks.Enqueue(objectLinkId)) {
-                    }
+                CHECK_EXPR_ASSERT_NOT_RET(index > 0 && index < mNetObjectArray.size(), "unLinkId:{} index:{} Error", objectLinkId, index);
+                CHECK_EXPR_ASSERT_NOT_RET(mNetObjectMap.find(objectLinkId) != mNetObjectMap.end(), "unLinkId:{} index:{} Error", objectLinkId, index);
+                mNetObjectArray[index] = NULL;
+                m_netObjectPool.FreeObj(pObject);
+                mNetObjectMap.erase(objectLinkId);
+                while (!mFreeLinks.Enqueue(objectLinkId)) {
                 }
             }
         }
@@ -1035,7 +1038,7 @@ void  NFEvppNetMessage::SendHeartMsg()
 void NFEvppNetMessage::CheckServerHeartBeat()
 {
 	uint64_t nowTime = NFGetTime();
-	for (auto iter = mNetObjectArray.begin(); iter != mNetObjectArray.end(); iter++)
+	for (auto iter = mNetObjectMap.begin(); iter != mNetObjectMap.end(); iter++)
 	{
 		NetEvppObject* pObject = iter->second;
 		if (pObject && pObject->mIsServer && pObject->mPacketParseType == PACKET_PARSE_TYPE_INTERNAL)//服务器与服务器之间有这个需求，协议必须是内网协议

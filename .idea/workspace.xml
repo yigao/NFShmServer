@@ -37,8 +37,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="delete code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="MMO">
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -466,13 +468,6 @@
       <workItem from="1665968543175" duration="13000" />
       <workItem from="1665968656493" duration="4722000" />
     </task>
-    <task id="LOCAL-00170" summary="net">
-      <created>1665382568732</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1665382568732</updated>
-    </task>
     <task id="LOCAL-00171" summary="net">
       <created>1665382753118</created>
       <option name="number" value="00171" />
@@ -809,7 +804,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666430642344</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="MMO">
+      <created>1666432039817</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1666432039817</updated>
+    </task>
+    <option name="localTasksCounter" value="220" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,6 +885,31 @@
             <State />
           </value>
         </entry>
+        <entry key="c90c0d1c-5074-46c2-8aff-edbdd77618b9">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/gaoyi/mmo-nfshm-server/game/MMO/ExcelMMO" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e">
           <value>
             <State>
@@ -919,13 +946,13 @@
       <map>
         <entry key="469eeb2e-025f-42d0-bce3-3dba4e8d0845" value="TOOL_WINDOW" />
         <entry key="9a81d70b-7ca6-4945-a4d1-3d8b69bf0064" value="TOOL_WINDOW" />
+        <entry key="c90c0d1c-5074-46c2-8aff-edbdd77618b9" value="TOOL_WINDOW" />
         <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="serial nmber" />
     <MESSAGE value="frame" />
     <MESSAGE value="delete" />
     <MESSAGE value="shell" />
@@ -950,7 +977,8 @@
     <MESSAGE value="login handle" />
     <MESSAGE value="net handle" />
     <MESSAGE value="delete code" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete code" />
+    <MESSAGE value="MMO" />
+    <option name="LAST_COMMIT_MESSAGE" value="MMO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

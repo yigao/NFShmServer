@@ -305,7 +305,11 @@ private:
     /**
     * @brief 链接对象数组
     */
-    std::unordered_map<uint64_t, NetEvppObject*> mNetObjectArray;
+    std::vector<NetEvppObject*> mNetObjectArray;
+    /**
+     * @brief
+     */
+    std::unordered_map<uint64_t, NetEvppObject*> mNetObjectMap;
 
     /**
      * @brief 网络对象池
