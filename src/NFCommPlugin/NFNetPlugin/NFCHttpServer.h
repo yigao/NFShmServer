@@ -14,6 +14,7 @@
 #include <list>
 #include <map>
 #include "NFComm/NFCore/NFConcurrentQueue.h"
+#include "NFComm/NFPluginModule/NFObjectPool.hpp"
 #include <unordered_map>
 
 class NFServerHttpHandle : public NFIHttpHandle {
@@ -97,6 +98,25 @@ public:
     virtual ~NFEvppHttMsg()
     {
         Clear();
+    }
+
+    NFEvppHttMsg(const NFEvppHttMsg& msg)
+    {
+        if (this != &msg)
+        {
+            mCtx = msg.mCtx;
+            mResponseCb = msg.mResponseCb;
+        }
+    }
+
+    NFEvppHttMsg& operator=(const NFEvppHttMsg& msg)
+    {
+        if (this != &msg)
+        {
+            mCtx = msg.mCtx;
+            mResponseCb = msg.mResponseCb;
+        }
+        return *this;
     }
 
     void Clear()
@@ -192,12 +212,11 @@ private:
     uint32_t mServerType;
     std::vector<uint32_t> mVecPort;
 
-    NFConcurrentQueue<NFEvppHttMsg *> mMsgQueue;
-    NFConcurrentQueuePool<NFEvppHttMsg> mFreeQueuePool;
+    NFConcurrentQueue<NFEvppHttMsg> mMsgQueue;
 
     uint64_t mIndex;
     std::unordered_map<uint64_t, NFServerHttpHandle *> mHttpRequestMap;
-    std::list<NFServerHttpHandle *> mListHttpRequestPool;
+    NFObjectPool<NFServerHttpHandle>* mListHttpRequestPool;
 protected:
     HTTP_RECEIVE_FUNCTOR mReceiveCB;
     HTTP_FILTER_FUNCTOR mFilter;

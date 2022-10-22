@@ -22,7 +22,10 @@ NFCHttpClient::NFCHttpClient()
 NFCHttpClient::~NFCHttpClient()
 {
     m_threadLoop.Stop(true);
-    NF_SAFE_DELETE(m_pHttpClientParamPool);
+    if (m_pHttpClientParamPool)
+    {
+        NF_SAFE_DELETE(m_pHttpClientParamPool);
+    }
 }
 
 void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Response> &response,
@@ -32,14 +35,11 @@ void NFCHttpClient::HandleHTTPGetResponse(const std::shared_ptr<evpp::httpc::Res
                response->http_code(), response->body().ToString());
     NF_ASSERT(request == response->request());
 
-    NFHttpClientMsg *pMsg = mFreeQueuePool.Alloc();
-    CHECK_EXPR_NOT_RET(pMsg, "mFreeQueuePool.Alloc() Failed");
-    pMsg->Clear();
-
-    pMsg->code = response->http_code();
-    pMsg->body = response->body().ToString();
-    pMsg->reqid = request->GetId();
-    while (!mMsgQueue.Enqueue(pMsg)) {}
+    NFHttpClientMsg msg;
+    msg.code = response->http_code();
+    msg.body = response->body().ToString();
+    msg.reqid = request->GetId();
+    while (!mMsgQueue.Enqueue(msg)) {}
 
     NF_SAFE_DELETE(request); // The request MUST BE deleted in EventLoop thread.
 }
@@ -104,11 +104,11 @@ void NFCHttpClient::HandleHTTPPostResponse(const shared_ptr<evpp::httpc::Respons
                response->http_code(), response->body().ToString());
     NF_ASSERT(request == response->request());
 
-    NFHttpClientMsg *pMsg = NF_NEW NFHttpClientMsg();
-    pMsg->code = response->http_code();
-    pMsg->body = response->body().ToString();
-    pMsg->reqid = request->GetId();
-    while (!mMsgQueue.Enqueue(pMsg)) {}
+    NFHttpClientMsg msg;
+    msg.code = response->http_code();
+    msg.body = response->body().ToString();
+    msg.reqid = request->GetId();
+    while (!mMsgQueue.Enqueue(msg)) {}
 
     NF_SAFE_DELETE(request); // The request MUST BE deleted in EventLoop thread.
 }
@@ -118,12 +118,12 @@ void NFCHttpClient::ProcessMsgLogicThread()
     int max_times = 10000;
     while (!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
-        std::vector<NFHttpClientMsg *> vecMsg;
+        std::vector<NFHttpClientMsg> vecMsg;
         vecMsg.resize(200);
         mMsgQueue.TryDequeueBulk(vecMsg);
         for (int i = 0; i < (int) vecMsg.size(); i++)
         {
-            NFHttpClientMsg *pMsg = vecMsg[i];
+            NFHttpClientMsg *pMsg = &vecMsg[i];
             if (pMsg)
             {
                 auto iter = m_httpClientMap.find(pMsg->reqid);
@@ -137,9 +137,6 @@ void NFCHttpClient::ProcessMsgLogicThread()
                     }
                     m_httpClientMap.erase(iter);
                 }
-
-                pMsg->Clear();
-                mFreeQueuePool.Free(pMsg);
             }
         }
     }

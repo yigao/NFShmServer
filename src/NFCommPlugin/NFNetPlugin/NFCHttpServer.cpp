@@ -22,16 +22,15 @@ NFCHttpServer::NFCHttpServer(uint32_t serverType, uint32_t netThreadNum)
     mPort = 0;
     m_pHttpServer = new evpp::http::Server(netThreadNum);
     mIndex = 0;
+    mListHttpRequestPool = NF_NEW NFObjectPool<NFServerHttpHandle>(1000, false);
     m_pHttpServer->RegisterDefaultHandler([this](evpp::EventLoop *loop,
                                                  const evpp::http::ContextPtr &ctx,
                                                  const evpp::http::HTTPSendResponseCallback &respcb)
                                           {
-                                              NFEvppHttMsg *pMsg = mFreeQueuePool.Alloc(); //NF_NEW NFEvppHttMsg();
-                                              CHECK_EXPR_NOT_RET(pMsg, "mFreeQueuePool.Alloc() Failed");
-                                              pMsg->Clear();
-                                              pMsg->mCtx = ctx;
-                                              pMsg->mResponseCb = respcb;
-                                              while (!mMsgQueue.Enqueue(pMsg)) {}
+                                              NFEvppHttMsg msg;
+                                              msg.mCtx = ctx;
+                                              msg.mResponseCb = respcb;
+                                              while (!mMsgQueue.Enqueue(msg)) {}
                                           });
 }
 
@@ -43,11 +42,10 @@ NFCHttpServer::~NFCHttpServer()
     }
     mHttpRequestMap.clear();
 
-    for (auto iter = mListHttpRequestPool.begin(); iter != mListHttpRequestPool.end(); iter++)
+    if (mListHttpRequestPool)
     {
-        NF_SAFE_DELETE(*iter);
+        NF_SAFE_DELETE(mListHttpRequestPool);
     }
-    mListHttpRequestPool.clear();
 
     if (m_pHttpServer)
     {
@@ -134,14 +132,14 @@ void NFCHttpServer::ProcessMsgLogicThread()
     int max_times = 10000;
     while (!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
-        std::vector<NFEvppHttMsg *> vecMsg;
+        std::vector<NFEvppHttMsg> vecMsg;
         vecMsg.resize(200);
 
         mMsgQueue.TryDequeueBulk(vecMsg);
         for (size_t i = 0; i < vecMsg.size(); i++)
         {
             max_times--;
-            NFEvppHttMsg *pMsg = vecMsg[i];
+            NFEvppHttMsg *pMsg = &vecMsg[i];
             if (pMsg == nullptr) continue;
 
             NFServerHttpHandle *pRequest = AllocHttpRequest();
@@ -200,25 +198,14 @@ void NFCHttpServer::ProcessMsgLogicThread()
                     ResponseMsg(*pRequest, "UNKNOW ERROR", NFWebStatus::WEB_ERROR);
                 }
             }
-
-            pMsg->Clear();
-            mFreeQueuePool.Free(pMsg);
         }
     }
 }
 
 NFServerHttpHandle *NFCHttpServer::AllocHttpRequest()
 {
-    if (mListHttpRequestPool.size() <= 0)
-    {
-        for (int i = 0; i < 1024; i++)
-        {
-            mListHttpRequestPool.push_back(NF_NEW NFServerHttpHandle());
-        }
-    }
-
-    NFServerHttpHandle *pRequest = dynamic_cast<NFServerHttpHandle *>(mListHttpRequestPool.front());
-    mListHttpRequestPool.pop_front();
+    NFServerHttpHandle *pRequest = mListHttpRequestPool->MallocObj();
+    CHECK_EXPR_ASSERT(pRequest, NULL, "mListHttpRequestPool->MallocObj() Failed");
 
     pRequest->Reset();
 
@@ -236,7 +223,7 @@ bool NFCHttpServer::ResponseMsg(const NFIHttpHandle &req, const std::string &str
     if (it != mHttpRequestMap.end())
     {
         it->second->Reset();
-        mListHttpRequestPool.push_back(it->second);
+        mListHttpRequestPool->FreeObj(it->second);
         mHttpRequestMap.erase(it);
     }
     return true;
@@ -262,7 +249,7 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string &strMsg, N
     }
 
     req->Reset();
-    mListHttpRequestPool.push_back(req);
+    mListHttpRequestPool->FreeObj(it->second);
     mHttpRequestMap.erase(it);
     return true;
 }

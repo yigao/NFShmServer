@@ -34,6 +34,27 @@ public:
         reqid = 0;
     }
 
+    NFHttpClientMsg(const NFHttpClientMsg& msg)
+    {
+        if (this != &msg)
+        {
+            body = msg.body;
+            code = msg.code;
+            reqid = msg.reqid;
+        }
+    }
+
+    NFHttpClientMsg& operator=(const NFHttpClientMsg& msg)
+    {
+        if (this != &msg)
+        {
+            body = msg.body;
+            code = msg.code;
+            reqid = msg.reqid;
+        }
+        return *this;
+    }
+
     std::string body;
     int code;
     int reqid;
@@ -87,8 +108,7 @@ public:
 private:
     std::unordered_map<int, NFCHttpClientParam *> m_httpClientMap;
     evpp::EventLoopThread m_threadLoop;
-    NFConcurrentQueue<NFHttpClientMsg *> mMsgQueue;
-    NFConcurrentQueuePool<NFHttpClientMsg> mFreeQueuePool;
+    NFConcurrentQueue<NFHttpClientMsg> mMsgQueue;
     NFObjectPool<NFCHttpClientParam>* m_pHttpClientParamPool;
     int m_staticReqId;
 };
