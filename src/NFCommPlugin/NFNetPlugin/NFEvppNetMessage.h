@@ -80,7 +80,7 @@ struct MsgFromNetInfo
             mTCPConPtr = info.mTCPConPtr;
             nConnectLinkId = info.nConnectLinkId;
             nObjectLinkId = info.nObjectLinkId;
-            pRecvBuffer = NULL;
+            pRecvBuffer = info.pRecvBuffer;
         }
     }
 
@@ -92,7 +92,7 @@ struct MsgFromNetInfo
             mTCPConPtr = info.mTCPConPtr;
             nConnectLinkId = info.nConnectLinkId;
             nObjectLinkId = info.nObjectLinkId;
-            pRecvBuffer = NULL;
+            pRecvBuffer = info.pRecvBuffer;
         }
         return *this;
     }

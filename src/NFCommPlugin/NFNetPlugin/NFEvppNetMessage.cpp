@@ -811,8 +811,14 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const goog
     if (pObject)
     {
         mxSendBuffer.Clear();
-        int iRet = xData.SerializePartialToArray(mxSendBuffer.WriteAddr(), mxSendBuffer.WritableSize());
-        CHECK_EXPR(iRet, false, "xData.SerializePartialToArray Failed:{}", xData.DebugString());
+        int byteSize = xData.ByteSize();
+        CHECK_EXPR((int)mxSendBuffer.WritableSize() >= byteSize, false, "mxSendBuffer.WritableSize():{} < byteSize:{} msg:{}", mxSendBuffer.WritableSize(), byteSize, xData.DebugString());
+
+        uint8_t* start = reinterpret_cast<uint8_t*>(mxSendBuffer.WriteAddr());
+        uint8_t* end = xData.SerializeWithCachedSizesToArray(start);
+        CHECK_EXPR(end - start == byteSize, false, "xData.SerializeWithCachedSizesToArray Failed:{}", xData.DebugString());
+        mxSendBuffer.Produce(byteSize);
+
         return Send(pObject, packet, mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
     }
 
