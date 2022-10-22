@@ -91,6 +91,7 @@ message pbNFServerConfig
 	optional string LinkMode = 7;  //
 	optional string Url = 8;
 	optional uint32 IdleSleepUS = 9; //服务器类型
+	optional uint32 HandleMsgNumPerFrame = 10; //服务器每一帧处理的消息数
 
 ////////////////////////////////////////net//////////////////////////////////////////////////////////
 	optional string ServerIp = 20; //服务器监听IP

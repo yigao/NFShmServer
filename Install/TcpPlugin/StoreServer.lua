@@ -19,6 +19,7 @@ StoreServer = {
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         ServerIp = NF_INTER_SERVER_IP,
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_STORE_SERVER*10+1,
+        HandleMsgNumPerFrame = NF_TRANS_SERVER_HANDLE_MSG_COUNT,
         MysqlConfig = {
              MysqlIp = NF_MYSQL_IP,
              MysqlPort = NF_MYSQL_PORT,

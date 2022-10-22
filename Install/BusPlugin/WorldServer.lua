@@ -21,6 +21,8 @@ WorldServer = {
       Security = false,
       WebSocket = false,
       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+      DefaultDBName = NF_MYSQL_DB_NAME,
+      HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
       RouteConfig = {
          RouteAgent = NF_ROUTE_AGENT_ID,
          --NamingHost = NF_NAMING_HOST,
@@ -28,7 +30,6 @@ WorldServer = {
          MasterIp = NF_MASTER_IP,
          MasterPort = NF_MASTER_PORT,
       },
-      DefaultDBName = NF_MYSQL_DB_NAME,
       ClientVersion = NF_CLIENT_VERSION,
    };
 };

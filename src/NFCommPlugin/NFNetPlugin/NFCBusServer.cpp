@@ -17,6 +17,17 @@
 #include <string.h>
 #include <sstream>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include <NFComm/NFPluginModule/NFIConfigModule.h>
+
+NFCBusServer::NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIBusConnection(p, serverType, flag)
+{
+    mHandleMsgNumPerFrame = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
+    auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(mServerType);
+    if (pServerConfig)
+    {
+        mHandleMsgNumPerFrame= pServerConfig->HandleMsgNumPerFrame;
+    }
+}
 
 NFCBusServer::~NFCBusServer()
 {

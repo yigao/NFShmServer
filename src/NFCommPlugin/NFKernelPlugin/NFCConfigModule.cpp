@@ -265,6 +265,11 @@ bool NFCConfigModule::LoadServerConfig()
                 pPbConfig->set_idlesleepus(1000);
             }
 
+            if (pPbConfig->handlemsgnumperframe() == 0)
+            {
+                pPbConfig->set_handlemsgnumperframe(NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT);
+            }
+
             std::string linkMode = pPbConfig->linkmode();
             NFStringUtility::Trim(linkMode);
             NFStringUtility::ToLower(linkMode);

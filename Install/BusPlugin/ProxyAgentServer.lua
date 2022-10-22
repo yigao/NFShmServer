@@ -19,6 +19,7 @@ ProxyAgentServer = {
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         ServerIp = NF_INTER_SERVER_IP,
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_AGENT_SERVER*10+1,
+        HandleMsgNumPerFrame = NF_TRANS_SERVER_HANDLE_MSG_COUNT,
         RouteConfig = {
             RouteAgent = NF_ROUTE_AGENT_ID,
             --NamingHost = NF_NAMING_HOST,

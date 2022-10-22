@@ -15,6 +15,7 @@
 #include <vector>
 #include <NFComm/NFCore/NFCommon.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
+#include <NFComm/NFPluginModule/NFIConfigModule.h>
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
@@ -52,6 +53,14 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
         while (!mFreeLinks.Enqueue(unlinkId)) {
         }
     }
+
+    mHandleMsgNumPerFrame = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
+    auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(mServerType);
+    if (pServerConfig)
+    {
+        mHandleMsgNumPerFrame= pServerConfig->HandleMsgNumPerFrame;
+    }
+    mCurHandleMsgNum = 0;
 }
 
 NFEvppNetMessage::~NFEvppNetMessage()
@@ -69,13 +78,9 @@ NFEvppNetMessage::~NFEvppNetMessage()
 
 void NFEvppNetMessage::ProcessMsgLogicThread()
 {
-    int max_times = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
-    if (!m_pObjPluginManager->IsLoadAllServer() && m_pObjPluginManager->IsFixedFrame())
-    {
-        max_times = NF_FIX_FRAME_HANDLE_MAX_MSG_COUNT;
-    }
+    mCurHandleMsgNum = mHandleMsgNumPerFrame;
 
-    while(!mMsgQueue.IsQueueEmpty() && max_times >= 0)
+    while(!mMsgQueue.IsQueueEmpty() && mCurHandleMsgNum >= 0)
     {
         std::vector<MsgFromNetInfo> vecMsg;
         vecMsg.resize(200);
@@ -84,7 +89,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
 
         for (size_t index = 0; index < vecMsg.size(); index++)
         {
-            max_times--;
+            mCurHandleMsgNum--;
             MsgFromNetInfo* pMsg = &vecMsg[index];
             CHECK_EXPR_ASSERT_NOT_RET(pMsg->mTCPConPtr != NULL, "");
 
@@ -175,7 +180,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
 void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
 {
     NF_ASSERT_MSG(pRecvQueue != NULL, "pRecvQueue == NULL");
-    while(pRecvQueue->HasCode())
+    while(pRecvQueue->HasCode() && mCurHandleMsgNum >= 0)
     {
         mxRecvBuffer.Clear();
         int iCodeLen = 0;
@@ -206,12 +211,14 @@ void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "net server recv data, tcp context error");
         }
+        mCurHandleMsgNum--;
     }
 }
 
 
 void NFEvppNetMessage::ProcessCodeQueue()
 {
+    mCurHandleMsgNum = mHandleMsgNumPerFrame;
     for(int i = 0; i < (int)m_recvCodeQueueList.size(); i++)
     {
         NF_SHARE_PTR<NFBuffer> pRecvBuffer = m_recvCodeQueueList[i];

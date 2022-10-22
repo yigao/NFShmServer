@@ -138,6 +138,7 @@ namespace proto_ff_s {
 		std::string LinkMode;
 		std::string Url;
 		uint32_t IdleSleepUS;
+		uint32_t HandleMsgNumPerFrame;
 		std::string ServerIp;
 		uint32_t ServerPort;
 		std::string ExternalServerIp;

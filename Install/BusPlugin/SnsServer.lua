@@ -22,6 +22,7 @@ SnsServer = {
       WebSocket = false,
       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
       DefaultDBName = NF_MYSQL_DB_NAME,
+      HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
       RouteConfig = {
          RouteAgent = NF_ROUTE_AGENT_ID,
          --NamingHost = NF_NAMING_HOST,

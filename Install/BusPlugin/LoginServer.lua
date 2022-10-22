@@ -21,6 +21,8 @@ LoginServer = {
       Security = false,
       WebSocket = false,
       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+      HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
+      DefaultDBName = NF_MYSQL_DB_NAME,
       RouteConfig = {
          RouteAgent = NF_ROUTE_AGENT_ID,
          --NamingHost = NF_NAMING_HOST,
@@ -28,6 +30,5 @@ LoginServer = {
          MasterIp = NF_MASTER_IP,
          MasterPort = NF_MASTER_PORT,
       },
-      DefaultDBName = NF_MYSQL_DB_NAME,
    };
 };

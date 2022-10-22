@@ -20,6 +20,7 @@ WebServer = {
     ServerPort = NF_INTER_SERVER_PORT+NF_ST_WEB_SERVER*10+1,
     HttpPort = NF_EXTER_WEB_SERVER_PORT,
     MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+    HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
     RouteConfig = {
        RouteAgent = NF_ROUTE_AGENT_ID,
        --NamingHost = NF_NAMING_HOST,

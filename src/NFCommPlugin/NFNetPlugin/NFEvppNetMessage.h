@@ -331,4 +331,14 @@ private:
     * @brief recv BUFF
     */
     NFBuffer mxRecvBuffer;
+
+    /**
+     * @brief 服务器每一帧处理的消息数
+     */
+    uint32_t mHandleMsgNumPerFrame;
+
+    /**
+     * @brief 服务器当前帧处理的消息数
+     */
+    int32_t mCurHandleMsgNum;
 };

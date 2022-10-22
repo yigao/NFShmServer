@@ -19,6 +19,7 @@ MasterServer = {
         WorkThreadNum = 1,
         HttpPort = 6012,
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+        HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
         --NamingHost = NF_NAMING_HOST,
         --NamingPath = NF_NAMING_PATH,
         --WWW="http://192.168.0.62",

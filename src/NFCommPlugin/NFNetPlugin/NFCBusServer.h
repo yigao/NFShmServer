@@ -23,9 +23,7 @@
 class NFCBusServer : public NFIBusConnection
 {
 public:
-    explicit NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIBusConnection(p, serverType, flag)
-    {
-    }
+    explicit NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag);
 
     virtual ~NFCBusServer();
 
@@ -51,4 +49,9 @@ public:
 
     virtual bool Send(NFDataPackage& packet, const char* msg, uint32_t nLen) override;
     virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) override;
+private:
+    /**
+     * @brief 服务器每一帧处理的消息数
+     */
+    uint32_t mHandleMsgNumPerFrame;
 };

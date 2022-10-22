@@ -17,6 +17,7 @@ RouteServer = {
     NetThreadNum = 5,
     WorkThreadNum = 1,
     MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+    HandleMsgNumPerFrame = NF_TRANS_SERVER_HANDLE_MSG_COUNT,
     RouteConfig = {
       --NamingHost = NF_NAMING_HOST,
       --NamingPath = NF_NAMING_PATH,
