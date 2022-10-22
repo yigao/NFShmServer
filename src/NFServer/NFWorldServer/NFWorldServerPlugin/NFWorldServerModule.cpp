@@ -691,7 +691,8 @@ int NFCWorldServerModule::OnCheckWorldServerAllMessage(uint64_t unLinkId, NFData
 {
     if (packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_REGISTER ||
         packet.nMsgId == proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER ||
-        packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP)
+        packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP ||
+        packet.nMsgId == proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ)
     {
         return 0;
     }

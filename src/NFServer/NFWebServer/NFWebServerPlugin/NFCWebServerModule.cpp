@@ -508,6 +508,11 @@ int NFCWebServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFData
 int NFCWebServerModule::TestOtherServerToWorldServer()
 {
 #ifdef TEST_SERVER_SEND_MSG
+    if (!m_pObjPluginManager->IsInited())
+    {
+        return 0;
+    }
+
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
