@@ -616,6 +616,9 @@ std::string NFEvppNetMessage::GetLinkIp(uint64_t usLinkId)
 	{
 		return pObject->GetStrIp();
 	}
+	else {
+	    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", usLinkId);
+	}
 
 	return std::string("");
 }
@@ -626,6 +629,9 @@ uint32_t NFEvppNetMessage::GetPort(uint64_t usLinkId)
     if (pObject)
     {
         return pObject->GetPort();
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", usLinkId);
     }
     return 0;
 }
@@ -689,10 +695,7 @@ NetEvppObject* NFEvppNetMessage::GetNetObject(uint64_t usLinkId)
 	{
         return pObject;
 	}
-    else
-    {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "the usLinkId:{} Index:{} Not Exist", usLinkId, index);
-    }
+
 	return nullptr;
 }
 
@@ -813,6 +816,9 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const char
     {
         return Send(pObject, packet, msg, nLen);
     }
+    else {
+        NFLogErrorIf(pObject == NULL, NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", usLinkId);
+    }
 
     return false;
 }
@@ -832,6 +838,9 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const goog
         mxSendBuffer.Produce(byteSize);
 
         return Send(pObject, packet, mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
+    }
+    else {
+        NFLogErrorIf(pObject == NULL, NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", usLinkId);
     }
 
     return false;
@@ -858,6 +867,9 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                     Send(pObject->GetLinkId(), packet, NULL, 0);
                     return;
                 }
+                else {
+                    NFLogErrorIf(pObject == NULL, NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", objectLinkId);
+                }
             }
 
             if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
@@ -867,6 +879,9 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 {
                     pObject->SetLastHeartBeatTime(NFGetTime());
                     return;
+                }
+                else {
+                    NFLogErrorIf(pObject == NULL, NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", objectLinkId);
                 }
             }
         }
@@ -916,6 +931,9 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 mNetObjectMap.erase(objectLinkId);
                 while (!mFreeLinks.Enqueue(objectLinkId)) {
                 }
+            }
+            else {
+                NFLogErrorIf(pObject == NULL, NF_LOG_SYSTEMLOG, 0, "GetNetObject Failed, usLinkId:{}", objectLinkId);
             }
         }
 	}
