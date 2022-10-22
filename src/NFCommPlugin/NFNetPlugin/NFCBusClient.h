@@ -26,6 +26,7 @@ public:
     explicit NFCBusClient(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag, const NFMessageFlag& bindFlag):NFIBusConnection(p, serverType, flag)
     {
         m_bindFlag = bindFlag;
+        mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     }
 
     virtual ~NFCBusClient();
@@ -52,7 +53,10 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(NFDataPackage* packet) override;
+    virtual bool Send(NFDataPackage& packet, const char* msg, uint32_t nLen) override;
+    virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) override;
 
-    virtual bool Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet);
+    virtual bool Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage& packet, const char* msg, uint32_t nLen);
+private:
+    NFBuffer mxSendBuffer;
 };

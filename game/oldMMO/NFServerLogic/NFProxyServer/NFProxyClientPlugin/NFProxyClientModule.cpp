@@ -214,7 +214,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER);
             if (pWorldServer)
             {
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), packet.nMsgId, packet.mBufferMsg.ReadAddr(), packet.mBufferMsg.ReadableSize(), unLinkId);
+                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), packet.nMsgId, packet.GetBuffer(), packet.GetSize(), unLinkId);
             }
             else {
                 NFLogWarning(NF_LOG_PROXY_CLIENT_PLUGIN, pLinkInfo->GetPlayerId(), "can't find the player:{} info, the cmd don't find the trans to world server, world server not exist, ip:{} packet:{}", pLinkInfo->GetPlayerId(), ip, packet.ToString());
@@ -555,7 +555,7 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
             return -1;
         }
 
-        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, (const char*)packet.mBufferMsg.ReadAddr(), (uint32_t)packet.mBufferMsg.ReadableSize());
+        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, packet.GetBuffer(), packet.GetSize());
     }
     else
     {
@@ -579,7 +579,7 @@ int NFCProxyClientModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackag
             return -1;
         }
 
-        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), 3, packet.nMsgId, (const char*)packet.mBufferMsg.ReadAddr(), (uint32_t)packet.mBufferMsg.ReadableSize());
+        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), 3, packet.nMsgId, packet.GetBuffer(), packet.GetSize());
     }
     else
     {

@@ -178,7 +178,8 @@ public:
 
     virtual void TransPackage(uint64_t usLinkId, NFDataPackage& packet) override;
 
-    virtual bool Send(uint64_t usLinkId, NFDataPackage* packet);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData);
 
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK") override;
@@ -202,7 +203,8 @@ protected:
 	 * @brief 将消息编码后通过pServer发送出去
 	 *
 	 */
-    bool Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage* packet);
+    bool Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen);
+    bool Send(NFINetMessage* pServer, uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData);
 private:
 	/**
 	 * @brief	处理接受数据的回调

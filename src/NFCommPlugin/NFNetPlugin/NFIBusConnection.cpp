@@ -1181,37 +1181,27 @@ void NFIBusConnection::SetMsgPeerCallback(const BusMsgPeerCallback &cb)
 
 int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
 {
-    NFDataPackage *pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
-    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
-    pPacket->mModuleId = 0;
-    pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
-    pPacket->nParam1 = busId;
-    pPacket->nParam2 = busLength;
-    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
+    NFDataPackage package;
+    package.mModuleId = 0;
+    package.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+    package.nParam1 = busId;
+    package.nParam2 = busLength;
+    package.nSendBusLinkId = m_bindFlag.mLinkId;
 
-    if (!Send(pPacket))
-    {
-        pPacket->Clear();
-        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
-    }
+    Send(package, NULL, 0);
     return 0;
 }
 
 int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
 {
-    NFDataPackage *pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
-    CHECK_EXPR(pPacket, -1, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
-    pPacket->mModuleId = 0;
-    pPacket->nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
-    pPacket->nParam1 = busId;
-    pPacket->nParam2 = busLength;
-    pPacket->nSendBusLinkId = m_bindFlag.mLinkId;
+    NFDataPackage package;
+    package.mModuleId = 0;
+    package.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
+    package.nParam1 = busId;
+    package.nParam2 = busLength;
+    package.nSendBusLinkId = m_bindFlag.mLinkId;
 
-    if (!Send(pPacket))
-    {
-        pPacket->Clear();
-        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
-    }
+    Send(package, NULL, 0);
     return 0;
 }
 

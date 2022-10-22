@@ -77,7 +77,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
 
     while(!mMsgQueue.IsQueueEmpty() && max_times >= 0)
     {
-        std::vector<MsgFromNetInfo*> vecMsg;
+        std::vector<MsgFromNetInfo> vecMsg;
         vecMsg.resize(200);
 
         mMsgQueue.TryDequeueBulk(vecMsg);
@@ -85,8 +85,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
         for (size_t index = 0; index < vecMsg.size(); index++)
         {
             max_times--;
-            MsgFromNetInfo* pMsg = vecMsg[index];
-            CHECK_EXPR_CONTINUE(pMsg, "pMsg == NULL");
+            MsgFromNetInfo* pMsg = &vecMsg[index];
             CHECK_EXPR_ASSERT_NOT_RET(pMsg->mTCPConPtr != NULL, "");
 
             if (pMsg->nType == eMsgType_SENDBUFFER)
@@ -165,36 +164,10 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                     OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nConnectLinkId, pMsg->nConnectLinkId, tmpPacket);
                 }
             }
-            else if (pMsg->nType == eMsgType_RECIVEDATA)
-            {
-                if (pMsg->mTCPConPtr)
-                {
-                    if (!pMsg->mTCPConPtr->context().IsEmpty())
-                    {
-                        uint64_t objectLinkId = evpp::any_cast<uint64_t>(pMsg->mTCPConPtr->context());
-                        NetEvppObject* pObject = GetNetObject(objectLinkId);
-                        if (pObject)
-                        {
-                            OnHandleMsgPeer(eMsgType_RECIVEDATA, pMsg->nConnectLinkId, objectLinkId, pMsg->mPacket);
-                        }
-                        else
-                        {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "net server recv data, tcp context error");
-                        }
-                    }
-                    else
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "net server recv data, tcp context error");
-                    }
-                }
-            }
             else
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "net server  error");
             }
-
-            pMsg->Clear();
-            NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
         }
     }
 }
@@ -207,7 +180,7 @@ void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
         mxRecvBuffer.Clear();
         int iCodeLen = 0;
         int iRet = pRecvQueue->Get(mxRecvBuffer.WriteAddr(), mxRecvBuffer.WritableSize(), iCodeLen);
-        if (iRet || iCodeLen < (int)sizeof(NFCodeQueuePackage))
+        if (iRet || iCodeLen < (int)sizeof(NFDataPackage))
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
             continue;
@@ -215,21 +188,19 @@ void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
         mxRecvBuffer.Produce(iCodeLen);
 
         // 先获取NetHead
-        NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)mxRecvBuffer.ReadAddr();
-        if (iCodeLen != (int)sizeof(NFCodeQueuePackage) + (int)pCodePackage->nMsgLen) // 长度不一致
+        NFDataPackage* pCodePackage = (NFDataPackage*)mxRecvBuffer.ReadAddr();
+        if (iCodeLen != (int)sizeof(NFDataPackage) + (int)pCodePackage->nMsgLen) // 长度不一致
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFCodeQueuePackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
-                    sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFDataPackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
+                       sizeof(NFDataPackage), pCodePackage->nMsgLen);
             continue;
         }
+        pCodePackage->nBuffer = mxRecvBuffer.ReadAddr()+sizeof(NFDataPackage);
 
         NetEvppObject* pObject = GetNetObject(pCodePackage->nObjectLinkId);
         if (pObject)
         {
-            NFDataPackage package;
-            package.Copy(*pCodePackage);
-            package.mBufferMsg.PushData(mxRecvBuffer.ReadAddr()+sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
-            OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nConnectLinkId, pCodePackage->nObjectLinkId, package);
+            OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nConnectLinkId, pCodePackage->nObjectLinkId, *pCodePackage);
         }
         else
         {
@@ -268,14 +239,12 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         pQueue->Init(pRecvBuffer->ReadableSize());
         conn->loop()->set_context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV, evpp::Any(pRecvBuffer));
 
-        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
-        pMsg->Clear();
-        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-        pMsg->nType = eMsgType_SENDBUFFER;
-        pMsg->mTCPConPtr = conn;
-        pMsg->nConnectLinkId = connectLinkId;
-        pMsg->pRecvBuffer = pRecvBuffer;
-        while(!mMsgQueue.Enqueue(pMsg)) {}
+        MsgFromNetInfo msg;
+        msg.nType = eMsgType_SENDBUFFER;
+        msg.mTCPConPtr = conn;
+        msg.nConnectLinkId = connectLinkId;
+        msg.pRecvBuffer = pRecvBuffer;
+        while(!mMsgQueue.Enqueue(msg)) {}
     }
 
     if (conn->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty())
@@ -315,12 +284,10 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
         NF_ASSERT_MSG(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
 
-        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
-        pMsg->Clear();
-        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-        pMsg->mTCPConPtr = conn;
-        pMsg->nConnectLinkId = connectLinkId;
-        pMsg->nType = eMsgType_CONNECTED;
+        MsgFromNetInfo msg;
+        msg.mTCPConPtr = conn;
+        msg.nConnectLinkId = connectLinkId;
+        msg.nType = eMsgType_CONNECTED;
 
         //client connect
         if (conn->type() == evpp::TCPConn::kOutgoing)
@@ -329,46 +296,43 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
              * @brief 客户端掉线，一定会清理调conn->context(), 不如程序有问题
              */
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
-            pMsg->nObjectLinkId = connectLinkId;
-            pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
+            msg.nObjectLinkId = connectLinkId;
+            msg.mTCPConPtr->set_context(evpp::Any(msg.nObjectLinkId));
             CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(connectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
-            pConnMap->emplace(connectLinkId, pMsg->mTCPConPtr);
+            pConnMap->emplace(connectLinkId, msg.mTCPConPtr);
         }
         else {
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
-            pMsg->nObjectLinkId = GetFreeUnLinkId();
-            if (pMsg->nObjectLinkId == 0)
+            msg.nObjectLinkId = GetFreeUnLinkId();
+            if (msg.nObjectLinkId == 0)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId() Failed, No Free UnlinkId");
-                pMsg->mTCPConPtr->Close();
+                msg.mTCPConPtr->Close();
 
                 /**
                  * @brief 用来区分GetFreeUnLinkId Failed
                  */
-                pMsg->mTCPConPtr->set_context(1, evpp::Any(pMsg->nObjectLinkId));
+                msg.mTCPConPtr->set_context(1, evpp::Any(msg.nObjectLinkId));
 
-                pMsg->Clear();
-                NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, 0);
                 return;
             }
-            pMsg->mTCPConPtr->set_context(evpp::Any(pMsg->nObjectLinkId));
-            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(pMsg->nObjectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
-            pConnMap->emplace(pMsg->nObjectLinkId, pMsg->mTCPConPtr);
+            msg.mTCPConPtr->set_context(evpp::Any(msg.nObjectLinkId));
+            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(msg.nObjectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+            pConnMap->emplace(msg.nObjectLinkId, msg.mTCPConPtr);
         }
 
-		while(!mMsgQueue.Enqueue(pMsg)) {}
+		while(!mMsgQueue.Enqueue(msg)) {}
 	}
 	else
 	{
         NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
         NF_ASSERT_MSG(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(conn->loop()->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
 
-        MsgFromNetInfo* pMsg = NFNetPackagePool<MsgFromNetInfo>::Instance()->Alloc(0);
-        NF_ASSERT_MSG(pMsg, "pMsg == NULL, NFNetPackagePool<MsgFromNetInfo>::Instance().Alloc Failed");
-        pMsg->Clear();
-        pMsg->mTCPConPtr = conn;
-        pMsg->nConnectLinkId = connectLinkId;
-        pMsg->nType = eMsgType_DISCONNECTED;
+        MsgFromNetInfo msg;
+        msg.Clear();
+        msg.mTCPConPtr = conn;
+        msg.nConnectLinkId = connectLinkId;
+        msg.nType = eMsgType_DISCONNECTED;
         /**
          * @brief 处理客户端连接服务器掉线
          */
@@ -376,16 +340,16 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         {
             if (!conn->context().IsEmpty())
             {
-                pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
-                pMsg->mTCPConPtr->set_context(evpp::Any());
-                pConnMap->erase(pMsg->nObjectLinkId);
+                msg.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                msg.mTCPConPtr->set_context(evpp::Any());
+                pConnMap->erase(msg.nObjectLinkId);
             }
             else {
                 /**
                  * @brief   处理NFClient客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上, 这里的conn其实是一个临时的对象.
                  */
-                CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(pMsg->nConnectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
-                pMsg->nObjectLinkId = 0;
+                CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(msg.nConnectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+                msg.nObjectLinkId = 0;
             }
         }
         else {
@@ -394,9 +358,9 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
              */
             if (!conn->context().IsEmpty())
             {
-                pMsg->nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
-                pMsg->mTCPConPtr->set_context(evpp::Any());
-                pConnMap->erase(pMsg->nObjectLinkId);
+                msg.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
+                msg.mTCPConPtr->set_context(evpp::Any());
+                pConnMap->erase(msg.nObjectLinkId);
             }
             else {
                 /**
@@ -405,17 +369,15 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
                 if (!conn->context(1).IsEmpty())
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId() Failed, net client disconnect, can't find the net context!");
-                    pMsg->Clear();
-                    NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, 0);
                     return;
                 }
 
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "Unknow Failed, net client disconnect, can't find the net context!");
-                pMsg->nObjectLinkId = 0;
+                msg.nObjectLinkId = 0;
             }
         }
 
-        while(!mMsgQueue.Enqueue(pMsg)) {}
+        while(!mMsgQueue.Enqueue(msg)) {}
 	}
 }
 
@@ -438,7 +400,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                 Decryption((char*)msg->data(), msg->size());
             }
 
-            NFCodeQueuePackage codePackage;
+            NFDataPackage codePackage;
             int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, codePackage);
 			if (ret < 0)
 			{
@@ -490,12 +452,12 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "net server diconnect, tcp context error");
                         codePackage.nObjectLinkId = 0;
                     }
-                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
                     if (iRet != 0)
                     {
                         if (iRet == -1)
                         {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)outData, outLen) param error");
                         }
                         else if (iRet == -2)
                         {
@@ -521,12 +483,12 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                         codePackage.nObjectLinkId = 0;
                     }
 
-                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen);
+                    int iRet = pRecvQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)outData, outLen);
                     if (iRet != 0)
                     {
                         if (iRet == -1)
                         {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), (const char*)outData, outLen) param error");
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRecvQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)outData, outLen) param error");
                         }
                         else if (iRet == -2)
                         {
@@ -803,22 +765,6 @@ bool NFEvppNetMessage::Finalize()
         }
     }
 
-    while(!mMsgQueue.IsQueueEmpty())
-    {
-        std::vector<MsgFromNetInfo *> vecMsg;
-        vecMsg.resize(200);
-        mMsgQueue.TryDequeueBulk(vecMsg);
-        for(int i = 0; i < (int)vecMsg.size(); i++)
-        {
-            MsgFromNetInfo* pMsg = vecMsg[i];
-            if (vecMsg[i])
-            {
-                pMsg->Clear();
-                NFNetPackagePool<MsgFromNetInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
-            }
-        }
-    }
-
     if (m_coonectionThreadPool)
     {
         m_coonectionThreadPool->Stop(true);
@@ -848,12 +794,26 @@ bool NFEvppNetMessage::Execute()
 	return true;
 }
 
-bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage* pPackage)
+bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen)
 {
     NetEvppObject* pObject = GetNetObject(usLinkId);
     if (pObject)
     {
-        return Send(pObject, pPackage);
+        return Send(pObject, packet, msg, nLen);
+    }
+
+    return false;
+}
+
+bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData)
+{
+    NetEvppObject* pObject = GetNetObject(usLinkId);
+    if (pObject)
+    {
+        mxSendBuffer.Clear();
+        int iRet = xData.SerializePartialToArray(mxSendBuffer.WriteAddr(), mxSendBuffer.WritableSize());
+        CHECK_EXPR(iRet, false, "xData.SerializePartialToArray Failed:{}", xData.DebugString());
+        return Send(pObject, packet, mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
     }
 
     return false;
@@ -873,16 +833,11 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
                 if (pObject && pObject->mIsServer)
                 {
                     pObject->SetLastHeartBeatTime(NFGetTime());
-                    NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
-                    CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
+                    NFDataPackage packet;
 
-                    pPacket->mModuleId = 0;
-                    pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
-                    if (!Send(pObject->GetLinkId(), pPacket))
-                    {
-                        pPacket->Clear();
-                        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
-                    }
+                    packet.mModuleId = 0;
+                    packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
+                    Send(pObject->GetLinkId(), packet, NULL, 0);
                     return;
                 }
             }
@@ -954,23 +909,21 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 	}
 }
 
-bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
+bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, const char* msg, uint32_t nLen)
 {
     if (pObject && !pObject->GetNeedRemove() && pObject->mConnPtr && pObject->mConnPtr->IsConnected())
     {
-        NFCodeQueuePackage codePackage;
-        codePackage.Copy(*pPackage);
         codePackage.nPacketParseType = pObject->mPacketParseType;
         codePackage.isSecurity = pObject->IsSecurity();
         codePackage.nObjectLinkId = pObject->GetLinkId();
-        codePackage.nMsgLen = pPackage->mBufferMsg.ReadableSize();
+        codePackage.nMsgLen = nLen;
         CHECK_EXPR_ASSERT(!pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty(), false, "pConn->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty() ERROR");
         NF_SHARE_PTR<NFBuffer> pSendBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND));
         CHECK_EXPR_ASSERT(pSendBuffer != NULL, false, "evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(pObject->mConnPtr->loop()->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND) NULL");
         NFCodeQueue* pSendQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
         CHECK_EXPR_ASSERT(pSendQueue != NULL, false, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
 
-        pSendQueue->Put((const char*)&codePackage, sizeof(NFCodeQueuePackage), pPackage->mBufferMsg.ReadAddr(), pPackage->mBufferMsg.ReadableSize());
+        pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
 
         pObject->mConnPtr->loop()->RunInLoop(std::bind([](evpp::EventLoop* loop){
             CHECK_EXPR_ASSERT_NOT_RET(loop != NULL, "loop == NULL ERROR");
@@ -993,7 +946,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
                 pCodeQueueBuffer->Clear();
                 int iCodeLen = 0;
                 int iRet = pSendQueue->Get(pCodeQueueBuffer->WriteAddr(), pCodeQueueBuffer->WritableSize(), iCodeLen);
-                if (iRet || iCodeLen < (int)sizeof(NFCodeQueuePackage))
+                if (iRet || iCodeLen < (int)sizeof(NFDataPackage))
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
                     continue;
@@ -1001,11 +954,11 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
                 pCodeQueueBuffer->Produce(iCodeLen);
 
                 // 先获取NetHead
-                NFCodeQueuePackage* pCodePackage = (NFCodeQueuePackage*)pCodeQueueBuffer->ReadAddr();
-                if (iCodeLen != (int)sizeof(NFCodeQueuePackage) + (int)pCodePackage->nMsgLen) // 长度不一致
+                NFDataPackage* pCodePackage = (NFDataPackage*)pCodeQueueBuffer->ReadAddr();
+                if (iCodeLen != (int)sizeof(NFDataPackage) + (int)pCodePackage->nMsgLen) // 长度不一致
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFCodeQueuePackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
-                               sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFDataPackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
+                               sizeof(NFDataPackage), pCodePackage->nMsgLen);
                     continue;
                 }
 
@@ -1020,7 +973,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
                 evpp::TCPConnPtr pConn = iter->second;
 
                 pComBuffer->Clear();
-                NFIPacketParse::EnCode(parsePackageType, *pCodePackage, pCodeQueueBuffer->ReadAddr() + sizeof(NFCodeQueuePackage), pCodePackage->nMsgLen, *pComBuffer);
+                NFIPacketParse::EnCode(parsePackageType, *pCodePackage, pCodeQueueBuffer->ReadAddr() + sizeof(NFDataPackage), pCodePackage->nMsgLen, *pComBuffer);
                 pCodeQueueBuffer->Clear();
 
                 if (isSecurity)
@@ -1033,9 +986,6 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage* pPackage)
                 pComBuffer->Clear();
             }
         }, pObject->mConnPtr->loop()));
-
-        pPackage->Clear();
-        NFNetPackagePool<NFDataPackage>::Instance()->Free(pPackage, pPackage->mBufferMsg.Capacity());
 
         return true;
     }
@@ -1061,15 +1011,10 @@ void  NFEvppNetMessage::SendHeartMsg()
 	{
 		if (m_connectionList[i] && m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
 		{
-            NFDataPackage* pPacket = NFNetPackagePool<NFDataPackage>::Instance()->Alloc(0);
-            CHECK_EXPR_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<NFDataPackage>::Instance()->Alloc()");
-            pPacket->mModuleId = 0;
-            pPacket->nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
-			if (!Send(m_connectionList[i]->GetLinkId(), pPacket))
-            {
-                pPacket->Clear();
-                NFNetPackagePool<NFDataPackage>::Instance()->Free(pPacket, pPacket->mBufferMsg.Capacity());
-            }
+            NFDataPackage packet;
+            packet.mModuleId = 0;
+            packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
+			Send(m_connectionList[i]->GetLinkId(), packet, NULL, 0);
 		}
 	}
 }

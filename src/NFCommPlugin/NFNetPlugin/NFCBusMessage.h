@@ -60,7 +60,8 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint64_t usLinkId, NFDataPackage* package);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData);
 
 	/**
 	 * @brief 获得连接IP
@@ -79,11 +80,10 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo* packet);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& package);
 
     virtual int ResumeConnect() override;
 private:
     NFMapEx<uint64_t, NFIBusConnection> m_busConnectMap;
     NF_SHARE_PTR<NFIBusConnection> m_bindConnect;
-    NFConcurrentQueue<MsgFromBusInfo*> m_msgQueue;
 };

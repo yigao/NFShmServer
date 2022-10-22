@@ -154,7 +154,7 @@ void NFCBusServer::ProcessMsgLogicThread()
                     char* outData = nullptr;
                     uint32_t outLen = 0;
                     uint32_t allLen = 0;
-                    NFCodeQueuePackage dataPacket;
+                    NFDataPackage dataPacket;
                     int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, dataPacket);
                     if (ret < 0)
                     {
@@ -170,23 +170,20 @@ void NFCBusServer::ProcessMsgLogicThread()
                     {
                         mxBuffer.Consume(allLen);
 
-                        MsgFromBusInfo* pPacket = NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(outLen);
-                        CHECK_EXPR_ASSERT_NOT_RET(pPacket, "pPacket == NULL, NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(outLen:{}) Failed", outLen);
+                        dataPacket.nBuffer = outData;
+                        dataPacket.nMsgLen = outLen;
 
-                        pPacket->mPacket.Copy(dataPacket);
-                        pPacket->mPacket.mBufferMsg.PushData(outData, outLen);
-
-                        if (pPacket->mPacket.mModuleId == 0 && pPacket->mPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
-                        else if (pPacket->mPacket.mModuleId == 0 && pPacket->mPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
-                            m_busMsgPeerCb(eMsgType_CONNECTED, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
+                            m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
                         else
                         {
-                            m_busMsgPeerCb(eMsgType_RECIVEDATA, pPacket->mPacket.nSendBusLinkId, pPacket->mPacket.nSendBusLinkId, pPacket);
+                            m_busMsgPeerCb(eMsgType_RECIVEDATA, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
 
                         continue;
@@ -197,9 +194,15 @@ void NFCBusServer::ProcessMsgLogicThread()
     }
 }
 
-bool NFCBusServer::Send(NFDataPackage* pPackage)
+bool NFCBusServer::Send(NFDataPackage& packet, const char* msg, uint32_t nLen)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., packet:{}", pPackage->ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., packet:{}", packet.ToString());
+    return false;
+}
+
+bool NFCBusServer::Send(NFDataPackage& packet, const google::protobuf::Message& xData)
+{
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Bus Server Can't Send Data............., packet:{}", packet.ToString());
     return false;
 }
 

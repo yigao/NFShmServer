@@ -183,7 +183,7 @@ public:
     */
     int Put(const char* p1, int len1, const char* p2, int len2)
     {
-        if (p1 == NULL || p2 == NULL || len1 < 0 || len2 < 0)
+        if ((p1 == NULL && len1 > 0) || (p2 == NULL && len2 > 0) || len1 < 0 || len2 < 0)
         {
             return -1;
         }

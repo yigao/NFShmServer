@@ -138,85 +138,16 @@ enum eAccountEventType
 
 const uint32_t s_compressBitPos = 15;
 
-struct NFBaseDataPackage
+struct NFDataPackage
 {
-    NFBaseDataPackage() : mModuleId(0), nMsgId(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), nSendBusLinkId(0), bCompress(false)
-    {
-
-    }
-
-    virtual ~NFBaseDataPackage()
-    {
-
-    }
-
-    NFBaseDataPackage(const NFBaseDataPackage &packet)
-    {
-        mModuleId = packet.mModuleId;
-        nMsgId = packet.nMsgId;
-        nParam1 = packet.nParam1;
-        nParam2 = packet.nParam2;
-        nSrcId = packet.nSrcId;
-        nDstId = packet.nDstId;
-        nSendBusLinkId = packet.nSendBusLinkId;
-        bCompress = packet.bCompress;
-    }
-
-    virtual std::string ToString() const
-    {
-        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{})", mModuleId, nMsgId, nParam1, nParam2);
-    }
-
-    virtual void Clear()
-    {
-        mModuleId = 0;
-        nMsgId = 0;
-        nParam1 = 0;
-        nParam2 = 0;
-        nSrcId = 0;
-        nDstId = 0;
-        nSendBusLinkId = 0;
-        bCompress = false;
-    }
-
-    uint32_t mModuleId;
-    uint32_t nMsgId;
-    uint64_t nParam1;
-    uint64_t nParam2;
-    uint64_t nSrcId;
-    uint64_t nDstId;
-    uint64_t nSendBusLinkId;
-    bool bCompress;
-};
-
-struct NFCodeQueuePackage
-{
-    NFCodeQueuePackage()
+    NFDataPackage()
     {
         Clear();
     }
 
-    virtual ~NFCodeQueuePackage()
+    virtual ~NFDataPackage()
     {
 
-    }
-
-    NFCodeQueuePackage &operator=(const NFBaseDataPackage &packet)
-    {
-        Copy(packet);
-        return *this;
-    }
-
-    void Copy(const NFBaseDataPackage &packet)
-    {
-        mModuleId = packet.mModuleId;
-        nMsgId = packet.nMsgId;
-        nParam1 = packet.nParam1;
-        nParam2 = packet.nParam2;
-        nSrcId = packet.nSrcId;
-        nDstId = packet.nDstId;
-        nSendBusLinkId = packet.nSendBusLinkId;
-        bCompress = packet.bCompress;
     }
 
     std::string ToString() const
@@ -234,11 +165,22 @@ struct NFCodeQueuePackage
         nDstId = 0;
         nSendBusLinkId = 0;
         bCompress = false;
-        nMsgLen = 0;
         nConnectLinkId = 0;
         nObjectLinkId = 0;
         nPacketParseType = 0;
         isSecurity = false;
+        nBuffer = NULL;
+        nMsgLen = 0;
+    }
+
+    const char* GetBuffer() const
+    {
+        return nBuffer;
+    }
+
+    uint32_t GetSize() const
+    {
+        return nMsgLen;
     }
 
     uint32_t mModuleId;
@@ -253,93 +195,9 @@ struct NFCodeQueuePackage
     uint64_t nObjectLinkId;
     uint32_t nPacketParseType;
     bool isSecurity;
+    char* nBuffer;
     uint64_t nMsgLen;
 };
-
-struct NFDataPackage : public NFBaseDataPackage
-{
-    NFDataPackage()
-    {
-
-    }
-
-    virtual ~NFDataPackage()
-    {
-
-    }
-
-    NFDataPackage &operator=(const NFBaseDataPackage &packet)
-    {
-        if (this != &packet)
-        {
-            Copy(packet);
-        }
-        return *this;
-    }
-
-    void Copy(const NFBaseDataPackage &packet)
-    {
-        mModuleId = packet.mModuleId;
-        nMsgId = packet.nMsgId;
-        nParam1 = packet.nParam1;
-        nParam2 = packet.nParam2;
-        nSrcId = packet.nSrcId;
-        nDstId = packet.nDstId;
-        nSendBusLinkId = packet.nSendBusLinkId;
-        bCompress = packet.bCompress;
-    }
-
-    void Copy(const NFCodeQueuePackage &packet)
-    {
-        mModuleId = packet.mModuleId;
-        nMsgId = packet.nMsgId;
-        nParam1 = packet.nParam1;
-        nParam2 = packet.nParam2;
-        nSrcId = packet.nSrcId;
-        nDstId = packet.nDstId;
-        nSendBusLinkId = packet.nSendBusLinkId;
-        bCompress = packet.bCompress;
-    }
-
-    virtual std::string ToString() const override
-    {
-        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{})", mModuleId, nMsgId, nParam1, nParam2);
-    }
-
-    virtual void Clear() override
-    {
-        NFBaseDataPackage::Clear();
-        mBufferMsg.Clear();
-    }
-
-    /**
-     * @brief zero copy
-     * @param xData
-     * @return
-     */
-    bool SerializeBuffer(int byte_size, const google::protobuf::Message& xData)
-    {
-        mBufferMsg.AssureSpace(byte_size);
-        if ((int)mBufferMsg.Capacity() < byte_size)
-        {
-            return false;
-        }
-
-        uint8_t* start = reinterpret_cast<uint8_t*>(mBufferMsg.WriteAddr());
-        uint8_t* end = xData.SerializeWithCachedSizesToArray(start);
-        NF_ASSERT(end - start == byte_size);
-
-        mBufferMsg.Produce(byte_size);
-        return true;
-    }
-
-    NFBuffer mBufferMsg;
-private:
-    NFDataPackage(const NFDataPackage &);
-
-    void operator=(const NFDataPackage &);
-};
-
 
 typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
 

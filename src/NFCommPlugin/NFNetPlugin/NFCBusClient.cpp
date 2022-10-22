@@ -141,18 +141,14 @@ int64_t NFCBusClient::ConnectServer(const NFMessageFlag& flag, const NFMessageFl
     return (int64_t)pShmRecord->m_nUnLinkId;
 }
 
-bool NFCBusClient::Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet)
+bool NFCBusClient::Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage& codePackage, const char* msg, uint32_t nLen)
 {
     mxBuffer.Clear();
-    NFCodeQueuePackage codePackage;
-    codePackage.Copy(*packet);
-    NFIPacketParse::EnCode(packetParseType, codePackage, packet->mBufferMsg.ReadAddr(), packet->mBufferMsg.ReadableSize(), mxBuffer, m_bindFlag.mLinkId);
+    NFIPacketParse::EnCode(packetParseType, codePackage, msg, nLen, mxBuffer, m_bindFlag.mLinkId);
 
     int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
     if (iRet == 0)
     {
-        packet->Clear();
-        NFNetPackagePool<NFDataPackage>::Instance()->Free(packet, packet->mBufferMsg.Capacity());
         return true;
     }
     else
@@ -162,7 +158,7 @@ bool NFCBusClient::Send(NFShmChannel *pChannel, int packetParseType, NFDataPacka
     return false;
 }
 
-bool NFCBusClient::Send(NFDataPackage* pPackage)
+bool NFCBusClient::Send(NFDataPackage& packet, const char* msg, uint32_t nLen)
 {
     NFShmRecordType * pShmRecord = GetShmRecord();
     if (pShmRecord == NULL)
@@ -188,8 +184,16 @@ bool NFCBusClient::Send(NFDataPackage* pPackage)
     NFShmChannel *pChannel = &head->m_nShmChannel;
     if (pChannel)
     {
-        return Send(pChannel, pShmRecord->mPacketParseType, pPackage);
+        return Send(pChannel, pShmRecord->mPacketParseType, packet, msg, nLen);
     }
 
     return false;
+}
+
+bool NFCBusClient::Send(NFDataPackage& packet, const google::protobuf::Message& xData)
+{
+    mxSendBuffer.Clear();
+    int iRet = xData.SerializePartialToArray(mxSendBuffer.WriteAddr(), mxSendBuffer.WritableSize());
+    CHECK_EXPR(iRet, false, "xData.SerializePartialToArray Failed:{}", xData.DebugString());
+    return Send(packet, mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
 }

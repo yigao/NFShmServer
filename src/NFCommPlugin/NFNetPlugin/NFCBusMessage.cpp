@@ -61,21 +61,6 @@ bool NFCBusMessage::Finalize()
     m_bindConnect = NULL;
     m_busConnectMap.ClearAll();
 
-    while (!m_msgQueue.IsQueueEmpty())
-    {
-        std::vector<MsgFromBusInfo *> vecMsg;
-        vecMsg.resize(200);
-        m_msgQueue.TryDequeueBulk(vecMsg);
-        for (int i = 0; i < (int) vecMsg.size(); i++)
-        {
-            MsgFromBusInfo *pMsg = vecMsg[i];
-            if (pMsg)
-            {
-                pMsg->Clear();
-                NFNetPackagePool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
-            }
-        }
-    }
     return true;
 }
 
@@ -132,13 +117,26 @@ int64_t NFCBusMessage::ConnectServer(const NFMessageFlag &flag)
     return pConn->GetLinkId();
 }
 
-bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage *pPackage)
+bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen)
 {
     auto pConn = m_busConnectMap.GetElement(usLinkId);
 
     if (pConn)
     {
-        return pConn->Send(pPackage);
+        return pConn->Send(packet, msg, nLen);
+    }
+
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "usLinkId:{} not find", usLinkId);
+    return false;
+}
+
+bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData)
+{
+    auto pConn = m_busConnectMap.GetElement(usLinkId);
+
+    if (pConn)
+    {
+        return pConn->Send(packet, xData);
     }
 
     NFLogError(NF_LOG_SYSTEMLOG, 0, "usLinkId:{} not find", usLinkId);
@@ -178,11 +176,8 @@ void NFCBusMessage::CloseLinkId(uint64_t usLinkId)
     return pConn->CloseLinkId();
 }
 
-void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, MsgFromBusInfo *pMsg)
+void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)
 {
-    CHECK_EXPR_NOT_RET(pMsg, "pMsg == NULL");
-
-    NFDataPackage &packet = pMsg->mPacket;
     if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
                                     || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT ||
                                     packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
@@ -255,9 +250,6 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
         default:
             break;
     }
-
-    pMsg->Clear();
-    NFNetPackagePool<MsgFromBusInfo>::Instance()->Free(pMsg, pMsg->mPacket.mBufferMsg.Capacity());
 }
 
 int NFCBusMessage::ResumeConnect()
@@ -301,16 +293,14 @@ int NFCBusMessage::ResumeConnect()
                 FindModule<NFIMessageModule>()->CreateLinkToServer((NF_SERVER_TYPES) mServerType, flag.mBusId, pServerData->mUnlinkId);
                 if (bActivityConnect)
                 {
-                    MsgFromBusInfo *pPacket = NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(0);
-                    CHECK_EXPR_ASSERT(pPacket, -1, "pPacket == NULL, NFNetPackagePool<MsgFromBusInfo>::Instance()->Alloc(0) Failed");
+                    NFDataPackage packet;
+                    packet.nSendBusLinkId = pServerData->mUnlinkId;
+                    packet.mModuleId = 0;
+                    packet.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+                    packet.nParam1 = flag.mBusId;
+                    packet.nParam2 = flag.mBusLength;
 
-                    pPacket->mPacket.nSendBusLinkId = pServerData->mUnlinkId;
-                    pPacket->mPacket.mModuleId = 0;
-                    pPacket->mPacket.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
-                    pPacket->mPacket.nParam1 = flag.mBusId;
-                    pPacket->mPacket.nParam2 = flag.mBusLength;
-
-                    OnHandleMsgPeer(eMsgType_CONNECTED, pServerData->mUnlinkId, pServerData->mUnlinkId, pPacket);
+                    OnHandleMsgPeer(eMsgType_CONNECTED, pServerData->mUnlinkId, pServerData->mUnlinkId, packet);
                 } else
                 {
                     uint64_t connectLinkId = ConnectServer(flag);

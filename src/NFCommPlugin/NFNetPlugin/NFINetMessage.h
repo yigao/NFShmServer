@@ -141,7 +141,8 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(uint64_t usLinkId, NFDataPackage* package) = 0;
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen) = 0;
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData) = 0;
 
     /**
      * @brief 获得连接IP

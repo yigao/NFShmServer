@@ -99,7 +99,7 @@ ExternalPacketParse::ExternalPacketParse()
 {
 }
 
-int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFCodeQueuePackage& recvPackage)
+int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
 {
 	if (strData == nullptr || unLen == 0) return 1;
 
@@ -138,7 +138,7 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 	return 0;
 }
 
-int ExternalPacketParse::EnCodeImpl(const NFCodeQueuePackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
+int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
 	ExternalMsg packHead;
 	packHead.SetModule(recvPackage.mModuleId);

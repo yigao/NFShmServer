@@ -90,7 +90,7 @@ InternalPacketParse::InternalPacketParse()
 {
 }
 
-int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFCodeQueuePackage& recvPackage)
+int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage)
 {
 	if (strData == nullptr || unLen == 0) return 1;
 
@@ -130,7 +130,7 @@ int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 	return 0;
 }
 
-int InternalPacketParse::EnCodeImpl(const NFCodeQueuePackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
+int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId)
 {
 	InternalMsg packHead;
     packHead.SetModule(recvPackage.mModuleId);

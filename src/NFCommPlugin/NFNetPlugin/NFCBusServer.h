@@ -49,5 +49,6 @@ public:
      */
     virtual void ProcessMsgLogicThread();
 
-    virtual bool Send(NFDataPackage* packet) override;
+    virtual bool Send(NFDataPackage& packet, const char* msg, uint32_t nLen) override;
+    virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) override;
 };

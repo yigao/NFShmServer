@@ -92,11 +92,6 @@ void NFGlobalSystem::SetHotfixServer(bool hotfixExitApp)
  */
 void NFGlobalSystem::ReleaseSingleton()
 {
-    /**
-     * @brief 释放网络信息包
-     */
-    NFNetPackagePool<NFDataPackage>::Instance()->ReleaseInstance();
-
     NFMemTracker::Instance()->ReleaseInstance();
 
     NFServerTime::Instance()->ReleaseInstance();

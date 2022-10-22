@@ -65,16 +65,36 @@ struct MsgFromNetInfo
 {
     MsgFromNetInfo()
     {
+        nType = eMsgType_Num;
         mTCPConPtr = NULL;
         nConnectLinkId = 0;
-        nType = eMsgType_Num;
+        nObjectLinkId = 0;
         pRecvBuffer = NULL;
     }
 
-    MsgFromNetInfo(const evpp::TCPConnPtr TCPConPtr, uint64_t linkId) : mTCPConPtr(TCPConPtr), nConnectLinkId(linkId)
+    MsgFromNetInfo(const MsgFromNetInfo& info)
     {
-        nType = eMsgType_Num;
-        pRecvBuffer = NULL;
+        if (this != &info)
+        {
+            nType = info.nType;
+            mTCPConPtr = info.mTCPConPtr;
+            nConnectLinkId = info.nConnectLinkId;
+            nObjectLinkId = info.nObjectLinkId;
+            pRecvBuffer = NULL;
+        }
+    }
+
+    MsgFromNetInfo& operator=(const MsgFromNetInfo& info)
+    {
+        if (this != &info)
+        {
+            nType = info.nType;
+            mTCPConPtr = info.mTCPConPtr;
+            nConnectLinkId = info.nConnectLinkId;
+            nObjectLinkId = info.nObjectLinkId;
+            pRecvBuffer = NULL;
+        }
+        return *this;
     }
 
     virtual ~MsgFromNetInfo()
@@ -88,7 +108,6 @@ struct MsgFromNetInfo
         mTCPConPtr = NULL;
         nConnectLinkId = 0;
         nObjectLinkId = 0;
-        mPacket.Clear();
         pRecvBuffer = NULL;
     }
 
@@ -97,7 +116,6 @@ struct MsgFromNetInfo
     uint64_t nConnectLinkId;
     uint64_t nObjectLinkId;
     NF_SHARE_PTR<NFBuffer> pRecvBuffer;
-    NFDataPackage mPacket;
 };
 
 class NFCNetServerModule;
@@ -216,7 +234,8 @@ public:
      * @param package      数据包
      * @return     true:Success false:Failure
      */
-    virtual bool Send(uint64_t usLinkId, NFDataPackage* package);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen);
+    virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData);
 
     NetEvppObject* GetNetObject(uint64_t uslinkId);
 
@@ -267,7 +286,7 @@ protected:
      * @param package  数据包
      * @return true:Success false:Failure
      */
-    virtual bool Send(NetEvppObject* pObject, NFDataPackage* package);
+    virtual bool Send(NetEvppObject* pObject, NFDataPackage& packet, const char* msg, uint32_t nLen);
 private:
     std::vector<NFIConnection* > m_connectionList;
     NFConcurrentQueue<uint64_t>  mFreeLinks;
@@ -301,7 +320,7 @@ private:
     /**
     * @brief 需要消息队列
     */
-    NFConcurrentQueue<MsgFromNetInfo*> mMsgQueue;
+    NFConcurrentQueue<MsgFromNetInfo> mMsgQueue;
 
     /**
     * @brief 发送BUFF

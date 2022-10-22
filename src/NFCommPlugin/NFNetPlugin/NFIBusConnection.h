@@ -21,7 +21,7 @@
 #include <map>
 
 class MsgFromBusInfo;
-typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, MsgFromBusInfo* packetd)> BusMsgPeerCallback;
+typedef std::function<void(eMsgType type, const uint64_t conntionLinkId, const uint64_t objectLinkId, NFDataPackage& package)> BusMsgPeerCallback;
 
 struct MsgFromBusInfo
 {
@@ -47,7 +47,7 @@ public:
     {
         m_pShmRecord = NULL;
         m_nLastActionChannelPtr = NULL;
-        mxBuffer.AssureSpace(4 * 1024 * 1024);
+        mxBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     }
 
     ~NFIBusConnection()
@@ -155,7 +155,8 @@ public:
      * @param unSize	数据的大小
      * @return
      */
-    virtual bool Send(NFDataPackage* packet) = 0;
+    virtual bool Send(NFDataPackage& packet, const char* msg, uint32_t nLen) = 0;
+    virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) = 0;
 
 protected:
     /**
