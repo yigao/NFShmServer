@@ -545,7 +545,7 @@ int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPack
         last_seq = xMsg.seq();
     }
     else {
-        CHECK_EXPR(last_seq + 1 == xMsg.seq(), 0, "world server send seq error");
+        NFLogErrorIf(last_seq + 1 != xMsg.seq(), NF_LOG_SYSTEMLOG, 0, "world server send seq error, last_seq:{} seq:{}", last_seq, xMsg.seq());
         last_seq = xMsg.seq();
     }
 

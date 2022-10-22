@@ -729,7 +729,7 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
         serverIdMap[xMsg.server_id()] = xMsg.seq();
     }
     else {
-        CHECK_EXPR(iter->second + 1 == xMsg.seq(), -1, "serverId:{} serverName:{} last_seq:{} seq:{} Error", xMsg.server_id(), xMsg.server_name(), iter->second, xMsg.seq());
+        NFLogErrorIf(iter->second + 1 != xMsg.seq(), NF_LOG_SYSTEMLOG, 0, "serverId:{} serverName:{} last_seq:{} seq:{} Error", xMsg.server_id(), xMsg.server_name(), iter->second, xMsg.seq());
         iter->second = xMsg.seq();
     }
 
