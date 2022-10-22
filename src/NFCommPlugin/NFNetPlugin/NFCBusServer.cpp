@@ -154,7 +154,7 @@ void NFCBusServer::ProcessMsgLogicThread()
                     char* outData = nullptr;
                     uint32_t outLen = 0;
                     uint32_t allLen = 0;
-                    NFBaseDataPackage dataPacket;
+                    NFCodeQueuePackage dataPacket;
                     int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxBuffer.ReadAddr(), mxBuffer.ReadableSize(), outData, outLen, allLen, dataPacket);
                     if (ret < 0)
                     {

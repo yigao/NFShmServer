@@ -144,7 +144,9 @@ int64_t NFCBusClient::ConnectServer(const NFMessageFlag& flag, const NFMessageFl
 bool NFCBusClient::Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage* packet)
 {
     mxBuffer.Clear();
-    NFIPacketParse::EnCode(packetParseType, *packet, mxBuffer, m_bindFlag.mLinkId);
+    NFCodeQueuePackage codePackage;
+    codePackage.Copy(*packet);
+    NFIPacketParse::EnCode(packetParseType, codePackage, packet->mBufferMsg.ReadAddr(), packet->mBufferMsg.ReadableSize(), mxBuffer, m_bindFlag.mLinkId);
 
     int iRet = ShmSend(pChannel, mxBuffer.ReadAddr(), mxBuffer.ReadableSize());
     if (iRet == 0)
