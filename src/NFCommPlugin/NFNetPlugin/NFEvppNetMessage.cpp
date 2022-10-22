@@ -108,6 +108,67 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                 if (pMsg->pRecvBuffer)
                 {
                     m_recvCodeQueueList.push_back(pMsg->pRecvBuffer);
+                    pMsg->mTCPConPtr->loop()->RunEvery(evpp::Duration(5000000), std::bind([](evpp::EventLoop* loop){
+                        CHECK_EXPR_ASSERT_NOT_RET(loop != NULL, "loop == NULL ERROR");
+                        CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty() ERROR");
+                        NF_SHARE_PTR<NFBuffer> pSendBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND));
+                        CHECK_EXPR_ASSERT_NOT_RET(pSendBuffer != NULL,  "evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND) NULL");
+                        NFCodeQueue* pSendQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
+                        CHECK_EXPR_ASSERT_NOT_RET(pSendQueue != NULL, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
+
+                        CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER).IsEmpty() ERROR");
+                        NF_SHARE_PTR<NFBuffer> pComBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_2_COMPRESS_BUFFER));
+                        CHECK_EXPR_ASSERT_NOT_RET(pComBuffer != NULL, "pComBuffer NULL");
+
+                        CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER).IsEmpty() ERROR");
+                        NF_SHARE_PTR<NFBuffer> pCodeQueueBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_4_CODE_QUEUE_BUFFER));
+                        CHECK_EXPR_ASSERT_NOT_RET(pCodeQueueBuffer != NULL, "pCodeQueueBuffer NULL");
+
+                        while(pSendQueue->HasCode())
+                        {
+                            pCodeQueueBuffer->Clear();
+                            int iCodeLen = 0;
+                            int iRet = pSendQueue->Get(pCodeQueueBuffer->WriteAddr(), pCodeQueueBuffer->WritableSize(), iCodeLen);
+                            if (iRet || iCodeLen < (int)sizeof(NFDataPackage))
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "get code from pRecvQueue failed ret={}, codelen={}", iRet, iCodeLen);
+                                continue;
+                            }
+                            pCodeQueueBuffer->Produce(iCodeLen);
+
+                            // 先获取NetHead
+                            NFDataPackage* pCodePackage = (NFDataPackage*)pCodeQueueBuffer->ReadAddr();
+                            if (iCodeLen != (int)sizeof(NFDataPackage) + (int)pCodePackage->nMsgLen) // 长度不一致
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "code length invalid. iCodeLen:{} != sizeof(NFDataPackage):{} + pCodePackage->nMsgLen:{}", iCodeLen,
+                                           sizeof(NFDataPackage), pCodePackage->nMsgLen);
+                                continue;
+                            }
+
+                            uint32_t parsePackageType = pCodePackage->nPacketParseType;
+                            bool isSecurity = pCodePackage->isSecurity;
+
+                            NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>> pConnMap = evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(loop->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP));
+                            CHECK_EXPR_ASSERT_NOT_RET(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(loop->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
+
+                            auto iter = pConnMap->find(pCodePackage->nObjectLinkId);
+                            CHECK_EXPR_ASSERT_NOT_RET(iter != pConnMap->end(), "pConnMap->find(pCodePackage->nObjectLinkId) Failed", pCodePackage->nObjectLinkId);
+                            evpp::TCPConnPtr pConn = iter->second;
+
+                            pComBuffer->Clear();
+                            NFIPacketParse::EnCode(parsePackageType, *pCodePackage, pCodeQueueBuffer->ReadAddr() + sizeof(NFDataPackage), pCodePackage->nMsgLen, *pComBuffer);
+                            pCodeQueueBuffer->Clear();
+
+                            if (isSecurity)
+                            {
+                                Encryption(pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+                            }
+
+                            pConn->Send((const void*)pComBuffer->ReadAddr(), pComBuffer->ReadableSize());
+
+                            pComBuffer->Clear();
+                        }
+                    }, pMsg->mTCPConPtr->loop()));
                 }
             }
             else if (pMsg->nType == eMsgType_CONNECTED)
@@ -958,6 +1019,12 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
         CHECK_EXPR_ASSERT(pSendQueue != NULL, false, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
 
         pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
+        uint32_t sendCount = pObject->AddSendMsgCount();
+
+        if (sendCount % 10 != 0)
+        {
+            return true;
+        }
 
         pObject->mConnPtr->loop()->RunInLoop(std::bind([](evpp::EventLoop* loop){
             CHECK_EXPR_ASSERT_NOT_RET(loop != NULL, "loop == NULL ERROR");

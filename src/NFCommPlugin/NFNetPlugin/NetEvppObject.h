@@ -139,6 +139,7 @@ public:
 
     virtual bool IsSecurity() const { return mSecurity; }
 
+    virtual uint32_t AddSendMsgCount() { return ++mSendMsgCount; }
 protected:
     /**
      * @brief	代表客户端连接的唯一ID
@@ -177,4 +178,6 @@ protected:
     uint64_t mLastHeartBeatTime;
 
     bool mSecurity;
+
+    uint32_t mSendMsgCount;
 };
