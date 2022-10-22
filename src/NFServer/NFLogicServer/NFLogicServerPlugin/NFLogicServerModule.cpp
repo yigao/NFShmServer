@@ -214,7 +214,7 @@ bool NFCLogicServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    if (pConfig->NamingHost.empty())
+    if (pConfig->RouteConfig.NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_LOGIC_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
@@ -470,7 +470,7 @@ int NFCLogicServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     CHECK_NULL(pConfig);
 
-    if (pConfig->RouteAgent != xData.server_id())
+    if (pConfig->RouteConfig.RouteAgent != xData.server_id())
     {
         return 0;
     }
@@ -611,7 +611,7 @@ int NFCLogicServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     CHECK_NULL(pConfig);
 
-    if (pConfig->RouteAgent != xData.route_svr())
+    if (pConfig->RouteConfig.RouteAgent != xData.route_svr())
     {
         return 0;
     }

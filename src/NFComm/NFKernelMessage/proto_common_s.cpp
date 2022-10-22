@@ -142,55 +142,6 @@ void pbRouteConfig_s::read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg) {
 	RouteAgent = msg.routeagent();
 }
 
-pbNetConfig_s::pbNetConfig_s() {
-	CreateInit();
-}
-
-int pbNetConfig_s::CreateInit() {
-	ServerPort = (uint32_t)0;
-	ExternalServerPort = (uint32_t)0;
-	HttpPort = (uint32_t)0;
-	MaxConnectNum = (uint32_t)0;
-	WorkThreadNum = (uint32_t)0;
-	NetThreadNum = (uint32_t)0;
-	Security = (bool)0;
-	WebSocket = (bool)0;
-	mParseType = (uint32_t)0;
-	return 0;
-}
-
-int pbNetConfig_s::ResumeInit() {
-	return 0;
-}
-
-void pbNetConfig_s::write_to_pbmsg(::proto_ff::pbNetConfig & msg) const {
-	msg.set_serverip(ServerIp);
-	msg.set_serverport((uint32_t)ServerPort);
-	msg.set_externalserverip(ExternalServerIp);
-	msg.set_externalserverport((uint32_t)ExternalServerPort);
-	msg.set_httpport((uint32_t)HttpPort);
-	msg.set_maxconnectnum((uint32_t)MaxConnectNum);
-	msg.set_workthreadnum((uint32_t)WorkThreadNum);
-	msg.set_netthreadnum((uint32_t)NetThreadNum);
-	msg.set_security((bool)Security);
-	msg.set_websocket((bool)WebSocket);
-	msg.set_mparsetype((uint32_t)mParseType);
-}
-
-void pbNetConfig_s::read_from_pbmsg(const ::proto_ff::pbNetConfig & msg) {
-	ServerIp = msg.serverip();
-	ServerPort = msg.serverport();
-	ExternalServerIp = msg.externalserverip();
-	ExternalServerPort = msg.externalserverport();
-	HttpPort = msg.httpport();
-	MaxConnectNum = msg.maxconnectnum();
-	WorkThreadNum = msg.workthreadnum();
-	NetThreadNum = msg.netthreadnum();
-	Security = msg.security();
-	WebSocket = msg.websocket();
-	mParseType = msg.mparsetype();
-}
-
 pbAllServerConfig_s::pbAllServerConfig_s() {
 	CreateInit();
 }
@@ -294,9 +245,6 @@ int pbNFServerConfig_s::CreateInit() {
 	Security = (bool)0;
 	WebSocket = (bool)0;
 	ParseType = (uint32_t)0;
-	MasterPort = (uint32_t)0;
-	MysqlPort = (uint32_t)0;
-	RedisPort = (uint32_t)0;
 	MaxOnlinePlayerNum = (uint32_t)0;
 	HeartBeatTimeout = (uint32_t)0;
 	ClientKeepAliveTimeout = (uint32_t)0;
@@ -328,25 +276,14 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_security((bool)Security);
 	msg.set_websocket((bool)WebSocket);
 	msg.set_parsetype((uint32_t)ParseType);
-	msg.set_masterip(MasterIp);
-	msg.set_masterport((uint32_t)MasterPort);
-	msg.set_naminghost(NamingHost);
-	msg.set_namingpath(NamingPath);
-	msg.set_routeagent(RouteAgent);
-	msg.set_mysqlip(MysqlIp);
-	msg.set_mysqlport((uint32_t)MysqlPort);
-	msg.set_mysqldbname(MysqlDbName);
-	msg.set_mysqluser(MysqlUser);
-	msg.set_mysqlpassword(MysqlPassword);
+	::proto_ff::pbRouteConfig* temp_routeconfig = msg.mutable_routeconfig();
+	RouteConfig.write_to_pbmsg(*temp_routeconfig);
+	::proto_ff::pbMysqlConfig* temp_mysqlconfig = msg.mutable_mysqlconfig();
+	MysqlConfig.write_to_pbmsg(*temp_mysqlconfig);
 	msg.set_defaultdbname(DefaultDBName);
 	msg.set_crossdbname(CrossDBName);
-	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
-		::proto_ff::pbTableConfig* temp_tbconflist = msg.add_tbconflist();
-		TBConfList[i].write_to_pbmsg(*temp_tbconflist);
-	}
-	msg.set_redisip(RedisIp);
-	msg.set_redisport((uint32_t)RedisPort);
-	msg.set_redispass(RedisPass);
+	::proto_ff::pbRedisConfig* temp_redisconfig = msg.mutable_redisconfig();
+	RedisConfig.write_to_pbmsg(*temp_redisconfig);
 	msg.set_sendemail(sendEmail);
 	msg.set_sendemailpass(sendEmailPass);
 	msg.set_sendemailurl(sendEmailUrl);
@@ -379,26 +316,14 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	Security = msg.security();
 	WebSocket = msg.websocket();
 	ParseType = msg.parsetype();
-	MasterIp = msg.masterip();
-	MasterPort = msg.masterport();
-	NamingHost = msg.naminghost();
-	NamingPath = msg.namingpath();
-	RouteAgent = msg.routeagent();
-	MysqlIp = msg.mysqlip();
-	MysqlPort = msg.mysqlport();
-	MysqlDbName = msg.mysqldbname();
-	MysqlUser = msg.mysqluser();
-	MysqlPassword = msg.mysqlpassword();
+	const ::proto_ff::pbRouteConfig & temp_routeconfig = msg.routeconfig();
+	RouteConfig.read_from_pbmsg(temp_routeconfig);
+	const ::proto_ff::pbMysqlConfig & temp_mysqlconfig = msg.mysqlconfig();
+	MysqlConfig.read_from_pbmsg(temp_mysqlconfig);
 	DefaultDBName = msg.defaultdbname();
 	CrossDBName = msg.crossdbname();
-	TBConfList.resize(msg.tbconflist_size());
-	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
-		const ::proto_ff::pbTableConfig & temp_tbconflist = msg.tbconflist(i);
-		TBConfList[i].read_from_pbmsg(temp_tbconflist);
-	}
-	RedisIp = msg.redisip();
-	RedisPort = msg.redisport();
-	RedisPass = msg.redispass();
+	const ::proto_ff::pbRedisConfig & temp_redisconfig = msg.redisconfig();
+	RedisConfig.read_from_pbmsg(temp_redisconfig);
 	sendEmail = msg.sendemail();
 	sendEmailPass = msg.sendemailpass();
 	sendEmailUrl = msg.sendemailurl();

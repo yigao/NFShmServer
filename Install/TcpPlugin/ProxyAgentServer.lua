@@ -11,18 +11,20 @@ ProxyAgentServer = {
         ServerType = NF_ST_PROXY_AGENT_SERVER,
         ServerId = NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_PROXY_AGENT_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
         IdleSleepUS = 1000,
-        --LinkMode = "bus",
+        LinkMode = NF_LINK_MODE,
         BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
         MaxConnectNum = NF_INTER_MAX_CONNECT,
         NetThreadNum = 5,
         WorkThreadNum = 1,
-        RouteAgent = NF_ROUTE_AGENT_ID,
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         ServerIp = NF_INTER_SERVER_IP,
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_AGENT_SERVER*10+1,
-        --NamingHost = NF_NAMING_HOST,
-        --NamingPath = NF_NAMING_PATH,
-        MasterIp = NF_MASTER_IP,
-        MasterPort = NF_MASTER_PORT,
+        RouteConfig = {
+            RouteAgent = NF_ROUTE_AGENT_ID,
+            --NamingHost = NF_NAMING_HOST,
+            --NamingPath = NF_NAMING_PATH,
+            MasterIp = NF_MASTER_IP,
+            MasterPort = NF_MASTER_PORT,
+        },
     };
 };

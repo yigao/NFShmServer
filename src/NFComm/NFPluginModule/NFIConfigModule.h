@@ -39,6 +39,7 @@ public:
     virtual NFServerConfig* GetServerConfig(NF_SERVER_TYPES eServerType) = 0;
     virtual NFServerConfig* GetAppConfig(NF_SERVER_TYPES eServerType) = 0;
     virtual std::string GetDefaultDBName(NF_SERVER_TYPES nfServerTypes) = 0;
+    virtual std::string GetCrossDBName(NF_SERVER_TYPES nfServerTypes) = 0;
     virtual std::string GetRedisIp(NF_SERVER_TYPES nfServerTypes) = 0;
     virtual uint32_t GetRedisPort(NF_SERVER_TYPES nfServerTypes) = 0;
     virtual std::string GetRedisPass(NF_SERVER_TYPES nfServerTypes) = 0;

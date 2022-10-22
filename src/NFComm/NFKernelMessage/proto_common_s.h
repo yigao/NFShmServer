@@ -82,29 +82,6 @@ namespace proto_ff_s {
 	};
 	typedef struct pbRouteConfig_s pbRouteConfig_t;
 
-	struct pbNetConfig_s {
-		pbNetConfig_s();
-		int CreateInit();
-		int ResumeInit();
-		std::string ServerIp;
-		uint32_t ServerPort;
-		std::string ExternalServerIp;
-		uint32_t ExternalServerPort;
-		uint32_t HttpPort;
-		uint32_t MaxConnectNum;
-		uint32_t WorkThreadNum;
-		uint32_t NetThreadNum;
-		bool Security;
-		bool WebSocket;
-		uint32_t mParseType;
-
-		virtual void write_to_pbmsg(::proto_ff::pbNetConfig & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::pbNetConfig & msg);
-		static ::proto_ff::pbNetConfig* new_pbmsg(){ return new ::proto_ff::pbNetConfig(); }
-		static ::proto_ff::pbNetConfig make_pbmsg(){ return ::proto_ff::pbNetConfig(); }
-	};
-	typedef struct pbNetConfig_s pbNetConfig_t;
-
 	struct pbAllServerConfig_s {
 		pbAllServerConfig_s();
 		int CreateInit();
@@ -172,22 +149,11 @@ namespace proto_ff_s {
 		bool Security;
 		bool WebSocket;
 		uint32_t ParseType;
-		std::string MasterIp;
-		uint32_t MasterPort;
-		std::string NamingHost;
-		std::string NamingPath;
-		std::string RouteAgent;
-		std::string MysqlIp;
-		uint32_t MysqlPort;
-		std::string MysqlDbName;
-		std::string MysqlUser;
-		std::string MysqlPassword;
+		struct pbRouteConfig_s RouteConfig;
+		struct pbMysqlConfig_s MysqlConfig;
 		std::string DefaultDBName;
 		std::string CrossDBName;
-		std::vector<struct pbTableConfig_s> TBConfList;
-		std::string RedisIp;
-		uint32_t RedisPort;
-		std::string RedisPass;
+		struct pbRedisConfig_s RedisConfig;
 		std::string sendEmail;
 		std::string sendEmailPass;
 		std::string sendEmailUrl;

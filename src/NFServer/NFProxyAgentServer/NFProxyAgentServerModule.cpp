@@ -139,7 +139,7 @@ bool NFCProxyAgentServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    if (pConfig->NamingHost.empty())
+    if (pConfig->RouteConfig.NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_PROXY_AGENT_SERVER);
         int32_t ret = ConnectMasterServer(masterData);

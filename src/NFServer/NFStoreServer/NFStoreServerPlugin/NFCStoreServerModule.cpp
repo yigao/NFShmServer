@@ -57,15 +57,15 @@ bool NFCStoreServerModule::Awake() {
         m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
 
         FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
-        int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlDbName, pConfig->MysqlIp,
-            pConfig->MysqlPort, pConfig->MysqlDbName,
-            pConfig->MysqlUser, pConfig->MysqlPassword);
+        int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
+            pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
+            pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
         if (iRet != 0) {
             NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, -1, "store server connect mysql failed");
             return false;
         }
 
-        FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlDbName);
+        FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
 
         int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_STORE_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
         if (unlinkId >= 0)
@@ -184,7 +184,7 @@ bool NFCStoreServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    if (pConfig->NamingHost.empty())
+    if (pConfig->RouteConfig.NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_STORE_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
@@ -714,7 +714,7 @@ int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
 
     if (!m_pObjPluginManager->IsLoadAllServer())
     {
-        if (pConfig->RouteAgent != xData.server_id())
+        if (pConfig->RouteConfig.RouteAgent != xData.server_id())
         {
             return 0;
         }

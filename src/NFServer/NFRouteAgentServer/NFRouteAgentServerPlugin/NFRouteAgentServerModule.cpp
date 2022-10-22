@@ -117,7 +117,7 @@ bool NFCRouteAgentServerModule::Init()
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
-    if (pConfig && pConfig->NamingHost.empty())
+    if (pConfig && pConfig->RouteConfig.NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_AGENT_SERVER);
         int32_t ret = ConnectMasterServer(masterData);

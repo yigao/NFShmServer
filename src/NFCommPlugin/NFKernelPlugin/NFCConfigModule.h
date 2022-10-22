@@ -40,6 +40,7 @@ public:
     virtual NFServerConfig* GetServerConfig(NF_SERVER_TYPES eServerType) override;
     virtual NFServerConfig* GetAppConfig(NF_SERVER_TYPES eServerType) override;
     virtual std::string GetDefaultDBName(NF_SERVER_TYPES nfServerTypes) override;
+    virtual std::string GetCrossDBName(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetRedisIp(NF_SERVER_TYPES nfServerTypes) override;
     virtual uint32_t GetRedisPort(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetRedisPass(NF_SERVER_TYPES nfServerTypes) override;

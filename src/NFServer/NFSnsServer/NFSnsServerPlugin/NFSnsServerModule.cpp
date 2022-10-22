@@ -170,7 +170,7 @@ bool NFCSnsServerModule::Init()
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
-    if (pConfig->NamingHost.empty())
+    if (pConfig->RouteConfig.NamingHost.empty())
     {
         proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_SNS_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
@@ -398,7 +398,7 @@ int NFCSnsServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
 
     if (!m_pObjPluginManager->IsLoadAllServer())
     {
-        if (pConfig->RouteAgent != xData.server_id())
+        if (pConfig->RouteConfig.RouteAgent != xData.server_id())
         {
             return 0;
         }

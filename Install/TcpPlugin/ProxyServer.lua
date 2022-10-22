@@ -23,10 +23,12 @@ ProxyServer = {
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         HeartBeatTimeout = NF_CLIENT_HEART_BEAT_TIME_OUT,
         ClientKeepAliveTimeout = NF_CLIENT_KEEP_ALIVE_TIME_OUT,
-        --NamingHost = "127.0.0.1:2181,127.0.0.1:2182",
-        --NamingPath = "99Puke",
-        MasterIp = NF_MASTER_IP,
-        MasterPort = NF_MASTER_PORT,
+        RouteConfig = {
+            --NamingHost = NF_NAMING_HOST,
+            --NamingPath = NF_NAMING_PATH,
+            MasterIp = NF_MASTER_IP,
+            MasterPort = NF_MASTER_PORT,
+        },
         Security = true,
         ParseType = 1,
 	};
@@ -48,10 +50,12 @@ ProxyServer = {
         MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
         HeartBeatTimeout = NF_CLIENT_HEART_BEAT_TIME_OUT,
         ClientKeepAliveTimeout = NF_CLIENT_KEEP_ALIVE_TIME_OUT,
-        --NamingHost = NF_NAMING_HOST,
-        --NamingPath = NF_NAMING_PATH,
-        MasterIp = NF_MASTER_IP,
-        MasterPort = NF_MASTER_PORT,
+        RouteConfig = {
+            --NamingHost = NF_NAMING_HOST,
+            --NamingPath = NF_NAMING_PATH,
+            MasterIp = NF_MASTER_IP,
+            MasterPort = NF_MASTER_PORT,
+        },
         Security = true,
         ParseType = 1,
     };

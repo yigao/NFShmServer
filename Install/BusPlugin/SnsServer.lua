@@ -10,10 +10,9 @@ SnsServer = {
       ServerName = "SnsServerr_1",
       ServerType = NF_ST_SNS_SERVER,
       ServerId = NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_SNS_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
-      LinkMode = "bus",
+      LinkMode = NF_LINK_MODE,
       BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
       IdleSleepUS = 1000,
-      RouteAgent = NF_ROUTE_AGENT_ID,
       ServerIp = NF_INTER_SERVER_IP,
       ServerPort = NF_INTER_SERVER_PORT+NF_ST_SNS_SERVER*10+1,
       MaxConnectNum = NF_INTER_MAX_CONNECT,
@@ -22,8 +21,13 @@ SnsServer = {
       Security = false,
       WebSocket = false,
       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
-      MasterIp = NF_MASTER_IP,
-      MasterPort = NF_MASTER_PORT,
       DefaultDBName = NF_MYSQL_DB_NAME,
+      RouteConfig = {
+         RouteAgent = NF_ROUTE_AGENT_ID,
+         --NamingHost = NF_NAMING_HOST,
+         --NamingPath = NF_NAMING_PATH,
+         MasterIp = NF_MASTER_IP,
+         MasterPort = NF_MASTER_PORT,
+      },
    };
 };

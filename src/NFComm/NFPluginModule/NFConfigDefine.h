@@ -62,9 +62,9 @@ public:
 	virtual void read_from_pbmsg(const ::proto_ff::pbNFServerConfig & msg) override
 	{
 		proto_ff_s::pbNFServerConfig_s::read_from_pbmsg(msg);
-		for(int i = 0; i < (int)TBConfList.size(); i++)
+		for(int i = 0; i < (int)MysqlConfig.TBConfList.size(); i++)
         {
-            struct proto_ff_s::pbTableConfig_s& tableConfig = TBConfList[i];
+            struct proto_ff_s::pbTableConfig_s& tableConfig = MysqlConfig.TBConfList[i];
             mTBConfMap.emplace(tableConfig.TableName, tableConfig.TableCount);
         }
 	}

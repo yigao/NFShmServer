@@ -450,7 +450,17 @@ std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->MysqlDbName;
+        return pConfig->DefaultDBName;
+    }
+    return std::string();
+}
+
+std::string NFCConfigModule::GetCrossDBName(NF_SERVER_TYPES nfServerTypes)
+{
+    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    if (pConfig)
+    {
+        return pConfig->CrossDBName;
     }
     return std::string();
 }
@@ -460,7 +470,7 @@ std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->RedisIp;
+        return pConfig->RedisConfig.RedisIp;
     }
     return std::string();
 }
@@ -470,7 +480,7 @@ uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->RedisPort;
+        return pConfig->RedisConfig.RedisPort;
     }
     return 0;
 }
@@ -480,7 +490,7 @@ std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
     NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
-        return pConfig->RedisPass;
+        return pConfig->RedisConfig.RedisPass;
     }
     return std::string();
 }

@@ -17,9 +17,11 @@ RouteServer = {
     NetThreadNum = 5,
     WorkThreadNum = 1,
     MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
-    --NamingHost = "NF_NAMING_HOST,
-    --NamingPath = NF_NAMING_PATH,
-    MasterIp = NF_MASTER_IP,
-    MasterPort = NF_MASTER_PORT,
+    RouteConfig = {
+      --NamingHost = NF_NAMING_HOST,
+      --NamingPath = NF_NAMING_PATH,
+      MasterIp = NF_MASTER_IP,
+      MasterPort = NF_MASTER_PORT,
+    },
   };
 };

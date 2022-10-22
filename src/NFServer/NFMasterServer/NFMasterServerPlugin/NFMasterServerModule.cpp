@@ -141,7 +141,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
             SynOtherServerToServer(pServerData);
 #else
             NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
-            if (pConfig && pConfig->NamingHost.empty())
+            if (pConfig && pConfig->RouteConfig.NamingHost.empty())
             {
                 SynOtherServerToServer(pServerData);
             }
@@ -153,7 +153,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
             SynOtherServerToServer(pServerData);
 #else
             NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
-            if (pConfig && pConfig->NamingHost.empty())
+            if (pConfig && pConfig->RouteConfig.NamingHost.empty())
             {
                 SynServerToOthers(pServerData);
                 SynOtherServerToServer(pServerData);
@@ -732,7 +732,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
         pData->set_url(pConfig->Url);
         pData->set_server_ip(pConfig->ServerIp);
         pData->set_server_port(pConfig->ServerPort);
-        pData->set_route_svr(pConfig->RouteAgent);
+        pData->set_route_svr(pConfig->RouteConfig.RouteAgent);
         pData->set_server_state(proto_ff::EST_NARMAL);
         pData->set_machine_addr(m_pObjPluginManager->GetMachineAddrMD5());
 
@@ -785,7 +785,7 @@ int NFCMasterServerModule::ServerReport()
         pData->set_server_ip(pConfig->ServerIp);
         pData->set_server_port(pConfig->ServerPort);
         pData->set_server_state(proto_ff::EST_NARMAL);
-        pData->set_route_svr(pConfig->RouteAgent);
+        pData->set_route_svr(pConfig->RouteConfig.RouteAgent);
         NFIMonitorModule* pMonitorModule = m_pObjPluginManager->FindModule<NFIMonitorModule>();
         if (pMonitorModule)
         {

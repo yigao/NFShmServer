@@ -61,21 +61,6 @@ message pbRouteConfig
 	optional string RouteAgent = 5;
 }
 
-message pbNetConfig
-{
-	optional string ServerIp = 1[(yd_fieldoptions.field_use_stl)=true]; //服务器监听IP
-	optional uint32 ServerPort = 2; //服务器监听端口
-	optional string ExternalServerIp = 3; //服务器对外监听IP
-	optional uint32 ExternalServerPort = 4; //服务器对外监听端口
-	optional uint32 HttpPort = 5;		//服务器http监听ip
-	optional uint32 MaxConnectNum = 6;	//最大连接数目
-	optional uint32 WorkThreadNum = 7;	//work线程数目
-	optional uint32 NetThreadNum = 8;   //tcp/bus线程数目
-	optional bool Security = 9;				//0 不加密不压缩 1 压缩 2 加密 3 压缩加密
-	optional bool WebSocket = 10;				//
-	optional uint32 mParseType = 11;  //协议解析方式, 默认值0，是标准内网协议
-}
-
 message pbAllServerConfig
 {
 	optional string Server = 1[(yd_fieldoptions.field_use_stl)=true];
@@ -114,32 +99,20 @@ message pbNFServerConfig
 	optional uint32 ExternalServerPort = 23; //服务器对外监听端口
 	optional uint32 HttpPort = 24;		//服务器http监听ip
 	optional uint32 MaxConnectNum = 25;	//最大连接数目
-	optional uint32 WorkThreadNum = 26;	//work线程数目
-	optional uint32 NetThreadNum = 27;   //tcp/bus线程数目
-	optional bool Security = 28;				//0 不加密不压缩 1 压缩 2 加密 3 压缩加密
+	optional uint32 WorkThreadNum = 26;	//work线程数目 actor线程数目
+	optional uint32 NetThreadNum = 27;   //tcp线程数目
+	optional bool Security = 28;				//false 不加密 true 加密
 	optional bool WebSocket = 29;				//
 	optional uint32 ParseType = 30;  //协议解析方式, 默认值0，是标准内网协议
 
 ////////////////////////////////////route/////////////////////////////////////////////
-	optional string MasterIp = 50;
-	optional uint32 MasterPort = 51;
-	optional string NamingHost = 52;
-	optional string NamingPath = 53;
-	optional string RouteAgent = 54;
-
+	optional pbRouteConfig RouteConfig = 50;
 ////////////////////////////////////mysql//////////////////////////////////////
-	optional string MysqlIp = 70;
-	optional uint32	MysqlPort = 71;
-	optional string MysqlDbName = 72;
-	optional string MysqlUser = 73;
-	optional string MysqlPassword = 74;
-	optional string DefaultDBName = 75;
-	optional string CrossDBName = 76;
-	repeated pbTableConfig TBConfList = 77;
+	optional pbMysqlConfig MysqlConfig = 70; //主要给NFStoreServer服务器使用
+	optional string DefaultDBName = 75;	//主要非NFStoreServer服务器使用
+	optional string CrossDBName = 76;   //主要非NFStoreServer服务器使用
 	/////////////////////////////////////redis//////////////////////////////////////
-	optional string RedisIp = 80;
-	optional uint32	RedisPort = 81;
-	optional string RedisPass = 82;
+	optional pbRedisConfig RedisConfig = 80;
 
 ////////////////////////////////////other//////////////////////////////////////////////
 	optional string sendEmail = 91; //发生邮箱 QQ邮箱不行，163可用

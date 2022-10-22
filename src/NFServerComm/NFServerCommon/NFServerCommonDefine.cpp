@@ -16,7 +16,7 @@ void NFServerCommon::WriteServerInfo(proto_ff::ServerInfoReport* pData, NFServer
     pData->set_url(pConfig->Url);
     pData->set_server_ip(pConfig->ServerIp);
     pData->set_server_port(pConfig->ServerPort);
-    pData->set_route_svr(pConfig->RouteAgent);
+    pData->set_route_svr(pConfig->RouteConfig.RouteAgent);
     pData->set_external_server_ip(pConfig->ExternalServerIp);
     pData->set_external_server_port(pConfig->ExternalServerPort);
     return;
