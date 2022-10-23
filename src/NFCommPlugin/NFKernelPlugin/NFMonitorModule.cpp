@@ -56,14 +56,14 @@ void NFCMonitorModule::OnTimer(uint32_t nTimerID)
 	if (nTimerID == MonitorTimer_SYSTEMINFO)
 	{
 		mSystemInfo.CountSystemInfo();
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cpu:%{}, mem:{}M ----------------------{}bytes", mSystemInfo.GetProcessInfo().mCpuUsed, mSystemInfo.GetProcessInfo().mMemUsed /(double)1024 / (double)1024, mSystemInfo.GetProcessInfo().mMemUsed);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "app:{} main thread:{} cpu:%{}, mem:{}M ----------------------{}bytes", m_pObjPluginManager->GetAppName(), ThreadId(), mSystemInfo.GetProcessInfo().mCpuUsed, mSystemInfo.GetProcessInfo().mMemUsed /(double)1024 / (double)1024, mSystemInfo.GetProcessInfo().mMemUsed);
 	}
 }
 
 void NFCMonitorModule::CountAndPrint()
 {
     mSystemInfo.CountSystemInfo();
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cpu:%{}, mem:{}M ----------------------{}bytes", mSystemInfo.GetProcessInfo().mCpuUsed, mSystemInfo.GetProcessInfo().mMemUsed /(double)1024 / (double)1024, mSystemInfo.GetProcessInfo().mMemUsed);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "app:{} main thread:{} cpu:%{}, mem:{}M ----------------------{}bytes", m_pObjPluginManager->GetAppName(), ThreadId(), mSystemInfo.GetProcessInfo().mCpuUsed, mSystemInfo.GetProcessInfo().mMemUsed /(double)1024 / (double)1024, mSystemInfo.GetProcessInfo().mMemUsed);
 }
 
 /**

@@ -36,6 +36,8 @@ struct PROFILE_TIMER
 	unsigned sampleCount;
 	long long beginTime;
 	long long sampleTime; // in nanosecond
+	long long minSampleTime;
+	long long maxSampleTime;
 	char name[PROFILER_MAX_TIMER_NAME_LEN];
 
 	PROFILE_TIMER(const char* _name)
@@ -64,6 +66,8 @@ struct PROFILE_TIMER
 		memset(&beginTime, 0, sizeof(beginTime));
 		sampleCount = 0;
 		sampleTime = 0;
+        minSampleTime = -1;
+        maxSampleTime = -1;
 	}
 };
 
@@ -73,6 +77,8 @@ struct CALL_TREE_NODE
 	int parentIndex;
 	unsigned sampleCount;
 	long long sampleTime;
+	long long minSampleTime;
+	long long maxSampleTime;
 
 	CALL_TREE_NODE* firstChild;
 	CALL_TREE_NODE* nextBrather;

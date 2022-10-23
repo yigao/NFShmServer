@@ -10,6 +10,7 @@
 #include "NFProfiler.h"
 #include <string>
 #include <vector>
+#include <NFComm/NFCore/NFCommon.h>
 #include "NFLogMgr.h"
 
 void NFProfiler::BeginProfiler(PROFILE_TIMER* timer)
@@ -76,6 +77,23 @@ uint64_t NFProfiler::EndProfiler()
 
 	timer->sampleTime += diffNanosecond;
 	timer->sampleCount += 1;
+	if (timer->minSampleTime == 0)
+    {
+        timer->minSampleTime = diffNanosecond;
+    }
+    else if (diffNanosecond < timer->minSampleTime)
+    {
+        timer->minSampleTime = diffNanosecond;
+    }
+
+    if (timer->maxSampleTime == 0)
+    {
+        timer->maxSampleTime = diffNanosecond;
+    }
+    else if (diffNanosecond > timer->maxSampleTime)
+    {
+        timer->maxSampleTime = diffNanosecond;
+    }
 
 	return diffNanosecond / 1000;
 }
@@ -151,6 +169,8 @@ bool NFProfiler::BuildCallTree(CALL_TREE_NODE* head, std::vector<CALL_TREE_NODE>
 		node.parentIndex = timer->parentIndex;
 		node.sampleCount = timer->sampleCount;
 		node.sampleTime = timer->sampleTime;
+		node.minSampleTime = timer->minSampleTime;
+		node.maxSampleTime = timer->maxSampleTime;
 
 		node.firstChild = nullptr;
 		node.nextBrather = nullptr;
@@ -212,10 +232,12 @@ void NFProfiler::OutputNode(
 			snprintf(
 				writePos,
 				freeSize,
-				"+-[%5.2f%% %6.3fms (per %6.3fms) count=%u]----%s%s\r\n",
+				"+-[%5.2f%% %6.3fms (per %6.3fms min %6.3fms max %6.3fms) count=%u]----%s%s\r\n",
 				node.sampleTime * 100.f / totalTime,
 				node.sampleTime / 1000000.f,
 				node.sampleTime / 1000000.f / node.sampleCount,
+                node.minSampleTime / 1000000.f,
+                node.maxSampleTime / 1000000.f,
 				node.sampleCount,
 				node.name,
 				(node.parentIndex == PROFILER_MULTI_PARENT) ? "<multi parent>" : ""
@@ -303,7 +325,7 @@ std::string NFProfiler::OutputTopProfilerTimer()
 	head.sampleTime = totalTime;
 	BuildCallTree(&head, &tree);
 	OutputCallTree(head, totalTime, minShowTime, 0, report);
-	report = "profile:\r\n" + report;
+	report = "thread:" + NFCommon::tostr(mProfileThreadID) + "profile:\r\n" + report;
 	//printf("profile:\r\n%s", report.c_str());
 	return report;
 }

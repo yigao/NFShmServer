@@ -19,13 +19,14 @@
 
 #include "NFPluginManager/NFCPluginManager.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFCmdLine.h"
-#include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFCore/NFFileUtility.h"
-
-#include "NFPluginManager/NFCrashHandlerMgr.h"
 #include "NFPluginManager/NFProcessParameter.h"
 #include "NFComm/NFPluginModule/NFGlobalSystem.h"
+
+#if NF_PLATFORM == NF_PLATFORM_WIN
+#elif NF_PLATFORM == NF_PLATFORM_LINUX
+#include <sys/syscall.h>
+#endif
+
 
 int main(int argc, char* argv[])
 {

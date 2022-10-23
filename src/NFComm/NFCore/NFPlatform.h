@@ -29,7 +29,7 @@
 #include <stdio.h>
 
 #ifndef _MSC_VER
-
+#include <sys/syscall.h>
 #include <sys/time.h>
 #include <unistd.h>
 
@@ -150,7 +150,7 @@ typedef unsigned long int NF_THREAD_ID;
 
 inline NF_THREAD_ID ThreadId()
 {
-    return pthread_self();
+    return syscall(SYS_gettid);
 }
 
 #endif
