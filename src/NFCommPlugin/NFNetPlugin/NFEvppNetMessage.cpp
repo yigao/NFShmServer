@@ -958,9 +958,22 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
         NFCodeQueue* pSendQueue = (NFCodeQueue*)pSendBuffer->ReadAddr();
         CHECK_EXPR_ASSERT(pSendQueue != NULL, false, "(NFCodeQueue*)pSendBuffer->ReadAddr() NULL");
 
-        pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
+        int iRet = pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
+        if (iRet != 0)
+        {
+            if (iRet == -1)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)msg, nLen) param error");
+            }
+            else if (iRet == -2)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Queue Full error, can't put the error");
+            }
+            pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
+        }
+
         uint32_t sendCount = pObject->AddSendMsgCount();
-        if (sendCount % 100 == 0)
+        if (sendCount % 10 == 0)
         {
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
