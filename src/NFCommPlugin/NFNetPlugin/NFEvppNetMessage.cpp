@@ -1119,7 +1119,12 @@ void NFEvppNetMessage::LoopSend(evpp::EventLoop* loop)
         CHECK_EXPR_ASSERT_NOT_RET(pConnMap != NULL, "evpp::any_cast<NF_SHARE_PTR<std::unordered_map<uint64_t, evpp::TCPConnPtr>>>(loop->context(EVPP_LOOP_CONTEXT_3_CONNPTR_MAP)) Failed");
 
         auto iter = pConnMap->find(pCodePackage->nObjectLinkId);
-        CHECK_EXPR_ASSERT_NOT_RET(iter != pConnMap->end(), "pConnMap->find(pCodePackage->nObjectLinkId) Failed", pCodePackage->nObjectLinkId);
+        if (iter == pConnMap->end())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "pConnMap->find(pCodePackage->nObjectLinkId) Failed, objectLinkId:{} maybe disconnect", pCodePackage->nObjectLinkId);
+            continue;
+        }
+
         evpp::TCPConnPtr pConn = iter->second;
 
         pComBuffer->Clear();
