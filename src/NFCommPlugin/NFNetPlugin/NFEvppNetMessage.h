@@ -237,6 +237,12 @@ public:
     virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen);
     virtual bool Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData);
 
+    /**
+     * @brief 在网络线程里运行
+     * @param loop
+     */
+    virtual void LoopSend(evpp::EventLoop* loop);
+
     NetEvppObject* GetNetObject(uint64_t uslinkId);
 
     virtual void OnTimer(uint32_t nTimerID) override;
