@@ -972,8 +972,8 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
-        uint32_t sendCount = pObject->AddSendMsgCount();
-        if (sendCount % 10 == 0)
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "loop pending_functor_count:{}", pObject->mConnPtr->loop()->pending_functor_count());
+        if (pObject->mConnPtr->loop()->pending_functor_count() <= 5)
         {
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
