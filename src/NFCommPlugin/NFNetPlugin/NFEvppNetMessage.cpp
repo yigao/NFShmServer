@@ -960,8 +960,10 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
 
         pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), msg, nLen);
         uint32_t sendCount = pObject->AddSendMsgCount();
-
-        //pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
+        if (sendCount % 100 == 0)
+        {
+            pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
+        }
 
         return true;
     }

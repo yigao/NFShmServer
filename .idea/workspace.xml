@@ -35,6 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="test world">
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -455,21 +457,7 @@
       <workItem from="1665592004227" duration="4073000" />
       <workItem from="1665829887269" duration="17816000" />
       <workItem from="1665885073122" duration="8127000" />
-      <workItem from="1666520788679" duration="3676000" />
-    </task>
-    <task id="LOCAL-00150" summary="excel parse">
-      <created>1664206305704</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1664206305704</updated>
-    </task>
-    <task id="LOCAL-00151" summary="excel parse">
-      <created>1664206321137</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1664206321137</updated>
+      <workItem from="1666520788679" duration="5058000" />
     </task>
     <task id="LOCAL-00152" summary="excel parse">
       <created>1664207160580</created>
@@ -800,7 +788,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666524468812</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="test world">
+      <created>1666524621938</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1666524621938</updated>
+    </task>
+    <task id="LOCAL-00200" summary="test world">
+      <created>1666525874931</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1666525874931</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
