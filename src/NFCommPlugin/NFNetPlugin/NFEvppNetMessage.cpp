@@ -67,6 +67,7 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
         mHandleMsgNumPerFrame= pServerConfig->HandleMsgNumPerFrame;
     }
     mCurHandleMsgNum = 0;
+    mLoopSendCount = 0;
 }
 
 NFEvppNetMessage::~NFEvppNetMessage()
@@ -972,8 +973,9 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
-        if (pObject->mConnPtr->loop()->pending_functor_count() <= 5)
+        if (mLoopSendCount.load() <= 0)
         {
+            mLoopSendCount++;
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
@@ -1073,6 +1075,7 @@ int NFEvppNetMessage::HttpPost(const string &strUri, const string &strPostData, 
 
 void NFEvppNetMessage::LoopSend(evpp::EventLoop* loop)
 {
+    mLoopSendCount--;
     CHECK_EXPR_ASSERT_NOT_RET(loop != NULL, "loop == NULL ERROR");
     CHECK_EXPR_ASSERT_NOT_RET(!loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty(), "loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND).IsEmpty() ERROR");
     NF_SHARE_PTR<NFBuffer> pSendBuffer = evpp::any_cast<NF_SHARE_PTR<NFBuffer>>(loop->context(EVPP_LOOP_CONTEXT_1_MAIN_THREAD_SEND));

@@ -351,4 +351,6 @@ private:
      * @brief 服务器当前帧处理的消息数
      */
     int32_t mCurHandleMsgNum;
+
+    std::atomic<int> mLoopSendCount;
 };
