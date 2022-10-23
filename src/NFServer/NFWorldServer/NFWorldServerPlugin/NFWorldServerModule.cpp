@@ -734,7 +734,7 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
         iter->second = xMsg.seq();
     }
 
-    NFLogErrorIf(xMsg.seq() % 10000 == 0, NF_LOG_SYSTEMLOG, 0, "serverId:{} serverName:{} send seq:{} msg", xMsg.server_id(), xMsg.server_name(), xMsg.seq());
+    NFLogErrorIf(xMsg.seq() % 1000000 == 0, NF_LOG_SYSTEMLOG, 0, "serverId:{} serverName:{} send seq:{} msg", xMsg.server_id(), xMsg.server_name(), xMsg.seq());
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
