@@ -109,7 +109,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
                 if (pMsg->pRecvBuffer)
                 {
                     m_recvCodeQueueList.push_back(pMsg->pRecvBuffer);
-                    pMsg->mTCPConPtr->loop()->RunEvery(evpp::Duration(30000000), std::bind(&NFEvppNetMessage::LoopSend, this, pMsg->mTCPConPtr->loop()));
+                    pMsg->mTCPConPtr->loop()->RunEvery(evpp::Duration(5000000), std::bind(&NFEvppNetMessage::LoopSend, this, pMsg->mTCPConPtr->loop()));
                 }
             }
             else if (pMsg->nType == eMsgType_CONNECTED)
@@ -975,8 +975,8 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
 
         if (mLoopSendCount.load() <= 0)
         {
-            mLoopSendCount++;
-            pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
+            //mLoopSendCount++;
+            //pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
         return true;
