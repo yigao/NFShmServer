@@ -35,12 +35,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="test world">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProfiler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProfiler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProfiler.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProfiler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFMonitorModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFMonitorModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFPluginLoader/NFPluginLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginLoader/NFPluginLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,14 +455,7 @@
       <workItem from="1665592004227" duration="4073000" />
       <workItem from="1665829887269" duration="17816000" />
       <workItem from="1665885073122" duration="8127000" />
-      <workItem from="1666520788679" duration="2707000" />
-    </task>
-    <task id="LOCAL-00146" summary="excel parse">
-      <created>1664036237041</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1664036237041</updated>
+      <workItem from="1666520788679" duration="3148000" />
     </task>
     <task id="LOCAL-00147" summary="excel parse">
       <created>1664080960285</created>
@@ -805,7 +793,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666500490211</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="test world">
+      <created>1666523663483</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1666523663484</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
