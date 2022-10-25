@@ -24,6 +24,10 @@
 #define LOGIC_SERVER_CONNECT_ROUTEAGENT_SERVER "LogicServer Connect RouteAgentServer"
 #define LOGIC_SERVER_CHECK_STORE_SERVER "LogicServer CHECK StoreServer"
 
+#define LOGIC_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID 1
+#define LOGIC_SERVER_TEST_WORLD_SERVER_TIMER_ID 2
+#define LOGIC_SERVER_SERVER_DEAD_TIMER_ID 3
+
 NFCLogicServerModule::NFCLogicServerModule(NFIPluginManager* p):NFILogicServerModule(p)
 {
 }
@@ -108,6 +112,11 @@ bool NFCLogicServerModule::Awake()
 
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_LOGIC_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+
+    SetTimer(LOGIC_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID, 10000);
+#ifdef TEST_SERVER_SEND_MSG
+    SetTimer(LOGIC_SERVER_TEST_WORLD_SERVER_TIMER_ID, 1000);
+#endif
     return true;
 }
 
@@ -158,7 +167,7 @@ int NFCLogicServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
-            SetTimer(10000, 10000, 0);
+            SetTimer(LOGIC_SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
         }
         else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
         {
@@ -210,11 +219,19 @@ int NFCLogicServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 
 void NFCLogicServerModule::OnTimer(uint32_t nTimerID)
 {
-    if (nTimerID == 10000)
+    if (nTimerID == LOGIC_SERVER_SERVER_DEAD_TIMER_ID)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
         exit(0);
+    }
+    else if (nTimerID == LOGIC_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
+    {
+        ServerReportToMasterServer();
+    }
+    else if (nTimerID == LOGIC_SERVER_TEST_WORLD_SERVER_TIMER_ID)
+    {
+        TestOtherServerToWorldServer();
     }
 }
 
@@ -352,8 +369,6 @@ int NFCLogicServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRe
 
 bool NFCLogicServerModule::Execute()
 {
-    ServerReportToMasterServer();
-    TestOtherServerToWorldServer();
     return true;
 }
 
