@@ -41,14 +41,14 @@ public:
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 public:
-    //////////////////////////////////////////////////////////游戏战斗服务器//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////GameServer服务器//////////////////////////////////////////////////////////////////
     /**
-     * @brief 游戏战斗服务器连接事件，可以是网络/bus的连接事件
+     * @brief GameServer服务器连接事件，可以是网络/bus的连接事件
      * @param nEvent
      * @param unLinkId
      * @return
      */
-    int OnGameSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+    int OnGameServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
     /**
      * @brief 处理未注册的消息
@@ -56,7 +56,7 @@ public:
      * @param packet
      * @return
      */
-    int OnHandleGameOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+    int OnHandleGameServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
     /**
      * @brief 处理游戏服务器的连接掉线
@@ -120,11 +120,11 @@ public:
      */
 
     /**
-     * @brief 收到NFProxyAgentServer服务器报告, 连接RouteAgent服务器
+     * @brief 收到NFProxyAgentServer服务器报告, 连接NFProxyAgentServer服务器
      * @param xData
      * @return
      */
-    int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData);
+    int OnHandleProxyAgentServerReport(const proto_ff::ServerInfoReport& xData);
 
     /**
      * @brief 注册自身信息到NFProxyAgentServer, 通过NFProxyAgentServer转发, 最终注册到NFProxyServer
@@ -142,7 +142,7 @@ public:
     int OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
     /**
-     * @brief NFProxyAgentServer服务器未处理协议
+     * @brief 处理NFProxyAgentServer转发过来的未注册的协议, 协议来自客户端，以及NFPRoxyServer
      * @param unLinkId
      * @param packet
      * @return
@@ -155,15 +155,15 @@ public:
      * @param packet
      * @return
      */
-	int OnServerRegisterProcessFromProxyAgent(uint64_t unLinkId, NFDataPackage& packet);
+	int OnServerRegisterProcessFromProxyServer(uint64_t unLinkId, NFDataPackage& packet);
 
     /**
-     * @brief 网关服务器注册协议回调, 处理来自NFProxyAgentServer的NFProxyServer注册
+     * @brief 处理来自NFProxyAgentServer转发的NFProxyServer注册
      * @param xData
      * @param unlinkId
      * @return
      */
-    int OnHandleProxyRegister(const proto_ff::ServerInfoReport &xData, uint64_t unlinkId);
+    int OnHandleProxyServerRegister(const proto_ff::ServerInfoReport &xData, uint64_t unlinkId);
 
     //////////////////////////////////////////////////////////NFProxyServer,NFProxyAgentServer 服务器//////////////////////////////////////////////////////////////////
 
@@ -182,7 +182,7 @@ public:
      * @param xData
      * @return
      */
-	int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
+	int OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport& xData);
 
     /**
      * @brief 注册自身信息到NFRouteAgentServer
@@ -197,7 +197,7 @@ public:
      * @param packet
      * @return
      */
-    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet);
+    int OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, NFDataPackage& packet);
 
     /**
      * @brief 连接NFRouteAgentServer服务器网络事件处理
@@ -208,12 +208,12 @@ public:
 	int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
     /**
-     * @brief NFRouteAgentServer服务器未处理协议
+     * @brief NFRouteAgentServer服务器未处理协议,协议来自别的内网服务器， 由NFRouteAgentServer,NFRouteServer转发
      * @param unLinkId
      * @param packet
      * @return
      */
-	int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+	int OnHandleRouteAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
     //////////////////////////////////////////////////////////NFRouteAgent服务器//////////////////////////////////////////////////////////////////
 
 

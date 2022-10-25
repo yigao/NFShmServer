@@ -71,9 +71,9 @@ bool NFCGameServerModule::Awake()
             uint64_t gameServerLinkId = (uint64_t) unlinkId;
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_GAME_SERVER, gameServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
-                                                       &NFCGameServerModule::OnGameSocketEvent);
+                                                             &NFCGameServerModule::OnGameServerSocketEvent);
             FindModule<NFIMessageModule>()-> AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
-                                                             &NFCGameServerModule::OnHandleGameOtherMessage);
+                                                              &NFCGameServerModule::OnHandleGameServerOtherMessage);
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "game server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
@@ -94,7 +94,7 @@ bool NFCGameServerModule::Awake()
                             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
                                                                              &NFCGameServerModule::OnRouteAgentServerSocketEvent);
                             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pServerData->mUnlinkId, this,
-                                                                             &NFCGameServerModule::OnHandleRouteAgentOtherMessage);
+                                                                             &NFCGameServerModule::OnHandleRouteAgentServerOtherMessage);
                             auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_GAME_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
                             pRouteServer->mServerInfo = pServerData->mServerInfo;
@@ -126,7 +126,7 @@ bool NFCGameServerModule::Awake()
 	return true;
 }
 
-int NFCGameServerModule::OnGameSocketEvent(eMsgType nEvent, uint64_t unLinkId)
+int NFCGameServerModule::OnGameServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
@@ -141,7 +141,7 @@ int NFCGameServerModule::OnGameSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     return 0;
 }
 
-int NFCGameServerModule::OnHandleGameOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCGameServerModule::OnHandleGameServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "packet:{} not handled!", packet.ToString());
@@ -192,7 +192,7 @@ int NFCGameServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage&
          * @brief proxy agent server msg
          */
         case proto_ff::NF_SERVER_TO_SERVER_REGISTER:
-            retCode = OnServerRegisterProcessFromProxyAgent(unLinkId, packet);
+            retCode = OnServerRegisterProcessFromProxyServer(unLinkId, packet);
             break;
 
         /**
@@ -205,7 +205,7 @@ int NFCGameServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage&
          * @brief routeagent server msg
          */
         case proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP:
-            retCode = OnRegisterRouteAgentRspProcess(unLinkId, packet);
+            retCode = OnRegisterRouteAgentServerRspProcess(unLinkId, packet);
             break;
 
         /**
@@ -314,7 +314,7 @@ bool NFCGameServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleRouteAgentReport(xData);
+            OnHandleRouteAgentServerReport(xData);
         });
 
         FindModule<NFINamingModule>()->WatchBusUrls(NF_ST_GAME_SERVER, NF_ST_PROXY_AGENT_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
@@ -325,7 +325,7 @@ bool NFCGameServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer Watch ProxyAgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleProxyAgentReport(xData);
+            OnHandleProxyAgentServerReport(xData);
         });
     }
     else
@@ -338,7 +338,7 @@ bool NFCGameServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleRouteAgentReport(xData);
+            OnHandleRouteAgentServerReport(xData);
         });
 
         FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_GAME_SERVER, NF_ST_PROXY_AGENT_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
@@ -349,7 +349,7 @@ bool NFCGameServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer Watch ProxyAgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleProxyAgentReport(xData);
+            OnHandleProxyAgentServerReport(xData);
         });
     }
 
@@ -484,7 +484,7 @@ int NFCGameServerModule::ServerReportToMasterServer()
 	return 0;
 }
 
-int NFCGameServerModule::OnServerRegisterProcessFromProxyAgent(uint64_t unLinkId, NFDataPackage& packet)
+int NFCGameServerModule::OnServerRegisterProcessFromProxyServer(uint64_t unLinkId, NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	proto_ff::ServerInfoReportList xMsg;
@@ -497,7 +497,7 @@ int NFCGameServerModule::OnServerRegisterProcessFromProxyAgent(uint64_t unLinkId
 		{
 		case NF_SERVER_TYPES::NF_ST_PROXY_SERVER:
 		{
-			OnHandleProxyRegister(xData, unLinkId);
+            OnHandleProxyServerRegister(xData, unLinkId);
 		}
 		break;
 		default:
@@ -522,7 +522,7 @@ int NFCGameServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId,
 		{
         case NF_SERVER_TYPES::NF_ST_ROUTE_AGENT_SERVER:
         {
-            OnHandleRouteAgentReport(xData);
+            OnHandleRouteAgentServerReport(xData);
         }
         break;
 		case NF_SERVER_TYPES::NF_ST_STORE_SERVER:
@@ -532,7 +532,7 @@ int NFCGameServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId,
 		break;
         case NF_SERVER_TYPES::NF_ST_PROXY_AGENT_SERVER:
         {
-            OnHandleProxyAgentReport(xData);
+            OnHandleProxyAgentServerReport(xData);
         }
         break;
 		default:
@@ -544,7 +544,7 @@ int NFCGameServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId,
 }
 
 //游戏服务器注册协议回调
-int NFCGameServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId)
+int NFCGameServerModule::OnHandleProxyServerRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_PROXY_SERVER, -1, "xData.server_type() == NF_ST_PROXY_SERVER");
@@ -564,7 +564,7 @@ int NFCGameServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport&
 	return 0;
 }
 
-int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport &xData) {
+int NFCGameServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport &xData) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
@@ -585,7 +585,7 @@ int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepo
         FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
                                                          &NFCGameServerModule::OnRouteAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
-                                                         &NFCGameServerModule::OnHandleRouteAgentOtherMessage);
+                                                         &NFCGameServerModule::OnHandleRouteAgentServerOtherMessage);
     }
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
@@ -600,7 +600,7 @@ int NFCGameServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepo
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
                                                        &NFCGameServerModule::OnRouteAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, pRouteAgentServerData->mUnlinkId, this,
-                                                       &NFCGameServerModule::OnHandleRouteAgentOtherMessage);
+                                                             &NFCGameServerModule::OnHandleRouteAgentServerOtherMessage);
         }
     }
 
@@ -626,7 +626,7 @@ int NFCGameServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t
 	return 0;
 }
 
-int NFCGameServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCGameServerModule::OnHandleRouteAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
@@ -652,7 +652,7 @@ int NFCGameServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 	return 0;
 }
 
-int NFCGameServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet)
+int NFCGameServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
@@ -667,7 +667,7 @@ int NFCGameServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDat
     return 0;
 }
 
-int NFCGameServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData)
+int NFCGameServerModule::OnHandleProxyAgentServerReport(const proto_ff::ServerInfoReport& xData)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");

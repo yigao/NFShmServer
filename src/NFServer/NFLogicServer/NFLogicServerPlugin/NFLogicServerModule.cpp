@@ -36,18 +36,15 @@ bool NFCLogicServerModule::Awake()
 {
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_LOGIC_SERVER);
 
-    ///////////////////////////proxy msg//////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCLogicServerModule::OnServerRegisterProcess);
-
-    ///////////////////////////master msg//////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this, &NFCLogicServerModule::OnHandleServerReport);
+    //////////////////////master msg//////////////////////////
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
 
     /////////////////route agent msg///////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCLogicServerModule::OnRegisterRouteAgentRspProcess);
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP);
 
     ////////////////test other server msg///////////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, this, &NFCLogicServerModule::OnHandleTestWorldServerMsg);
-
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ);
 
     //注册要完成的服务器启动任务
 	m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_CONNECT_MASTER, LOGIC_SERVER_CONNECT_MASTER_SERVER);
@@ -64,9 +61,9 @@ bool NFCLogicServerModule::Awake()
             uint64_t logicServerLinkId = (uint64_t) unlinkId;
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_LOGIC_SERVER, logicServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_LOGIC_SERVER, logicServerLinkId, this,
-                                                       &NFCLogicServerModule::OnLogicSocketEvent);
+                                                             &NFCLogicServerModule::OnLogicServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, logicServerLinkId, this,
-                                                       &NFCLogicServerModule::OnHandleOtherMessage);
+                                                             &NFCLogicServerModule::OnHandleLogicServerOtherMessage);
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "logic server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
@@ -85,7 +82,8 @@ bool NFCLogicServerModule::Awake()
                     if (pServerData && pServerData->mUnlinkId > 0) {
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER) {
                             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_LOGIC_SERVER, pServerData->mUnlinkId, this, &NFCLogicServerModule::OnRouteAgentServerSocketEvent);
-                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pServerData->mUnlinkId, this, &NFCLogicServerModule::OnHandleRouteAgentOtherMessage);
+                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pServerData->mUnlinkId, this,
+                                                                             &NFCLogicServerModule::OnHandleRouteAgentServerOtherMessage);
 
                             auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_LOGIC_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
@@ -113,7 +111,7 @@ bool NFCLogicServerModule::Awake()
     return true;
 }
 
-int NFCLogicServerModule::OnLogicSocketEvent(eMsgType nEvent, uint64_t unLinkId)
+int NFCLogicServerModule::OnLogicServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
@@ -122,13 +120,13 @@ int NFCLogicServerModule::OnLogicSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-        OnHandleServerDisconnect(unLinkId);
+        OnHandleLogicServerDisconnect(unLinkId);
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnHandleLogicServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
@@ -136,7 +134,7 @@ int NFCLogicServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
+int NFCLogicServerModule::OnHandleLogicServerDisconnect(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_LOGIC_SERVER, unLinkId);
@@ -166,6 +164,46 @@ int NFCLogicServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
+    }
+    return 0;
+}
+
+int NFCLogicServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+{
+    int retCode = 0;
+    switch (packet.nMsgId)
+    {
+        /**
+         * @brief proxy agent server msg
+         */
+        case proto_ff::NF_SERVER_TO_SERVER_REGISTER:
+            retCode = OnServerRegisterProcessFromProxyServer(unLinkId, packet);
+            break;
+
+            /**
+             * @brief master server msg
+             */
+        case proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER:
+            retCode = OnHandleServerReportFromMasterServer(unLinkId, packet);
+            break;
+            /**
+             * @brief routeagent server msg
+             */
+        case proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP:
+            retCode = OnRegisterRouteAgentServerRspProcess(unLinkId, packet);
+            break;
+
+        case proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ:
+            retCode = OnHandleTestWorldServerMsg(unLinkId, packet);
+            break;
+        default:
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "msg:({}) not handle", packet.ToString());
+            break;
+    }
+
+    if (retCode != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "msg:({}) handle exist error", packet.ToString());
     }
     return 0;
 }
@@ -314,7 +352,7 @@ int NFCLogicServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRe
 
 bool NFCLogicServerModule::Execute()
 {
-    ServerReport();
+    ServerReportToMasterServer();
     TestOtherServerToWorldServer();
     return true;
 }
@@ -371,7 +409,7 @@ int NFCLogicServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPa
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
@@ -424,7 +462,7 @@ int NFCLogicServerModule::RegisterMasterServer(uint32_t serverState)
     return 0;
 }
 
-int NFCLogicServerModule::ServerReport()
+int NFCLogicServerModule::ServerReportToMasterServer()
 {
     if (m_pObjPluginManager->IsLoadAllServer())
     {
@@ -482,7 +520,8 @@ int NFCLogicServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
         pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_LOGIC_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
         FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCLogicServerModule::OnRouteAgentServerSocketEvent);
-        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCLogicServerModule::OnHandleRouteAgentOtherMessage);
+        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this,
+                                                         &NFCLogicServerModule::OnHandleRouteAgentServerOtherMessage);
     }
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
@@ -494,7 +533,8 @@ int NFCLogicServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
             pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_LOGIC_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCLogicServerModule::OnRouteAgentServerSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCLogicServerModule::OnHandleRouteAgentOtherMessage);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_LOGIC_SERVER, pRouteAgentServerData->mUnlinkId, this,
+                                                             &NFCLogicServerModule::OnHandleRouteAgentServerOtherMessage);
         }
     }
 
@@ -520,7 +560,7 @@ int NFCLogicServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnHandleRouteAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
@@ -546,7 +586,7 @@ int NFCLogicServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
     return 0;
 }
 
-int NFCLogicServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
+int NFCLogicServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	//完成服务器启动任务
@@ -561,7 +601,7 @@ int NFCLogicServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDa
     return 0;
 }
 
-int NFCLogicServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnServerRegisterProcessFromProxyServer(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
@@ -574,7 +614,7 @@ int NFCLogicServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPacka
         {
             case NF_SERVER_TYPES::NF_ST_PROXY_SERVER:
             {
-                OnHandleProxyRegister(xData, unLinkId);
+                OnHandleProxyServerRegister(xData, unLinkId);
             }
             break;
             default:
@@ -585,7 +625,7 @@ int NFCLogicServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPacka
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId)
+int NFCLogicServerModule::OnHandleProxyServerRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_SERVER, -1, "xData.server_type() == NF_ST_PROXY_SERVER");

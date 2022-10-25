@@ -57,7 +57,7 @@ LoadPlugin =
 			--"NFSnsServerPlugin",
 			--"NFSnsServerPlayerPlugin",
 
-			--"NFLogicServerPlugin",
+			"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
 			--"NFWebServerPlugin",
