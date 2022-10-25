@@ -118,7 +118,7 @@ public:
      * @param xData
      * @return
      */
-    int OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData);
+    int OnHandleProxyAgentServerReport(const proto_ff::ServerInfoReport& xData);
 
     /**
      * @brief 连接NFProxyAgentServer服务器网络事件处理
@@ -134,7 +134,7 @@ public:
      * @param packet
      * @return
      */
-    int OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
+    int OnHandleProxyAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
 
     /**
      * @brief 注册自身信息到NFProxyAgentServer, 通过NFProxyAgentServer转发, 最终注册到NFProxyServer
@@ -171,7 +171,7 @@ public:
      * @param xData
      * @return
      */
-    int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
+    int OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport& xData);
 
     /**
      * @brief 注册自身信息到NFRouteAgentServer

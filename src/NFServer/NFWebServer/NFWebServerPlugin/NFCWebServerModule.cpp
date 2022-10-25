@@ -31,15 +31,17 @@ NFCWebServerModule::~NFCWebServerModule()
 
 bool NFCWebServerModule::Awake() {
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_WEB_SERVER);
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER,
-                                                       proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
-                                                       &NFCWebServerModule::OnHandleServerReport);
+    //////////////////////proxy server msg//////////////////////////
+    RegisterServerMessage(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
+
+    //////////////////////master msg//////////////////////////
+    RegisterServerMessage(NF_ST_WEB_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
 
     /////////////////route agent msg///////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCWebServerModule::OnRegisterRouteAgentRspProcess);
-    ////////////////test other server msg///////////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WEB_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, this, &NFCWebServerModule::OnHandleTestWorldServerMsg);
+    RegisterServerMessage(NF_ST_WEB_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP);
 
+    ////////////////test other server msg///////////////////////////////////////////////
+    RegisterServerMessage(NF_ST_WEB_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ);
 
     //注册要完成的服务器启动任务
     m_pObjPluginManager->RegisterAppTask(NF_ST_WEB_SERVER, APP_INIT_CONNECT_MASTER, WEB_SERVER_CONNECT_MASTER_SERVER);

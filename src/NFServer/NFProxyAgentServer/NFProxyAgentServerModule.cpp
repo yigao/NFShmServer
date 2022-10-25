@@ -546,7 +546,8 @@ int NFCProxyAgentServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFData
                         || pServerData->mServerInfo.server_type() == NF_ST_GAME_SERVER
                         || pServerData->mServerInfo.server_type() == NF_ST_LOGIC_SERVER
                         || pServerData->mServerInfo.server_type() == NF_ST_LOGIN_SERVER
-                        || pServerData->mServerInfo.server_type() == NF_ST_SNS_SERVER)
+                        || pServerData->mServerInfo.server_type() == NF_ST_SNS_SERVER
+                        || pServerData->mServerInfo.server_type() == NF_ST_WEB_SERVER)
                     {
                         FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 
