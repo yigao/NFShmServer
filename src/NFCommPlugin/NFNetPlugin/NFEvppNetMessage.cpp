@@ -964,19 +964,19 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
         {
             if (iRet == -1)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)msg, nLen) param error");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "pSendQueue->Put((const char*)&codePackage, sizeof(NFDataPackage), (const char*)msg, nLen) param error, package:({}) drop msg", codePackage.ToString());
             }
             else if (iRet == -2)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Queue Full error, can't put the error");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Queue Full error, can't put the error, package:({}) drop msg", codePackage.ToString());
             }
             pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
         if (mLoopSendCount.load() <= 0)
         {
-            //mLoopSendCount++;
-            //pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
+            mLoopSendCount++;
+            pObject->mConnPtr->loop()->RunInLoop(std::bind(&NFEvppNetMessage::LoopSend, this, pObject->mConnPtr->loop()));
         }
 
         return true;
