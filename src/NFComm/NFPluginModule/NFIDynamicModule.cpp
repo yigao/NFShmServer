@@ -11,7 +11,6 @@
 #include "NFIDynamicModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFINamingModule.h"
 
 NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p),NFTimerObj(p),NFEventObj(p)
 {
@@ -46,34 +45,26 @@ int NFIDynamicModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& pa
     return 0;
 }
 
-int NFIDynamicModule::InitAppInfo(NF_SERVER_TYPES eServerType, int time_out_ms)
+/**
+ * @brief 注册客户端信息处理函数
+ * @param eType
+ * @param nMsgID
+ * @return
+ */
+bool NFIDynamicModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID)
 {
-    return FindModule<NFINamingModule>()->InitAppInfo(NF_ST_GAME_SERVER, 10000);
+    NET_RECEIVE_FUNCTOR functor = std::bind(&NFIDynamicModule::OnHandleClientMessage, this, std::placeholders::_1, std::placeholders::_2);
+    return FindModule<NFIMessageModule>()->AddMessageCallBack(eType, NF_MODULE_CLIENT, nMsgID, this, functor);
 }
 
 /**
- * @brief 注册要完成的服务器启动任务
- * @param eServerType
- * @param taskType
- * @param desc
- * @param initStatus
+ * @brief 注册服务器信息处理函数
+ * @param eType
+ * @param nMsgID
  * @return
  */
-int NFIDynamicModule::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,
-                            uint32_t initStatus/* = APP_INIT_STATUS_SERVER_CONNECT*/)
+bool NFIDynamicModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID)
 {
-    return m_pObjPluginManager->RegisterAppTask(eServerType, taskType, desc, initStatus);
-}
-
-/**
- * @brief 完成的服务器启动任务
- * @param eServerType
- * @param taskType
- * @param initStatus
- * @return
- */
-int NFIDynamicModule::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
-                          uint32_t initStatus/* = APP_INIT_STATUS_SERVER_CONNECT*/)
-{
-    return m_pObjPluginManager->FinishAppTask(eServerType, taskType, initStatus);
+    NET_RECEIVE_FUNCTOR functor = std::bind(&NFIDynamicModule::OnHandleServerMessage, this, std::placeholders::_1, std::placeholders::_2);
+    return FindModule<NFIMessageModule>()->AddMessageCallBack(eType, NF_MODULE_SERVER, nMsgID, this, functor);
 }

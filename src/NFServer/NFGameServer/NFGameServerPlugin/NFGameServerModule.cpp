@@ -24,8 +24,10 @@
 #define GAME_SERVER_CONNECT_ROUTEAGENT_SERVER "GameServer Connect RouteAgentServer"
 #define GAME_SERVER_CHECK_STORE_SERVER "GameServer Check StoreServer"
 
-#define GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID 1
-#define GAME_SERVER_SERVER_DEAD_TIMER_ID 10000
+#define GAME_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID 1
+#define GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID 2
+#define GAME_SERVER_SERVER_DEAD_TIMER_ID 3
+
 
 NFCGameServerModule::NFCGameServerModule(NFIPluginManager* p):NFIGameServerModule(p)
 {
@@ -37,7 +39,7 @@ NFCGameServerModule::~NFCGameServerModule()
 
 bool NFCGameServerModule::Awake()
 {
-    InitAppInfo(NF_ST_GAME_SERVER, 10000);
+    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_GAME_SERVER, 10000);
     //////////////////////master msg//////////////////////////
 	RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
 
@@ -52,9 +54,9 @@ bool NFCGameServerModule::Awake()
 
 
     //注册要完成的服务器启动任务
-	RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_MASTER, GAME_SERVER_CONNECT_MASTER_SERVER);
-	RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, GAME_SERVER_CONNECT_ROUTEAGENT_SERVER);
-	RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_NEED_STORE_SERVER, GAME_SERVER_CHECK_STORE_SERVER);
+	m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_MASTER, GAME_SERVER_CONNECT_MASTER_SERVER);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, GAME_SERVER_CONNECT_ROUTEAGENT_SERVER);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_NEED_STORE_SERVER, GAME_SERVER_CHECK_STORE_SERVER);
 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)
@@ -70,7 +72,7 @@ bool NFCGameServerModule::Awake()
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_GAME_SERVER, gameServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
                                                        &NFCGameServerModule::OnGameSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
+            FindModule<NFIMessageModule>()-> AddOtherCallBack(NF_ST_GAME_SERVER, gameServerLinkId, this,
                                                              &NFCGameServerModule::OnHandleGameOtherMessage);
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "game server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
@@ -117,7 +119,10 @@ bool NFCGameServerModule::Awake()
     Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 
-	SetTimer(GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID, 10000, 1);
+    SetTimer(GAME_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID, 10000);
+#ifdef TEST_SERVER_SEND_MSG
+	SetTimer(GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID, 1000);
+#endif
 	return true;
 }
 
@@ -235,7 +240,11 @@ void NFCGameServerModule::OnTimer(uint32_t nTimerID)
     }
     else if (nTimerID == GAME_SERVER_TEST_WORLD_SERVER_TIMER_ID)
     {
-        //TestOtherServerToWorldServer();
+        TestOtherServerToWorldServer();
+    }
+    else if (nTimerID == GAME_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
+    {
+        ServerReportToMasterServer();
     }
 }
 
@@ -374,8 +383,6 @@ int NFCGameServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRep
 
 bool NFCGameServerModule::Execute()
 {
-    TestOtherServerToWorldServer();
-    ServerReport();
 	return true;
 }
 
@@ -447,20 +454,12 @@ int NFCGameServerModule::RegisterMasterServer(uint32_t serverState)
 	return 0;
 }
 
-int NFCGameServerModule::ServerReport()
+int NFCGameServerModule::ServerReportToMasterServer()
 {
 	if (m_pObjPluginManager->IsLoadAllServer())
 	{
 		return 0;
 	}
-
-	static uint64_t mLastReportTime = m_pObjPluginManager->GetNowTime();
-	if (mLastReportTime + 100000 > m_pObjPluginManager->GetNowTime())
-	{
-		return 0;
-	}
-
-	mLastReportTime = m_pObjPluginManager->GetNowTime();
 
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	if (pConfig)

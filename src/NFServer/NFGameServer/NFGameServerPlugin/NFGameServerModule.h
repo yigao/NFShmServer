@@ -103,7 +103,7 @@ public:
 	 * @brief 每隔一段时间向Master服务器发送自身信息
 	 * @return
 	 */
-    int ServerReport();
+    int ServerReportToMasterServer();
 
     /**
      * @brief 接受来自MasterServer的其他服务器的报告

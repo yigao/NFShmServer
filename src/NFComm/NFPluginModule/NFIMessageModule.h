@@ -182,14 +182,14 @@ public:
 
 public:
     /**
- * @brief 添加服务器
- *
- * @param  eType		服务器类型
- * @param  nServerID	服务器ID
- * @param  nMaxClient	服务器最大连接客户端数
- * @param  nPort		服务器监听端口
- * @return int			返回0错误
- */
+     * @brief 添加服务器
+     *
+     * @param  eType		服务器类型
+     * @param  nServerID	服务器ID
+     * @param  nMaxClient	服务器最大连接客户端数
+     * @param  nPort		服务器监听端口
+     * @return int			返回0错误
+     */
     virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100,
                                uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) = 0;
 
