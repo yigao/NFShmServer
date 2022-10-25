@@ -1169,6 +1169,18 @@ class ServerInfoReport : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& db_name_list() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_db_name_list();
 
+  // repeated uint32 msg_id = 48;
+  inline int msg_id_size() const;
+  inline void clear_msg_id();
+  static const int kMsgIdFieldNumber = 48;
+  inline ::google::protobuf::uint32 msg_id(int index) const;
+  inline void set_msg_id(int index, ::google::protobuf::uint32 value);
+  inline void add_msg_id(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      msg_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_msg_id();
+
   // @@protoc_insertion_point(class_scope:proto_ff.ServerInfoReport)
  private:
   inline void set_has_bus_id();
@@ -1264,10 +1276,11 @@ class ServerInfoReport : public ::google::protobuf::Message {
   ::std::string* contract_info_;
   ::std::string* machine_addr_;
   ::google::protobuf::RepeatedPtrField< ::std::string> db_name_list_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > msg_id_;
   ::google::protobuf::uint32 proc_pid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(31 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -4163,6 +4176,31 @@ ServerInfoReport::db_name_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 ServerInfoReport::mutable_db_name_list() {
   return &db_name_list_;
+}
+
+// repeated uint32 msg_id = 48;
+inline int ServerInfoReport::msg_id_size() const {
+  return msg_id_.size();
+}
+inline void ServerInfoReport::clear_msg_id() {
+  msg_id_.Clear();
+}
+inline ::google::protobuf::uint32 ServerInfoReport::msg_id(int index) const {
+  return msg_id_.Get(index);
+}
+inline void ServerInfoReport::set_msg_id(int index, ::google::protobuf::uint32 value) {
+  msg_id_.Set(index, value);
+}
+inline void ServerInfoReport::add_msg_id(::google::protobuf::uint32 value) {
+  msg_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+ServerInfoReport::msg_id() const {
+  return msg_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+ServerInfoReport::mutable_msg_id() {
+  return &msg_id_;
 }
 
 // -------------------------------------------------------------------

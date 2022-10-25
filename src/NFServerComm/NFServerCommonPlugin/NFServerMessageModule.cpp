@@ -33,7 +33,7 @@ int NFServerMessageModule::SendMsgToMasterServer(NF_SERVER_TYPES eSendType, uint
 
 int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendProxyMsgByBusId(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+    return SendProxyMsgByBusId(eType, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
@@ -50,7 +50,7 @@ int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t n
 
 int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendProxyMsgByBusId(eType, nDstId, NF_MODULE_NONE, nMsgId, msg, nLen, nParam1, nParam2);
+    return SendProxyMsgByBusId(eType, nDstId, NF_MODULE_SERVER, nMsgId, msg, nLen, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t nParam1, uint64_t nParam2)
@@ -67,7 +67,7 @@ int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t n
 
 int NFServerMessageModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendMsgToProxyServer(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+    return SendMsgToProxyServer(eType, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
@@ -90,7 +90,7 @@ int NFServerMessageModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t 
 
 int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendMsgToWorldServer(eType, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+    return SendMsgToWorldServer(eType, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
@@ -100,7 +100,7 @@ int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t 
 
 int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendMsgToGameServer(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+    return SendMsgToGameServer(eType, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
@@ -110,7 +110,7 @@ int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t n
 
 int NFServerMessageModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
 {
-    return SendMsgToLogicServer(eType, nDstId, NF_MODULE_NONE, nMsgId, xData, nParam1, nParam2);
+    return SendMsgToLogicServer(eType, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1, uint64_t nParam2)
@@ -341,7 +341,7 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
                cmd, table_id, table_name, trans_id, seq, mod_key);
 
     switch (cmd) {
@@ -358,7 +358,7 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
         }
     }
 
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
 int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname, const std::string &table_name,
@@ -376,7 +376,7 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
                cmd, table_id, table_name, trans_id, seq, mod_key);
 
     switch (cmd) {
@@ -392,7 +392,7 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
             break;
         }
     }
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
 int
@@ -412,10 +412,10 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
                cmd, table_id, table_name, trans_id, seq, mod_key);
 
-    //NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "message:{}", xData.DebugString());
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "message:{}", xData.DebugString());
     switch (cmd) {
         case proto_ff::E_STORESVR_C2S_EXECUTE: {
             svrPkg.set_msg_data(storesvr_execute(dbname, table_name, mod_key, xData));
@@ -426,7 +426,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
         }
             break;
     }
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
 int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
@@ -445,10 +445,10 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cmd:{} table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
                cmd, table_id, table_name, trans_id, seq, mod_key);
 
-    //NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "message:{}", xData.DebugString());
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "message:{}", xData.DebugString());
     switch (cmd) {
         case proto_ff::E_STORESVR_C2S_SELECT: {
             std::vector<storesvr_sqldata::storesvr_vk> vk_list;
@@ -486,6 +486,6 @@ int NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_
             break;
     }
 
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_NONE, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 

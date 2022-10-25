@@ -643,7 +643,7 @@ NetEvppObject* NFEvppNetMessage::AddNetObject(const evpp::TCPConnPtr conn, uint3
 	uint64_t usLinkId = GetFreeUnLinkId();
 	if (usLinkId == 0)
 	{
-		NFLogError(NF_LOG_NET_PLUGIN, 0, "GetFreeUnLinkId Failed, connected count:{}  Can't add connect", mNetObjectArray.size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId Failed, connected count:{}  Can't add connect", mNetObjectArray.size());
 		return nullptr;
 	}
 
@@ -743,7 +743,7 @@ uint64_t NFEvppNetMessage::GetFreeUnLinkId()
         }
 	}
 
-    NFLogError(NF_LOG_NET_PLUGIN, 0, "GetFreeUnLinkId failed!");
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetFreeUnLinkId failed!");
     return 0;
 }
 

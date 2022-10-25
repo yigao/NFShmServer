@@ -782,7 +782,7 @@ int NFCAsyMysqlModule::AddMysqlServer(const std::string& nServerID, const std::s
 	std::string strDBUser, std::string strDBPwd, int nRconnectTime,
 	int nRconneCount)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads()*2);
 
 	for (size_t i = 0; i < m_vecActorPool.size(); i++)
@@ -800,28 +800,28 @@ int NFCAsyMysqlModule::AddMysqlServer(const std::string& nServerID, const std::s
         CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
 	}
 
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCAsyMysqlModule::QueryDescStore(const std::string& serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject, const QueryDescStore_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFQueryDescStoreTask* pTask = NF_NEW NFQueryDescStoreTask(serverID, table, pSheetMessageObject, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCAsyMysqlModule::SelectByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_sel &select,
 	const SelectByCond_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFSelectByCondTask* pTask = NF_NEW NFSelectByCondTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -829,11 +829,11 @@ int NFCAsyMysqlModule::SelectByCond(const std::string& nServerID, const storesvr
 int NFCAsyMysqlModule::SelectObj(const std::string& nServerID, const storesvr_sqldata::storesvr_selobj &select,
 	const SelectObj_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFSelectObjTask* pTask = NF_NEW NFSelectObjTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -841,11 +841,11 @@ int NFCAsyMysqlModule::SelectObj(const std::string& nServerID, const storesvr_sq
 int NFCAsyMysqlModule::DeleteByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_del &select,
 	const DeleteByCond_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFDeleteByCondTask* pTask = NF_NEW NFDeleteByCondTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -853,11 +853,11 @@ int NFCAsyMysqlModule::DeleteByCond(const std::string& nServerID, const storesvr
 int NFCAsyMysqlModule::DeleteObj(const std::string& nServerID, const storesvr_sqldata::storesvr_delobj &select,
 	const DeleteObj_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFDeleteObjTask* pTask = NF_NEW NFDeleteObjTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -865,66 +865,66 @@ int NFCAsyMysqlModule::DeleteObj(const std::string& nServerID, const storesvr_sq
 int NFCAsyMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_ins &select,
 	const InsertObj_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFInsertObjTask* pTask = NF_NEW NFInsertObjTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCAsyMysqlModule::ModifyByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_mod &select,
                                  const ModifyByCond_CB& cb)
 {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFModifyByCondTask* pTask = NF_NEW NFModifyByCondTask(nServerID, select, cb);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCAsyMysqlModule::ModifyObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modobj &select,
 		const ModifyObj_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFModifyObjTask* pTask = NF_NEW NFModifyObjTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCAsyMysqlModule::UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_modins &select,
                                  const UpdateByCond_CB& cb)
 {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFUpdateByCondTask* pTask = NF_NEW NFUpdateByCondTask(nServerID, select, cb);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCAsyMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modinsobj &select,
 		const UpdateObj_CB& cb)
 {
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFUpdateObjTask* pTask = NF_NEW NFUpdateObjTask(nServerID, select, cb);
 	int iRet = AddTask(pTask);
 	CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-	NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCAsyMysqlModule::Execute(const std::string& nServerID, const storesvr_sqldata::storesvr_execute &select,
             const Execute_CB& cb)
 {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFExecuteTask* pTask = NF_NEW NFExecuteTask(nServerID, select, cb);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 

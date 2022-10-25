@@ -55,7 +55,7 @@ bool NFCSnsServerModule::Awake()
 		{
 			if (pConfig->ServerType != NF_ST_SNS_SERVER)
 			{
-				NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "server config error, server id not match the server type!");
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "server config error, server id not match the server type!");
 				exit(0);
 			}
 		}
@@ -70,11 +70,11 @@ bool NFCSnsServerModule::Awake()
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_SNS_SERVER, logicServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_SNS_SERVER, logicServerLinkId, this, &NFCSnsServerModule::OnSnsSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_SNS_SERVER, logicServerLinkId, this, &NFCSnsServerModule::OnHandleOtherMessage);
-            NFLogInfo(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sns server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
         {
-            NFLogInfo(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sns server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
 
@@ -101,7 +101,7 @@ bool NFCSnsServerModule::Awake()
 	}
 	else
 	{
-		NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "I Can't get the Sns Server config!");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the Sns Server config!");
 		return false;
 	}
 
@@ -154,7 +154,7 @@ int NFCSnsServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xD
     }
     else
     {
-        NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "I Can't get the Sns Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the Sns Server config!");
         return -1;
     }
 
@@ -255,12 +255,12 @@ bool NFCSnsServerModule::OnDynamicPlugin()
 */
 int NFCSnsServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server connect master success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "sns server connect master success!");
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
@@ -278,9 +278,9 @@ int NFCSnsServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server disconnect master success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "sns server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -289,16 +289,16 @@ int NFCSnsServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 */
 int NFCSnsServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_SNS_SERVER_PLUGIN, 0, "master server other message not handled:msgId:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:msgId:{},ip:{}", packet.ToString(), ip);
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCSnsServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
@@ -322,13 +322,13 @@ int NFCSnsServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& p
 			break;
 		}
 	}
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCSnsServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
@@ -339,7 +339,7 @@ int NFCSnsServerModule::RegisterMasterServer(uint32_t serverState)
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_SNS_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -391,7 +391,7 @@ int NFCSnsServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
 
 int NFCSnsServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_NULL(pConfig);
@@ -428,38 +428,38 @@ int NFCSnsServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
     }
 
     pRouteAgentServerData->mServerInfo = xData;
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCSnsServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		NFLogDebug(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server connect route agent server success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "sns server connect route agent server success!");
 
 		RegisterRouteAgentServer(unLinkId);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		NFLogError(NF_LOG_SNS_SERVER_PLUGIN, 0, "sns server disconnect route agent server success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "sns server disconnect route agent server success");
 	}
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCSnsServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
-	NFLogWarning(NF_LOG_SNS_SERVER_PLUGIN, 0, "msg:{} not handled!", packet.ToString());
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCSnsServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
 	if (pConfig)
 	{
@@ -470,12 +470,12 @@ int NFCSnsServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 
 		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
-	NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCSnsServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	//完成服务器启动任务
 	if (!m_pObjPluginManager->IsInited())
 	{
@@ -483,13 +483,13 @@ int NFCSnsServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFData
 	}
 
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_SNS_SERVER);
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCSnsServerModule::OnSnsSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
     {
 
@@ -498,14 +498,14 @@ int NFCSnsServerModule::OnSnsSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     {
 
     }
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCSnsServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- begin --");
-    NFLogTrace(NF_LOG_SNS_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
@@ -520,7 +520,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
-        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
         CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
@@ -529,7 +529,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
         xData.set_server_name(pConfig->ServerName);
         xData.set_seq(++req);
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_SNS_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
-        NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     }
 #endif
 
@@ -538,7 +538,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
 
 int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     static int last_seq = -1;
 
@@ -554,6 +554,6 @@ int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPack
         last_seq = xMsg.seq();
     }
 
-    NFLogTrace(NF_LOG_GAME_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

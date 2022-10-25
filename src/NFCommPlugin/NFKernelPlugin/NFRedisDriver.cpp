@@ -113,7 +113,7 @@ bool NFRedisDriver::Execute()
 
 int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                               storesvr_sqldata::storesvr_selobj_res &select_res) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -162,21 +162,21 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
 
     if (bRet && pMessageObject != NULL) {
         select_res.set_sel_record(pMessageObject->SerializeAsString());
-        NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "{}", pMessageObject->Utf8DebugString());
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessageObject->Utf8DebugString());
     } else {
-        NFLogError(NF_LOG_MYSQL_PLUGIN, 0, "ParseFromString Failed, tableName:{}, key:{}",
-                  select.baseinfo().tbname(), db_key);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "ParseFromString Failed, tableName:{}, key:{}",
+                   select.baseinfo().tbname(), db_key);
     }
     if (pMessageObject != NULL)
     {
         NF_SAFE_DELETE(pMessageObject);
     }
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -205,12 +205,12 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select) {
         return 1;
     }
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -239,13 +239,13 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select) {
         return 1;
     }
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int
 NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -256,12 +256,12 @@ NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::m
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
     iRet = CreateSql(select, keyMap);
@@ -287,13 +287,13 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select) {
         return -1;
     }
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_ins &select)
 {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
     iRet = CreateSql(select, keyMap);
@@ -319,13 +319,13 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_ins &select)
         return -1;
     }
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
 {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
     iRet = CreateSql(select, keyMap);
@@ -351,12 +351,12 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
         return -1;
     }
 
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -367,12 +367,12 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, st
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &keyMap) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -383,12 +383,12 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap) {
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
@@ -399,7 +399,7 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, st
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, false, true);
     delete pMessageObject;
-    NFLogTrace(NF_LOG_MYSQL_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 

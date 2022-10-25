@@ -65,11 +65,11 @@ bool NFCWorldServerModule::Awake()
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_WORLD_SERVER, worldServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnProxyAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WORLD_SERVER, worldServerLinkId, this, &NFCWorldServerModule::OnHandleProxyAgentOtherMessage);
-            NFLogInfo(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "world server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
         {
-            NFLogInfo(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "world server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
 
@@ -103,7 +103,7 @@ bool NFCWorldServerModule::Awake()
 	}
 	else
 	{
-		NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "I Can't get the world Server config!");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the world Server config!");
 		return false;
 	}
 
@@ -161,7 +161,7 @@ int NFCWorldServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     }
     else
     {
-        NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "I Can't get the world Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the world Server config!");
         return -1;
     }
 
@@ -309,12 +309,12 @@ bool NFCWorldServerModule::OnDynamicPlugin()
 */
 int NFCWorldServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server connect master success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "world server connect master success!");
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
@@ -332,9 +332,9 @@ int NFCWorldServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server disconnect master success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "world server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -343,16 +343,16 @@ int NFCWorldServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 */
 int NFCWorldServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "master server other message not handled:msgId:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:msgId:{},ip:{}", packet.ToString(), ip);
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
@@ -363,7 +363,7 @@ int NFCWorldServerModule::RegisterMasterServer(uint32_t serverState)
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_WORLD_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -406,7 +406,7 @@ int NFCWorldServerModule::ServerReport()
 
 int NFCWorldServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	proto_ff::ServerInfoReportList xMsg;
 	CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -424,14 +424,14 @@ int NFCWorldServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPacka
 			break;
 		}
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 //游戏服务器注册协议回调
 int NFCWorldServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport& xData, uint64_t unlinkId)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_PROXY_SERVER, -1, "xData.server_type() == NF_ST_PROXY_SERVER");
 
 	NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, xData.bus_id());
@@ -443,14 +443,14 @@ int NFCWorldServerModule::OnHandleProxyRegister(const proto_ff::ServerInfoReport
 	pServerData->mUnlinkId = unlinkId;
 	pServerData->mServerInfo = xData;
 
-	NFLogInfo(NF_LOG_WORLD_SERVER_PLUGIN, 0, "Proxy Server Register World Server Success, serverName:{}, ServerId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id(), pServerData->mServerInfo.external_server_ip(), pServerData->mServerInfo.external_server_port());
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Server Register World Server Success, serverName:{}, ServerId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id(), pServerData->mServerInfo.external_server_ip(), pServerData->mServerInfo.external_server_port());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
@@ -484,13 +484,13 @@ int NFCWorldServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage&
 			break;
 		}
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::OnHandleLogicReport(const proto_ff::ServerInfoReport& xData)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_LOGIC_SERVER, -1, "xData.server_type() == NF_ST_LOGIC_SERVER");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, xData.bus_id());
@@ -500,13 +500,13 @@ int NFCWorldServerModule::OnHandleLogicReport(const proto_ff::ServerInfoReport& 
     }
 
     pServerData->mServerInfo = xData;
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCWorldServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
@@ -541,38 +541,38 @@ int NFCWorldServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
     }
 
     pRouteAgentServerData->mServerInfo = xData;
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		NFLogDebug(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server connect route agent server success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "world server connect route agent server success!");
 
 		RegisterRouteAgentServer(unLinkId);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server disconnect route agent server success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "world server disconnect route agent server success");
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-	NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "msg:{} not handled!", packet.ToString());
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
 	if (pConfig)
 	{
@@ -583,13 +583,13 @@ int NFCWorldServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 
 		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
-	NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCWorldServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	//完成服务器启动任务
 	if (!m_pObjPluginManager->IsInited())
 	{
@@ -597,14 +597,14 @@ int NFCWorldServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDa
 	}
 
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_WORLD_SERVER);
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 
 int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     CHECK_NULL(pConfig);
@@ -641,13 +641,13 @@ int NFCWorldServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 
 
     pServerData->mServerInfo = xData;
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCWorldServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     if (pConfig)
     {
@@ -659,31 +659,31 @@ int NFCWorldServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
     }
 
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCWorldServerModule::OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
     {
-        NFLogDebug(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server connect proxy agent server success!");
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "world server connect proxy agent server success!");
         RegisterProxyAgentServer(unLinkId);
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-        NFLogError(NF_LOG_WORLD_SERVER_PLUGIN, 0, "world server disconnect proxy agent server");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "world server disconnect proxy agent server");
     }
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCWorldServerModule::OnHandleProxyAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
-    NFLogWarning(NF_LOG_WORLD_SERVER_PLUGIN, 0, "msg:{} not handled!", packet.ToString());
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
@@ -718,7 +718,7 @@ int NFCWorldServerModule::OnCheckWorldServerAllMessage(uint64_t unLinkId, NFData
 
 int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     proto_ff::Proto_TestOtherServerToWorldServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -746,6 +746,6 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
         FindModule<NFIMessageModule>()->SendMsgToServer(NF_ST_WORLD_SERVER, NF_ST_NONE, 0, packet.nSrcId, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
     }
 
-    NFLogTrace(NF_LOG_WORLD_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

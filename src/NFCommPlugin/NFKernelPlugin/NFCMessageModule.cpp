@@ -479,6 +479,22 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModul
     return false;
 }
 
+std::set<uint32_t> NFCMessageModule::GetAllMsg(NF_SERVER_TYPES eType, uint32_t nModuleId)
+{
+    std::set<uint32_t> vec;
+    if (eType < mxCallBack.size()) {
+        CHECK_EXPR_ASSERT(nModuleId < NF_MODULE_MAX, vec, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
+        for(int i = 0; i < (int)mxCallBack[eType].mxReceiveCallBack[nModuleId].size(); i++)
+        {
+            if (mxCallBack[eType].mxReceiveCallBack[nModuleId][i].m_pTarget != NULL)
+            {
+                vec.insert(i);
+            }
+        }
+    }
+    return vec;
+}
+
 bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget,
                                         const NET_RECEIVE_FUNCTOR &cb) {
     if (eType < mxCallBack.size()) {

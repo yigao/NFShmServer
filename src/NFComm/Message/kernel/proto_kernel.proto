@@ -192,6 +192,7 @@ message ServerInfoReport
   optional string  contract_info = 45;
   optional string  machine_addr = 46;
   repeated string  db_name_list = 47;
+  repeated uint32  msg_id = 48;
 }
 
 message ServerInfoReportList

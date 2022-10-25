@@ -319,7 +319,7 @@ int NFCTaskModule::GetBalanceActor(uint64_t balanceId)
 
 	if (m_vecActorPool.empty())
 	{
-		NFLogError(NF_LOG_ACTOR_PLUGIN, 0, "error");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
 		return -1;
 	}
 
@@ -331,7 +331,7 @@ int NFCTaskModule::GetBalanceActor(uint64_t balanceId)
 	}
 	else
 	{
-		NFLogError(NF_LOG_ACTOR_PLUGIN, 0, "error");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
 		return -1;
 	}
 }
@@ -340,7 +340,7 @@ int NFCTaskModule::GetRandActor()
 {
 	if (m_vecActorPool.empty())
 	{
-		NFLogError(NF_LOG_ACTOR_PLUGIN, 0, "error");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
 		return -1;
 	}
 
@@ -352,7 +352,7 @@ int NFCTaskModule::GetRandActor()
 	}
 	else
 	{
-		NFLogError(NF_LOG_ACTOR_PLUGIN, 0, "error");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
 		return -1;
 	}
 }
@@ -464,13 +464,13 @@ void NFCTaskModule::OnMainThreadTick()
 				{
 					//error
 				}
-				NFLogError(NF_LOG_ACTOR_PLUGIN, 0, "task actor module error................");
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "task actor module error................");
 			}
 		}
 
 		if (!listTask.empty())
 		{
-			//NFLogDebug(NF_LOG_ACTOR_PLUGIN, 0, "handle main thread tick task num:{}, use time:{}", listTask.size(),
+			//NFLogDebug(NF_LOG_SYSTEMLOG, 0, "handle main thread tick task num:{}, use time:{}", listTask.size(),
 			//           NFTime::Tick() - start);
 		}
 	}

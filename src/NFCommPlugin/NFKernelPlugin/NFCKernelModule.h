@@ -29,7 +29,7 @@ enum
     ZONEID_MASK = 0x0FFF,
 };
 
-class NFCKernelModule : public NFIKernelModule
+class NFCKernelModule : public NFIKernelModule, public NFTimerObj
 {
 public:
 	explicit NFCKernelModule(NFIPluginManager* p);
@@ -54,7 +54,7 @@ public:
 	virtual uint64_t Get64UUID() override;
 	virtual uint64_t Get32UUID() override;
 
-    virtual void OnTimer(uint32_t nTimerID);
+    virtual void OnTimer(uint32_t nTimerID) override;
 
     int OnKillServerProcess(uint64_t unLinkId, NFDataPackage& packet);
 protected:

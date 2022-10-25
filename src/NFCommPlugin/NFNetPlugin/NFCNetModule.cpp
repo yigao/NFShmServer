@@ -198,7 +198,7 @@ int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::stri
 			uint32_t busid = NFServerIDUtil::GetBusID(addr.mHost);
 			if (busid <= 0)
 			{
-				NFLogError(NF_LOG_NET_PLUGIN, 0, "BusAddrAton Failed! host:{}", addr.mHost);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "BusAddrAton Failed! host:{}", addr.mHost);
 				return -1;
 			}
 			NFMessageFlag flag;
@@ -278,14 +278,14 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 				return linkId;
 			}
 
-			NFLogError(NF_LOG_NET_PLUGIN, 0, "Add Server Failed!");
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "Add Server Failed!");
 		}
 		else if (addr.mScheme == "bus")
 		{
 			uint32_t busid = NFServerIDUtil::GetBusID(addr.mHost);
 			if (busid <= 0)
 			{
-				NFLogError(NF_LOG_NET_PLUGIN, 0, "BusAddrAton Failed! host:{}", addr.mHost);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "BusAddrAton Failed! host:{}", addr.mHost);
 				return -1;
 			}
 			NFMessageFlag flag;
@@ -314,7 +314,7 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 				return linkId;
 			}
 
-			NFLogError(NF_LOG_NET_PLUGIN, 0, "Add Server Failed!");
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "Add Server Failed!");
 		}
 	}
 	return -1;
@@ -407,7 +407,7 @@ void NFCNetModule::CloseLinkId(uint64_t usLinkId)
 			}
 			else
 			{
-				NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 			}
 		}
 		else
@@ -420,11 +420,11 @@ void NFCNetModule::CloseLinkId(uint64_t usLinkId)
 			}
 			else
 			{
-				NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 			}
 		}
 	}
-	NFLogError(NF_LOG_NET_PLUGIN, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
+	NFLogError(NF_LOG_SYSTEMLOG, 0, "CloseLinkId error, usLinkId:{} not exist!", usLinkId);
 }
 
 void NFCNetModule::Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string& strData, uint64_t nParam1, uint64_t nParam2, uint64_t srcId, uint64_t dstId)
@@ -526,7 +526,7 @@ bool NFCNetModule::Send(uint64_t usLinkId, NFDataPackage& packet, const char* ms
             }
             else
             {
-                NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
             }
         }
         else
@@ -538,14 +538,14 @@ bool NFCNetModule::Send(uint64_t usLinkId, NFDataPackage& packet, const char* ms
             }
             else
             {
-                NFLogError(NF_LOG_NET_PLUGIN, 0, "bus SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "bus SendByServerID error, usLinkId:{} not exist!", usLinkId);
             }
         }
     }
 
     if (usLinkId != 0)
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
     }
 
     return false;
@@ -567,7 +567,7 @@ bool NFCNetModule::Send(uint64_t usLinkId, NFDataPackage& packet, const google::
             }
             else
             {
-                NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
             }
         }
         else
@@ -579,14 +579,14 @@ bool NFCNetModule::Send(uint64_t usLinkId, NFDataPackage& packet, const google::
             }
             else
             {
-                NFLogError(NF_LOG_NET_PLUGIN, 0, "bus SendByServerID error, usLinkId:{} not exist!", usLinkId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "bus SendByServerID error, usLinkId:{} not exist!", usLinkId);
             }
         }
     }
 
     if (usLinkId != 0)
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SendByServerID error, usLinkId:{} not exist!", usLinkId);
     }
 
     return false;

@@ -56,7 +56,7 @@ bool NFCProxyServerModule::Awake()
 
         if (!m_pObjPluginManager->IsLoadAllServer()) {
             if (pConfig->ServerType != NF_ST_PROXY_SERVER) {
-                NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "server config error, server id not match the server type!");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "server config error, server id not match the server type!");
                 exit(0);
             }
         }
@@ -73,17 +73,17 @@ bool NFCProxyServerModule::Awake()
                                                        &NFCProxyServerModule::OnProxyServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
                                                        &NFCProxyServerModule::OnHandleProxyServerOtherMessage);
-            NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy server listen success, serverId:{}, ip:{}, port:{}",
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "proxy server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
-            NFLogInfo(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "proxy server listen failed!, serverId:{}, ip:{}, port:{}",
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "proxy server listen failed!, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
     }
     else
     {
-        NFLogError(NF_LOG_PROXY_CLIENT_PLUGIN, 0, "I Can't get the Proxy Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the Proxy Server config!");
         return false;
     }
 
@@ -136,7 +136,7 @@ int NFCProxyServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     }
     else
     {
-        NFLogError(NF_LOG_PROXY_SERVER_PLUGIN, 0, "I Can't get the Proxy Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the Proxy Server config!");
         return -1;
     }
 
@@ -177,7 +177,7 @@ bool NFCProxyServerModule::Init()
 
 int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() > NF_ST_NONE && xData.server_type() <= NF_ST_MAX, -1, "xData.server_type() > NF_ST_NONE && xData.server_type() <= NF_ST_MAX");
     auto pProxyAgentServer = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
     CHECK_EXPR(pProxyAgentServer && pProxyAgentServer->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "Not From NF_ST_PROXY_AGENT_SERVER");
@@ -196,13 +196,13 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
 
     //test send msg
     //TestSendProxyMsgToOtherServer(xData.bus_id());
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCProxyServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoReport& xData, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_PROXY_AGENT_SERVER, -1, "xData.server_type() == NF_ST_PROXY_AGENT_SERVER");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, xData.bus_id());
@@ -219,7 +219,7 @@ int NFCProxyServerModule::OnHandleProxyAgentReport(const proto_ff::ServerInfoRep
 
     RegisterProxyAgentServer(unLinkId);
 
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 bool NFCProxyServerModule::Execute()
@@ -240,11 +240,11 @@ bool NFCProxyServerModule::OnDynamicPlugin()
 */
 int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		NFLogDebug(NF_LOG_PROXY_SERVER_PLUGIN, 0, "proxy server connect master success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "proxy server connect master success!");
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
@@ -263,9 +263,9 @@ int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		NFLogError(NF_LOG_PROXY_SERVER_PLUGIN, 0, "proxy server disconnect master success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "proxy server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -274,16 +274,16 @@ int NFCProxyServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 */
 int NFCProxyServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_PROXY_SERVER_PLUGIN, 0, "master server other message not handled, packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled, packet:{},ip:{}", packet.ToString(), ip);
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCProxyServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
 	{
@@ -294,7 +294,7 @@ int NFCProxyServerModule::RegisterMasterServer(uint32_t serverState)
 
         FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -339,7 +339,7 @@ int NFCProxyServerModule::ServerReport()
 int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
     /*
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
@@ -357,7 +357,7 @@ int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, NFDataPa
 			break;
 		}
 	}
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     */
 
     return 0;
@@ -365,7 +365,7 @@ int NFCProxyServerModule::OnHandleMasterServerReport(uint64_t unLinkId, NFDataPa
 
 int NFCProxyServerModule::OnHandleProxyAgentServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
@@ -388,14 +388,14 @@ int NFCProxyServerModule::OnHandleProxyAgentServerReport(uint64_t unLinkId, NFDa
                 break;
         }
     }
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 
     return 0;
 }
 
 int NFCProxyServerModule::OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
     {
     }
@@ -403,30 +403,30 @@ int NFCProxyServerModule::OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unL
     {
         OnHandleProxyServerDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCProxyServerModule::OnHandleProxyServerDisconnect(uint64_t unLinkId) {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_PROXY_SERVER, unLinkId);
     if (pServerData)
     {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
         pServerData->mUnlinkId = 0;
 
-        NFLogError(NF_LOG_PROXY_SERVER_PLUGIN, 0, "the server disconnect from proxy server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the server disconnect from proxy server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
         , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_PROXY_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     uint32_t srcBusId = packet.nSrcId;
     auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, srcBusId);
     if (pServerData)
@@ -441,13 +441,13 @@ int NFCProxyServerModule::OnHandleProxyServerOtherMessage(uint64_t unLinkId, NFD
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Can't find busId:{} busName:{} packet:{}", srcBusId, NFServerIDUtil::GetBusNameFromBusID(srcBusId), packet.ToString());
     }
 
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
 	if (pConfig)
 	{
@@ -458,13 +458,13 @@ int NFCProxyServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
 
 		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
-	NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCProxyServerModule::TestSendProxyMsgToOtherServer(uint64_t dstBusId)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
@@ -472,17 +472,17 @@ int NFCProxyServerModule::TestSendProxyMsgToOtherServer(uint64_t dstBusId)
     xData.set_server_id(pConfig->ServerId);
     xData.set_server_name(pConfig->ServerName);
     FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, dstBusId, proto_ff::NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ, xData, 1, 2);
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCProxyServerModule::OnHandleTestOtherSendMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     proto_ff::Proto_TestOtherServerSendMsgToProxyServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    NFLogTrace(NF_LOG_PROXY_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

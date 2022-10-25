@@ -60,17 +60,17 @@ bool NFCRouteServerModule::Awake()
                                                              &NFCRouteServerModule::OnRouteSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_ROUTE_SERVER, routeServerLinkId, this,
                                                              &NFCRouteServerModule::OnHandleOtherMessage);
-            NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server listen success, serverId:{}, ip:{}, port:{}",
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "route server listen success, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         } else {
-            NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server listen failed, serverId:{}, ip:{}, port:{}",
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "route server listen failed, serverId:{}, ip:{}, port:{}",
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
     }
 	else
 	{
-		NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "I Can't get the Game Server config!");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the Game Server config!");
 		return false;
 	}
 
@@ -128,7 +128,7 @@ int NFCRouteServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     }
     else
     {
-        NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "I Can't get the route Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the route Server config!");
         return -1;
     }
 
@@ -179,7 +179,7 @@ bool NFCRouteServerModule::OnDynamicPlugin() {
 
 int NFCRouteServerModule::OnRouteSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 
@@ -188,19 +188,19 @@ int NFCRouteServerModule::OnRouteSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 	{
 		OnHandleServerDisconnect(unLinkId);
 	}
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_SERVER,
                                                                                                  unLinkId);
     if (pServerData) {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
         pServerData->mUnlinkId = 0;
 
-        NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
+        NFLogError(NF_LOG_SYSTEMLOG, 0,
                    "the server disconnect from route server, serverName:{}, busid:{}, busname:{}. serverIp:{}, serverPort:{}",
                    pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(),
                    pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(),
@@ -208,7 +208,7 @@ int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
     }
 
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_ROUTE_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -225,8 +225,8 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_SERVER, unLinkId);
     CHECK_EXPR(pServerData != NULL, -1, "pServer == NULL");
 
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
-               "--{}:{} trans route agent server({}:{}) msg from {}:{} to {}:{}, packet:{} --", pConfig->ServerName, pConfig->ServerId, pServerData->mServerInfo.server_name(),pServerData->mServerInfo.server_id(),
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0,
+               "--{}:{} trans route agent server({}:{}) msg from {}:{} to {}:{}, packet:{} --", pConfig->ServerName, pConfig->ServerId, pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id(),
                GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
 
     if (destBusId == 0) {
@@ -238,7 +238,7 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
             if (pRouteAgent) {
                 FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
             } else {
-                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                            packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
             }
         }
@@ -252,12 +252,12 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
             if (pRouteAgent) {
                 FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
             } else {
-                NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                            packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType),
                            NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
             }
         } else {
-            NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                        packet.ToString(), GetServerName((NF_SERVER_TYPES) fromServerType),
                        NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
         }
@@ -271,12 +271,12 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
 */
 int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server connect master success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "route server connect master success!");
 
 		if (!m_pObjPluginManager->IsInited())
         {
@@ -297,9 +297,9 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "route server disconnect master success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "route server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -308,16 +308,16 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 */
 int NFCRouteServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCRouteServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
 	if (pConfig)
 	{
@@ -328,7 +328,7 @@ int NFCRouteServerModule::RegisterMasterServer(uint32_t serverState)
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_ROUTE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -372,7 +372,7 @@ int NFCRouteServerModule::ServerReport()
 
 int
 NFCRouteServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -387,7 +387,7 @@ NFCRouteServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& 
                 break;
         }
     }
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
@@ -396,7 +396,7 @@ int NFCRouteServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage&
 }
 
 int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NFDataPackage& packet) {
-//    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
 
@@ -414,12 +414,12 @@ int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NF
                 NF_SHARE_PTR<NFServerData> pOldServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER,
                                                                                 pRegServerData->mRouteAgentBusId);
                 if (pOldServerData) {
-                    NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) has register {}({}), now register {}({})",
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}({}) has register {}({}), now register {}({})",
                                xData.server_name(), xData.bus_id(),
                                pOldServerData->mServerInfo.server_name(), pOldServerData->mServerInfo.bus_id(),
                                pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id());
                 } else {
-                    NFLogError(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) has register {}(can't find), now register {}({})",
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}({}) has register {}(can't find), now register {}({})",
                                xData.server_name(), xData.bus_id(),
                                pRegServerData->mRouteAgentBusId,
                                pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id());
@@ -433,19 +433,19 @@ int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NF
             pRegServerData->mRouteAgentBusId = pServerData->mServerInfo.bus_id();
             pRegServerData->mServerInfo = xData;
 
-            NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "{}({}) register route agent:{}({}) trans to route svr success",
-                       pRegServerData->mServerInfo.server_name(), pRegServerData->mServerInfo.server_id(),
-                       pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id());
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}({}) register route agent:{}({}) trans to route svr success",
+                      pRegServerData->mServerInfo.server_name(), pRegServerData->mServerInfo.server_id(),
+                      pServerData->mServerInfo.server_name(), pServerData->mServerInfo.server_id());
         }
     }
 
-//    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 //游戏服务器注册协议回调
 int NFCRouteServerModule::OnHandleRouteAgentRegister(const proto_ff::ServerInfoReport &xData, uint64_t unlinkId) {
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, xData.bus_id());
@@ -458,12 +458,12 @@ int NFCRouteServerModule::OnHandleRouteAgentRegister(const proto_ff::ServerInfoR
 
     FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_ROUTE_SERVER, xData.bus_id(), pServerData->mUnlinkId);
 
-    NFLogInfo(NF_LOG_ROUTE_SERVER_PLUGIN, 0,
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0,
               "Route Agent Server Register Route Server Success, serverName:{}, busid:{}, busname:{}, ip:{}, port:{}",
               pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(),
               pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(),
               pServerData->mServerInfo.server_port());
-    NFLogTrace(NF_LOG_ROUTE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 

@@ -15,10 +15,10 @@
 #include "NFIDynamicModule.h"
 
 class NFIKernelModule
-	: public NFIDynamicModule
+	: public NFIModule
 {
 public:
-	NFIKernelModule(NFIPluginManager* p) :NFIDynamicModule(p)
+	NFIKernelModule(NFIPluginManager* p) :NFIModule(p)
 	{
 
 	}

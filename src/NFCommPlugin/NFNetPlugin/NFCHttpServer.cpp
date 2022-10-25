@@ -90,10 +90,10 @@ bool NFCHttpServer::InitServer(uint32_t listen_port)
         {
             return true;
         }
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Start Listen Port:{} Failed!", listen_port);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Start Listen Port:{} Failed!", listen_port);
     }
 
-    NFLogError(NF_LOG_NET_PLUGIN, 0, "Init Listen Port:{} Failed!", listen_port);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Init Listen Port:{} Failed!", listen_port);
     return false;
 }
 
@@ -105,10 +105,10 @@ bool NFCHttpServer::InitServer(const std::vector<uint32_t> &listen_ports)
         {
             return true;
         }
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Start Listen Port:{} Failed!", NFCommon::tostr(listen_ports));
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Start Listen Port:{} Failed!", NFCommon::tostr(listen_ports));
     }
 
-    NFLogError(NF_LOG_NET_PLUGIN, 0, "Init Listen Port:{} Failed!", NFCommon::tostr(listen_ports));
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Init Listen Port:{} Failed!", NFCommon::tostr(listen_ports));
     return false;
 }
 
@@ -120,10 +120,10 @@ bool NFCHttpServer::InitServer(const std::string &listen_ports/*like "80,8080,44
         {
             return true;
         }
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Start Listen Port:{} Failed!", listen_ports);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Start Listen Port:{} Failed!", listen_ports);
     }
 
-    NFLogError(NF_LOG_NET_PLUGIN, 0, "Init Listen Port:{} Failed!", listen_ports);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "Init Listen Port:{} Failed!", listen_ports);
     return false;
 }
 
@@ -236,7 +236,7 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string &strMsg, N
     auto it = mHttpRequestMap.find(requestId);
     if (it == mHttpRequestMap.end())
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg Timeout........ requestId:{}, mStrMsg:{}", requestId, strMsg);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Response Msg Timeout........ requestId:{}, mStrMsg:{}", requestId, strMsg);
         return false;
     }
 
@@ -245,7 +245,7 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string &strMsg, N
     bool ret = req->ResponseMsg(strMsg, code, strReason);
     if (!ret)
     {
-        NFLogError(NF_LOG_NET_PLUGIN, 0, "Response Msg error........ requestId:{}, mStrMsg:{}", requestId, strMsg);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Response Msg error........ requestId:{}, mStrMsg:{}", requestId, strMsg);
     }
 
     req->Reset();

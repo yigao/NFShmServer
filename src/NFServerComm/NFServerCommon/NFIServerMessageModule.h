@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFError.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include <map>
 #include <unordered_map>
 #include <list>

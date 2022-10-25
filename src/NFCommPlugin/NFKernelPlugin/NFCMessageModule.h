@@ -148,6 +148,7 @@ public:
 
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) override;
 
+    virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) override;
 public:
     /// @brief 设置通信驱动(通信库)，运行时只支持一种通信驱动，如rawudp，tbuspp或第3方网络库
     /// @param driver 对MessageDriver接口实现的网络库

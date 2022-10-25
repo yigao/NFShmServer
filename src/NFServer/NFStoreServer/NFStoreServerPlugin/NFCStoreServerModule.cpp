@@ -61,7 +61,7 @@ bool NFCStoreServerModule::Awake() {
             pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
             pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
         if (iRet != 0) {
-            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, -1, "store server connect mysql failed");
+            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server connect mysql failed");
             return false;
         }
 
@@ -77,11 +77,11 @@ bool NFCStoreServerModule::Awake() {
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_STORE_SERVER, loginServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnStoreSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnHandleOtherMessage);
-            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
         {
-            NFLogInfo(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "store server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
 
@@ -113,7 +113,7 @@ bool NFCStoreServerModule::Awake() {
 	}
 	else
 	{
-		NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "I Can't get the store Server config!");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the store Server config!");
 		return false;
 	}
 
@@ -167,7 +167,7 @@ int NFCStoreServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
     }
     else
     {
-        NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "I Can't get the store Server config!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the store Server config!");
         return -1;
     }
 
@@ -249,7 +249,7 @@ bool NFCStoreServerModule::OnDynamicPlugin()
 
 int
 NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
@@ -292,7 +292,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -328,7 +328,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -360,7 +360,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -392,7 +392,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -424,7 +424,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -454,7 +454,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                if (retMsg.store_info().cb_data().id() > 0)
-                   FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                   FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
            });
         }
         break;
@@ -484,7 +484,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -514,7 +514,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                        if (retMsg.store_info().cb_data().id() > 0)
-                           FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                           FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
                    });
         }
         break;
@@ -544,7 +544,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                 if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
             });
         }
             break;
@@ -564,7 +564,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
                    if (retMsg.store_info().cb_data().id() > 0)
-                       FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_NONE, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
+                       FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
                });
         }
             break;
@@ -574,7 +574,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             break;
     }
 
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
@@ -583,12 +583,12 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 */
 int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server connect master success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "store server connect master success!");
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
@@ -606,9 +606,9 @@ int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server disconnect master success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "store server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -617,16 +617,16 @@ int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 */
 int NFCStoreServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_STORE_SERVER_PLUGIN, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCStoreServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
 	if (pConfig)
 	{
@@ -637,7 +637,7 @@ int NFCStoreServerModule::RegisterMasterServer(uint32_t serverState)
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
@@ -681,7 +681,7 @@ int NFCStoreServerModule::ServerReport()
 
 int NFCStoreServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
 	proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
@@ -701,13 +701,13 @@ int NFCStoreServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage&
 			break;
 		}
 	}
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData)
 {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     CHECK_NULL(pConfig);
@@ -745,38 +745,38 @@ int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRep
     }
 
     pRouteAgentServerData->mServerInfo = xData;
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCStoreServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
-		NFLogDebug(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server connect route agent server success!");
+		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "store server connect route agent server success!");
 
         RegisterRouteAgentServer(unLinkId);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{
-		NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "store server disconnect route agent server success");
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "store server disconnect route agent server success");
 	}
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCStoreServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-	NFLogWarning(NF_LOG_STORE_SERVER_PLUGIN, 0, "packet:{} not handled!", packet.ToString());
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "packet:{} not handled!", packet.ToString());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
 	if (pConfig)
 	{
@@ -787,13 +787,13 @@ int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 
 		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
 	}
-	NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 	return 0;
 }
 
 int NFCStoreServerModule::OnStoreSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
     {
 
@@ -802,38 +802,38 @@ int NFCStoreServerModule::OnStoreSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     {
         OnHandleServerDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCStoreServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
-    NFLogWarning(NF_LOG_STORE_SERVER_PLUGIN, 0, "msg:{} not handled!", packet.ToString());
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCStoreServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_STORE_SERVER, unLinkId);
     if (pServerData)
     {
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
         pServerData->mUnlinkId = 0;
 
-        NFLogError(NF_LOG_STORE_SERVER_PLUGIN, 0, "the server disconnect from store server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the server disconnect from store server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
         , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_STORE_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFCStoreServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     //完成服务器启动任务
     if (!m_pObjPluginManager->IsInited())
@@ -843,6 +843,6 @@ int NFCStoreServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDa
 
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_STORE_SERVER);
 
-    NFLogTrace(NF_LOG_STORE_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

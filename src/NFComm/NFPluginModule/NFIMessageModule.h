@@ -14,13 +14,12 @@
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFIDynamicModule.h"
 
 #include <map>
 #include <unordered_map>
 #include <list>
 #include <string>
-#include <map>
+#include <set>
 #include <functional>
 
 
@@ -89,6 +88,7 @@
     }\
 
 
+class NFIDynamicModule;
 /// @brief 基于消息的通讯接口类
 class NFIMessageModule : public NFIModule
 {
@@ -229,17 +229,17 @@ public:
 
     virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const std::string &strData, uint64_t param1 = 0, uint64_t param2 = 0)
     {
-        Send(usLinkId, NF_MODULE_NONE, nMsgID, strData, param1, param2);
+        Send(usLinkId, NF_MODULE_SERVER, nMsgID, strData, param1, param2);
     }
 
     virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const char *msg, uint32_t nLen, uint64_t param1 = 0, uint64_t param2 = 0)
     {
-        Send(usLinkId, NF_MODULE_NONE, nMsgID, msg, nLen, param1, param2);
+        Send(usLinkId, NF_MODULE_SERVER, nMsgID, msg, nLen, param1, param2);
     }
 
     virtual void Send(uint64_t usLinkId, uint32_t nMsgID, const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0)
     {
-        Send(usLinkId, NF_MODULE_NONE, nMsgID, xData, param1, param2);
+        Send(usLinkId, NF_MODULE_SERVER, nMsgID, xData, param1, param2);
     }
 
     virtual void
@@ -269,20 +269,20 @@ public:
     SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
                    uint64_t param1, uint64_t param2 = 0)
     {
-        return SendMsgByBusId(eType, NF_MODULE_NONE, busId, nMsgId, xData, param1, param2);
+        return SendMsgByBusId(eType, NF_MODULE_SERVER, busId, nMsgId, xData, param1, param2);
     }
 
     virtual int
     SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
                    uint64_t param1, uint64_t param2 = 0)
     {
-        return SendMsgByBusId(eType, NF_MODULE_NONE, busId, nMsgId, msg, nLen, param1, param2);
+        return SendMsgByBusId(eType, NF_MODULE_SERVER, busId, nMsgId, msg, nLen, param1, param2);
     }
 
     virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgId,
                                 const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0)
     {
-        return SendMsgToServer(eSendType, recvType, srcBusId, dstBusId, NF_MODULE_NONE, nMsgId, xData, param1, param2);
+        return SendMsgToServer(eSendType, recvType, srcBusId, dstBusId, NF_MODULE_SERVER, nMsgId, xData, param1, param2);
     }
 
     virtual NF_SHARE_PTR<NFServerData> GetServerByServerId(NF_SERVER_TYPES eSendType, uint32_t busId) = 0;
@@ -333,6 +333,7 @@ public:
 
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) = 0;
 
+    virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) = 0;
 public:
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK") = 0;

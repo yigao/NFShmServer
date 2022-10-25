@@ -29,7 +29,7 @@
 #include "NFComm/NFCore/NFIniReader.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 
-NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p) {
+NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p), NFTimerObj(p) {
     mLastGuidTimeStamp = 0;
     szUniqIDFile = m_pObjPluginManager->GetAppName() + "_" + m_pObjPluginManager->GetBusName() + ".uid";
     uint64_t bWorldType = 0;
@@ -138,7 +138,7 @@ uint64_t NFCKernelModule::Get64UUID()
                              | ( ( uint64_t )m_iAdaptiveTime & ADAPTIVE_TIME_MASK )             /*系统时间*/
     );
 
-    NFLogTrace(NF_LOG_KERNEL_PLUGIN, 0, "gen uuid::{}", ullUniqueID);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "gen uuid::{}", ullUniqueID);
 
     return ullUniqueID;
 }

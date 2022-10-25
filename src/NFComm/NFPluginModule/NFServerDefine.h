@@ -40,7 +40,7 @@ enum NF_SERVER_TYPES
 
 enum NF_MODULE_TYPE
 {
-    NF_MODULE_NONE = 0, //服务器内网通讯
+    NF_MODULE_SERVER= 0, //服务器内网通讯
     NF_MODULE_CLIENT = 1, //客户端外部协议
     NF_MODULE_MAX = 2,
 };
