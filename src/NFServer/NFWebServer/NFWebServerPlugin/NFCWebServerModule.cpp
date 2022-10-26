@@ -66,8 +66,9 @@ bool NFCWebServerModule::Awake() {
             */
             uint64_t loginServerLinkId = (uint64_t) unlinkId;
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_WEB_SERVER, loginServerLinkId);
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnWebSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnHandleOtherMessage);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this, &NFCWebServerModule::OnWebServerSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, loginServerLinkId, this,
+                                                             &NFCWebServerModule::OnHandleWebServerOtherMessage);
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "web server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
         }
         else
@@ -91,7 +92,8 @@ bool NFCWebServerModule::Awake() {
                         if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER)
                         {
                             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pServerData->mUnlinkId, this,
+                                                                             &NFCWebServerModule::OnHandleRouteAgentServerOtherMessage);
 
                             auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_WEB_SERVER);
                             pRouteServer->mUnlinkId = pServerData->mUnlinkId;
@@ -205,7 +207,7 @@ bool NFCWebServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "WebServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleRouteAgentReport(xData);
+            OnHandleRouteAgentServerReport(xData);
         });
     }
     else
@@ -218,7 +220,7 @@ bool NFCWebServerModule::Init()
             }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "WebServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
 
-            OnHandleRouteAgentReport(xData);
+            OnHandleRouteAgentServerReport(xData);
         });
     }
 
@@ -227,7 +229,7 @@ bool NFCWebServerModule::Init()
 
 bool NFCWebServerModule::Execute()
 {
-    ServerReport();
+    ServerReportToMasterServer();
     TestOtherServerToWorldServer();
     return true;
 }
@@ -301,7 +303,7 @@ int NFCWebServerModule::RegisterMasterServer(uint32_t serverState)
     return 0;
 }
 
-int NFCWebServerModule::ServerReport()
+int NFCWebServerModule::ServerReportToMasterServer()
 {
     if (m_pObjPluginManager->IsLoadAllServer())
     {
@@ -339,7 +341,7 @@ int NFCWebServerModule::ServerReport()
     return 0;
 }
 
-int NFCWebServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
+int NFCWebServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
@@ -354,7 +356,7 @@ int NFCWebServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& p
         {
             case NF_SERVER_TYPES::NF_ST_ROUTE_AGENT_SERVER:
             {
-                OnHandleRouteAgentReport(xData);
+                OnHandleRouteAgentServerReport(xData);
             }
                 break;
             default:
@@ -365,7 +367,7 @@ int NFCWebServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& p
     return 0;
 }
 
-int NFCWebServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData)
+int NFCWebServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport& xData)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
@@ -388,7 +390,8 @@ int NFCWebServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
         pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
         FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this,
+                                                         &NFCWebServerModule::OnHandleRouteAgentServerOtherMessage);
     }
     else {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
@@ -400,7 +403,8 @@ int NFCWebServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoRepor
             pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_WEB_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
 
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnRouteAgentServerSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCWebServerModule::OnHandleRouteAgentOtherMessage);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_WEB_SERVER, pRouteAgentServerData->mUnlinkId, this,
+                                                             &NFCWebServerModule::OnHandleRouteAgentServerOtherMessage);
         }
     }
 
@@ -426,7 +430,7 @@ int NFCWebServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t 
     return 0;
 }
 
-int NFCWebServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCWebServerModule::OnHandleRouteAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
@@ -451,7 +455,7 @@ int NFCWebServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
     return 0;
 }
 
-int NFCWebServerModule::OnWebSocketEvent(eMsgType nEvent, uint64_t unLinkId)
+int NFCWebServerModule::OnWebServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
@@ -460,21 +464,21 @@ int NFCWebServerModule::OnWebSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-        OnHandleServerDisconnect(unLinkId);
+        OnHandleWebServerDisconnect(unLinkId);
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
-int NFCWebServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCWebServerModule::OnHandleWebServerOtherMessage(uint64_t unLinkId, NFDataPackage& packetn)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
+    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packetn.ToString());
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
-int NFCWebServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
+int NFCWebServerModule::OnHandleWebServerDisconnect(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_WEB_SERVER, unLinkId);
@@ -492,7 +496,7 @@ int NFCWebServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
     return 0;
 }
 
-int NFCWebServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
+int NFCWebServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     //完成服务器启动任务
