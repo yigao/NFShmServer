@@ -49,10 +49,135 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="dynamic log client msg server msg">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="MMO">
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/GMCommandGMCommand.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/attributeattribute.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/attributepowersup.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/attributesuppress.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/chatchat.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/chatspecialchat.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/decoratedecorate.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/fashionfashion.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/footprintfootprint.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/functionunlockfunctionUnlock.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/halohalo.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/headPortraithead.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/linklink.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/meditationmeditation.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/rolemasterFemale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/rolemasterMale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/rolesickleFemale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/rolesickleMale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roleswordFemale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roleswordMale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roletaidaoFemale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roletaidaoMale.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributeAttributeDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributeAttributeDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributePowersupDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributePowersupDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributeSuppressDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AttributeSuppressDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ChatChatDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ChatChatDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ChatSpecialchatDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ChatSpecialchatDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DecorateDecorateDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DecorateDecorateDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FashionFashionDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FashionFashionDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FootprintFootprintDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FootprintFootprintDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FunctionunlockFunctionunlockDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FunctionunlockFunctionunlockDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/GmcommandGmcommandDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/GmcommandGmcommandDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/HaloHaloDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/HaloHaloDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/HeadportraitHeadDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/HeadportraitHeadDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/LinkLinkDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/LinkLinkDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MeditationMeditationDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MeditationMeditationDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleMasterfemaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleMasterfemaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleMastermaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleMastermaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSicklefemaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSicklefemaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSicklemaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSicklemaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSwordfemaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSwordfemaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSwordmaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleSwordmaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleTaidaofemaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleTaidaofemaleDesc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleTaidaomaleDesc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/RoleTaidaomaleDesc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/areaarea.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/areaarea.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/areapath.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/areapath.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/constantconstant.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/constantconstant.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/equipequip.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/equipequip.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/itemitem.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/itemitem.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/mapdestroyitem.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/mapdestroyitem.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/mapmap.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/mapmap.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/monsterdisplay.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/monsterdisplay.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/monstermonster.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/monstermonster.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/monstervalue.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/monstervalue.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/roleborn.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roleborn.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/roleskillType.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/roleskillType.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/skillbuff.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/skillbuff.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/skillskill.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/skillskill.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/uieffect.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/uieffect.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFMsgPackCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AreaAreaDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AreaAreaDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AreaPathDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AreaPathDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/EquipEquipDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/EquipEquipDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ItemItemDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/ItemItemDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterDisplayDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterDisplayDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterMonsterDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterMonsterDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterValueDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MonsterValueDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillBuffDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillBuffDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/login.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/login_gen.makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/common_logic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/common_logic.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/CSLogin.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/CSLogin.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ClientServer.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ClientServer.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ClientServerCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ClientServerCmd.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/Com.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/Com.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ComDefine.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ComDefine.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerClient.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerClientCmd.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternalCmd.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CSLogin.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CSLogin.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CSLogin.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CSLogin.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServer.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ClientServerCmd.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerClient.pb.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerClient.pb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerClientCmd.pb.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerClientCmd.pb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -525,13 +650,6 @@
       <workItem from="1666678440847" duration="344000" />
       <workItem from="1666678806480" duration="13793000" />
     </task>
-    <task id="LOCAL-00175" summary="mem">
-      <created>1665398438142</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1665398438142</updated>
-    </task>
     <task id="LOCAL-00176" summary="mem pool">
       <created>1665473765353</created>
       <option name="number" value="00176" />
@@ -868,7 +986,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666692561593</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="MMO">
+      <created>1666772810237</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1666772810237</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -881,6 +1006,7 @@
         <option value="Default.Author" />
         <option value="Default.Date" />
         <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
       </list>
     </option>
   </component>
@@ -1031,10 +1157,10 @@
     <MESSAGE value="login handle" />
     <MESSAGE value="net handle" />
     <MESSAGE value="delete code" />
-    <MESSAGE value="MMO" />
     <MESSAGE value="net" />
     <MESSAGE value="dynamic log client msg server msg" />
-    <option name="LAST_COMMIT_MESSAGE" value="dynamic log client msg server msg" />
+    <MESSAGE value="MMO" />
+    <option name="LAST_COMMIT_MESSAGE" value="MMO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
