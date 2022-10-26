@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFWorkServer.h
+//    @FileName         :    NFWorkServerModule.h
 //    @Author           :    gaoyi
 //    @Date             :    22-10-26
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFWorkServer
+//    @Module           :    NFWorkServerModule
 //
 // -------------------------------------------------------------------------
 
@@ -11,10 +11,10 @@
 
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
-class NFWorkServer : public NFIDynamicModule
+class NFWorkServerModule : public NFIDynamicModule
 {
 public:
-    NFWorkServer(NFIPluginManager *p, NF_SERVER_TYPES serverType) : NFIDynamicModule(p), m_serverType(serverType)
+    NFWorkServerModule(NFIPluginManager *p, NF_SERVER_TYPES serverType) : NFIDynamicModule(p), m_serverType(serverType)
     {
         m_connectMasterServer = true;
         m_connectRouteAgentServer = true;
@@ -22,7 +22,7 @@ public:
         m_checkStoreServer = true;
     }
 
-    virtual ~NFWorkServer()
+    virtual ~NFWorkServerModule()
     {
 
     }

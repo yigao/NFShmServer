@@ -43,11 +43,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="MMO">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="work server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,20 +483,6 @@
       <workItem from="1666678440847" duration="344000" />
       <workItem from="1666678806480" duration="13793000" />
     </task>
-    <task id="LOCAL-00177" summary="mem pool">
-      <created>1665474216441</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1665474216441</updated>
-    </task>
-    <task id="LOCAL-00178" summary="mem pool">
-      <created>1665476882137</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1665476882138</updated>
-    </task>
     <task id="LOCAL-00179" summary="mem pool">
       <created>1665478301777</created>
       <option name="number" value="00179" />
@@ -827,7 +812,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666777026285</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="MMO">
+      <created>1666783490495</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1666783490495</updated>
+    </task>
+    <task id="LOCAL-00227" summary="work server">
+      <created>1666784561486</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1666784561486</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -969,7 +968,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete" />
     <MESSAGE value="shell" />
     <MESSAGE value="makefile" />
     <MESSAGE value="chong gou" />
@@ -994,7 +992,8 @@
     <MESSAGE value="net" />
     <MESSAGE value="dynamic log client msg server msg" />
     <MESSAGE value="MMO" />
-    <option name="LAST_COMMIT_MESSAGE" value="MMO" />
+    <MESSAGE value="work server" />
+    <option name="LAST_COMMIT_MESSAGE" value="work server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
