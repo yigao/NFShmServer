@@ -11,6 +11,9 @@
 
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
+/**
+ * @brief 业务服务器类似NFLogicServer,NFWorldServer,NFSnsServer，实现类似连接NFMasterServer,NFProxyAgentServer,NFRouteAgentServer等功能
+ */
 class NFWorkServerModule : public NFIDynamicModule
 {
 public:
@@ -26,6 +29,22 @@ public:
     {
 
     }
+
+    /**
+     * @brief 处理定时器
+     * @param nTimerID
+     */
+    virtual void OnTimer(uint32_t nTimerID) override;
+
+    /**
+     * @brief 响应注册事件
+     * @param nEventID
+     * @param nSrcID
+     * @param bySrcType
+     * @param message
+     * @return
+     */
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
 public:
     NF_SERVER_TYPES GetServerType() const;
 
@@ -47,8 +66,8 @@ public:
 
     void SetCheckStoreServer(bool checkStoreServer);
 public:
-    bool BindServer();
-    bool ConnectMasterServer();
+    int BindServer();
+    int ConnectMasterServer();
 public:
     //////////////////////////////////////////////////////////Server服务器//////////////////////////////////////////////////////////////////
     /**

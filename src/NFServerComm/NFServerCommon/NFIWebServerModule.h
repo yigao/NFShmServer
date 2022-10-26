@@ -9,12 +9,12 @@
 
 #pragma once
 
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFWorkServerModule.h"
 
-class NFIWebServerModule : public NFIDynamicModule
+class NFIWebServerModule : public NFWorkServerModule
 {
 public:
-    NFIWebServerModule(NFIPluginManager* p) :NFIDynamicModule(p)
+    NFIWebServerModule(NFIPluginManager* p) :NFWorkServerModule(p,NF_ST_WEB_SERVER)
     {
 
     }
