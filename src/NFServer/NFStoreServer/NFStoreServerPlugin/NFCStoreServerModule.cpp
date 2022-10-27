@@ -18,9 +18,6 @@
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-#define STORE_SERVER_CONNECT_MASTER_SERVER "StoreServer Connect MasterServer"
-#define STORE_SERVER_CONNECT_ROUTE_AGENT_SERVER "StoreServer Connect RouteAgentServer"
-
 NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager* p):NFIStoreServerModule(p)
 {
 }
@@ -30,214 +27,41 @@ NFCStoreServerModule::~NFCStoreServerModule()
 }
 
 bool NFCStoreServerModule::Awake() {
-    //不需要固定帧，需要尽可能跑得快
-    //m_pObjPluginManager->SetFixedFrame(false);
+    SetConnectProxyAgentServer(false);
+    SetCheckStoreServer(false);
 
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER,
-                                                       proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
-                                                       &NFCStoreServerModule::OnHandleServerReport);
-
     //////other server///////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD,
-                                                       this,
-                                                       &NFCStoreServerModule::OnHandleStoreReq);
-
-    /////////////////route agent msg///////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP, this, &NFCStoreServerModule::OnRegisterRouteAgentRspProcess);
-
-
-    //注册要完成的服务器启动任务
-	m_pObjPluginManager->RegisterAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_MASTER, STORE_SERVER_CONNECT_MASTER_SERVER);
-	m_pObjPluginManager->RegisterAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, STORE_SERVER_CONNECT_ROUTE_AGENT_SERVER);
+    RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    if (pConfig) {
-        m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
+    CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
 
-        FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
-        int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
-            pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
-            pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
-        if (iRet != 0) {
-            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server connect mysql failed");
-            return false;
-        }
+    FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
+    int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
+        pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
+        pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
+    if (iRet != 0) {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server connect mysql failed");
+        return false;
+    }
 
-        FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
+    FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
 
-        int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_STORE_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
-        if (unlinkId >= 0)
-        {
-            /*
-                注册客户端事件
-            */
-            uint64_t loginServerLinkId = (uint64_t) unlinkId;
-            FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_STORE_SERVER, loginServerLinkId);
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnStoreSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, loginServerLinkId, this, &NFCStoreServerModule::OnHandleOtherMessage);
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server listen success, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
-        }
-        else
-        {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
-            return false;
-        }
+    BindServer();
 
-        if (pConfig->LinkMode == "bus")
-        {
-            iRet = FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_STORE_SERVER);
-            if (iRet == 0)
-            {
-                std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(
-                        NF_ST_STORE_SERVER);
-                for (int i = 0; i < (int) vecServer.size(); i++)
-                {
-                    NF_SHARE_PTR<NFServerData> pServerData = vecServer[i];
-                    if (pServerData && pServerData->mUnlinkId > 0)
-                    {
-                        if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER)
-                        {
-                            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-                            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
-
-                            auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_STORE_SERVER);
-                            pRouteServer->mUnlinkId = pServerData->mUnlinkId;
-                            pRouteServer->mServerInfo = pServerData->mServerInfo;
-                        }
-                    }
-                }
-            }
-        }
-	}
-	else
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the store Server config!");
-		return false;
-	}
-
-    Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
-    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_STORE_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
 	return true;
-}
-
-int NFCStoreServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
-{
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
-    {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
-        {
-            SetTimer(10000, 10000, 0);
-        }
-        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
-        {
-            RegisterMasterServer(proto_ff::EST_NARMAL);
-        }
-    }
-
-    Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
-    return 0;
-}
-
-void NFCStoreServerModule::OnTimer(uint32_t nTimerID) {
-    if (nTimerID == 10000) {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
-        NFSLEEP(1000);
-        exit(0);
-    }
-}
-
-int NFCStoreServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)
-{
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    if (pConfig)
-    {
-        auto pMasterServerData = FindModule<NFIMessageModule>()->GetMasterData(NF_ST_STORE_SERVER);
-        if (pMasterServerData->mUnlinkId <= 0)
-        {
-            pMasterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
-                                                       &NFCStoreServerModule::OnMasterSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pMasterServerData->mUnlinkId, this,
-                                                       &NFCStoreServerModule::OnHandleMasterOtherMessage);
-        }
-
-        pMasterServerData->mServerInfo = xData;
-    }
-    else
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "I Can't get the store Server config!");
-        return -1;
-    }
-
-    return 0;
 }
 
 bool NFCStoreServerModule::Init()
 {
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    NF_ASSERT(pConfig);
-
-#if NF_PLATFORM == NF_PLATFORM_WIN
-	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_STORE_SERVER);
-	int32_t ret = ConnectMasterServer(masterData);
-	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
-#else
-    if (pConfig->RouteConfig.NamingHost.empty())
-    {
-        proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_STORE_SERVER);
-        int32_t ret = ConnectMasterServer(masterData);
-        CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
-    }
-#endif
-
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_STORE_SERVER, NF_ST_MASTER_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch, MasterServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch MasterServer name:{} serverInfo:{}", name, xData.DebugString());
-
-        int32_t ret = ConnectMasterServer(xData);
-        CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
-    });
-
-    if (pConfig->LinkMode == "bus")
-    {
-        FindModule<NFINamingModule>()->WatchBusUrls(NF_ST_STORE_SERVER, NF_ST_ROUTE_AGENT_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-            if (errCode != 0)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch, AgentServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-                return;
-            }
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
-
-            OnHandleRouteAgentReport(xData);
-        });
-    }
-    else
-    {
-        FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_STORE_SERVER, NF_ST_ROUTE_AGENT_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-            if (errCode != 0)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch, AgentServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-                return;
-            }
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "StoreServer Watch AgentServer name:{} serverInfo:{}", name, xData.DebugString());
-
-            OnHandleRouteAgentReport(xData);
-        });
-    }
-
+    ConnectMasterServer();
     return true;
 }
 
 bool NFCStoreServerModule::Execute()
 {
-    ServerReport();
 	return true;
 }
 
@@ -245,6 +69,26 @@ bool NFCStoreServerModule::OnDynamicPlugin()
 {
 	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_STORE_SERVER);
 	return true;
+}
+
+int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+{
+    int retCode = 0;
+    switch (packet.nMsgId)
+    {
+        case proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD:
+            retCode = OnHandleStoreReq(unLinkId, packet);
+            break;
+        default:
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "msg:({}) not handle", packet.ToString());
+            break;
+    }
+
+    if (retCode != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "msg:({}) handle exist error", packet.ToString());
+    }
+    return 0;
 }
 
 int
@@ -573,275 +417,6 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
         }
             break;
     }
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-/*
-	处理Master服务器链接事件
-*/
-int NFCStoreServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-
-	if (nEvent == eMsgType_CONNECTED)
-	{
-		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "store server connect master success!");
-        if (!m_pObjPluginManager->IsInited())
-        {
-            RegisterMasterServer(proto_ff::EST_INIT);
-        }
-        else {
-            RegisterMasterServer(proto_ff::EST_NARMAL);
-        }
-
-		//完成服务器启动任务
-		if (!m_pObjPluginManager->IsInited())
-		{
-			m_pObjPluginManager->FinishAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_MASTER);
-		}
-	}
-	else if (nEvent == eMsgType_DISCONNECTED)
-	{
-		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "store server disconnect master success");
-	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-/*
-	处理Master服务器未注册协议
-*/
-int NFCStoreServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
-	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::RegisterMasterServer(uint32_t serverState)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-	if (pConfig)
-	{
-		proto_ff::ServerInfoReportList xMsg;
-		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-        NFServerCommon::WriteServerInfo(pData, pConfig);
-		pData->set_server_state(serverState);
-
-		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
-	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::ServerReport()
-{
-	if (m_pObjPluginManager->IsLoadAllServer())
-	{
-		return 0;
-	}
-
-	static uint64_t mLastReportTime = m_pObjPluginManager->GetNowTime();
-	if (mLastReportTime + 100000 > m_pObjPluginManager->GetNowTime())
-	{
-		return 0;
-	}
-
-	mLastReportTime = m_pObjPluginManager->GetNowTime();
-
-	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-	if (pConfig)
-	{
-		proto_ff::ServerInfoReportList xMsg;
-		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-        NFServerCommon::WriteServerInfo(pData, pConfig);
-		pData->set_server_state(proto_ff::EST_NARMAL);
-
-		NFIMonitorModule* pMonitorModule = m_pObjPluginManager->FindModule<NFIMonitorModule>();
-		if (pMonitorModule)
-		{
-			const NFSystemInfo& systemInfo = pMonitorModule->GetSystemInfo();
-            NFServerCommon::WriteServerInfo(pData, systemInfo);
-		}
-
-		if (pData->proc_cpu() > 0 && pData->proc_mem() > 0)
-		{
-			FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, xMsg);
-		}
-	}
-	return 0;
-}
-
-int NFCStoreServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-
-	proto_ff::ServerInfoReportList xMsg;
-    CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
-
-
-	for (int i = 0; i < xMsg.server_list_size(); ++i)
-	{
-		const proto_ff::ServerInfoReport& xData = xMsg.server_list(i);
-		switch (xData.server_type())
-		{
-		case NF_SERVER_TYPES::NF_ST_ROUTE_AGENT_SERVER:
-		{
-            OnHandleRouteAgentReport(xData);
-		}
-		break;
-		default:
-			break;
-		}
-	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    CHECK_NULL(pConfig);
-
-    if (!m_pObjPluginManager->IsLoadAllServer())
-    {
-        if (pConfig->RouteConfig.RouteAgent != xData.server_id())
-        {
-            return 0;
-        }
-    }
-
-    auto pRouteAgentServerData = FindModule<NFIMessageModule>()->GetRouteData(NF_ST_STORE_SERVER);
-    CHECK_NULL(pRouteAgentServerData);
-
-    if (pRouteAgentServerData->mUnlinkId == 0)
-    {
-        pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-
-        FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-        FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
-    }
-    else {
-        if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url()) {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "the server:{} old url:{} changed, new url:{}",
-                         pRouteAgentServerData->mServerInfo.server_name(), pRouteAgentServerData->mServerInfo.url(),
-                         xData.url());
-            FindModule<NFIMessageModule>()->CloseLinkId(pRouteAgentServerData->mUnlinkId);
-
-            pRouteAgentServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_STORE_SERVER, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnRouteAgentServerSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_STORE_SERVER, pRouteAgentServerData->mUnlinkId, this, &NFCStoreServerModule::OnHandleRouteAgentOtherMessage);
-        }
-    }
-
-    pRouteAgentServerData->mServerInfo = xData;
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCStoreServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	if (nEvent == eMsgType_CONNECTED)
-	{
-		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "store server connect route agent server success!");
-
-        RegisterRouteAgentServer(unLinkId);
-	}
-	else if (nEvent == eMsgType_DISCONNECTED)
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "store server disconnect route agent server success");
-	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "packet:{} not handled!", packet.ToString());
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
-{
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-	if (pConfig)
-	{
-		proto_ff::ServerInfoReportList xMsg;
-		proto_ff::ServerInfoReport* pData = xMsg.add_server_list();
-        NFServerCommon::WriteServerInfo(pData, pConfig);
-		pData->set_server_state(proto_ff::EST_NARMAL);
-
-		FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);
-	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-	return 0;
-}
-
-int NFCStoreServerModule::OnStoreSocketEvent(eMsgType nEvent, uint64_t unLinkId)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    if (nEvent == eMsgType_CONNECTED)
-    {
-
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
-    {
-        OnHandleServerDisconnect(unLinkId);
-    }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCStoreServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "msg:{} not handled!", packet.ToString());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCStoreServerModule::OnHandleServerDisconnect(uint64_t unLinkId)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_STORE_SERVER, unLinkId);
-    if (pServerData)
-    {
-        pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
-        pServerData->mUnlinkId = 0;
-
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the server disconnect from store server, serverName:{}, busid:{}, serverIp:{}, serverPort:{}"
-        , pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
-    }
-
-    FindModule<NFIMessageModule>()->DelServerLink(NF_ST_STORE_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCStoreServerModule::OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-
-    //完成服务器启动任务
-    if (!m_pObjPluginManager->IsInited())
-    {
-        m_pObjPluginManager->FinishAppTask(NF_ST_STORE_SERVER, APP_INIT_CONNECT_ROUTE_AGENT_SERVER);
-    }
-
-    FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_STORE_SERVER);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

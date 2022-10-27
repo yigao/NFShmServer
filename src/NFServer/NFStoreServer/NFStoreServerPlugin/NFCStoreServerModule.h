@@ -28,31 +28,19 @@ public:
 
 	virtual bool OnDynamicPlugin() override;
 
-    virtual void OnTimer(uint32_t nTimerID) override;
-
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
-
+    /**
+     * @brief 处理来自服务器的信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+public:
+    /**
+     * @brief 处理数据库请求
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
 	int OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet);
-
-	int RegisterMasterServer(uint32_t serverState);
-	int ServerReport();
-
-	int OnHandleRouteAgentReport(const proto_ff::ServerInfoReport& xData);
-	int OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleRouteAgentOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
-	int RegisterRouteAgentServer(uint64_t unLinkId);
-    int OnRegisterRouteAgentRspProcess(uint64_t unLinkId, NFDataPackage& packet);
-
-	int OnHandleServerReport(uint64_t unLinkId, NFDataPackage& packet);
-
-	/*
-		处理Master服务器链接事件和未注册消息
-	*/
-    int ConnectMasterServer(const proto_ff::ServerInfoReport& xData);
-	int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
-
-    int OnStoreSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-    int OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet);
-    int OnHandleServerDisconnect(uint64_t unLinkId);
 };
