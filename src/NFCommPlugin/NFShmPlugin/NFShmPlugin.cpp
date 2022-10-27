@@ -76,7 +76,6 @@ bool NFShmPlugin::InitShmObjectRegister()
         maxShmtimer = ALL_TIMER_COUNT;
     }
 
-
     REGISTER_SHM_OBJ(NFShmObj, EOT_OBJECT, 0);
     REGISTER_SINGLETON_SHM_OBJ(NFGlobalID, EOT_GLOBAL_ID);
 	REGISTER_SHM_OBJ(NFShmTimer, EOT_TYPE_TIMER_OBJ, maxShmtimer);

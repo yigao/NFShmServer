@@ -44,7 +44,8 @@ typedef enum
         ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
     }while(0)
 
-#define REGISTER_SHM_OBJ_WITH_EXTERNAL_DATA( ClassName, ClassType, ObjNum, externalObjNum ) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, ClassName::GetExternalDataSize(externalObjNum), externalObjNum, true);\
+#define REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX( ClassName, ClassType, ObjNum , indexNum, indexTime) do{\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, indexNum, indexTime);\
     }while(0)
+
 
