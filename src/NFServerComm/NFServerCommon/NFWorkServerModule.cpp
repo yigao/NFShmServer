@@ -537,6 +537,12 @@ int NFWorkServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
         proto_ff::ServerInfoReportList xMsg;
         proto_ff::ServerInfoReport *pData = xMsg.add_server_list();
         NFServerCommon::WriteServerInfo(pData, pConfig);
+
+        std::set<uint32_t> allMsg = FindModule<NFIMessageModule>()->GetAllMsg(m_serverType, NF_MODULE_CLIENT);
+        for(auto iter = allMsg.begin(); iter != allMsg.end(); ++iter)
+        {
+            pData->add_msg_id(*iter);
+        }
         pData->set_server_state(proto_ff::EST_NARMAL);
 
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg, 0);

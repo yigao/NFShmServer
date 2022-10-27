@@ -53,7 +53,15 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleClientMessage(uint64_t unLinkId, NFDataPackage& packet);
+    virtual int OnHandleClientMessageSource(uint64_t unLinkId, NFDataPackage& packet);
+
+    /**
+     * @brief 处理客户端消息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint64_t unLinkId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
 
     /**
      * @brief 处理来自服务器的信息
