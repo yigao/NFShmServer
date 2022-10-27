@@ -14,10 +14,7 @@
     static int   GetUsedCount(NFIPluginManager* pPluginManager);\
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedHead(NFIPluginManager* pPluginManager);\
-    static int   GetFreeHead(NFIPluginManager* pPluginManager);           \
-    static int   GetExternalDataSize(NFIPluginManager* pPluginManager);\
-    static int   GetExternalItemCount(NFIPluginManager* pPluginManager);  \
-    static char* GetExternalBuffer(NFIPluginManager* pPluginManager);\
+    static int   GetFreeHead(NFIPluginManager* pPluginManager);\
     static std::string GetClassName(NFIPluginManager* pPluginManager);                                                                                                                                                    \
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
     static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
@@ -63,18 +60,6 @@
 	{\
         return pPluginManager->FindModule<NFISharedMemModule>()->GetFreeHead(type);\
 	}                                                 \
-	int class_name::GetExternalDataSize(NFIPluginManager* pPluginManager)\
-	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetExternalDataSize(type);\
-	}\
-	int class_name::GetExternalItemCount(NFIPluginManager* pPluginManager)\
-	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetExternalItemCount(type);\
-	}\
-    char* class_name::GetExternalBuffer(NFIPluginManager* pPluginManager)\
-	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetExternalBuffer(type);\
-	}\
 	std::string class_name::GetClassName(NFIPluginManager* pPluginManager) \
 	{\
         return pPluginManager->FindModule<NFISharedMemModule>()->GetClassName(type);\

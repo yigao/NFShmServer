@@ -23,6 +23,6 @@ NFIDRuntimeClass::NFIDRuntimeClass()
 	m_iSelfType = -1;
 	m_pObjSeg = NULL;
 	m_iUseHash = false;
-	m_iExternalDataSize = 0;
-    m_iExternalItemCount = 0;
+    m_iIndexCount = 0;
+    m_iIndexTime = 0;
 }

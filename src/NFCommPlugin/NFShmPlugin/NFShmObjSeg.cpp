@@ -34,16 +34,19 @@ NFShmObjSeg::NFShmObjSeg(NFIPluginManager* p):NFObject(p)
 {
 }
 
-int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfCreateObj)(NFIPluginManager*,void *), bool iUseHash, int externalDataSize, int externalItemCount)
+int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfCreateObj)(NFIPluginManager*,void *), bool iUseHash, int indexCount, int indexTime)
 {
 	m_nObjSize = nObjSize;
 	m_iItemCount = iItemCount;
 	m_iUseHash = iUseHash;
-	m_iExternalDataSize = externalDataSize;
-	m_iExternalItemCount = externalItemCount;
-	m_iExternalBuffer = NULL;
-	//TLib_Log_LogMsg("CObjSeg::%s objsize %d, count %d\n", __FUNCTION__, nObjSize, iItemCount);
-	//printf("In CObjSeg::CObjSeg, ObjSize: %d nItemCount: %d\n", nObjSize, iItemCount);
+    m_iIndexCount = indexCount;
+    m_iIndexTime = indexTime;
+
+    if (m_iIndexCount > 0 && m_iIndexTime <= 0)
+    {
+        m_iIndexTime = 1;
+    }
+
 	m_pIdxs = (NFShmIdx *)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iItemCount * sizeof(NFShmIdx)));
 	m_pObjs = (NFShmObj *)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iItemCount * m_nObjSize));
 
@@ -66,14 +69,22 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
         }
     }
 
-    if (m_iExternalDataSize > 0)
+    if (m_iIndexCount > 0)
     {
-        m_iExternalBuffer = (char*)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_iExternalDataSize));
-        if (!m_iExternalBuffer)
+        CHECK_EXPR_ASSERT(m_iIndexCount <= MAX_NF_SHM_OBJ_SEG_INDEX_COUNT, -1, "m_iIndexCount:{} > MAX_NF_SHM_OBJ_SEG_INDEX_COUNT:{}", m_iIndexCount, MAX_NF_SHM_OBJ_SEG_INDEX_COUNT);
+        m_iIndexBuffer.SetSize(m_iIndexCount);
+        m_indexMgr.SetSize(m_iIndexCount);
+        for(int i = 0; i < m_iIndexCount; i++)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "Allocated share mem not enough Program exit(1)\n");
-            NFSLEEP(1000);
-            exit(1);
+            char* pIndexBuffer = (char*)(m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(m_indexMgr[i].CountSize(m_iItemCount*m_iIndexTime)));
+            if (!pIndexBuffer)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Allocated share mem not enough Program exit(1)\n");
+                NFSLEEP(1000);
+                exit(1);
+            }
+
+            m_iIndexBuffer[i] = pIndexBuffer;
         }
     }
 
@@ -94,6 +105,18 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
             }
         }
+
+        if (m_iIndexCount > 0)
+        {
+            for(int i = 0; i < m_iIndexCount; i++)
+            {
+                int ret = m_indexMgr[i].Init(m_iIndexBuffer[i], m_iItemCount*m_iIndexTime, true);
+                if (ret)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
+                }
+            }
+        }
 	}
 	else
 	{
@@ -109,6 +132,18 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj * (*pfC
             if (ret)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
+            }
+        }
+
+        if (m_iIndexCount > 0)
+        {
+            for(int i = 0; i < m_iIndexCount; i++)
+            {
+                int ret = m_indexMgr[i].Init(m_iIndexBuffer[i], m_iItemCount*m_iIndexTime, false);
+                if (ret)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmHashObjectMgr Init Failed!");
+                }
             }
         }
 	}
@@ -196,10 +231,60 @@ int NFShmObjSeg::HashAlloc(uint64_t key, int globalId)
     int index = m_hashMgr.HashAlloc(key);
     if (index >= 0)
     {
-        int& newId = m_hashMgr[index];
-        newId = globalId;
+        m_hashMgr[index] = globalId;
     }
     return index;
+}
+
+int NFShmObjSeg::CreateIndexByKeyValue(uint32_t indexId, uint64_t indexKey, uint64_t indexValue)
+{
+    CHECK_EXPR_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize(), -1, "");
+    int index = m_indexMgr[indexId].HashAlloc(indexKey);
+    if (index >= 0)
+    {
+        m_indexMgr[indexId][index] = indexValue;
+        return 0;
+    }
+    return -1;
+}
+
+uint64_t* NFShmObjSeg::GetIndexValueByIndexKey(uint32_t indexId, uint64_t indexKey)
+{
+    CHECK_EXPR_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize(), NULL, "");
+    int index = m_indexMgr[indexId].HashFind(indexKey);
+    if (index >= 0)
+    {
+        return &m_indexMgr[indexId][index];
+    }
+    return NULL;
+}
+
+NFShmObj *NFShmObjSeg::CreateIndexToHashKey(uint32_t indexId, uint64_t indexKey, uint64_t hashKey, int iType)
+{
+    CHECK_EXPR_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize(), NULL, "");
+    NFShmObj* pObj = HashFind(hashKey, iType);
+    if (pObj)
+    {
+        int index = m_indexMgr[indexId].HashAlloc(indexKey);
+        if (index >= 0)
+        {
+            m_indexMgr[indexId][index] = hashKey;
+            return pObj;
+        }
+    }
+    return NULL;
+}
+
+NFShmObj *NFShmObjSeg::GetObjByIndexKey(uint32_t indexId, uint64_t indexKey, int iType)
+{
+    CHECK_EXPR_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize(), NULL, "");
+    int index = m_indexMgr[indexId].HashFind(indexKey);
+    if (index >= 0)
+    {
+        int hashKey = m_indexMgr[indexId][index];
+        return HashFind(hashKey, iType);
+    }
+    return NULL;
 }
 
 NFShmObj* NFShmObjSeg::HashFind(uint64_t key, int iType)
@@ -221,6 +306,12 @@ int NFShmObjSeg::HashErase(int hashId)
 NFShmHashObjectMgr<uint64_t, int>& NFShmObjSeg::GetHashMgr()
 {
     return m_hashMgr;
+}
+
+NFShmHashObjectMgr<uint64_t, uint64_t>& NFShmObjSeg::GetIndexMgr(uint32_t indexId)
+{
+    NF_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize());
+    return m_indexMgr[indexId];
 }
 
 void *NFShmObjSeg::AllocMemForObject()
@@ -250,6 +341,11 @@ void NFShmObjSeg::FreeMemForObject(void *pMem)
 int NFShmObjSeg::GetHashSize(int objCount)
 {
     return NFShmHashObjectMgr<uint64_t, int>::CountSize(objCount);
+}
+
+int NFShmObjSeg::GetIndexSize(int indexCount, int indexTime, int objCount)
+{
+    return NFShmHashObjectMgr<uint64_t, uint64_t>::CountSize(objCount*indexTime) * indexCount;
 }
 
 int NFShmObjSeg::CreateIdx()

@@ -30,8 +30,8 @@ public:
 	int m_iSelfType;
 	NFShmObjSeg *m_pObjSeg;
 	bool m_iUseHash;
-	int m_iExternalDataSize;
-    int m_iExternalItemCount;
+	int m_iIndexCount;
+    int m_iIndexTime;
 };
 
 
