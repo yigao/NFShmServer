@@ -36,4 +36,6 @@ public:
     }
 
     virtual void SetOtherServerMsgHandle(const NET_RECEIVE_FUNCTOR& func) = 0;
+
+    virtual uint32_t GetClientMsgServer(uint32_t msgId) = 0;
 };

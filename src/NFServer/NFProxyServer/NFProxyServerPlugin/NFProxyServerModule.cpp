@@ -26,6 +26,7 @@ NFCProxyServerModule::NFCProxyServerModule(NFIPluginManager* p):NFIProxyServerMo
 {
     m_proxyServerLinkId = 0;
     m_otherServerMsgHandle = NULL;
+    m_clientMsgToServerMap.resize(NF_NET_MAX_MSG_ID);
 }
 
 NFCProxyServerModule::~NFCProxyServerModule()
@@ -190,6 +191,14 @@ int NFCProxyServerModule::OnHandleOtherReport(const proto_ff::ServerInfoReport& 
 
     pServerData->mUnlinkId = unLinkId;
     pServerData->mServerInfo = xData;
+
+    for(int i = 0; i < (int)xData.msg_id_size(); i++)
+    {
+        if (xData.msg_id(i) < (uint32_t)m_clientMsgToServerMap.size())
+        {
+            m_clientMsgToServerMap[xData.msg_id(i)] = xData.server_type();
+        }
+    }
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Register Proxy Server, serverName:{} busName:{}", xData.server_name(), xData.server_name(),
               xData.server_id());
@@ -484,5 +493,14 @@ int NFCProxyServerModule::OnHandleTestOtherSendMsg(uint64_t unLinkId, NFDataPack
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+uint32_t NFCProxyServerModule::GetClientMsgServer(uint32_t msgId)
+{
+    if (msgId < (uint32_t)m_clientMsgToServerMap.size())
+    {
+        return m_clientMsgToServerMap[msgId];
+    }
     return 0;
 }
