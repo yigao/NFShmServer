@@ -104,7 +104,7 @@ bool NFCNetModule::Finalize()
 	mBusServerArray.clear();
 
     /**
-     * @brief ÊÍ·Å×ÊÔ´
+     * @brief é‡Šæ”¾èµ„æº
      */
     NFIPacketParse::ReleasePacketParse();
 	return true;
