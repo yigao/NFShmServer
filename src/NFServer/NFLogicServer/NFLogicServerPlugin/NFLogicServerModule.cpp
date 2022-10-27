@@ -20,14 +20,6 @@
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
 
-#define LOGIC_SERVER_CONNECT_MASTER_SERVER "LogicServer Connect MasterServer"
-#define LOGIC_SERVER_CONNECT_ROUTEAGENT_SERVER "LogicServer Connect RouteAgentServer"
-#define LOGIC_SERVER_CHECK_STORE_SERVER "LogicServer CHECK StoreServer"
-
-#define LOGIC_SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID 1
-#define LOGIC_SERVER_TEST_WORLD_SERVER_TIMER_ID 2
-#define LOGIC_SERVER_SERVER_DEAD_TIMER_ID 3
-
 NFCLogicServerModule::NFCLogicServerModule(NFIPluginManager* p):NFILogicServerModule(p)
 {
 }

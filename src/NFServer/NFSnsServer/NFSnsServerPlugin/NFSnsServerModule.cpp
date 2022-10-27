@@ -19,10 +19,6 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
-#define SNS_SERVER_CONNECT_MASTER_SERVER "SnsServer Connect MasterServer"
-#define SNS_SERVER_CONNECT_ROUTEAGENT_SERVER "SnsServer Connect RouteAgentServer"
-#define SNS_SERVER_CHECK_STORE_SERVER "SnsServer CHECK StoreServer"
-
 NFCSnsServerModule::NFCSnsServerModule(NFIPluginManager* p):NFISnsServerModule(p)
 {
 }

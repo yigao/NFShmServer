@@ -18,10 +18,6 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
-#define WEB_SERVER_CONNECT_MASTER_SERVER "WebServer Connect MasterServer"
-#define WEB_SERVER_CONNECT_ROUTE_AGENT_SERVER "WebServer Connect RouteAgentServer"
-#define WEB_SERVER_CHECK_STORE_SERVER "WebServer Check StoreServer"
-
 NFCWebServerModule::NFCWebServerModule(NFIPluginManager* p):NFIWebServerModule(p)
 {
 }
