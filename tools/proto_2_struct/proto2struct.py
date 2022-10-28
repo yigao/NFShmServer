@@ -160,7 +160,7 @@ def write_hfile():
 								line += "\t\tstd::string %s" % (msg_field.name)
 								line += ";\n"
 							else:
-								line += "\t\tNFSizeBuffer<%d> %s" % (msg_field.buffer_size, msg_field.name)
+								line += "\t\tNFSizeString<%d> %s" % (msg_field.buffer_size, msg_field.name)
 								line += ";\n"
 						else:
 							if message_desc.use_stl == True:
