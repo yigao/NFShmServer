@@ -36,6 +36,21 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+
+    /**
+     * @brief 接受来自MasterServer的其他服务器的报告
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleOtherServerReportFromMasterServer(const proto_ff::ServerInfoReport &xData) override;
+
+    /**
+     * @brief 处理逻辑服务器信息
+     * @param xData
+     * @return
+     */
+    virtual int OnHandleLogicReport(const proto_ff::ServerInfoReport& xData);
 public:
     ////////////test server msg///////////////////////////////////////
     int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet);

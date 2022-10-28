@@ -131,6 +131,7 @@ def write_hfile():
 			h_file.write("\tstruct %s_s : public NFDescStoreSeqOP {\n" % message_desc.name)
 
 		h_file.write("\t\t%s_s();\n" % message_desc.name)
+		h_file.write("\t\tvirtual ~%s_s(){}\n" % message_desc.name)
 		h_file.write("\t\tint CreateInit();\n")
 		h_file.write("\t\tint ResumeInit();\n")
 		for msg_field in message_desc.field_lst:

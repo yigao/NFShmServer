@@ -105,7 +105,7 @@ int NFCMysqlDriverManager::AddMysqlServer(const std::string& serverID, const std
     }
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0,
-              "Connecy Mysql Success:nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
+              "Connecy Mysql Success:nServerID:{}, strIP:{}, nPort:{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
 			serverID, strIP, nPort, strDBName, strDBUser, strDBPwd);
 
     return 0;

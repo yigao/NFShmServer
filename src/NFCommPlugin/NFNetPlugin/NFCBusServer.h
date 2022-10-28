@@ -40,7 +40,7 @@ public:
     *
     * @return 是否成功
     */
-    virtual int64_t BindServer(const NFMessageFlag& flag);
+    virtual uint64_t BindServer(const NFMessageFlag& flag);
 
     /**
      * @brief 主线程处理消息队列

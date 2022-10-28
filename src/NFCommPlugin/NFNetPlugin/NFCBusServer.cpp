@@ -42,8 +42,8 @@ bool NFCBusServer::Execute()
 
 bool NFCBusServer::Init()
 {
-    int64_t linkId = BindServer(mFlag);
-    if (linkId <= 0)
+    uint64_t linkId = BindServer(mFlag);
+    if (linkId == 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "BindServer Failed!");
         return false;
@@ -69,12 +69,12 @@ bool NFCBusServer::Finalize()
 *
 * @return 是否成功
 */
-int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
+uint64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
 {
     if (flag.mBusId <= 0 || flag.mBusLength <= 4096)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "busid:{} busLength:{} error!", flag.mBusId, flag.mBusLength);
-        return -1;
+        return 0;
     }
 
     int ret = AttachShm((key_t)flag.mBusId, (size_t)flag.mBusLength);
@@ -86,14 +86,14 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
     if (ret < 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "bus init failed:{} ", ret);
-        return ret;
+        return 0;
     }
 
     NFShmRecordType * pShmRecord = GetShmRecord();
     if (pShmRecord == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "GetShmRecord failed, busid:{} ", flag.mBusId);
-        return -1;
+        return 0;
     }
 
     pShmRecord->m_nOwner = true;
@@ -116,7 +116,7 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
         if (head->m_nShmAddr.mDstLinkId != pShmRecord->m_nUnLinkId)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "shm dst linkId:{} != now linkId:{} ", head->m_nShmAddr.mDstLinkId, pShmRecord->m_nUnLinkId);
-            return -1;
+            return 0;
         }
     }
 

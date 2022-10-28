@@ -125,14 +125,14 @@ public:
     *
     * @return 是否成功
     */
-    virtual int64_t BindServer(const NFMessageFlag &flag) = 0;
+    virtual uint64_t BindServer(const NFMessageFlag &flag) = 0;
 
     /**
     * @brief	初始化
     *
     * @return 是否成功
     */
-    virtual int64_t ConnectServer(const NFMessageFlag &flag) = 0;
+    virtual uint64_t ConnectServer(const NFMessageFlag &flag) = 0;
 
     /**
      * @brief	发送数据 不包含数据头

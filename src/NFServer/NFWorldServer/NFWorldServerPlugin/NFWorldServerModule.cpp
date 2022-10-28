@@ -74,6 +74,37 @@ int NFCWorldServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
+int NFCWorldServerModule::OnHandleOtherServerReportFromMasterServer(const proto_ff::ServerInfoReport &xData)
+{
+    switch (xData.server_type())
+    {
+        case NF_SERVER_TYPES::NF_ST_LOGIC_SERVER:
+        {
+            OnHandleLogicReport(xData);
+        }
+        break;
+        default:
+            break;
+    }
+    return 0;
+}
+
+int NFCWorldServerModule::OnHandleLogicReport(const proto_ff::ServerInfoReport& xData)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    CHECK_EXPR(xData.server_type() == NF_ST_LOGIC_SERVER, -1, "xData.server_type() == NF_ST_LOGIC_SERVER");
+
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, xData.bus_id());
+    if (!pServerData)
+    {
+        pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_WORLD_SERVER, xData.bus_id(), NF_ST_LOGIC_SERVER, xData);
+    }
+
+    pServerData->mServerInfo = xData;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
 int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");

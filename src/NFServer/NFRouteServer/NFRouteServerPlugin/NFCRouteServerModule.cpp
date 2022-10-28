@@ -48,13 +48,13 @@ bool NFCRouteServerModule::Awake()
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig) {
         m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
-        int64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_ROUTE_SERVER, pConfig->Url,
+        uint64_t unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_ROUTE_SERVER, pConfig->Url,
                                                                 pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
-        if (unlinkId >= 0) {
+        if (unlinkId > 0) {
             /*
                 注册客户端事件
             */
-            uint64_t routeServerLinkId = (uint64_t) unlinkId;
+            uint64_t routeServerLinkId = unlinkId;
             FindModule<NFIMessageModule>()->SetServerLinkId(NF_ST_ROUTE_SERVER, routeServerLinkId);
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_ROUTE_SERVER, routeServerLinkId, this,
                                                              &NFCRouteServerModule::OnRouteSocketEvent);

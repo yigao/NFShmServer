@@ -74,9 +74,9 @@ bool NFCBusMessage::ReadyExecute()
 *
 * @return 是否成功
 */
-int64_t NFCBusMessage::BindServer(const NFMessageFlag &flag)
+uint64_t NFCBusMessage::BindServer(const NFMessageFlag &flag)
 {
-    CHECK_EXPR(m_bindConnect == NULL, -1, "BindServer Failed!");
+    CHECK_EXPR(m_bindConnect == NULL, 0, "BindServer Failed!");
     NF_SHARE_PTR<NFCBusServer> pServer = NF_SHARE_PTR<NFCBusServer>(NF_NEW NFCBusServer(m_pObjPluginManager, mServerType, flag));
     NF_ASSERT(pServer);
 
@@ -87,19 +87,20 @@ int64_t NFCBusMessage::BindServer(const NFMessageFlag &flag)
     if (pServer->Init())
     {
         m_busConnectMap.AddElement(pServer->GetLinkId(), pServer);
-    } else
+    }
+    else
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "NFCBusServer Init Failed!");
-        return -1;
+        return 0;
     }
 
     m_bindConnect = pServer;
     return pServer->GetLinkId();
 }
 
-int64_t NFCBusMessage::ConnectServer(const NFMessageFlag &flag)
+uint64_t NFCBusMessage::ConnectServer(const NFMessageFlag &flag)
 {
-    CHECK_EXPR(m_bindConnect, -1, "ConnectServer Failed, muset bindserver");
+    CHECK_EXPR(m_bindConnect, 0, "ConnectServer Failed, muset bindserver");
 
     NF_SHARE_PTR<NFCBusClient> pConn = NF_SHARE_PTR<NFCBusClient>(
             NF_NEW NFCBusClient(m_pObjPluginManager, mServerType, flag, m_bindConnect->GetBindFlag()));
@@ -108,16 +109,17 @@ int64_t NFCBusMessage::ConnectServer(const NFMessageFlag &flag)
     if (pConn->Init())
     {
         m_busConnectMap.AddElement(pConn->GetLinkId(), pConn);
-    } else
+    }
+    else
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "NFCBusClient Init Failed")
-        return -1;
+        return 0;
     }
 
     return pConn->GetLinkId();
 }
 
-bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const char* msg, uint32_t nLen)
+bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage &packet, const char *msg, uint32_t nLen)
 {
     auto pConn = m_busConnectMap.GetElement(usLinkId);
 
@@ -130,7 +132,7 @@ bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const char* m
     return false;
 }
 
-bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const google::protobuf::Message& xData)
+bool NFCBusMessage::Send(uint64_t usLinkId, NFDataPackage &packet, const google::protobuf::Message &xData)
 {
     auto pConn = m_busConnectMap.GetElement(usLinkId);
 
@@ -176,7 +178,7 @@ void NFCBusMessage::CloseLinkId(uint64_t usLinkId)
     return pConn->CloseLinkId();
 }
 
-void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& packet)
+void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)
 {
     if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
                                     || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT ||
@@ -197,7 +199,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                 if (pConn)
                 {
                     mRecvCB(m_bindConnect->GetLinkId(), pConn->GetLinkId(), packet);
-                } else
+                }
+                else
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "BusMessage OnHandleMsgPeer Error, busId:{} can't find",
                                NFServerIDUtil::GetBusNameFromBusID(fromBusId));
@@ -233,7 +236,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                     {
                         mEventCB(type, m_bindConnect->GetLinkId(), pConn->GetLinkId());
                     }
-                } else
+                }
+                else
                 {
                     if (mEventCB)
                     {
@@ -301,7 +305,8 @@ int NFCBusMessage::ResumeConnect()
                     packet.nParam2 = flag.mBusLength;
 
                     OnHandleMsgPeer(eMsgType_CONNECTED, pServerData->mUnlinkId, pServerData->mUnlinkId, packet);
-                } else
+                }
+                else
                 {
                     uint64_t connectLinkId = ConnectServer(flag);
                     if (connectLinkId != pServerData->mUnlinkId)

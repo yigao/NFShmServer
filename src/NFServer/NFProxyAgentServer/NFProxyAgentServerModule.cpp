@@ -45,13 +45,13 @@ bool NFCProxyAgentServerModule::Awake()
 	{
         m_pObjPluginManager->SetIdelSleepUs(pConfig->IdleSleepUS);
 
-        int64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_AGENT_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
+        uint64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_AGENT_SERVER, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                        PACKET_PARSE_TYPE_INTERNAL);
-        if (extern_unlinkId >= 0) {
+        if (extern_unlinkId > 0) {
             /*
             注册服务器事件
             */
-            uint64_t proxyServerLinkId = (uint64_t) extern_unlinkId;
+            uint64_t proxyServerLinkId = extern_unlinkId;
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_AGENT_SERVER, proxyServerLinkId, this,
                                                        &NFCProxyAgentServerModule::OnProxyAgentServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_AGENT_SERVER, proxyServerLinkId, this,

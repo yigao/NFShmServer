@@ -12,6 +12,7 @@ namespace proto_ff_s {
 
 	struct tbServerMgr_s : public NFDescStoreSeqOP {
 		tbServerMgr_s();
+		virtual ~tbServerMgr_s(){}
 		int CreateInit();
 		int ResumeInit();
 		uint64_t id;
@@ -34,6 +35,7 @@ namespace proto_ff_s {
 
 	struct pbMysqlConfig_s {
 		pbMysqlConfig_s();
+		virtual ~pbMysqlConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string MysqlIp;
@@ -52,6 +54,7 @@ namespace proto_ff_s {
 
 	struct pbRedisConfig_s {
 		pbRedisConfig_s();
+		virtual ~pbRedisConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string RedisIp;
@@ -67,6 +70,7 @@ namespace proto_ff_s {
 
 	struct pbRouteConfig_s {
 		pbRouteConfig_s();
+		virtual ~pbRouteConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string MasterIp;
@@ -84,6 +88,7 @@ namespace proto_ff_s {
 
 	struct pbAllServerConfig_s {
 		pbAllServerConfig_s();
+		virtual ~pbAllServerConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string Server;
@@ -99,6 +104,7 @@ namespace proto_ff_s {
 
 	struct pbPluginConfig_s {
 		pbPluginConfig_s();
+		virtual ~pbPluginConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		uint32_t ServerType;
@@ -114,6 +120,7 @@ namespace proto_ff_s {
 
 	struct pbTableConfig_s {
 		pbTableConfig_s();
+		virtual ~pbTableConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string TableName;
@@ -128,6 +135,7 @@ namespace proto_ff_s {
 
 	struct pbNFServerConfig_s {
 		pbNFServerConfig_s();
+		virtual ~pbNFServerConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string ServerId;
@@ -176,6 +184,7 @@ namespace proto_ff_s {
 
 	struct wxWorkRobotText_s {
 		wxWorkRobotText_s();
+		virtual ~wxWorkRobotText_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string content;
@@ -191,6 +200,7 @@ namespace proto_ff_s {
 
 	struct wxWorkRobotHttpPost_s {
 		wxWorkRobotHttpPost_s();
+		virtual ~wxWorkRobotHttpPost_s(){}
 		int CreateInit();
 		int ResumeInit();
 		std::string msgtype;

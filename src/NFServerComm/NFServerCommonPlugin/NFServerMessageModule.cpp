@@ -143,7 +143,7 @@ std::string storesvr_selectbycond(const std::string &dbname, const std::string &
     return select.SerializeAsString();
 }
 
-// select¶ÔÏó²éÑ¯£¬·µ»Ø´ò°üÊı¾İ£¬¸ÃÊı¾İ¿ÉÖ±½ÓÍøÂç·¢ËÍ
+// selectå¯¹è±¡æŸ¥è¯¢ï¼Œè¿”å›æ‰“åŒ…æ•°æ®ï¼Œè¯¥æ•°æ®å¯ç›´æ¥ç½‘ç»œå‘é€
 std::string storesvr_selectobj(const std::string &dbname, const std::string &tbname,
                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_selobj select;
@@ -162,7 +162,7 @@ std::string storesvr_selectobj(const std::string &dbname, const std::string &tbn
     return select.SerializeAsString();
 }
 
-// insert¶ÔÏó²åÈë£¬·µ»Ø´ò°üÊı¾İ
+// insertå¯¹è±¡æ’å…¥ï¼Œè¿”å›æ‰“åŒ…æ•°æ®
 std::string storesvr_insert(const std::string &dbname, const std::string &tbname,
                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_ins select;
@@ -181,7 +181,7 @@ std::string storesvr_insert(const std::string &dbname, const std::string &tbname
     return select.SerializeAsString();
 }
 
-// °´Ìõ¼şÉ¾³ı
+// æŒ‰æ¡ä»¶åˆ é™¤
 std::string storesvr_deletebycond(const std::string &dbname, const std::string &tbname,
                                   uint64_t mod_key, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_del select;
@@ -203,7 +203,7 @@ std::string storesvr_deletebycond(const std::string &dbname, const std::string &
     return select.SerializeAsString();
 }
 
-// °´¶ÔÏóÉ¾³ı
+// æŒ‰å¯¹è±¡åˆ é™¤
 std::string storesvr_delete(const std::string &dbname, const std::string &tbname,
                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_delobj select;
@@ -249,7 +249,7 @@ std::string storesvr_modifybycond(const std::string &dbname, const std::string &
     return select.SerializeAsString();
 }
 
-// °´¶ÔÏóĞŞ¸Ä
+// æŒ‰å¯¹è±¡ä¿®æ”¹
 std::string storesvr_modifyobj(const std::string &dbname, const std::string &tbname,
                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_modobj select;
@@ -296,7 +296,7 @@ std::string storesvr_modinsbycond(const std::string &dbname, const std::string &
     return select.SerializeAsString();
 }
 
-// ĞŞ¸Ä²åÈë
+// ä¿®æ”¹æ’å…¥
 std::string storesvr_modinsobj(const std::string &dbname, const std::string &tbname,
                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string& cls_name = "") {
     storesvr_sqldata::storesvr_modinsobj select;
@@ -315,7 +315,7 @@ std::string storesvr_modinsobj(const std::string &dbname, const std::string &tbn
     return select.SerializeAsString();
 }
 
-// °´¶ÔÏóĞŞ¸Ä
+// æŒ‰å¯¹è±¡ä¿®æ”¹
 std::string storesvr_execute(const std::string &dbname, const std::string &tbname,
                              uint64_t mod_key, const std::string &msg) {
     storesvr_sqldata::storesvr_execute select;

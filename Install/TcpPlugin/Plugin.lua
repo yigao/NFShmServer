@@ -52,15 +52,15 @@ LoadPlugin =
 			--"NFGameServerPlugin",
 
 			"NFWorldServerPlugin",
-			--"NFWorldServerPlayerPlugin",
+			"NFWorldServerPlayerPlugin",
 
-			"NFSnsServerPlugin",
+			--"NFSnsServerPlugin",
 			--"NFSnsServerPlayerPlugin",
 
 			"NFLogicServerPlugin",
-			--"NFLogicServerPlayerPlugin",
+			"NFLogicServerPlayerPlugin",
 
-			"NFWebServerPlugin",
+			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",

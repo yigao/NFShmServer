@@ -157,13 +157,13 @@ NFINetMessage* NFCNetModule::GetServerByServerType(NF_SERVER_TYPES eServerType)
 	return nullptr;
 }
 
-int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
+uint64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "usl:{} error", url);
-		return -1;
+		return 0;
 	}
 
 	if (eServerType > NF_ST_NONE && eServerType < NF_ST_MAX)
@@ -191,7 +191,7 @@ int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::stri
 
 
 			uint64_t linkId = pServer->ConnectServer(flag);
-			return (int64_t)linkId;
+			return linkId;
 		}
 		else if (addr.mScheme == "bus")
 		{
@@ -199,7 +199,7 @@ int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::stri
 			if (busid <= 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "BusAddrAton Failed! host:{}", addr.mHost);
-				return -1;
+				return 0;
 			}
 			NFMessageFlag flag;
 			flag.mStrIp = addr.mHost;
@@ -219,11 +219,11 @@ int64_t NFCNetModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::stri
 			}
 
 			uint64_t linkId = pServer->ConnectServer(flag);
-			return (int64_t)linkId;
+			return linkId;
 		}
 
 	}
-	return -1;
+	return 0;
 }
 
 int NFCNetModule::ResumeConnect(NF_SERVER_TYPES eServerType)
@@ -236,13 +236,13 @@ int NFCNetModule::ResumeConnect(NF_SERVER_TYPES eServerType)
     return -1;
 }
 
-int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
+uint64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
 	NFChannelAddress addr;
 	if (!NFServerIDUtil::MakeAddress(url, addr))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "usl:{} error", url);
-		return -1;
+		return 0;
 	}
 
 	if (eServerType > NF_ST_NONE && eServerType < NF_ST_MAX)
@@ -272,8 +272,8 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
                 mNetServerArray[eServerType] = pServer;
 			}
 
-			int64_t linkId = pServer->BindServer(flag);
-			if (linkId >= 0)
+            uint64_t linkId = pServer->BindServer(flag);
+			if (linkId > 0)
 			{
 				return linkId;
 			}
@@ -286,7 +286,7 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 			if (busid <= 0)
 			{
 				NFLogError(NF_LOG_SYSTEMLOG, 0, "BusAddrAton Failed! host:{}", addr.mHost);
-				return -1;
+				return 0;
 			}
 			NFMessageFlag flag;
 			flag.mStrIp = addr.mHost;
@@ -308,8 +308,8 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
                 mBusServerArray[eServerType] = pServer;
 			}
 
-			int64_t linkId = pServer->BindServer(flag);
-			if (linkId >= 0)
+            uint64_t linkId = pServer->BindServer(flag);
+			if (linkId > 0)
 			{
 				return linkId;
 			}
@@ -317,7 +317,7 @@ int64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string&
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "Add Server Failed!");
 		}
 	}
-	return -1;
+	return 0;
 }
 
 std::string NFCNetModule::GetLinkIp(uint64_t usLinkId)

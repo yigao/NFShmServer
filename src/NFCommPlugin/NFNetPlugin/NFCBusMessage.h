@@ -44,14 +44,14 @@ public:
 	*
 	* @return 是否成功
 	*/
-	virtual int64_t BindServer(const NFMessageFlag& flag);
+	virtual uint64_t BindServer(const NFMessageFlag& flag);
 
 	/**
 	* @brief	初始化
 	*
 	* @return 是否成功
 	*/
-	virtual int64_t ConnectServer(const NFMessageFlag& flag);
+	virtual uint64_t ConnectServer(const NFMessageFlag& flag);
 
     /**
      * @brief	发送数据 不包含数据头

@@ -44,7 +44,7 @@ public:
     *
     * @return 是否成功
     */
-    virtual int64_t ConnectServer(const NFMessageFlag& flag, const NFMessageFlag& bindFlag);
+    virtual uint64_t ConnectServer(const NFMessageFlag& flag, const NFMessageFlag& bindFlag);
 
     /**
      * @brief	发送数据 不包含数据头

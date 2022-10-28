@@ -255,11 +255,11 @@ bool NFCHttpServer::ResponseMsg(uint64_t requestId, const std::string &strMsg, N
 }
 
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
-/* berif ¶ÔÖ¸¶¨¼àÌı¶Ë¿ÚÉèÖÃSSLÑ¡Ïî
- * param listen_port ¼àÌıµÄ¶Ë¿Ú
- * param enable_ssl ÊÇ·ñ¿ªÆôSSLÖ§³Ö
- * param certificate_chain_file Ö¤ÊéÁ´ÎÄ¼ş
- * param private_key_file Ë½Ô¿ÎÄ¼ş
+/* berif å¯¹æŒ‡å®šç›‘å¬ç«¯å£è®¾ç½®SSLé€‰é¡¹
+ * param listen_port ç›‘å¬çš„ç«¯å£
+ * param enable_ssl æ˜¯å¦å¼€å¯SSLæ”¯æŒ
+ * param certificate_chain_file è¯ä¹¦é“¾æ–‡ä»¶
+ * param private_key_file ç§é’¥æ–‡ä»¶
  */
 void NFCHttpServer::SetPortSSLOption(int listen_port,
                       bool enable_ssl,
@@ -269,10 +269,10 @@ void NFCHttpServer::SetPortSSLOption(int listen_port,
     m_pHttpServer->setPortSSLOption(listen_port, enable_ssl, certificate_chain_file, private_key_file);
 }
 
-/* berif ÉèÖÃ¶Ë¿ÚÄ¬ÈÏSSLÅäÖÃÑ¡Ïî
- * param enable_ssl ÊÇ·ñ¿ªÆôSSLÖ§³Ö
- * param certificate_chain_file Ö¤ÊéÁ´ÎÄ¼ş
- * param private_key_file Ë½Ô¿ÎÄ¼ş
+/* berif è®¾ç½®ç«¯å£é»˜è®¤SSLé…ç½®é€‰é¡¹
+ * param enable_ssl æ˜¯å¦å¼€å¯SSLæ”¯æŒ
+ * param certificate_chain_file è¯ä¹¦é“¾æ–‡ä»¶
+ * param private_key_file ç§é’¥æ–‡ä»¶
  */
 void NFCHttpServer::SetPortSSLDefaultOption(
         bool enable_ssl,

@@ -36,18 +36,14 @@ bool NFCWebServerModule::Awake() {
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WEB_SERVER);
     if (pConfig) {
         std::string httpUrl = NF_FORMAT("http://{}:{}", pConfig->ServerIp, pConfig->HttpPort);
-        int ret = FindModule<NFIMessageModule>()->BindServer(NF_ST_WEB_SERVER, httpUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
-        if (ret < 0)
+        uint64_t ret = FindModule<NFIMessageModule>()->BindServer(NF_ST_WEB_SERVER, httpUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum, PACKET_PARSE_TYPE_INTERNAL);
+        if (ret == 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "web server listen http failed!, serverId:{}, ip:{}, httpport:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->HttpPort);
             return false;
         }
 
-        ret = BindServer();
-        if (ret < 0)
-        {
-            return false;
-        }
+        BindServer();
     }
     else
     {

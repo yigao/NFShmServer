@@ -76,22 +76,22 @@ void NFCMessageModule::SetNetModule(NFINetModule* driver)
     m_netModule->SetHttpFilterCB(this, &NFCMessageModule::OnHttpFilterPack);
 }
 
-int64_t NFCMessageModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
+uint64_t NFCMessageModule::BindServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nNetThreadNum, uint32_t nMaxConnectNum, uint32_t nPacketParseType, bool bSecurity)
 {
 	if (m_netModule)
 	{
 		return m_netModule->BindServer(eServerType, url, nNetThreadNum, nMaxConnectNum, nPacketParseType, bSecurity);
 	}
-	return -1;
+	return 0;
 }
 
-int64_t NFCMessageModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
+uint64_t NFCMessageModule::ConnectServer(NF_SERVER_TYPES eServerType, const std::string& url, uint32_t nPacketParseType, bool bSecurity)
 {
 	if (m_netModule)
 	{
 		return m_netModule->ConnectServer(eServerType, url, nPacketParseType, bSecurity);
 	}
-	return -1;
+	return 0;
 }
 
 int NFCMessageModule::ResumeConnect(NF_SERVER_TYPES eServerType)
@@ -730,28 +730,6 @@ int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink,
             }
         }
     }
-    return 0;
-}
-
-int NFCMessageModule::SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId,
-                                     const google::protobuf::Message &xData, uint64_t param1, uint64_t param2) {
-    CHECK_EXPR(eType < mServerLinkData.size(), -1, "eType error:{}", (int) eType);
-
-    NF_SHARE_PTR<NFServerData> pServerData = mServerLinkData[eType].GetServerByServerId(busId);
-    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
-
-    Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2);
-    return 0;
-}
-
-int
-NFCMessageModule::SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t param1, uint64_t param2) {
-    CHECK_EXPR(eType < mServerLinkData.size(), -1, "eType error:{}", (int) eType);
-
-    NF_SHARE_PTR<NFServerData> pServerData = mServerLinkData[eType].GetServerByServerId(busId);
-    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", busId);
-
-    Send(pServerData->mUnlinkId, nModuleId, nMsgId, msg, nLen, param1, param2);
     return 0;
 }
 

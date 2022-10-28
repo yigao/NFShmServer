@@ -23,7 +23,7 @@ StoreServer = {
         MysqlConfig = {
              MysqlIp = NF_MYSQL_IP,
              MysqlPort = NF_MYSQL_PORT,
-             DefaultDBName = NF_MYSQL_DB_NAME,
+             MysqlDbName = NF_MYSQL_DB_NAME,
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
         },

@@ -58,7 +58,7 @@ enum EnumNFEvppClientTimer
     ENUM_EVPP_SERVER_TIMER_CHECK_HEART = 2, //服务器定时坚持心跳包
 
     ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH = 5000, //定时发送心跳时间长度 1000ms
-    ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH = 3000, //定时发送心跳时间长度 3000ms
+    ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH = 5000, //定时发送心跳时间长度 3000ms
 };
 
 struct MsgFromNetInfo
@@ -153,21 +153,21 @@ public:
     *
     * @return 是否成功
     */
-    virtual int64_t BindServer(const NFMessageFlag& flag);
+    virtual uint64_t BindServer(const NFMessageFlag& flag);
 
     /**
     * @brief	初始化
     *
     * @return 是否成功
     */
-    virtual int64_t ConnectServer(const NFMessageFlag& flag);
+    virtual uint64_t ConnectServer(const NFMessageFlag& flag);
 
     /**
     * @brief	初始化
     *
     * @return 是否成功
     */
-    virtual int64_t BindHttpServer(uint32_t listen_port, uint32_t netThreadNum);
+    virtual uint64_t BindHttpServer(uint32_t listen_port, uint32_t netThreadNum);
 
     /**
     * @brief 连接回调

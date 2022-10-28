@@ -192,7 +192,7 @@ public:
      * @param  nPort		服务器监听端口
      * @return int			返回0错误
      */
-    virtual int64_t BindServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100,
+    virtual uint64_t BindServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100,
                                uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) = 0;
 
     /**
@@ -204,7 +204,7 @@ public:
      * @param  nPort		服务器监听端口
      * @return int			返回0错误
      */
-    virtual int64_t ConnectServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nPacketParseType = 0, bool bSecurity = false) = 0;
+    virtual uint64_t ConnectServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nPacketParseType = 0, bool bSecurity = false) = 0;
 
     virtual int ResumeConnect(NF_SERVER_TYPES eServerType) = 0;
 
@@ -256,30 +256,8 @@ public:
                             uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) = 0;
 
     virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                   uint64_t param1, uint64_t param2 = 0) = 0;
-
-    virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                   uint64_t param1, uint64_t param2 = 0) = 0;
-
-    virtual int
     SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
                     const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0) = 0;
-
-    virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                   uint64_t param1, uint64_t param2 = 0)
-    {
-        return SendMsgByBusId(eType, NF_MODULE_SERVER, busId, nMsgId, xData, param1, param2);
-    }
-
-    virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                   uint64_t param1, uint64_t param2 = 0)
-    {
-        return SendMsgByBusId(eType, NF_MODULE_SERVER, busId, nMsgId, msg, nLen, param1, param2);
-    }
 
     virtual int SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgId,
                                 const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0)

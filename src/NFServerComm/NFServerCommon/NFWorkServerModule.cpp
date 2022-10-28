@@ -113,9 +113,9 @@ int NFWorkServerModule::BindServer()
                                              NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER));
     }
 
-    int64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
+    uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                       PACKET_PARSE_TYPE_INTERNAL);
-    CHECK_EXPR_ASSERT(serverLinkId >= 0, -1, "Server:{} Listen Failed, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId,
+    CHECK_EXPR_ASSERT(serverLinkId > 0, -1, "Server:{} Listen Failed, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId,
                       pConfig->ServerIp, pConfig->ServerPort);
 
     FindModule<NFIMessageModule>()->SetServerLinkId(m_serverType, serverLinkId);
@@ -387,9 +387,17 @@ int NFWorkServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId, 
             }
                 break;
             default:
+            {
+                OnHandleOtherServerReportFromMasterServer(xData);
+            }
                 break;
         }
     }
+    return 0;
+}
+
+int NFWorkServerModule::OnHandleOtherServerReportFromMasterServer(const proto_ff::ServerInfoReport &xData)
+{
     return 0;
 }
 

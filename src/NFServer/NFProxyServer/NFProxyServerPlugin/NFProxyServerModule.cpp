@@ -63,13 +63,13 @@ bool NFCProxyServerModule::Awake()
         }
 
         std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->ServerIp, pConfig->ServerPort);
-        int64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum,
+        uint64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                        PACKET_PARSE_TYPE_INTERNAL);
-        if (extern_unlinkId >= 0) {
+        if (extern_unlinkId > 0) {
             /*
             注册服务器事件
             */
-            m_proxyServerLinkId = (uint64_t) extern_unlinkId;
+            m_proxyServerLinkId =extern_unlinkId;
             FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,
                                                        &NFCProxyServerModule::OnProxyServerSocketEvent);
             FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyServerLinkId, this,

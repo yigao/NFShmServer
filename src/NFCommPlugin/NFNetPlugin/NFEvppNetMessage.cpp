@@ -33,8 +33,13 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
 
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     mxRecvBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
-	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
+#ifdef NF_DEBUG_MODE
+	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH*10);
+	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH*10);
+#else
+    SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
 	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
+#endif
     m_httpServer = NULL;
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
     m_httpServerEnableSSL = false;
@@ -529,12 +534,12 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 	}
 }
 
-int64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
+uint64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
 {
     if (flag.bHttp)
     {
         int iRet = BindHttpServer(flag.nPort, flag.nNetThreadNum);
-        if (iRet)
+        if (iRet == 0)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "BindHttpServer Failed! port:{}", flag.nPort);
         }
@@ -557,10 +562,10 @@ int64_t NFEvppNetMessage::BindServer(const NFMessageFlag& flag)
         }
     }
 
-    return -1;
+    return 0;
 }
 
-int64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThreadNum) {
+uint64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThreadNum) {
     NFCHttpServer *pServer = NF_NEW NFCHttpServer(mServerType, netThreadNum);
     if (pServer) {
         pServer->SetRecvCB(mHttpReceiveCB);
@@ -570,10 +575,10 @@ int64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThrea
 #endif
         if (pServer->InitServer(listen_port)) {
             m_httpServer = pServer;
-            return 0;
+            return 1;
         }
     }
-    return -1;
+    return 0;
 }
 
 /**
@@ -581,7 +586,7 @@ int64_t NFEvppNetMessage::BindHttpServer(uint32_t listen_port, uint32_t netThrea
 *
 * @return 是否成功
 */
-int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
+uint64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
     NFEvppClient *pClient = NF_NEW NFEvppClient(m_pObjPluginManager, mServerType, flag);
 
 	if (pClient)
@@ -597,7 +602,7 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
             {
                 m_connectionList.push_back(pClient);
 
-                return (int64_t)unLinkId;
+                return unLinkId;
             }
         }
         else {
@@ -605,11 +610,11 @@ int64_t NFEvppNetMessage::ConnectServer(const NFMessageFlag &flag) {
             {
                 m_connectionList.push_back(pClient);
 
-                return (int64_t)unLinkId;
+                return unLinkId;
             }
         }
 	}
-	return -1;
+	return 0;
 }
 
 std::string NFEvppNetMessage::GetLinkIp(uint64_t usLinkId)

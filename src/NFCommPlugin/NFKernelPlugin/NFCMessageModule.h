@@ -40,7 +40,7 @@ public:
      * @param  nPort		服务器监听端口
      * @return int			返回0错误
      */
-    virtual int64_t
+    virtual uint64_t
     BindServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100,
                uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) override;
 
@@ -53,7 +53,7 @@ public:
      * @param  nPort		服务器监听端口
      * @return int			返回0错误
      */
-    virtual int64_t
+    virtual uint64_t
     ConnectServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nPacketParseType = 0, bool bSecurity = false) override;
 
     virtual int ResumeConnect(NF_SERVER_TYPES eServerType) override;
@@ -89,14 +89,6 @@ public:
 
     virtual void SendServer(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const google::protobuf::Message &xData, uint64_t param1 = 0,
                             uint64_t param2 = 0, uint64_t srcId = 0, uint64_t dstId = 0) override;
-
-    virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                   uint64_t param1, uint64_t param2 = 0) override;
-
-    virtual int
-    SendMsgByBusId(NF_SERVER_TYPES eType, uint32_t busId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen,
-                   uint64_t param1, uint64_t param2 = 0) override;
 
     virtual int
     SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
