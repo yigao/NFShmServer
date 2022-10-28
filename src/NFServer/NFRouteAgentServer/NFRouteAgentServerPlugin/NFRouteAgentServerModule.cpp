@@ -208,11 +208,11 @@ int NFCRouteAgentServerModule::OnRouteAgentSocketEvent(eMsgType nEvent, uint64_t
 
 int
 NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet) {
-    uint32_t fromBusId = GetServerIndexFromUnlinkId(packet.nSrcId);
+    uint32_t fromBusId = GetBusIdFromUnlinkId(packet.nSrcId);
     uint32_t fromServerType = GetServerTypeFromUnlinkId(packet.nSrcId);
 
     uint32_t serverType = GetServerTypeFromUnlinkId(packet.nDstId);
-    uint32_t destBusId = GetServerIndexFromUnlinkId(packet.nDstId);
+    uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
     CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
@@ -461,11 +461,11 @@ int NFCRouteAgentServerModule::OnRouteServerSocketEvent(eMsgType nEvent, uint64_
 }
 
 int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDataPackage& packet) {
-    uint32_t fromBusId = GetServerIndexFromUnlinkId(packet.nSrcId);
+    uint32_t fromBusId = GetBusIdFromUnlinkId(packet.nSrcId);
     uint32_t fromServerType = GetServerTypeFromUnlinkId(packet.nSrcId);
 
     uint32_t serverType = GetServerTypeFromUnlinkId(packet.nDstId);
-    uint32_t destBusId = GetServerIndexFromUnlinkId(packet.nDstId);
+    uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
     CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");

@@ -33,18 +33,23 @@ int NFIDynamicModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t byS
     return 0;
 }
 
-int NFIDynamicModule::OnHandleClientMessageSource(uint64_t unLinkId, NFDataPackage& packet)
+int NFIDynamicModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    return OnHandleClientMessage(unLinkId, packet, packet.nParam1, packet.nParam2);
+    return OnHandleClientMessage(packet.nMsgId, packet, packet.nParam1, packet.nParam2);
 }
 
-int NFIDynamicModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
+int NFIDynamicModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+{
+    return OnHandleServerMessage(packet.nMsgId, packet, packet.nParam1, packet.nParam2);
+}
+
+int NFIDynamicModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "client msg:({}) not handle", packet.ToString());
     return 0;
 }
 
-int NFIDynamicModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFIDynamicModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "server msg:({}) not handle", packet.ToString());
     return 0;
@@ -58,7 +63,7 @@ int NFIDynamicModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& pa
  */
 bool NFIDynamicModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID)
 {
-    NET_RECEIVE_FUNCTOR functor = std::bind(&NFIDynamicModule::OnHandleClientMessageSource, this, std::placeholders::_1, std::placeholders::_2);
+    NET_RECEIVE_FUNCTOR functor = std::bind((int(NFIDynamicModule::*)(uint64_t, NFDataPackage&))(&NFIDynamicModule::OnHandleClientMessage), this, std::placeholders::_1, std::placeholders::_2);
     return FindModule<NFIMessageModule>()->AddMessageCallBack(eType, NF_MODULE_CLIENT, nMsgID, this, functor);
 }
 
@@ -70,6 +75,6 @@ bool NFIDynamicModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMs
  */
 bool NFIDynamicModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID)
 {
-    NET_RECEIVE_FUNCTOR functor = std::bind(&NFIDynamicModule::OnHandleServerMessage, this, std::placeholders::_1, std::placeholders::_2);
+    NET_RECEIVE_FUNCTOR functor = std::bind((int(NFIDynamicModule::*)(uint64_t, NFDataPackage&))&NFIDynamicModule::OnHandleServerMessage, this, std::placeholders::_1, std::placeholders::_2);
     return FindModule<NFIMessageModule>()->AddMessageCallBack(eType, NF_MODULE_SERVER, nMsgID, this, functor);
 }

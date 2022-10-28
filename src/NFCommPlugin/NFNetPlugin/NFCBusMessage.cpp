@@ -185,8 +185,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
         NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", packet.ToString());
     }
 
-    uint32_t fromBusId = (key_t) GetServerIndexFromUnlinkId(objectLinkId);
-    uint64_t fromLinkId = GetUnLinkId(NF_IS_BUS, mServerType, fromBusId);
+    uint32_t fromBusId = (key_t) GetBusIdFromUnlinkId(objectLinkId);
+    uint64_t fromLinkId = GetUnLinkId(NF_IS_BUS, mServerType, fromBusId, 0);
     switch (type)
     {
         case eMsgType_RECIVEDATA:
@@ -268,7 +268,7 @@ int NFCBusMessage::ResumeConnect()
         {
             uint64_t linkId = head->m_nShmAddr.mSrcLinkId[i];
             NFMessageFlag flag;
-            flag.mBusId = GetServerIndexFromUnlinkId(linkId);
+            flag.mBusId = GetBusIdFromUnlinkId(linkId);
             flag.mBusLength = head->m_nShmAddr.mSrcBusLength[i];
             flag.mPacketParseType = head->m_nShmAddr.mSrcParseType[i];
             bool bActivityConnect = head->m_nShmAddr.bActiveConnect[i];
@@ -289,7 +289,7 @@ int NFCBusMessage::ResumeConnect()
                 pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId((NF_SERVER_TYPES) mServerType, flag.mBusId,
                                                                                      (NF_SERVER_TYPES) serverType, xData);
 
-                pServerData->mUnlinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId);
+                pServerData->mUnlinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId, 0);
                 FindModule<NFIMessageModule>()->CreateLinkToServer((NF_SERVER_TYPES) mServerType, flag.mBusId, pServerData->mUnlinkId);
                 if (bActivityConnect)
                 {

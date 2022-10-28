@@ -124,7 +124,7 @@ public:
 	virtual void ProcessLoopTimer(uint32_t timeSec, const std::string& luaFunc, const NFLuaRef& dataStr);
 
 	virtual void BeginProfiler(const std::string& luaFunc);
-	virtual uint64_t EndProfiler();//return this time cost time(us) Î¢Ãî
+	virtual uint64_t EndProfiler();//return this time cost time(us) å¾®å¦™
 
 	virtual void ReloadAllLuaFiles() override;
 	virtual void ReloadLuaFiles() override;

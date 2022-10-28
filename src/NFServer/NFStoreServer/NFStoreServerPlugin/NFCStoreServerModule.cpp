@@ -100,8 +100,8 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
     proto_ff::Proto_SvrPkg xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
-    uint64_t sendLinkId = GetUnLinkId(NF_IS_NET, NF_ST_STORE_SERVER, pConfig->BusId);
-    uint64_t destLinkId = packet.nSrcId;
+    uint64_t sendLinkId = GetUnLinkId(NF_IS_NONE, NF_ST_STORE_SERVER, pConfig->BusId, 0);
+    uint64_t destLinkId = GetUnLinkId(NF_IS_NONE, 0, packet.nSrcId, 0);
 
     proto_ff::Proto_SvrPkg retMsg;
     retMsg.set_msg_id(xMsg.msg_id());

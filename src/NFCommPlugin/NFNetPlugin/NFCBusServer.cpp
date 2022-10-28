@@ -100,7 +100,7 @@ int64_t NFCBusServer::BindServer(const NFMessageFlag& flag)
     pShmRecord->m_nBusId = flag.mBusId;
     pShmRecord->m_nBusLenth = flag.mBusLength;
     pShmRecord->mPacketParseType = flag.mPacketParseType;
-    pShmRecord->m_nUnLinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId);
+    pShmRecord->m_nUnLinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId, 0);
     m_bindFlag = flag;
     m_bindFlag.mLinkId = pShmRecord->m_nUnLinkId;
     SetLinkId(pShmRecord->m_nUnLinkId);

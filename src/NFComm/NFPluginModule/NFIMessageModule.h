@@ -23,19 +23,21 @@
 #include <functional>
 
 
-#define MAX_CLIENT_INDEX 1000000                    //客户端掩码 一百万
-#define MAX_CLIENT_MASK 0xffffffff                    //客户端掩码32位
-#define MAX_SERVER_TYPE_MASK 0xff00000000                    //服务器类型
-#define MAX_IS_SERVER_MASK 0xf0000000000                    //是什么类型的，服务器， 客户端
+#define MAX_CLIENT_INDEX 1000000                  //客户端掩码 一百万
+#define MAX_CLIENT_MASK 0xfffff                   //0x000 00000000 fffff 后20位，5个f，给客户端索引用, 客户端掩码20位, 最大1048576 > 一百万 1000000
+#define MAX_BUS_ID_MASK 0xffffffff00000           //0x0 00 ffffffff 00000 中间32位， 从21位到52位，给服务器的唯一ID，busId用， 需要左移位20
+#define MAX_SERVER_TYPE_MASK 0x0ff0000000000000   //0x0 ff 00000000 00000从53到60位， 给服务器类型用，需要左移位52
+#define MAX_IS_SERVER_MASK 0xf000000000000000     //0xf 00 00000000 00000从61到64位， 是什么类型的， 网络net, 共享内存bus
 
 #define NF_IS_NONE 0
 #define NF_IS_NET 1
 #define NF_IS_BUS 2
 
-#define GetUnLinkId(linkMode, serverType, serverIndex)    ((((uint64_t)serverIndex) & MAX_CLIENT_MASK) | ((((uint64_t)serverType) << 32) & MAX_SERVER_TYPE_MASK) | ((((uint64_t)linkMode << 40) & MAX_IS_SERVER_MASK)));
-#define GetServerTypeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_SERVER_TYPE_MASK) >> 32);
-#define GetServerLinkModeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_IS_SERVER_MASK) >> 40);
+#define GetUnLinkId(linkMode, serverType, busId, serverIndex)    ((((uint64_t)serverIndex) & MAX_CLIENT_MASK) | ((((uint64_t)busId) << 20) & MAX_BUS_ID_MASK)  | ((((uint64_t)serverType) << 52) & MAX_SERVER_TYPE_MASK) | ((((uint64_t)linkMode << 60) & MAX_IS_SERVER_MASK)));
+#define GetServerTypeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_SERVER_TYPE_MASK) >> 52);
+#define GetServerLinkModeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_IS_SERVER_MASK) >> 60);
 #define GetServerIndexFromUnlinkId(UnlinkId)    (((uint64_t)UnlinkId) & MAX_CLIENT_MASK);
+#define GetBusIdFromUnlinkId(UnlinkId)    ((((uint64_t)UnlinkId) & MAX_BUS_ID_MASK) >> 20);
 
 #define CLIENT_MSG_PROCESS_NO_PRINTF(xPacket, xMsg)                 \
     if (!xMsg.ParseFromArray(xPacket.GetBuffer(), xPacket.GetSize()))                \

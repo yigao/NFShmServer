@@ -28,6 +28,9 @@
 
 NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p),m_netObjectPool(1000, false)
 {
+    auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(mServerType);
+    CHECK_EXPR_ASSERT_NOT_RET(pServerConfig, "mServerType:{} Config Not Find", mServerType);
+
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     mxRecvBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
 	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
@@ -53,19 +56,17 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
         mNetObjectArray[i] = NULL;
     }
 
+    mHandleMsgNumPerFrame= pServerConfig->HandleMsgNumPerFrame;
+
     for(int i = 1; i < MAX_CLIENT_INDEX; i++)
     {
-        uint64_t unlinkId = GetUnLinkId(NF_IS_NET, mServerType, i);
+        uint64_t unlinkId = GetUnLinkId(NF_IS_NET, mServerType, pServerConfig->BusId, i);
         while (!mFreeLinks.Enqueue(unlinkId)) {
         }
     }
 
     mHandleMsgNumPerFrame = NF_NO_FIX_FAME_HANDLE_MAX_MSG_COUNT;
-    auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(mServerType);
-    if (pServerConfig)
-    {
-        mHandleMsgNumPerFrame= pServerConfig->HandleMsgNumPerFrame;
-    }
+
     mCurHandleMsgNum = 0;
     mLoopSendCount = 0;
 }

@@ -764,10 +764,10 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eSendType);
     CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eSendType));
 
-    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId);
-    uint64_t sendLinkId = srcBusId;
-    if (sendLinkId == 0) {
-        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId);
+    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId, 0);
+    uint64_t sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, srcBusId, 0);
+    if (srcBusId == 0) {
+        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId, 0);
     }
 
     Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);

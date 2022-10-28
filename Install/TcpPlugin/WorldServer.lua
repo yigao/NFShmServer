@@ -31,5 +31,6 @@ WorldServer = {
          MasterPort = NF_MASTER_PORT,
       },
       ClientVersion = NF_CLIENT_VERSION,
+      ServerOpenTime = GlobalOpenTime,
    };
 };

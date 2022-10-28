@@ -84,7 +84,7 @@ int64_t NFCBusClient::ConnectServer(const NFMessageFlag& flag, const NFMessageFl
     pShmRecord->m_nBusId = flag.mBusId;
     pShmRecord->m_nBusLenth = flag.mBusLength;
     pShmRecord->mPacketParseType = flag.mPacketParseType;
-    pShmRecord->m_nUnLinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId);
+    pShmRecord->m_nUnLinkId = GetUnLinkId(NF_IS_BUS, mServerType, flag.mBusId, 0);
     SetLinkId(pShmRecord->m_nUnLinkId);
     SetConnectionType(NF_CONNECTION_TYPE_TCP_CLIENT);
 

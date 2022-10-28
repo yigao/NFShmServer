@@ -21,6 +21,7 @@
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFWorldServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
@@ -50,6 +51,47 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/WorldServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/WorldServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Server/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Server/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/WorldServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/WorldServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/common_logic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/common_logic.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/common_logic_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldServerPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldServerPlayerPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/common/proto_common.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_common_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCLuaScriptModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIDynamicModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusClient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFCBusServer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFEvppNetMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +136,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFNetPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFWorldServerPlayerPlugin" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -109,11 +151,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin",
+    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/game/MMO/NFLogicComm/Message/proto_cs",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "structure.view.defaults.are.configured": "true"
@@ -130,11 +174,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs" />
+      <recent name="$PROJECT_DIR$/Install/Config/MMO/Server" />
+      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
+      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin" />
-      <recent name="$PROJECT_DIR$/Install/BusPlugin" />
-      <recent name="$PROJECT_DIR$/Install/TcpPlugin" />
-      <recent name="$PROJECT_DIR$/Install" />
-      <recent name="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/oldMMO/NFLogicComm/Message/common" />
@@ -145,6 +189,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -290,12 +339,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+    <configuration name="NFWorldServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlayerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -392,6 +441,7 @@
       <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
       <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
+      <item itemvalue="CMake 应用程序.NFWorldServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFKernelPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
@@ -516,13 +566,7 @@
       <workItem from="1666678126082" duration="308000" />
       <workItem from="1666678440847" duration="344000" />
       <workItem from="1666678806480" duration="13793000" />
-    </task>
-    <task id="LOCAL-00190" summary="net module">
-      <created>1665629666903</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1665629666903</updated>
+      <workItem from="1666917133250" duration="18182000" />
     </task>
     <task id="LOCAL-00191" summary="net module">
       <created>1665633033299</created>
@@ -860,7 +904,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666864715506</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary="login">
+      <created>1666867819461</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1666867819461</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1051,6 +1102,11 @@
           <url>file://$PROJECT_DIR$/src/NFTest/NFRobotPlugin/NFTestRobot.cpp</url>
           <line>69</line>
           <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
+          <line>369</line>
+          <option name="timeStamp" value="340" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo.py</url>

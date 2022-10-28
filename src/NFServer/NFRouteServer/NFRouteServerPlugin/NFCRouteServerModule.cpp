@@ -213,11 +213,11 @@ int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
 }
 
 int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet) {
-    uint32_t fromBusId = GetServerIndexFromUnlinkId(packet.nSrcId);
+    uint32_t fromBusId = GetBusIdFromUnlinkId(packet.nSrcId);
     uint32_t fromServerType = GetServerTypeFromUnlinkId(packet.nSrcId);
 
     uint32_t serverType = GetServerTypeFromUnlinkId(packet.nDstId);
-    uint32_t destBusId = GetServerIndexFromUnlinkId(packet.nDstId);
+    uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
