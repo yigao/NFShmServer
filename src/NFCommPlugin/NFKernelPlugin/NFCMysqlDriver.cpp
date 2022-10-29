@@ -9,56 +9,58 @@ NFMutex NFCMysqlDriver::ConnectLock;
 
 NFCMysqlDriver::NFCMysqlDriver(const int nReconnectTime/* = 60*/, const int nReconnectCount /*= -1*/)
 {
-	mfCheckReconnect = 0.0f;
-	mnDBPort = 0;
-	m_pMysqlConnect = nullptr;
-	mnReconnectTime = nReconnectTime;
-	mnReconnectCount = nReconnectCount;
+    mfCheckReconnect = 0.0f;
+    mnDBPort = 0;
+    m_pMysqlConnect = nullptr;
+    mnReconnectTime = nReconnectTime;
+    mnReconnectCount = nReconnectCount;
 }
 
-NFCMysqlDriver::NFCMysqlDriver(const std::string& strDBName, const std::string& strDBHost, const int nDBPort,
-                               const std::string& strDBUser, const std::string& strDBPwd)
+NFCMysqlDriver::NFCMysqlDriver(const std::string &strDBName, const std::string &strDBHost, const int nDBPort,
+                               const std::string &strDBUser, const std::string &strDBPwd)
 {
-	mfCheckReconnect = 0.0f;
-	mnDBPort = 0;
-	m_pMysqlConnect = nullptr;
+    mfCheckReconnect = 0.0f;
+    mnDBPort = 0;
+    m_pMysqlConnect = nullptr;
 
-	mnReconnectTime = 3;
-	mnReconnectCount = -1;
+    mnReconnectTime = 3;
+    mnReconnectCount = -1;
 
-	NFCMysqlDriver::Connect(strDBName, strDBHost, nDBPort, strDBUser, strDBPwd);
+    NFCMysqlDriver::Connect(strDBName, strDBHost, nDBPort, strDBUser, strDBPwd);
 }
 
 NFCMysqlDriver::~NFCMysqlDriver()
 {
-	NFCMysqlDriver::CloseConnection();
+    NFCMysqlDriver::CloseConnection();
 }
 
-int NFCMysqlDriver::Connect(const std::string& strDBName, const std::string& strDBHost, const int nDBPort,
-                             const std::string& strDBUser, const std::string& strDBPwd)
+int NFCMysqlDriver::Connect(const std::string &strDBName, const std::string &strDBHost, const int nDBPort,
+                            const std::string &strDBUser, const std::string &strDBPwd)
 {
-	mstrDBName = strDBName;
-	mstrDBHost = strDBHost;
-	mnDBPort = nDBPort;
-	mstrDBUser = strDBUser;
-	mstrDBPwd = strDBPwd;
+    mstrDBName = strDBName;
+    mstrDBHost = strDBHost;
+    mnDBPort = nDBPort;
+    mstrDBUser = strDBUser;
+    mstrDBPwd = strDBPwd;
 
-	return Connect();
+    return Connect();
 }
 
 int NFCMysqlDriver::CheckConnect()
 {
-	if (IsNeedReconnect() && CanReconnect())
-	{
-		Connect(mstrDBName, mstrDBHost, mnDBPort, mstrDBUser, mstrDBPwd);
-	}
+    if (IsNeedReconnect() && CanReconnect())
+    {
+        Connect(mstrDBName, mstrDBHost, mnDBPort, mstrDBUser, mstrDBPwd);
+    }
 
-	return 0;
+    return 0;
 }
 
-int NFCMysqlDriver::Query(const std::string &qstr, mysqlpp::StoreQueryResult &queryResult, std::string &errormsg) {
+int NFCMysqlDriver::Query(const std::string &qstr, mysqlpp::StoreQueryResult &queryResult, std::string &errormsg)
+{
     mysqlpp::Connection *pConection = GetConnection();
-    if (pConection) {
+    if (pConection)
+    {
         //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
 
         NFMYSQLTRYBEGIN
@@ -76,15 +78,22 @@ int NFCMysqlDriver::Query(const std::string &qstr, mysqlpp::StoreQueryResult &qu
 }
 
 int NFCMysqlDriver::ExecuteOne(const std::string &qstr, std::map<std::string, std::string> &valueVec,
-                               std::string &errormsg) {
+                               std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
 
     mysqlpp::StoreQueryResult queryResult;
-    if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0) {
-        for (size_t i = 0; i < queryResult.num_rows(); ++i) {
-            for (size_t j = 0; j < queryResult[i].size(); j++) {
+    if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0)
+    {
+        for (size_t i = 0; i < queryResult.num_rows(); ++i)
+        {
+            for (size_t j = 0; j < queryResult[i].size(); j++)
+            {
                 std::string value;
-                queryResult[i][j].to_string(value);
+                if (!queryResult[i][j].is_null())
+                {
+                    queryResult[i][j].to_string(value);
+                }
                 valueVec.emplace(queryResult.field_name(j), value);
             }
             return 0; //-V612
@@ -99,27 +108,65 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.execute_record());
 
     mysqlpp::StoreQueryResult queryResult;
-    std::vector<std::map<std::string, std::string>> valueVec;
+    std::vector<std::map<std::string, std::string>> resultVec;
     std::string errormsg;
-    if (ExecuteMore(select.execute_record(), valueVec, errormsg) == 0) {
-        return 0;
+    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    if (iRet != 0)
+    {
+        select_res.mutable_exe_opres()->set_zdb_errmsg(errormsg);
+        return -1;
     }
-    select_res.mutable_exe_opres()->set_zdb_errmsg(errormsg);
-    return -1;
+
+    select_res.mutable_baseinfo()->CopyFrom(select.baseinfo());
+    select_res.mutable_exe_opres()->set_mod_key(select.mod_key());
+
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
+        const std::map<std::string, std::string> &result = resultVec[i];
+
+        google::protobuf::Message *pMessage = NULL;
+        int iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
+        if (iRet == 0 && pMessage != NULL)
+        {
+            select_res.set_sel_records(pMessage->SerializeAsString());
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
+                       NFCommon::tostr(result), select.baseinfo().tbname());
+        }
+
+        if (pMessage != NULL)
+        {
+            NF_SAFE_DELETE(pMessage);
+        }
+
+        break;
+    }
+
+    return 0;
 }
 
 int NFCMysqlDriver::ExecuteMore(const std::string &qstr, std::vector<std::map<std::string, std::string>> &valueVec,
-                                std::string &errormsg) {
+                                std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
 
     mysqlpp::StoreQueryResult queryResult;
-    if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0) {
-        for (size_t i = 0; i < queryResult.num_rows(); ++i) {
+    if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0)
+    {
+        for (size_t i = 0; i < queryResult.num_rows(); ++i)
+        {
             valueVec.push_back(std::map<std::string, std::string>());
             std::map<std::string, std::string> &tmpVec = valueVec.back();
-            for (size_t j = 0; j < queryResult[i].size(); j++) {
+            for (size_t j = 0; j < queryResult[i].size(); j++)
+            {
                 std::string value;
-                queryResult[i][j].to_string(value);
+                if (!queryResult[i][j].is_null())
+                {
+                    queryResult[i][j].to_string(value);
+                }
                 tmpVec.emplace(queryResult.field_name(j), value);
             }
         }
@@ -144,7 +191,8 @@ int NFCMysqlDriver::ExecuteMore(const std::string &qstr, std::vector<std::map<st
  *
  * @return bool 执行成功或失败
  */
-int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::Message **pMessage) {
+int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::Message **pMessage)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --table:{}", table);
     int iRet = 0;
     std::string selectSql = "select * from " + table;
@@ -153,7 +201,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
     CHECK_EXPR(iRet == 0, iRet, "ExecuteMore:{} Failed!", errmsg);
 
-    if (resultVec.size() <= 0) {
+    if (resultVec.size() <= 0)
+    {
         return 0;
     }
 
@@ -168,7 +217,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     ::google::protobuf::Message *pSheetMessageObject = pSheetMessage->New();
     CHECK_EXPR(pSheetMessageObject, -1, "{} New Failed", sheet_fullname);
 
-    if (pMessage) {
+    if (pMessage)
+    {
         *pMessage = pSheetMessageObject;
     }
 
@@ -177,7 +227,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     const google::protobuf::Reflection *pSheetReflect = pSheetMessageObject->GetReflection();
     CHECK_EXPR(pSheetReflect, -1, "pSheetFieldDesc == NULL");
 
-    for (int sheet_field_index = 0; sheet_field_index < pSheetFieldDesc->field_count(); sheet_field_index++) {
+    for (int sheet_field_index = 0; sheet_field_index < pSheetFieldDesc->field_count(); sheet_field_index++)
+    {
         /*  比如 message Sheet_GameRoomDesc
         *		{
         *			repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
@@ -186,9 +237,11 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
         */
         const google::protobuf::FieldDescriptor *pSheetRepeatedFieldDesc = pSheetFieldDesc->field(sheet_field_index);
         if (pSheetRepeatedFieldDesc->is_repeated() &&
-            pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+            pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+        {
             //如果is_repeated 开始处理
-            for (size_t result_i = 0; result_i < resultVec.size(); result_i++) {
+            for (size_t result_i = 0; result_i < resultVec.size(); result_i++)
+            {
                 const std::map<std::string, std::string> &result = resultVec[result_i];
                 ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                         pSheetMessageObject, pSheetRepeatedFieldDesc);
@@ -212,7 +265,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
     CHECK_EXPR(iRet == 0, iRet, "ExecuteMore:{} Failed!", errmsg);
 
-    if (resultVec.size() <= 0) {
+    if (resultVec.size() <= 0)
+    {
         return 0;
     }
 
@@ -221,7 +275,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     const google::protobuf::Reflection *pSheetReflect = pSheetMessageObject->GetReflection();
     CHECK_EXPR(pSheetReflect, -1, "pSheetFieldDesc == NULL");
 
-    for (int sheet_field_index = 0; sheet_field_index < pSheetFieldDesc->field_count(); sheet_field_index++) {
+    for (int sheet_field_index = 0; sheet_field_index < pSheetFieldDesc->field_count(); sheet_field_index++)
+    {
         /*  比如 message Sheet_GameRoomDesc
         *		{
         *			repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
@@ -230,9 +285,11 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
         */
         const google::protobuf::FieldDescriptor *pSheetRepeatedFieldDesc = pSheetFieldDesc->field(sheet_field_index);
         if (pSheetRepeatedFieldDesc->is_repeated() &&
-            pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+            pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+        {
             //如果is_repeated 开始处理
-            for (size_t result_i = 0; result_i < resultVec.size(); result_i++) {
+            for (size_t result_i = 0; result_i < resultVec.size(); result_i++)
+            {
                 const std::map<std::string, std::string> &result = resultVec[result_i];
                 ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                         pSheetMessageObject, pSheetRepeatedFieldDesc);
@@ -246,7 +303,8 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
 }
 
 int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string &table,
-                                           google::protobuf::Message **pMessage) {
+                                           google::protobuf::Message **pMessage)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --table:{}", table);
     std::string proto_fullname = "proto_ff." + table;
 
@@ -259,7 +317,8 @@ int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::stri
     ::google::protobuf::Message *pMessageObject = pDefaultMessage->New();
     CHECK_EXPR(pMessageObject, -1, "{} New Failed", proto_fullname);
 
-    if (pMessage) {
+    if (pMessage)
+    {
         *pMessage = pMessageObject;
     }
 
@@ -268,7 +327,8 @@ int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::stri
     return 0;
 }
 
-int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes)
+int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
+                                 ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string selectSql;
@@ -279,25 +339,28 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, :
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errmsg;
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
-    if (iRet != 0) {
-        storesvr_sqldata::storesvr_sel_res* select_res = vecSelectRes.Add();
+    if (iRet != 0)
+    {
+        storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
         select_res->mutable_sel_opres()->set_zdb_errmsg(errmsg);
         return -1;
     }
 
-    storesvr_sqldata::storesvr_sel_res* select_res = vecSelectRes.Add();
+    storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
 
     select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
     select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
     select_res->set_is_lastbatch(false);
 
     int count = 0;
-    for (size_t i = 0; i < resultVec.size(); i++) {
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
         iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
-        if (iRet == 0 && pMessage != NULL) {
+        if (iRet == 0 && pMessage != NULL)
+        {
             select_res->add_sel_records(pMessage->SerializeAsString());
 
             count++;
@@ -312,7 +375,9 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, :
                 select_res->set_is_lastbatch(false);
             }
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
-        } else {
+        }
+        else
+        {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
                        NFCommon::tostr(result), select.baseinfo().tbname());
         }
@@ -330,7 +395,8 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, :
 }
 
 int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
-                                 storesvr_sqldata::storesvr_sel_res &select_res) {
+                                 storesvr_sqldata::storesvr_sel_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string selectSql;
     int iRet = 0;
@@ -342,7 +408,8 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errmsg;
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_sel_opres()->set_zdb_errmsg(errmsg);
         return -1;
     }
@@ -350,16 +417,20 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     select_res.set_is_lastbatch(true);
 
     int count = 0;
-    for (size_t i = 0; i < resultVec.size(); i++) {
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
         iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
-        if (iRet == 0 && pMessage != NULL) {
+        if (iRet == 0 && pMessage != NULL)
+        {
             count++;
             select_res.add_sel_records(pMessage->SerializeAsString());
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
-        } else {
+        }
+        else
+        {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
                        NFCommon::tostr(result), select.baseinfo().tbname());
         }
@@ -374,7 +445,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     return 0;
 }
 
-int NFCMysqlDriver::SelectObj(const std::string& tbName, google::protobuf::Message *pMessage, std::string& errMsg)
+int NFCMysqlDriver::SelectObj(const std::string &tbName, google::protobuf::Message *pMessage, std::string &errMsg)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --tbName:{} errMsg:{}", tbName, errMsg);
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
@@ -400,7 +471,8 @@ int NFCMysqlDriver::SelectObj(const std::string& tbName, google::protobuf::Messa
 }
 
 int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                              storesvr_sqldata::storesvr_selobj_res &select_res) {
+                              storesvr_sqldata::storesvr_selobj_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
@@ -412,17 +484,21 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     std::map<std::string, std::string> result;
     std::string errmsg;
     iRet = QueryOne(select.baseinfo().tbname(), keyMap, result, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_sel_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
 
     google::protobuf::Message *pMessage = NULL;
     iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
-    if (iRet == 0 && pMessage != NULL) {
+    if (iRet == 0 && pMessage != NULL)
+    {
         select_res.set_sel_record(pMessage->SerializeAsString());
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
-    } else {
+    }
+    else
+    {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
                    NFCommon::tostr(result), select.baseinfo().tbname());
     }
@@ -436,7 +512,8 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
 
 
 int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select,
-                                 storesvr_sqldata::storesvr_del_res &select_res) {
+                                 storesvr_sqldata::storesvr_del_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string selectSql;
     int iRet = 0;
@@ -447,7 +524,8 @@ int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select,
     select_res.mutable_del_opres()->set_mod_key(select.del_cond().mod_key());
     std::string errmsg;
     iRet = Delete(selectSql, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_del_opres()->set_zdb_errmsg(errmsg);
         return -1;
     }
@@ -457,7 +535,8 @@ int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select,
 }
 
 int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
-                              storesvr_sqldata::storesvr_delobj_res &select_res) {
+                              storesvr_sqldata::storesvr_delobj_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
@@ -468,7 +547,8 @@ int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
     select_res.mutable_del_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Delete(select.baseinfo().tbname(), keyMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_del_opres()->set_zdb_errmsg(errmsg);
         return -1;
     }
@@ -477,7 +557,8 @@ int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap) {
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -495,64 +576,101 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, s
 
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std::string &selectSql)
 {
-    if (select.has_mod_cond()) {
+    if (select.has_mod_cond())
+    {
         selectSql = " ";
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
-        for (int i = 0; i < whereCond.where_conds_size(); i++) {
+        for (int i = 0; i < whereCond.where_conds_size(); i++)
+        {
             std::string sql;
             const ::storesvr_sqldata::storesvr_vk &vk = whereCond.where_conds(i);
-            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "!='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "!=" + vk.column_value();
                 }
             }
 
-            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1) {
-                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND) {
+            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1)
+            {
+                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND)
+                {
                     sql += " and ";
-                } else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR) {
+                }
+                else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR)
+                {
                     sql += " or ";
                 }
             }
 
-            if (sql.size() > 0) {
+            if (sql.size() > 0)
+            {
                 selectSql += sql;
             }
         }
 
-        if (whereCond.where_additional_conds().size() > 0) {
+        if (whereCond.where_additional_conds().size() > 0)
+        {
             selectSql += " " + whereCond.where_additional_conds();
         }
     }
@@ -562,64 +680,101 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
 
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, std::string &selectSql)
 {
-    if (select.has_mod_cond()) {
+    if (select.has_mod_cond())
+    {
         selectSql = " ";
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
-        for (int i = 0; i < whereCond.where_conds_size(); i++) {
+        for (int i = 0; i < whereCond.where_conds_size(); i++)
+        {
             std::string sql;
             const ::storesvr_sqldata::storesvr_vk &vk = whereCond.where_conds(i);
-            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "!='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "!=" + vk.column_value();
                 }
             }
 
-            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1) {
-                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND) {
+            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1)
+            {
+                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND)
+                {
                     sql += " and ";
-                } else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR) {
+                }
+                else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR)
+                {
                     sql += " or ";
                 }
             }
 
-            if (sql.size() > 0) {
+            if (sql.size() > 0)
+            {
                 selectSql += sql;
             }
         }
 
-        if (whereCond.where_additional_conds().size() > 0) {
+        if (whereCond.where_additional_conds().size() > 0)
+        {
             selectSql += " " + whereCond.where_additional_conds();
         }
     }
@@ -627,68 +782,106 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, s
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std::string &selectSql) {
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std::string &selectSql)
+{
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    if (select.has_del_cond()) {
+    if (select.has_del_cond())
+    {
         selectSql = "delete from " + tableName + " where ";
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.del_cond();
-        for (int i = 0; i < whereCond.where_conds_size(); i++) {
+        for (int i = 0; i < whereCond.where_conds_size(); i++)
+        {
             std::string sql;
             const ::storesvr_sqldata::storesvr_vk &vk = whereCond.where_conds(i);
-            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "!='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "!=" + vk.column_value();
                 }
             }
 
-            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1) {
-                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND) {
+            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1)
+            {
+                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND)
+                {
                     sql += " and ";
-                } else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR) {
+                }
+                else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR)
+                {
                     sql += " or ";
                 }
             }
 
-            if (sql.size() > 0) {
+            if (sql.size() > 0)
+            {
                 selectSql += sql;
             }
         }
 
-        if (whereCond.where_additional_conds().size() > 0) {
+        if (whereCond.where_additional_conds().size() > 0)
+        {
             selectSql += " " + whereCond.where_additional_conds();
         }
     }
@@ -697,7 +890,8 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std:
 }
 
 int
-NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap) {
+NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -713,92 +907,142 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std::string &selectSql) {
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std::string &selectSql)
+{
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    if (!select.has_sel_cond()) {
-        selectSql = "select * from " + tableName;
-    } else {
-        selectSql = "select * from " + tableName;
+    std::string stringFileds = "*";
+    if (select.baseinfo().sel_fields_size() > 0)
+    {
+        stringFileds = "";
+        for (int i = 0; i < (int) select.baseinfo().sel_fields_size(); i++)
+        {
+            if (i != select.baseinfo().sel_fields_size() - 1)
+            {
+                stringFileds += select.baseinfo().sel_fields(i) + ",";
+            }
+            else
+            {
+                stringFileds += select.baseinfo().sel_fields(i);
+            }
+        }
+    }
+
+    if (!select.has_sel_cond())
+    {
+        selectSql = "select " + stringFileds + " from " + tableName;
+    }
+    else
+    {
+        selectSql = "select " + stringFileds + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.sel_cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
         }
-        for (int i = 0; i < whereCond.where_conds_size(); i++) {
+        for (int i = 0; i < whereCond.where_conds_size(); i++)
+        {
             std::string sql;
             const ::storesvr_sqldata::storesvr_vk &vk = whereCond.where_conds(i);
-            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_EQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATER)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESS)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<'" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_GREATEREQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + ">='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + ">=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_LESSEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "<='" + vk.column_value() + "'";
-                } else {
+                }
+                else
+                {
                     sql += vk.column_name() + "<=" + vk.column_value();
                 }
-            } else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL) {
-                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING) {
+            }
+            else if (vk.cmp_operator() == ::storesvr_sqldata::E_CMPOP_NOTEQUAL)
+            {
+                if (vk.column_type() == ::storesvr_sqldata::E_COLUMNTYPE_STRING)
+                {
                     sql += vk.column_name() + "!='" + vk.column_value() + "'";
-                } else
-				{
-					sql += vk.column_name() + "!=" + vk.column_value();
-				}
-			}
+                }
+                else
+                {
+                    sql += vk.column_name() + "!=" + vk.column_value();
+                }
+            }
 
-			if (sql.size() > 0 && i < whereCond.where_conds_size() -1)
-			{
-				if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND)
-				{
-					sql += " and ";
-				}
-				else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR)
-				{
-					sql += " or ";
-				}
-			}
+            if (sql.size() > 0 && i < whereCond.where_conds_size() - 1)
+            {
+                if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_AND)
+                {
+                    sql += " and ";
+                }
+                else if (vk.logic_operator() == ::storesvr_sqldata::E_LOGICOP_OR)
+                {
+                    sql += " or ";
+                }
+            }
 
-			if (sql.size() > 0)
-			{
-				selectSql += sql;
-			}
-		}
+            if (sql.size() > 0)
+            {
+                selectSql += sql;
+            }
+        }
 
-		if (whereCond.where_additional_conds().size() > 0)
-		{
-			selectSql += " " + whereCond.where_additional_conds();
-		}
-	}
+        if (whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " " + whereCond.where_additional_conds();
+        }
+    }
 
-	return 0;
+    return 0;
 }
 
-mysqlpp::Connection* NFCMysqlDriver::GetConnection()
+mysqlpp::Connection *NFCMysqlDriver::GetConnection()
 {
-	return m_pMysqlConnect;
+    return m_pMysqlConnect;
 }
 
 void NFCMysqlDriver::CloseConnection()
@@ -813,88 +1057,90 @@ void NFCMysqlDriver::CloseConnection()
 
 bool NFCMysqlDriver::Enable()
 {
-	return !IsNeedReconnect();
+    return !IsNeedReconnect();
 }
 
 bool NFCMysqlDriver::CanReconnect()
 {
-	mfCheckReconnect += 0.1f;
+    mfCheckReconnect += 0.1f;
 
-	//30检查断线重连
-	if (mfCheckReconnect < mnReconnectTime)
-	{
-		return false;
-	}
+    //30检查断线重连
+    if (mfCheckReconnect < mnReconnectTime)
+    {
+        return false;
+    }
 
-	if (mnReconnectCount == 0)
-	{
-		return false;
-	}
+    if (mnReconnectCount == 0)
+    {
+        return false;
+    }
 
-	mfCheckReconnect = 0.0f;
+    mfCheckReconnect = 0.0f;
 
-	return true;
+    return true;
 }
 
 int NFCMysqlDriver::Reconnect()
 {
-	CloseConnection();
+    CloseConnection();
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Start Reconnect nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
               mstrDBName, mstrDBHost, mnDBPort, mstrDBName, mstrDBUser, mstrDBPwd);
     int iRet = Connect(mstrDBName, mstrDBHost, mnDBPort, mstrDBUser, mstrDBPwd);
-	if (iRet != 0)
+    if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0,
-                  "Reconnect Failed!:nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
+                   "Reconnect Failed!:nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
                    mstrDBName, mstrDBHost, mnDBPort, mstrDBName, mstrDBUser, mstrDBPwd);
     }
-	else
+    else
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0,
-                   "Reconnect Success!:nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
-                   mstrDBName, mstrDBHost, mnDBPort, mstrDBName, mstrDBUser, mstrDBPwd);
+                  "Reconnect Success!:nServerID:{}, strIP:{}, nPort{}, strDBName:{}, strDBUser:{}, strDBPwd:{}",
+                  mstrDBName, mstrDBHost, mnDBPort, mstrDBName, mstrDBUser, mstrDBPwd);
     }
 
-	if (mnReconnectCount > 0)
-	{
-		mnReconnectCount--;
-	}
+    if (mnReconnectCount > 0)
+    {
+        mnReconnectCount--;
+    }
 
-	return 0;
+    return 0;
 }
 
 bool NFCMysqlDriver::IsNeedReconnect()
 {
-	//没有配置表
-	if (mstrDBHost.length() < 1 || mstrDBUser.length() < 1)
-	{
-		return false;
-	}
+    //没有配置表
+    if (mstrDBHost.length() < 1 || mstrDBUser.length() < 1)
+    {
+        return false;
+    }
 
-	if (nullptr == m_pMysqlConnect)
-	{
-		return true;
-	}
+    if (nullptr == m_pMysqlConnect)
+    {
+        return true;
+    }
 
-	if (!m_pMysqlConnect->connected())
-	{
-		CloseConnection();
-		return true;
-	}
+    if (!m_pMysqlConnect->connected())
+    {
+        CloseConnection();
+        return true;
+    }
 
-	if (!m_pMysqlConnect->ping())
-	{
-		CloseConnection();
-		return true;
-	}
+    if (!m_pMysqlConnect->ping())
+    {
+        CloseConnection();
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
-int NFCMysqlDriver::Connect() {
+int NFCMysqlDriver::Connect()
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     m_pMysqlConnect = new mysqlpp::Connection();
-    if (nullptr == m_pMysqlConnect) {
+    if (nullptr == m_pMysqlConnect)
+    {
         return -1;
     }
     std::string errormsg;
@@ -909,7 +1155,8 @@ int NFCMysqlDriver::Connect() {
             //m_pMysqlConnect在调用Connect会引发多线程的崩溃，必须枷锁
             NFLock lock(ConnectLock);
             if (!m_pMysqlConnect->connect(mstrDBName.c_str(), mstrDBHost.c_str(), mstrDBUser.c_str(), mstrDBPwd.c_str(),
-                                          mnDBPort)) {
+                                          mnDBPort))
+            {
                 CloseConnection();
                 // 连接失败
                 return -1;
@@ -927,24 +1174,30 @@ int NFCMysqlDriver::Connect() {
 
 int NFCMysqlDriver::Update(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                            const std::map<std::string, std::string> &keyvalueMap,
-                           std::string &errormsg) {
+                           std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
 
     bool bExist = false;
-    if (Exists(strTableName, keyMap, bExist) != 0) {
+    if (Exists(strTableName, keyMap, bExist) != 0)
+    {
         return -1;
     }
 
     int iRet = 0;
-    if (bExist) {
+    if (bExist)
+    {
         iRet = Modify(strTableName, keyMap, keyvalueMap, errormsg);
-    } else {
+    }
+    else
+    {
         std::map<std::string, std::string> insertMap = keyvalueMap;
-        for(auto iter = keyMap.begin(); iter != keyMap.end(); iter++)
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); iter++)
         {
             insertMap.emplace(iter->first, iter->second);
         }
@@ -955,12 +1208,13 @@ int NFCMysqlDriver::Update(const std::string &strTableName, const std::map<std::
     return iRet;
 }
 
-int NFCMysqlDriver::Modify(const std::string &strTableName, const std::string& where,
-           const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg)
+int NFCMysqlDriver::Modify(const std::string &strTableName, const std::string &where,
+                           const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
 
@@ -969,10 +1223,14 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::string& w
         // update
         query << "UPDATE " << strTableName << " SET ";
         int i = 0;
-        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << "," << iter->first << " = " << mysqlpp::quote << iter->second;
             }
             i++;
@@ -994,10 +1252,12 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::string& w
 }
 
 int NFCMysqlDriver::Modify(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
-                           const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg) {
+                           const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
 
@@ -1006,10 +1266,14 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::map<std::
         // update
         query << "UPDATE " << strTableName << " SET ";
         int i = 0;
-        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << "," << iter->first << " = " << mysqlpp::quote << iter->second;
             }
             i++;
@@ -1017,10 +1281,14 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::map<std::
 
         query << " WHERE ";
         i = 0;
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
             i++;
@@ -1037,10 +1305,12 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::map<std::
 }
 
 int NFCMysqlDriver::Insert(const std::string &strTableName, const std::map<std::string, std::string> &keyvalueMap,
-                           std::string &errormsg) {
+                           std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
@@ -1048,10 +1318,14 @@ int NFCMysqlDriver::Insert(const std::string &strTableName, const std::map<std::
         // insert
         query << "INSERT INTO " << strTableName << "(";
         int i = 0;
-        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << iter->first;
-            } else {
+            }
+            else
+            {
                 query << ", " << iter->first;
             }
             i++;
@@ -1059,10 +1333,14 @@ int NFCMysqlDriver::Insert(const std::string &strTableName, const std::map<std::
 
         query << ") VALUES (";
         i = 0;
-        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyvalueMap.begin(); iter != keyvalueMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << ", " << mysqlpp::quote << iter->second;
             }
             i++;
@@ -1079,11 +1357,13 @@ int NFCMysqlDriver::Insert(const std::string &strTableName, const std::map<std::
 }
 
 int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
-                             std::map<std::string, std::string> &valueVec, std::string &errormsg) {
+                             std::map<std::string, std::string> &valueVec, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     valueVec.clear();
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
@@ -1091,10 +1371,14 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
         query << "SELECT * ";
 
         query << " FROM " << strTableName << " WHERE ";
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (iter == keyMap.begin()) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (iter == keyMap.begin())
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
         }
@@ -1105,14 +1389,20 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
         mysqlpp::StoreQueryResult xResult = query.store();
         query.reset();
 
-        if (xResult.empty() || !xResult) {
+        if (xResult.empty() || !xResult)
+        {
             return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
-        for (size_t i = 0; i < xResult.num_rows(); ++i) {
-            for (size_t j = 0; j < xResult[i].size(); j++) {
+        for (size_t i = 0; i < xResult.num_rows(); ++i)
+        {
+            for (size_t j = 0; j < xResult[i].size(); j++)
+            {
                 std::string value;
-                xResult[i][j].to_string(value);
+                if (!xResult[i][j].is_null())
+                {
+                    xResult[i][j].to_string(value);
+                }
                 valueVec.emplace(xResult.field_name(j), value);
             }
         }
@@ -1124,29 +1414,39 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
 
 int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                              const std::vector<std::string> &fieldVec,
-                             std::map<std::string, std::string> &valueVec, std::string &errormsg) {
+                             std::map<std::string, std::string> &valueVec, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     valueVec.clear();
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
         mysqlpp::Query query = pConnection->query();
         query << "SELECT ";
-        for (auto iter = fieldVec.begin(); iter != fieldVec.end(); ++iter) {
-            if (iter == fieldVec.begin()) {
+        for (auto iter = fieldVec.begin(); iter != fieldVec.end(); ++iter)
+        {
+            if (iter == fieldVec.begin())
+            {
                 query << *iter;
-            } else {
+            }
+            else
+            {
                 query << "," << *iter;
             }
         }
 
         query << " FROM " << strTableName << " WHERE ";
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (iter == keyMap.begin()) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (iter == keyMap.begin())
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
         }
@@ -1158,14 +1458,20 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
         mysqlpp::StoreQueryResult xResult = query.store();
         query.reset();
 
-        if (xResult.empty() || !xResult) {
+        if (xResult.empty() || !xResult)
+        {
             return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
-        for (size_t i = 0; i < xResult.num_rows(); ++i) {
-            for (size_t j = 0; j < xResult[i].size(); j++) {
+        for (size_t i = 0; i < xResult.num_rows(); ++i)
+        {
+            for (size_t j = 0; j < xResult[i].size(); j++)
+            {
                 std::string value;
-                xResult[i][j].to_string(value);
+                if (!xResult[i][j].is_null())
+                {
+                    xResult[i][j].to_string(value);
+                }
                 valueVec.emplace(xResult.field_name(j), value);
             }
         }
@@ -1177,29 +1483,39 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
 
 int NFCMysqlDriver::QueryMore(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                               const std::vector<std::string> &fieldVec,
-                              std::vector<std::map<std::string, std::string>> &valueVec, std::string &errormsg) {
+                              std::vector<std::map<std::string, std::string>> &valueVec, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     valueVec.clear();
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
         mysqlpp::Query query = pConnection->query();
         query << "SELECT ";
-        for (std::vector<std::string>::const_iterator iter = fieldVec.begin(); iter != fieldVec.end(); ++iter) {
-            if (iter == fieldVec.begin()) {
+        for (std::vector<std::string>::const_iterator iter = fieldVec.begin(); iter != fieldVec.end(); ++iter)
+        {
+            if (iter == fieldVec.begin())
+            {
                 query << *iter;
-            } else {
+            }
+            else
+            {
                 query << "," << *iter;
             }
         }
 
         query << " FROM " << strTableName << " WHERE ";
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (iter == keyMap.begin()) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (iter == keyMap.begin())
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
         }
@@ -1211,16 +1527,22 @@ int NFCMysqlDriver::QueryMore(const std::string &strTableName, const std::map<st
         mysqlpp::StoreQueryResult xResult = query.store();
         query.reset();
 
-        if (xResult.empty() || !xResult) {
+        if (xResult.empty() || !xResult)
+        {
             return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
-        for (size_t i = 0; i < xResult.num_rows(); ++i) {
+        for (size_t i = 0; i < xResult.num_rows(); ++i)
+        {
             valueVec.push_back(std::map<std::string, std::string>());
             std::map<std::string, std::string> &tmpVec = valueVec.back();
-            for (size_t j = 0; j < xResult[i].size(); j++) {
+            for (size_t j = 0; j < xResult[i].size(); j++)
+            {
                 std::string value;
-                xResult[i][j].to_string(value);
+                if (!xResult[i][j].is_null())
+                {
+                    xResult[i][j].to_string(value);
+                }
                 tmpVec.emplace(xResult.field_name(j), value);
             }
         }
@@ -1234,16 +1556,21 @@ int NFCMysqlDriver::Delete(const std::string &strTableName, const std::map<std::
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
         mysqlpp::Query query = pConnection->query();
         query << "DELETE FROM " << strTableName << " WHERE ";
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (iter == keyMap.begin()) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (iter == keyMap.begin())
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
         }
@@ -1260,10 +1587,12 @@ int NFCMysqlDriver::Delete(const std::string &strTableName, const std::map<std::
 }
 
 int NFCMysqlDriver::Delete(const std::string &strTableName, const std::string &strKeyColName,
-                           const std::string &strKey, std::string &errormsg) {
+                           const std::string &strKey, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     NFMYSQLTRYBEGIN
@@ -1282,15 +1611,18 @@ int NFCMysqlDriver::Delete(const std::string &strTableName, const std::string &s
     return 0;
 }
 
-int NFCMysqlDriver::Delete(const std::string &sql, std::string &errormsg) {
+int NFCMysqlDriver::Delete(const std::string &sql, std::string &errormsg)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
 
     std::string msg = "delete error";
-    try {
+    try
+    {
         mysqlpp::Query query = pConnection->query();
         query << sql << ";";
 
@@ -1299,23 +1631,27 @@ int NFCMysqlDriver::Delete(const std::string &sql, std::string &errormsg) {
         query.reset();
 
     }
-    catch (mysqlpp::BadQuery er) {
+    catch (mysqlpp::BadQuery er)
+    {
         errormsg = er.what();
         NFLogError(NF_LOG_SYSTEMLOG, 0, "BadQuery [{}] Error:{}", msg, er.what());
         return -1;
     }
-    catch (const mysqlpp::BadConversion &er) {
+    catch (const mysqlpp::BadConversion &er)
+    {
         errormsg = er.what();
         NFLogError(NF_LOG_SYSTEMLOG, 0, "BadConversion [{}] Error:{} retrieved data size:{}, actual size:{}", msg,
                    er.what(), er.retrieved, er.actual_size);
         return -1;
     }
-    catch (const mysqlpp::Exception &er) {
+    catch (const mysqlpp::Exception &er)
+    {
         errormsg = er.what();
         NFLogError(NF_LOG_SYSTEMLOG, 0, "mysqlpp::Exception [{}] Error:{}", msg, er.what());
         return -1;
     }
-    catch (...) {
+    catch (...)
+    {
         errormsg = "Unknown Error";
         NFLogError(NF_LOG_SYSTEMLOG, 0, "std::exception [{}] Error:Error:Unknown", msg);
         return -1;
@@ -1326,10 +1662,12 @@ int NFCMysqlDriver::Delete(const std::string &sql, std::string &errormsg) {
 }
 
 int NFCMysqlDriver::Exists(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
-                           bool &bExit) {
+                           bool &bExit)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
 
@@ -1344,10 +1682,14 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::map<std::
         mysqlpp::Query query = pConnection->query();
         query << "SELECT 1 FROM " << strTableName << " WHERE ";
         int i = 0;
-        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter) {
-            if (i == 0) {
+        for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+        {
+            if (i == 0)
+            {
                 query << iter->first << " = " << mysqlpp::quote << iter->second;
-            } else {
+            }
+            else
+            {
                 query << " and " << iter->first << " = " << mysqlpp::quote << iter->second;
             }
             i++;
@@ -1360,7 +1702,8 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::map<std::
         mysqlpp::StoreQueryResult result = query.store();
         query.reset();
 
-        if (!result || result.empty()) {
+        if (!result || result.empty())
+        {
             bExit = false;
             return 0;
         }
@@ -1373,10 +1716,12 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::map<std::
 }
 
 int NFCMysqlDriver::Exists(const std::string &strTableName, const std::string &strKeyColName,
-                           const std::string &strKey, bool &bExit) {
+                           const std::string &strKey, bool &bExit)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mysqlpp::Connection *pConnection = GetConnection();
-    if (nullptr == pConnection) {
+    if (nullptr == pConnection)
+    {
         return -1;
     }
     std::string errormsg;
@@ -1388,7 +1733,8 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::string &s
         mysqlpp::StoreQueryResult result = query.store();
         query.reset();
 
-        if (!result || result.empty()) {
+        if (!result || result.empty())
+        {
             bExit = false;
             return 0;
         }
@@ -1400,7 +1746,7 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::string &s
     return 0;
 }
 
-int NFCMysqlDriver::InsertObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg)
+int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
@@ -1421,7 +1767,8 @@ int NFCMysqlDriver::InsertObj(const std::string& tbName, const google::protobuf:
 }
 
 int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
-                              storesvr_sqldata::storesvr_ins_res &select_res) {
+                              storesvr_sqldata::storesvr_ins_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> resultMap;
@@ -1432,7 +1779,8 @@ int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
     select_res.mutable_ins_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Insert(select.baseinfo().tbname(), resultMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_ins_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
@@ -1442,7 +1790,8 @@ int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
 }
 
 int
-NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &resultMap) {
+NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &resultMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -1458,7 +1807,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map
     return 0;
 }
 
-int NFCMysqlDriver::ModifyObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg)
+int NFCMysqlDriver::ModifyObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
@@ -1494,7 +1843,8 @@ int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, s
     select_res.mutable_mod_opres()->set_mod_key(select.mod_cond().mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
@@ -1505,7 +1855,8 @@ int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, s
 
 
 int NFCMysqlDriver::ModifyObj(const storesvr_sqldata::storesvr_modobj &select,
-                              storesvr_sqldata::storesvr_modobj_res &select_res) {
+                              storesvr_sqldata::storesvr_modobj_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
@@ -1517,7 +1868,8 @@ int NFCMysqlDriver::ModifyObj(const storesvr_sqldata::storesvr_modobj &select,
     select_res.mutable_mod_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
@@ -1526,7 +1878,8 @@ int NFCMysqlDriver::ModifyObj(const storesvr_sqldata::storesvr_modobj &select,
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap)
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap,
+                              std::map<std::string, std::string> &kevValueMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
@@ -1544,7 +1897,8 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap)
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, std::map<std::string, std::string> &keyMap,
+                              std::map<std::string, std::string> &kevValueMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
@@ -1564,7 +1918,8 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, s
 }
 
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap,
-                              std::map<std::string, std::string> &kevValueMap) {
+                              std::map<std::string, std::string> &kevValueMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -1582,7 +1937,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, s
     return 0;
 }
 
-int NFCMysqlDriver::UpdateObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg)
+int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
@@ -1618,7 +1973,8 @@ int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_modins &select
     select_res.mutable_mod_opres()->set_mod_key(select.mod_cond().mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
@@ -1628,7 +1984,8 @@ int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_modins &select
 }
 
 int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select,
-                              storesvr_sqldata::storesvr_modinsobj_res &select_res) {
+                              storesvr_sqldata::storesvr_modinsobj_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
@@ -1640,7 +1997,8 @@ int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select
     select_res.mutable_modins_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Update(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
-    if (iRet != 0) {
+    if (iRet != 0)
+    {
         select_res.mutable_modins_opres()->set_zdb_errmsg(errmsg);
         return iRet;
     }
@@ -1651,7 +2009,8 @@ int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select
 
 int
 NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modinsobj &select, std::map<std::string, std::string> &keyMap,
-                          std::map<std::string, std::string> &kevValueMap) {
+                          std::map<std::string, std::string> &kevValueMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");

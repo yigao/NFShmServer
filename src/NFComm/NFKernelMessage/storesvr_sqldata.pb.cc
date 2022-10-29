@@ -92,6 +92,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* storesvr_execute_res_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   storesvr_execute_res_reflection_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_execute_more_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  storesvr_execute_more_reflection_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_execute_more_res_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  storesvr_execute_more_res_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* storesvr_logic_operator_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* storesvr_cmp_operator_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* storesvr_column_type_descriptor_ = NULL;
@@ -142,10 +148,12 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(storesvr_wherecond));
   storesvr_baseinfo_descriptor_ = file->message_type(2);
-  static const int storesvr_baseinfo_offsets_[3] = {
+  static const int storesvr_baseinfo_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_baseinfo, dbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_baseinfo, tbname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_baseinfo, clname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_baseinfo, sel_fields_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_baseinfo, max_records_),
   };
   storesvr_baseinfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -491,9 +499,10 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(storesvr_execute));
   storesvr_execute_res_descriptor_ = file->message_type(23);
-  static const int storesvr_execute_res_offsets_[2] = {
+  static const int storesvr_execute_res_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, exe_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, sel_records_),
   };
   storesvr_execute_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -506,6 +515,42 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(storesvr_execute_res));
+  storesvr_execute_more_descriptor_ = file->message_type(24);
+  static const int storesvr_execute_more_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, mod_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, execute_record_),
+  };
+  storesvr_execute_more_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      storesvr_execute_more_descriptor_,
+      storesvr_execute_more::default_instance_,
+      storesvr_execute_more_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(storesvr_execute_more));
+  storesvr_execute_more_res_descriptor_ = file->message_type(25);
+  static const int storesvr_execute_more_res_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, exe_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, is_lastbatch_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, row_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, sel_records_),
+  };
+  storesvr_execute_more_res_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      storesvr_execute_more_res_descriptor_,
+      storesvr_execute_more_res::default_instance_,
+      storesvr_execute_more_res_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(storesvr_execute_more_res));
   storesvr_logic_operator_descriptor_ = file->enum_type(0);
   storesvr_cmp_operator_descriptor_ = file->enum_type(1);
   storesvr_column_type_descriptor_ = file->enum_type(2);
@@ -569,6 +614,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     storesvr_execute_descriptor_, &storesvr_execute::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     storesvr_execute_res_descriptor_, &storesvr_execute_res::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    storesvr_execute_more_descriptor_, &storesvr_execute_more::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    storesvr_execute_more_res_descriptor_, &storesvr_execute_more_res::default_instance());
 }
 
 }  // namespace
@@ -622,6 +671,10 @@ void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto() {
   delete storesvr_execute_reflection_;
   delete storesvr_execute_res::default_instance_;
   delete storesvr_execute_res_reflection_;
+  delete storesvr_execute_more::default_instance_;
+  delete storesvr_execute_more_reflection_;
+  delete storesvr_execute_more_res::default_instance_;
+  delete storesvr_execute_more_res_reflection_;
 }
 
 void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
@@ -642,83 +695,93 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "P_NONE\"y\n\022storesvr_wherecond\022\017\n\007mod_key\030"
     "\001 \001(\004\0222\n\013where_conds\030\002 \003(\0132\035.storesvr_sq"
     "ldata.storesvr_vk\022\036\n\026where_additional_co"
-    "nds\030\003 \001(\t\"C\n\021storesvr_baseinfo\022\016\n\006dbname"
-    "\030\001 \001(\t\022\016\n\006tbname\030\002 \001(\t\022\016\n\006clname\030\003 \001(\t\"5"
-    "\n\016storesvr_opres\022\017\n\007mod_key\030\001 \001(\004\022\022\n\nzdb"
-    "_errmsg\030\002 \001(\t\"}\n\014storesvr_sel\0225\n\010baseinf"
-    "o\030\001 \001(\0132#.storesvr_sqldata.storesvr_base"
-    "info\0226\n\010sel_cond\030\002 \001(\0132$.storesvr_sqldat"
-    "a.storesvr_wherecond\"\274\001\n\020storesvr_sel_re"
-    "s\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
-    "toresvr_baseinfo\0223\n\tsel_opres\030\002 \001(\0132 .st"
-    "oresvr_sqldata.storesvr_opres\022\024\n\014is_last"
-    "batch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013sel_re"
-    "cords\030\005 \003(\014\"m\n\017storesvr_selobj\0225\n\010basein"
+    "nds\030\003 \001(\t\"l\n\021storesvr_baseinfo\022\016\n\006dbname"
+    "\030\001 \001(\t\022\016\n\006tbname\030\002 \001(\t\022\016\n\006clname\030\003 \001(\t\022\022"
+    "\n\nsel_fields\030\004 \003(\t\022\023\n\013max_records\030\005 \001(\r\""
+    "5\n\016storesvr_opres\022\017\n\007mod_key\030\001 \001(\004\022\022\n\nzd"
+    "b_errmsg\030\002 \001(\t\"}\n\014storesvr_sel\0225\n\010basein"
     "fo\030\001 \001(\0132#.storesvr_sqldata.storesvr_bas"
-    "einfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nsel_record\030\003 \001"
-    "(\014\"\225\001\n\023storesvr_selobj_res\0225\n\010baseinfo\030\001"
-    " \001(\0132#.storesvr_sqldata.storesvr_baseinf"
-    "o\0223\n\tsel_opres\030\002 \001(\0132 .storesvr_sqldata."
-    "storesvr_opres\022\022\n\nsel_record\030\003 \001(\014\"j\n\014st"
-    "oresvr_ins\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_"
-    "sqldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001"
-    "(\004\022\022\n\nins_record\030\003 \001(\014\"~\n\020storesvr_ins_r"
+    "einfo\0226\n\010sel_cond\030\002 \001(\0132$.storesvr_sqlda"
+    "ta.storesvr_wherecond\"\274\001\n\020storesvr_sel_r"
     "es\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata."
-    "storesvr_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .s"
-    "toresvr_sqldata.storesvr_opres\"}\n\014stores"
-    "vr_del\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
-    "ata.storesvr_baseinfo\0226\n\010del_cond\030\002 \001(\0132"
-    "$.storesvr_sqldata.storesvr_wherecond\"~\n"
-    "\020storesvr_del_res\0225\n\010baseinfo\030\001 \001(\0132#.st"
-    "oresvr_sqldata.storesvr_baseinfo\0223\n\tdel_"
-    "opres\030\002 \001(\0132 .storesvr_sqldata.storesvr_"
-    "opres\"m\n\017storesvr_delobj\0225\n\010baseinfo\030\001 \001"
-    "(\0132#.storesvr_sqldata.storesvr_baseinfo\022"
-    "\017\n\007mod_key\030\002 \001(\004\022\022\n\ndel_record\030\003 \001(\014\"\201\001\n"
-    "\023storesvr_delobj_res\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\0223\n\td"
-    "el_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
-    "vr_opres\"\221\001\n\014storesvr_mod\0225\n\010baseinfo\030\001 "
-    "\001(\0132#.storesvr_sqldata.storesvr_baseinfo"
-    "\0226\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata.st"
-    "oresvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"~\n\020"
-    "storesvr_mod_res\0225\n\010baseinfo\030\001 \001(\0132#.sto"
-    "resvr_sqldata.storesvr_baseinfo\0223\n\tmod_o"
-    "pres\030\002 \001(\0132 .storesvr_sqldata.storesvr_o"
-    "pres\"m\n\017storesvr_modobj\0225\n\010baseinfo\030\001 \001("
-    "\0132#.storesvr_sqldata.storesvr_baseinfo\022\017"
-    "\n\007mod_key\030\002 \001(\004\022\022\n\nmod_record\030\003 \001(\014\"\201\001\n\023"
-    "storesvr_modobj_res\0225\n\010baseinfo\030\001 \001(\0132#."
-    "storesvr_sqldata.storesvr_baseinfo\0223\n\tmo"
-    "d_opres\030\002 \001(\0132 .storesvr_sqldata.storesv"
-    "r_opres\"\224\001\n\017storesvr_modins\0225\n\010baseinfo\030"
+    "storesvr_baseinfo\0223\n\tsel_opres\030\002 \001(\0132 .s"
+    "toresvr_sqldata.storesvr_opres\022\024\n\014is_las"
+    "tbatch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013sel_r"
+    "ecords\030\005 \003(\014\"m\n\017storesvr_selobj\0225\n\010basei"
+    "nfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_ba"
+    "seinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nsel_record\030\003 "
+    "\001(\014\"\225\001\n\023storesvr_selobj_res\0225\n\010baseinfo\030"
     "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
-    "fo\0226\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata."
-    "storesvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"\201"
-    "\001\n\023storesvr_modins_res\0225\n\010baseinfo\030\001 \001(\013"
-    "2#.storesvr_sqldata.storesvr_baseinfo\0223\n"
-    "\tmod_opres\030\002 \001(\0132 .storesvr_sqldata.stor"
-    "esvr_opres\"s\n\022storesvr_modinsobj\0225\n\010base"
-    "info\030\001 \001(\0132#.storesvr_sqldata.storesvr_b"
-    "aseinfo\022\017\n\007mod_key\030\002 \001(\004\022\025\n\rmodins_recor"
-    "d\030\003 \001(\014\"\207\001\n\026storesvr_modinsobj_res\0225\n\010ba"
-    "seinfo\030\001 \001(\0132#.storesvr_sqldata.storesvr"
-    "_baseinfo\0226\n\014modins_opres\030\002 \001(\0132 .stores"
-    "vr_sqldata.storesvr_opres\"r\n\020storesvr_ex"
-    "ecute\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqlda"
-    "ta.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\026\n"
-    "\016execute_record\030\003 \001(\014\"\202\001\n\024storesvr_execu"
-    "te_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
-    "ata.storesvr_baseinfo\0223\n\texe_opres\030\002 \001(\013"
-    "2 .storesvr_sqldata.storesvr_opres*R\n\027st"
-    "oresvr_logic_operator\022\021\n\rE_LOGICOP_AND\020\001"
-    "\022\020\n\014E_LOGICOP_OR\020\002\022\022\n\016E_LOGICOP_NONE\020\003*\230"
-    "\001\n\025storesvr_cmp_operator\022\021\n\rE_CMPOP_EQUA"
-    "L\020\001\022\023\n\017E_CMPOP_GREATER\020\002\022\020\n\014E_CMPOP_LESS"
-    "\020\003\022\030\n\024E_CMPOP_GREATEREQUAL\020\004\022\025\n\021E_CMPOP_"
-    "LESSEQUAL\020\005\022\024\n\020E_CMPOP_NOTEQUAL\020\006*E\n\024sto"
-    "resvr_column_type\022\027\n\023E_COLUMNTYPE_STRING"
-    "\020\001\022\024\n\020E_COLUMNTYPE_NUM\020\002", 3504);
+    "fo\0223\n\tsel_opres\030\002 \001(\0132 .storesvr_sqldata"
+    ".storesvr_opres\022\022\n\nsel_record\030\003 \001(\014\"j\n\014s"
+    "toresvr_ins\0225\n\010baseinfo\030\001 \001(\0132#.storesvr"
+    "_sqldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 "
+    "\001(\004\022\022\n\nins_record\030\003 \001(\014\"~\n\020storesvr_ins_"
+    "res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata"
+    ".storesvr_baseinfo\0223\n\tins_opres\030\002 \001(\0132 ."
+    "storesvr_sqldata.storesvr_opres\"}\n\014store"
+    "svr_del\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sql"
+    "data.storesvr_baseinfo\0226\n\010del_cond\030\002 \001(\013"
+    "2$.storesvr_sqldata.storesvr_wherecond\"~"
+    "\n\020storesvr_del_res\0225\n\010baseinfo\030\001 \001(\0132#.s"
+    "toresvr_sqldata.storesvr_baseinfo\0223\n\tdel"
+    "_opres\030\002 \001(\0132 .storesvr_sqldata.storesvr"
+    "_opres\"m\n\017storesvr_delobj\0225\n\010baseinfo\030\001 "
+    "\001(\0132#.storesvr_sqldata.storesvr_baseinfo"
+    "\022\017\n\007mod_key\030\002 \001(\004\022\022\n\ndel_record\030\003 \001(\014\"\201\001"
+    "\n\023storesvr_delobj_res\0225\n\010baseinfo\030\001 \001(\0132"
+    "#.storesvr_sqldata.storesvr_baseinfo\0223\n\t"
+    "del_opres\030\002 \001(\0132 .storesvr_sqldata.store"
+    "svr_opres\"\221\001\n\014storesvr_mod\0225\n\010baseinfo\030\001"
+    " \001(\0132#.storesvr_sqldata.storesvr_baseinf"
+    "o\0226\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata.s"
+    "toresvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"~\n"
+    "\020storesvr_mod_res\0225\n\010baseinfo\030\001 \001(\0132#.st"
+    "oresvr_sqldata.storesvr_baseinfo\0223\n\tmod_"
+    "opres\030\002 \001(\0132 .storesvr_sqldata.storesvr_"
+    "opres\"m\n\017storesvr_modobj\0225\n\010baseinfo\030\001 \001"
+    "(\0132#.storesvr_sqldata.storesvr_baseinfo\022"
+    "\017\n\007mod_key\030\002 \001(\004\022\022\n\nmod_record\030\003 \001(\014\"\201\001\n"
+    "\023storesvr_modobj_res\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\0223\n\tm"
+    "od_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
+    "vr_opres\"\224\001\n\017storesvr_modins\0225\n\010baseinfo"
+    "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
+    "nfo\0226\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata"
+    ".storesvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\""
+    "\201\001\n\023storesvr_modins_res\0225\n\010baseinfo\030\001 \001("
+    "\0132#.storesvr_sqldata.storesvr_baseinfo\0223"
+    "\n\tmod_opres\030\002 \001(\0132 .storesvr_sqldata.sto"
+    "resvr_opres\"s\n\022storesvr_modinsobj\0225\n\010bas"
+    "einfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_"
+    "baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\025\n\rmodins_reco"
+    "rd\030\003 \001(\014\"\207\001\n\026storesvr_modinsobj_res\0225\n\010b"
+    "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
+    "r_baseinfo\0226\n\014modins_opres\030\002 \001(\0132 .store"
+    "svr_sqldata.storesvr_opres\"r\n\020storesvr_e"
+    "xecute\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
+    "ata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\026"
+    "\n\016execute_record\030\003 \001(\014\"\227\001\n\024storesvr_exec"
+    "ute_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sql"
+    "data.storesvr_baseinfo\0223\n\texe_opres\030\002 \001("
+    "\0132 .storesvr_sqldata.storesvr_opres\022\023\n\013s"
+    "el_records\030\003 \001(\014\"w\n\025storesvr_execute_mor"
+    "e\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
+    "toresvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\026\n\016exe"
+    "cute_record\030\003 \001(\014\"\305\001\n\031storesvr_execute_m"
+    "ore_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sql"
+    "data.storesvr_baseinfo\0223\n\texe_opres\030\002 \001("
+    "\0132 .storesvr_sqldata.storesvr_opres\022\024\n\014i"
+    "s_lastbatch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013"
+    "sel_records\030\005 \003(\014*R\n\027storesvr_logic_oper"
+    "ator\022\021\n\rE_LOGICOP_AND\020\001\022\020\n\014E_LOGICOP_OR\020"
+    "\002\022\022\n\016E_LOGICOP_NONE\020\003*\230\001\n\025storesvr_cmp_o"
+    "perator\022\021\n\rE_CMPOP_EQUAL\020\001\022\023\n\017E_CMPOP_GR"
+    "EATER\020\002\022\020\n\014E_CMPOP_LESS\020\003\022\030\n\024E_CMPOP_GRE"
+    "ATEREQUAL\020\004\022\025\n\021E_CMPOP_LESSEQUAL\020\005\022\024\n\020E_"
+    "CMPOP_NOTEQUAL\020\006*E\n\024storesvr_column_type"
+    "\022\027\n\023E_COLUMNTYPE_STRING\020\001\022\024\n\020E_COLUMNTYP"
+    "E_NUM\020\002", 3887);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "storesvr_sqldata.proto", &protobuf_RegisterTypes);
   storesvr_vk::default_instance_ = new storesvr_vk();
@@ -745,6 +808,8 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
   storesvr_modinsobj_res::default_instance_ = new storesvr_modinsobj_res();
   storesvr_execute::default_instance_ = new storesvr_execute();
   storesvr_execute_res::default_instance_ = new storesvr_execute_res();
+  storesvr_execute_more::default_instance_ = new storesvr_execute_more();
+  storesvr_execute_more_res::default_instance_ = new storesvr_execute_more_res();
   storesvr_vk::default_instance_->InitAsDefaultInstance();
   storesvr_wherecond::default_instance_->InitAsDefaultInstance();
   storesvr_baseinfo::default_instance_->InitAsDefaultInstance();
@@ -769,6 +834,8 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
   storesvr_modinsobj_res::default_instance_->InitAsDefaultInstance();
   storesvr_execute::default_instance_->InitAsDefaultInstance();
   storesvr_execute_res::default_instance_->InitAsDefaultInstance();
+  storesvr_execute_more::default_instance_->InitAsDefaultInstance();
+  storesvr_execute_more_res::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_storesvr_5fsqldata_2eproto);
 }
 
@@ -1557,6 +1624,8 @@ void storesvr_wherecond::Swap(storesvr_wherecond* other) {
 const int storesvr_baseinfo::kDbnameFieldNumber;
 const int storesvr_baseinfo::kTbnameFieldNumber;
 const int storesvr_baseinfo::kClnameFieldNumber;
+const int storesvr_baseinfo::kSelFieldsFieldNumber;
+const int storesvr_baseinfo::kMaxRecordsFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_baseinfo::storesvr_baseinfo()
@@ -1578,6 +1647,7 @@ void storesvr_baseinfo::SharedCtor() {
   dbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   tbname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   clname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  max_records_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1637,7 +1707,9 @@ void storesvr_baseinfo::Clear() {
         clname_->clear();
       }
     }
+    max_records_ = 0u;
   }
+  sel_fields_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1694,6 +1766,41 @@ bool storesvr_baseinfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(34)) goto parse_sel_fields;
+        break;
+      }
+
+      // repeated string sel_fields = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sel_fields:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_sel_fields()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->sel_fields(this->sel_fields_size() - 1).data(),
+            this->sel_fields(this->sel_fields_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_sel_fields;
+        if (input->ExpectTag(40)) goto parse_max_records;
+        break;
+      }
+
+      // optional uint32 max_records = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_max_records:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &max_records_)));
+          set_has_max_records();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1743,6 +1850,20 @@ void storesvr_baseinfo::SerializeWithCachedSizes(
       3, this->clname(), output);
   }
 
+  // repeated string sel_fields = 4;
+  for (int i = 0; i < this->sel_fields_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->sel_fields(i).data(), this->sel_fields(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->sel_fields(i), output);
+  }
+
+  // optional uint32 max_records = 5;
+  if (has_max_records()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->max_records(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1781,6 +1902,20 @@ void storesvr_baseinfo::SerializeWithCachedSizes(
         3, this->clname(), target);
   }
 
+  // repeated string sel_fields = 4;
+  for (int i = 0; i < this->sel_fields_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sel_fields(i).data(), this->sel_fields(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(4, this->sel_fields(i), target);
+  }
+
+  // optional uint32 max_records = 5;
+  if (has_max_records()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->max_records(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1813,7 +1948,21 @@ int storesvr_baseinfo::ByteSize() const {
           this->clname());
     }
 
+    // optional uint32 max_records = 5;
+    if (has_max_records()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->max_records());
+    }
+
   }
+  // repeated string sel_fields = 4;
+  total_size += 1 * this->sel_fields_size();
+  for (int i = 0; i < this->sel_fields_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->sel_fields(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1839,6 +1988,7 @@ void storesvr_baseinfo::MergeFrom(const ::google::protobuf::Message& from) {
 
 void storesvr_baseinfo::MergeFrom(const storesvr_baseinfo& from) {
   GOOGLE_CHECK_NE(&from, this);
+  sel_fields_.MergeFrom(from.sel_fields_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_dbname()) {
       set_dbname(from.dbname());
@@ -1848,6 +1998,9 @@ void storesvr_baseinfo::MergeFrom(const storesvr_baseinfo& from) {
     }
     if (from.has_clname()) {
       set_clname(from.clname());
+    }
+    if (from.has_max_records()) {
+      set_max_records(from.max_records());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1875,6 +2028,8 @@ void storesvr_baseinfo::Swap(storesvr_baseinfo* other) {
     std::swap(dbname_, other->dbname_);
     std::swap(tbname_, other->tbname_);
     std::swap(clname_, other->clname_);
+    sel_fields_.Swap(&other->sel_fields_);
+    std::swap(max_records_, other->max_records_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7580,6 +7735,7 @@ void storesvr_execute::Swap(storesvr_execute* other) {
 #ifndef _MSC_VER
 const int storesvr_execute_res::kBaseinfoFieldNumber;
 const int storesvr_execute_res::kExeOpresFieldNumber;
+const int storesvr_execute_res::kSelRecordsFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_execute_res::storesvr_execute_res()
@@ -7602,6 +7758,7 @@ void storesvr_execute_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   exe_opres_ = NULL;
+  sel_records_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7610,6 +7767,9 @@ storesvr_execute_res::~storesvr_execute_res() {
 }
 
 void storesvr_execute_res::SharedDtor() {
+  if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
+    delete sel_records_;
+  }
   if (this != default_instance_) {
     delete baseinfo_;
     delete exe_opres_;
@@ -7645,6 +7805,11 @@ void storesvr_execute_res::Clear() {
     if (has_exe_opres()) {
       if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
+    if (has_sel_records()) {
+      if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
+        sel_records_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -7676,6 +7841,20 @@ bool storesvr_execute_res::MergePartialFromCodedStream(
          parse_exe_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_exe_opres()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_sel_records;
+        break;
+      }
+
+      // optional bytes sel_records = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sel_records:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_sel_records()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7713,6 +7892,12 @@ void storesvr_execute_res::SerializeWithCachedSizes(
       2, this->exe_opres(), output);
   }
 
+  // optional bytes sel_records = 3;
+  if (has_sel_records()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      3, this->sel_records(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -7733,6 +7918,13 @@ void storesvr_execute_res::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->exe_opres(), target);
+  }
+
+  // optional bytes sel_records = 3;
+  if (has_sel_records()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->sel_records(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7758,6 +7950,13 @@ int storesvr_execute_res::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->exe_opres());
+    }
+
+    // optional bytes sel_records = 3;
+    if (has_sel_records()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->sel_records());
     }
 
   }
@@ -7793,6 +7992,9 @@ void storesvr_execute_res::MergeFrom(const storesvr_execute_res& from) {
     if (from.has_exe_opres()) {
       mutable_exe_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.exe_opres());
     }
+    if (from.has_sel_records()) {
+      set_sel_records(from.sel_records());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -7818,6 +8020,7 @@ void storesvr_execute_res::Swap(storesvr_execute_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(exe_opres_, other->exe_opres_);
+    std::swap(sel_records_, other->sel_records_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7829,6 +8032,681 @@ void storesvr_execute_res::Swap(storesvr_execute_res* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = storesvr_execute_res_descriptor_;
   metadata.reflection = storesvr_execute_res_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int storesvr_execute_more::kBaseinfoFieldNumber;
+const int storesvr_execute_more::kModKeyFieldNumber;
+const int storesvr_execute_more::kExecuteRecordFieldNumber;
+#endif  // !_MSC_VER
+
+storesvr_execute_more::storesvr_execute_more()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void storesvr_execute_more::InitAsDefaultInstance() {
+  baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
+}
+
+storesvr_execute_more::storesvr_execute_more(const storesvr_execute_more& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void storesvr_execute_more::SharedCtor() {
+  _cached_size_ = 0;
+  baseinfo_ = NULL;
+  mod_key_ = GOOGLE_ULONGLONG(0);
+  execute_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+storesvr_execute_more::~storesvr_execute_more() {
+  SharedDtor();
+}
+
+void storesvr_execute_more::SharedDtor() {
+  if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
+    delete execute_record_;
+  }
+  if (this != default_instance_) {
+    delete baseinfo_;
+  }
+}
+
+void storesvr_execute_more::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* storesvr_execute_more::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return storesvr_execute_more_descriptor_;
+}
+
+const storesvr_execute_more& storesvr_execute_more::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  return *default_instance_;
+}
+
+storesvr_execute_more* storesvr_execute_more::default_instance_ = NULL;
+
+storesvr_execute_more* storesvr_execute_more::New() const {
+  return new storesvr_execute_more;
+}
+
+void storesvr_execute_more::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_baseinfo()) {
+      if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+    }
+    mod_key_ = GOOGLE_ULONGLONG(0);
+    if (has_execute_record()) {
+      if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
+        execute_record_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool storesvr_execute_more::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_baseinfo()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_mod_key;
+        break;
+      }
+
+      // optional uint64 mod_key = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mod_key:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &mod_key_)));
+          set_has_mod_key();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_execute_record;
+        break;
+      }
+
+      // optional bytes execute_record = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_execute_record:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_execute_record()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void storesvr_execute_more::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  if (has_baseinfo()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->baseinfo(), output);
+  }
+
+  // optional uint64 mod_key = 2;
+  if (has_mod_key()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
+  }
+
+  // optional bytes execute_record = 3;
+  if (has_execute_record()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      3, this->execute_record(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* storesvr_execute_more::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  if (has_baseinfo()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->baseinfo(), target);
+  }
+
+  // optional uint64 mod_key = 2;
+  if (has_mod_key()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
+  }
+
+  // optional bytes execute_record = 3;
+  if (has_execute_record()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->execute_record(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int storesvr_execute_more::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+    if (has_baseinfo()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->baseinfo());
+    }
+
+    // optional uint64 mod_key = 2;
+    if (has_mod_key()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->mod_key());
+    }
+
+    // optional bytes execute_record = 3;
+    if (has_execute_record()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->execute_record());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void storesvr_execute_more::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const storesvr_execute_more* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_execute_more*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void storesvr_execute_more::MergeFrom(const storesvr_execute_more& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_baseinfo()) {
+      mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
+    }
+    if (from.has_mod_key()) {
+      set_mod_key(from.mod_key());
+    }
+    if (from.has_execute_record()) {
+      set_execute_record(from.execute_record());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void storesvr_execute_more::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void storesvr_execute_more::CopyFrom(const storesvr_execute_more& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool storesvr_execute_more::IsInitialized() const {
+
+  return true;
+}
+
+void storesvr_execute_more::Swap(storesvr_execute_more* other) {
+  if (other != this) {
+    std::swap(baseinfo_, other->baseinfo_);
+    std::swap(mod_key_, other->mod_key_);
+    std::swap(execute_record_, other->execute_record_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata storesvr_execute_more::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = storesvr_execute_more_descriptor_;
+  metadata.reflection = storesvr_execute_more_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int storesvr_execute_more_res::kBaseinfoFieldNumber;
+const int storesvr_execute_more_res::kExeOpresFieldNumber;
+const int storesvr_execute_more_res::kIsLastbatchFieldNumber;
+const int storesvr_execute_more_res::kRowCountFieldNumber;
+const int storesvr_execute_more_res::kSelRecordsFieldNumber;
+#endif  // !_MSC_VER
+
+storesvr_execute_more_res::storesvr_execute_more_res()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void storesvr_execute_more_res::InitAsDefaultInstance() {
+  baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
+  exe_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+}
+
+storesvr_execute_more_res::storesvr_execute_more_res(const storesvr_execute_more_res& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void storesvr_execute_more_res::SharedCtor() {
+  _cached_size_ = 0;
+  baseinfo_ = NULL;
+  exe_opres_ = NULL;
+  is_lastbatch_ = false;
+  row_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+storesvr_execute_more_res::~storesvr_execute_more_res() {
+  SharedDtor();
+}
+
+void storesvr_execute_more_res::SharedDtor() {
+  if (this != default_instance_) {
+    delete baseinfo_;
+    delete exe_opres_;
+  }
+}
+
+void storesvr_execute_more_res::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* storesvr_execute_more_res::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return storesvr_execute_more_res_descriptor_;
+}
+
+const storesvr_execute_more_res& storesvr_execute_more_res::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  return *default_instance_;
+}
+
+storesvr_execute_more_res* storesvr_execute_more_res::default_instance_ = NULL;
+
+storesvr_execute_more_res* storesvr_execute_more_res::New() const {
+  return new storesvr_execute_more_res;
+}
+
+void storesvr_execute_more_res::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_baseinfo()) {
+      if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+    }
+    if (has_exe_opres()) {
+      if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    }
+    is_lastbatch_ = false;
+    row_count_ = 0;
+  }
+  sel_records_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool storesvr_execute_more_res::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_baseinfo()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_exe_opres;
+        break;
+      }
+
+      // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_exe_opres:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_exe_opres()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_is_lastbatch;
+        break;
+      }
+
+      // optional bool is_lastbatch = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_is_lastbatch:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_lastbatch_)));
+          set_has_is_lastbatch();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_row_count;
+        break;
+      }
+
+      // optional int32 row_count = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_row_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &row_count_)));
+          set_has_row_count();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_sel_records;
+        break;
+      }
+
+      // repeated bytes sel_records = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sel_records:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->add_sel_records()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_sel_records;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void storesvr_execute_more_res::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  if (has_baseinfo()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->baseinfo(), output);
+  }
+
+  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+  if (has_exe_opres()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->exe_opres(), output);
+  }
+
+  // optional bool is_lastbatch = 3;
+  if (has_is_lastbatch()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->is_lastbatch(), output);
+  }
+
+  // optional int32 row_count = 4;
+  if (has_row_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->row_count(), output);
+  }
+
+  // repeated bytes sel_records = 5;
+  for (int i = 0; i < this->sel_records_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      5, this->sel_records(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* storesvr_execute_more_res::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  if (has_baseinfo()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->baseinfo(), target);
+  }
+
+  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+  if (has_exe_opres()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->exe_opres(), target);
+  }
+
+  // optional bool is_lastbatch = 3;
+  if (has_is_lastbatch()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->is_lastbatch(), target);
+  }
+
+  // optional int32 row_count = 4;
+  if (has_row_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->row_count(), target);
+  }
+
+  // repeated bytes sel_records = 5;
+  for (int i = 0; i < this->sel_records_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteBytesToArray(5, this->sel_records(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int storesvr_execute_more_res::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+    if (has_baseinfo()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->baseinfo());
+    }
+
+    // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+    if (has_exe_opres()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->exe_opres());
+    }
+
+    // optional bool is_lastbatch = 3;
+    if (has_is_lastbatch()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 row_count = 4;
+    if (has_row_count()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->row_count());
+    }
+
+  }
+  // repeated bytes sel_records = 5;
+  total_size += 1 * this->sel_records_size();
+  for (int i = 0; i < this->sel_records_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
+      this->sel_records(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void storesvr_execute_more_res::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const storesvr_execute_more_res* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_execute_more_res*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void storesvr_execute_more_res::MergeFrom(const storesvr_execute_more_res& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  sel_records_.MergeFrom(from.sel_records_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_baseinfo()) {
+      mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
+    }
+    if (from.has_exe_opres()) {
+      mutable_exe_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.exe_opres());
+    }
+    if (from.has_is_lastbatch()) {
+      set_is_lastbatch(from.is_lastbatch());
+    }
+    if (from.has_row_count()) {
+      set_row_count(from.row_count());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void storesvr_execute_more_res::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void storesvr_execute_more_res::CopyFrom(const storesvr_execute_more_res& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool storesvr_execute_more_res::IsInitialized() const {
+
+  return true;
+}
+
+void storesvr_execute_more_res::Swap(storesvr_execute_more_res* other) {
+  if (other != this) {
+    std::swap(baseinfo_, other->baseinfo_);
+    std::swap(exe_opres_, other->exe_opres_);
+    std::swap(is_lastbatch_, other->is_lastbatch_);
+    std::swap(row_count_, other->row_count_);
+    sel_records_.Swap(&other->sel_records_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata storesvr_execute_more_res::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = storesvr_execute_more_res_descriptor_;
+  metadata.reflection = storesvr_execute_more_res_reflection_;
   return metadata;
 }
 

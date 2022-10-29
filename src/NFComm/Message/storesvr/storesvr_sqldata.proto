@@ -34,14 +34,16 @@ message storesvr_vk {
 
 message storesvr_wherecond {
 	optional uint64 mod_key						= 1;	// 用来取模用
-	repeated storesvr_vk where_conds			= 2;	// 可能有多个查询条件，
+	repeated storesvr_vk where_conds	= 2;	// 可能有多个查询条件，
 	optional string where_additional_conds 		= 3;	// where的附加条件，例如limit、orderby, 调用端写好，storesvr会附加在查询的最后。
 };
 
 message storesvr_baseinfo {
 	optional string dbname				= 1;
 	optional string tbname				= 2;
-	optional string clname              = 3; //class name
+	optional string clname        = 3; //class name
+	repeated string sel_fields		= 4;
+	optional uint32 max_records		= 5;
 };
 
 message storesvr_opres {
@@ -178,6 +180,21 @@ message storesvr_execute {
 message storesvr_execute_res {
 	optional storesvr_baseinfo	 baseinfo		= 1;
 	optional storesvr_opres		 exe_opres	= 2;	// 更新的结果
+	optional bytes  sel_records				= 3;	// 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
+};
+
+message storesvr_execute_more {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	optional bytes  execute_record			= 3;	// execute sql
+};
+
+message storesvr_execute_more_res {
+	optional storesvr_baseinfo	 baseinfo		= 1;
+	optional storesvr_opres		 exe_opres	= 2;	// 更新的结果
+	optional bool	is_lastbatch			= 3;	// 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
+	optional int32  row_count				= 4;	// 查询返回行数
+	repeated bytes  sel_records				= 5;	// 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
 
 

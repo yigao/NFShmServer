@@ -1,13 +1,13 @@
 require "Common"
 
---·¢°üÉÏÏÞ  upper_limit
---Í³¼ÆÊ±¼ä¼ä¸ô control_time  ºÁÃëÍ³¼Æ
---Á½¸öÏûÏ¢×îÐ¡¼ä¸ô  min_interval ºÁÃëÍ³¼Æ
+--å‘åŒ…ä¸Šé™  upper_limit
+--ç»Ÿè®¡æ—¶é—´é—´éš” control_time  æ¯«ç§’ç»Ÿè®¡
+--ä¸¤ä¸ªæ¶ˆæ¯æœ€å°é—´éš”  min_interval æ¯«ç§’ç»Ÿè®¡
 
 CLIENT_TO_CENTER_LOGIN_BEGIN = 18;
-CLIENT_TO_CENTER_LOGIN = 19;       --µÇÂ½Íø¹ØÇëÇó
-CLIENT_TO_CENTER_CREATE_CHARACTER = 20;    --ÇëÇó´´½¨½ÇÉ«ÇëÇó
-CLIENT_TO_CENTER_DEL_CHARACTER = 21;       --É¾½ÇÉ«ÇëÇó
+CLIENT_TO_CENTER_LOGIN = 19;       --ç™»é™†ç½‘å…³è¯·æ±‚
+CLIENT_TO_CENTER_CREATE_CHARACTER = 20;    --è¯·æ±‚åˆ›å»ºè§’è‰²è¯·æ±‚
+CLIENT_TO_CENTER_DEL_CHARACTER = 21;       --åˆ è§’è‰²è¯·æ±‚
 
 ProxyServer = {
     PacketMsg = {

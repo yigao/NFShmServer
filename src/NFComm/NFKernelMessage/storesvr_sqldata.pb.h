@@ -58,6 +58,8 @@ class storesvr_modinsobj;
 class storesvr_modinsobj_res;
 class storesvr_execute;
 class storesvr_execute_res;
+class storesvr_execute_more;
+class storesvr_execute_more_res;
 
 enum storesvr_logic_operator {
   E_LOGICOP_AND = 1,
@@ -455,6 +457,29 @@ class storesvr_baseinfo : public ::google::protobuf::Message {
   inline ::std::string* release_clname();
   inline void set_allocated_clname(::std::string* clname);
 
+  // repeated string sel_fields = 4;
+  inline int sel_fields_size() const;
+  inline void clear_sel_fields();
+  static const int kSelFieldsFieldNumber = 4;
+  inline const ::std::string& sel_fields(int index) const;
+  inline ::std::string* mutable_sel_fields(int index);
+  inline void set_sel_fields(int index, const ::std::string& value);
+  inline void set_sel_fields(int index, const char* value);
+  inline void set_sel_fields(int index, const char* value, size_t size);
+  inline ::std::string* add_sel_fields();
+  inline void add_sel_fields(const ::std::string& value);
+  inline void add_sel_fields(const char* value);
+  inline void add_sel_fields(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& sel_fields() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_sel_fields();
+
+  // optional uint32 max_records = 5;
+  inline bool has_max_records() const;
+  inline void clear_max_records();
+  static const int kMaxRecordsFieldNumber = 5;
+  inline ::google::protobuf::uint32 max_records() const;
+  inline void set_max_records(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_baseinfo)
  private:
   inline void set_has_dbname();
@@ -463,15 +488,19 @@ class storesvr_baseinfo : public ::google::protobuf::Message {
   inline void clear_has_tbname();
   inline void set_has_clname();
   inline void clear_has_clname();
+  inline void set_has_max_records();
+  inline void clear_has_max_records();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* dbname_;
   ::std::string* tbname_;
   ::std::string* clname_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> sel_fields_;
+  ::google::protobuf::uint32 max_records_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
@@ -2635,20 +2664,35 @@ class storesvr_execute_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_opres* release_exe_opres();
   inline void set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres);
 
+  // optional bytes sel_records = 3;
+  inline bool has_sel_records() const;
+  inline void clear_sel_records();
+  static const int kSelRecordsFieldNumber = 3;
+  inline const ::std::string& sel_records() const;
+  inline void set_sel_records(const ::std::string& value);
+  inline void set_sel_records(const char* value);
+  inline void set_sel_records(const void* value, size_t size);
+  inline ::std::string* mutable_sel_records();
+  inline ::std::string* release_sel_records();
+  inline void set_allocated_sel_records(::std::string* sel_records);
+
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_execute_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
   inline void set_has_exe_opres();
   inline void clear_has_exe_opres();
+  inline void set_has_sel_records();
+  inline void clear_has_sel_records();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
   ::storesvr_sqldata::storesvr_opres* exe_opres_;
+  ::std::string* sel_records_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
@@ -2656,6 +2700,248 @@ class storesvr_execute_res : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static storesvr_execute_res* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class storesvr_execute_more : public ::google::protobuf::Message {
+ public:
+  storesvr_execute_more();
+  virtual ~storesvr_execute_more();
+
+  storesvr_execute_more(const storesvr_execute_more& from);
+
+  inline storesvr_execute_more& operator=(const storesvr_execute_more& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const storesvr_execute_more& default_instance();
+
+  void Swap(storesvr_execute_more* other);
+
+  // implements Message ----------------------------------------------
+
+  storesvr_execute_more* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const storesvr_execute_more& from);
+  void MergeFrom(const storesvr_execute_more& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  inline bool has_baseinfo() const;
+  inline void clear_baseinfo();
+  static const int kBaseinfoFieldNumber = 1;
+  inline const ::storesvr_sqldata::storesvr_baseinfo& baseinfo() const;
+  inline ::storesvr_sqldata::storesvr_baseinfo* mutable_baseinfo();
+  inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
+  inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
+
+  // optional uint64 mod_key = 2;
+  inline bool has_mod_key() const;
+  inline void clear_mod_key();
+  static const int kModKeyFieldNumber = 2;
+  inline ::google::protobuf::uint64 mod_key() const;
+  inline void set_mod_key(::google::protobuf::uint64 value);
+
+  // optional bytes execute_record = 3;
+  inline bool has_execute_record() const;
+  inline void clear_execute_record();
+  static const int kExecuteRecordFieldNumber = 3;
+  inline const ::std::string& execute_record() const;
+  inline void set_execute_record(const ::std::string& value);
+  inline void set_execute_record(const char* value);
+  inline void set_execute_record(const void* value, size_t size);
+  inline ::std::string* mutable_execute_record();
+  inline ::std::string* release_execute_record();
+  inline void set_allocated_execute_record(::std::string* execute_record);
+
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_execute_more)
+ private:
+  inline void set_has_baseinfo();
+  inline void clear_has_baseinfo();
+  inline void set_has_mod_key();
+  inline void clear_has_mod_key();
+  inline void set_has_execute_record();
+  inline void clear_has_execute_record();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
+  ::google::protobuf::uint64 mod_key_;
+  ::std::string* execute_record_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
+
+  void InitAsDefaultInstance();
+  static storesvr_execute_more* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class storesvr_execute_more_res : public ::google::protobuf::Message {
+ public:
+  storesvr_execute_more_res();
+  virtual ~storesvr_execute_more_res();
+
+  storesvr_execute_more_res(const storesvr_execute_more_res& from);
+
+  inline storesvr_execute_more_res& operator=(const storesvr_execute_more_res& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const storesvr_execute_more_res& default_instance();
+
+  void Swap(storesvr_execute_more_res* other);
+
+  // implements Message ----------------------------------------------
+
+  storesvr_execute_more_res* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const storesvr_execute_more_res& from);
+  void MergeFrom(const storesvr_execute_more_res& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  inline bool has_baseinfo() const;
+  inline void clear_baseinfo();
+  static const int kBaseinfoFieldNumber = 1;
+  inline const ::storesvr_sqldata::storesvr_baseinfo& baseinfo() const;
+  inline ::storesvr_sqldata::storesvr_baseinfo* mutable_baseinfo();
+  inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
+  inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
+
+  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+  inline bool has_exe_opres() const;
+  inline void clear_exe_opres();
+  static const int kExeOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& exe_opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_exe_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_exe_opres();
+  inline void set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres);
+
+  // optional bool is_lastbatch = 3;
+  inline bool has_is_lastbatch() const;
+  inline void clear_is_lastbatch();
+  static const int kIsLastbatchFieldNumber = 3;
+  inline bool is_lastbatch() const;
+  inline void set_is_lastbatch(bool value);
+
+  // optional int32 row_count = 4;
+  inline bool has_row_count() const;
+  inline void clear_row_count();
+  static const int kRowCountFieldNumber = 4;
+  inline ::google::protobuf::int32 row_count() const;
+  inline void set_row_count(::google::protobuf::int32 value);
+
+  // repeated bytes sel_records = 5;
+  inline int sel_records_size() const;
+  inline void clear_sel_records();
+  static const int kSelRecordsFieldNumber = 5;
+  inline const ::std::string& sel_records(int index) const;
+  inline ::std::string* mutable_sel_records(int index);
+  inline void set_sel_records(int index, const ::std::string& value);
+  inline void set_sel_records(int index, const char* value);
+  inline void set_sel_records(int index, const void* value, size_t size);
+  inline ::std::string* add_sel_records();
+  inline void add_sel_records(const ::std::string& value);
+  inline void add_sel_records(const char* value);
+  inline void add_sel_records(const void* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& sel_records() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_sel_records();
+
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_execute_more_res)
+ private:
+  inline void set_has_baseinfo();
+  inline void clear_has_baseinfo();
+  inline void set_has_exe_opres();
+  inline void clear_has_exe_opres();
+  inline void set_has_is_lastbatch();
+  inline void clear_has_is_lastbatch();
+  inline void set_has_row_count();
+  inline void clear_has_row_count();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
+  ::storesvr_sqldata::storesvr_opres* exe_opres_;
+  bool is_lastbatch_;
+  ::google::protobuf::int32 row_count_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> sel_records_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
+
+  void InitAsDefaultInstance();
+  static storesvr_execute_more_res* default_instance_;
 };
 // ===================================================================
 
@@ -3206,6 +3492,72 @@ inline void storesvr_baseinfo::set_allocated_clname(::std::string* clname) {
     clear_has_clname();
     clname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// repeated string sel_fields = 4;
+inline int storesvr_baseinfo::sel_fields_size() const {
+  return sel_fields_.size();
+}
+inline void storesvr_baseinfo::clear_sel_fields() {
+  sel_fields_.Clear();
+}
+inline const ::std::string& storesvr_baseinfo::sel_fields(int index) const {
+  return sel_fields_.Get(index);
+}
+inline ::std::string* storesvr_baseinfo::mutable_sel_fields(int index) {
+  return sel_fields_.Mutable(index);
+}
+inline void storesvr_baseinfo::set_sel_fields(int index, const ::std::string& value) {
+  sel_fields_.Mutable(index)->assign(value);
+}
+inline void storesvr_baseinfo::set_sel_fields(int index, const char* value) {
+  sel_fields_.Mutable(index)->assign(value);
+}
+inline void storesvr_baseinfo::set_sel_fields(int index, const char* value, size_t size) {
+  sel_fields_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_baseinfo::add_sel_fields() {
+  return sel_fields_.Add();
+}
+inline void storesvr_baseinfo::add_sel_fields(const ::std::string& value) {
+  sel_fields_.Add()->assign(value);
+}
+inline void storesvr_baseinfo::add_sel_fields(const char* value) {
+  sel_fields_.Add()->assign(value);
+}
+inline void storesvr_baseinfo::add_sel_fields(const char* value, size_t size) {
+  sel_fields_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+storesvr_baseinfo::sel_fields() const {
+  return sel_fields_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+storesvr_baseinfo::mutable_sel_fields() {
+  return &sel_fields_;
+}
+
+// optional uint32 max_records = 5;
+inline bool storesvr_baseinfo::has_max_records() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void storesvr_baseinfo::set_has_max_records() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void storesvr_baseinfo::clear_has_max_records() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void storesvr_baseinfo::clear_max_records() {
+  max_records_ = 0u;
+  clear_has_max_records();
+}
+inline ::google::protobuf::uint32 storesvr_baseinfo::max_records() const {
+  return max_records_;
+}
+inline void storesvr_baseinfo::set_max_records(::google::protobuf::uint32 value) {
+  set_has_max_records();
+  max_records_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -5524,6 +5876,378 @@ inline void storesvr_execute_res::set_allocated_exe_opres(::storesvr_sqldata::st
   } else {
     clear_has_exe_opres();
   }
+}
+
+// optional bytes sel_records = 3;
+inline bool storesvr_execute_res::has_sel_records() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void storesvr_execute_res::set_has_sel_records() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void storesvr_execute_res::clear_has_sel_records() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void storesvr_execute_res::clear_sel_records() {
+  if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
+    sel_records_->clear();
+  }
+  clear_has_sel_records();
+}
+inline const ::std::string& storesvr_execute_res::sel_records() const {
+  return *sel_records_;
+}
+inline void storesvr_execute_res::set_sel_records(const ::std::string& value) {
+  set_has_sel_records();
+  if (sel_records_ == &::google::protobuf::internal::kEmptyString) {
+    sel_records_ = new ::std::string;
+  }
+  sel_records_->assign(value);
+}
+inline void storesvr_execute_res::set_sel_records(const char* value) {
+  set_has_sel_records();
+  if (sel_records_ == &::google::protobuf::internal::kEmptyString) {
+    sel_records_ = new ::std::string;
+  }
+  sel_records_->assign(value);
+}
+inline void storesvr_execute_res::set_sel_records(const void* value, size_t size) {
+  set_has_sel_records();
+  if (sel_records_ == &::google::protobuf::internal::kEmptyString) {
+    sel_records_ = new ::std::string;
+  }
+  sel_records_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_execute_res::mutable_sel_records() {
+  set_has_sel_records();
+  if (sel_records_ == &::google::protobuf::internal::kEmptyString) {
+    sel_records_ = new ::std::string;
+  }
+  return sel_records_;
+}
+inline ::std::string* storesvr_execute_res::release_sel_records() {
+  clear_has_sel_records();
+  if (sel_records_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sel_records_;
+    sel_records_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void storesvr_execute_res::set_allocated_sel_records(::std::string* sel_records) {
+  if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
+    delete sel_records_;
+  }
+  if (sel_records) {
+    set_has_sel_records();
+    sel_records_ = sel_records;
+  } else {
+    clear_has_sel_records();
+    sel_records_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// storesvr_execute_more
+
+// optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+inline bool storesvr_execute_more::has_baseinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void storesvr_execute_more::set_has_baseinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void storesvr_execute_more::clear_has_baseinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void storesvr_execute_more::clear_baseinfo() {
+  if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+  clear_has_baseinfo();
+}
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_execute_more::baseinfo() const {
+  return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_execute_more::mutable_baseinfo() {
+  set_has_baseinfo();
+  if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
+  return baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_execute_more::release_baseinfo() {
+  clear_has_baseinfo();
+  ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
+  baseinfo_ = NULL;
+  return temp;
+}
+inline void storesvr_execute_more::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+  delete baseinfo_;
+  baseinfo_ = baseinfo;
+  if (baseinfo) {
+    set_has_baseinfo();
+  } else {
+    clear_has_baseinfo();
+  }
+}
+
+// optional uint64 mod_key = 2;
+inline bool storesvr_execute_more::has_mod_key() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void storesvr_execute_more::set_has_mod_key() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void storesvr_execute_more::clear_has_mod_key() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void storesvr_execute_more::clear_mod_key() {
+  mod_key_ = GOOGLE_ULONGLONG(0);
+  clear_has_mod_key();
+}
+inline ::google::protobuf::uint64 storesvr_execute_more::mod_key() const {
+  return mod_key_;
+}
+inline void storesvr_execute_more::set_mod_key(::google::protobuf::uint64 value) {
+  set_has_mod_key();
+  mod_key_ = value;
+}
+
+// optional bytes execute_record = 3;
+inline bool storesvr_execute_more::has_execute_record() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void storesvr_execute_more::set_has_execute_record() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void storesvr_execute_more::clear_has_execute_record() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void storesvr_execute_more::clear_execute_record() {
+  if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
+    execute_record_->clear();
+  }
+  clear_has_execute_record();
+}
+inline const ::std::string& storesvr_execute_more::execute_record() const {
+  return *execute_record_;
+}
+inline void storesvr_execute_more::set_execute_record(const ::std::string& value) {
+  set_has_execute_record();
+  if (execute_record_ == &::google::protobuf::internal::kEmptyString) {
+    execute_record_ = new ::std::string;
+  }
+  execute_record_->assign(value);
+}
+inline void storesvr_execute_more::set_execute_record(const char* value) {
+  set_has_execute_record();
+  if (execute_record_ == &::google::protobuf::internal::kEmptyString) {
+    execute_record_ = new ::std::string;
+  }
+  execute_record_->assign(value);
+}
+inline void storesvr_execute_more::set_execute_record(const void* value, size_t size) {
+  set_has_execute_record();
+  if (execute_record_ == &::google::protobuf::internal::kEmptyString) {
+    execute_record_ = new ::std::string;
+  }
+  execute_record_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_execute_more::mutable_execute_record() {
+  set_has_execute_record();
+  if (execute_record_ == &::google::protobuf::internal::kEmptyString) {
+    execute_record_ = new ::std::string;
+  }
+  return execute_record_;
+}
+inline ::std::string* storesvr_execute_more::release_execute_record() {
+  clear_has_execute_record();
+  if (execute_record_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = execute_record_;
+    execute_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void storesvr_execute_more::set_allocated_execute_record(::std::string* execute_record) {
+  if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
+    delete execute_record_;
+  }
+  if (execute_record) {
+    set_has_execute_record();
+    execute_record_ = execute_record;
+  } else {
+    clear_has_execute_record();
+    execute_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// storesvr_execute_more_res
+
+// optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+inline bool storesvr_execute_more_res::has_baseinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void storesvr_execute_more_res::set_has_baseinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void storesvr_execute_more_res::clear_has_baseinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void storesvr_execute_more_res::clear_baseinfo() {
+  if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+  clear_has_baseinfo();
+}
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_execute_more_res::baseinfo() const {
+  return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_execute_more_res::mutable_baseinfo() {
+  set_has_baseinfo();
+  if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
+  return baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_execute_more_res::release_baseinfo() {
+  clear_has_baseinfo();
+  ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
+  baseinfo_ = NULL;
+  return temp;
+}
+inline void storesvr_execute_more_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+  delete baseinfo_;
+  baseinfo_ = baseinfo;
+  if (baseinfo) {
+    set_has_baseinfo();
+  } else {
+    clear_has_baseinfo();
+  }
+}
+
+// optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+inline bool storesvr_execute_more_res::has_exe_opres() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void storesvr_execute_more_res::set_has_exe_opres() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void storesvr_execute_more_res::clear_has_exe_opres() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void storesvr_execute_more_res::clear_exe_opres() {
+  if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_exe_opres();
+}
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_execute_more_res::exe_opres() const {
+  return exe_opres_ != NULL ? *exe_opres_ : *default_instance_->exe_opres_;
+}
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::mutable_exe_opres() {
+  set_has_exe_opres();
+  if (exe_opres_ == NULL) exe_opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return exe_opres_;
+}
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::release_exe_opres() {
+  clear_has_exe_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = exe_opres_;
+  exe_opres_ = NULL;
+  return temp;
+}
+inline void storesvr_execute_more_res::set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres) {
+  delete exe_opres_;
+  exe_opres_ = exe_opres;
+  if (exe_opres) {
+    set_has_exe_opres();
+  } else {
+    clear_has_exe_opres();
+  }
+}
+
+// optional bool is_lastbatch = 3;
+inline bool storesvr_execute_more_res::has_is_lastbatch() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void storesvr_execute_more_res::set_has_is_lastbatch() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void storesvr_execute_more_res::clear_has_is_lastbatch() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void storesvr_execute_more_res::clear_is_lastbatch() {
+  is_lastbatch_ = false;
+  clear_has_is_lastbatch();
+}
+inline bool storesvr_execute_more_res::is_lastbatch() const {
+  return is_lastbatch_;
+}
+inline void storesvr_execute_more_res::set_is_lastbatch(bool value) {
+  set_has_is_lastbatch();
+  is_lastbatch_ = value;
+}
+
+// optional int32 row_count = 4;
+inline bool storesvr_execute_more_res::has_row_count() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void storesvr_execute_more_res::set_has_row_count() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void storesvr_execute_more_res::clear_has_row_count() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void storesvr_execute_more_res::clear_row_count() {
+  row_count_ = 0;
+  clear_has_row_count();
+}
+inline ::google::protobuf::int32 storesvr_execute_more_res::row_count() const {
+  return row_count_;
+}
+inline void storesvr_execute_more_res::set_row_count(::google::protobuf::int32 value) {
+  set_has_row_count();
+  row_count_ = value;
+}
+
+// repeated bytes sel_records = 5;
+inline int storesvr_execute_more_res::sel_records_size() const {
+  return sel_records_.size();
+}
+inline void storesvr_execute_more_res::clear_sel_records() {
+  sel_records_.Clear();
+}
+inline const ::std::string& storesvr_execute_more_res::sel_records(int index) const {
+  return sel_records_.Get(index);
+}
+inline ::std::string* storesvr_execute_more_res::mutable_sel_records(int index) {
+  return sel_records_.Mutable(index);
+}
+inline void storesvr_execute_more_res::set_sel_records(int index, const ::std::string& value) {
+  sel_records_.Mutable(index)->assign(value);
+}
+inline void storesvr_execute_more_res::set_sel_records(int index, const char* value) {
+  sel_records_.Mutable(index)->assign(value);
+}
+inline void storesvr_execute_more_res::set_sel_records(int index, const void* value, size_t size) {
+  sel_records_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_execute_more_res::add_sel_records() {
+  return sel_records_.Add();
+}
+inline void storesvr_execute_more_res::add_sel_records(const ::std::string& value) {
+  sel_records_.Add()->assign(value);
+}
+inline void storesvr_execute_more_res::add_sel_records(const char* value) {
+  sel_records_.Add()->assign(value);
+}
+inline void storesvr_execute_more_res::add_sel_records(const void* value, size_t size) {
+  sel_records_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+storesvr_execute_more_res::sel_records() const {
+  return sel_records_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+storesvr_execute_more_res::mutable_sel_records() {
+  return &sel_records_;
 }
 
 
