@@ -10,13 +10,13 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFTransMsgServerModule.h"
 #include "NFServerComm/NFServerCommon/NFServerCommonDefine.h"
 
-class NFIProxyServerModule : public NFIDynamicModule
+class NFIProxyServerModule : public NFTransMsgServerModule
 {
 public:
-	NFIProxyServerModule(NFIPluginManager* p) :NFIDynamicModule(p)
+	NFIProxyServerModule(NFIPluginManager* p) :NFTransMsgServerModule(p, NF_ST_PROXY_SERVER)
 	{
 
 	}

@@ -43,7 +43,7 @@ int NFTransMsgServerModule::BindServer()
         CHECK_EXPR_ASSERT(pConfig->ServerType == m_serverType, -1, "server config error, server id not match the server type!:{}", m_serverType);
     }
 
-    //×¢²áÒªÍê³ÉµÄ·şÎñÆ÷Æô¶¯ÈÎÎñ
+    //æ³¨å†Œè¦å®Œæˆçš„æœåŠ¡å™¨å¯åŠ¨ä»»åŠ¡
     if (m_connectMasterServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
@@ -223,7 +223,7 @@ int NFTransMsgServerModule::RegisterMasterServer(uint32_t serverState)
 }
 
 /*
-	´¦ÀíMaster·şÎñÆ÷Á´½ÓÊÂ¼ş
+	å¤„ç†MasteræœåŠ¡å™¨é“¾æ¥äº‹ä»¶
 */
 int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
@@ -243,7 +243,7 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
 
-        //Íê³É·şÎñÆ÷Æô¶¯ÈÎÎñ
+        //å®ŒæˆæœåŠ¡å™¨å¯åŠ¨ä»»åŠ¡
         if (!m_pObjPluginManager->IsInited())
         {
             m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
@@ -256,7 +256,7 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
 }
 
 /*
-	´¦ÀíMaster·şÎñÆ÷Î´×¢²áĞ­Òé
+	å¤„ç†MasteræœåŠ¡å™¨æœªæ³¨å†Œåè®®
 */
 int NFTransMsgServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
 {

@@ -10,7 +10,7 @@
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
 /**
- * @brief ·şÎñÆ÷ÀàËÆNFProxyServer,NFProxyAgentServer,NFRouteAgentServer£¬ÊµÏÖÀàËÆÁ¬½ÓNFMasterServerµÈ¹¦ÄÜ
+ * @brief æœåŠ¡å™¨ç±»ä¼¼NFProxyServer,NFProxyAgentServer,NFRouteAgentServerï¼Œå®ç°ç±»ä¼¼è¿æ¥NFMasterServerç­‰åŠŸèƒ½
  */
 class NFTransMsgServerModule : public NFIDynamicModule
 {
@@ -26,13 +26,13 @@ public:
     }
 
     /**
-     * @brief ´¦Àí¶¨Ê±Æ÷
+     * @brief å¤„ç†å®šæ—¶å™¨
      * @param nTimerID
      */
     virtual void OnTimer(uint32_t nTimerID) override;
 
     /**
-     * @brief ÏìÓ¦×¢²áÊÂ¼ş
+     * @brief å“åº”æ³¨å†Œäº‹ä»¶
      * @param nEventID
      * @param nSrcID
      * @param bySrcType
@@ -44,9 +44,9 @@ public:
     int BindServer();
     int ConnectMasterServer();
 public:
-    //////////////////////////////////////////////////////////Server·şÎñÆ÷//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////ServeræœåŠ¡å™¨//////////////////////////////////////////////////////////////////
     /**
-     * @brief Server·şÎñÆ÷Á¬½ÓÊÂ¼ş£¬¿ÉÒÔÊÇÍøÂç/busµÄÁ¬½ÓÊÂ¼ş
+     * @brief ServeræœåŠ¡å™¨è¿æ¥äº‹ä»¶ï¼Œå¯ä»¥æ˜¯ç½‘ç»œ/busçš„è¿æ¥äº‹ä»¶
      * @param nEvent
      * @param unLinkId
      * @return
@@ -54,7 +54,7 @@ public:
     virtual int OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
     /**
-     * @brief ´¦ÀíServerÎ´×¢²áµÄÏûÏ¢
+     * @brief å¤„ç†Serveræœªæ³¨å†Œçš„æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -62,30 +62,30 @@ public:
     virtual int OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
-     * @brief ´¦ÀíServer·şÎñÆ÷µÄÁ¬½ÓµôÏß
+     * @brief å¤„ç†ServeræœåŠ¡å™¨çš„è¿æ¥æ‰çº¿
      * @param unLinkId
      * @return
      */
     virtual int OnHandleServerDisconnect(uint64_t unLinkId);
-    //////////////////////////////////////////////////////////Server·şÎñÆ÷//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////ServeræœåŠ¡å™¨//////////////////////////////////////////////////////////////////
 public:
-    //////////////////////////////////////////////////////////NFMasterServer·şÎñÆ÷//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////NFMasterServeræœåŠ¡å™¨//////////////////////////////////////////////////////////////////
     /**
-     * @brief Á´½ÓMaster·şÎñÆ÷
+     * @brief é“¾æ¥MasteræœåŠ¡å™¨
      * @param xData
      * @return
      */
     virtual int ConnectMasterServer(const proto_ff::ServerInfoReport &xData);
 
     /**
-     * @brief ×¢²áMaster·şÎñÆ÷
+     * @brief æ³¨å†ŒMasteræœåŠ¡å™¨
      * @param serverState
      * @return
      */
     virtual int RegisterMasterServer(uint32_t serverState);
 
     /**
-     * @brief ´¦ÀíMaster·şÎñÆ÷Á´½ÓÊÂ¼ş
+     * @brief å¤„ç†MasteræœåŠ¡å™¨é“¾æ¥äº‹ä»¶
      * @param nEvent
      * @param unLinkId
      * @return
@@ -93,7 +93,7 @@ public:
     virtual int OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 
     /**
-     * @brief ´¦ÀíMaster·şÎñÆ÷Î´×¢²áÏûÏ¢
+     * @brief å¤„ç†MasteræœåŠ¡å™¨æœªæ³¨å†Œæ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -101,7 +101,7 @@ public:
     virtual int OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
-     * @brief ½ÓÊÜÀ´×ÔMasterServerµÄÆäËû·şÎñÆ÷µÄ±¨¸æ
+     * @brief æ¥å—æ¥è‡ªMasterServerçš„å…¶ä»–æœåŠ¡å™¨çš„æŠ¥å‘Š
      * @param unLinkId
      * @param packet
      * @return
@@ -109,7 +109,7 @@ public:
     virtual int OnHandleServerReportFromMasterServer(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
-     * @brief ½ÓÊÜÀ´×ÔMasterServerµÄÆäËû·şÎñÆ÷µÄ±¨¸æ
+     * @brief æ¥å—æ¥è‡ªMasterServerçš„å…¶ä»–æœåŠ¡å™¨çš„æŠ¥å‘Š
      * @param unLinkId
      * @param packet
      * @return
@@ -117,11 +117,11 @@ public:
     virtual int OnHandleOtherServerReportFromMasterServer(const proto_ff::ServerInfoReport &xData);
 
     /**
-     * @brief Ã¿¸ôÒ»¶ÎÊ±¼äÏòMaster·şÎñÆ÷·¢ËÍ×ÔÉíĞÅÏ¢
+     * @brief æ¯éš”ä¸€æ®µæ—¶é—´å‘MasteræœåŠ¡å™¨å‘é€è‡ªèº«ä¿¡æ¯
      * @return
      */
     virtual int ServerReportToMasterServer();
-    //////////////////////////////////////////////////////////NFMasterServer·şÎñÆ÷//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////NFMasterServeræœåŠ¡å™¨//////////////////////////////////////////////////////////////////
 public:
     bool IsConnectMasterServer() const;
 
