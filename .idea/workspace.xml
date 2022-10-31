@@ -50,20 +50,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="login">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="create role">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal2.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternal2.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternalCmd2.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs/ServerInternalCmd2.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal2.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal2.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal2.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternal2.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd2.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd2.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd2.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerInternalCmd2.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,11 +150,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -317,6 +301,11 @@
       </method>
     </configuration>
     <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -540,13 +529,7 @@
       <workItem from="1666678806480" duration="13793000" />
       <workItem from="1666917133250" duration="22897000" />
       <workItem from="1666944301851" duration="7467000" />
-    </task>
-    <task id="LOCAL-00200" summary="login handle">
-      <created>1665718107083</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL-00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1665718107083</updated>
+      <workItem from="1667176756489" duration="12000" />
     </task>
     <task id="LOCAL-00201" summary="login handle">
       <created>1665719805949</created>
@@ -884,7 +867,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667031877675</updated>
     </task>
-    <option name="localTasksCounter" value="249" />
+    <task id="LOCAL-00249" summary="create role">
+      <created>1667037340943</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1667037340943</updated>
+    </task>
+    <option name="localTasksCounter" value="250" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1026,7 +1016,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="excel parse" />
     <MESSAGE value="check msg call back" />
     <MESSAGE value="msg handle" />
     <MESSAGE value="server dump" />
@@ -1051,16 +1040,12 @@
     <MESSAGE value="shm index" />
     <MESSAGE value="trans server" />
     <MESSAGE value="login" />
-    <option name="LAST_COMMIT_MESSAGE" value="login" />
+    <MESSAGE value="create role" />
+    <option name="LAST_COMMIT_MESSAGE" value="create role" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransCreateRole.cpp</url>
-          <line>84</line>
-          <option name="timeStamp" value="424" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
           <line>532</line>
@@ -1080,11 +1065,6 @@
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
           <line>95</line>
           <option name="timeStamp" value="429" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>566</line>
-          <option name="timeStamp" value="431" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

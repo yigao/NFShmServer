@@ -47,7 +47,7 @@ public:
 
 	void CreateInit()
 	{
-		m_pObj = 0;
+		m_pObj = NULL;
 		m_iObjSeq = INVALID_ID;
 	}
 
