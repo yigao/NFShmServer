@@ -21,125 +21,144 @@
 
 #define REGISTER_DESCSTORE(className, ClassType)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-	m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType);\
-	REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
+    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType);\
+    REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
 
 #define REGISTER_DESCSTORE_WITH_DBNAME(className, ClassType, dbName)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-	m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
-	REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
+    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
+    REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
+
 
 class NFIDescStore : public NFShmObj
 {
 public:
-	NFIDescStore(NFIPluginManager* pPluginManager);
-	virtual ~NFIDescStore();
+    NFIDescStore(NFIPluginManager *pPluginManager);
 
-	int CreateInit();
-	int ResumeInit();
+    virtual ~NFIDescStore();
 
-	virtual int Load(NFResDB *pDB) = 0;
-	virtual int Reload(NFResDB *pDB) = 0;
-	virtual int CheckWhenAllDataLoaded() = 0;
-	virtual int Initialize() = 0;
-	virtual int CalcUseRatio() = 0;
-	virtual std::string GetFileName() = 0;
-	virtual int GetResNum() const = 0;
-	virtual int SaveDescStore() = 0;
+    int CreateInit();
+
+    int ResumeInit();
+
+    virtual int Load(NFResDB *pDB) = 0;
+
+    virtual int Reload(NFResDB *pDB) = 0;
+
+    virtual int CheckWhenAllDataLoaded() = 0;
+
+    virtual int Initialize() = 0;
+
+    virtual int CalcUseRatio() = 0;
+
+    virtual std::string GetFileName() = 0;
+
+    virtual int GetResNum() const = 0;
+
+    virtual int SaveDescStore() = 0;
 
     virtual int SaveDescStoreToDB(const google::protobuf::Message *pMessage);
+
     virtual int InsertDescStoreToDB(const google::protobuf::Message *pMessage);
+
     virtual int DeleteDescStoreToDB(const google::protobuf::Message *pMessage);
+
     virtual int StartSaveTimer();
+
     //must be virtual
     virtual void OnTimer(int timeId, int callcount);
 
-	virtual int PrepareReload()
-	{
-		return 0;
-	}
-	virtual int Resume()
-	{
-		return 0;    // recover
-	}
-
-	virtual bool IsFileLoad()
+    virtual int PrepareReload()
     {
-	    return true;
+        return 0;
     }
 
-	virtual bool IsNeedSpecialCheck()
-	{
-		return false;
-	}
+    virtual int Resume()
+    {
+        return 0;    // recover
+    }
 
-	void SetValid()
-	{
-		m_bValid = true;
-	}
-	bool IsValid()
-	{
-		return m_bValid;
-	}
+    virtual bool IsFileLoad()
+    {
+        return true;
+    }
 
-	void SetLoaded(bool bIsLoaded)
-	{
-		m_bIsLoaded = bIsLoaded;
-	}
-	bool IsLoaded()
-	{
-		return m_bIsLoaded;
-	}
+    virtual bool IsNeedSpecialCheck()
+    {
+        return false;
+    }
 
-	void SetChecked(bool bIsChecked)
-	{
-		m_bIsChecked = bIsChecked;
-	}
-	bool IsChecked()
-	{
-		return m_bIsChecked;
-	}
+    void SetValid()
+    {
+        m_bValid = true;
+    }
 
-	void SetMD5(const std::string& pszMD5)
-	{
-		m_szMD5 = pszMD5;
-	}
+    bool IsValid()
+    {
+        return m_bValid;
+    }
 
-	std::string GetMD5()
-	{
-		return m_szMD5.GetString();
-	}
+    void SetLoaded(bool bIsLoaded)
+    {
+        m_bIsLoaded = bIsLoaded;
+    }
 
-	std::string GetFileMD5()
-	{
-		return m_szMD5.GetString();
-	}
+    bool IsLoaded()
+    {
+        return m_bIsLoaded;
+    }
 
-	std::string GetFilePathName()
-	{
-		return m_filePathName.GetString();
-	}
+    void SetChecked(bool bIsChecked)
+    {
+        m_bIsChecked = bIsChecked;
+    }
 
-	void SetFilePathName(const std::string& filePath)
-	{
-		m_filePathName = filePath;
-	}
+    bool IsChecked()
+    {
+        return m_bIsChecked;
+    }
 
-	std::string GetDBName()
+    void SetMD5(const std::string &pszMD5)
+    {
+        m_szMD5 = pszMD5;
+    }
+
+    std::string GetMD5()
+    {
+        return m_szMD5.GetString();
+    }
+
+    std::string GetFileMD5()
+    {
+        return m_szMD5.GetString();
+    }
+
+    std::string GetFilePathName()
+    {
+        return m_filePathName.GetString();
+    }
+
+    void SetFilePathName(const std::string &filePath)
+    {
+        m_filePathName = filePath;
+    }
+
+    std::string GetDBName()
     {
         return m_dbName.GetString();
     }
 
-    void SetDBName(const std::string& dbName)
+    void SetDBName(const std::string &dbName)
     {
         m_dbName = dbName;
     }
+
 protected:
-	bool m_bValid;
-	bool m_bIsLoaded;
-	bool m_bIsChecked;
-	int m_bSaveTimer;
-	NFSizeString<MAX_MD5_STR_LEN> m_szMD5;
-	NFSizeString<MAX_DESC_FILE_PATH_STR_LEN> m_filePathName;
+    bool m_bValid;
+    bool m_bIsLoaded;
+    bool m_bIsChecked;
+    int m_bSaveTimer;
+    NFSizeString<MAX_MD5_STR_LEN> m_szMD5;
+    NFSizeString<MAX_DESC_FILE_PATH_STR_LEN> m_filePathName;
     NFSizeString<MAX_DESC_NAME_LEN> m_dbName;
 };

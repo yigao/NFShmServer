@@ -61,8 +61,8 @@ public:
 	virtual int Reload();
 
 
-	int LoadDescStore(NFIDescStore *pDescStore);
-	int ReLoadDescStore(NFIDescStore *pDescStore);
+	virtual int LoadDescStore(NFIDescStore *pDescStore);
+	virtual int ReLoadDescStore(NFIDescStore *pDescStore);
 	bool HasDBDescStore();
 
 	virtual int CheckWhenAllDataLoaded();
@@ -82,6 +82,7 @@ private:
 	std::unordered_map<std::string, NFIDescStore*> mDescStoreMap;
     std::unordered_map<std::string, NFIDescStore*> mDescStoreFileMap;
 	std::unordered_map<std::string, int> mDescStoreRegister;
+    std::vector<std::string> mDescStoreRegisterList;    //记录注册顺序，根据顺序来加载
 	std::unordered_map<std::string, std::string> mDescStoreDBNameMap;
     NFResDB* m_pResFileDB;
     NFResDB* m_pResSqlDB;

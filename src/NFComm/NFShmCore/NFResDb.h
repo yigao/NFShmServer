@@ -15,15 +15,19 @@
 #include "NFComm/NFShmCore/NFShmHashMap.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
+#define NF_MAX_DESC_STORE_INDEX_SIZE 10000
+
 //proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
 #define IMPL_RES_ARRAY_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
-    NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;\
+    NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;                     \
+    NFArray<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
     int GetResNum() const override { return m_astDesc.GetSize();}\
     NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
     int Initialize() override\
     {\
+        m_astDesc.CreateInit();\
         m_astDesc.CreateInit();\
         return 0;\
     }\
@@ -78,16 +82,21 @@
 
 #define IMPL_RES_HASH_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
-    NFShmHashMap<uint64_t, DESCCLASSNAME, DESCNUM> m_astDesc;\
+    NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;\
+    NFShmHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
+    NFArray<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
-    int GetResNum() const { return m_astDesc.GetUsedNum();}\
-    NFShmHashMap<uint64_t, DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
-    int Initialize()\
-    {                                                        \
+    virtual int GetResNum() const override { return m_astDesc.GetSize();}\
+    NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
+    const NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() const { return m_astDesc; }\
+    virtual int Initialize() override\
+    {\
         m_astDesc.CreateInit();\
+        m_astDescMap.CreateInit();\
+        m_astDescIndex.CreateInit();\
         return 0;\
     }\
-    int Reload(NFResDB *pDB)\
+    virtual int Reload(NFResDB *pDB) override\
     {\
         PrepareReload();\
         int iRetCode = Load( pDB );\
@@ -97,24 +106,23 @@
     {\
         return std::string(#DESCSTORENAME);\
     }\
-    int Load(NFResDB* pDB);\
-    int CheckWhenAllDataLoaded();\
-    int CalcUseRatio()\
+    virtual int Load(NFResDB* pDB) override;\
+    virtual int CheckWhenAllDataLoaded() override;\
+    virtual int CalcUseRatio() override\
     {\
-        return m_astDesc.GetUsedNum() * 100 / m_astDesc.GetSize();\
+        return m_astDesc.GetSize() * 100 / m_astDesc.GetMaxSize();\
     }\
-    int SaveDescStore()\
+    virtual int SaveDescStore() override\
     {\
         if (!IsLoaded()) return 0;\
         for(int i = 0; i < (int)m_astDesc.GetSize(); i++)\
         {\
-            auto pDesc = m_astDesc.GetByIndex(i);\
-            if (pDesc != NULL && pDesc->IsUrgentNeedSave())\
+            if (m_astDesc[i].IsUrgentNeedSave())\
             {\
                 auto pb = DESCCLASSNAME::make_pbmsg();\
-                pDesc->write_to_pbmsg(pb);\
+                m_astDesc[i].write_to_pbmsg(pb);\
                 SaveDescStoreToDB(&pb);\
-                pDesc->ClearUrgent();\
+                m_astDesc[i].ClearUrgent();\
             }\
         }\
         return 0;\
@@ -132,7 +140,7 @@
         desc.write_to_pbmsg(pb);\
         DeleteDescStoreToDB(&pb);\
         return 0;\
-    }                                                        \
+    }\
 
 
 #define IMPL_RES_SIMPLE_DESC(DESCSTORENAME) \

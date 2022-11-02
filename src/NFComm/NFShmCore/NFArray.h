@@ -119,6 +119,16 @@ public:
 		return NULL;
 	}
 
+    const ELEMENT *Get(int iIdx) const
+    {
+        if( iIdx >= 0 && iIdx < (int)m_iSize )
+        {
+            return &m_astData[iIdx];
+        }
+
+        return NULL;
+    }
+
 	int GetMaxSize() const
 	{
 		return MAX_SIZE;

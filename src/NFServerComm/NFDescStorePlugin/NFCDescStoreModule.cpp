@@ -118,7 +118,10 @@ int NFCDescStoreModule::LoadFileDestSotre() {
         iRet = ExtraInitializeWhenRecover();
     }
 
-    m_bStartInit = true;
+    if (!HasDBDescStore())
+    {
+        m_bStartInit = true;
+    }
     return iRet;
 }
 
@@ -139,15 +142,16 @@ int NFCDescStoreModule::LoadDBDestSotre() {
 void NFCDescStoreModule::InitAllDescStore()
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-	for (auto iter = mDescStoreRegister.begin(); iter != mDescStoreRegister.end(); iter++)
-	{
-		NFIDescStore* pDescStore = dynamic_cast<NFIDescStore*>(FindModule<NFISharedMemModule>()->GetHeadObj(iter->second));
-		CHECK_EXPR_CONTINUE(pDescStore, "can' get NFIDescStore:{} ptr from shm", iter->first);
+    for(int i = 0; i < (int)mDescStoreRegisterList.size(); i++)
+    {
+        std::string name = mDescStoreRegisterList[i];
+		NFIDescStore* pDescStore = dynamic_cast<NFIDescStore*>(FindModule<NFISharedMemModule>()->GetHeadObj(mDescStoreRegister[name]));
+		CHECK_EXPR_CONTINUE(pDescStore, "can' get NFIDescStore:{} ptr from shm", name);
 
-		int iRet = InitDescStore(iter->first, pDescStore);
-		CHECK_EXPR_CONTINUE(iRet == 0, "InitDescStore:{} Failed!", iter->first);
+		int iRet = InitDescStore(name, pDescStore);
+		CHECK_EXPR_CONTINUE(iRet == 0, "InitDescStore:{} Failed!", name);
 
-		NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Init Desc Store:{} Success", iter->first);
+		NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Init Desc Store:{} Success", name);
 	}
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
 }
@@ -200,6 +204,11 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 {
 	CHECK_NULL(pDescStore);
 
+    if (pDescStore->IsLoaded())
+    {
+        return 0;
+    }
+
 	int iRet = 0;
 	std::string filePathName = pDescStore->GetFilePathName();
 	if (filePathName.empty())
@@ -241,8 +250,10 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 int NFCDescStoreModule::LoadFile() {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++) {
-        NFIDescStore *pDescStore = iter->second;
+    for(int i = 0; i < (int)mDescStoreRegisterList.size(); i++)
+    {
+        const std::string& name = mDescStoreRegisterList[i];
+        NFIDescStore *pDescStore = mDescStoreMap[name];
         assert(pDescStore);
 
         if (!pDescStore->IsFileLoad())
@@ -274,8 +285,10 @@ bool NFCDescStoreModule::HasDBDescStore() {
 int NFCDescStoreModule::LoadDB() {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++) {
-        NFIDescStore *pDescStore = iter->second;
+    for(int i = 0; i < (int)mDescStoreRegisterList.size(); i++)
+    {
+        const std::string& name = mDescStoreRegisterList[i];
+        NFIDescStore *pDescStore = mDescStoreMap[name];
         assert(pDescStore);
 
         if (pDescStore->IsFileLoad())
@@ -394,12 +407,14 @@ int NFCDescStoreModule::GetFileContainMD5(const std::string& strFileName, std::s
 void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int objType, const std::string& dbName)
 {
 	mDescStoreRegister.insert(std::make_pair(strDescName, objType));
+    mDescStoreRegisterList.push_back(strDescName);
     mDescStoreDBNameMap.insert(std::make_pair(strDescName, dbName));
 }
 
 void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int objType)
 {
 	mDescStoreRegister.insert(std::make_pair(strDescName, objType));
+    mDescStoreRegisterList.push_back(strDescName);
 }
 
 void NFCDescStoreModule::AddDescStore(const std::string& strDescName, NFIDescStore* pDesc)
