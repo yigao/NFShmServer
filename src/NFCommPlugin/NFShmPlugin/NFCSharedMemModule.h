@@ -205,6 +205,8 @@ public:
 
     virtual NFShmObj *GetObjByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) override;
 
+    virtual int DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType) override;
+
     virtual int CreateIndexByKeyValue(uint32_t indexId, uint64_t indexKey, uint64_t indexValue, int iType) override;
 
     virtual uint64_t *GetIndexValueByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) override;

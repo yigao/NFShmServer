@@ -55,6 +55,8 @@ public:
 
     NFShmObj *GetObjByIndexKey(uint32_t indexId, uint64_t indexKey, int iType);
 
+    int DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType);
+
     int CreateIndexByKeyValue(uint32_t indexId, uint64_t indexKey, uint64_t indexValue);
 
     uint64_t* GetIndexValueByIndexKey(uint32_t indexId, uint64_t indexKey);

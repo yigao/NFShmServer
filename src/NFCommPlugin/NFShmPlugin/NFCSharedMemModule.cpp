@@ -906,6 +906,13 @@ NFShmObj *NFCSharedMemModule::GetObjByIndexKey(uint32_t indexId, uint64_t indexK
     return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObjByIndexKey(indexId, indexKey, iType);
 }
 
+int NFCSharedMemModule::DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType)
+{
+    assert(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->DelIndexKey(indexId, indexKey, iType);
+}
+
 NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
 {
     assert(IsTypeValid(iType));

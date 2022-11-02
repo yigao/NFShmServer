@@ -94,6 +94,8 @@ public:
 
     virtual NFShmObj *GetObjByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
 
+    virtual int DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
+
     virtual int CreateIndexByKeyValue(uint32_t indexId, uint64_t indexKey, uint64_t indexValue, int iType) = 0;
 
     virtual uint64_t *GetIndexValueByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
