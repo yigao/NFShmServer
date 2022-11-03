@@ -221,8 +221,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 #////////////////////////////////////////////////////////////////
 	desc_file.write("proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id)\n")
 	desc_file.write("{\n")
-	desc_file.write("\tconst proto_ff_s::" + excel_name + sheet_name + "_s * pConst = GetDesc(id);\n")
-	desc_file.write("\treturn const_cast<proto_ff_s::" + excel_name + sheet_name + "_s *>(pConst);\n")
+	desc_file.write("\treturn const_cast<proto_ff_s::" + excel_name + sheet_name + "_s *>((static_cast<const " + excel_name.capitalize() + sheet_name.capitalize() + "Desc*>(this))->GetDesc(id));\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
 	desc_file.close()

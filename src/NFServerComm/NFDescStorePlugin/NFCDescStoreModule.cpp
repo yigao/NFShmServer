@@ -211,7 +211,7 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 
 	int iRet = 0;
 	std::string filePathName = pDescStore->GetFilePathName();
-	if (filePathName.empty())
+	if (filePathName.empty() && !pDescStore->GetFileName().empty())
 	{
 		filePathName = m_pObjPluginManager->GetConfigPath() + "/Data/" + pDescStore->GetFileName() + ".bin";
 		pDescStore->SetFilePathName(filePathName);
@@ -232,12 +232,15 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 
 	if (pDescStore->IsFileLoad())
 	{
-		std::string fileMd5;
-		iRet = GetFileContainMD5(pDescStore->GetFilePathName(), fileMd5);
-		CHECK_EXPR(iRet == 0, iRet, "GetFileContainMD5 Failed, file:{}.bin", pDescStore->GetFileName());
+        std::string fileMd5;
+        if (!pDescStore->GetFilePathName().empty() && NFFileUtility::IsFileExist(pDescStore->GetFilePathName()))
+        {
+            iRet = GetFileContainMD5(pDescStore->GetFilePathName(), fileMd5);
+            CHECK_EXPR(iRet == 0, iRet, "GetFileContainMD5 Failed, file:{}.bin", pDescStore->GetFileName());
 
-		pDescStore->SetMD5(fileMd5.c_str());
-		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End Load:{}, iRet={}, fileMd5:{}", pDescStore->GetFileName(), iRet, fileMd5);
+            pDescStore->SetMD5(fileMd5.c_str());
+        }
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End Load:{}, iRet={}, fileMd5:{}", pDescStore->GetFileName(), iRet, fileMd5);
 	}
 	else
     {
@@ -313,15 +316,13 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
 	int iRet = 0;
 	if (pDescStore->IsFileLoad())
 	{
-	    if (!NFFileUtility::IsFileExist(pDescStore->GetFilePathName())) {
-            return 0;
+        std::string fileMd5;
+	    if (!pDescStore->GetFilePathName().empty() && NFFileUtility::IsFileExist(pDescStore->GetFilePathName())) {
+            iRet = GetFileContainMD5(pDescStore->GetFilePathName(), fileMd5);
+            if (iRet == 0 && fileMd5 == std::string(pDescStore->GetFileMD5())) {
+                return 0;
+            }
         }
-
-		std::string fileMd5;
-		iRet = GetFileContainMD5(pDescStore->GetFilePathName(), fileMd5);
-		if (iRet == 0 && fileMd5 == std::string(pDescStore->GetFileMD5())) {
-			return 0;
-		}
 
 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "File {}.bin Changed, Reload.", pDescStore->GetFileName());
 		iRet = pDescStore->Reload(m_pResFileDB);
@@ -330,9 +331,13 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
 		pDescStore->SetLoaded(true);
 		pDescStore->SetChecked(false);
 
-		if (fileMd5.size() > 0) {
-			pDescStore->SetMD5(fileMd5.c_str());
-		}
+        if (!pDescStore->GetFilePathName().empty() && NFFileUtility::IsFileExist(pDescStore->GetFilePathName()))
+        {
+            if (fileMd5.size() > 0) {
+                pDescStore->SetMD5(fileMd5.c_str());
+            }
+        }
+
 	}
 	else {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "db table:{} Changed, Reload.", pDescStore->GetFileName());
