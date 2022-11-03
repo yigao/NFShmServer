@@ -145,7 +145,7 @@ int NFDescStoreTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes,
 bool NFDescStoreTrans::IsTimeOut()
 {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + 300) {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This NFDescStoreTrans TimeOut Type:{} Info:{}", GetClassType(), GetDebugInfo());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This NFDescStoreTrans TimeOut Type:{} Info:{}", GetClassType(), DebugString());
         OnTimeOut();
         return true;
     }

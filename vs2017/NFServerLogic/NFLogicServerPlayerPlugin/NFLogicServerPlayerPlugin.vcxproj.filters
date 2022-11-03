@@ -27,7 +27,7 @@
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransPlayerBase.cpp">
       <Filter>NFUserDetail</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.cpp">
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveRoleDetail.cpp">
       <Filter>NFUserDetail</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.cpp">
@@ -68,7 +68,7 @@
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransPlayerBase.h">
       <Filter>NFUserDetail</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveDB.h">
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveRoleDetail.h">
       <Filter>NFUserDetail</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFTransSaveMoney.h">

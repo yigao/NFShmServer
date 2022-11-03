@@ -252,7 +252,7 @@ bool NFTransBase::CanRelease() {
     return false;
 }
 
-std::string NFTransBase::GetDebugInfo() const {
+std::string NFTransBase::DebugString() const {
     std::string str = NF_FORMAT("This GlobalID:{} CurState:{} StartTime:{} RunedTimes:{}", GetGlobalID(), m_wCurState,
                                 DateTimeToStr((int) m_dwStartTime), m_wRunedTimes);
     return str;
@@ -260,7 +260,7 @@ std::string NFTransBase::GetDebugInfo() const {
 
 bool NFTransBase::IsTimeOut() {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT) {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pObjPluginManager), GetClassType(), GetDebugInfo());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pObjPluginManager), GetClassType(), DebugString());
         OnTimeOut();
         return true;
     }

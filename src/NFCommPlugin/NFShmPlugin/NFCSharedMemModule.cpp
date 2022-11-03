@@ -697,7 +697,10 @@ int NFCSharedMemModule::InitSpecialShmObj()
     NFTransMng *pManager = (NFTransMng *) GetHeadObj(EOT_TRANS_MNG);
     if (pManager)
     {
-        pManager->Init(1, 5000);
+        /**
+         * @brief 平衡处理，大概一帧处理200个trans
+         */
+        pManager->Init(1, 200);
     }
 
     if (GetInitMode() == EN_OBJ_MODE_RECOVER)

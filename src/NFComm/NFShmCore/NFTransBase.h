@@ -38,9 +38,9 @@ public:
     int ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, uint32_t err_code);
     int ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg);
     bool CanRelease();
-    virtual std::string GetDebugInfo() const;
+    virtual std::string DebugString() const;
 
-    uint16_t GetState() { return m_wCurState; }
+    uint16_t GetState() const { return m_wCurState; }
     void SetState( uint16_t wState ) { m_wCurState = wState; }
 
     virtual int OnTimeOut();

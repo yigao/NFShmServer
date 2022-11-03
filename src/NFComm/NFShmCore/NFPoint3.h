@@ -9,7 +9,8 @@
 
 #pragma once
 
-#include "NFPlatform.h"
+#include "NFComm/NFCore/NFPlatform.h"
+#include "NFShmMgr.h"
 #include <math.h>
 
 template<typename TYPE = int>
@@ -21,9 +22,27 @@ public:
 public:
     inline NFPoint3()
     {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    int CreateInit()
+    {
         x = 0;
         y = 0;
         z = 0;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
     }
 
     inline NFPoint3(const TYPE& ValueX, const TYPE& ValueY, const TYPE& ValueZ)
