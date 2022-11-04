@@ -108,6 +108,18 @@ int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t 
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
+int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1,
+                                                uint64_t nParam2)
+{
+    return SendMsgToSnsServer(eType, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData,
+                                                uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
 int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData,
                                                uint64_t nParam1, uint64_t nParam2)
 {
