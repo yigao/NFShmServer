@@ -156,10 +156,9 @@ public:
 	typedef T &Reference;
 	typedef const T &ConstReference;
 	typedef ptrdiff_t DifferenceType;
+    typedef ListNode<T> _Node;
+    typedef ListNodeBase _NodeBase;
 protected:
-	typedef ListNode<T> _Node;
-	typedef ListNodeBase _NodeBase;
-
 	_Node m_astNodes[MAX_SIZE + 1];
 	DifferenceType m_iFreeStart;
 	SizeType m_iSize;
@@ -178,7 +177,6 @@ public:
 
 	int CreateInit()
 	{
-		//memset(m_astNodes, 0, sizeof(m_astNodes));
 		m_iFreeStart = 0;
 
 		for (SizeType i = 0; i < MAX_SIZE; i++)
@@ -186,6 +184,7 @@ public:
 			m_astNodes[i].m_iNext = i + 1;
 			m_astNodes[i].m_iPrev = 0;
 			m_astNodes[i].m_bValid = false;
+            new (&m_astNodes[i].m_data)ValueType();
 		}
 
 		m_astNodes[MAX_SIZE].m_iNext = MAX_SIZE;
@@ -245,15 +244,30 @@ public:
 		return m_astNodes[MAX_SIZE].m_iNext == MAX_SIZE;
 	}
 
-	bool Full() const
+    bool IsEmpty() const
+    {
+        return Empty();
+    }
+
+    bool Full() const
 	{
 		return m_iFreeStart == MAX_SIZE;
 	}
+
+    bool IsFull() const
+    {
+        return Full();
+    }
 
 	SizeType Size() const
 	{
 		return m_iSize;
 	}
+
+    SizeType GetSize() const
+    {
+        return Size();
+    }
 
 	Reference Front()
 	{
@@ -273,6 +287,7 @@ public:
 	Iterator Erase(Iterator iter)
 	{
 		_Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		ptrdiff_t iNext = pNode->m_iNext;
 		m_astNodes[pNode->m_iPrev].m_iNext = pNode->m_iNext;
@@ -292,6 +307,7 @@ public:
 	{
 		assert(pos < MAX_SIZE);
 		_Node *pNode = &m_astNodes[pos];
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		assert(iSelf == (int)pos);
 
@@ -310,6 +326,7 @@ public:
 	{
 		ptrdiff_t iSelf = m_iFreeStart;
 		m_iFreeStart = m_astNodes[m_iFreeStart].m_iNext;
+        new (&m_astNodes[iSelf].m_data)ValueType();
 		m_astNodes[iSelf].m_data = v;
 		assert(!m_astNodes[iSelf].m_bValid);
 		m_astNodes[iSelf].m_bValid = true;
@@ -326,11 +343,41 @@ public:
 		return iSelf;
 	}
 
+    ValueType* PushFront()
+    {
+        return Insert(--Begin());
+    }
+
+    ValueType* PushBack()
+    {
+        return Insert(--End());
+    }
+
+    ValueType* Insert(Iterator iter)
+    {
+        ptrdiff_t iSelf = m_iFreeStart;
+        m_iFreeStart = m_astNodes[m_iFreeStart].m_iNext;
+        new (&m_astNodes[iSelf].m_data)ValueType();
+        assert(!m_astNodes[iSelf].m_bValid);
+        m_astNodes[iSelf].m_bValid = true;
+
+        _Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        ptrdiff_t iPrev = m_astNodes[pNode->m_iNext].m_iPrev;
+        m_astNodes[iSelf].m_iNext = pNode->m_iNext;
+        m_astNodes[iSelf].m_iPrev = iPrev;
+        m_astNodes[pNode->m_iNext].m_iPrev = iSelf;
+        pNode->m_iNext = iSelf;
+
+        m_iSize++;
+
+        return &m_astNodes[iSelf].m_data;
+    }
 
 	SizeType InsertBefore(Iterator iter, const ValueType &v)
 	{
 		ptrdiff_t iSelf = m_iFreeStart;
 		m_iFreeStart = m_astNodes[m_iFreeStart].m_iNext;
+        new (&m_astNodes[iSelf].m_data)ValueType();
 		m_astNodes[iSelf].m_data = v;
 		assert(!m_astNodes[iSelf].m_bValid);
 		m_astNodes[iSelf].m_bValid = true;
@@ -345,7 +392,6 @@ public:
 
 		return iSelf;
 	}
-
 
 	Iterator Find(const ValueType &k)
 	{
@@ -434,13 +480,13 @@ public:
 
 	int CreateInit()
 	{
-		memset(m_astNodes, 0, sizeof(m_astNodes));
 		m_iFreeStart = 0;
 
 		for (SizeType i = 0; i < MAX_SIZE; i++)
 		{
 			m_astNodes[i].m_iNext = i + 1;
 			m_astNodes[i].m_bValid = false;
+            new (&m_astNodes[i].m_data)ValueType();
 		}
 
 		for (SizeType i = MAX_SIZE; i < MAX_SIZE + MAX_TYPE; i++)
@@ -448,6 +494,7 @@ public:
 			m_astNodes[i].m_iNext = i;
 			m_astNodes[i].m_iPrev = i;
 			m_astNodes[i].m_bValid = false;
+            new (&m_astNodes[i].m_data)ValueType();
 		}
 
 		return 0;
@@ -513,6 +560,7 @@ public:
 	Iterator Erase(Iterator iter)
 	{
 		_Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		assert(iSelf >= 0 && (size_t)iSelf < MAX_SIZE);
 		ptrdiff_t iNext = pNode->m_iNext;
@@ -531,6 +579,7 @@ public:
 	{
 		assert(pos < MAX_SIZE);
 		_Node *pNode = &m_astNodes[pos];
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		assert(iSelf == (int)pos);
 
@@ -547,6 +596,7 @@ public:
 	{
 		ptrdiff_t iSelf = m_iFreeStart;
 		m_iFreeStart = m_astNodes[m_iFreeStart].m_iNext;
+        new (&m_astNodes[iSelf].m_data)ValueType();
 		m_astNodes[iSelf].m_data = v;
 
 		_Node *pNode = static_cast<_Node *>(iter.m_pNode);
@@ -634,7 +684,6 @@ public:
 
 	int CreateInit()
 	{
-		//memset(m_astNodes, 0, sizeof(m_astNodes));
 		m_iFreeStart = 0;
 
 		for (SizeType i = 0; i < MAX_SIZE; i++)
@@ -642,12 +691,13 @@ public:
 			m_astNodes[i].m_iNext = i + 1;
 			m_astNodes[i].m_iPrev = 0;
 			m_astNodes[i].m_bValid = false;
+            new (&m_astNodes[i].m_data)ValueType();
 		}
 
 		m_astNodes[MAX_SIZE].m_iNext = MAX_SIZE;
 		m_astNodes[MAX_SIZE].m_iPrev = MAX_SIZE;
 		m_astNodes[MAX_SIZE].m_bValid = false;
-
+        new (&m_astNodes[MAX_SIZE].m_data)ValueType();
 		m_iSize = 0;
 
 		return 0;
@@ -748,6 +798,7 @@ public:
 	Iterator Erase(Iterator iter)
 	{
 		_Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		ptrdiff_t iNext = pNode->m_iNext;
 		m_astNodes[pNode->m_iPrev].m_iNext = pNode->m_iNext;
@@ -767,6 +818,7 @@ public:
 	{
 		assert(pos < MAX_SIZE);
 		_Node *pNode = &m_astNodes[pos];
+        pNode->m_data.ValueType::~ValueType();
 		ptrdiff_t iSelf = m_astNodes[pNode->m_iNext].m_iPrev;
 		assert(iSelf == (int)pos);
 
@@ -785,6 +837,7 @@ public:
 	{
 		ptrdiff_t iSelf = m_iFreeStart;
 		m_iFreeStart = m_astNodes[m_iFreeStart].m_iNext;
+        new (&m_astNodes[iSelf].m_data)ValueType();
 		m_astNodes[iSelf].m_data = v;
 		assert(!m_astNodes[iSelf].m_bValid);
 		m_astNodes[iSelf].m_bValid = true;

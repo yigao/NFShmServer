@@ -27,9 +27,9 @@ public:
 
 	virtual ~NFIDynamicModule();
 
-	virtual void OnTimer(uint32_t nTimerID);
+	virtual void OnTimer(uint32_t nTimerID) override;
 
-	virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message);
+	virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
 
     /**
      * @brief 注册客户端信息处理函数

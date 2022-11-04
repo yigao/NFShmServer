@@ -11,6 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFShmMgr.h"
+#include "NFShmStaticList.hpp"
 #include <cstring>
 
 /**
@@ -81,6 +82,9 @@ class NFShmHashMap
         {
             m_cUseFlag = 0;
             m_iHashNext = 0;
+            m_iListPos = -1;
+            new (&m_stKey)KEY_TYPE();
+            new (&m_stData)DATA_TYPE();
             return 0;
         }
 
@@ -93,14 +97,37 @@ class NFShmHashMap
         DATA_TYPE m_stData; //!<存放数据
         char m_cUseFlag; //!<节点是否使用
         int m_iHashNext; //!<当Hash值冲突值，将新加节点放在节点后面，形成冲突链
+        int m_iListPos;
     } THashMapNode;
-
+public:
+    typedef typename NFShmStaticList<int, NODE_SIZE>::Iterator Iterator;
+    typedef typename NFShmStaticList<int, NODE_SIZE>::_Node _Node;
 public:
     NFShmHashMap();
     ~NFShmHashMap();
     int CreateInit();
     int ResumeInit();
     int Initialize();
+public:
+    Iterator Begin()
+    {
+        return m_usedList.Begin();
+    }
+
+    Iterator End()
+    {
+        return m_usedList.End();
+    }
+
+    Iterator Erase(Iterator iter)
+    {
+        _Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        ptrdiff_t iNext = pNode->m_iNext;
+
+        EraseBySID(*iter);
+
+        return Iterator(&m_usedList, m_usedList.GetNode(iNext));
+    }
 public:
     ////!通过数组下标的方式获取值（这里类似STL的Map如果发现该Key值的节点不存在会插入）
     ////TBD 由于不做异常机制，暂时不实现
@@ -170,6 +197,7 @@ private:
     int m_iFirstFreeIdx; //!<空闲链表头节点
     THashMapNode m_astHashMap[NODE_SIZE]; //!<所有存放的数据节点
     int m_aiHashFirstIdx[HASH_SIZE]; //!<通过Key来Hash计算出的冲突链表的头节点索引
+    NFShmStaticList<int, NODE_SIZE> m_usedList;
 };
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
@@ -206,6 +234,9 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Initializ
     {
         m_astHashMap[i].m_iHashNext = i + 1;
         m_astHashMap[i].m_cUseFlag = EHNF_NOT_USED;
+        m_astHashMap[i].m_iListPos = -1;
+        new (&m_astHashMap[i].m_stKey)KEY_TYPE();
+        new (&m_astHashMap[i].m_stData)DATA_TYPE();
     }
 
     m_astHashMap[NODE_SIZE-1].m_iHashNext = -1;
@@ -214,6 +245,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Initializ
     {
         m_aiHashFirstIdx[i] = -1;
     }
+
+    m_usedList.CreateInit();
     return 0;
 }
 
@@ -234,6 +267,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
     {
         m_astHashMap[i].m_iHashNext = i + 1;
         m_astHashMap[i].m_cUseFlag = EHNF_NOT_USED;
+        m_usedList.Erase(m_astHashMap[i].m_iListPos);
+        m_astHashMap[i].m_iListPos = -1;
         m_astHashMap[i].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[i].m_stData.DATA_TYPE::~DATA_TYPE();
         new (&m_astHashMap[i].m_stKey)KEY_TYPE();
@@ -246,6 +281,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
     {
         m_aiHashFirstIdx[i] = -1;
     }
+
+    m_usedList.CreateInit();
 
     return 0;
 }
@@ -344,6 +381,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(con
         }
 
         m_astHashMap[iCurIndex].m_cUseFlag = EHNF_NOT_USED;
+        m_usedList.Erase(m_astHashMap[iCurIndex].m_iListPos);
+        m_astHashMap[iCurIndex].m_iListPos = -1;
         m_astHashMap[iCurIndex].m_iHashNext = m_iFirstFreeIdx;
         m_astHashMap[iCurIndex].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[iCurIndex].m_stData.DATA_TYPE::~DATA_TYPE();
@@ -404,6 +443,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(co
     m_astHashMap[iNowAssignIdx].m_stData = rstData;
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
+    m_astHashMap[iNowAssignIdx].m_iListPos = m_usedList.PushBack(iNowAssignIdx);
 
     //是冲突链表的第一个节点
     if(m_aiHashFirstIdx[iHashIdx] == -1)
@@ -466,6 +506,7 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
     //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
+    m_astHashMap[iNowAssignIdx].m_iListPos = m_usedList.PushBack(iNowAssignIdx);
 
     //是冲突链表的第一个节点
     if(m_aiHashFirstIdx[iHashIdx] == -1)
@@ -550,6 +591,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
     //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
+    m_astHashMap[iNowAssignIdx].m_iListPos = m_usedList.PushBack(iNowAssignIdx);
 
     //是冲突链表的第一个节点
     if(m_aiHashFirstIdx[iHashIdx] == -1)
