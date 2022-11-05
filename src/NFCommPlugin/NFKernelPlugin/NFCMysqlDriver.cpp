@@ -560,7 +560,7 @@ int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    std::string tableName = select.baseinfo().tbname();
+    std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
     std::string full_name = "proto_ff." + tableName;
@@ -893,7 +893,7 @@ int
 NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    std::string tableName = select.baseinfo().tbname();
+    std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
     std::string full_name = "proto_ff." + tableName;

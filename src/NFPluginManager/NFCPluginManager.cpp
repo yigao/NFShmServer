@@ -82,7 +82,7 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
 
 	NFRandomSeed();
 #ifdef NF_DEBUG_MODE
-	SetOpenProfiler(true);
+	SetOpenProfiler(false);
 #endif
 }
 
