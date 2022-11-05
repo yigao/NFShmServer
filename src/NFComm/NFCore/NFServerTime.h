@@ -39,6 +39,8 @@ public:
 	uint32_t CurDaySec() { return ((uint32_t)UnixSec() - 57600) % DayTotalSec(); };
 	// 每日总秒数
 	uint32_t DayTotalSec() { return msc_daySec; };
+    // 服务器当前所在的时区
+    int32_t CurTimeZone() { return ms_curzone; };
 
 	bool CheckPerFrames(int perFrames) { return ms_frames % perFrames == 0; }
 	bool CheckPerSecs(int perSecs) { return ms_secs % perSecs == 0 && ms_perSecFirstFrame; }

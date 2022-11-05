@@ -98,7 +98,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
     switch (svrPkg.store_info().cmd()) {
         case proto_ff::E_STORESVR_S2C_SELECT: {
             storesvr_sqldata::storesvr_sel_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -107,7 +107,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_SELECTOBJ: {
             storesvr_sqldata::storesvr_selobj_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -116,7 +116,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_INSERT: {
             storesvr_sqldata::storesvr_ins_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -125,7 +125,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_DELETE: {
             storesvr_sqldata::storesvr_del_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -134,7 +134,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_DELETEOBJ: {
             storesvr_sqldata::storesvr_delobj_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -143,7 +143,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_MODIFY: {
             storesvr_sqldata::storesvr_mod_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                             svrPkg.store_info().cb_data().table_id(),
                             svrPkg.store_info().cb_data().seq(),
@@ -152,7 +152,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_MODIFYOBJ: {
             storesvr_sqldata::storesvr_modobj_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -161,7 +161,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_MODINS: {
             storesvr_sqldata::storesvr_modins_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                             svrPkg.store_info().cb_data().table_id(),
                             svrPkg.store_info().cb_data().seq(),
@@ -170,7 +170,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_MODINSOBJ: {
             storesvr_sqldata::storesvr_modinsobj_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                                     svrPkg.store_info().cb_data().table_id(),
                                     svrPkg.store_info().cb_data().seq(),
@@ -179,7 +179,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg)
             break;
         case proto_ff::E_STORESVR_S2C_EXECUTE: {
             storesvr_sqldata::storesvr_execute_res select_res;
-            select_res.ParseFromString(svrPkg.msg_data());
+            select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                             svrPkg.store_info().cb_data().table_id(),
                             svrPkg.store_info().cb_data().seq(),

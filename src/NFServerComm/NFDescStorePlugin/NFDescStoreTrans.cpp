@@ -107,7 +107,7 @@ int NFDescStoreTrans::HandleDescStoreData(const storesvr_sqldata::storesvr_sel_r
                 {
                     ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                             m_descStoreMessage, pSheetRepeatedFieldDesc);
-                    pSheetRepeatedMessageObject->ParseFromString(pSelRsp->sel_records(i));
+                    pSheetRepeatedMessageObject->ParsePartialFromString(pSelRsp->sel_records(i));
                 }
             }
         }

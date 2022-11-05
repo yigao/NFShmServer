@@ -112,7 +112,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_SELECT);
 
             storesvr_sqldata::storesvr_sel select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
@@ -144,7 +144,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_SELECTOBJ);
 
             storesvr_sqldata::storesvr_selobj select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
@@ -180,7 +180,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_INSERT);
 
             storesvr_sqldata::storesvr_ins select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
@@ -212,7 +212,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_DELETE);
 
             storesvr_sqldata::storesvr_del select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
@@ -244,7 +244,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_DELETEOBJ);
 
             storesvr_sqldata::storesvr_delobj select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
@@ -276,7 +276,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_MODIFY);
 
             storesvr_sqldata::storesvr_mod select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
@@ -306,7 +306,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_MODIFYOBJ);
 
             storesvr_sqldata::storesvr_modobj select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
@@ -336,7 +336,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_MODINS);
 
             storesvr_sqldata::storesvr_modins select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
@@ -366,7 +366,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_MODINSOBJ);
 
             storesvr_sqldata::storesvr_modinsobj select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
@@ -396,7 +396,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             retMsg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_S2C_EXECUTE);
 
             storesvr_sqldata::storesvr_execute select;
-            select.ParseFromString(xMsg.msg_data());
+            select.ParsePartialFromString(xMsg.msg_data());
 
             FindModule<NFIAsyMysqlModule>()->Execute(select.baseinfo().dbname(), select,
                [=] (int iRet, storesvr_sqldata::storesvr_execute_res& select_res) mutable {

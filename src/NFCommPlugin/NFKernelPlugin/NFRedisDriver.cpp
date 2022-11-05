@@ -154,17 +154,17 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     CHECK_EXPR(pDefaultMessage, -1,
                "NFProtobufCommon::FindMessageTypeByName:{} Failed", proto_fullname);
 
-    //Í¨¹ýprotobufÄ¬ÈÏ±ãÀûnew³öÀ´Ò»¸öÐÂµÄproto_fullname±äÁ¿
+    //Í¨ï¿½ï¿½protobufÄ¬ï¿½Ï±ï¿½ï¿½ï¿½newï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½proto_fullnameï¿½ï¿½ï¿½ï¿½
     ::google::protobuf::Message *pMessageObject = pDefaultMessage->New();
     CHECK_EXPR(pMessageObject, -1, "{} New Failed", proto_fullname);
 
-    bRet = pMessageObject->ParseFromString(value);
+    bRet = pMessageObject->ParsePartialFromString(value);
 
     if (bRet && pMessageObject != NULL) {
         select_res.set_sel_record(pMessageObject->SerializeAsString());
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessageObject->Utf8DebugString());
     } else {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "ParseFromString Failed, tableName:{}, key:{}",
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "ParsePartialFromString Failed, tableName:{}, key:{}",
                    select.baseinfo().tbname(), db_key);
     }
     if (pMessageObject != NULL)
@@ -252,7 +252,7 @@ NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::m
     std::string full_name = "proto_ff." + tableName;
     google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParseFromString(select.sel_record()), -1, "ParseFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
@@ -363,7 +363,7 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, st
     std::string full_name = "proto_ff." + tableName;
     google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParseFromString(select.del_record()), -1, "ParseFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
@@ -379,7 +379,7 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::
     std::string full_name = "proto_ff." + tableName;
     google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParseFromString(select.ins_record()), -1, "ParseFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
     delete pMessageObject;
@@ -395,7 +395,7 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, st
     std::string full_name = "proto_ff." + tableName;
     google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParseFromString(select.mod_record()), -1, "ParseFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, false, true);
     delete pMessageObject;
