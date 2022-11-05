@@ -45,16 +45,16 @@ public:
 	{
 	}
 
-	explicit ListIterator(Container *pContainer, SizeType iPos)
-		: m_pContainer(pContainer)
-	{
-		m_pNode = pContainer->GetNode(iPos);
-	}
+    explicit ListIterator(const Container *pContainer, SizeType iPos)
+            : m_pContainer(const_cast<Container *>(pContainer))
+    {
+        m_pNode = pContainer->GetNode(iPos);
+    }
 
-	explicit ListIterator(Container *pContainer, ListNodeBase *pNode)
-		: m_pContainer(pContainer), m_pNode(pNode)
-	{
-	}
+    explicit ListIterator(const Container *pContainer, const ListNodeBase *pNode)
+            : m_pContainer(const_cast<Container *>(pContainer)), m_pNode(const_cast<ListNodeBase *>(pNode))
+    {
+    }
 
 	Reference operator*()
 	{
@@ -238,6 +238,16 @@ public:
 	{
 		return Iterator(this, &m_astNodes[MAX_SIZE]);
 	}
+
+    Iterator Begin() const
+    {
+        return Iterator(this, &m_astNodes[m_astNodes[MAX_SIZE].m_iNext]);
+    }
+
+    Iterator End() const
+    {
+        return Iterator(this, &m_astNodes[MAX_SIZE]);
+    }
 
 	bool Empty() const
 	{
