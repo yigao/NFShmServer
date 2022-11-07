@@ -51,10 +51,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="player login">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO" afterDir="false" />
-    </list>
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="player login" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -536,14 +533,7 @@
       <workItem from="1667436700299" duration="32060000" />
       <workItem from="1667522811350" duration="33060000" />
       <workItem from="1667610490797" duration="29652000" />
-      <workItem from="1667781062399" duration="4000" />
-    </task>
-    <task id="LOCAL-00213" summary="net handle">
-      <created>1666414270002</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1666414270002</updated>
+      <workItem from="1667781062399" duration="334000" />
     </task>
     <task id="LOCAL-00214" summary="net handle">
       <created>1666419882861</created>
@@ -881,7 +871,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667643646490</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="player login">
+      <created>1667781402998</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1667781402998</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
