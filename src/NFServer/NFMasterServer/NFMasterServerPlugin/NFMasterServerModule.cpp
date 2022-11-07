@@ -168,7 +168,6 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
 
 int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
 
@@ -191,7 +190,6 @@ int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, NFDataPackag
             pServerData->mServerInfo.set_server_cur_online(xData.server_cur_online());
         }
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
