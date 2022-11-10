@@ -162,6 +162,11 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NFBattlePlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFBattlePlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -223,11 +228,6 @@
       </method>
     </configuration>
     <configuration name="NFNetPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFNetPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -419,7 +419,7 @@
       <item itemvalue="CMake 应用程序.NFLogicCommon" />
       <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
       <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
-      <item itemvalue="CMake 应用程序.NFPlugin" />
+      <item itemvalue="CMake 应用程序.NFBattlePlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
       <item itemvalue="CMake 应用程序.NFSnsServerPlayerPlugin" />
