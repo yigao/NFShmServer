@@ -220,6 +220,10 @@ public:
     std::string GetString() const {
 	    return std::string(m_szBuf);
 	}
+
+    std::string ToString() const {
+        return GetString();
+    }
 private:
     char m_szBuf[SIZE];
 };

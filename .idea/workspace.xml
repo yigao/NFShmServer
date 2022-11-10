@@ -17,15 +17,16 @@
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
+      <config projectName="ShmNFrame" targetName="RecastNavigation" />
       <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFPlugin" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
+      <config projectName="ShmNFrame" targetName="NFBattlePlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerLogicMessage" />
       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
@@ -52,14 +53,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="zdb">
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" afterDir="false" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="battle plugin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameServerPlugin.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFGameServerPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFSceneDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFSceneDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFSizeString.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFSizeString.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +127,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/game/MMO/NFServerLogic/NFGameServer",
+    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/game/MMO/NFLogicComm/NFLogicCommon",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Subversion",
     "structure.view.defaults.are.configured": "true"
@@ -142,11 +144,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
       <recent name="$PROJECT_DIR$/Install/Config/MMO" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache" />
@@ -327,6 +329,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecastNavigation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="RecastNavigation" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -418,6 +425,7 @@
       <item itemvalue="CMake 应用程序.NFDescStore" />
       <item itemvalue="CMake 应用程序.NFLogicCommon" />
       <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
       <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
       <item itemvalue="CMake 应用程序.NFBattlePlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
@@ -560,21 +568,7 @@
       <workItem from="1667987023116" duration="1046000" />
       <workItem from="1668040239183" duration="2000" />
       <workItem from="1668040438790" duration="2000" />
-      <workItem from="1668043719211" duration="2130000" />
-    </task>
-    <task id="LOCAL-00218" summary="delete code">
-      <created>1666430642344</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1666430642344</updated>
-    </task>
-    <task id="LOCAL-00219" summary="MMO">
-      <created>1666432039817</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1666432039817</updated>
+      <workItem from="1668043719211" duration="8635000" />
     </task>
     <task id="LOCAL-00220" summary="net">
       <created>1666667556856</created>
@@ -905,7 +899,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668043960561</updated>
     </task>
-    <option name="localTasksCounter" value="267" />
+    <task id="LOCAL-00267" summary="battle plugin">
+      <created>1668048963460</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1668048963460</updated>
+    </task>
+    <task id="LOCAL-00268" summary="battle plugin">
+      <created>1668048987247</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1668048987247</updated>
+    </task>
+    <option name="localTasksCounter" value="269" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1047,7 +1055,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lua plugin" />
     <MESSAGE value="open ssl" />
     <MESSAGE value="exit" />
     <MESSAGE value="mem pool" />
@@ -1072,7 +1079,8 @@
     <MESSAGE value="map cfg" />
     <MESSAGE value="player login" />
     <MESSAGE value="zdb" />
-    <option name="LAST_COMMIT_MESSAGE" value="zdb" />
+    <MESSAGE value="battle plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="battle plugin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
