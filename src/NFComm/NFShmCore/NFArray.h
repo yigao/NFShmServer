@@ -160,6 +160,10 @@ public:
         return m_iSize;
     }
 
+    int Size() const {
+        return GetSize();
+    }
+
     void SetSize(int size) {
         if (size >= 0 && size <= MAX_SIZE) {
             m_iSize = size;
