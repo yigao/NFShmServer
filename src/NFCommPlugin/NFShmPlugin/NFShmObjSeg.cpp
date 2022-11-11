@@ -293,6 +293,22 @@ int NFShmObjSeg::DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType)
     return m_indexMgr[indexId].HashFreeByKey(indexKey);
 }
 
+int NFShmObjSeg::DelIndexAllData(uint32_t indexId)
+{
+    CHECK_EXPR_ASSERT(indexId < (uint32_t)m_indexMgr.GetSize(), NULL, "");
+    m_indexMgr[indexId].HashClean();
+    return 0;
+}
+
+int NFShmObjSeg::DelAllIndex()
+{
+    for(int i = 0; i < (int)m_indexMgr.GetSize(); i++)
+    {
+        m_indexMgr[i].HashClean();
+    }
+    return 0;
+}
+
 NFShmObj* NFShmObjSeg::HashFind(uint64_t key, int iType)
 {
     int index = m_hashMgr.HashFind(key);

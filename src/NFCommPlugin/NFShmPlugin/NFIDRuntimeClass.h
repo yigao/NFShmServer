@@ -10,8 +10,6 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 
-#define MAXTYPENUM   500
-
 class NFIDRuntimeClass;
 class NFShmObj;
 class NFShmObjSeg;

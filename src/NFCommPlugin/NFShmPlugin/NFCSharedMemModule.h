@@ -219,6 +219,8 @@ public:
 
     virtual void DestroyObj(NFShmObj *pObj) override;
 
+    virtual void ClearAllObj(int iType) override;;
+
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) override;
 
     virtual NFShmObj *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1) override;

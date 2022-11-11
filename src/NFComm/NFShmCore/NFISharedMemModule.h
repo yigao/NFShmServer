@@ -124,6 +124,8 @@ public:
 
     virtual void DestroyObj(NFShmObj *pObj) = 0;
 
+    virtual void ClearAllObj(int iType) = 0;
+
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) = 0;
 
     virtual NFShmObj *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1) = 0;

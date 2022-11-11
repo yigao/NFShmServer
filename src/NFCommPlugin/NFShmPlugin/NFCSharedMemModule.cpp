@@ -1339,6 +1339,24 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
     return 0;
 }
 
+void NFCSharedMemModule::ClearAllObj(int iType)
+{
+    if (!IsTypeValid(iType)) return;
+
+    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    {
+        for(int i = 0; i < (int)m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetItemCount(); i++)
+        {
+            NFShmObj* pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObj(i);
+            if (pObj)
+            {
+                DestroyObj(pObj);
+            }
+        }
+        m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->DelAllIndex();
+    }
+}
+
 void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
 {
     int iType = -1;
@@ -1351,7 +1369,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     iID = pObj->GetGlobalID();
     iHashID = pObj->GetHashID();
 
-    if (iType < 0 || iType >= MAXTYPENUM)
+    if (iType < 0 || iType >= (int)m_nObjSegSwapCounter.size())
     {
         return;
     }
