@@ -13,21 +13,24 @@
 #include <set>
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include <string>
+#include <unordered_map>
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "zdb/zdb.h"
 
-#define  NF_ZDB_TRY_BEGIN  TRY
+#define  NF_ZDB_TRY_BEGIN  TRY {
 
 
-#define NF_ZDB_TRY_END(msg)\
-        ELSE\
+#define NF_ZDB_TRY_END(outCode, outError, msg) }\
+        CATCH(SQLException)\
         {\
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "{} {}: {} raised in {} at {}:{}", msg,\
+            outCode = -1;\
+            outError = NF_FORMAT("{} {}: {} raised in {} at {}:{}", msg,\
             Exception_frame.exception->name,\
             Exception_frame.message,\
             Exception_frame.func,\
             Exception_frame.file,\
             Exception_frame.line);\
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", outError); \
         }\
         END_TRY;\
 
@@ -65,6 +68,32 @@ public:
      * @return Connection_T
      */
     Connection_T GetConnection();
+public:
+    /**
+     * @brief 执行sql语句
+     *
+     * @param  qstr sql语句
+     * @param  valueVec 返回数据
+     * @return int =0执行成功, != 0失败
+     */
+    int ExecuteOne(const std::string &qstr, std::unordered_map<std::string, std::string> &valueVec, std::string &errormsg);
+
+    /**
+     * @brief 执行sql语句
+     *
+     * @param  qstr sql语句
+     * @return int =0执行成功, != 0失败
+     */
+    int Execute(const std::string &qstr, std::string &errormsg);
+private:
+    /**
+     * @brief 通过sql语句查询数据
+     *
+     * @param  qstr sql语句
+     * @param  queryResult 查询结果
+     * @return bool 查询成功或失败
+     */
+    int Query(const std::string &qstr, ResultSet_T& resultSet, std::string &errormsg);
 private:
     /**
      * @brief 数据库类型，比如mysql,sqlite3

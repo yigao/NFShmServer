@@ -26,6 +26,7 @@
 #include <stack>
 #include <vector>
 #include <regex>
+#include <unordered_map>
 #include "NFPlatform.h"
 
 /////////////////////////////////////////////////
@@ -284,6 +285,24 @@ public:
 	*/
 	template<typename K, typename V, typename D, typename A>
 	static std::string tostr(const std::multimap<K, V, D, A> &t);
+
+    /**
+    * @brief  把map输出为字符串.
+    *
+    * @param map<K, V, D, A>  要转换的map对象
+    * @return                    string 输出的字符串
+    */
+    template<typename K, typename V, typename D, typename A>
+    static std::string tostr(const std::unordered_map<K, V, D, A> &t);
+
+    /**
+    * @brief  map输出为字符串.
+    *
+    * @param multimap<K, V, D, A>  map对象
+    * @return                      输出的字符串
+    */
+    template<typename K, typename V, typename D, typename A>
+    static std::string tostr(const std::unordered_multimap<K, V, D, A> &t);
 
 	/**
 	* @brief  pair 转化为字符串，保证map等关系容器可以直接用tostr来输出
@@ -739,6 +758,40 @@ std::string NFCommon::tostr(const std::multimap<K, V, D, A> &t)
 		++it;
 	}
 	return sBuffer;
+}
+
+template<typename K, typename V, typename D, typename A>
+std::string NFCommon::tostr(const std::unordered_map<K, V, D, A> &t)
+{
+    string sBuffer;
+    typename unordered_map<K, V, D, A>::const_iterator it = t.begin();
+    while (it != t.end())
+    {
+        sBuffer += " [";
+        sBuffer += tostr(it->first);
+        sBuffer += "]=[";
+        sBuffer += tostr(it->second);
+        sBuffer += "] ";
+        ++it;
+    }
+    return sBuffer;
+}
+
+template<typename K, typename V, typename D, typename A>
+std::string NFCommon::tostr(const std::unordered_multimap<K, V, D, A> &t)
+{
+    string sBuffer;
+    typename unordered_multimap<K, V, D, A>::const_iterator it = t.begin();
+    while (it != t.end())
+    {
+        sBuffer += " [";
+        sBuffer += tostr(it->first);
+        sBuffer += "]=[";
+        sBuffer += tostr(it->second);
+        sBuffer += "] ";
+        ++it;
+    }
+    return sBuffer;
 }
 
 template<typename F, typename S>

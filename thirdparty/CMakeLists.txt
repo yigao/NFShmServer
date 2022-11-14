@@ -5,3 +5,6 @@ ADD_SUBDIRECTORY("evpp")
 
 PROJECT(mysqlpp)
 ADD_SUBDIRECTORY("mysqlpp")
+
+PROJECT(sqlite3)
+ADD_SUBDIRECTORY("sqlite3")
