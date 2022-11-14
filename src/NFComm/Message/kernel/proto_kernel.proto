@@ -195,6 +195,7 @@ message ServerInfoReport
   optional string  machine_addr = 46;
   repeated string  db_name_list = 47;
   repeated uint32  msg_id = 48;
+  repeated uint64  map_id_list = 49;
 }
 
 message ServerInfoReportList

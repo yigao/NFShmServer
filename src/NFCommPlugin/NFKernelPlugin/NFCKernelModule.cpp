@@ -74,12 +74,12 @@ uint8_t NFCKernelModule::UpdateCheckSeq(const std::string& szCheckSeqFile)
 
 bool NFCKernelModule::Execute()
 {
-    NFCZdbDriver  driver;
+/*    NFCZdbDriver  driver;
     driver.Connect("sqlite", "proto_ff_zone9", "127.0.0.1", 3306, "root", "root");
     std::unordered_map<std::string, std::string> result;
     std::string errInfo;
     driver.Execute("create database proto_ff_zone9", errInfo);
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "result:{} errInfo:{}", NFCommon::tostr(result), errInfo);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "result:{} errInfo:{}", NFCommon::tostr(result), errInfo);*/
     return true;
 }
 

@@ -136,7 +136,8 @@ int NFCSharedMemModule::ReadRunMode()
     if (m_pObjPluginManager->IsInitShm())
     {
         m_enRunMode = EN_OBJ_MODE_INIT;
-    } else
+    }
+    else
     {
         m_enRunMode = EN_OBJ_MODE_RECOVER;
     }
@@ -159,7 +160,8 @@ int NFCSharedMemModule::AllocShm(int iKey, size_t siShmSize)
     if (m_enRunMode == EN_OBJ_MODE_RECOVER)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "run by RECOVER mode");
-    } else
+    }
+    else
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "run by INIT mode");
     }
@@ -360,7 +362,7 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}, server will try to attach it", errno, strerror(errno));
         //no space left
-        if (errno == 28)
+        if (errno == 28 || errno == 12)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}", errno, strerror(errno));
             NFSLEEP(1000);
@@ -377,7 +379,8 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem failed for error:{}, {}", errno, strerror(errno));
                 NFSLEEP(1000);
                 exit(-1);
-            } else
+            }
+            else
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "rm the exsit shm ...");
                 if (EN_OBJ_MODE_INIT == enInitFlag)
@@ -395,7 +398,8 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
                         NFSLEEP(1000);
                         exit(-1);
                     }
-                } else
+                }
+                else
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateShareMem shm already exist, but size not match, alloc failed for  {}, {}", errno,
                                strerror(errno));
@@ -403,11 +407,13 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
                     exit(-1);
                 }
             }
-        } else
+        }
+        else
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "attach succ ");
         }
-    } else
+    }
+    else
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "shm ori mode {} change to mode {}(mode 1:Init, 2:Recover)", enInitFlag, EN_OBJ_MODE_INIT);
         enInitFlag = EN_OBJ_MODE_INIT;
@@ -446,7 +452,8 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
         NFCSharedMem::pbCurrentShm = (char *) pAddr;
         NFCSharedMem::s_bCheckInitSuccessFlag = enInitFlag;
         pShm = new NFCSharedMem(iKey, siTempShmSize, enInitFlag, hShmID);
-    } else
+    }
+    else
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "shmat failed for  {}, {}", errno, strerror(errno));
         NFSLEEP(1000);
@@ -546,7 +553,8 @@ int NFCSharedMemModule::InitAllObjSeg()
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFShmObjSeg::InitAllObj failed!");
                 return iRet;
-            } else
+            }
+            else
             {
                 size_t sObjSegSize = pObjSegSwapCounter->m_nObjSize * pObjSegSwapCounter->m_iItemCount;
                 if (pObjSegSwapCounter->m_pidRuntimeClass.m_iUseHash)
@@ -600,7 +608,8 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     if (parentType < 0)
     {
         pCounter->m_pidRuntimeClass.m_pParent = NULL;
-    } else
+    }
+    else
     {
         pCounter->m_pidRuntimeClass.m_pParent = GetIDRuntimeClass(parentType);
     }
@@ -628,8 +637,17 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
 
     m_iObjSegSizeTotal += siThisObjSegTotal;
     m_iTotalObjCount += pCounter->m_iItemCount;
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
-              pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+
+    if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
+    {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} M count {} tablesize {} M total obj count {}", pszClassName,
+                     pCounter->m_nObjSize / 1024.0 / 1024.0, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+    }
+    else
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
+                  pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+    }
 
     CHECK_EXPR_NOT_RET(m_iTotalObjCount < MAX_GLOBALID_NUM * 0.8, "the shm obj too much, m_iTotalObjCount:{} < MAX_GLOBALID_NUM:{}*0.8",
                        m_iTotalObjCount, MAX_GLOBALID_NUM);
@@ -669,7 +687,8 @@ int NFCSharedMemModule::InitShmObjectGlobal()
     if (GetInitMode() == EN_OBJ_MODE_RECOVER)
     {
         m_pGlobalID = (NFGlobalID *) FindModule<NFISharedMemModule>()->GetObj(EOT_GLOBAL_ID, 0);
-    } else
+    }
+    else
     {
         m_pGlobalID = (NFGlobalID *) NFGlobalID::CreateObject(m_pObjPluginManager);
         //CreateObjByHashKey(EOT_TYPE_TIMER_MNG);
@@ -955,20 +974,23 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
                     assert(false);
                     m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
                     pObj = NULL;
-                } else
+                }
+                else
                 {
                     pObj->SetHashID(iHashID);
 #ifdef _DEBUG_DETAIL_
                     pObj->PrintMyself();
 #endif
                 }
-            } else
+            }
+            else
             {
 #ifdef _DEBUG_DETAIL_
                 pObj->PrintMyself();
 #endif
             }
-        } else
+        }
+        else
         {
             assert(false);
             m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
@@ -1004,7 +1026,8 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
             pObj->SetTimerObjIndex(pObj->GetObjectID());
             pObj->PrintMyself();
 #endif
-        } else
+        }
+        else
         {
             assert(false);
             m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
@@ -1121,7 +1144,8 @@ NFShmObj *NFCSharedMemModule::GetObjFromMiscID(int iMiscID, int iType)
         NFLogError(NF_LOG_SYSTEMLOG, 0, "advice:dont use GetObjFromMiscID get object with gloablid. {} ,type {}", iMiscID, iType);
 #endif
         return GetObjFromGlobalID(iMiscID, iType);
-    } else
+    }
+    else
     {
         int iIndexInID = -1;
         iTypeInID = (iMiscID & 0x7f800000) >> 23;
@@ -1270,7 +1294,8 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
                                       index);
                             break;
                         }
-                    } else
+                    }
+                    else
                     {
                         vecObj.push_back(pObj);
                         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObjAutoErase Data, key:{} globalId:{} type:{} index:{}", key, globalId, iType, index);
@@ -1279,7 +1304,8 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
 
                     index = hashMgr.GetNextIndex(index);
                 }
-            } else if (maxNum >= 0)
+            }
+            else if (maxNum >= 0)
             {
                 std::vector<NFShmObj *> vecObj;
                 int index = hashMgr.GetHeadIndex();
@@ -1298,7 +1324,8 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
                             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObjAutoErase Data, key:{} globalId:{} type:{} index:{}", key, globalId, iType,
                                       index);
                         }
-                    } else
+                    }
+                    else
                     {
                         vecObj.push_back(pObj);
                         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObjAutoErase Data, key:{} globalId:{} type:{} index:{}", key, globalId, iType, index);
@@ -1327,11 +1354,13 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
             {
                 DestroyObj(vecObj[i]);
             }
-        } else
+        }
+        else
         {
             return -1;
         }
-    } else
+    }
+    else
     {
         return -1;
     }
@@ -1345,9 +1374,9 @@ void NFCSharedMemModule::ClearAllObj(int iType)
 
     if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
     {
-        for(int i = 0; i < (int)m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetItemCount(); i++)
+        for (int i = 0; i < (int) m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetItemCount(); i++)
         {
-            NFShmObj* pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObj(i);
+            NFShmObj *pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObj(i);
             if (pObj)
             {
                 DestroyObj(pObj);
@@ -1369,7 +1398,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     iID = pObj->GetGlobalID();
     iHashID = pObj->GetHashID();
 
-    if (iType < 0 || iType >= (int)m_nObjSegSwapCounter.size())
+    if (iType < 0 || iType >= (int) m_nObjSegSwapCounter.size())
     {
         return;
     }
@@ -1399,7 +1428,8 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 }
                 NFLogTrace(NF_LOG_SYSTEMLOG, key, "DestroyObj Data, key:{} globalId:{} type:{} index:{} iHashID:{}", key, iID, iType, iIndex,
                            iHashID);
-            } else
+            }
+            else
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "iHashID:{} < 0 error", iHashID);
             }
@@ -1433,7 +1463,8 @@ int NFCSharedMemModule::DeleteTimer(NFShmTimerObj *pObj, int timeObjId)
 #endif
                 }
                 return pManager->Delete(timeObjId);
-            } else
+            }
+            else
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "timeObjId:{} pShmTimer->GetTimerShmObj:{} != pObj:{} is not the obj timer..............", timeObjId,
                            (void *) pShmTimer->GetTimerShmObj(), (void *) pObj);

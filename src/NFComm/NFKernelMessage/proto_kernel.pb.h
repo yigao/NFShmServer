@@ -1183,6 +1183,18 @@ class ServerInfoReport : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
       mutable_msg_id();
 
+  // repeated uint64 map_id_list = 49;
+  inline int map_id_list_size() const;
+  inline void clear_map_id_list();
+  static const int kMapIdListFieldNumber = 49;
+  inline ::google::protobuf::uint64 map_id_list(int index) const;
+  inline void set_map_id_list(int index, ::google::protobuf::uint64 value);
+  inline void add_map_id_list(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      map_id_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_map_id_list();
+
   // @@protoc_insertion_point(class_scope:proto_ff.ServerInfoReport)
  private:
   inline void set_has_bus_id();
@@ -1279,10 +1291,11 @@ class ServerInfoReport : public ::google::protobuf::Message {
   ::std::string* machine_addr_;
   ::google::protobuf::RepeatedPtrField< ::std::string> db_name_list_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > msg_id_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > map_id_list_;
   ::google::protobuf::uint32 proc_pid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -4203,6 +4216,31 @@ ServerInfoReport::msg_id() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
 ServerInfoReport::mutable_msg_id() {
   return &msg_id_;
+}
+
+// repeated uint64 map_id_list = 49;
+inline int ServerInfoReport::map_id_list_size() const {
+  return map_id_list_.size();
+}
+inline void ServerInfoReport::clear_map_id_list() {
+  map_id_list_.Clear();
+}
+inline ::google::protobuf::uint64 ServerInfoReport::map_id_list(int index) const {
+  return map_id_list_.Get(index);
+}
+inline void ServerInfoReport::set_map_id_list(int index, ::google::protobuf::uint64 value) {
+  map_id_list_.Set(index, value);
+}
+inline void ServerInfoReport::add_map_id_list(::google::protobuf::uint64 value) {
+  map_id_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+ServerInfoReport::map_id_list() const {
+  return map_id_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+ServerInfoReport::mutable_map_id_list() {
+  return &map_id_list_;
 }
 
 // -------------------------------------------------------------------

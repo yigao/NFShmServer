@@ -11,7 +11,7 @@
 #include "NFShmObj.h"
 #include "NFShmMgr.h"
 /*
-共享内存对象指针，指向CObj类
+共享内存对象指针，指向NFShmObj类
 在recover的时候会自动适应
 在对象删除之后如果指针还在，指针将会返回空
 */

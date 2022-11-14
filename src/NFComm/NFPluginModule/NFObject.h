@@ -19,7 +19,7 @@ class NFObject
 public:
     NFObject(NFIPluginManager *p): m_pObjPluginManager(p)
     {
-        NF_ASSERT_MSG(m_pObjPluginManager != NULL, "m_pObjPluginManager == nullptr")
+        //NF_ASSERT_MSG(m_pObjPluginManager != NULL, "m_pObjPluginManager == nullptr")
     }
 
     virtual ~NFObject()
