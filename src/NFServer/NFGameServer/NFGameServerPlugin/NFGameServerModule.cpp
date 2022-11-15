@@ -29,6 +29,7 @@ NFCGameServerModule::~NFCGameServerModule()
 
 bool NFCGameServerModule::Awake()
 {
+    SetCheckWorldServer(true);
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_GAME_SERVER, 10000);
 
     ////////////////test other server msg///////////////////////////////////////////////

@@ -374,11 +374,11 @@ enum NFEventIdType
 
 message NFEventNoneData
 {
-  optional string param1 = 1;
-  optional string param2 = 2;
-  optional string param3 = 3;
-  optional string param4 = 4;
-  optional string param5 = 5;
+  optional int64 param1 = 1;
+  optional int64 param2 = 2;
+  optional int64 param3 = 3;
+  optional int64 param4 = 4;
+  optional int64 param5 = 5;
 }
 
 message Proto_ServerDumpInfoNtf

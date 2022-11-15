@@ -56,7 +56,7 @@ bool NFCDescStoreModule::Awake() {
 
 int NFCDescStoreModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
+    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nSrcID == 0)
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
         {

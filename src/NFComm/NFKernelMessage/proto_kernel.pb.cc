@@ -532,8 +532,8 @@ void protobuf_AddDesc_proto_5fkernel_2eproto() {
     "\024\200\001\310\202\024\200\001\022\036\n\nevent_time\030\004 \001(\tB\n\220\301\024\200\001\310\202\024\200\001"
     "\022\017\n\007user_id\030\005 \001(\004\022\035\n\tuser_name\030\006 \001(\tB\n\220\301"
     "\024\200\001\310\202\024\200\001\"a\n\017NFEventNoneData\022\016\n\006param1\030\001 "
-    "\001(\t\022\016\n\006param2\030\002 \001(\t\022\016\n\006param3\030\003 \001(\t\022\016\n\006p"
-    "aram4\030\004 \001(\t\022\016\n\006param5\030\005 \001(\t\"<\n\027Proto_Ser"
+    "\001(\003\022\016\n\006param2\030\002 \001(\003\022\016\n\006param3\030\003 \001(\003\022\016\n\006p"
+    "aram4\030\004 \001(\003\022\016\n\006param5\030\005 \001(\003\"<\n\027Proto_Ser"
     "verDumpInfoNtf\022\021\n\tdump_info\030\001 \001(\t\022\016\n\006bus"
     "_id\030\002 \001(\r*\253\r\n\020Proto_Kernel_CMD\022\036\n\032NF_GTM"
     "_KILL_ALL_SERVER_NTF\020\003\022\036\n\032NF_STS_KILL_AL"
@@ -6464,11 +6464,11 @@ NFEventNoneData::NFEventNoneData(const NFEventNoneData& from)
 
 void NFEventNoneData::SharedCtor() {
   _cached_size_ = 0;
-  param1_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  param2_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  param3_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  param4_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  param5_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  param1_ = GOOGLE_LONGLONG(0);
+  param2_ = GOOGLE_LONGLONG(0);
+  param3_ = GOOGLE_LONGLONG(0);
+  param4_ = GOOGLE_LONGLONG(0);
+  param5_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6477,21 +6477,6 @@ NFEventNoneData::~NFEventNoneData() {
 }
 
 void NFEventNoneData::SharedDtor() {
-  if (param1_ != &::google::protobuf::internal::kEmptyString) {
-    delete param1_;
-  }
-  if (param2_ != &::google::protobuf::internal::kEmptyString) {
-    delete param2_;
-  }
-  if (param3_ != &::google::protobuf::internal::kEmptyString) {
-    delete param3_;
-  }
-  if (param4_ != &::google::protobuf::internal::kEmptyString) {
-    delete param4_;
-  }
-  if (param5_ != &::google::protobuf::internal::kEmptyString) {
-    delete param5_;
-  }
   if (this != default_instance_) {
   }
 }
@@ -6519,31 +6504,11 @@ NFEventNoneData* NFEventNoneData::New() const {
 
 void NFEventNoneData::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_param1()) {
-      if (param1_ != &::google::protobuf::internal::kEmptyString) {
-        param1_->clear();
-      }
-    }
-    if (has_param2()) {
-      if (param2_ != &::google::protobuf::internal::kEmptyString) {
-        param2_->clear();
-      }
-    }
-    if (has_param3()) {
-      if (param3_ != &::google::protobuf::internal::kEmptyString) {
-        param3_->clear();
-      }
-    }
-    if (has_param4()) {
-      if (param4_ != &::google::protobuf::internal::kEmptyString) {
-        param4_->clear();
-      }
-    }
-    if (has_param5()) {
-      if (param5_ != &::google::protobuf::internal::kEmptyString) {
-        param5_->clear();
-      }
-    }
+    param1_ = GOOGLE_LONGLONG(0);
+    param2_ = GOOGLE_LONGLONG(0);
+    param3_ = GOOGLE_LONGLONG(0);
+    param4_ = GOOGLE_LONGLONG(0);
+    param5_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -6555,83 +6520,78 @@ bool NFEventNoneData::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string param1 = 1;
+      // optional int64 param1 = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_param1()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->param1().data(), this->param1().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &param1_)));
+          set_has_param1();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_param2;
+        if (input->ExpectTag(16)) goto parse_param2;
         break;
       }
 
-      // optional string param2 = 2;
+      // optional int64 param2 = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_param2:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_param2()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->param2().data(), this->param2().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &param2_)));
+          set_has_param2();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_param3;
+        if (input->ExpectTag(24)) goto parse_param3;
         break;
       }
 
-      // optional string param3 = 3;
+      // optional int64 param3 = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_param3:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_param3()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->param3().data(), this->param3().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &param3_)));
+          set_has_param3();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_param4;
+        if (input->ExpectTag(32)) goto parse_param4;
         break;
       }
 
-      // optional string param4 = 4;
+      // optional int64 param4 = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_param4:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_param4()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->param4().data(), this->param4().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &param4_)));
+          set_has_param4();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_param5;
+        if (input->ExpectTag(40)) goto parse_param5;
         break;
       }
 
-      // optional string param5 = 5;
+      // optional int64 param5 = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_param5:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_param5()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->param5().data(), this->param5().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &param5_)));
+          set_has_param5();
         } else {
           goto handle_uninterpreted;
         }
@@ -6657,49 +6617,29 @@ bool NFEventNoneData::MergePartialFromCodedStream(
 
 void NFEventNoneData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string param1 = 1;
+  // optional int64 param1 = 1;
   if (has_param1()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param1().data(), this->param1().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->param1(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->param1(), output);
   }
 
-  // optional string param2 = 2;
+  // optional int64 param2 = 2;
   if (has_param2()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param2().data(), this->param2().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->param2(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->param2(), output);
   }
 
-  // optional string param3 = 3;
+  // optional int64 param3 = 3;
   if (has_param3()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param3().data(), this->param3().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->param3(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->param3(), output);
   }
 
-  // optional string param4 = 4;
+  // optional int64 param4 = 4;
   if (has_param4()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param4().data(), this->param4().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->param4(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->param4(), output);
   }
 
-  // optional string param5 = 5;
+  // optional int64 param5 = 5;
   if (has_param5()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param5().data(), this->param5().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->param5(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->param5(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6710,54 +6650,29 @@ void NFEventNoneData::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NFEventNoneData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional string param1 = 1;
+  // optional int64 param1 = 1;
   if (has_param1()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param1().data(), this->param1().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->param1(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->param1(), target);
   }
 
-  // optional string param2 = 2;
+  // optional int64 param2 = 2;
   if (has_param2()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param2().data(), this->param2().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->param2(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->param2(), target);
   }
 
-  // optional string param3 = 3;
+  // optional int64 param3 = 3;
   if (has_param3()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param3().data(), this->param3().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->param3(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->param3(), target);
   }
 
-  // optional string param4 = 4;
+  // optional int64 param4 = 4;
   if (has_param4()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param4().data(), this->param4().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->param4(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->param4(), target);
   }
 
-  // optional string param5 = 5;
+  // optional int64 param5 = 5;
   if (has_param5()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->param5().data(), this->param5().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->param5(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->param5(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6771,38 +6686,38 @@ int NFEventNoneData::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string param1 = 1;
+    // optional int64 param1 = 1;
     if (has_param1()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->param1());
     }
 
-    // optional string param2 = 2;
+    // optional int64 param2 = 2;
     if (has_param2()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->param2());
     }
 
-    // optional string param3 = 3;
+    // optional int64 param3 = 3;
     if (has_param3()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->param3());
     }
 
-    // optional string param4 = 4;
+    // optional int64 param4 = 4;
     if (has_param4()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->param4());
     }
 
-    // optional string param5 = 5;
+    // optional int64 param5 = 5;
     if (has_param5()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->param5());
     }
 

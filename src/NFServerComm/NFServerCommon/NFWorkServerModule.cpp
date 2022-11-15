@@ -18,6 +18,7 @@
 #define SERVER_CONNECT_MASTER_SERVER "Server Connect MasterServer"
 #define SERVER_CONNECT_ROUTEAGENT_SERVER "Server Connect RouteAgentServer"
 #define SERVER_CHECK_STORE_SERVER "Server Check Store Server"
+#define SERVER_CHECK_WORLD_SERVER "Server Check World Server"
 
 #define SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID 101
 #define SERVER_SERVER_DEAD_TIMER_ID 102
@@ -113,6 +114,12 @@ int NFWorkServerModule::BindServer()
                                              NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER));
     }
 
+    if (m_checkWorldServer)
+    {
+        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
+                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER));
+    }
+
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
                                                                       PACKET_PARSE_TYPE_INTERNAL);
     CHECK_EXPR_ASSERT(serverLinkId > 0, -1, "Server:{} Listen Failed, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId,
@@ -179,7 +186,6 @@ int NFWorkServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t b
         }
     }
 
-    Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     return 0;
 }
 
@@ -381,6 +387,11 @@ int NFWorkServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId, 
                 OnHandleStoreServerReport(xData);
             }
                 break;
+            case NF_SERVER_TYPES::NF_ST_WORLD_SERVER:
+            {
+                OnHandleWorldServerReport(xData);
+                break;
+            }
             case NF_SERVER_TYPES::NF_ST_PROXY_AGENT_SERVER:
             {
                 OnHandleProxyAgentServerReport(xData);
@@ -640,6 +651,42 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
     return 0;
 }
 
+int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoReport &xData)
+{
+    if (m_checkWorldServer == false)
+    {
+        return 0;
+    }
+
+    FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_WORLD_SERVER, xData);
+
+    m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER);
+
+    FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_WORLD_SERVER,
+                                                [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
+                                                {
+                                                    if (errCode != 0)
+                                                    {
+                                                        NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                                                   "LoginServer Watch, WorldServer Dump, errCode:{} name:{} serverInfo:{}", errCode,
+                                                                   name, xData.DebugString());
+                                                        auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(m_serverType,
+                                                                                                                               xData.bus_id());
+                                                        if (pServerData)
+                                                        {
+                                                            FindModule<NFIMessageModule>()->CloseServer(m_serverType, NF_ST_WORLD_SERVER,
+                                                                                                        xData.bus_id(), 0);
+                                                        }
+                                                        return;
+                                                    }
+                                                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_serverType Watch WorldServer name:{} serverInfo:{}", name,
+                                                              xData.DebugString());
+
+                                                    OnHandleWorldServerReport(xData);
+                                                });
+    return 0;
+}
+
 int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport &xData)
 {
     if (m_connectRouteAgentServer == false)
@@ -775,6 +822,16 @@ int NFWorkServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, 
 
     FindModule<NFINamingModule>()->RegisterAppInfo(m_serverType);
     return 0;
+}
+
+bool NFWorkServerModule::IsCheckWorldServer() const
+{
+    return m_checkWorldServer;
+}
+
+void NFWorkServerModule::SetCheckWorldServer(bool checkWorldServer)
+{
+    m_checkWorldServer = checkWorldServer;
 }
 
 

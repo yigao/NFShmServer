@@ -23,6 +23,7 @@ public:
         m_connectRouteAgentServer = true;
         m_connectProxyAgentServer = true;
         m_checkStoreServer = true;
+        m_checkWorldServer = false;
     }
 
     virtual ~NFWorkServerModule()
@@ -44,7 +45,8 @@ public:
      * @param message
      * @return
      */
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
+    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message) override;
+
 public:
     NF_SERVER_TYPES GetServerType() const;
 
@@ -65,9 +67,16 @@ public:
     bool IsCheckStoreServer() const;
 
     void SetCheckStoreServer(bool checkStoreServer);
+
+    bool IsCheckWorldServer() const;
+
+    void SetCheckWorldServer(bool checkWorldServer);
+
 public:
     int BindServer();
+
     int ConnectMasterServer();
+
 public:
     //////////////////////////////////////////////////////////Server服务器//////////////////////////////////////////////////////////////////
     /**
@@ -199,7 +208,11 @@ public:
 
     //////////////////////////////////////////////////////////NFStoreServer服务器//////////////////////////////////////////////////////////////////
     virtual int OnHandleStoreServerReport(const proto_ff::ServerInfoReport &xData);
+
     //////////////////////////////////////////////////////////NFStoreServer服务器//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////NFWorldServer服务器//////////////////////////////////////////////////////////////////
+    virtual int OnHandleWorldServerReport(const proto_ff::ServerInfoReport &xData);
+    //////////////////////////////////////////////////////////NFWorldServer服务器//////////////////////////////////////////////////////////////////
 
     //////////////////////////////////////////////////////////NFRouteAgent服务器//////////////////////////////////////////////////////////////////
     /**
@@ -240,10 +253,12 @@ public:
      */
     virtual int OnHandleRouteAgentServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
     //////////////////////////////////////////////////////////NFRouteAgent服务器//////////////////////////////////////////////////////////////////
-private:
+protected:
     NF_SERVER_TYPES m_serverType;
     bool m_connectMasterServer;
     bool m_connectRouteAgentServer;
     bool m_connectProxyAgentServer;
     bool m_checkStoreServer;
+    bool m_checkWorldServer;
+
 };

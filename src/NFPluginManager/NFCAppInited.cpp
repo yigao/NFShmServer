@@ -11,6 +11,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string& desc, uint32_t initStatus)
 {
@@ -63,6 +64,10 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
                 {
                     m_serverConnectTasks[eServerType][i].m_finished = true;
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverConnectTasks[eServerType][i].m_desc);
+
+                    proto_ff::NFEventNoneData event;
+                    event.set_param1(taskType);
+                    FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, eServerType, proto_ff::NF_EVENT_SERVER_TYPE, event);
                 }
             }
         }

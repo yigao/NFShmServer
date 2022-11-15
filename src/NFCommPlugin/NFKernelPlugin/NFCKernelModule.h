@@ -18,6 +18,14 @@
 #include <chrono>
 #include <unordered_map>
 
+/*
+    63-61 3b  worldtype
+    60-49 12b worldid
+    48-45 4b  instid
+    44-33 12b seq
+    32-30 3b  checkseq
+    29-0  30b time
+*/
 enum
 {
     UNIQUE_ID_START_TIME = 1560000000, //Jun  8 21:20:00 2019

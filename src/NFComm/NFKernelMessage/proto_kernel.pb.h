@@ -2247,65 +2247,40 @@ class NFEventNoneData : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string param1 = 1;
+  // optional int64 param1 = 1;
   inline bool has_param1() const;
   inline void clear_param1();
   static const int kParam1FieldNumber = 1;
-  inline const ::std::string& param1() const;
-  inline void set_param1(const ::std::string& value);
-  inline void set_param1(const char* value);
-  inline void set_param1(const char* value, size_t size);
-  inline ::std::string* mutable_param1();
-  inline ::std::string* release_param1();
-  inline void set_allocated_param1(::std::string* param1);
+  inline ::google::protobuf::int64 param1() const;
+  inline void set_param1(::google::protobuf::int64 value);
 
-  // optional string param2 = 2;
+  // optional int64 param2 = 2;
   inline bool has_param2() const;
   inline void clear_param2();
   static const int kParam2FieldNumber = 2;
-  inline const ::std::string& param2() const;
-  inline void set_param2(const ::std::string& value);
-  inline void set_param2(const char* value);
-  inline void set_param2(const char* value, size_t size);
-  inline ::std::string* mutable_param2();
-  inline ::std::string* release_param2();
-  inline void set_allocated_param2(::std::string* param2);
+  inline ::google::protobuf::int64 param2() const;
+  inline void set_param2(::google::protobuf::int64 value);
 
-  // optional string param3 = 3;
+  // optional int64 param3 = 3;
   inline bool has_param3() const;
   inline void clear_param3();
   static const int kParam3FieldNumber = 3;
-  inline const ::std::string& param3() const;
-  inline void set_param3(const ::std::string& value);
-  inline void set_param3(const char* value);
-  inline void set_param3(const char* value, size_t size);
-  inline ::std::string* mutable_param3();
-  inline ::std::string* release_param3();
-  inline void set_allocated_param3(::std::string* param3);
+  inline ::google::protobuf::int64 param3() const;
+  inline void set_param3(::google::protobuf::int64 value);
 
-  // optional string param4 = 4;
+  // optional int64 param4 = 4;
   inline bool has_param4() const;
   inline void clear_param4();
   static const int kParam4FieldNumber = 4;
-  inline const ::std::string& param4() const;
-  inline void set_param4(const ::std::string& value);
-  inline void set_param4(const char* value);
-  inline void set_param4(const char* value, size_t size);
-  inline ::std::string* mutable_param4();
-  inline ::std::string* release_param4();
-  inline void set_allocated_param4(::std::string* param4);
+  inline ::google::protobuf::int64 param4() const;
+  inline void set_param4(::google::protobuf::int64 value);
 
-  // optional string param5 = 5;
+  // optional int64 param5 = 5;
   inline bool has_param5() const;
   inline void clear_param5();
   static const int kParam5FieldNumber = 5;
-  inline const ::std::string& param5() const;
-  inline void set_param5(const ::std::string& value);
-  inline void set_param5(const char* value);
-  inline void set_param5(const char* value, size_t size);
-  inline ::std::string* mutable_param5();
-  inline ::std::string* release_param5();
-  inline void set_allocated_param5(::std::string* param5);
+  inline ::google::protobuf::int64 param5() const;
+  inline void set_param5(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.NFEventNoneData)
  private:
@@ -2322,11 +2297,11 @@ class NFEventNoneData : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* param1_;
-  ::std::string* param2_;
-  ::std::string* param3_;
-  ::std::string* param4_;
-  ::std::string* param5_;
+  ::google::protobuf::int64 param1_;
+  ::google::protobuf::int64 param2_;
+  ::google::protobuf::int64 param3_;
+  ::google::protobuf::int64 param4_;
+  ::google::protobuf::int64 param5_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -5094,7 +5069,7 @@ inline void BehaviorLogHeader::set_allocated_user_name(::std::string* user_name)
 
 // NFEventNoneData
 
-// optional string param1 = 1;
+// optional int64 param1 = 1;
 inline bool NFEventNoneData::has_param1() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5105,66 +5080,18 @@ inline void NFEventNoneData::clear_has_param1() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void NFEventNoneData::clear_param1() {
-  if (param1_ != &::google::protobuf::internal::kEmptyString) {
-    param1_->clear();
-  }
+  param1_ = GOOGLE_LONGLONG(0);
   clear_has_param1();
 }
-inline const ::std::string& NFEventNoneData::param1() const {
-  return *param1_;
-}
-inline void NFEventNoneData::set_param1(const ::std::string& value) {
-  set_has_param1();
-  if (param1_ == &::google::protobuf::internal::kEmptyString) {
-    param1_ = new ::std::string;
-  }
-  param1_->assign(value);
-}
-inline void NFEventNoneData::set_param1(const char* value) {
-  set_has_param1();
-  if (param1_ == &::google::protobuf::internal::kEmptyString) {
-    param1_ = new ::std::string;
-  }
-  param1_->assign(value);
-}
-inline void NFEventNoneData::set_param1(const char* value, size_t size) {
-  set_has_param1();
-  if (param1_ == &::google::protobuf::internal::kEmptyString) {
-    param1_ = new ::std::string;
-  }
-  param1_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* NFEventNoneData::mutable_param1() {
-  set_has_param1();
-  if (param1_ == &::google::protobuf::internal::kEmptyString) {
-    param1_ = new ::std::string;
-  }
+inline ::google::protobuf::int64 NFEventNoneData::param1() const {
   return param1_;
 }
-inline ::std::string* NFEventNoneData::release_param1() {
-  clear_has_param1();
-  if (param1_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = param1_;
-    param1_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void NFEventNoneData::set_allocated_param1(::std::string* param1) {
-  if (param1_ != &::google::protobuf::internal::kEmptyString) {
-    delete param1_;
-  }
-  if (param1) {
-    set_has_param1();
-    param1_ = param1;
-  } else {
-    clear_has_param1();
-    param1_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void NFEventNoneData::set_param1(::google::protobuf::int64 value) {
+  set_has_param1();
+  param1_ = value;
 }
 
-// optional string param2 = 2;
+// optional int64 param2 = 2;
 inline bool NFEventNoneData::has_param2() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5175,66 +5102,18 @@ inline void NFEventNoneData::clear_has_param2() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void NFEventNoneData::clear_param2() {
-  if (param2_ != &::google::protobuf::internal::kEmptyString) {
-    param2_->clear();
-  }
+  param2_ = GOOGLE_LONGLONG(0);
   clear_has_param2();
 }
-inline const ::std::string& NFEventNoneData::param2() const {
-  return *param2_;
-}
-inline void NFEventNoneData::set_param2(const ::std::string& value) {
-  set_has_param2();
-  if (param2_ == &::google::protobuf::internal::kEmptyString) {
-    param2_ = new ::std::string;
-  }
-  param2_->assign(value);
-}
-inline void NFEventNoneData::set_param2(const char* value) {
-  set_has_param2();
-  if (param2_ == &::google::protobuf::internal::kEmptyString) {
-    param2_ = new ::std::string;
-  }
-  param2_->assign(value);
-}
-inline void NFEventNoneData::set_param2(const char* value, size_t size) {
-  set_has_param2();
-  if (param2_ == &::google::protobuf::internal::kEmptyString) {
-    param2_ = new ::std::string;
-  }
-  param2_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* NFEventNoneData::mutable_param2() {
-  set_has_param2();
-  if (param2_ == &::google::protobuf::internal::kEmptyString) {
-    param2_ = new ::std::string;
-  }
+inline ::google::protobuf::int64 NFEventNoneData::param2() const {
   return param2_;
 }
-inline ::std::string* NFEventNoneData::release_param2() {
-  clear_has_param2();
-  if (param2_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = param2_;
-    param2_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void NFEventNoneData::set_allocated_param2(::std::string* param2) {
-  if (param2_ != &::google::protobuf::internal::kEmptyString) {
-    delete param2_;
-  }
-  if (param2) {
-    set_has_param2();
-    param2_ = param2;
-  } else {
-    clear_has_param2();
-    param2_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void NFEventNoneData::set_param2(::google::protobuf::int64 value) {
+  set_has_param2();
+  param2_ = value;
 }
 
-// optional string param3 = 3;
+// optional int64 param3 = 3;
 inline bool NFEventNoneData::has_param3() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5245,66 +5124,18 @@ inline void NFEventNoneData::clear_has_param3() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void NFEventNoneData::clear_param3() {
-  if (param3_ != &::google::protobuf::internal::kEmptyString) {
-    param3_->clear();
-  }
+  param3_ = GOOGLE_LONGLONG(0);
   clear_has_param3();
 }
-inline const ::std::string& NFEventNoneData::param3() const {
-  return *param3_;
-}
-inline void NFEventNoneData::set_param3(const ::std::string& value) {
-  set_has_param3();
-  if (param3_ == &::google::protobuf::internal::kEmptyString) {
-    param3_ = new ::std::string;
-  }
-  param3_->assign(value);
-}
-inline void NFEventNoneData::set_param3(const char* value) {
-  set_has_param3();
-  if (param3_ == &::google::protobuf::internal::kEmptyString) {
-    param3_ = new ::std::string;
-  }
-  param3_->assign(value);
-}
-inline void NFEventNoneData::set_param3(const char* value, size_t size) {
-  set_has_param3();
-  if (param3_ == &::google::protobuf::internal::kEmptyString) {
-    param3_ = new ::std::string;
-  }
-  param3_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* NFEventNoneData::mutable_param3() {
-  set_has_param3();
-  if (param3_ == &::google::protobuf::internal::kEmptyString) {
-    param3_ = new ::std::string;
-  }
+inline ::google::protobuf::int64 NFEventNoneData::param3() const {
   return param3_;
 }
-inline ::std::string* NFEventNoneData::release_param3() {
-  clear_has_param3();
-  if (param3_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = param3_;
-    param3_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void NFEventNoneData::set_allocated_param3(::std::string* param3) {
-  if (param3_ != &::google::protobuf::internal::kEmptyString) {
-    delete param3_;
-  }
-  if (param3) {
-    set_has_param3();
-    param3_ = param3;
-  } else {
-    clear_has_param3();
-    param3_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void NFEventNoneData::set_param3(::google::protobuf::int64 value) {
+  set_has_param3();
+  param3_ = value;
 }
 
-// optional string param4 = 4;
+// optional int64 param4 = 4;
 inline bool NFEventNoneData::has_param4() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5315,66 +5146,18 @@ inline void NFEventNoneData::clear_has_param4() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void NFEventNoneData::clear_param4() {
-  if (param4_ != &::google::protobuf::internal::kEmptyString) {
-    param4_->clear();
-  }
+  param4_ = GOOGLE_LONGLONG(0);
   clear_has_param4();
 }
-inline const ::std::string& NFEventNoneData::param4() const {
-  return *param4_;
-}
-inline void NFEventNoneData::set_param4(const ::std::string& value) {
-  set_has_param4();
-  if (param4_ == &::google::protobuf::internal::kEmptyString) {
-    param4_ = new ::std::string;
-  }
-  param4_->assign(value);
-}
-inline void NFEventNoneData::set_param4(const char* value) {
-  set_has_param4();
-  if (param4_ == &::google::protobuf::internal::kEmptyString) {
-    param4_ = new ::std::string;
-  }
-  param4_->assign(value);
-}
-inline void NFEventNoneData::set_param4(const char* value, size_t size) {
-  set_has_param4();
-  if (param4_ == &::google::protobuf::internal::kEmptyString) {
-    param4_ = new ::std::string;
-  }
-  param4_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* NFEventNoneData::mutable_param4() {
-  set_has_param4();
-  if (param4_ == &::google::protobuf::internal::kEmptyString) {
-    param4_ = new ::std::string;
-  }
+inline ::google::protobuf::int64 NFEventNoneData::param4() const {
   return param4_;
 }
-inline ::std::string* NFEventNoneData::release_param4() {
-  clear_has_param4();
-  if (param4_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = param4_;
-    param4_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void NFEventNoneData::set_allocated_param4(::std::string* param4) {
-  if (param4_ != &::google::protobuf::internal::kEmptyString) {
-    delete param4_;
-  }
-  if (param4) {
-    set_has_param4();
-    param4_ = param4;
-  } else {
-    clear_has_param4();
-    param4_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void NFEventNoneData::set_param4(::google::protobuf::int64 value) {
+  set_has_param4();
+  param4_ = value;
 }
 
-// optional string param5 = 5;
+// optional int64 param5 = 5;
 inline bool NFEventNoneData::has_param5() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5385,63 +5168,15 @@ inline void NFEventNoneData::clear_has_param5() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void NFEventNoneData::clear_param5() {
-  if (param5_ != &::google::protobuf::internal::kEmptyString) {
-    param5_->clear();
-  }
+  param5_ = GOOGLE_LONGLONG(0);
   clear_has_param5();
 }
-inline const ::std::string& NFEventNoneData::param5() const {
-  return *param5_;
-}
-inline void NFEventNoneData::set_param5(const ::std::string& value) {
-  set_has_param5();
-  if (param5_ == &::google::protobuf::internal::kEmptyString) {
-    param5_ = new ::std::string;
-  }
-  param5_->assign(value);
-}
-inline void NFEventNoneData::set_param5(const char* value) {
-  set_has_param5();
-  if (param5_ == &::google::protobuf::internal::kEmptyString) {
-    param5_ = new ::std::string;
-  }
-  param5_->assign(value);
-}
-inline void NFEventNoneData::set_param5(const char* value, size_t size) {
-  set_has_param5();
-  if (param5_ == &::google::protobuf::internal::kEmptyString) {
-    param5_ = new ::std::string;
-  }
-  param5_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* NFEventNoneData::mutable_param5() {
-  set_has_param5();
-  if (param5_ == &::google::protobuf::internal::kEmptyString) {
-    param5_ = new ::std::string;
-  }
+inline ::google::protobuf::int64 NFEventNoneData::param5() const {
   return param5_;
 }
-inline ::std::string* NFEventNoneData::release_param5() {
-  clear_has_param5();
-  if (param5_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = param5_;
-    param5_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void NFEventNoneData::set_allocated_param5(::std::string* param5) {
-  if (param5_ != &::google::protobuf::internal::kEmptyString) {
-    delete param5_;
-  }
-  if (param5) {
-    set_has_param5();
-    param5_ = param5;
-  } else {
-    clear_has_param5();
-    param5_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void NFEventNoneData::set_param5(::google::protobuf::int64 value) {
+  set_has_param5();
+  param5_ = value;
 }
 
 // -------------------------------------------------------------------
