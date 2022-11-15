@@ -372,7 +372,7 @@ public:
     //
     NFShmHashMap<NFShmEventKey, NFShmNodeObjList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_mapAllSubscribeObj;
     //
-    NFShmHashMap<int, NFArray<NFShmEventKey, NF_SHM_OBJ_MAX_EVENT_NUM>, NF_SHM_EVENT_KEY_MAX_NUM> m_mapAllSubscribeKey;
+    NFShmHashMap<int, NFShmNodeObjList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_mapAllSubscribeKey;
     //
     int32_t m_nFireLayer;
 DECLARE_IDCREATE(NFShmEventMgr)

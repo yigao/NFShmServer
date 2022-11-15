@@ -19,6 +19,7 @@
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmCore/NFSizeString.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
+#include "NFShmEventKey.h"
 
 /**
  *@brief 事件描述信息
@@ -61,5 +62,10 @@ public:
     *@brief 描述信息
     */
     NFSizeString<16> szDesc;
+
+    /**
+     * @brief
+     */
+    NFShmEventKey m_eventKey;
 DECLARE_IDCREATE(NFShmSubscribeInfo)
 };
