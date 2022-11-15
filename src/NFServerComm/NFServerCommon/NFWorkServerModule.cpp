@@ -99,25 +99,25 @@ int NFWorkServerModule::BindServer()
     if (m_connectMasterServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
-                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER));
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER));
     }
 
     if (m_connectRouteAgentServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
-                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER));
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER));
     }
 
     if (m_checkStoreServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
-                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER));
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER));
     }
 
     if (m_checkWorldServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
-                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER));
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER));
     }
 
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
