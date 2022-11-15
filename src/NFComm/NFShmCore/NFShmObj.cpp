@@ -12,6 +12,7 @@
 #include "NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFIEventModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
@@ -30,6 +31,7 @@ NFShmObj::NFShmObj(NFIPluginManager* pPluginManager):NFShmTimerObj(pPluginManage
 
 NFShmObj::~NFShmObj()
 {
+    UnSubscribeAll();
 #if defined(MAKE_FOR_DB_CHECK_CGI)
 	return;
 #endif
@@ -77,4 +79,29 @@ int NFShmObj::SetHashKey(const void *pvKey, int iKeyLength)
 int NFShmObj::Show(FILE *fpOut)
 {
 	return -1;
+}
+
+
+//发送执行事件
+void NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+{
+    m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+}
+
+//订阅执行事件
+bool NFShmObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
+{
+    return m_pObjPluginManager->FindModule<NFIEventModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
+}
+
+//取消订阅执行事件
+bool NFShmObj::UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+{
+    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
+}
+
+//取消所有执行事件的订阅
+bool NFShmObj::UnSubscribeAll()
+{
+    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribeAll(this);
 }
