@@ -16,12 +16,14 @@ typedef enum
 	EOT_GLOBAL_ID = 1, //位置不可修改
     EOT_TYPE_TIMER_OBJ = 2, //位置不可修改
     EOT_TYPE_TIMER_MNG = 3, //位置不可修改
-    EOT_TRANS_BASE = 4,
-    EOT_TRANS_MNG = 5,
-    EOT_BASE_DB_OBJ = 6,
-    EOT_TRANS_DB_OBJ = 7,
-    EOT_TRANS_DB_OBJ_MGR = 8,
-    EOT_RPC_TRANS_ID = 9,
+    EOT_TYPE_SUBSCRIBEINFO_OBJ = 4, //位置不可修改
+    EOT_TYPE_EVENT_MGR = 5, //位置不可修改
+    EOT_TRANS_BASE = 6,
+    EOT_TRANS_MNG = 7,
+    EOT_BASE_DB_OBJ = 8,
+    EOT_TRANS_DB_OBJ = 9,
+    EOT_TRANS_DB_OBJ_MGR = 10,
+    EOT_RPC_TRANS_ID = 11,
 
 	EOT_SERVER_FRAME_BEGIN_ID = 100,//100-499的是服务器架构共享内存ID
 	EOT_SERVER_FRAME_END_ID = 499,
