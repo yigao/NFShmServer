@@ -34,15 +34,16 @@
 #include "NFComm/NFCore/NFLock.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
+#include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
-class NFINetMessage : public NFIModule
+class NFINetMessage : public NFIDynamicModule
 {
 	friend class NFCNetMessageDriverModule;
 public:
 	/**
 	 * @brief 构造函数
 	 */
-	NFINetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFIModule(p), mServerType(serverType)
+	NFINetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFIDynamicModule(p), mServerType(serverType)
 	{
 		assert(serverType > NF_ST_NONE && serverType < NF_ST_MAX);
 	}

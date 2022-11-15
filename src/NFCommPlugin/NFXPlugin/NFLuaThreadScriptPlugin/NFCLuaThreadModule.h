@@ -11,7 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFILuaThreadModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFComm/NFPluginModule/NFILuaModule.h"
+#include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include "NFComm/NFPluginModule/NFILuaScriptModule.h"
 #include "NFComm/NFCore/NFQueue.hpp"
 
@@ -32,14 +32,14 @@
 class NFCLuaThreadModule;
 
 /**
-* @brief actor¶¨Ê±Æ÷ÏûÏ¢Êý¾Ý
+* @brief actorï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 *
 */
 class NFTimerMessage
 {
 public:
 	/**
-	* @brief ÏûÏ¢ÀàÐÍ
+	* @brief ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 	*
 	*/
 	enum MessageType
@@ -51,7 +51,7 @@ public:
 	};
 
 	/**
-	* @brief ¹¹Ôìº¯Êý
+	* @brief ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	*
 	*/
 	NFTimerMessage()
@@ -68,31 +68,31 @@ public:
 
 public:
 	/**
-	* @brief ÏûÏ¢ÀàÐÍ
+	* @brief ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 	*
 	*/
 	int nMsgType;
 
 	/**
-	* @brief ÑÓÊ±Ê±¼ä
+	* @brief ï¿½ï¿½Ê±Ê±ï¿½ï¿½
 	*
 	*/
 	int m_delayTime;
 
 	/**
-	* @brief ÒªÑÓÊ±Ö´ÐÐµÄLUAº¯Êý
+	* @brief Òªï¿½ï¿½Ê±Ö´ï¿½Ðµï¿½LUAï¿½ï¿½ï¿½ï¿½
 	*
 	*/
 	std::string m_luaFunc;
 
 	/**
-	* @brief ÒªÑÓÊ±Ö´ÐÐµÄLUAº¯ÊýµÄ²ÎÊý
+	* @brief Òªï¿½ï¿½Ê±Ö´ï¿½Ðµï¿½LUAï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 	*
 	*/
 	std::string m_tmpParam;
 
 	/**
-	* @brief µ÷ÓÃ´ÎÊý
+	* @brief ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½
 	*
 	*/
 	uint32_t m_callCount;
@@ -102,7 +102,7 @@ class NFTcpMessage
 {
 public:
 	/**
-	* @brief ÏûÏ¢ÀàÐÍ
+	* @brief ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 	*
 	*/
 	enum MessageType
@@ -263,62 +263,62 @@ public:
 	virtual void RunGmFunction(const std::string& luaFunc, const std::vector<std::string>& vecStr) override;
 public:
 	/**
-	* @brief Ìí¼ÓÒ»¸öwork Actor×é¼þ
+	* @brief ï¿½ï¿½ï¿½Ò»ï¿½ï¿½work Actorï¿½ï¿½ï¿½
 	*
 	* @return
 	*/
 	virtual bool AddWorkActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief Ìí¼ÓÒ»¸ötcp msg Actor×é¼þ
+	* @brief ï¿½ï¿½ï¿½Ò»ï¿½ï¿½tcp msg Actorï¿½ï¿½ï¿½
 	*
 	* @return
 	*/
 	virtual bool AddTcpMsgActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief Ìí¼ÓÒ»¸öserver loop Actor×é¼þ
+	* @brief ï¿½ï¿½ï¿½Ò»ï¿½ï¿½server loop Actorï¿½ï¿½ï¿½
 	*
 	* @return
 	*/
 	virtual bool AddServerLoopActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief Í¨¹ýÆ½ºâIDÌí¼ÓÒªÒì²½´¦ÀíµÄtask
+	* @brief Í¨ï¿½ï¿½Æ½ï¿½ï¿½IDï¿½ï¿½ï¿½Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	*
-	* @param pTask ÒªÒì²½´¦ÀíµÄtask
+	* @param pTask Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	* @return
 	*/
 	bool AddWorkTask(NFTask* pTask);
 
 	/**
-	* @brief Í¨¹ýÆ½ºâIDÌí¼ÓÒªÒì²½´¦ÀíµÄtask
+	* @brief Í¨ï¿½ï¿½Æ½ï¿½ï¿½IDï¿½ï¿½ï¿½Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	*
-	* @param pTask ÒªÒì²½´¦ÀíµÄtask
+	* @param pTask Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	* @return
 	*/
 	bool AddTcpMsgTask(NFTask* pTask);
 
 	/**
-	* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+	* @brief Ñ­ï¿½ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	*
-	* @param pTask ÒªÒì²½´¦ÀíµÄtask
+	* @param pTask Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	* @return
 	*/
 	bool AddProcessLoopTask(NFTask* pTask);
 
 	/**
-	* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+	* @brief Ñ­ï¿½ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	*
-	* @param pTask ÒªÒì²½´¦ÀíµÄtask
+	* @param pTask Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	* @return
 	*/
 	bool AddProcessTimerTask(NFTask* pTask);
 
 	/**
-	* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+	* @brief Ñ­ï¿½ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	*
-	* @param pTask ÒªÒì²½´¦ÀíµÄtask
+	* @param pTask Òªï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½task
 	* @return
 	*/
 	bool AddProcessWorkTask(NFTask* pTask);
@@ -331,12 +331,12 @@ public:
 
 	void AddProcessWork(const std::string& luaFunc, const std::string& tmpParam);
 	/*
-	´¦Àí¶àÏß³ÌLUA·¢¹ýÀ´µÄ¶¨Ê±Æ÷
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½LUAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½Ê±ï¿½ï¿½
 	*/
 	void HandleLuaTimer();
 
 	/*
-	´¦Àí¶àÏß³ÌLUA·¢¹ýÀ´µÄÏûÏ¢
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½LUAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	*/
 	void HandleLuaTcpMsg();
 
@@ -349,13 +349,13 @@ public:
 	NF_SHARE_PTR<PlayerGameServerInfo> GetPlayerInfo(uint64_t playerId);
 protected:
 	/**
-	* @brief ·µ»ØµÄ¶¨Ê±Æ÷ÏûÏ¢¶Ó,
-	* actorÏß³Ì½«Êý¾Ý·ÅÈë¶ÓÁÐ£¬ Ö÷Ïß³Ì´Ó¶ÓÁÐÀïÈ¡Êý¾Ý´¦Àí
+	* @brief ï¿½ï¿½ï¿½ØµÄ¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½,
+	* actorï¿½ß³Ì½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ ï¿½ï¿½ï¿½ß³Ì´Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½
 	*/
 	NFQueueVector<NFTimerMessage> m_mQueue;
 
 	/*
-		¶¨Ê±Æ÷
+		ï¿½ï¿½Ê±ï¿½ï¿½
 	*/
 	std::map<uint64_t, NFLuaThreadTimer*> m_luaTimerMap;
 	std::list<NFLuaThreadTimer*> m_luaTimerList;
@@ -368,48 +368,48 @@ protected:
 	NFIHttpServerModule* m_pHttpServerModule;
 protected:
 	/**
-	* @brief ·µ»ØµÄ¶¨Ê±Æ÷ÏûÏ¢¶Ó,
-	* actorÏß³Ì½«Êý¾Ý·ÅÈë¶ÓÁÐ£¬ Ö÷Ïß³Ì´Ó¶ÓÁÐÀïÈ¡Êý¾Ý´¦Àí
+	* @brief ï¿½ï¿½ï¿½ØµÄ¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½,
+	* actorï¿½ß³Ì½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ ï¿½ï¿½ï¿½ß³Ì´Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½
 	*/
 	NFQueueVector<NFTcpMessage> m_mTcpMsgQueue;
 
 	/**
-	* @brief server loop actor module Ö÷Ñ­»·¶àÏß³ÌÏµÍ³
+	* @brief server loop actor module ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ÏµÍ³
 	*/
 	NFITaskModule* m_pServerLoopTaskModule;
 
 	/**
-	* @brief server loop actor  Ö÷Ñ­»·¶àÏß³ÌActor
+	* @brief server loop actor  ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Actor
 	*/
 	int m_processLoopActorId;
 
 	/**
-	* @brief process work/timer actor module ¶àÏß³ÌÏµÍ³
+	* @brief process work/timer actor module ï¿½ï¿½ï¿½ß³ï¿½ÏµÍ³
 	*/
 	NFITaskModule* m_pWorkTaskModule;
 
 	/**
-	* @brief actorË÷ÒýÊý×é
+	* @brief actorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	std::vector<int> m_vecWorkActorPool;
 
 	/**
-	* @brief tcp msg actor module ¶àÏß³ÌÏµÍ³
+	* @brief tcp msg actor module ï¿½ï¿½ï¿½ß³ï¿½ÏµÍ³
 	*/
 	NFITaskModule* m_pTcpMsgTaskModule;
 
 	/**
-	* @brief tcp actorË÷ÒýÊý×é
+	* @brief tcp actorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	std::vector<int> m_vecTcpMsgActorPool;
 
 	/**
-	* @brief actor Íê³É¼ÓÔØ´ÎÊý
+	* @brief actor ï¿½ï¿½É¼ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
 	*/
 	uint32_t m_finishLuaLoad;
 
 	/**
-	* @brief actor Íê³É³õÊ¼»¯Ñ­»·´ÎÊý
+	* @brief actor ï¿½ï¿½É³ï¿½Ê¼ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	uint32_t m_finishInitServerLoop;
 };

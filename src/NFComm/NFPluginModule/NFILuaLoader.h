@@ -25,16 +25,16 @@ namespace LuaIntf
 typedef LuaIntf::LuaRef NFLuaRef;
 typedef LuaIntf::LuaTableRef NFLuaTableRef;
 
-class NFILuaModule
+class NFILuaLoader
 {
 public:
-	NFILuaModule()
+	NFILuaLoader()
 	{
 		m_pLuaContext = nullptr;
 		CreateLuaContext();
 	}
 
-	virtual ~NFILuaModule()
+	virtual ~NFILuaLoader()
 	{
 		if (m_pLuaContext)
 		{

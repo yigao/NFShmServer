@@ -72,7 +72,7 @@ bool NFTimerAxis::UnInit()
 }
 
 //设置秒定时器
-bool NFTimerAxis::SetTimerSec(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj* handler, uint32_t nCallCount/* = INFINITY_CALL*/)
+bool NFTimerAxis::SetTimerSec(uint32_t nTimerID, uint64_t nInterVal, NFTimerObjBase* handler, uint32_t nCallCount/* = INFINITY_CALL*/)
 {
 	if (nullptr == handler)
 	{
@@ -130,7 +130,7 @@ bool NFTimerAxis::SetTimerSec(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj*
 	return true;
 }
 
-bool NFTimerAxis::SetTimer(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj* handler, uint32_t nCallCount /*= INFINITY_CALL*/)
+bool NFTimerAxis::SetTimer(uint32_t nTimerID, uint64_t nInterVal, NFTimerObjBase* handler, uint32_t nCallCount /*= INFINITY_CALL*/)
 {
 	if (nullptr == handler)
 	{
@@ -197,7 +197,7 @@ bool NFTimerAxis::SetTimer(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj* ha
 }
 
 //关闭定时器
-bool NFTimerAxis::KillTimer(uint32_t nTimerID, NFTimerObj* handler)
+bool NFTimerAxis::KillTimer(uint32_t nTimerID, NFTimerObjBase* handler)
 {
 	if (nullptr == handler)
 	{
@@ -240,7 +240,7 @@ bool NFTimerAxis::KillTimer(uint32_t nTimerID, NFTimerObj* handler)
 }
 
 //关闭所有定时器
-bool NFTimerAxis::KillAllTimer(NFTimerObj* handler)
+bool NFTimerAxis::KillAllTimer(NFTimerObjBase* handler)
 {
 	if (nullptr == handler)
 	{
@@ -286,13 +286,13 @@ void NFTimerAxis::CheckTick()
 	}
 }
 
-bool NFTimerAxis::SetCalender(uint32_t nTimerID, const std::string& timeStr, NFTimerObj* handler, uint32_t nCallCount /* = INFINITY_CALL*/)
+bool NFTimerAxis::SetCalender(uint32_t nTimerID, const std::string& timeStr, NFTimerObjBase* handler, uint32_t nCallCount /* = INFINITY_CALL*/)
 {
 	return true;
 }
 
 //设置固定时间的定时器
-bool NFTimerAxis::SetClocker(uint32_t nTimerID, uint64_t nStartTime, uint32_t nInterSec, NFTimerObj* handler, uint32_t nCallCount /*= INFINITY_CALL*/)
+bool NFTimerAxis::SetClocker(uint32_t nTimerID, uint64_t nStartTime, uint32_t nInterSec, NFTimerObjBase* handler, uint32_t nCallCount /*= INFINITY_CALL*/)
 {
 	if (nullptr == handler)
 	{

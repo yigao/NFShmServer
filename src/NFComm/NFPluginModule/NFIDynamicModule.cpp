@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
-NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) :NFIModule(p),NFTimerObj(p),NFEventObj(p)
+NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) : NFITimerEventModule(p)
 {
 
 }

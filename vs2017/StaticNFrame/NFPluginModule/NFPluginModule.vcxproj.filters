@@ -26,7 +26,7 @@
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEmailSender.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFError.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventObjBase.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIDynamicModule.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIPlugin.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFLogMgr.cpp" />
@@ -38,7 +38,7 @@
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObjBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFProtobufMessageCodec.h">
@@ -96,7 +96,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIHttpHandle.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIKernelModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILogModule.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaLoader.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINetModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIModule.h" />
@@ -121,7 +121,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTask.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObjBase.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINoSqlModule.h" />
   </ItemGroup>
   <ItemGroup>

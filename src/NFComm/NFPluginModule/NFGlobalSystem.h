@@ -10,12 +10,12 @@
 
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
-#include "NFILuaModule.h"
+#include "NFILuaLoader.h"
 #include <vector>
 
 class NFIPluginManager;
 
-class NFGlobalSystem : public NFSingleton<NFGlobalSystem>, public NFILuaModule
+class NFGlobalSystem : public NFSingleton<NFGlobalSystem>, public NFILuaLoader
 {
 public:
     NFGlobalSystem();
@@ -26,37 +26,37 @@ public:
     bool LoadConfig(const std::string &path);
 public:
     /*
-     * reload server 重新加载服务器的配置数据
+     * reload server 锟斤拷锟铰硷拷锟截凤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
      * */
     bool IsReloadApp() const;
 
     /*
-     * reload server 重新加载服务器的配置数据
+     * reload server 锟斤拷锟铰硷拷锟截凤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
      * */
     void SetReloadServer(bool reloadApp);
 
     /*
-     * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+     * stop server锟斤拷停锟斤拷锟斤拷锟斤拷味锟斤拷锟斤拷要锟斤拷锟斤拷帽锟斤拷锟斤拷锟斤拷锟捷ｏ拷锟斤拷锟斤拷锟节达拷锟斤拷芎锟斤拷锟结被锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷停锟斤拷锟斤拷锟斤拷
      * */
     bool IsServerStopping() const;
 
     /*
-     * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+     * stop server锟斤拷停锟斤拷锟斤拷锟斤拷味锟斤拷锟斤拷要锟斤拷锟斤拷帽锟斤拷锟斤拷锟斤拷锟捷ｏ拷锟斤拷锟斤拷锟节达拷锟斤拷芎锟斤拷锟结被锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷停锟斤拷锟斤拷锟斤拷
      * */
     void SetServerStopping(bool exitApp);
 
     /*
-     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+     * 锟饺革拷锟剿筹拷app, 锟斤拷锟节凤拷锟斤拷锟斤拷锟斤拷要锟饺革拷app锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷时锟斤拷锟缴憋拷锟斤拷锟斤拷锟斤拷锟斤拷械牡牡锟絘pp,锟斤拷锟斤拷锟铰的凤拷锟斤拷锟斤拷app
      * */
     bool IsHotfixServer() const;
 
     /*
-     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+     * 锟饺革拷锟剿筹拷app, 锟斤拷锟节凤拷锟斤拷锟斤拷锟斤拷要锟饺革拷app锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷时锟斤拷锟缴憋拷锟斤拷锟斤拷锟斤拷锟斤拷械牡牡锟絘pp,锟斤拷锟斤拷锟铰的凤拷锟斤拷锟斤拷app
      * */
     void SetHotfixServer(bool hotfixExitApp);
 public:
     /**
-     * @brief 释放singleton资源
+     * @brief 锟酵凤拷singleton锟斤拷源
      */
     void ReleaseSingleton();
 private:

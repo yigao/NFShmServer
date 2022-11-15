@@ -871,56 +871,56 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
             switch (pFieldDesc->cpp_type()) {
                 case google::protobuf::FieldDescriptor::CPPTYPE_INT32: {
                     int32_t value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetInt32(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_INT64: {
                     int64_t value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetInt64(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_UINT32: {
                     uint32_t value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetUInt32(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_UINT64: {
                     uint64_t value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetUInt64(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE: {
                     double value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetDouble(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT: {
                     float value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetFloat(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_BOOL: {
                     bool value = false;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetBool(pMessageObject, pFieldDesc, value);
                     }
                 }
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_ENUM: {
                     int value = 0;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         const google::protobuf::EnumDescriptor *pEnumDesc = pFieldDesc->enum_type();
                         const google::protobuf::EnumValueDescriptor *pEnumValueDesc = pEnumDesc->FindValueByNumber(
                                 value);
@@ -930,7 +930,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                     break;
                 case google::protobuf::FieldDescriptor::CPPTYPE_STRING: {
                     std::string value;
-                    if (luaRef.has(field) && NFILuaModule::GetLuaTableValue(luaRef, field, value)) {
+                    if (luaRef.has(field) && NFILuaLoader::GetLuaTableValue(luaRef, field, value)) {
                         pReflect->SetString(pMessageObject, pFieldDesc, value);
                     }
                 }
@@ -950,7 +950,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
             {
                 std::string field = pFieldDesc->name();
                 NFLuaRef listRef;
-                if (!NFILuaModule::GetLuaTableValue(luaRef, field, listRef))
+                if (!NFILuaLoader::GetLuaTableValue(luaRef, field, listRef))
                 {
                     continue;
                 }
@@ -961,7 +961,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
                         {
                             int32_t value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddInt32(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -969,7 +969,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
                         {
                             int64_t value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddInt64(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -977,7 +977,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
                         {
                             uint32_t value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddUInt32(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -985,7 +985,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
                         {
                             uint64_t value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddUInt64(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -993,7 +993,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
                         {
                             double value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddDouble(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -1001,7 +1001,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
                         {
                             float value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddFloat(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -1009,7 +1009,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
                         {
                             bool value = false;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddBool(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -1017,7 +1017,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
                         {
                             int value = 0;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 const google::protobuf::EnumDescriptor* pEnumDesc = pFieldDesc->enum_type();
                                 const google::protobuf::EnumValueDescriptor* pEnumValueDesc = pEnumDesc->FindValueByNumber(value);
                                 pReflect->AddEnum(pMessageObject, pFieldDesc, pEnumValueDesc);
@@ -1027,7 +1027,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
                         {
                             std::string value;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 pReflect->AddString(pMessageObject, pFieldDesc, value);
                             }
                         }
@@ -1035,7 +1035,7 @@ bool NFProtobufCommon::LuaToProtoMessage(NFLuaRef luaRef, google::protobuf::Mess
                         case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
                         {
                             NFLuaRef value;
-                            if (NFILuaModule::GetLuaTableValue(listRef, j, value)) {
+                            if (NFILuaLoader::GetLuaTableValue(listRef, j, value)) {
                                 google::protobuf::Message* pSubMessage = pReflect->AddMessage(pMessageObject, pFieldDesc);
                                 LuaToProtoMessage(value, pSubMessage);
                             }

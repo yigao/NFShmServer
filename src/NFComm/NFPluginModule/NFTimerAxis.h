@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFTime.h"
 
-class NFTimerObj;
+class NFTimerObjBase;
 
 //时间轴
 class _NFExport NFTimerAxis
@@ -26,21 +26,21 @@ public:
 	bool UnInit();
 
 	//设置定时器
-	bool SetTimer(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj* handler, uint32_t nCallCount = INFINITY_CALL);
+	bool SetTimer(uint32_t nTimerID, uint64_t nInterVal, NFTimerObjBase* handler, uint32_t nCallCount = INFINITY_CALL);
 	//关闭定时器
-	bool KillTimer(uint32_t nTimerID, NFTimerObj* handler);
+	bool KillTimer(uint32_t nTimerID, NFTimerObjBase* handler);
 	//关闭所有定时器
-	bool KillAllTimer(NFTimerObj* handler);
+	bool KillAllTimer(NFTimerObjBase* handler);
 	//更新定时器
 	void Update();
 
 	//设置固定时间的定时器
-	bool SetClocker(uint32_t nTimerID, uint64_t nStartTime, uint32_t nInterSec, NFTimerObj* handler, uint32_t nCallCount = INFINITY_CALL);
-	bool SetCalender(uint32_t nTimerID, const std::string& timeStr, NFTimerObj* handler, uint32_t nCallCount = INFINITY_CALL);
+	bool SetClocker(uint32_t nTimerID, uint64_t nStartTime, uint32_t nInterSec, NFTimerObjBase* handler, uint32_t nCallCount = INFINITY_CALL);
+	bool SetCalender(uint32_t nTimerID, const std::string& timeStr, NFTimerObjBase* handler, uint32_t nCallCount = INFINITY_CALL);
 
 private:
 	//设置秒定时器
-	bool SetTimerSec(uint32_t nTimerID, uint64_t nInterVal, NFTimerObj* handler, uint32_t nCallCount = INFINITY_CALL);
+	bool SetTimerSec(uint32_t nTimerID, uint64_t nInterVal, NFTimerObjBase* handler, uint32_t nCallCount = INFINITY_CALL);
 	//检查tick
 	void CheckTick();
 	//更新秒定时器
@@ -63,7 +63,7 @@ protected:
 		uint64_t nInterVal; //间隔
 		uint32_t nCallCount; //调用次数
 		uint64_t nLastTick; //最后一次tick
-		NFTimerObj* pHandler;//回调指针
+		NFTimerObjBase* pHandler;//回调指针
 		uint8_t byType; //类型 0 - 毫秒定时器， 1 - 秒定时器
 		uint32_t nGridIndex; //所在的时间刻度
 		std::list<Timer*>::iterator pos; //在时间轴中的位置，便于快速定位

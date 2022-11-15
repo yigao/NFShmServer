@@ -14,11 +14,12 @@
 
 #include "NFITimerModule.h"
 #include "NFServerDefine.h"
+#include "NFIDynamicModule.h"
 
-class NFILuaScriptModule : public NFIModule
+class NFILuaScriptModule : public NFIDynamicModule
 {
 public:
-	NFILuaScriptModule(NFIPluginManager* pPluginManager) : NFIModule(pPluginManager)
+	NFILuaScriptModule(NFIPluginManager* pPluginManager) : NFIDynamicModule(pPluginManager)
     {
 
     }

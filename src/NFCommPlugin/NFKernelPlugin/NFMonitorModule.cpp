@@ -19,9 +19,8 @@ enum MonitorTimerEnum
 
 #define MONITOR_TIMER_SYSTEIMINFO_INTERNAL_TIME 100000		//10s
 
-NFCMonitorModule::NFCMonitorModule(NFIPluginManager* p):NFIMonitorModule(p),NFTimerObj(p),NFEventObj(p)
+NFCMonitorModule::NFCMonitorModule(NFIPluginManager* p): NFIMonitorModule(p)
 {
-    m_pObjPluginManager = p;
 }
 
 NFCMonitorModule::~NFCMonitorModule()

@@ -23,7 +23,7 @@
 #include "NFDescStoreTrans.h"
 
 
-NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p),NFEventObj(p) {
+NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p) {
     m_pResFileDB = NULL;
     m_pResSqlDB = NULL;
     m_bStartInit = false;

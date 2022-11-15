@@ -12,7 +12,7 @@
 #include "google/protobuf/message.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFIHttpHandle.h"
-#include "NFComm/NFPluginModule/NFILuaModule.h"
+#include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include <vector>
 #include <map>
 

@@ -30,7 +30,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFCZdbDriver.h"
 
-NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p), NFTimerObj(p)
+NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p)
 {
     mLastGuidTimeStamp = 0;
     szUniqIDFile = m_pObjPluginManager->GetAppName() + "_" + m_pObjPluginManager->GetBusName() + ".uid";

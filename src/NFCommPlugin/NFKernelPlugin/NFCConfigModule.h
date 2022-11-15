@@ -10,10 +10,10 @@
 
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 
-#include "NFComm/NFPluginModule/NFILuaModule.h"
+#include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include <string>
 
-class NFCConfigModule : public NFIConfigModule, public NFILuaModule
+class NFCConfigModule : public NFIConfigModule, public NFILuaLoader
 {
 public:
 	explicit NFCConfigModule(NFIPluginManager* p);

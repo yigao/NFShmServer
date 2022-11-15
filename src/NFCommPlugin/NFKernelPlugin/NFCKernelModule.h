@@ -37,7 +37,7 @@ enum
     ZONEID_MASK = 0x0FFF,
 };
 
-class NFCKernelModule : public NFIKernelModule, public NFTimerObj
+class NFCKernelModule : public NFIKernelModule
 {
 public:
 	explicit NFCKernelModule(NFIPluginManager* p);

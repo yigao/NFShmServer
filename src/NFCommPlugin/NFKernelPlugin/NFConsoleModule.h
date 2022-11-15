@@ -53,7 +53,7 @@ struct NFConsolePluginFile
     std::string mPluginMd5;
 };
 
-class NFCConsoleModule : public NFIConsoleModule, public NFTimerObj
+class NFCConsoleModule : public NFIConsoleModule
 {
 public:
     NFCConsoleModule(NFIPluginManager *p);

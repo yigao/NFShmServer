@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFComm/NFPluginModule/NFILuaScriptModule.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
-#include "NFComm/NFPluginModule/NFILuaModule.h"
+#include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
@@ -38,7 +38,7 @@ class NFCLuaScriptModule;
 class NFLuaTimer : public NFTimerObj
 {
 public:
-	NFLuaTimer(NFCLuaScriptModule* p, NFIPluginManager* pPluginManager):NFTimerObj(pPluginManager)
+	NFLuaTimer(NFCLuaScriptModule* p, NFIPluginManager* pPluginManager): NFTimerObj(pPluginManager)
 	{
 		Clear();
 		m_pLuaScriptModule = p;
@@ -66,7 +66,7 @@ public:
 };
 
 class NFCLuaScriptModule
-	: public NFILuaScriptModule, public NFILuaModule, public NFTimerObj
+	: public NFILuaScriptModule, public NFILuaLoader
 {
 public:
     NFCLuaScriptModule(NFIPluginManager* p);

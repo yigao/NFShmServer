@@ -120,7 +120,7 @@ struct MsgFromNetInfo
 
 class NFCNetServerModule;
 
-class NFEvppNetMessage : public NFINetMessage, public NFTimerObj
+class NFEvppNetMessage : public NFINetMessage
 {
     friend NFCNetServerModule;
 public:

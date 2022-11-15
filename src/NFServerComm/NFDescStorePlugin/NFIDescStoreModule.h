@@ -12,12 +12,13 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
 class NFIDescStore;
-class NFIDescStoreModule : public NFIModule
+class NFIDescStoreModule : public NFIDynamicModule
 {
 public:
-    NFIDescStoreModule(NFIPluginManager* p):NFIModule(p)
+    NFIDescStoreModule(NFIPluginManager* p):NFIDynamicModule(p)
     {
 
     }

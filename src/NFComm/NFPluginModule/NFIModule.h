@@ -74,7 +74,7 @@ public:
     }
 
     /*
-     * �ȸ����������ú�ģ����õĺ���
+     * 热更完所有配置后，模块调用的函数
      * */
     virtual bool OnReloadConfig()
     {
@@ -82,7 +82,7 @@ public:
     }
 
     /*
-     * �ȸ�����ʱ��ģ���ȸ��ĵ��õĺ���
+     * 热更配置时，模块热更的调用的函数
      * */
     virtual bool AfterOnReloadConfig()
     {
@@ -90,7 +90,7 @@ public:
     }
 
     /*
-     * ��̬�ȸ�dll/so֮��ģ����õĺ���
+     * 动态热更dll/so之后，模块调用的函数
      * */
     virtual bool OnDynamicPlugin()
     {
@@ -98,7 +98,7 @@ public:
     }
 
     /*
-     * �ȸ��˳�app, ���ڷ�������Ҫ�ȸ�app������������ʱ���ɱ���������еĵĵ�app,�����µķ�����app
+     * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
      * */
     virtual bool HotfixServer()
     {
@@ -106,7 +106,7 @@ public:
     }
 
     /*
-     * ͣ��֮ǰ�����������Ƿ�����ͣ������
+     * 停服之前，检查服务器是否满足停服条件
      * */
     virtual bool CheckStopServer()
     {
@@ -114,7 +114,7 @@ public:
     }
 
     /*
-     * ͣ��֮ǰ����һЩ����������ͣ������
+     * 停服之前，做一些操作，满足停服条件
      * */
     virtual bool OnStopServer()
     {
@@ -122,7 +122,7 @@ public:
     }
 
     /*
-     * ����ͣ������, ͣ��֮ǰ������Ҫ������
+     * 满足停服条件, 停服之前保存需要的数据
      * */
     virtual bool SaveDB()
     {

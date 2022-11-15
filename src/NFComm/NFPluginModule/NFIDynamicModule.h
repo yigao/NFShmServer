@@ -14,13 +14,15 @@
 #include "NFComm/NFPluginModule/NFEventObj.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFConfigDefine.h"
+#include "NFEventObj.h"
+#include "NFITimerEventModule.h"
 
 
 /**
 * @brief 用来实现动态加载的模块，所有可以动态加载的引擎的module都需要继承这个类
 */
 
-class NFIDynamicModule : public NFIModule, public NFTimerObj, public NFEventObj
+class NFIDynamicModule : public NFITimerEventModule
 {
 public:
 	NFIDynamicModule(NFIPluginManager* p);

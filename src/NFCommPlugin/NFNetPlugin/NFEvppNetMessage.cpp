@@ -26,7 +26,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "Encrypt.h"
 
-NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), NFTimerObj(p),m_netObjectPool(1000, false)
+NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), m_netObjectPool(1000, false)
 {
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(mServerType);
     CHECK_EXPR_ASSERT_NOT_RET(pServerConfig, "mServerType:{} Config Not Find", mServerType);

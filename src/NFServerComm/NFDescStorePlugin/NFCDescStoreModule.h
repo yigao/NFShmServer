@@ -12,9 +12,10 @@
 #include "NFIDescStoreModule.h"
 #include "NFIDescStore.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
 #include <unordered_map>
 
-class NFCDescStoreModule : public NFIDescStoreModule, public NFEventObj
+class NFCDescStoreModule : public NFIDescStoreModule
 {
 public:
 	NFCDescStoreModule(NFIPluginManager* p);

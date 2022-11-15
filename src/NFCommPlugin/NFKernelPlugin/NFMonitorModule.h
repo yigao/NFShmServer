@@ -12,11 +12,12 @@
 #include "NFComm/NFPluginModule/NFSystemInfo.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
 
 /**
 * @brief 服务器监控模块
 */
-class NFCMonitorModule : public NFIMonitorModule, public NFTimerObj, public NFEventObj
+class NFCMonitorModule : public NFIMonitorModule
 {
 public:
 	NFCMonitorModule(NFIPluginManager* p);

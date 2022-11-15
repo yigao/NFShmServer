@@ -17,7 +17,7 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFMD5.h"
 
-NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p):NFIConsoleModule(p),NFTimerObj(p)
+NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p): NFIConsoleModule(p)
 {
     m_pObjPluginManager = p;
 }

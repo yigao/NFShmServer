@@ -14,8 +14,9 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
+#include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
-class NFCTestModule : public NFIModule, NFTimerObj
+class NFCTestModule : public NFIDynamicModule
 {
 public:
 	explicit NFCTestModule(NFIPluginManager* p);

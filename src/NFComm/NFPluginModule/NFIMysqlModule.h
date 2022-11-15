@@ -12,12 +12,13 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+#include "NFIDynamicModule.h"
 
 class NFIMysqlModule
-	: public NFIModule
+	: public NFIDynamicModule
 {
 public:
-	NFIMysqlModule(NFIPluginManager* p) :NFIModule(p)
+	NFIMysqlModule(NFIPluginManager* p) :NFIDynamicModule(p)
 	{
 
 	}

@@ -15,7 +15,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFTimerAxis.h"
 
-NFCMysqlModule::NFCMysqlModule(NFIPluginManager* p):NFIMysqlModule(p),NFTimerObj(p)
+NFCMysqlModule::NFCMysqlModule(NFIPluginManager* p): NFIMysqlModule(p)
 {
 	mnLastCheckTime = 0;
 	m_pMysqlDriverManager = NF_NEW NFCMysqlDriverManager();

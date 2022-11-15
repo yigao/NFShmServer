@@ -9,11 +9,12 @@
 #pragma once
 
 #include "NFIModule.h"
+#include "NFIDynamicModule.h"
 
-class NFIConsoleModule : public NFIModule
+class NFIConsoleModule : public NFIDynamicModule
 {
 public:
-	NFIConsoleModule(NFIPluginManager* p) :NFIModule(p)
+	NFIConsoleModule(NFIPluginManager* p) :NFIDynamicModule(p)
 	{
 
 	}
