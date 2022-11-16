@@ -956,10 +956,10 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
     pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
     if (pObj)
     {
-        int iID = -1;
-        iID = pObj->GetGlobalID();
+        int iID = pObj->GetGlobalID();
+        int ret = m_pGlobalID->SetTypeAndIndex(iType, pObj->GetObjectID(), pObj);
 
-        if (iID >= 0)
+        if (iID >= 0 && ret == 0)
         {
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);
@@ -1015,10 +1015,10 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
     pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
     if (pObj)
     {
-        int iID = -1;
-        iID = pObj->GetGlobalID();
+        int iID = pObj->GetGlobalID();
+        int ret = m_pGlobalID->SetTypeAndIndex(iType, pObj->GetObjectID(), pObj);
 
-        if (iID >= 0)
+        if (iID >= 0 && ret == 0)
         {
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);
@@ -1241,9 +1241,9 @@ NFShmObj *NFCSharedMemModule::GetNextObj(int iType, NFShmObj *pObj)
 
 int NFCSharedMemModule::GetGlobalID(int iType, int iIndex, NFShmObj *pObj)
 {
-    if (m_pGlobalID && iType > EOT_GLOBAL_ID)
+    if (m_pGlobalID)
     {
-        return m_pGlobalID->GetGlobalID(iType, pObj->GetObjectID(), pObj);
+        return m_pGlobalID->GetGlobalID(iType, iIndex, pObj);
     }
     return INVALID_ID;
 }

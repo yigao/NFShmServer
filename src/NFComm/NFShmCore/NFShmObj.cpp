@@ -60,7 +60,7 @@ int NFShmObj::CreateInit()
 
     m_iObjectID = INVALID_ID;
     m_iGlobalID = INVALID_ID;
-    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(GetStaticClassType(), GetObjectID(), this);
+    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(INVALID_ID, INVALID_ID, this);
     if (iID >= 0)
     {
         m_iGlobalID = iID;

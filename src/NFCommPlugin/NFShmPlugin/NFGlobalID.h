@@ -32,6 +32,7 @@ public:
 	int ResumeInit();
 
 	int GetGlobalID(int iType, int iIndex, NFShmObj *pObj);
+    int SetTypeAndIndex(int iType, int iIndex, NFShmObj *pObj);
 	int ReleaseID(int iID);
 	NFShmObj  *GetObj(int iID);
 	static int SetObjSeg(NFIPluginManager* pPluginManager, int bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, int indexCount, int indexTime, bool singleton);
