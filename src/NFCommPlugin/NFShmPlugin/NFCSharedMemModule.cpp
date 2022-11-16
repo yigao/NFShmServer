@@ -957,11 +957,10 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
     if (pObj)
     {
         int iID = -1;
-        iID = m_pGlobalID->GetGlobalID(iType, pObj->GetObjectID(), pObj);
+        iID = pObj->GetGlobalID();
 
         if (iID >= 0)
         {
-            pObj->SetGlobalID(iID);
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);
             pObj->SetTimerObjIndex(pObj->GetObjectID());
@@ -1017,11 +1016,10 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
     if (pObj)
     {
         int iID = -1;
-        iID = m_pGlobalID->GetGlobalID(iType, pObj->GetObjectID(), pObj);
+        iID = pObj->GetGlobalID();
 
         if (iID >= 0)
         {
-            pObj->SetGlobalID(iID);
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);
             pObj->SetTimerObjIndex(pObj->GetObjectID());
@@ -1239,6 +1237,15 @@ NFShmObj *NFCSharedMemModule::GetNextObj(int iType, NFShmObj *pObj)
     }
 
     return NULL;
+}
+
+int NFCSharedMemModule::GetGlobalID(int iType, int iIndex, NFShmObj *pObj)
+{
+    if (m_pGlobalID && iType > EOT_GLOBAL_ID)
+    {
+        return m_pGlobalID->GetGlobalID(iType, pObj->GetObjectID(), pObj);
+    }
+    return INVALID_ID;
 }
 
 int NFCSharedMemModule::GetObjectID(int iType, NFShmObj *pObj)

@@ -110,6 +110,8 @@ public:
 
     virtual int GetFreeHead(int iType) = 0;
 
+    virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) = 0;
+
     virtual int GetObjectID(int iType, NFShmObj *pObj) = 0;
 
     virtual int GetNextObjectID(int iType, int iObjID) = 0;

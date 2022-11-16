@@ -57,8 +57,15 @@ int NFShmObj::CreateInit()
 #if defined(_DEBUG) | defined(_DEBUG_)
 	m_iMagicCheckNum = OBJECT_MAGIC_CHECK_NUMBER;
 #endif
-	m_iGlobalID = INVALID_ID;
-	m_iObjectID = INVALID_ID;
+
+    m_iObjectID = INVALID_ID;
+    m_iGlobalID = INVALID_ID;
+    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(GetStaticClassType(), GetObjectID(), this);
+    if (iID >= 0)
+    {
+        m_iGlobalID = iID;
+    }
+
     m_iHashID = INVALID_ID;
 	m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
 

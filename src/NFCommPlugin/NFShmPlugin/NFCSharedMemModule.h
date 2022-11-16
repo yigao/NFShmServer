@@ -234,6 +234,8 @@ public:
 
     virtual int GetFreeHead(int iType) override;
 
+    virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) override;
+
     virtual int GetObjectID(int iType, NFShmObj *pObj) override;
 
     virtual int GetNextObjectID(int iType, int iObjID) override;
