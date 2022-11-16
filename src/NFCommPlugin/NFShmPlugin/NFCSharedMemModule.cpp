@@ -27,6 +27,7 @@
 #include "NFComm/NFShmCore/NFShmTimerObj.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIPlugin.h"
+#include "NFShmEventMgr.h"
 
 NFCSharedMemModule::NFCSharedMemModule(NFIPluginManager *p) : NFISharedMemModule(p)
 {
@@ -1589,4 +1590,24 @@ int NFCSharedMemModule::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int
 int NFCSharedMemModule::Get32UUID()
 {
     return m_pGlobalID->Get32UUID();
+}
+
+int NFCSharedMemModule::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message)
+{
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->Fire(nEventID, nSrcID, bySrcType, message);
+}
+
+int NFCSharedMemModule::Subscribe(NFShmObj *pObj, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const string &desc)
+{
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->Subscribe(pObj, nEventID, nSrcID, bySrcType, desc);
+}
+
+int NFCSharedMemModule::UnSubscribe(NFShmObj *pObj, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+{
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->UnSubscribe(pObj, nEventID, nSrcID, bySrcType);
+}
+
+int NFCSharedMemModule::UnSubscribeAll(NFShmObj *pObj)
+{
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->UnSubscribeAll(pObj);
 }

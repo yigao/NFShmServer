@@ -21,10 +21,16 @@
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFShmEventKey.h"
 
+enum {
+    NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0 = 0,
+    NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1 = 1,
+    NF_SHM_SUBSCRIBEINFO_MAX_INDEX_NUM = 2,
+};
+
 /**
- *@brief 事件描述信息
+ *@brief 浜嬩欢鎻忚堪淇℃伅
  */
-class NFShmSubscribeInfo : public NFShmObj, public NFListNodeObjWithGlobalID<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ>
+class NFShmSubscribeInfo : public NFShmObj, public NFMultiListNodeObjWithGlobalID<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NF_SHM_SUBSCRIBEINFO_MAX_INDEX_NUM>
 {
 public:
     NFShmSubscribeInfo(NFIPluginManager* pPluginManager);
@@ -34,32 +40,32 @@ public:
     int ResumeInit();
 
     /**
-    *@brief 增加引用
+    *@brief 澧炲姞寮曠敤
     */
     void Add();
 
     /**
-    *@brief 减少引用
+    *@brief 鍑忓皯寮曠敤
     */
     void Sub();
 public:
     /**
-    *@brief 事件对象
+    *@brief 浜嬩欢瀵硅薄
     */
     NFShmPtr<NFShmObj> pSink;
 
     /**
-    *@brief 引用次数
+    *@brief 寮曠敤娆℃暟
     */
     int32_t nRefCount;
 
     /**
-    *@brief 移除标志
+    *@brief 绉婚櫎鏍囧織
     */
     bool bRemoveFlag;
 
     /**
-    *@brief 描述信息
+    *@brief 鎻忚堪淇℃伅
     */
     NFSizeString<16> szDesc;
 

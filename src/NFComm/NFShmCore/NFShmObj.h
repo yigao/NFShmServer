@@ -13,7 +13,7 @@
 #include "NFShmTimerObj.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
 
-class NFShmObj : public NFShmTimerObj, public NFEventObjBase
+class NFShmObj : public NFShmTimerObj
 {
 public:
     NFShmObj(NFIPluginManager *pPluginManager);
@@ -132,7 +132,7 @@ public:
     * 问题3:假设我在Fire事件里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
-    virtual void FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
+    virtual int FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
 
     /**
     * @brief 订阅事件
@@ -143,7 +143,7 @@ public:
     * @param desc		事件描述，用于打印，获取信息，查看BUG之类的
     * @return			订阅事件是否成功
     */
-    virtual bool Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc);
+    virtual int Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc);
 
     /**
     * @brief 取消订阅事件
@@ -153,14 +153,14 @@ public:
     * @param bySrcType	事件源类型，玩家类型，怪物类型之类的
     * @return			取消订阅事件是否成功
     */
-    virtual bool UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType);
+    virtual int UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType);
 
     /**
     * @brief 取消NFEventObj所有订阅事件
     *
     * @return			取消订阅事件是否成功
     */
-    virtual bool UnSubscribeAll();
+    virtual int UnSubscribeAll();
 
 public:
 

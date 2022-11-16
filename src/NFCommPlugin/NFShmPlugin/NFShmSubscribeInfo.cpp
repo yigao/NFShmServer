@@ -40,7 +40,7 @@ int NFShmSubscribeInfo::ResumeInit()
 }
 
 /**
-*@brief 增加引用
+*@brief 澧炲姞寮曠敤
 */
 void NFShmSubscribeInfo::Add()
 {
@@ -48,7 +48,7 @@ void NFShmSubscribeInfo::Add()
 }
 
 /**
-*@brief 减少引用
+*@brief 鍑忓皯寮曠敤
 */
 void NFShmSubscribeInfo::Sub()
 {

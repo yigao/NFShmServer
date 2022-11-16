@@ -37,343 +37,84 @@ public:
     int ResumeInit();
 
     /**
-    * @brief ∂©‘ƒ ¬º˛
+    * @brief ËÆ¢ÈòÖ‰∫ã‰ª∂
     *
-    * @param pSink		∂©‘ƒ∂‘œÛ
-    * @param nEventID	 ¬º˛ID
-    * @param nSrcID		 ¬º˛‘¥ID£¨“ª∞„∂º «ÕÊº“£¨…˙ŒÔŒ®“ªid
-    * @param bySrcType	 ¬º˛‘¥¿‡–Õ£¨ÕÊº“¿‡–Õ£¨π÷ŒÔ¿‡–Õ÷Æ¿‡µƒ
-    * @param desc		 ¬º˛√Ë ˆ£¨”√”⁄¥Ú”°£¨ªÒ»°–≈œ¢£¨≤Èø¥BUG÷Æ¿‡µƒ
-    * @return			∂©‘ƒ ¬º˛ «∑Ò≥…π¶
+    * @param pSink		ËÆ¢ÈòÖÂØπË±°
+    * @param nEventID	‰∫ã‰ª∂ID
+    * @param nSrcID		‰∫ã‰ª∂Ê∫êIDÔºå‰∏ÄËà¨ÈÉΩÊòØÁé©ÂÆ∂ÔºåÁîüÁâ©ÂîØ‰∏Äid
+    * @param bySrcType	‰∫ã‰ª∂Ê∫êÁ±ªÂûãÔºåÁé©ÂÆ∂Á±ªÂûãÔºåÊÄ™Áâ©Á±ªÂûã‰πãÁ±ªÁöÑ
+    * @param desc		‰∫ã‰ª∂ÊèèËø∞ÔºåÁî®‰∫éÊâìÂç∞ÔºåËé∑Âèñ‰ø°ÊÅØÔºåÊü•ÁúãBUG‰πãÁ±ªÁöÑ
+    * @return			ËÆ¢ÈòÖ‰∫ã‰ª∂ÊòØÂê¶ÊàêÂäü
     */
-    int Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc)
-    {
-        if (nullptr == pSink) return -1;
-
-        NFShmEventKey skey;
-        skey.nEventID = nEventID;
-        skey.nSrcID = nSrcID;
-        skey.bySrcType = bySrcType;
-
-        /**
-        *@brief œ»≈–∂œ÷∏’ÎpSink∂‘œÛ”–√ª”–◊¢≤·£¨»ª∫Û∞—skey∑≈»Î
-        *       ’‚∏ˆ÷∏’ÎµƒµƒºØ∫œ¿Ô£¨»Áπ˚skey“—æ≠¥Ê‘⁄£¨
-        *       Àµ√˜“—æ≠¥Ê»Î£¨÷±Ω”ÕÀ≥ˆ
-        */
-        auto pArray = m_mapAllSubscribeKey.Find(pSink->GetGlobalID());
-        if (pArray == NULL)
-        {
-            pArray = m_mapAllSubscribeKey.Insert(pSink->GetGlobalID());
-            CHECK_EXPR(pArray, -1, "m_mapAllSubscribeKey Insert Failed, Space Not Enough, desc:{}", desc);
-            int ret = pArray->Add(skey);
-            CHECK_EXPR(ret >= 0, -1, "m_mapAllSubscribeKey Arrray Add Failed, Space Not Enough, desc:{}", desc);
-        }
-        else
-        {
-            int ret = pArray->Add(skey);
-            CHECK_EXPR(ret >= 0, -1, "m_mapAllSubscribeKey Arrray Add Failed, Space Not Enough, desc:{}", desc);
-        }
-
-        /**
-        *@brief ≈–∂œskey”–√ª”–¥Ê‘⁄£¨∞—∂‘œÛ¥Ê»Îskeyµƒ¡¥±Ì¿Ô
-        */
-        NFShmSubscribeInfo *pInfo = dynamic_cast<NFShmSubscribeInfo *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_SUBSCRIBEINFO_OBJ));
-        CHECK_EXPR(pInfo, -1, "CreateObj NFShmSubscribeInfo Failed, desc:{}", desc);
-        pInfo->pSink = pSink;
-        pInfo->szDesc = desc;
-        auto pNodeList = m_mapAllSubscribeObj.Find(skey);
-        if (pNodeList)
-        {
-            pNodeList->AddNode(m_pObjPluginManager, pInfo);
-        }
-        else
-        {
-            pNodeList = m_mapAllSubscribeObj.Insert(skey);
-            CHECK_EXPR(pNodeList, -1, "m_mapAllSubscribeObj Insert Failed, Space Not Enough, desc:{}", desc);
-            pNodeList->AddNode(m_pObjPluginManager, pInfo);
-        }
-        return 0;
-    }
+    int Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc);
 
     /**
-    * @brief »°œ˚∂©‘ƒ ¬º˛
+    * @brief ÂèñÊ∂àËÆ¢ÈòÖ‰∫ã‰ª∂
     *
-    * @param pSink		∂©‘ƒ∂‘œÛ
-    * @param nEventID	 ¬º˛ID
-    * @param nSrcID		 ¬º˛‘¥ID£¨“ª∞„∂º «ÕÊº“£¨…˙ŒÔŒ®“ªid
-    * @param bySrcType	 ¬º˛‘¥¿‡–Õ£¨ÕÊº“¿‡–Õ£¨π÷ŒÔ¿‡–Õ÷Æ¿‡µƒ
-    * @return			»°œ˚∂©‘ƒ ¬º˛ «∑Ò≥…π¶
+    * @param pSink		ËÆ¢ÈòÖÂØπË±°
+    * @param nEventID	‰∫ã‰ª∂ID
+    * @param nSrcID		‰∫ã‰ª∂Ê∫êIDÔºå‰∏ÄËà¨ÈÉΩÊòØÁé©ÂÆ∂ÔºåÁîüÁâ©ÂîØ‰∏Äid
+    * @param bySrcType	‰∫ã‰ª∂Ê∫êÁ±ªÂûãÔºåÁé©ÂÆ∂Á±ªÂûãÔºåÊÄ™Áâ©Á±ªÂûã‰πãÁ±ªÁöÑ
+    * @return			ÂèñÊ∂àËÆ¢ÈòÖ‰∫ã‰ª∂ÊòØÂê¶ÊàêÂäü
     */
-    int UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
-    {
-        if (nullptr == pSink) return -1;
-
-        NFShmEventKey skey;
-        skey.nEventID = nEventID;
-        skey.nSrcID = nSrcID;
-        skey.bySrcType = bySrcType;
-
-        /**
-        *@brief ≈–∂œpSink÷∏’Î∂‘œÛ”–√ª”–¥Ê‘⁄£¨≤ª¥Ê‘⁄÷±Ω”ÕÀ≥ˆ
-        *		¥Ê‘⁄µƒª∞£¨…æ≥˝∂‘”¶µƒkey, »Áπ˚pSinkºØ∫œŒ™ø’µƒª∞£¨
-        *       …æ≥˝pSink
-        */
-        auto pArray = m_mapAllSubscribeKey.Find(pSink->GetGlobalID());
-        if (pArray == NULL)
-        {
-            return -1;
-        }
-
-        bool notHas = true;
-        for (int i = 0; i < pArray->Size();)
-        {
-            if (skey == (*pArray)[i])
-            {
-                pArray->Del(i);
-                notHas = false;
-            }
-            else {
-                i++;
-            }
-        }
-
-        if(notHas)
-        {
-            return -1;
-        }
-
-        if (pArray->Size() <= 0)
-        {
-            m_mapAllSubscribeKey.Erase(pSink->GetGlobalID());
-        }
-
-        /**
-        *@brief …æ≥˝skey¡¥±Ì¿ÔµƒpSink
-        */
-        DelSubcribeInfo(pSink, skey);
-
-        return 0;
-    }
+    int UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType);
 
     /**
-    * @brief »°œ˚pSinkÀ˘”–∂©‘ƒ ¬º˛
+    * @brief ÂèñÊ∂àpSinkÊâÄÊúâËÆ¢ÈòÖ‰∫ã‰ª∂
     *
-    * @param pSink		∂©‘ƒ∂‘œÛ
-    * @return			»°œ˚∂©‘ƒ ¬º˛ «∑Ò≥…π¶
+    * @param pSink		ËÆ¢ÈòÖÂØπË±°
+    * @return			ÂèñÊ∂àËÆ¢ÈòÖ‰∫ã‰ª∂ÊòØÂê¶ÊàêÂäü
     */
-    int UnSubscribeAll(NFShmObj *pSink)
-    {
-        if (nullptr == pSink) return false;
-
-        auto pArray = m_mapAllSubscribeKey.Find(pSink->GetGlobalID());
-        if (pArray == NULL)
-        {
-            return -1;
-        }
-
-        for (int i = 0; i < (int)pArray->Size(); i++)
-        {
-            DelSubcribeInfo(pSink, (*pArray)[i]);
-        }
-
-        m_mapAllSubscribeKey.Erase(pSink->GetGlobalID());
-
-        return true;
-    }
+    int UnSubscribeAll(NFShmObj *pSink);
 
     /**
-    * @brief ∑¢ÀÕ ¬º˛,≤¢÷¥–– ’µΩ ¬º˛µƒ∂‘œÛµƒ∂‘”¶∫Ø ˝
+    * @brief ÂèëÈÄÅ‰∫ã‰ª∂,Âπ∂ÊâßË°åÊî∂Âà∞‰∫ã‰ª∂ÁöÑÂØπË±°ÁöÑÂØπÂ∫îÂáΩÊï∞
     *
-    * @param nEventID		 ¬º˛ID
-    * @param nSrcID			 ¬º˛‘¥ID£¨“ª∞„∂º «ÕÊº“£¨…˙ŒÔŒ®“ªid
-    * @param bySrcType		 ¬º˛‘¥¿‡–Õ£¨ÕÊº“¿‡–Õ£¨π÷ŒÔ¿‡–Õ÷Æ¿‡µƒ
-    * @param pEventContext	 ¬º˛¥´ ‰µƒ ˝æ›
-    * @return				÷¥–– «∑Ò≥…π¶
+    * @param nEventID		‰∫ã‰ª∂ID
+    * @param nSrcID			‰∫ã‰ª∂Ê∫êIDÔºå‰∏ÄËà¨ÈÉΩÊòØÁé©ÂÆ∂ÔºåÁîüÁâ©ÂîØ‰∏Äid
+    * @param bySrcType		‰∫ã‰ª∂Ê∫êÁ±ªÂûãÔºåÁé©ÂÆ∂Á±ªÂûãÔºåÊÄ™Áâ©Á±ªÂûã‰πãÁ±ªÁöÑ
+    * @param pEventContext	‰∫ã‰ª∂‰º†ËæìÁöÑÊï∞ÊçÆ
+    * @return				ÊâßË°åÊòØÂê¶ÊàêÂäü
     */
     /*
-    * º∏∏ˆÕ˛–≤£¨ø…ƒ‹µº÷¬Œ Ã‚, µ´≤ªª·µº÷¬±¿¿£, ø…ƒ‹”Îƒ„‘§œÎµƒ≤ª“ª—˘:
-    * Œ Ã‚1:ºŸ…ËŒ“‘⁄Fire ¬º˛¿Ô£¨œ‡Õ¨µƒkey£¨…æ≥˝≤ªÕ¨µƒpSink,
-    *		ø…ƒ‹µº÷¬Ω´“™÷¥––µƒ ¬º˛±ª…æ≥˝£¨’‚ø…ƒ‹”Îƒ„‘§œÎµƒ…Ëº∆≤ª“ª—˘
-    * Œ Ã‚2:ºŸ…ËŒ“‘⁄Fire ¬º˛¿Ô£¨œ‡Õ¨µƒkey£¨…æ≥˝œ‡Õ¨µƒpSink, ”…”⁄ ¬º˛œµÕ≥¿˚”√SubscribeInfoµƒAdd,Sub“˝”√º∆ ˝◊ˆ¡À‘§∑¿£¨
-    *       µ¸¥˙∆˜≤ªª·¡¢¬Ì±ª…æ≥˝£¨≤ªª·µº÷¬std::listµ¸¥˙∆˜ ß–ß£¨ ’‚—˘…æ≥˝≤ªª·µº÷¬Œ Ã‚
-    * Œ Ã‚3:ºŸ…ËŒ“‘⁄Fire ¬º˛¿Ô£¨ Fire¡À±µƒ ¬º˛£¨ª·µº÷¬µ¸¥˙Œ Ã‚£¨ ¬º˛œµÕ≥“—æ≠¡À◊ˆ¡À‘§∏∂£¨ œ‡Õ¨µƒ ¬º˛£¨◊Ó∂‡µ¸¥˙5¥Œ£¨
-    *       À˘”–µƒFire ¬º˛◊Ó∂‡µ¸¥˙20¥Œ
+    * Âá†‰∏™Â®ÅËÉÅÔºåÂèØËÉΩÂØºËá¥ÈóÆÈ¢ò, ‰ΩÜ‰∏ç‰ºöÂØºËá¥Â¥©Ê∫É, ÂèØËÉΩ‰∏é‰Ω†È¢ÑÊÉ≥ÁöÑ‰∏ç‰∏ÄÊ†∑:
+    * ÈóÆÈ¢ò1:ÂÅáËÆæÊàëÂú®Fire‰∫ã‰ª∂ÈáåÔºåÁõ∏ÂêåÁöÑkeyÔºåÂà†Èô§‰∏çÂêåÁöÑpSink,
+    *		ÂèØËÉΩÂØºËá¥Â∞ÜË¶ÅÊâßË°åÁöÑ‰∫ã‰ª∂Ë¢´Âà†Èô§ÔºåËøôÂèØËÉΩ‰∏é‰Ω†È¢ÑÊÉ≥ÁöÑËÆæËÆ°‰∏ç‰∏ÄÊ†∑
+    * ÈóÆÈ¢ò2:ÂÅáËÆæÊàëÂú®Fire‰∫ã‰ª∂ÈáåÔºåÁõ∏ÂêåÁöÑkeyÔºåÂà†Èô§Áõ∏ÂêåÁöÑpSink, Áî±‰∫é‰∫ã‰ª∂Á≥ªÁªüÂà©Áî®SubscribeInfoÁöÑAdd,SubÂºïÁî®ËÆ°Êï∞ÂÅö‰∫ÜÈ¢ÑÈò≤Ôºå
+    *       Ëø≠‰ª£Âô®‰∏ç‰ºöÁ´ãÈ©¨Ë¢´Âà†Èô§Ôºå‰∏ç‰ºöÂØºËá¥std::listËø≠‰ª£Âô®Â§±ÊïàÔºå ËøôÊ†∑Âà†Èô§‰∏ç‰ºöÂØºËá¥ÈóÆÈ¢ò
+    * ÈóÆÈ¢ò3:ÂÅáËÆæÊàëÂú®Fire‰∫ã‰ª∂ÈáåÔºå Fire‰∫ÜÂà´ÁöÑ‰∫ã‰ª∂Ôºå‰ºöÂØºËá¥Ëø≠‰ª£ÈóÆÈ¢òÔºå‰∫ã‰ª∂Á≥ªÁªüÂ∑≤Áªè‰∫ÜÂÅö‰∫ÜÈ¢Ñ‰ªòÔºå Áõ∏ÂêåÁöÑ‰∫ã‰ª∂ÔºåÊúÄÂ§öËø≠‰ª£5Ê¨°Ôºå
+    *       ÊâÄÊúâÁöÑFire‰∫ã‰ª∂ÊúÄÂ§öËø≠‰ª£20Ê¨°
     */
-    bool Fire(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message)
-    {
-        SEventKey skey;
-        skey.nEventID = nEventID;
-        skey.nSrcID = nSrcID;
-        skey.bySrcType = bySrcType;
-
-        /**
-        * @brief œ»÷¥––ÕÍ»´∆•≈‰µƒ
-        */
-        if (skey.nSrcID != 0)
-        {
-            bool bRes = Fire(skey, nEventID, nSrcID, bySrcType, message);
-            if (!bRes)
-            {
-                return false;
-            }
-        }
-
-        /**
-        * @brief ‘Ÿ÷¥––£¨ ’Î∂‘’˚∏ˆ ¬º˛nEventID,¿‡–ÕŒ™bySrcType
-        * ±»»Á∂©‘ƒ ±£¨∂©‘ƒ¡ÀÀ˘”–ÕÊº“¿‡µƒ ¬º˛£¨∂¯≤ª «∂‘“ª∏ˆÕÊº“µƒ ¬º˛£¨
-        * ∂©‘ƒ ±Ω´nSrcId=0£¨ª· ‹µΩÀ˘”–ÕÊº“≤˙…˙µƒ∏√¿‡ ¬º˛
-        */
-        skey.nSrcID = 0;
-        bool bRes = Fire(skey, nEventID, nSrcID, bySrcType, message);
-        if (!bRes)
-        {
-            return false;
-        }
-        return true;
-    }
+    int Fire(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message);
 
 private:
     /**
-    * @brief …æ≥˝skeyµƒ¡¥±Ì¿ÔµƒpSink
+    * @brief ÊâßË°åÊâÄÊúâËÆ¢ÈòÖ‰∫ã‰ª∂keyÁöÑÂáΩÊï∞
     *
-    * @param pSink		∂©‘ƒ∂‘œÛ
-    * @param SEventKey	 ¬º˛∫œ≥…key
-    * @return			…æ≥˝skeyµƒ¡¥±Ì¿ÔµƒpSink «∑Ò≥…π¶
+    * @param skey			‰∫ã‰ª∂ÂêàÊàêkeyÔºåskey.nsrcidÂèØËÉΩ‰∏∫0ÔºåÂèØËÉΩ=nEventID
+    * @param nEventID		‰∫ã‰ª∂ID
+    * @param nSrcID			‰∫ã‰ª∂Ê∫êIDÔºå‰∏ÄËà¨ÈÉΩÊòØÁé©ÂÆ∂ÔºåÁîüÁâ©ÂîØ‰∏Äid
+    * @param bySrcType		‰∫ã‰ª∂Ê∫êÁ±ªÂûãÔºåÁé©ÂÆ∂Á±ªÂûãÔºåÊÄ™Áâ©Á±ªÂûã‰πãÁ±ªÁöÑ
+    * @param pEventContext	‰∫ã‰ª∂‰º†ËæìÁöÑÊï∞ÊçÆ
+    * @return				ÊâßË°åÊòØÂê¶ÊàêÂäü
     */
-    bool DelSubcribeInfo(NFShmObj *pSink, const NFShmEventKey &skey)
-    {
-        auto pNodeList = m_mapAllSubscribeObj.Find(skey);
-        if (pNodeList)
-        {
-            NFShmSubscribeInfo* pNode = pNodeList->GetHeadNodeObj(m_pObjPluginManager);
-            while(pNode)
-            {
-                if (pNode->pSink.GetPoint() == pSink)
-                {
-                    if (pNode->nRefCount == 0)
-                    {
-                        pNodeList->RemoveNode(m_pObjPluginManager, pNode);
-                    }
-                    else
-                    {
-                        pNode->bRemoveFlag = true;
-                    }
-                    break;
-                }
-                pNode = pNodeList->GetNextNodeObj(m_pObjPluginManager, pNode);
-            }
+    int Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType,
+              const google::protobuf::Message &message);
 
-            if (pNodeList->GetNodeCount() == 0)
-            {
-                m_mapAllSubscribeObj.Erase(skey);
-            }
-        }
-
-        return true;
-    }
+private:
+    /**
+     * @brief
+     */
+    NFShmHashMap<NFShmEventKey, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_eventKeyAllSubscribe;
 
     /**
-    * @brief ÷¥––À˘”–∂©‘ƒ ¬º˛keyµƒ∫Ø ˝
-    *
-    * @param skey			 ¬º˛∫œ≥…key£¨skey.nsrcidø…ƒ‹Œ™0£¨ø…ƒ‹=nEventID
-    * @param nEventID		 ¬º˛ID
-    * @param nSrcID			 ¬º˛‘¥ID£¨“ª∞„∂º «ÕÊº“£¨…˙ŒÔŒ®“ªid
-    * @param bySrcType		 ¬º˛‘¥¿‡–Õ£¨ÕÊº“¿‡–Õ£¨π÷ŒÔ¿‡–Õ÷Æ¿‡µƒ
-    * @param pEventContext	 ¬º˛¥´ ‰µƒ ˝æ›
-    * @return				÷¥–– «∑Ò≥…π¶
-    */
-    bool Fire(const SEventKey &skey, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType,
-              const google::protobuf::Message &message)
-    {
-        m_nFireLayer++;
-        if (m_nFireLayer >= EVENT_FIRE_MAX_LAYER)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0,
-                       "[Event] m_nFireLayer >= EVENT_FIRE_MAX_LAYER.....nEventID:{}, nSrcID:{}, bySrcType:{}, fireLayer:{}",
-                       nEventID, nSrcID, bySrcType, m_nFireLayer);
-            m_nFireLayer--;
-            return false;
-        }
+     * @brief
+     */
+    NFShmHashMap<int, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_shmObjAllSubscribe;
 
-        auto iterLst = m_mapAllSubscribeObj.find(skey);
-        if (iterLst != m_mapAllSubscribeObj.end())
-        {
-            for (auto iter = iterLst->second.begin(); iter != iterLst->second.end();)
-            {
-                SubscribeInfo *pSubscribeInfo = &(*iter);
-                if (pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT)
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0,
-                               "[Event] pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                               nEventID, nSrcID, bySrcType, pSubscribeInfo->nRefCount,
-                               static_cast<int32_t>(pSubscribeInfo->bRemoveFlag), pSubscribeInfo->szDesc);
-                    m_nFireLayer--;
-                    return false;
-                }
-                if (!pSubscribeInfo->bRemoveFlag)
-                {
-                    int bRes = 0;
-                    try
-                    {
-                        pSubscribeInfo->Add();
-                        bRes = m_FireEventObj(pSubscribeInfo->pSink, nEventID, nSrcID, bySrcType, message);
-                        pSubscribeInfo->Sub();
-                    }
-                    catch (...)
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                   "[Event] pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                                   nEventID, nSrcID, bySrcType, pSubscribeInfo->nRefCount,
-                                   static_cast<int32_t>(pSubscribeInfo->bRemoveFlag), pSubscribeInfo->szDesc);
-                        m_nFireLayer--;
-                        return false;
-                    }
-                    if (pSubscribeInfo->bRemoveFlag && 0 == pSubscribeInfo->nRefCount)
-                    {
-                        iter = iterLst->second.erase(iter);
-                    }
-                    else
-                    {
-                        ++iter;
-                    }
-                    if (bRes != 0)
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                   "[Event] ret != 0 ....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                                   nEventID, nSrcID, bySrcType, pSubscribeInfo->nRefCount,
-                                   static_cast<int32_t>(pSubscribeInfo->bRemoveFlag), pSubscribeInfo->szDesc);
-                    }
-                } // end of if (!subInfo.bRemoveFlag)
-                else
-                {
-                    if (0 == pSubscribeInfo->nRefCount)
-                    {
-                        iter = iterLst->second.erase(iter);
-                    }
-                    else
-                    {
-                        ++iter;
-                    }
-                }
-            } // end of for (; iter != pLstSubscribe->end();)
-
-            if (iterLst->second.empty())
-            {
-                m_mapAllSubscribeObj.erase(iterLst);
-            }
-        } // enf of if (iterLst != m_mapAllSubscribeObj.end())
-
-        m_nFireLayer--;
-
-        return true;
-    }
-
-public:
-    //
-    NFShmHashMap<NFShmEventKey, NFShmNodeObjList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_mapAllSubscribeObj;
-    //
-    NFShmHashMap<int, NFShmNodeObjList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_mapAllSubscribeKey;
-    //
+    /**
+     * @brief
+     */
     int32_t m_nFireLayer;
 DECLARE_IDCREATE(NFShmEventMgr)
 };

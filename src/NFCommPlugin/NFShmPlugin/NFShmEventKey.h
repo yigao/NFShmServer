@@ -45,22 +45,22 @@ public:
     }
 
     /**
-    *@brief ÊÂ¼şÖ÷ÒªµÄkey£¬Ö÷ÒªÖ¸Íæ¼Ò£¬ÉúÎïÎ¨Ò»id
+    *@brief äº‹ä»¶ä¸»è¦çš„keyï¼Œä¸»è¦æŒ‡ç©å®¶ï¼Œç”Ÿç‰©å”¯ä¸€id
     */
     uint64_t nSrcID;
 
     /**
-    *@brief ÊÂ¼şId
+    *@brief äº‹ä»¶Id
     */
     uint32_t nEventID;
 
     /**
-    *@brief srcÀàĞÍ, ÓÃÀ´Çø±ğÍæ¼Ò£¬¹ÖÎïµÄÀàĞÍ
+    *@brief srcç±»å‹, ç”¨æ¥åŒºåˆ«ç©å®¶ï¼Œæ€ªç‰©çš„ç±»å‹
     */
     uint32_t bySrcType;
 
     /**
-    *@brief ÅĞ¶ÏÊÇ·ñÏàµÈ
+    *@brief åˆ¤æ–­æ˜¯å¦ç›¸ç­‰
     */
     bool operator ==(const NFShmEventKey& eventKey) const
     {
@@ -70,7 +70,7 @@ public:
     }
 
     /**
-    *@brief ÅĞ¶ÏÊÇ·ñĞ¡ÓÚ, ²»ÖªµÀÓĞÃ»ÓĞ¸üºÃµÄÅĞ¶ÏĞ¡ÓÚµÄ·½·¨
+    *@brief åˆ¤æ–­æ˜¯å¦å°äº, ä¸çŸ¥é“æœ‰æ²¡æœ‰æ›´å¥½çš„åˆ¤æ–­å°äºçš„æ–¹æ³•
     */
     bool operator <(const NFShmEventKey& eventKey) const
     {

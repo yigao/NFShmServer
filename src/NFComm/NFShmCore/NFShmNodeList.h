@@ -40,7 +40,7 @@ public:
         return 0;
     }
 
-    int GetPrevNode()
+    int GetPrevNode() const
     {
         return m_iPrevNode;
     }
@@ -50,7 +50,7 @@ public:
         m_iPrevNode = iNode;
     }
 
-    int GetNextNode()
+    int GetNextNode() const
     {
         return m_iNextNode;
     }
@@ -60,7 +60,7 @@ public:
         m_iNextNode = iNode;
     }
 
-    int GetListCheckID()
+    int GetListCheckID() const
     {
         return m_iListCheckID;
     }
@@ -146,17 +146,27 @@ public:
         m_iListCheckID = NFIListNodeObj::GetListCheckIDSeq();
     }
 
-    int GetNodeCount()
+    bool IsEmpty() const
+    {
+        return m_iNodeCount <= 0;
+    }
+
+    bool Empty() const
+    {
+        return IsEmpty();
+    }
+
+    int GetNodeCount() const
     {
         return m_iNodeCount;
     }
 
-    int GetHeadNodeID()
+    int GetHeadNodeID() const
     {
         return m_iHeadNode;
     }
 
-    int GetTailNodeID()
+    int GetTailNodeID() const
     {
         return m_iTailNode;
     }
@@ -333,7 +343,7 @@ public:
         return 0;
     }
 
-    int GetPrevNode(int typeIndex)
+    int GetPrevNode(int typeIndex) const
     {
         CHECK_EXPR_ASSERT(typeIndex >= 0 && typeIndex < (int)MAX_TYPE, -1, "typeIndex:{} max:{}", typeIndex, MAX_TYPE);
         return m_objList[typeIndex].m_iPrevNode;
@@ -345,7 +355,7 @@ public:
         m_objList[typeIndex].m_iPrevNode = iNode;
     }
 
-    int GetNextNode(int typeIndex)
+    int GetNextNode(int typeIndex) const
     {
         CHECK_EXPR_ASSERT(typeIndex >= 0 && typeIndex < (int)MAX_TYPE, -1, "typeIndex:{} max:{}", typeIndex, MAX_TYPE);
         return m_objList[typeIndex].m_iNextNode;
@@ -357,7 +367,7 @@ public:
         m_objList[typeIndex].m_iNextNode = iNode;
     }
 
-    int GetListCheckID(int typeIndex)
+    int GetListCheckID(int typeIndex) const
     {
         CHECK_EXPR_ASSERT(typeIndex >= 0 && typeIndex < (int)MAX_TYPE, -1, "typeIndex:{} max:{}", typeIndex, MAX_TYPE);
         return m_objList[typeIndex].m_iListCheckID;
@@ -411,17 +421,27 @@ public:
         m_iListCheckID = NFIListNodeObj::GetListCheckIDSeq();
     }
 
-    int GetNodeCount()
+    int GetNodeCount() const
     {
         return m_iNodeCount;
     }
 
-    int GetHeadNodeID()
+    bool IsEmpty() const
+    {
+        return m_iNodeCount <= 0;
+    }
+
+    bool Empty() const
+    {
+        return IsEmpty();
+    }
+
+    int GetHeadNodeID() const
     {
         return m_iHeadNode;
     }
 
-    int GetTailNodeID()
+    int GetTailNodeID() const
     {
         return m_iTailNode;
     }

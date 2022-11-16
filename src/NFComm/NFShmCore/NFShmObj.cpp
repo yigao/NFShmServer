@@ -83,25 +83,25 @@ int NFShmObj::Show(FILE *fpOut)
 
 
 //发送执行事件
-void NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+int NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
-    m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
 }
 
 //订阅执行事件
-bool NFShmObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
+int NFShmObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
 {
-    return m_pObjPluginManager->FindModule<NFIEventModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
 }
 
 //取消订阅执行事件
-bool NFShmObj::UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+int NFShmObj::UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
 {
-    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
 }
 
 //取消所有执行事件的订阅
-bool NFShmObj::UnSubscribeAll()
+int NFShmObj::UnSubscribeAll()
 {
-    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribeAll(this);
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->UnSubscribeAll(this);
 }
