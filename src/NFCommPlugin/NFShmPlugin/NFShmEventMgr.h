@@ -89,6 +89,15 @@ public:
 
 private:
     /**
+    * @brief 删除skey的链表里的pSink
+    *
+    * @param pSink		订阅对象
+    * @param SEventKey	事件合成key
+    * @return			删除skey的链表里的pSink是否成功
+    */
+    int DelEventKeyListSubcribeInfo(NFShmSubscribeInfo* pLastNode);
+
+    /**
     * @brief 执行所有订阅事件key的函数
     *
     * @param skey			事件合成key，skey.nsrcid可能为0，可能=nEventID

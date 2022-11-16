@@ -122,8 +122,6 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
         return -1;
     }
 
-    auto pEventKeyList = m_eventKeyAllSubscribe.Find(skey);
-
     auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while(pNode)
     {
@@ -134,12 +132,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
             pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
             pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
 
-            if (pEventKeyList)
-            {
-                pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
-            }
-
-            FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
+            DelEventKeyListSubcribeInfo(pLastNode);
         }
         else {
             pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
@@ -149,11 +142,6 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
     if (pShmObjList->IsEmpty())
     {
         m_shmObjAllSubscribe.Erase(pSink->GetGlobalID());
-    }
-
-    if (pEventKeyList && pEventKeyList->IsEmpty())
-    {
-        m_eventKeyAllSubscribe.Erase(skey);
     }
 
     return 0;
@@ -183,18 +171,7 @@ int NFShmEventMgr::UnSubscribeAll(NFShmObj *pSink)
         pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
         pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
 
-        auto pEventKeyList = m_eventKeyAllSubscribe.Find(pLastNode->m_eventKey);
-        if (pEventKeyList)
-        {
-            pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
-
-            if (pEventKeyList->IsEmpty())
-            {
-                m_eventKeyAllSubscribe.Erase(pLastNode->m_eventKey);
-            }
-        }
-
-        FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
+        DelEventKeyListSubcribeInfo(pLastNode);
     }
 
     m_shmObjAllSubscribe.Erase(pSink->GetGlobalID());
@@ -309,6 +286,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                     auto pLastNode = pNode;
                     pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
                     pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+                    FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
                 }
                 else
                 {
@@ -329,6 +307,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                     auto pLastNode = pNode;
                     pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
                     pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+                    FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
                 }
                 else
                 {
@@ -346,4 +325,28 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
     m_nFireLayer--;
 
     return true;
+}
+
+int NFShmEventMgr::DelEventKeyListSubcribeInfo(NFShmSubscribeInfo* pLastNode)
+{
+    auto pEventKeyList = m_eventKeyAllSubscribe.Find(pLastNode->m_eventKey);
+    if (pEventKeyList)
+    {
+        if (pLastNode->nRefCount == 0)
+        {
+            pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+            FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
+        }
+        else
+        {
+            pLastNode->bRemoveFlag = true;
+        }
+
+        if (pEventKeyList->IsEmpty())
+        {
+            m_eventKeyAllSubscribe.Erase(pLastNode->m_eventKey);
+        }
+    }
+
+    return 0;
 }
