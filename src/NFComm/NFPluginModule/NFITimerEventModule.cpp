@@ -10,6 +10,7 @@
 #include "NFITimerEventModule.h"
 #include "NFIEventModule.h"
 #include "NFITimerModule.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 NFITimerEventModule::NFITimerEventModule(NFIPluginManager* pPluginManager):NFIModule(pPluginManager)
 {
@@ -26,6 +27,12 @@ NFITimerEventModule::~NFITimerEventModule()
 void NFITimerEventModule::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
     m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+
+    auto pModule = m_pObjPluginManager->FindModule<NFISharedMemModule>();
+    if (pModule)
+    {
+        pModule->FireExecute(nEventID, nSrcID, bySrcType, message);
+    }
 }
 
 //订阅执行事件

@@ -11,6 +11,7 @@
 #include "NFEventObj.h"
 #include "NFIPluginManager.h"
 #include "NFIEventModule.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 
 NFEventObj::NFEventObj(NFIPluginManager* pPluginManager):NFObject(pPluginManager)
@@ -26,6 +27,12 @@ NFEventObj::~NFEventObj()
 void NFEventObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
     m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+
+    auto pModule = m_pObjPluginManager->FindModule<NFISharedMemModule>();
+    if (pModule)
+    {
+        pModule->FireExecute(nEventID, nSrcID, bySrcType, message);
+    }
 }
 
 //订阅执行事件

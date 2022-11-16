@@ -85,7 +85,14 @@ int NFShmObj::Show(FILE *fpOut)
 //发送执行事件
 int NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
 {
-    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    int retCode = m_pObjPluginManager->FindModule<NFISharedMemModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    if (retCode != 0)
+    {
+        return retCode;
+    }
+
+    m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    return retCode;
 }
 
 //订阅执行事件

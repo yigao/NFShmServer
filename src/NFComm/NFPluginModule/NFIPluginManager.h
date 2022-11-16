@@ -147,7 +147,8 @@ public:
                 return pT;
             }
             return nullptr;
-        } else
+        }
+        else
         {
             if (pStaticModule == NULL)
             {
@@ -170,7 +171,8 @@ public:
                     return pT;
                 }
                 return nullptr;
-            } else
+            }
+            else
             {
                 return pStaticModule;
             }
