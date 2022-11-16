@@ -26,6 +26,11 @@ NFShmEventMgr::NFShmEventMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginM
     }
 }
 
+NFShmEventMgr::~NFShmEventMgr()
+{
+
+}
+
 int NFShmEventMgr::CreateInit()
 {
     m_nFireLayer = 0;
