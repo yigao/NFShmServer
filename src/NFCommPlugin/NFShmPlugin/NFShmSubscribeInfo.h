@@ -73,5 +73,10 @@ public:
      * @brief
      */
     NFShmEventKey m_eventKey;
+
+    /**
+     * @brief
+     */
+    int m_shmObjId;
 DECLARE_IDCREATE(NFShmSubscribeInfo)
 };

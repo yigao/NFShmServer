@@ -66,6 +66,7 @@ public:
     * @return			取消订阅事件是否成功
     */
     int UnSubscribeAll(NFShmObj *pSink);
+    int UnSubscribeAll(int globalId);
 
     /**
     * @brief 发送事件,并执行收到事件的对象的对应函数

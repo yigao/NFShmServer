@@ -31,6 +31,7 @@ int NFShmSubscribeInfo::CreateInit()
     pSink = NULL;
     nRefCount = 0;
     bRemoveFlag = false;
+    m_shmObjId = INVALID_ID;
     return 0;
 }
 

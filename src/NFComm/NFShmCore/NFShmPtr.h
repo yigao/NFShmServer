@@ -139,7 +139,7 @@ public:
 	}
 	operator bool() const
 	{
-		return 0 != GetPoint();
+		return NULL != GetPoint();
 	}
 	operator const ObjType *() const
 	{
@@ -151,9 +151,9 @@ public:
 	}
 	void Reset()
 	{
-		if (0 != m_pObj)
+		if (NULL != m_pObj)
 		{
-			m_pObj = 0;
+			m_pObj = NULL;
 		}
 	}
 	void Reset(ObjType *pT)
@@ -170,7 +170,7 @@ public:
 	{
 		if (!m_pObj)
 		{
-			return 0;
+			return NULL;
 		}
 
 		if (m_pObj->m_iObjSeq == m_iObjSeq)
@@ -182,13 +182,13 @@ public:
             Reset();
 		}
 
-		return 0;
+		return NULL;
 	}
 	const ObjType *GetPoint() const
 	{
 		if (!m_pObj)
 		{
-			return 0;
+			return NULL;
 		}
 
 		if (m_pObj->m_iObjSeq == m_iObjSeq)
@@ -200,7 +200,7 @@ public:
             const_cast<NFShmPtr<ObjType>*>(this)->Reset();
 		}
 
-		return 0;
+        return NULL;
 	}
 	ObjType *m_pObj;
 	/*对象序列号，如果这个不相等说明指针无效了*/
