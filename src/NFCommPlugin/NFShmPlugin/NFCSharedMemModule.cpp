@@ -28,6 +28,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFShmEventMgr.h"
+#include "NFComm/NFShmCore/NFShmTempMgr.h"
 
 NFCSharedMemModule::NFCSharedMemModule(NFIPluginManager *p) : NFISharedMemModule(p)
 {
@@ -544,11 +545,16 @@ int NFCSharedMemModule::InitAllObjSeg()
             NFShmObjSeg *pObjSeg = NFShmObjSeg::CreateObject(m_pObjPluginManager);
             NFShmObjSegSwapCounter *pObjSegSwapCounter = &m_nObjSegSwapCounter[i];
             pObjSegSwapCounter->SetObjSeg(pObjSeg);
+            NFShmTempMgr::Instance()->m_pTempPluginManager = m_pObjPluginManager;
+            NFShmTempMgr::Instance()->m_iType = i;
             iRet = pObjSeg->SetAndInitObj(pObjSegSwapCounter->m_nObjSize,
                                           pObjSegSwapCounter->m_iItemCount,
                                           pObjSegSwapCounter->m_pFn, pObjSegSwapCounter->m_pidRuntimeClass.m_iUseHash,
                                           pObjSegSwapCounter->m_pidRuntimeClass.m_iIndexCount,
                                           pObjSegSwapCounter->m_pidRuntimeClass.m_iIndexTime);
+
+            NFShmTempMgr::Instance()->m_pTempPluginManager = NULL;
+            NFShmTempMgr::Instance()->m_iType = INVALID_ID;
 
             if (iRet)
             {
@@ -953,13 +959,16 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
         return NULL;
     }
 
+    NFShmTempMgr::Instance()->m_pTempPluginManager = m_pObjPluginManager;
+    NFShmTempMgr::Instance()->m_iType = iType;
     pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
+    NFShmTempMgr::Instance()->m_pTempPluginManager = NULL;
+    NFShmTempMgr::Instance()->m_iType = INVALID_ID;
     if (pObj)
     {
         int iID = pObj->GetGlobalID();
-        int ret = m_pGlobalID->SetTypeAndIndex(iType, pObj->GetObjectID(), pObj);
 
-        if (iID >= 0 && ret == 0)
+        if (iID >= 0)
         {
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);
@@ -1012,13 +1021,16 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
         return NULL;
     }
 
+    NFShmTempMgr::Instance()->m_pTempPluginManager = m_pObjPluginManager;
+    NFShmTempMgr::Instance()->m_iType = iType;
     pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
+    NFShmTempMgr::Instance()->m_pTempPluginManager = NULL;
+    NFShmTempMgr::Instance()->m_iType = INVALID_ID;
     if (pObj)
     {
         int iID = pObj->GetGlobalID();
-        int ret = m_pGlobalID->SetTypeAndIndex(iType, pObj->GetObjectID(), pObj);
 
-        if (iID >= 0 && ret == 0)
+        if (iID >= 0)
         {
 #ifdef NF_DEBUG_MODE
             pObj->SetTimerObjType(iType);

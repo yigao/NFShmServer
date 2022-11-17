@@ -14,7 +14,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmEventMgr, EOT_TYPE_EVENT_MGR, NFShmObj)
 
-NFShmEventMgr::NFShmEventMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
+NFShmEventMgr::NFShmEventMgr():NFShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

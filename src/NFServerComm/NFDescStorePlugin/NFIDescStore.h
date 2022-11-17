@@ -33,7 +33,7 @@
 class NFIDescStore : public NFShmObj
 {
 public:
-    NFIDescStore(NFIPluginManager *pPluginManager);
+    NFIDescStore();
 
     virtual ~NFIDescStore();
 

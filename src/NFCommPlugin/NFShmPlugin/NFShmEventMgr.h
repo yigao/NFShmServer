@@ -27,7 +27,7 @@
 class NFShmEventMgr : public NFShmObj
 {
 public:
-    NFShmEventMgr(NFIPluginManager *pPluginManager);
+    NFShmEventMgr();
 
     virtual ~NFShmEventMgr();
 

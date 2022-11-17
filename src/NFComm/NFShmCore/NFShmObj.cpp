@@ -13,19 +13,20 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
+#include "NFShmTempMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
-NFShmObj::NFShmObj(NFIPluginManager* pPluginManager):NFShmTimerObj(pPluginManager)
+NFShmObj::NFShmObj() : NFShmTimerObj(NFShmTempMgr::Instance()->m_pTempPluginManager)
 {
-	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
-	{
-		CreateInit();
-	}
-	else
-	{
-		ResumeInit();
-	}
+    if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
+    {
+        CreateInit();
+    }
+    else
+    {
+        ResumeInit();
+    }
 }
 
 
@@ -33,64 +34,74 @@ NFShmObj::~NFShmObj()
 {
     UnSubscribeAll();
 #if defined(MAKE_FOR_DB_CHECK_CGI)
-	return;
+    return;
 #endif
 
 #if defined(_DEBUG) | defined(_DEBUG_)
-	CheckMemMagicNum();
+    CheckMemMagicNum();
 
-	//m_iMagicCheckNum = 0;
-	if (m_iGlobalID != INVALID_ID)
-	{
-		//有globalid的对象删除没有使用CIDRuntimeClass::DestroyObj会发生这种问题，这是不允许的
-		NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
-		assert(pObj == NULL);
-	}
+    //m_iMagicCheckNum = 0;
+    if (m_iGlobalID != INVALID_ID)
+    {
+        //有globalid的对象删除没有使用CIDRuntimeClass::DestroyObj会发生这种问题，这是不允许的
+        NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
+        assert(pObj == NULL);
+    }
 
 #endif
-	m_iGlobalID = INVALID_ID;
-	m_iObjSeq = INVALID_ID;
+    m_iGlobalID = INVALID_ID;
+    m_iObjSeq = INVALID_ID;
+    m_iObjectID = INVALID_ID;
+    m_iHashID = INVALID_ID;
 }
 
 int NFShmObj::CreateInit()
 {
 #if defined(_DEBUG) | defined(_DEBUG_)
-	m_iMagicCheckNum = OBJECT_MAGIC_CHECK_NUMBER;
+    m_iMagicCheckNum = OBJECT_MAGIC_CHECK_NUMBER;
 #endif
 
     m_iObjectID = INVALID_ID;
     m_iGlobalID = INVALID_ID;
-    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(INVALID_ID, INVALID_ID, this);
+    if (m_iObjectID == INVALID_ID)
+    {
+        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(NFShmTempMgr::Instance()->m_iType, this);
+        NF_ASSERT(m_iObjectID != INVALID_ID);
+    }
+
+    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(NFShmTempMgr::Instance()->m_iType, m_iObjectID, this);
     if (iID >= 0)
     {
         m_iGlobalID = iID;
     }
 
     m_iHashID = INVALID_ID;
-	m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
+    m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
 
-	m_bIsInRecycle = false;
+    m_bIsInRecycle = false;
 
-	return 0;
+    return 0;
 }
 
 int NFShmObj::GetHashKey(void *pvKey, int &iKeyLength)
 {
-	return -1;
+    return -1;
 }
+
 int NFShmObj::SetHashKey(const void *pvKey, int iKeyLength)
 {
 
-	return -1;
+    return -1;
 }
+
 int NFShmObj::Show(FILE *fpOut)
 {
-	return -1;
+    return -1;
 }
 
 
 //发送执行事件
-int NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+int NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message)
 {
     int retCode = m_pObjPluginManager->FindModule<NFISharedMemModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
     if (retCode != 0)
@@ -103,7 +114,7 @@ int NFShmObj::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType
 }
 
 //订阅执行事件
-int NFShmObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
+int NFShmObj::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc)
 {
     return m_pObjPluginManager->FindModule<NFISharedMemModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
 }

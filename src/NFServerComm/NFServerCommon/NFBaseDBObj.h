@@ -40,7 +40,7 @@ public :\
 class NFBaseDBObj : public NFShmObj, public NFSeqOP
 {
 public:
-    NFBaseDBObj(NFIPluginManager* pPluginManager);
+    NFBaseDBObj();
     virtual ~NFBaseDBObj();
 
     //非继承函数, 不要加virtual

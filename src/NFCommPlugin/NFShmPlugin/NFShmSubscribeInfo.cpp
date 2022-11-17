@@ -14,7 +14,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NFShmObj)
 
-NFShmSubscribeInfo::NFShmSubscribeInfo(NFIPluginManager* pPluginManager): NFShmObj(pPluginManager)
+NFShmSubscribeInfo::NFShmSubscribeInfo(): NFShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

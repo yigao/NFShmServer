@@ -11,11 +11,12 @@
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFShmCore/NFShmTempMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)
 
 #if NF_DEBUG_MODE
-NFShmTimer::NFShmTimer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager),m_obj(pPluginManager) {
+NFShmTimer::NFShmTimer():NFShmObj(),m_obj(NFShmTempMgr::Instance()->m_pTempPluginManager) {
 #else
 NFShmTimer::NFShmTimer(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
 #endif

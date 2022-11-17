@@ -21,7 +21,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDescStoreTrans, EOT_RPC_TRANS_ID, NFTransBase)
 
-NFDescStoreTrans::NFDescStoreTrans(NFIPluginManager* pPluginManager):NFTransBase(pPluginManager) {
+NFDescStoreTrans::NFDescStoreTrans():NFTransBase() {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();
     } else {

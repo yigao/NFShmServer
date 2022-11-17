@@ -21,7 +21,7 @@ public:
         RPC_TYPE_NONE = 0,
     };
 
-    NFDescStoreTrans(NFIPluginManager* pPluginManager);
+    NFDescStoreTrans();
 
     virtual ~NFDescStoreTrans();
 

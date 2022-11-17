@@ -22,7 +22,7 @@ public:
         MonthLoopTimer,
     };
 
-    NFShmTimer(NFIPluginManager* pPluginManager);
+    NFShmTimer();
 
     virtual ~NFShmTimer();
 

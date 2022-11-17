@@ -17,7 +17,7 @@
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransMng, EOT_TRANS_MNG, NFShmObj)
 
 
-NFTransMng::NFTransMng(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
+NFTransMng::NFTransMng():NFShmObj() {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();
     } else {

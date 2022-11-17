@@ -17,7 +17,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, NFShmObj)
 
-NFDBObjMgr::NFDBObjMgr(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
+NFDBObjMgr::NFDBObjMgr():NFShmObj() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {

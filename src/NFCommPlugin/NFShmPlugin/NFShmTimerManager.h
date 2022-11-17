@@ -61,7 +61,7 @@ private:
 
 class NFShmTimerManager : public NFShmObj {
 public:
-    NFShmTimerManager(NFIPluginManager* pPluginManager);
+    NFShmTimerManager();
 
     ~NFShmTimerManager();
 

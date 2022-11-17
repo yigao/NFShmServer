@@ -8,8 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFShmMgr.h"
-#include "NFISharedMemModule.h"
-
 
 NFShmMgr::NFShmMgr()
 {

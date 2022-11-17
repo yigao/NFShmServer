@@ -3,10 +3,14 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
+/**
+ * @brief 不要调用CreateObject，ResumeObject, DestroyObject 创建对象，会崩溃， 走系统创建函数
+ */
+
 #define _DECLARE_PREALLOCATED_(class_name)\
     public:\
     static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton = false);  \
-    static void* operator new( size_t nSize,void *pBuffer) throw();                                                                                                                                                       \
+    static void* operator new( size_t nSize,void *pBuffer) throw();\
     static class_name* GetObjectByID(NFIPluginManager* pPluginManager, int iID);\
     static int GetNextObjectID(NFIPluginManager* pPluginManager, int iObjID);\
     static int GetNextObjectID(NFIPluginManager* pPluginManager, class_name *pObj);\
@@ -15,7 +19,7 @@
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedHead(NFIPluginManager* pPluginManager);\
     static int   GetFreeHead(NFIPluginManager* pPluginManager);\
-    static std::string GetClassName(NFIPluginManager* pPluginManager);                                                                                                                                                    \
+    static std::string GetClassName(NFIPluginManager* pPluginManager);\
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
     static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
@@ -118,13 +122,13 @@
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetClassName(pPluginManager), GetItemCount(pPluginManager), GetUsedCount(pPluginManager), GetFreeCount(pPluginManager)); \
             return NULL;\
 		}\
-        pTmp = new (pVoid) class_name(pPluginManager);\
+        pTmp = new (pVoid) class_name();\
 		return pTmp;\
 	}\
 	NFShmObj * class_name::ResumeObject(NFIPluginManager* pPluginManager, void * pVoid)\
 	{\
 		class_name *pTmp = NULL;\
-		pTmp = new (pVoid) class_name(pPluginManager);\
+		pTmp = new (pVoid) class_name();\
 		return pTmp;\
 	}\
 	void  class_name::DestroyObject(NFIPluginManager* pPluginManager, NFShmObj *pObj)\

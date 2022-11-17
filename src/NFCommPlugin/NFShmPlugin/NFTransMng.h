@@ -18,7 +18,7 @@ class NFTransBase;
 class NFTransMng : public NFShmObj, public NFTickByRunIndexOP
 {
 public:
-    NFTransMng(NFIPluginManager* pPluginManager);
+    NFTransMng();
     virtual ~NFTransMng();
 
     int CreateInit();

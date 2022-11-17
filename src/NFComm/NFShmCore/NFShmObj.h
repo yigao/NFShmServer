@@ -16,7 +16,7 @@
 class NFShmObj : public NFShmTimerObj
 {
 public:
-    NFShmObj(NFIPluginManager *pPluginManager);
+    NFShmObj();
 
     virtual ~NFShmObj();
 

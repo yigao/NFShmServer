@@ -11,7 +11,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFIDescStoreModule.h"
 
-NFIDescStore::NFIDescStore(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager)
+NFIDescStore::NFIDescStore():NFShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();

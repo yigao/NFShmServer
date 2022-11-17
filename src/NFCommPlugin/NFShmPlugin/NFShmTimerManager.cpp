@@ -220,7 +220,7 @@ bool Slot::DeleteTimer(NFShmTimerManager* pTimerManager, NFShmTimer *timer, STim
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimerManager, EOT_TYPE_TIMER_MNG, NFShmObj)
 
-NFShmTimerManager::NFShmTimerManager(NFIPluginManager* pPluginManager):NFShmObj(pPluginManager) {
+NFShmTimerManager::NFShmTimerManager():NFShmObj() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {
@@ -801,7 +801,7 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
         interval = SLOT_TICK_TIME;
     }
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;

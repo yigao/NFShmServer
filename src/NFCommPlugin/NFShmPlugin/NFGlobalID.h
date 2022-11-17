@@ -25,7 +25,7 @@ typedef struct tagIDIndex
 class NFGlobalID :public NFShmObj
 {
 public:
-	NFGlobalID(NFIPluginManager* pPluginManager);
+	NFGlobalID();
 	virtual ~NFGlobalID();
 
 	int CreateInit();

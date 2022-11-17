@@ -72,7 +72,7 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\nclass " + excel_name.capitalize() + sheet_name.capitalize() + "Desc : public NFIDescStore\n");
 	desc_file.write("{\n")
 	desc_file.write("public:\n")
-	desc_file.write("\t" + excel_name.capitalize() + sheet_name.capitalize() + "Desc(NFIPluginManager* pPluginManager);\n")
+	desc_file.write("\t" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
 	desc_file.write("\tvirtual ~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
 	desc_file.write("\tint CreateInit();\n")
 	desc_file.write("\tint ResumeInit();\n")
@@ -97,7 +97,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("#include \"NFComm/NFPluginModule/NFCheck.h\"\n\n");
 	desc_file.write("IMPLEMENT_IDCREATE_WITHTYPE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc, EOT_CONST_" + excel_name.upper() + "_" + sheet_name.upper() + "_DESC_ID, NFShmObj)\n\n")
 #//////////////////////////////////////////////////////////////
-	desc_file.write(excel_name.capitalize() + sheet_name.capitalize() + "Desc::" + excel_name.capitalize() + sheet_name.capitalize() + "Desc(NFIPluginManager* pPluginManager):NFIDescStore(pPluginManager)\n")
+	desc_file.write(excel_name.capitalize() + sheet_name.capitalize() + "Desc::" + excel_name.capitalize() + sheet_name.capitalize() + "Desc():NFIDescStore()\n")
 	desc_file.write("{\n");
 	desc_file.write("\tif (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {\n");
 	desc_file.write("\t\tCreateInit();\n");

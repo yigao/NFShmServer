@@ -33,7 +33,7 @@ enum {
 class NFShmSubscribeInfo : public NFShmObj, public NFMultiListNodeObjWithGlobalID<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NF_SHM_SUBSCRIBEINFO_MAX_INDEX_NUM>
 {
 public:
-    NFShmSubscribeInfo(NFIPluginManager* pPluginManager);
+    NFShmSubscribeInfo();
 
     int CreateInit();
 
