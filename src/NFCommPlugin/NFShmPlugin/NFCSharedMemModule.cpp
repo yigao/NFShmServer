@@ -1458,6 +1458,11 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     return;
 }
 
+int NFCSharedMemModule::DeleteAllTimer(NFShmObj *pObj)
+{
+    return NFShmTimerManager::Instance(m_pObjPluginManager)->ClearAllTimer(pObj);
+}
+
 int NFCSharedMemModule::DeleteTimer(NFShmObj *pObj, int timeObjId)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);

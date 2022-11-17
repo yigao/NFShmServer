@@ -11,12 +11,15 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFShmTimerSlot.h"
+#include "NFComm/NFShmCore/NFShmNodeList.h"
 
-#define NFSHM_INFINITY_CALL				0xffffffff	// 调用无限次
+#define NFSHM_INFINITY_CALL                0xffffffff    // 调用无限次
 
-class NFShmTimer : public NFShmObj {
+class NFShmTimer : public NFShmObj, public NFListNodeObjWithGlobalID<NFShmTimer, EOT_TYPE_TIMER_OBJ>
+{
 public:
-    enum NFShmTimerType {
+    enum NFShmTimerType
+    {
         LoopTimer,
         OnceTimer,
         MonthLoopTimer,
@@ -30,17 +33,24 @@ public:
 
     int ResumeInit();
 
-	NFShmObj* GetTimerShmObj()
+    NFShmObj *GetTimerShmObj()
     {
         return m_shmObj.GetPoint();
     }
 
-    void SetTimerShmObj(NFShmObj* pObj) {
+    int GetTimerShmObjId()
+    {
+        return m_shmObjId;
+    }
+
+    void SetTimerShmObj(NFShmObj *pObj)
+    {
         m_shmObj = pObj;
         m_shmObjId = pObj->GetGlobalID();
     }
 
-    void PrintfDebug() {
+    void PrintfDebug()
+    {
 //	 cout << "ID:" << m_iGlobalID << " Type:" << m_type << " begin:" << m_beginTime << " next:" << m_nextRun << " interval:" << m_interval << " round:" << m_round <<endl;
         /*LOGSVR_DEBUG("print ID:" << GetObjectID() << " Type:" << m_type << " begin:" << m_beginTime << " next:" << m_nextRun << " interval:" <<
     		m_interval << " round:" << m_round<<" slotindex:"<<m_slotIndex); */
@@ -93,6 +103,7 @@ public:
     void SetSlotIndex(int index) { m_slotIndex = index; }
 
     void SetListIndex(int index) { m_listIndex = index; }
+
 private:
 
     void DeleteFunc();
@@ -113,5 +124,5 @@ private:
     bool m_waitDel;            // 等待删除标记
     int m_listIndex;        // 绑定的list的序号，当为-1时，代表已经脱离绑定
 
-    DECLARE_IDCREATE(NFShmTimer)
+DECLARE_IDCREATE(NFShmTimer)
 };

@@ -10,6 +10,8 @@
 #pragma once
 
 #include "NFShmTimer.h"
+#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmNodeList.h"
 #include <list>
 
 #define SLOT_COUNT 600
@@ -72,9 +74,9 @@ public:
     void OnTick(int64_t tick);
 
     // 删除此定时器
-    int Delete(int global_id);
+    int Delete(int objectId);
 
-    NFShmTimer *GetTimer(int global_id);
+    NFShmTimer *GetTimer(int objectId);
 
     void ReleaseTimerIDData(int index);
 
@@ -109,7 +111,10 @@ public:
 
     //注册某一个时间点月循环执行定时器（ day  hour  minutes  second 为一月中某一天开始执行的时间点）
     int SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second);
-
+public:
+    int AddShmObjTimer(NFShmObj* pObj, NFShmTimer* pTimer);
+    int ClearShmObjTimer(NFShmTimer* pTimer);
+    int ClearAllTimer(NFShmObj* pObj);
 private:
     bool AttachTimer(NFShmTimer *timer, int64_t tick, bool isNewTimer);
 
@@ -142,5 +147,6 @@ private:
     int m_iFreeIndex;
     uint32_t m_timerSeq;                    // 每次tick的seq,只有当前m_currSlot已经遍历完了，才会++
 
+    NFShmHashMap<int, NFShmNodeObjList<NFShmTimer>, ALL_TIMER_COUNT> m_shmObjTimer;
 DECLARE_IDCREATE(NFShmTimerManager)
 };

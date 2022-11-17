@@ -141,6 +141,8 @@ public:
     //delete objid
     virtual int DeleteTimer(NFShmObj *pObj, int timeObjId);
 
+    virtual int DeleteAllTimer(NFShmObj *pObj);
+
     //注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
     virtual int SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec);
 

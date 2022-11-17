@@ -171,6 +171,11 @@ public:
         return m_iTailNode;
     }
 
+    int GetLastCheckID() const
+    {
+        return m_iListCheckID;
+    }
+
     NodeObjType *GetHeadNodeObj(NFIPluginManager *pPluginManager)
     {
         if (m_iHeadNode != INVALID_ID)
@@ -444,6 +449,11 @@ public:
     int GetTailNodeID() const
     {
         return m_iTailNode;
+    }
+
+    int GetLastCheckID() const
+    {
+        return m_iListCheckID;
     }
 
     NodeObjType *GetHeadNodeObj(NFIPluginManager *pPluginManager, int typeIndex)

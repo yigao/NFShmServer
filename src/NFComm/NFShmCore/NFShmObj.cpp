@@ -33,6 +33,8 @@ NFShmObj::NFShmObj() : NFObject(NFShmTempMgr::Instance()->m_pTempPluginManager)
 NFShmObj::~NFShmObj()
 {
     UnSubscribeAll();
+    DeleteAllTimer();
+
 #if defined(MAKE_FOR_DB_CHECK_CGI)
     return;
 #endif
@@ -131,6 +133,10 @@ int NFShmObj::UnSubscribeAll()
     return m_pObjPluginManager->FindModule<NFISharedMemModule>()->UnSubscribeAll(this);
 }
 
+int NFShmObj::DeleteAllTimer()
+{
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->DeleteAllTimer(this);
+}
 
 int NFShmObj::DeleteTimer(int timeObjId)
 {
