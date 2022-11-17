@@ -16,7 +16,11 @@ class NFShmObj;
 class NFISharedMemModule;
 class NFTransBase;
 class NFShmObj;
+class NFIPluginManager;
 
+/**
+ * @brief 由于C++类的构造函数，析构函数调用虚函数的问题，又不想NFShmObj类的构造函数含有太多的参数，所以用这个类来传一些临时的参数
+ */
 class NFShmMgr : public NFSingleton<NFShmMgr>
 {
 public:
@@ -45,5 +49,8 @@ public:
     * 相对于上次共享内存地址recover之后的偏移量,用来恢复指针对象
     */
     size_t  m_siAddrOffset;
+public:
+    NFIPluginManager* m_pTempPluginManager;
+    int m_iType;
 };
 

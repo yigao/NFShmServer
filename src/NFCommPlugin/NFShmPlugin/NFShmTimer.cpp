@@ -11,7 +11,6 @@
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFShmCore/NFShmTempMgr.h"
 #include "NFShmTimerManager.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)

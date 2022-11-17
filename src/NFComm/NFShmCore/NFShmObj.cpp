@@ -17,7 +17,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
-NFShmObj::NFShmObj() : NFObject(NFShmTempMgr::Instance()->m_pTempPluginManager)
+NFShmObj::NFShmObj() : NFObject(NFShmMgr::Instance()->m_pTempPluginManager)
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
     {
@@ -64,7 +64,7 @@ int NFShmObj::CreateInit()
 
     m_iObjectID = INVALID_ID;
     m_iGlobalID = INVALID_ID;
-    m_iObjType = NFShmTempMgr::Instance()->m_iType;
+    m_iObjType = NFShmMgr::Instance()->m_iType;
     if (m_iObjectID == INVALID_ID)
     {
         m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(m_iObjType, this);

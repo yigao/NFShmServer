@@ -14,7 +14,6 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFShmTempMgr.h"
 
 NFGlobalID::NFGlobalID() : NFShmObj(), m_iThisRoundCountMax(0), m_iThisRoundCount(0),
                                                            m_iGlobalIDAppendNum(0)
@@ -224,11 +223,11 @@ NFShmObj *NFGlobalID::CreateObject(NFIPluginManager *pPluginManager)
         return NULL;
     }
 
-    NFShmTempMgr::Instance()->m_pTempPluginManager = pPluginManager;
-    NFShmTempMgr::Instance()->m_iType = EOT_GLOBAL_ID;
+    NFShmMgr::Instance()->m_pTempPluginManager = pPluginManager;
+    NFShmMgr::Instance()->m_iType = EOT_GLOBAL_ID;
     pTmp = new(pVoid) NFGlobalID();
-    NFShmTempMgr::Instance()->m_pTempPluginManager = NULL;
-    NFShmTempMgr::Instance()->m_iType = INVALID_ID;
+    NFShmMgr::Instance()->m_pTempPluginManager = NULL;
+    NFShmMgr::Instance()->m_iType = INVALID_ID;
     return pTmp;
 }
 
