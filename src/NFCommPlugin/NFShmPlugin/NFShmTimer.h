@@ -30,13 +30,14 @@ public:
 
     int ResumeInit();
 
-	NFShmTimerObj* GetTimerShmObj()
+	NFShmObj* GetTimerShmObj()
     {
-        return m_obj.m_pObjPtr.GetPoint();
+        return m_shmObj.GetPoint();
     }
 
-    void SetTimerShmObj(NFShmTimerObj* pObj) {
-        m_obj.SetParam(pObj);
+    void SetTimerShmObj(NFShmObj* pObj) {
+        m_shmObj = pObj;
+        m_shmObjId = pObj->GetGlobalID();
     }
 
     void PrintfDebug() {
@@ -44,6 +45,8 @@ public:
         /*LOGSVR_DEBUG("print ID:" << GetObjectID() << " Type:" << m_type << " begin:" << m_beginTime << " next:" << m_nextRun << " interval:" <<
     		m_interval << " round:" << m_round<<" slotindex:"<<m_slotIndex); */
     }
+
+    NFTimerRetType HandleTimer(int timeId, int callcount);
 
     bool IsTimeOut(int64_t tick);
 
@@ -95,7 +98,8 @@ private:
     void DeleteFunc();
 
 private:
-    NFShmTimerSlot m_obj;
+    NFShmPtr<NFShmObj> m_shmObj;
+    int m_shmObjId;
     NFShmTimerType m_type;
 
     int64_t m_beginTime;        // 开始的时间

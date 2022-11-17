@@ -696,8 +696,8 @@ bool NFShmTimerManager::SetMonthTime(NFShmTimer *stime, int day, int hour, int m
 }
 
 int
-NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+NFShmTimerManager::SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec) {
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         //S_STATIC_MANAGER->AddTimerMngStat(strErr.c_str(), EN_TIMER_STATISTIC_COUNT_CREATE);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
@@ -715,22 +715,13 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int seco
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp) {
+int NFShmTimerManager::SetCalender(NFShmObj *pObj, uint64_t timestamp) {
     CHECK_EXPR(timestamp > (uint64_t) NFTime::Now().UnixSec(), INVALID_ID, "Create timer timestamp err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -747,25 +738,16 @@ int NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp) {
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
 int
-NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int second) {
+NFShmTimerManager::SetCalender(NFShmObj *pObj, int hour, int minutes, int second) {
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -782,20 +764,11 @@ NFShmTimerManager::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int s
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
 int
-NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec
+NFShmTimerManager::SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec
 ) {
     if (interval < SLOT_TICK_TIME) {
         interval = SLOT_TICK_TIME;
@@ -822,21 +795,12 @@ NFShmTimerManager::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, in
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec
+int NFShmTimerManager::SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec
 ) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -857,24 +821,15 @@ int NFShmTimerManager::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, 
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second) {
+int NFShmTimerManager::SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second) {
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -895,20 +850,11 @@ int NFShmTimerManager::SetDayCalender(NFShmTimerObj *pObj, int callcount, int ho
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+int NFShmTimerManager::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -928,25 +874,16 @@ int NFShmTimerManager::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour,
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int weekDay, int hour, int minutes, int second) {
+int NFShmTimerManager::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second) {
     CHECK_EXPR(weekDay >= 1 && weekDay <= 7, INVALID_ID, "Create timer week day err");
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -967,20 +904,11 @@ int NFShmTimerManager::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int w
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+int NFShmTimerManager::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec) {
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -1000,25 +928,16 @@ int NFShmTimerManager::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour
         return INVALID_ID;
     }
 
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
-    }
-
     return newTimer->GetObjectID();
 }
 
-int NFShmTimerManager::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int day, int hour, int minutes, int second) {
+int NFShmTimerManager::SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second) {
     CHECK_EXPR(day >= 1 && day <= 31, INVALID_ID, "Create timer month day err");
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
     CHECK_EXPR(second >= 0 && second <= 59, INVALID_ID, "Create timer second err");
 
-    NFShmTimer *newTimer = (NFShmTimer *) NFShmTimer::CreateObject(m_pObjPluginManager);
+    NFShmTimer *newTimer = (NFShmTimer *)FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Create timer Obj Failed");
         return INVALID_ID;
@@ -1037,15 +956,6 @@ int NFShmTimerManager::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int 
         NFShmTimer::DestroyObject(m_pObjPluginManager, newTimer);
 
         return INVALID_ID;
-    }
-
-    if (!pObj->AddTimerId(newTimer->GetObjectID()))
-    {
-#ifdef NF_DEBUG_MODE
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count! shmobj type:{} index:{}", newTimer->GetObjectID(), pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the timer obj:{} hash too much timer than max count!", newTimer->GetObjectID());
-#endif
     }
 
     return newTimer->GetObjectID();

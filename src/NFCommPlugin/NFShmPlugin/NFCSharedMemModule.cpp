@@ -24,7 +24,6 @@
 #include "NFTransMng.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFServerComm/NFDescStorePlugin/NFIDescStoreModule.h"
-#include "NFComm/NFShmCore/NFShmTimerObj.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFShmEventMgr.h"
@@ -971,8 +970,6 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
         if (iID >= 0)
         {
 #ifdef NF_DEBUG_MODE
-            pObj->SetTimerObjType(iType);
-            pObj->SetTimerObjIndex(pObj->GetObjectID());
             pObj->PrintMyself();
 #endif
             if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
@@ -1033,8 +1030,6 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
         if (iID >= 0)
         {
 #ifdef NF_DEBUG_MODE
-            pObj->SetTimerObjType(iType);
-            pObj->SetTimerObjIndex(pObj->GetObjectID());
             pObj->PrintMyself();
 #endif
         }
@@ -1463,7 +1458,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     return;
 }
 
-int NFCSharedMemModule::DeleteTimer(NFShmTimerObj *pObj, int timeObjId)
+int NFCSharedMemModule::DeleteTimer(NFShmObj *pObj, int timeObjId)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1473,15 +1468,6 @@ int NFCSharedMemModule::DeleteTimer(NFShmTimerObj *pObj, int timeObjId)
         {
             if (pShmTimer->GetTimerShmObj() == pObj)
             {
-                if (!pObj->DeleteTimerId(timeObjId))
-                {
-#ifdef NF_DEBUG_MODE
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "timeId:{} is not the pObj:{} 's timer...objType:{} objIndex:{}...........", timeObjId,
-                               (void *) pObj, pObj->GetTimerObjType(), pObj->GetTimerObjIndex());
-#else
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "timeId:{} is not the pObj:{} 's timer", timeObjId, (void*)pObj);
-#endif
-                }
                 return pManager->Delete(timeObjId);
             }
             else
@@ -1497,7 +1483,7 @@ int NFCSharedMemModule::DeleteTimer(NFShmTimerObj *pObj, int timeObjId)
 }
 
 //注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
-int NFCSharedMemModule::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int second, int microSec)
+int NFCSharedMemModule::SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1508,7 +1494,7 @@ int NFCSharedMemModule::SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int
 }
 
 //注册某一个时间点执行一次的定时器(hour  minutes  second为第一次执行的时间点时分秒, 只执行一次)
-int NFCSharedMemModule::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int second)
+int NFCSharedMemModule::SetCalender(NFShmObj *pObj, int hour, int minutes, int second)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1519,7 +1505,7 @@ int NFCSharedMemModule::SetCalender(NFShmTimerObj *pObj, int hour, int minutes, 
 }
 
 //注册某一个时间点执行一次的定时器(timestamp为第一次执行的时间点的时间戳,单位是秒, 只执行一次)
-int NFCSharedMemModule::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp)
+int NFCSharedMemModule::SetCalender(NFShmObj *pObj, uint64_t timestamp)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1530,7 +1516,7 @@ int NFCSharedMemModule::SetCalender(NFShmTimerObj *pObj, uint64_t timestamp)
 }
 
 //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,  interval 为循环间隔时间，为毫秒）
-int NFCSharedMemModule::SetTimer(NFShmTimerObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec)
+int NFCSharedMemModule::SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1541,7 +1527,7 @@ int NFCSharedMemModule::SetTimer(NFShmTimerObj *pObj, int interval, int callcoun
 }
 
 //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-int NFCSharedMemModule::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFCSharedMemModule::SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1552,7 +1538,7 @@ int NFCSharedMemModule::SetDayTime(NFShmTimerObj *pObj, int callcount, int hour,
 }
 
 //注册某一个时间点日循环执行定时器（hour  minutes  second为一天中开始执行的时间点，    23：23：23     每天23点23分23秒执行）
-int NFCSharedMemModule::SetDayCalender(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second)
+int NFCSharedMemModule::SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1563,7 +1549,7 @@ int NFCSharedMemModule::SetDayCalender(NFShmTimerObj *pObj, int callcount, int h
 }
 
 //周循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-int NFCSharedMemModule::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFCSharedMemModule::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1574,7 +1560,7 @@ int NFCSharedMemModule::SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour
 }
 
 //注册某一个时间点周循环执行定时器（ weekDay  hour  minutes  second 为一周中某一天开始执行的时间点）
-int NFCSharedMemModule::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int weekDay, int hour, int minutes, int second)
+int NFCSharedMemModule::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1585,7 +1571,7 @@ int NFCSharedMemModule::SetWeekCalender(NFShmTimerObj *pObj, int callcount, int 
 }
 
 //月循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,最好是同一天）
-int NFCSharedMemModule::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFCSharedMemModule::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)
@@ -1596,7 +1582,7 @@ int NFCSharedMemModule::SetMonthTime(NFShmTimerObj *pObj, int callcount, int hou
 }
 
 //注册某一个时间点月循环执行定时器（ day  hour  minutes  second 为一月中某一天开始执行的时间点）
-int NFCSharedMemModule::SetMonthCalender(NFShmTimerObj *pObj, int callcount, int day, int hour, int minutes, int second)
+int NFCSharedMemModule::SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second)
 {
     NFShmTimerManager *pManager = (NFShmTimerManager *) GetHeadObj(EOT_TYPE_TIMER_MNG);
     if (pManager)

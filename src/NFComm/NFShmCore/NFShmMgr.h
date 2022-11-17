@@ -15,7 +15,7 @@
 class NFShmObj;
 class NFISharedMemModule;
 class NFTransBase;
-class NFShmTimerObj;
+class NFShmObj;
 
 class NFShmMgr : public NFSingleton<NFShmMgr>
 {

@@ -51,15 +51,11 @@ NFShmTimerSlot(NFIPluginManager* pPluginManager):pDebugPluginManager(pPluginMana
         return 0;
     }
 
-    void SetParam(NFShmTimerObj* pObj)
+    void SetParam(NFShmObj* pObj)
     {
         if (pObj)
         {
             m_pObjPtr = pObj;
-#if NF_DEBUG_MODE
-            m_iType = pObj->GetTimerObjType();
-            m_iIndex = pObj->GetTimerObjIndex();
-#endif
         }
     }
 
@@ -85,7 +81,7 @@ NFShmTimerSlot(NFIPluginManager* pPluginManager):pDebugPluginManager(pPluginMana
         m_pObjPtr = NULL;
     }
 
-    NFRawShmPtr<NFShmTimerObj> m_pObjPtr;
+    NFRawShmPtr<NFShmObj> m_pObjPtr;
 #if defined(_DEBUG) | defined(_DEBUG_)
     uint32_t m_iType;
     uint32_t m_iIndex;

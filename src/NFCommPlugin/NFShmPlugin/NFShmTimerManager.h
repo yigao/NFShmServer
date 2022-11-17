@@ -79,36 +79,36 @@ public:
     void ReleaseTimerIDData(int index);
 
     //注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
-    int SetTimer(NFShmTimerObj *pObj, int hour, int minutes, int second, int microSec);
+    int SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec);
 
     //注册某一个时间点执行一次的定时器(hour  minutes  second为第一次执行的时间点时分秒, 只执行一次)
-    int SetCalender(NFShmTimerObj *pObj, int hour, int minutes, int second);
+    int SetCalender(NFShmObj *pObj, int hour, int minutes, int second);
 
     //注册某一个时间点执行一次的定时器(timestamp为第一次执行的时间点的时间戳,单位是秒, 只执行一次)
-    int SetCalender(NFShmTimerObj *pObj, uint64_t timestamp);
+    int SetCalender(NFShmObj *pObj, uint64_t timestamp);
 
     //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,  interval 为循环间隔时间，为毫秒）
-    int SetTimer(NFShmTimerObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec);
+    int SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec);
 
     //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-    int SetDayTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
+    int SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
 
     //注册某一个时间点日循环执行定时器（hour  minutes  second为一天中开始执行的时间点，    23：23：23     每天23点23分23秒执行）
     int
-    SetDayCalender(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second);
+    SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second);
 
     //周循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-    int SetWeekTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
+    int SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
 
     //注册某一个时间点周循环执行定时器（ weekDay  hour  minutes  second 为一周中某一天开始执行的时间点）
     int
-    SetWeekCalender(NFShmTimerObj *pObj, int callcount, int weekDay, int hour, int minutes, int second);
+    SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second);
 
     //月循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,最好是同一天）
-    int SetMonthTime(NFShmTimerObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
+    int SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec);
 
     //注册某一个时间点月循环执行定时器（ day  hour  minutes  second 为一月中某一天开始执行的时间点）
-    int SetMonthCalender(NFShmTimerObj *pObj, int callcount, int day, int hour, int minutes, int second);
+    int SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second);
 
 private:
     bool AttachTimer(NFShmTimer *timer, int64_t tick, bool isNewTimer);
