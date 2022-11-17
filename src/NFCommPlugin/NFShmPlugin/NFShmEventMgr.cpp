@@ -144,7 +144,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
     auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while(pNode)
     {
-        CHECK_EXPR_ASSERT(pNode->pSink->GetGlobalID() == pSink->GetGlobalID(), -1, "");
+        CHECK_EXPR_ASSERT(pNode->m_shmObjId == pSink->GetGlobalID(), -1, "");
         if (pNode->m_eventKey == skey)
         {
             auto pLastNode = pNode;
