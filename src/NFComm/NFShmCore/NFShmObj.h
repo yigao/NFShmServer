@@ -201,6 +201,7 @@ public:
     int m_iObjectID;
     int m_iObjSeq;
     int m_iHashID;
+    int m_iObjType;
 
     bool m_bIsInRecycle;
 

@@ -819,7 +819,7 @@ bool NFShmTimerManager::SetMonthTime(NFShmTimer *stime, int day, int hour, int m
     return true;
 }
 
-int NFShmTimerManager::ClearShmObjTimer(NFShmTimer* pTimer)
+int NFShmTimerManager::ClearShmObjTimer(NFShmTimer *pTimer)
 {
     CHECK_NULL(pTimer);
 
@@ -839,7 +839,7 @@ int NFShmTimerManager::ClearShmObjTimer(NFShmTimer* pTimer)
     return 0;
 }
 
-int NFShmTimerManager::ClearAllTimer(NFShmObj* pObj)
+int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj)
 {
     CHECK_NULL(pObj);
 
@@ -847,13 +847,14 @@ int NFShmTimerManager::ClearAllTimer(NFShmObj* pObj)
     if (pNodeList)
     {
         auto pNode = pNodeList->GetHeadNodeObj(m_pObjPluginManager);
-        while(pNode)
+        while (pNode)
         {
             auto pLastNode = pNode;
             pNode = pNodeList->GetNextNodeObj(m_pObjPluginManager, pNode);
+            pLastNode->SetWaitDelete();
             pNodeList->RemoveNode(m_pObjPluginManager, pLastNode);
-            Delete(pLastNode->GetObjectID());
         }
+
         m_shmObjTimer.Erase(pObj->GetGlobalID());
     }
     return 0;

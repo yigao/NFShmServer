@@ -32,14 +32,13 @@ NFShmObj::NFShmObj() : NFObject(NFShmTempMgr::Instance()->m_pTempPluginManager)
 
 NFShmObj::~NFShmObj()
 {
-    UnSubscribeAll();
-    DeleteAllTimer();
+    if (m_iObjType > EOT_TYPE_EVENT_MGR)
+    {
+        UnSubscribeAll();
+        DeleteAllTimer();
+    }
 
-#if defined(MAKE_FOR_DB_CHECK_CGI)
-    return;
-#endif
-
-#if defined(_DEBUG) | defined(_DEBUG_)
+#ifdef NF_DEBUG_MODE
     CheckMemMagicNum();
 
     //m_iMagicCheckNum = 0;
@@ -49,29 +48,30 @@ NFShmObj::~NFShmObj()
         NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
         assert(pObj == NULL);
     }
-
 #endif
     m_iGlobalID = INVALID_ID;
     m_iObjSeq = INVALID_ID;
     m_iObjectID = INVALID_ID;
     m_iHashID = INVALID_ID;
+    m_iObjType = INVALID_ID;
 }
 
 int NFShmObj::CreateInit()
 {
-#if defined(_DEBUG) | defined(_DEBUG_)
+#if NF_DEBUG_MODE
     m_iMagicCheckNum = OBJECT_MAGIC_CHECK_NUMBER;
 #endif
 
     m_iObjectID = INVALID_ID;
     m_iGlobalID = INVALID_ID;
+    m_iObjType = NFShmTempMgr::Instance()->m_iType;
     if (m_iObjectID == INVALID_ID)
     {
-        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(NFShmTempMgr::Instance()->m_iType, this);
+        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(m_iObjType, this);
         NF_ASSERT(m_iObjectID != INVALID_ID);
     }
 
-    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(NFShmTempMgr::Instance()->m_iType, m_iObjectID, this);
+    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(m_iObjType, m_iObjectID, this);
     if (iID >= 0)
     {
         m_iGlobalID = iID;

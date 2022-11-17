@@ -133,7 +133,7 @@ bool NFIPlugin::Execute()
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "{} Execute failed!", pModule->m_strName);
             }
             uint64_t useTime = m_pObjPluginManager->EndProfiler();
-            if (useTime >= 30000) //>= 10ºÁÃë
+            if (useTime >= 30000) //>= 10æ¯«ç§’
             {
                 if (!m_pObjPluginManager->IsLoadAllServer())
                 {
