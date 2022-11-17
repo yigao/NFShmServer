@@ -67,7 +67,7 @@ public:
     /**
     *@brief 描述信息
     */
-    NFSizeString<16> szDesc;
+    NFSizeString<32> szDesc;
 
     /**
      * @brief

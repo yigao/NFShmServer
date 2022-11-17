@@ -57,7 +57,7 @@ int NFShmEventMgr::ResumeInit()
 int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc)
 {
     if (nullptr == pSink) return -1;
-    CHECK_EXPR_ASSERT(pSink->GetGlobalID() != INVALID_ID, -1, "NFShmObj GetGlobalID == INVALID_ID, I thinak you use Subscribe in CreateInit, desc:{}", desc);
+    CHECK_EXPR_ASSERT(pSink->GetGlobalID() != INVALID_ID, -1, "NFShmObj GetGlobalID == INVALID_ID, desc:{}", desc);
 
     NFShmEventKey skey;
     skey.nEventID = nEventID;
@@ -303,10 +303,9 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                         errVec.push_back(pNode->m_shmObjId);
 
                         NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                   "[Event] ppNode->pSink = NULL....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
+                                   "[Event] pNode->pSink = NULL....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
                                    nEventID, nSrcID, bySrcType, pNode->nRefCount,
                                    static_cast<int32_t>(pNode->bRemoveFlag), pNode->szDesc.ToString());
-                        pNode->bRemoveFlag = true;
                     }
                     pNode->Sub();
                 }
