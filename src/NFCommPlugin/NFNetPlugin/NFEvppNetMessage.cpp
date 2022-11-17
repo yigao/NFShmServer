@@ -991,7 +991,7 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
     return false;
 }
 
-void NFEvppNetMessage::OnTimer(uint32_t nTimerID)
+int NFEvppNetMessage::OnTimer(uint32_t nTimerID)
 {
 	if (nTimerID == ENUM_EVPP_CLIENT_TIMER_HEART)
 	{
@@ -1001,6 +1001,7 @@ void NFEvppNetMessage::OnTimer(uint32_t nTimerID)
 	{
 		CheckServerHeartBeat();
 	}
+    return 0;
 }
 
 void  NFEvppNetMessage::SendHeartMsg()

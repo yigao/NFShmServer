@@ -121,7 +121,7 @@ int NFWorkServerModule::BindServer()
     }
 
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
-                                                                      PACKET_PARSE_TYPE_INTERNAL);
+                                                                       PACKET_PARSE_TYPE_INTERNAL);
     CHECK_EXPR_ASSERT(serverLinkId > 0, -1, "Server:{} Listen Failed, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId,
                       pConfig->ServerIp, pConfig->ServerPort);
 
@@ -154,7 +154,8 @@ int NFWorkServerModule::BindServer()
                         auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(m_serverType);
                         pRouteServer->mUnlinkId = pServerData->mUnlinkId;
                         pRouteServer->mServerInfo = pServerData->mServerInfo;
-                    } else if (pServerData->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER)
+                    }
+                    else if (pServerData->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER)
                     {
                         FindModule<NFIMessageModule>()->AddEventCallBack(m_serverType, pServerData->mUnlinkId, this,
                                                                          &NFWorkServerModule::OnProxyAgentServerSocketEvent);
@@ -173,14 +174,15 @@ int NFWorkServerModule::BindServer()
     return 0;
 }
 
-int NFWorkServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
+int NFWorkServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message *pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
             SetTimer(SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
-        } else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
+        }
+        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
@@ -189,17 +191,19 @@ int NFWorkServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t b
     return 0;
 }
 
-void NFWorkServerModule::OnTimer(uint32_t nTimerID)
+int NFWorkServerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
     {
         ServerReportToMasterServer();
-    } else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
+    }
+    else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
         exit(0);
     }
+    return 0;
 }
 
 int NFWorkServerModule::ConnectMasterServer()
@@ -253,7 +257,8 @@ int NFWorkServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     if (nEvent == eMsgType_CONNECTED)
     {
 
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         OnHandleServerDisconnect(unLinkId);
     }
@@ -341,7 +346,8 @@ int NFWorkServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
-        } else
+        }
+        else
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
@@ -351,7 +357,8 @@ int NFWorkServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         {
             m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
         }
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect master success", pConfig->ServerName);
     }
@@ -466,7 +473,8 @@ int NFWorkServerModule::OnHandleProxyAgentServerReport(const proto_ff::ServerInf
                                                          &NFWorkServerModule::OnProxyAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pServerData->mUnlinkId, this,
                                                          &NFWorkServerModule::OnHandleProxyAgentServerOtherMessage);
-    } else
+    }
+    else
     {
         if (pServerData->mUnlinkId > 0 && pServerData->mServerInfo.url() != xData.url())
         {
@@ -504,7 +512,8 @@ int NFWorkServerModule::OnHandleProxyAgentServerReport(const proto_ff::ServerInf
 
                                                         OnHandleProxyAgentServerReport(xData);
                                                     });
-    } else
+    }
+    else
     {
         FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_PROXY_AGENT_SERVER,
                                                     [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
@@ -535,7 +544,8 @@ int NFWorkServerModule::OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t 
     {
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect proxy agent server success!", pConfig->ServerName);
         RegisterProxyAgentServer(unLinkId);
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect proxy agent server", pConfig->ServerName);
     }
@@ -558,7 +568,7 @@ int NFWorkServerModule::RegisterProxyAgentServer(uint64_t unLinkId)
         NFServerCommon::WriteServerInfo(pData, pConfig);
 
         std::set<uint32_t> allMsg = FindModule<NFIMessageModule>()->GetAllMsg(m_serverType, NF_MODULE_CLIENT);
-        for(auto iter = allMsg.begin(); iter != allMsg.end(); ++iter)
+        for (auto iter = allMsg.begin(); iter != allMsg.end(); ++iter)
         {
             pData->add_msg_id(*iter);
         }
@@ -714,7 +724,8 @@ int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInf
                                                          &NFWorkServerModule::OnRouteAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pRouteAgentServerData->mUnlinkId, this,
                                                          &NFWorkServerModule::OnHandleRouteAgentServerOtherMessage);
-    } else
+    }
+    else
     {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url())
         {
@@ -751,7 +762,8 @@ int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInf
 
                                                         OnHandleRouteAgentServerReport(xData);
                                                     });
-    } else
+    }
+    else
     {
         FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_ROUTE_AGENT_SERVER,
                                                     [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
@@ -782,7 +794,8 @@ int NFWorkServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t 
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect route agent server success!", pConfig->ServerName);
 
         RegisterRouteAgentServer(unLinkId);
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect route agent server success", pConfig->ServerName);
     }

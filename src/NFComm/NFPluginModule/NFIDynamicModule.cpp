@@ -22,9 +22,10 @@ NFIDynamicModule::~NFIDynamicModule()
 	FindModule<NFIMessageModule>()->DelAllCallBack(this);
 }
 
-void NFIDynamicModule::OnTimer(uint32_t nTimerID)
+int NFIDynamicModule::OnTimer(uint32_t nTimerID)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "nTimerID:({}) not handle", nTimerID);
+    return 0;
 }
 
 int NFIDynamicModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)

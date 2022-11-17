@@ -220,12 +220,13 @@ bool NFCMysqlModule::Execute()
 	return true;
 }
 
-void NFCMysqlModule::OnTimer(uint32_t nTimerID)
+int NFCMysqlModule::OnTimer(uint32_t nTimerID)
 {
 	if (m_pMysqlDriverManager)
 	{
 		m_pMysqlDriverManager->CheckMysql();
 	}
+    return 0;
 }
 
 int NFCMysqlModule::AddMysqlServer(const std::string& nServerID, const std::string& strIP, const int nPort,

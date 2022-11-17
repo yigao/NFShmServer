@@ -35,7 +35,7 @@ NFCLuaScriptModule::~NFCLuaScriptModule()
 
 }
 
-void NFLuaTimer::OnTimer(uint32_t nTimerID)
+int NFLuaTimer::OnTimer(uint32_t nTimerID)
 {
 	mCurCallCount++;
 	if (mGlobalLuaFunc == "LuaNFrame.DispatchTimerLoop")
@@ -62,6 +62,7 @@ void NFLuaTimer::OnTimer(uint32_t nTimerID)
 		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", mLuaFunc, mDataStr);
 		m_pLuaScriptModule->EndProfiler();
 	}
+    return 0;
 }
 
 bool NFCLuaScriptModule::Init()
@@ -70,7 +71,7 @@ bool NFCLuaScriptModule::Init()
     return true;
 }
 
-void NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
+int NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
 {
 	if (nTimerID == EnumLuaModule_INIT)
 	{
@@ -126,6 +127,7 @@ void NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
 	{
 		UpdateMonth();
 	}
+    return 0;
 }
 
 bool NFCLuaScriptModule::AfterInit()

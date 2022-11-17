@@ -79,12 +79,13 @@ int NFIDescStore::StartSaveTimer()
 }
 
 //must be virtual
-void NFIDescStore::OnTimer(int timeId, int callcount)
+int NFIDescStore::OnTimer(int timeId, int callcount)
 {
     if (m_bSaveTimer == timeId)
     {
         SaveDescStore();
     }
+    return 0;
 }
 
 

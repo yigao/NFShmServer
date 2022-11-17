@@ -66,7 +66,7 @@ public:
     virtual int StartSaveTimer();
 
     //must be virtual
-    virtual void OnTimer(int timeId, int callcount);
+    virtual int OnTimer(int timeId, int callcount);
 
     virtual int PrepareReload()
     {

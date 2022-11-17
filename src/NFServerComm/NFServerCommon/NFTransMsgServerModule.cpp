@@ -86,7 +86,7 @@ int NFTransMsgServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32
     return 0;
 }
 
-void NFTransMsgServerModule::OnTimer(uint32_t nTimerID)
+int NFTransMsgServerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
     {
@@ -97,6 +97,7 @@ void NFTransMsgServerModule::OnTimer(uint32_t nTimerID)
         NFSLEEP(1000);
         exit(0);
     }
+    return 0;
 }
 
 int NFTransMsgServerModule::ConnectMasterServer()

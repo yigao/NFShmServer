@@ -69,7 +69,7 @@ public:
 
     virtual bool OnReloadConfig();
 
-    virtual void OnTimer(uint32_t nTimerID);
+    virtual int OnTimer(uint32_t nTimerID);
 
     virtual void AddDynamicPluginFile(const std::string &file);
 

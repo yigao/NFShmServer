@@ -260,7 +260,7 @@ void NFCConsoleModule::CheckPluginFileModify()
 	}
 }
 
-void NFCConsoleModule::OnTimer(uint32_t nTimerID)
+int NFCConsoleModule::OnTimer(uint32_t nTimerID)
 {
 	std::vector<NFConsoleMsg> vec;
 	mQueueMsg.Pop(vec);
@@ -298,4 +298,5 @@ void NFCConsoleModule::OnTimer(uint32_t nTimerID)
 			
 		}
 	}
+    return 0;
 }

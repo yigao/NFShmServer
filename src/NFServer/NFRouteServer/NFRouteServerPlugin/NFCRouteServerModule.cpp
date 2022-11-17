@@ -98,12 +98,13 @@ int NFCRouteServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t
     return 0;
 }
 
-void NFCRouteServerModule::OnTimer(uint32_t nTimerID) {
+int NFCRouteServerModule::OnTimer(uint32_t nTimerID) {
     if (nTimerID == 10000) {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
         exit(0);
     }
+    return 0;
 }
 
 

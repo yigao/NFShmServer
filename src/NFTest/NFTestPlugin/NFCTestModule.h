@@ -30,5 +30,5 @@ public:
 
 	virtual bool Shut() override;
 
-	virtual void OnTimer(uint32_t nTimerID) override;
+	virtual int OnTimer(uint32_t nTimerID) override;
 };

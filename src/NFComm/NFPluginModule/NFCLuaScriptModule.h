@@ -62,7 +62,7 @@ public:
 	std::string mTmpStr;
 	NFCLuaScriptModule* m_pLuaScriptModule;
 
-	virtual void OnTimer(uint32_t nTimerID) override;
+	virtual int OnTimer(uint32_t nTimerID) override;
 };
 
 class NFCLuaScriptModule
@@ -83,7 +83,7 @@ public:
     virtual bool Shut() override;;
     virtual bool Finalize() override;;
 
-	virtual void OnTimer(uint32_t nTimerID) override;;
+	virtual int OnTimer(uint32_t nTimerID) override;;
 public:
 	virtual void RunNetRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint32_t nMsgId, const std::string& strMsg) override;
 	virtual void RunNetRecvLuaFuncWithMainSub(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint16_t nMainMsgId, const uint16_t nSubMsgId, const std::string& strMsg) override;

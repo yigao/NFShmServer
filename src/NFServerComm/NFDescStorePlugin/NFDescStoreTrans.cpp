@@ -159,7 +159,7 @@ int NFDescStoreTrans::OnTimeOut()
     return 0;
 }
 
-void NFDescStoreTrans::OnTimer(int timeId, int callcount)
+int NFDescStoreTrans::OnTimer(int timeId, int callcount)
 {
     if (timeId == m_timeId && m_descStoreMessage)
     {
@@ -170,6 +170,7 @@ void NFDescStoreTrans::OnTimer(int timeId, int callcount)
                                                          m_tableName, std::vector<std::string>(), vk_list, "", 100,
                                                          GetGlobalID(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
     }
+    return 0;
 }
 
 int NFDescStoreTrans::OnTransFinished(int iRunLogicRetCode)

@@ -33,13 +33,14 @@ void NFCoroutineTaskTimer::SetYieldTimeout(int32_t timeout_ms)
    }
 }
 
-void NFCoroutineTaskTimer::OnTimer(uint32_t nTimerID)
+int NFCoroutineTaskTimer::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == ENUM_NF_COROUTINE_TASK_TIMER_YIELD)
     {
         m_pCoSche->OnTimeout(m_taskId);
         m_delete = true;
     }
+    return 0;
 }
 
 void NFCoroutineTaskTimer::SetDelete()
@@ -58,9 +59,10 @@ NFCoroutineSchedule::~NFCoroutineSchedule() {
     }
 }
 
-void NFCoroutineSchedule::OnTimer(uint32_t nTimerID)
+int NFCoroutineSchedule::OnTimer(uint32_t nTimerID)
 {
 	ClearTimer();
+    return 0;
 }
 
 void NFCoroutineSchedule::ClearTimer()

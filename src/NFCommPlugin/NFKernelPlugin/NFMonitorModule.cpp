@@ -50,13 +50,14 @@ bool NFCMonitorModule::Finalize()
 *
 * @return void
 */
-void NFCMonitorModule::OnTimer(uint32_t nTimerID)
+int NFCMonitorModule::OnTimer(uint32_t nTimerID)
 {
 	if (nTimerID == MonitorTimer_SYSTEMINFO)
 	{
 		mSystemInfo.CountSystemInfo();
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "app:{} main thread:{} cpu:%{}, mem:{}M ----------------------{}bytes", m_pObjPluginManager->GetAppName(), ThreadId(), mSystemInfo.GetProcessInfo().mCpuUsed, mSystemInfo.GetProcessInfo().mMemUsed /(double)1024 / (double)1024, mSystemInfo.GetProcessInfo().mMemUsed);
 	}
+    return 0;
 }
 
 void NFCMonitorModule::CountAndPrint()

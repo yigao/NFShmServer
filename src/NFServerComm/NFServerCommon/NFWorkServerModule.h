@@ -35,7 +35,7 @@ public:
      * @brief 处理定时器
      * @param nTimerID
      */
-    virtual void OnTimer(uint32_t nTimerID) override;
+    virtual int OnTimer(uint32_t nTimerID) override;
 
     /**
      * @brief 响应注册事件

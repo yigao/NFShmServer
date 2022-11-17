@@ -32,7 +32,7 @@ public:
 
     virtual bool OnDynamicPlugin() override;
 
-    virtual void OnTimer(uint32_t nTimerID);
+    virtual int OnTimer(uint32_t nTimerID);
 
     virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage);
 

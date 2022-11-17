@@ -48,12 +48,13 @@ int NFDBObjMgr::ResumeInit() {
     return 0;
 }
 
-void NFDBObjMgr::OnTimer(int timeId, int callcount)
+int NFDBObjMgr::OnTimer(int timeId, int callcount)
 {
     if (m_iTimer == timeId)
     {
         Tick();
     }
+    return 0;
 }
 
 int NFDBObjMgr::Tick()

@@ -38,7 +38,7 @@ public:
     virtual int OnTimeOut();
 
     //must be virtual
-    virtual void OnTimer(int timeId, int callcount);
+    virtual int OnTimer(int timeId, int callcount);
 
     int OnTransFinished(int iRunLogicRetCode);
 

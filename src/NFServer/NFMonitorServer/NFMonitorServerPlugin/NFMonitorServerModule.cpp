@@ -139,7 +139,7 @@ bool NFCMonitorServerModule::OnDynamicPlugin()
     return true;
 }
 
-void NFCMonitorServerModule::OnTimer(uint32_t nTimerID)
+int NFCMonitorServerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == 1)
     {

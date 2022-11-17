@@ -96,7 +96,7 @@ int NFCProxyAgentServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uin
     return 0;
 }
 
-void NFCProxyAgentServerModule::OnTimer(uint32_t nTimerID)
+int NFCProxyAgentServerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == 10000)
     {
@@ -104,6 +104,7 @@ void NFCProxyAgentServerModule::OnTimer(uint32_t nTimerID)
         NFSLEEP(1000);
         exit(0);
     }
+    return 0;
 }
 
 int NFCProxyAgentServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& xData)

@@ -35,7 +35,7 @@ public:
 	*
 	* @return void
 	*/
-	virtual void OnTimer(uint32_t nTimerID);
+	virtual int OnTimer(uint32_t nTimerID);
 
 	/**
 	* @brief 处理事件

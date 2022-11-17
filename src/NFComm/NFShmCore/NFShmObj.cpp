@@ -85,6 +85,12 @@ int NFShmObj::CreateInit()
     return 0;
 }
 
+int NFShmObj::OnTimer(int timeId, int callcount)
+{
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "shm obj type:{} no handle timer:{}", GetClassType(), timeId);
+    return 0;
+}
+
 int NFShmObj::GetHashKey(void *pvKey, int &iKeyLength)
 {
     return -1;

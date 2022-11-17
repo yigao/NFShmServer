@@ -164,7 +164,7 @@ bool NFCRouteAgentServerModule::OnDynamicPlugin()
 	return true;
 }
 
-void NFCRouteAgentServerModule::OnTimer(uint32_t nTimerID) {
+int NFCRouteAgentServerModule::OnTimer(uint32_t nTimerID) {
     RegisterAllServerInfoToRouteSvr();
 
     if (nTimerID == 10000)
@@ -173,6 +173,7 @@ void NFCRouteAgentServerModule::OnTimer(uint32_t nTimerID) {
         NFSLEEP(1000);
         exit(0);
     }
+    return 0;
 }
 
 int NFCRouteAgentServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)

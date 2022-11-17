@@ -194,9 +194,9 @@ std::string NFCKernelModule::Base64Decode(const std::string &s)
     return NFBase64::Decode(s);
 }
 
-void NFCKernelModule::OnTimer(uint32_t nTimerID)
+int NFCKernelModule::OnTimer(uint32_t nTimerID)
 {
-
+    return 0;
 }
 
 int NFCKernelModule::OnKillServerProcess(uint64_t unLinkId, NFDataPackage &packet)

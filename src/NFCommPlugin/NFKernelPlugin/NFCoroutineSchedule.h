@@ -39,7 +39,7 @@ public:
     virtual ~NFCoroutineTaskTimer();
 
     virtual void SetYieldTimeout(int32_t timeout_ms = -1);
-    virtual void OnTimer(uint32_t nTimerID);
+    virtual int OnTimer(uint32_t nTimerID);
     virtual void SetDelete();
 	virtual bool IsDelete() const { return m_delete; }
 private:
@@ -62,7 +62,7 @@ public:
     /// @brief 析构函数
     virtual ~NFCoroutineSchedule();
 
-	virtual void OnTimer(uint32_t nTimerID);
+	virtual int OnTimer(uint32_t nTimerID);
 
 	virtual void ClearTimer();
 public:

@@ -62,7 +62,7 @@ public:
 	virtual uint64_t Get64UUID() override;
 	virtual uint64_t Get32UUID() override;
 
-    virtual void OnTimer(uint32_t nTimerID) override;
+    virtual int OnTimer(uint32_t nTimerID) override;
 
     int OnKillServerProcess(uint64_t unLinkId, NFDataPackage& packet);
 protected:

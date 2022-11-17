@@ -62,9 +62,9 @@ bool NFCTestModule::Init()
 }
 
 
-void NFCTestModule::OnTimer(uint32_t nTimerID)
+int NFCTestModule::OnTimer(uint32_t nTimerID)
 {
-    return;
+    return 0;
 }
 
 bool NFCTestModule::Execute()

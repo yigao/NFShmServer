@@ -182,7 +182,7 @@ public:
 
     virtual void StopCheck();
 
-    void OnTimer(uint32_t nTimerID)
+    int OnTimer(uint32_t nTimerID)
     {
         m_count++;
         HandleProcCheck();

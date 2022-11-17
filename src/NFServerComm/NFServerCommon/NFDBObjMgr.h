@@ -27,7 +27,7 @@ public:
     int ResumeInit();
 
     //must be virtual
-    virtual void OnTimer(int timeId, int callcount) override;
+    virtual int OnTimer(int timeId, int callcount) override;
 public:
     NFBaseDBObj* GetObj(int iObjID);
     int LoadFromDB(NFBaseDBObj* pObj);

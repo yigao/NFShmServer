@@ -291,7 +291,7 @@ int NFCMasterServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_
     return 0;
 }
 
-void NFCMasterServerModule::OnTimer(uint32_t nTimerID)
+int NFCMasterServerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == 10000)
     {
@@ -303,6 +303,7 @@ void NFCMasterServerModule::OnTimer(uint32_t nTimerID)
     {
         ConnectGlobalServer();
     }
+    return 0;
 }
 
 
