@@ -31,7 +31,7 @@ struct OnEventExecuteObj
 	{
 		if (nullptr == pSink) return -1;
 
-		return pSink->OnExecute(nEventID, nSrcID, bySrcType, message);
+		return pSink->OnExecute(nEventID, nSrcID, bySrcType, &message);
 	}
 };
 

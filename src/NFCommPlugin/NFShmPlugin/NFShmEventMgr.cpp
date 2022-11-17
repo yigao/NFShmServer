@@ -297,7 +297,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                     //智能指针，自动转空
                     if (pNode->pSink)
                     {
-                        bRes = pNode->pSink->OnExecute(nEventID, nSrcID, bySrcType, message);
+                        bRes = pNode->pSink->OnExecute(nEventID, nSrcID, bySrcType, &message);
                     }
                     else {
                         errVec.push_back(pNode->m_shmObjId);

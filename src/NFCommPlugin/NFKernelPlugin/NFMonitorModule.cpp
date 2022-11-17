@@ -70,7 +70,7 @@ void NFCMonitorModule::CountAndPrint()
 *
 * @return void
 */
-int NFCMonitorModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+int NFCMonitorModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
 {
     return 0;
 }

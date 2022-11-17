@@ -80,7 +80,7 @@ bool NFCRouteServerModule::Awake()
 	return true;
 }
 
-int NFCRouteServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+int NFCRouteServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {

@@ -71,7 +71,7 @@ void TestShmHashMap()
         startTime = NFGetTime();
         for(int i = 0; i < 1000000; i++)
         {
-            std::string* pTmp = hashMap.Find(vec[i]);
+//            std::string* pTmp = hashMap.Find(vec[i]);
 /*            if (pTmp == NULL || *pTmp != NFCommon::tostr(vec[i]*2))
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "shm hash map string Find failed, i:{} ", vec[i]);
