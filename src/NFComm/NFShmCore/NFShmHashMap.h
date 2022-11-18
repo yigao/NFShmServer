@@ -681,7 +681,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyTo
 {
     unsigned int uiHashSum = std::hash<KEY_TYPE>()(rstKey);
     /**
-     * 使用下面的hahs算法必须保证rstKey#pragma pack(push) #pragma pack(1)来限定字节码，不然可能造成不可预料的结构
+     * 使用下面的hahs算法必须保证rstKey使用 #pragma pack(push) #pragma pack(1)来限定字节码，不然可能造成不可预料的结果
     size_t uiKeyLength = sizeof(rstKey);
     unsigned int uiHashSum = 0;
     unsigned int *piTemp = (unsigned int*)&rstKey;
