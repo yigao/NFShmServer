@@ -968,9 +968,6 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
 
         if (iID >= 0)
         {
-#ifdef NF_DEBUG_MODE
-            pObj->PrintMyself();
-#endif
             if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
             {
                 int iHashID = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashAlloc(hashKey, iID);
@@ -983,16 +980,10 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
                 else
                 {
                     pObj->SetHashID(iHashID);
-#ifdef _DEBUG_DETAIL_
-                    pObj->PrintMyself();
-#endif
                 }
             }
             else
             {
-#ifdef _DEBUG_DETAIL_
-                pObj->PrintMyself();
-#endif
             }
         }
         else
@@ -1028,9 +1019,6 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 
         if (iID >= 0)
         {
-#ifdef NF_DEBUG_MODE
-            pObj->PrintMyself();
-#endif
         }
         else
         {
@@ -1411,6 +1399,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     iIndex = pObj->GetObjectID();
     iID = pObj->GetGlobalID();
     iHashID = pObj->GetHashID();
+    std::string className = pObj->GetClassName(m_pObjPluginManager);
 
     if (iType < 0 || iType >= (int) m_nObjSegSwapCounter.size())
     {
@@ -1432,7 +1421,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 int checkHashID = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetHashMgr().HashFind(key);
                 if (checkHashID != iHashID)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, key, "DestroyObj Data Error, key:{} globalId:{} type:{} index:{} iHashID:{}, CheckHashID:{}", key,
+                    NFLogError(NF_LOG_SYSTEMLOG, key, "DestroyObj {} Error, key:{} globalId:{} type:{} index:{} iHashID:{}, CheckHashID:{}", className, key,
                                iID, iType, iIndex, iHashID, checkHashID);
                 }
                 int ret = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashErase(iHashID);
@@ -1440,7 +1429,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "HashErase:{} Failed!", iHashID);
                 }
-                NFLogTrace(NF_LOG_SYSTEMLOG, key, "DestroyObj Data, key:{} globalId:{} type:{} index:{} iHashID:{}", key, iID, iType, iIndex,
+                NFLogTrace(NF_LOG_SYSTEMLOG, key, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{}", className, key, iID, iType, iIndex,
                            iHashID);
             }
             else
@@ -1450,7 +1439,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
         }
 
         m_pGlobalID->ReleaseID(iID);
-        std::string className = pObj->GetClassName(m_pObjPluginManager);
+
         m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{}", className, iID, iType, iIndex);
     }

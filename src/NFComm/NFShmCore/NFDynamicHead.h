@@ -19,23 +19,20 @@
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedHead(NFIPluginManager* pPluginManager);\
     static int   GetFreeHead(NFIPluginManager* pPluginManager);\
-    static std::string GetClassName(NFIPluginManager* pPluginManager);\
+    static std::string GetStaticClassName(NFIPluginManager* pPluginManager) { return #class_name; }\
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
     static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
-    static int GetStaticClassType();\
+    static int GetStaticClassType();      \
+    virtual std::string GetClassName(NFIPluginManager* pPluginManager);\
     virtual int GetClassType() const;\
     virtual int GetObjectID();\
     virtual int GetHashID();\
     virtual void SetHashID(int Id);\
-    virtual void TestOP(){printf("Now %s OP\n",#class_name);}\
-    virtual void PrintMyself() {printf("Now %s type:%d,index:%d,GlobalID:%d\n",\
-                                          #class_name,class_name::GetClassType(),GetObjectID(),GetGlobalID());}                                                                         \
-    virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}",\
-                                          #class_name,class_name::GetClassType());}\
+    virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
 
 
 
@@ -119,7 +116,7 @@
 		void* pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(type);      \
 		if(!pVoid)\
 		{\
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetClassName(pPluginManager), GetItemCount(pPluginManager), GetUsedCount(pPluginManager), GetFreeCount(pPluginManager)); \
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetStaticClassName(pPluginManager), GetItemCount(pPluginManager), GetUsedCount(pPluginManager), GetFreeCount(pPluginManager)); \
             return NULL;\
 		}\
         pTmp = new (pVoid) class_name();\
