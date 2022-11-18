@@ -16,6 +16,10 @@
 #include <NFComm/NFCore/NFHash.hpp>
 #include "NFComm/NFShmCore/NFShmMgr.h"
 
+
+#pragma pack(push)
+#pragma pack(1)
+
 class NFShmEventKey
 {
 public:
@@ -129,3 +133,20 @@ public:
         return NF_FORMAT("nServerType:{} nEventID:{}, nSrcID:{}, bySrcType:{}", nServerType, nEventID, nSrcID, bySrcType);
     }
 };
+
+#pragma pack(pop)
+
+/**
+*@brief 求hash值
+*/
+namespace std
+{
+    template<>
+    struct hash<NFShmEventKey>
+    {
+        size_t operator()(const NFShmEventKey &eventKey) const
+        {
+            return NFHash::hash_combine(eventKey.nServerType, eventKey.nEventID, eventKey.bySrcType, eventKey.nSrcID);
+        }
+    };
+}

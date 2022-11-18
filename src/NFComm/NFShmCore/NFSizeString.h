@@ -321,3 +321,18 @@ private:
     char m_szBuf[SIZE];
 };
 
+/**
+*@brief 求hash值
+*/
+namespace std
+{
+    template<int SIZE>
+    struct hash<NFSizeString<SIZE>>
+    {
+        size_t operator()(const NFSizeString<SIZE> &eventKey) const
+        {
+            return std::hash<std::string>()(eventKey.ToString());
+        }
+    };
+}
+

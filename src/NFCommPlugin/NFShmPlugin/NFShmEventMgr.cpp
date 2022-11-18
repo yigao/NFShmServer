@@ -110,6 +110,8 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEv
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
     ret = pEventKeyList->AddNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pInfo);
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Subscribe:{}", pSink->GetGlobalID(), pSink->GetClassName(m_pObjPluginManager), pInfo->ToString());
     return 0;
 }
 
@@ -152,7 +154,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t n
             auto pLastNode = pNode;
             pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
             pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
-
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Delete Subscribe:{}", pSink->GetGlobalID(), pSink->GetClassName(m_pObjPluginManager), pLastNode->ToString());
             DelEventKeyListSubcribeInfo(pLastNode);
         }
         else

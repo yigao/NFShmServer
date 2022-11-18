@@ -17,6 +17,31 @@
 
 class NFIPluginManager;
 
+#define EVENT_PROCESS_WITH_PRINTF(serverType, nEventID, bySrcType, nSrcID, pMessage, eventMsg, pEventMsg) \
+    CHECK_NULL(pMessage);\
+    const eventMsg* pEventMsg = dynamic_cast<const eventMsg*>(pMessage);\
+    if (!pEventMsg)                \
+    {                                                    \
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Protobuf dynamic_cast Failed, serverType:{},nEventID:{},bySrcType:{}, nSrcID:{} message:{} messageClass:{}", \
+        serverType, nEventID, bySrcType, nSrcID, pMessage->DebugString(), pMessage->GetTypeName());\
+        return -1;\
+    }\
+    else {\
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "serverType:{},nEventID:{},bySrcType:{}, nSrcID:{} message:{} messageClass:{}", \
+        serverType, nEventID, bySrcType, nSrcID, pMessage->DebugString(), pMessage->GetTypeName());\
+    }
+
+#define EVENT_PROCESS_NO_PRINTF(serverType, nEventID, bySrcType, nSrcID, pMessage, eventMsg, pEventMsg) \
+    CHECK_NULL(pMessage);\
+    const eventMsg* pEventMsg = dynamic_cast<const eventMsg*>(pMessage);\
+    if (!pEventMsg)                \
+    {                                                    \
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Protobuf dynamic_cast Failed, serverType:{},nEventID:{},bySrcType:{}, nSrcID:{} message:{} messageClass:{}", \
+        serverType, nEventID, bySrcType, nSrcID, pMessage->DebugString(), pMessage->GetTypeName());\
+        return -1;\
+    }
+
+
 /* 事件使用注意事项
  取消订阅事件的时传入的参数一定要和订阅事件时传入的参数一致，
  事件内部是以订阅事件传入的参数（包括回调指针）组合为事件key的，
@@ -46,6 +71,7 @@ public:
     {
 
     }
+
 public:
     /**
     * @brief 收到事件函数, 对收到的事件进行处理
@@ -63,7 +89,8 @@ public:
     * 问题2:如果在OnExecute函数里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) = 0;
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage) = 0;
+
 public:
     /**
     * @brief 发送事件,并执行收到事件的对象的对应函数
@@ -83,7 +110,8 @@ public:
     * 问题3:假设我在Fire事件里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
-    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message) = 0;
+    virtual void
+    FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message) = 0;
 
     /**
     * @brief 订阅事件
@@ -94,7 +122,7 @@ public:
     * @param desc		事件描述，用于打印，获取信息，查看BUG之类的
     * @return			订阅事件是否成功
     */
-    virtual bool Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc) = 0;
+    virtual bool Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &desc) = 0;
 
     /**
     * @brief 取消订阅事件
@@ -124,12 +152,13 @@ public:
     /**
      *@brief 构造函数
      */
-    NFEventObj(NFIPluginManager* pPluginManager);
+    NFEventObj(NFIPluginManager *pPluginManager);
 
     /**
      *@brief 析构函数
      */
     virtual ~NFEventObj();
+
 public:
     /**
     * @brief 收到事件函数, 对收到的事件进行处理
@@ -147,7 +176,8 @@ public:
     * 问题2:如果在OnExecute函数里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) = 0;
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage) = 0;
+
 public:
     /**
     * @brief 发送事件,并执行收到事件的对象的对应函数
@@ -167,7 +197,7 @@ public:
     * 问题3:假设我在Fire事件里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
-    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message);
+    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message);
 
     /**
     * @brief 订阅事件
@@ -178,7 +208,7 @@ public:
     * @param desc		事件描述，用于打印，获取信息，查看BUG之类的
     * @return			订阅事件是否成功
     */
-    virtual bool Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc);
+    virtual bool Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &desc);
 
     /**
     * @brief 取消订阅事件

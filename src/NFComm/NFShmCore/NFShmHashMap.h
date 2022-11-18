@@ -679,6 +679,9 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Fi
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
 int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyToIndex(const KEY_TYPE& rstKey, int& riIndex) const
 {
+    unsigned int uiHashSum = std::hash<KEY_TYPE>()(rstKey);
+    /**
+     * 使用下面的hahs算法必须保证rstKey#pragma pack(push) #pragma pack(1)来限定字节码，不然可能造成不可预料的结构
     size_t uiKeyLength = sizeof(rstKey);
     unsigned int uiHashSum = 0;
     unsigned int *piTemp = (unsigned int*)&rstKey;
@@ -698,7 +701,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyTo
         memcpy((void *)&uiTemp, (const void *)pByte, uiKeyLength%sizeof(unsigned int));
         uiHashSum += uiTemp;
     }
-
+    **/
     uiHashSum = (uiHashSum & ((unsigned int)0x7fffffff));
 
     riIndex = (int)(uiHashSum % HASH_SIZE);
