@@ -28,7 +28,7 @@ int NFIDynamicModule::OnTimer(uint32_t nTimerID)
     return 0;
 }
 
-int NFIDynamicModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
+int NFIDynamicModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "Event msg:(evnetId:{} nSrcID:{} bySrcType:{}) not handle, message:{}", nEventID, nSrcID, bySrcType, pMessage->DebugString());
     return 0;

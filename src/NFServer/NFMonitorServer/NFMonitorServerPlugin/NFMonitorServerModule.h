@@ -34,7 +34,7 @@ public:
 
     virtual int OnTimer(uint32_t nTimerID);
 
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage);
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventIDD, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 
     int OnHandleServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen);
 

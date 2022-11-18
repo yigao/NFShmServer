@@ -67,7 +67,7 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
 
                     proto_ff::NFEventNoneData event;
                     event.set_param1(taskType);
-                    FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, eServerType, proto_ff::NF_EVENT_SERVER_TYPE, event);
+                    FindModule<NFIEventModule>()->FireExecute(eServerType, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, eServerType, event);
                 }
             }
         }
@@ -146,7 +146,7 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Connect Task..............");
 
             proto_ff::NFEventNoneData event;
-            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+            FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
         }
 	}
 	else
@@ -175,7 +175,7 @@ int NFCAppInited::CheckTaskFinished()
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Desc Store Load Task..............");
 
                 proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+                FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
             }
         }
         else
@@ -204,7 +204,7 @@ int NFCAppInited::CheckTaskFinished()
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Obj Load From DB Task..............");
 
                     proto_ff::NFEventNoneData event;
-                    FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, 0, proto_ff::NF_EVENT_SERVER_TYPE, event);
+                    FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
                 }
             }
         }
@@ -216,7 +216,7 @@ int NFCAppInited::CheckTaskFinished()
         {
             m_fireFlag[i] = true;
             proto_ff::NFEventNoneData event;
-            FindModule<NFIEventModule>()->FireExecute(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, i, proto_ff::NF_EVENT_SERVER_TYPE, event);
+            FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, i, event);
         }
     }
 

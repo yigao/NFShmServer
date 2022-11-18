@@ -14,7 +14,7 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFShmEventMgr, EOT_TYPE_EVENT_MGR, NFShmObj)
 
-NFShmEventMgr::NFShmEventMgr():NFShmObj()
+NFShmEventMgr::NFShmEventMgr() : NFShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -54,15 +54,16 @@ int NFShmEventMgr::ResumeInit()
 * @param desc		事件描述，用于打印，获取信息，查看BUG之类的
 * @return			订阅事件是否成功
 */
-int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string &desc)
+int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &desc)
 {
     if (nullptr == pSink) return -1;
     CHECK_EXPR_ASSERT(pSink->GetGlobalID() != INVALID_ID, -1, "NFShmObj GetGlobalID == INVALID_ID, desc:{}", desc);
 
     NFShmEventKey skey;
+    skey.nServerType = nServerType;
     skey.nEventID = nEventID;
-    skey.nSrcID = nSrcID;
     skey.bySrcType = bySrcType;
+    skey.nSrcID = nSrcID;
 
     /**
     *@brief 先判断指针pSink对象有没有注册，然后把skey放入
@@ -84,7 +85,7 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID
     }
 
     //一般一个对象不会定义太多事件, 效率耗得起
-    auto pNode = pObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
+/*    auto pNode = pObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while(pNode)
     {
         if (pNode->m_eventKey == skey)
@@ -93,7 +94,7 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID
             return -1;
         }
         pNode = pObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
-    }
+    }*/
 
     /**
     *@brief 判断skey有没有存在，把对象存入skey的链表里
@@ -121,14 +122,15 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID
 * @param bySrcType	事件源类型，玩家类型，怪物类型之类的
 * @return			取消订阅事件是否成功
 */
-int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID)
 {
     if (nullptr == pSink) return -1;
 
     NFShmEventKey skey;
+    skey.nServerType = nServerType;
     skey.nEventID = nEventID;
-    skey.nSrcID = nSrcID;
     skey.bySrcType = bySrcType;
+    skey.nSrcID = nSrcID;
 
     /**
     *@brief 判断pSink指针对象有没有存在，不存在直接退出
@@ -142,7 +144,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
     }
 
     auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
-    while(pNode)
+    while (pNode)
     {
         CHECK_EXPR_ASSERT(pNode->m_shmObjId == pSink->GetGlobalID(), -1, "");
         if (pNode->m_eventKey == skey)
@@ -153,7 +155,8 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nEventID, uint64_t nSrc
 
             DelEventKeyListSubcribeInfo(pLastNode);
         }
-        else {
+        else
+        {
             pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
         }
     }
@@ -188,7 +191,7 @@ int NFShmEventMgr::UnSubscribeAll(int globalId)
     }
 
     auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
-    while(pNode)
+    while (pNode)
     {
         CHECK_EXPR_ASSERT(pNode->m_shmObjId == globalId, -1, "");
         auto pLastNode = pNode;
@@ -221,19 +224,20 @@ int NFShmEventMgr::UnSubscribeAll(int globalId)
 * 问题3:假设我在Fire事件里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
 *       所有的Fire事件最多迭代20次
 */
-int NFShmEventMgr::Fire(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message)
+int NFShmEventMgr::Fire(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
 {
     NFShmEventKey skey;
+    skey.nServerType = nServerType;
     skey.nEventID = nEventID;
-    skey.nSrcID = nSrcID;
     skey.bySrcType = bySrcType;
+    skey.nSrcID = nSrcID;
 
     /**
     * @brief 先执行完全匹配的
     */
     if (skey.nSrcID != 0)
     {
-        int ret = Fire(skey, nEventID, nSrcID, bySrcType, message);
+        int ret = Fire(skey, message);
         if (ret != 0)
         {
             return ret;
@@ -246,7 +250,7 @@ int NFShmEventMgr::Fire(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, 
     * 订阅时将nSrcId=0，会受到所有玩家产生的该类事件
     */
     skey.nSrcID = 0;
-    return Fire(skey, nEventID, nSrcID, bySrcType, message);
+    return Fire(skey, message);
 }
 
 /**
@@ -259,15 +263,13 @@ int NFShmEventMgr::Fire(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, 
 * @param pEventContext	事件传输的数据
 * @return				执行是否成功
 */
-int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType,
-         const google::protobuf::Message &message)
+int NFShmEventMgr::Fire(const NFShmEventKey &skey, const google::protobuf::Message &message)
 {
     m_nFireLayer++;
     if (m_nFireLayer >= EVENT_FIRE_MAX_LAYER)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0,
-                   "[Event] m_nFireLayer >= EVENT_FIRE_MAX_LAYER.....nEventID:{}, nSrcID:{}, bySrcType:{}, fireLayer:{}",
-                   nEventID, nSrcID, bySrcType, m_nFireLayer);
+                   "m_nFireLayer >= EVENT_FIRE_MAX_LAYER.....{} fireLayer:{}", skey.ToString(), m_nFireLayer);
         m_nFireLayer--;
         return -1;
     }
@@ -277,17 +279,15 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
     if (pEventKeyList)
     {
         auto pNode = pEventKeyList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0);
-        while(pNode)
+        while (pNode)
         {
             if (pNode->nRefCount >= EVENT_REF_MAX_CNT)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0,
-                           "[Event] pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                           nEventID, nSrcID, bySrcType, pNode->nRefCount,
-                           static_cast<int32_t>(pNode->bRemoveFlag), pNode->szDesc.ToString());
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....{}", pNode->ToString());
                 m_nFireLayer--;
                 return -1;
             }
+
             if (!pNode->bRemoveFlag)
             {
                 int bRes = 0;
@@ -297,27 +297,23 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                     //智能指针，自动转空
                     if (pNode->pSink)
                     {
-                        bRes = pNode->pSink->OnExecute(nEventID, nSrcID, bySrcType, &message);
+                        bRes = pNode->pSink->OnExecute(skey.nServerType, skey.nEventID, skey.nSrcID, skey.bySrcType, &message);
                     }
-                    else {
+                    else
+                    {
                         errVec.push_back(pNode->m_shmObjId);
 
-                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                   "[Event] pNode->pSink = NULL....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                                   nEventID, nSrcID, bySrcType, pNode->nRefCount,
-                                   static_cast<int32_t>(pNode->bRemoveFlag), pNode->szDesc.ToString());
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "[Event] pNode->pSink = NULL....{}", pNode->ToString());
                     }
                     pNode->Sub();
                 }
                 catch (...)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0,
-                               "[Event] pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                               nEventID, nSrcID, bySrcType, pNode->nRefCount,
-                               static_cast<int32_t>(pNode->bRemoveFlag), pNode->szDesc.ToString());
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[Event] pSubscribeInfo->nRefCount >= EVENT_REF_MAX_CNT....{}", pNode->ToString());
                     m_nFireLayer--;
                     return -1;
                 }
+
                 if (pNode->bRemoveFlag && 0 == pNode->nRefCount)
                 {
                     auto pLastNode = pNode;
@@ -331,10 +327,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
                 }
                 if (bRes != 0)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0,
-                               "[Event] ret != 0 ....eventid:{}, srcid:{}, type:{}, refcont:{}, removeflag:{}, szdesc:{}",
-                               nEventID, nSrcID, bySrcType, pNode->nRefCount,
-                               static_cast<int32_t>(pNode->bRemoveFlag), pNode->szDesc.ToString());
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[Event] ret != 0 ....{}", pNode->ToString());
                 }
             }
             else
@@ -361,7 +354,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
 
     m_nFireLayer--;
 
-    for(int i = 0; i < (int)errVec.size(); i++)
+    for (int i = 0; i < (int) errVec.size(); i++)
     {
         UnSubscribeAll(errVec[i]);
     }
@@ -369,7 +362,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nEventID, uint64_t n
     return 0;
 }
 
-int NFShmEventMgr::DelEventKeyListSubcribeInfo(NFShmSubscribeInfo* pLastNode)
+int NFShmEventMgr::DelEventKeyListSubcribeInfo(NFShmSubscribeInfo *pLastNode)
 {
     auto pEventKeyList = m_eventKeyAllSubscribe.Find(pLastNode->m_eventKey);
     if (pEventKeyList)

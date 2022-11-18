@@ -36,7 +36,7 @@ public:
 	* @param message	事件传输的数据
 	* @return				执行是否成功
 	*/
-	virtual void FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) = 0;
+	virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message) = 0;
 
 	/**
 	* @brief 订阅事件
@@ -47,7 +47,7 @@ public:
 	* @param desc		事件描述，用于打印，获取信息，查看BUG之类的
 	* @return			订阅事件是否成功
 	*/
-	virtual bool Subscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc) = 0;
+	virtual bool Subscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc) = 0;
 
 	/**
 	* @brief 取消订阅事件
@@ -57,7 +57,7 @@ public:
 	* @param bySrcType	事件源类型，玩家类型，怪物类型之类的
 	* @return			取消订阅事件是否成功
 	*/
-	virtual bool UnSubscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType) = 0;
+	virtual bool UnSubscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID) = 0;
 
 	/**
 	* @brief 取消NFEventObj所有订阅事件

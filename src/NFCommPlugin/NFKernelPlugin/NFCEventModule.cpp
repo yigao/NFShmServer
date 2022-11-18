@@ -33,21 +33,21 @@ bool NFCEventModule::Execute()
 }
 
 //发送执行事件
-void NFCEventModule::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+void NFCEventModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message)
 {
-	m_ExecuteCenter.Fire(nEventID, nSrcID, bySrcType, message);
+	m_ExecuteCenter.Fire(serverType, nEventID, bySrcType, nSrcID, message);
 }
 
 //订阅执行事件
-bool NFCEventModule::Subscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
+bool NFCEventModule::Subscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc)
 {
-	return m_ExecuteCenter.Subscribe(pSink, nEventID, nSrcID, bySrcType, desc);
+	return m_ExecuteCenter.Subscribe(pSink, serverType, nEventID, bySrcType, nSrcID, desc);
 }
 
 //取消订阅执行事件
-bool NFCEventModule::UnSubscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+bool NFCEventModule::UnSubscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID)
 {
-	return m_ExecuteCenter.UnSubscribe(pSink, nEventID, nSrcID, bySrcType);
+	return m_ExecuteCenter.UnSubscribe(pSink, serverType, nEventID, bySrcType, nSrcID);
 }
 
 //取消所有执行事件的订阅

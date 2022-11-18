@@ -1601,19 +1601,19 @@ int NFCSharedMemModule::Get32UUID()
     return m_pGlobalID->Get32UUID();
 }
 
-int NFCSharedMemModule::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message &message)
+int NFCSharedMemModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
 {
-    return NFShmEventMgr::Instance(m_pObjPluginManager)->Fire(nEventID, nSrcID, bySrcType, message);
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->Fire(serverType, nEventID, bySrcType, nSrcID, message);
 }
 
-int NFCSharedMemModule::Subscribe(NFShmObj *pObj, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const string &desc)
+int NFCSharedMemModule::Subscribe(NFShmObj *pObj, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const string &desc)
 {
-    return NFShmEventMgr::Instance(m_pObjPluginManager)->Subscribe(pObj, nEventID, nSrcID, bySrcType, desc);
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->Subscribe(pObj, serverType, nEventID, bySrcType, nSrcID, desc);
 }
 
-int NFCSharedMemModule::UnSubscribe(NFShmObj *pObj, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+int NFCSharedMemModule::UnSubscribe(NFShmObj *pObj, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID)
 {
-    return NFShmEventMgr::Instance(m_pObjPluginManager)->UnSubscribe(pObj, nEventID, nSrcID, bySrcType);
+    return NFShmEventMgr::Instance(m_pObjPluginManager)->UnSubscribe(pObj, serverType, nEventID, bySrcType, nSrcID);
 }
 
 int NFCSharedMemModule::UnSubscribeAll(NFShmObj *pObj)

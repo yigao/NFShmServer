@@ -39,7 +39,7 @@ public:
      * @param message
      * @return
      */
-    virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage) override;
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 public:
     int BindServer();
     int ConnectMasterServer();

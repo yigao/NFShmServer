@@ -36,6 +36,7 @@ public:
         nSrcID = 0;
         nEventID = 0;
         bySrcType = 0;
+        nServerType = 0;
         return 0;
     }
 
@@ -60,25 +61,31 @@ public:
     uint32_t bySrcType;
 
     /**
+     * @brief 服务器类型，用来区分AllServer模式下，不同服务器的事件
+     */
+    uint32_t nServerType;
+
+    /**
     *@brief 判断是否相等
     */
-    bool operator ==(const NFShmEventKey& eventKey) const
+    bool operator==(const NFShmEventKey &eventKey) const
     {
-        return ((nSrcID == eventKey.nSrcID) &&
+        return ((nServerType == eventKey.nServerType) &&
                 (nEventID == eventKey.nEventID) &&
-                (bySrcType == eventKey.bySrcType));
+                (bySrcType == eventKey.bySrcType) &&
+                (nSrcID == eventKey.nSrcID));
     }
 
     /**
     *@brief 判断是否小于, 不知道有没有更好的判断小于的方法
     */
-    bool operator <(const NFShmEventKey& eventKey) const
+    bool operator<(const NFShmEventKey &eventKey) const
     {
-        if (nSrcID < eventKey.nSrcID)
+        if (nServerType < eventKey.nServerType)
         {
             return true;
         }
-        else if (nSrcID > eventKey.nSrcID)
+        else if (nServerType > eventKey.nServerType)
         {
             return false;
         }
@@ -98,11 +105,27 @@ public:
                 {
                     return true;
                 }
-                else
+                else if (bySrcType > eventKey.bySrcType)
                 {
                     return false;
                 }
+                else
+                {
+                    if (nSrcID < eventKey.nSrcID)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
+    }
+
+    std::string ToString() const
+    {
+        return NF_FORMAT("nServerType:{} nEventID:{}, nSrcID:{}, bySrcType:{}", nServerType, nEventID, nSrcID, bySrcType);
     }
 };

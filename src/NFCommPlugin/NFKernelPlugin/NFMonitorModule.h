@@ -42,7 +42,7 @@ public:
 	*
 	* @return void
 	*/
-	virtual int OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage);
+	virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 
 	virtual const NFSystemInfo& GetSystemInfo() const;
 

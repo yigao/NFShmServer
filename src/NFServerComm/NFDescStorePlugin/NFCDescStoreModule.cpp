@@ -50,11 +50,11 @@ bool NFCDescStoreModule::AfterInitShmMem() {
 
 bool NFCDescStoreModule::Awake() {
     //m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
-    Subscribe(proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
     return true;
 }
 
-int NFCDescStoreModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
+int NFCDescStoreModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nSrcID == 0)
     {
@@ -75,7 +75,7 @@ bool NFCDescStoreModule::Execute() {
                 CheckWhenAllDataLoaded();
             }
             //m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
-            FireExecute(proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, proto_ff::NFEventNoneData());
+            FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, proto_ff::NFEventNoneData());
 
             m_bFinishAllLoaded = true;
         }

@@ -24,27 +24,27 @@ NFITimerEventModule::~NFITimerEventModule()
 }
 
 //发送执行事件
-void NFITimerEventModule::FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message)
+void NFITimerEventModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message)
 {
-    m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nEventID, nSrcID, bySrcType, message);
+    m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(serverType, nEventID, bySrcType, nSrcID, message);
 
     auto pModule = m_pObjPluginManager->FindModule<NFISharedMemModule>();
     if (pModule)
     {
-        pModule->FireExecute(nEventID, nSrcID, bySrcType, message);
+        pModule->FireExecute(serverType, nEventID, nSrcID, bySrcType, message);
     }
 }
 
 //订阅执行事件
-bool NFITimerEventModule::Subscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc)
+bool NFITimerEventModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc)
 {
-    return m_pObjPluginManager->FindModule<NFIEventModule>()->Subscribe(this, nEventID, nSrcID, bySrcType, desc);
+    return m_pObjPluginManager->FindModule<NFIEventModule>()->Subscribe(this, serverType, nEventID, bySrcType, nSrcID, desc);
 }
 
 //取消订阅执行事件
-bool NFITimerEventModule::UnSubscribe(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType)
+bool NFITimerEventModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID)
 {
-    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribe(this, nEventID, nSrcID, bySrcType);
+    return m_pObjPluginManager->FindModule<NFIEventModule>()->UnSubscribe(this, serverType, nEventID, bySrcType, nSrcID);
 }
 
 //取消所有执行事件的订阅

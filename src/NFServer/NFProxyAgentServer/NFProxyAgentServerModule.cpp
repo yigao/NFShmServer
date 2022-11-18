@@ -74,12 +74,12 @@ bool NFCProxyAgentServerModule::Awake()
 		return false;
 	}
 
-    Subscribe(proto_ff::NF_EVENT_SERVER_DEAD_EVENT, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
-    Subscribe(proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, NF_ST_PROXY_AGENT_SERVER, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, NF_ST_PROXY_AGENT_SERVER, __FUNCTION__);
 	return true;
 }
 
-int NFCProxyAgentServerModule::OnExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message* pMessage)
+int NFCProxyAgentServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {

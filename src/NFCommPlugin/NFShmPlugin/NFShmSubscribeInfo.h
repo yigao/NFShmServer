@@ -48,6 +48,11 @@ public:
     *@brief 减少引用
     */
     void Sub();
+
+    std::string ToString() const
+    {
+        return NF_FORMAT("refCount:{},removeFlag:{},desc:{},eventKey:{},shmObjId:{}", nRefCount, bRemoveFlag, szDesc.ToString(), m_eventKey.ToString(), m_shmObjId);
+    }
 public:
     /**
     *@brief 事件对象

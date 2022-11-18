@@ -27,11 +27,11 @@
 //事件执行对象
 struct OnEventExecuteObj
 {
-	int operator()(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) const
+	int operator()(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message) const
 	{
 		if (nullptr == pSink) return -1;
 
-		return pSink->OnExecute(nEventID, nSrcID, bySrcType, &message);
+		return pSink->OnExecute(serverType, nEventID, bySrcType, nSrcID, &message);
 	}
 };
 
@@ -67,7 +67,7 @@ public:
 	* 问题3:假设我在Fire事件里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
 	*       所有的Fire事件最多迭代20次
 	*/
-	virtual void FireExecute(uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const google::protobuf::Message& message) override;
+	virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message) override;
 
 	/**
 	* @brief 订阅事件
@@ -78,7 +78,7 @@ public:
 	* @param desc		事件描述，用于打印，获取信息，查看BUG之类的
 	* @return			订阅事件是否成功
 	*/
-	virtual bool Subscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType, const std::string& desc) override;
+	virtual bool Subscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& desc) override;
 
 	/**
 	* @brief 取消订阅事件
@@ -88,7 +88,7 @@ public:
 	* @param bySrcType	事件源类型，玩家类型，怪物类型之类的
 	* @return			取消订阅事件是否成功
 	*/
-	virtual bool UnSubscribe(NFEventObjBase* pSink, uint32_t nEventID, uint64_t nSrcID, uint32_t bySrcType) override;
+	virtual bool UnSubscribe(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID) override;
 
 	/**
 	* @brief 取消NFEventObj所有订阅事件
