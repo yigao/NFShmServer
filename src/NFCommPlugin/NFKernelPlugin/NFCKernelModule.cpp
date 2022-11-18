@@ -29,6 +29,7 @@
 #include "NFComm/NFCore/NFIniReader.h"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFCZdbDriver.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p)
 {
@@ -201,7 +202,10 @@ int NFCKernelModule::OnTimer(uint32_t nTimerID)
 
 int NFCKernelModule::OnKillServerProcess(uint64_t unLinkId, NFDataPackage &packet)
 {
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+    CHECK_NULL(pConfig);
+
     proto_ff::NFEventNoneData xMsg;
-    FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, xMsg);
+    FindModule<NFIEventModule>()->FireExecute(pConfig->ServerType, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, xMsg);
     return 0;
 }

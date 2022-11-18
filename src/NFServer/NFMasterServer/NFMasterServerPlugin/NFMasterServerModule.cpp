@@ -102,8 +102,8 @@ bool NFCMasterServerModule::Awake()
 		return false;
 	}
 
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 	return true;
 }
 
@@ -270,24 +270,11 @@ bool NFCMasterServerModule::Execute()
 bool NFCMasterServerModule::OnDynamicPlugin()
 {
 	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_MASTER_SERVER);
-
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 	return true;
 }
 
 int NFCMasterServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
-    {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
-        {
-            SetTimer(10000, 10000, 0);
-        }
-        else if (nEventID == proto_ff::NF_EVENT_SERVER_REG_EVENT)
-        {
-            SetTimer(10001, 10000, 1);
-        }
-    }
     return 0;
 }
 

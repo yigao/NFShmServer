@@ -50,13 +50,13 @@ bool NFCDescStoreModule::AfterInitShmMem() {
 
 bool NFCDescStoreModule::Awake() {
     //m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, 0, proto_ff::NF_EVENT_SERVER_TYPE, __FUNCTION__);
+    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
 }
 
 int NFCDescStoreModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nSrcID == 0)
+    if (serverType == NF_ST_NONE && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nSrcID == 0)
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
         {

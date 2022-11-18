@@ -62,21 +62,24 @@ int NFTransMsgServerModule::BindServer()
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server:{} Listen Success, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId, pConfig->ServerIp,
               pConfig->ServerPort);
 
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, m_serverType, __FUNCTION__);
+    Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 
     SetTimer(SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID, 10000);
     return 0;
 }
 
-int NFTransMsgServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+int NFTransMsgServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                      const google::protobuf::Message *pMessage)
 {
+    CHECK_NULL(serverType == m_serverType);
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
             SetTimer(SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
-        } else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
+        }
+        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
@@ -90,7 +93,8 @@ int NFTransMsgServerModule::OnTimer(uint32_t nTimerID)
     if (nTimerID == SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
     {
         ServerReportToMasterServer();
-    } else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
+    }
+    else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
@@ -150,7 +154,8 @@ int NFTransMsgServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLink
     if (nEvent == eMsgType_CONNECTED)
     {
 
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         OnHandleServerDisconnect(unLinkId);
     }
@@ -192,7 +197,8 @@ int NFTransMsgServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport
     if (pMsterServerData->mUnlinkId <= 0)
     {
         pMsterServerData->mUnlinkId = FindModule<NFIMessageModule>()->ConnectServer(m_serverType, xData.url(), PACKET_PARSE_TYPE_INTERNAL);
-        FindModule<NFIMessageModule>()->AddEventCallBack(m_serverType, pMsterServerData->mUnlinkId, this, &NFTransMsgServerModule::OnMasterSocketEvent);
+        FindModule<NFIMessageModule>()->AddEventCallBack(m_serverType, pMsterServerData->mUnlinkId, this,
+                                                         &NFTransMsgServerModule::OnMasterSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pMsterServerData->mUnlinkId, this,
                                                          &NFTransMsgServerModule::OnHandleMasterOtherMessage);
     }
@@ -238,7 +244,8 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
         if (!m_pObjPluginManager->IsInited())
         {
             RegisterMasterServer(proto_ff::EST_INIT);
-        } else
+        }
+        else
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
@@ -248,7 +255,8 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
         {
             m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
         }
-    } else if (nEvent == eMsgType_DISCONNECTED)
+    }
+    else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect master success", pConfig->ServerName);
     }

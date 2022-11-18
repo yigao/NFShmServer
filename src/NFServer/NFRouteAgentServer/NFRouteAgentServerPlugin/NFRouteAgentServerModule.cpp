@@ -80,8 +80,8 @@ bool NFCRouteAgentServerModule::Awake()
 	}
 
 	SetTimer(1, 60000);
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, NF_ST_ROUTE_AGENT_SERVER, __FUNCTION__);
+    Subscribe(NF_ST_ROUTE_AGENT_SERVER, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_ROUTE_AGENT_SERVER, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 	return true;
 }
 
@@ -178,6 +178,7 @@ int NFCRouteAgentServerModule::OnTimer(uint32_t nTimerID) {
 
 int NFCRouteAgentServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
+    CHECK_NULL(serverType == NF_ST_ROUTE_AGENT_SERVER);
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)

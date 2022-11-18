@@ -495,7 +495,7 @@ private:
                     try
                     {
                         pSubscribeInfo->Add();
-                        bRes = m_FireEventObj(pSubscribeInfo->pSink, serverType, nEventID, nSrcID, bySrcType, message);
+                        bRes = m_FireEventObj(pSubscribeInfo->pSink, serverType, nEventID, bySrcType, nSrcID, message);
                         pSubscribeInfo->Sub();
                     }
                     catch (...)
