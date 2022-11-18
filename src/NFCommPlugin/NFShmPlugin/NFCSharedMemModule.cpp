@@ -1450,8 +1450,9 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
         }
 
         m_pGlobalID->ReleaseID(iID);
+        std::string className = pObj->GetClassName(m_pObjPluginManager);
         m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DestroyObj Data, globalId:{} type:{} index:{}", iID, iType, iIndex);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{}", className, iID, iType, iIndex);
     }
 
     return;
