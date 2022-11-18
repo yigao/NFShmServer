@@ -237,7 +237,7 @@ int NFShmEventMgr::Fire(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcT
     */
     if (skey.nSrcID != 0)
     {
-        int ret = Fire(skey, message);
+        int ret = Fire(skey, nServerType, nEventID, bySrcType, nSrcID, message);
         if (ret != 0)
         {
             return ret;
@@ -250,7 +250,7 @@ int NFShmEventMgr::Fire(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcT
     * 订阅时将nSrcId=0，会受到所有玩家产生的该类事件
     */
     skey.nSrcID = 0;
-    return Fire(skey, message);
+    return Fire(skey, nServerType, nEventID, bySrcType, nSrcID, message);
 }
 
 /**
@@ -263,7 +263,7 @@ int NFShmEventMgr::Fire(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcT
 * @param pEventContext	事件传输的数据
 * @return				执行是否成功
 */
-int NFShmEventMgr::Fire(const NFShmEventKey &skey, const google::protobuf::Message &message)
+int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
 {
     m_nFireLayer++;
     if (m_nFireLayer >= EVENT_FIRE_MAX_LAYER)
@@ -297,7 +297,7 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, const google::protobuf::Messa
                     //智能指针，自动转空
                     if (pNode->pSink)
                     {
-                        bRes = pNode->pSink->OnExecute(skey.nServerType, skey.nEventID, skey.nSrcID, skey.bySrcType, &message);
+                        bRes = pNode->pSink->OnExecute(nServerType, nEventID, bySrcType, nSrcID, &message);
                     }
                     else
                     {

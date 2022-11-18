@@ -106,6 +106,12 @@ int NFShmObj::Show(FILE *fpOut)
     return -1;
 }
 
+int NFShmObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "event not handle, shmobjType:{} serverType:{} nEventID:{} bySrcType:{} nSrcID:{}, message:{}", GetClassType(),
+               serverType, nEventID, bySrcType, nSrcID, pMessage->DebugString());
+    return 0;
+}
 
 //发送执行事件
 int NFShmObj::FireExecute(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)

@@ -108,7 +108,8 @@ private:
     * @param pEventContext	事件传输的数据
     * @return				执行是否成功
     */
-    int Fire(const NFShmEventKey &skey, const google::protobuf::Message &message);
+    int Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+              const google::protobuf::Message &message);
 
 private:
     /**
