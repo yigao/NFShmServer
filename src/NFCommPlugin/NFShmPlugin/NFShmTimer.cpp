@@ -86,12 +86,7 @@ std::string NFShmTimer::GetDetailStructMsg()
         << " globalID:" << GetGlobalID();
 
 #ifdef NF_DEBUG_MODE
-    NFShmObj *pObj = m_shmObj.GetPoint();
-    if (pObj)
-    {
-        oss << " shmobj type:" << pObj->GetClassType()
-            << " shmobj gloablid:" << pObj->GetGlobalID();
-    }
+      oss << " shmobj gloablid:" << m_shmObjId;
 #endif
 
     return oss.str();
