@@ -589,11 +589,23 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
                                    bool useHash, int indexCount, int indexTime, bool singleton)
 {
     NFShmObjSegSwapCounter *pCounter = CreateCounterObj(bType);
+    bool add = false;
     if (pCounter->m_nObjSize > 0)
     {
+        add = true;
         NF_ASSERT(pCounter->m_nObjSize == nObjSize);
         NF_ASSERT(pCounter->m_iObjType == bType);
         NF_ASSERT(pCounter->m_singleton == singleton);
+        NF_ASSERT(pCounter->m_pFn == pfResumeObj);
+        NF_ASSERT(pCounter->m_szClassName == pszClassName);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iSelfType == bType);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pCreatefn == pCreatefn);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pDestroyFn == pDestroy);
+
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pszName == pszClassName);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iUseHash == useHash);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iIndexCount == indexCount);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iIndexTime == indexTime);
     }
     pCounter->m_nObjSize = nObjSize;
     pCounter->m_iItemCount += iItemCount;
@@ -630,34 +642,68 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     pCounter->m_pidRuntimeClass.m_iIndexCount = indexCount;
     pCounter->m_pidRuntimeClass.m_iIndexTime = indexTime;
 
-    size_t siThisObjSegTotal = sizeof(NFShmObjSeg);
-    siThisObjSegTotal += sizeof(NFShmIdx) * pCounter->m_iItemCount;
-    siThisObjSegTotal += pCounter->m_nObjSize * pCounter->m_iItemCount;
-
-    if (pCounter->m_pidRuntimeClass.m_iUseHash)
+    size_t siThisObjSegTotal = 0;
+    if (!add)
     {
-        siThisObjSegTotal += NFShmObjSeg::GetHashSize(pCounter->m_iItemCount);
+        siThisObjSegTotal += sizeof(NFShmObjSeg);
+        siThisObjSegTotal += sizeof(NFShmIdx) * pCounter->m_iItemCount;
+        siThisObjSegTotal += pCounter->m_nObjSize * pCounter->m_iItemCount;
+
+        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetHashSize(pCounter->m_iItemCount);
+        }
+
+        if (pCounter->m_pidRuntimeClass.m_iIndexCount > 0)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetIndexSize(pCounter->m_pidRuntimeClass.m_iIndexCount,
+                                                           pCounter->m_pidRuntimeClass.m_iIndexTime,
+                                                           pCounter->m_iItemCount);
+        }
+
+        m_iObjSegSizeTotal += siThisObjSegTotal;
+        m_iTotalObjCount += pCounter->m_iItemCount;
+
+        if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} M count {} tablesize {} M total obj count {}", pszClassName,
+                         pCounter->m_nObjSize / 1024.0 / 1024.0, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+        }
+        else
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
+                      pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+        }
     }
+    else {
+        siThisObjSegTotal += sizeof(NFShmIdx) * iItemCount;
+        siThisObjSegTotal += pCounter->m_nObjSize * iItemCount;
 
-    if (pCounter->m_pidRuntimeClass.m_iIndexCount > 0)
-    {
-        siThisObjSegTotal += NFShmObjSeg::GetIndexSize(pCounter->m_pidRuntimeClass.m_iIndexCount,
-                                                       pCounter->m_pidRuntimeClass.m_iIndexTime,
-                                                       pCounter->m_iItemCount);
-    }
+        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetHashSize(iItemCount);
+        }
 
-    m_iObjSegSizeTotal += siThisObjSegTotal;
-    m_iTotalObjCount += iItemCount;
+        if (pCounter->m_pidRuntimeClass.m_iIndexCount > 0)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetIndexSize(pCounter->m_pidRuntimeClass.m_iIndexCount,
+                                                           pCounter->m_pidRuntimeClass.m_iIndexTime,
+                                                           iItemCount);
+        }
 
-    if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
-    {
-        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} M count {} tablesize {} M total obj count {}", pszClassName,
-                     pCounter->m_nObjSize / 1024.0 / 1024.0, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
-    }
-    else
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
-                  pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+        m_iObjSegSizeTotal += siThisObjSegTotal;
+        m_iTotalObjCount += iItemCount;
+
+        if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "append class {} objsize {} M count {} tablesize {} M total obj count {}", pszClassName,
+                         pCounter->m_nObjSize / 1024.0 / 1024.0, iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+        }
+        else
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "append class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
+                      pCounter->m_nObjSize, iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
+        }
     }
 
     CHECK_EXPR_NOT_RET(m_iTotalObjCount < MAX_GLOBALID_NUM * 0.8, "the shm obj too much, m_iTotalObjCount:{} < MAX_GLOBALID_NUM:{}*0.8",
