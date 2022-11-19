@@ -279,6 +279,21 @@ public:
         return Size();
     }
 
+    SizeType MaxSize() const
+    {
+        return MAX_SIZE;
+    }
+
+    SizeType GetMaxSize() const
+    {
+        return MAX_SIZE;
+    }
+
+    SizeType Capacity() const
+    {
+        return MAX_SIZE;
+    }
+
 	Reference Front()
 	{
 		return *Begin();

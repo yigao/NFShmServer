@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS RoleDBData (
  unlockInfo BLOB /*!99104 COMPRESSED */ ,
  grow BLOB /*!99104 COMPRESSED */ ,
  mini BLOB /*!99104 COMPRESSED */ ,
+ facade BLOB /*!99104 COMPRESSED */ ,
+ skill BLOB /*!99104 COMPRESSED */ ,
+ mini_activity BLOB /*!99104 COMPRESSED */ ,
  INDEX(zid),
  INDEX(uid),
  PRIMARY KEY(cid))  ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -23,4 +26,7 @@ alter table RoleDBData add column task BLOB ;
 alter table RoleDBData add column unlockInfo BLOB ;
 alter table RoleDBData add column grow BLOB ;
 alter table RoleDBData add column mini BLOB ;
+alter table RoleDBData add column facade BLOB ;
+alter table RoleDBData add column skill BLOB ;
+alter table RoleDBData add column mini_activity BLOB ;
 */

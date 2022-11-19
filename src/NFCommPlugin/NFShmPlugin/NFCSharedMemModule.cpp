@@ -589,8 +589,14 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
                                    bool useHash, int indexCount, int indexTime, bool singleton)
 {
     NFShmObjSegSwapCounter *pCounter = CreateCounterObj(bType);
+    if (pCounter->m_nObjSize > 0)
+    {
+        NF_ASSERT(pCounter->m_nObjSize == nObjSize);
+        NF_ASSERT(pCounter->m_iObjType == bType);
+        NF_ASSERT(pCounter->m_singleton == singleton);
+    }
     pCounter->m_nObjSize = nObjSize;
-    pCounter->m_iItemCount = iItemCount;
+    pCounter->m_iItemCount += iItemCount;
     pCounter->m_iObjType = bType;
     pCounter->m_singleton = singleton;
 
@@ -641,7 +647,7 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     }
 
     m_iObjSegSizeTotal += siThisObjSegTotal;
-    m_iTotalObjCount += pCounter->m_iItemCount;
+    m_iTotalObjCount += iItemCount;
 
     if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
     {
@@ -1399,7 +1405,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     iIndex = pObj->GetObjectID();
     iID = pObj->GetGlobalID();
     iHashID = pObj->GetHashID();
-    std::string className = pObj->GetClassName(m_pObjPluginManager);
+    std::string className = pObj->GetClassName();
 
     if (iType < 0 || iType >= (int) m_nObjSegSwapCounter.size())
     {

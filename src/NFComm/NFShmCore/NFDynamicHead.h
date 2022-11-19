@@ -19,15 +19,15 @@
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedHead(NFIPluginManager* pPluginManager);\
     static int   GetFreeHead(NFIPluginManager* pPluginManager);\
-    static std::string GetStaticClassName(NFIPluginManager* pPluginManager) { return #class_name; }\
+    static std::string GetClassName(NFIPluginManager* pPluginManager) { return #class_name; }\
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
     static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
-    static int GetStaticClassType();      \
-    virtual std::string GetClassName(NFIPluginManager* pPluginManager);\
+    static int GetClassType(NFIPluginManager* pPluginManager);      \
+    virtual std::string GetClassName();\
     virtual int GetClassType() const;\
     virtual int GetObjectID();\
     virtual int GetHashID();\
@@ -61,11 +61,11 @@
 	{\
         return pPluginManager->FindModule<NFISharedMemModule>()->GetFreeHead(type);\
 	}                                                 \
-	std::string class_name::GetClassName(NFIPluginManager* pPluginManager) \
+	std::string class_name::GetClassName() \
 	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetClassName(type);\
+        return FindModule<NFISharedMemModule>()->GetClassName(type);\
 	}                                                 \
-    int class_name::GetStaticClassType()           \
+    int class_name::GetClassType(NFIPluginManager* pPluginManager)           \
     {\
         return type;\
     }\
@@ -116,7 +116,7 @@
 		void* pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(type);      \
 		if(!pVoid)\
 		{\
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetStaticClassName(pPluginManager), GetItemCount(pPluginManager), GetUsedCount(pPluginManager), GetFreeCount(pPluginManager)); \
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetClassName(pPluginManager), GetItemCount(pPluginManager), GetUsedCount(pPluginManager), GetFreeCount(pPluginManager)); \
             return NULL;\
 		}\
         pTmp = new (pVoid) class_name();\
@@ -158,7 +158,7 @@
 	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton)\
 	{\
 		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
-													   class_name::CreateObject,class_name::DestroyObject, parent_class::GetStaticClassType(),\
+													   class_name::CreateObject,class_name::DestroyObject, parent_class::GetClassType(pPluginManager),\
 													   className, useHash, externalDataSize, externalItemCount, singleton);\
 		return 0;\
 	}\

@@ -296,7 +296,7 @@ bool NFTransBase::IsTimeOut()
 {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(m_pObjPluginManager), GetClassType(),
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(), GetClassType(),
                    DebugString());
         OnTimeOut();
         return true;

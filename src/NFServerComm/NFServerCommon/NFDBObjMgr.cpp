@@ -106,7 +106,7 @@ int NFDBObjMgr::Tick()
                 if (pObj->GetLastDBOpTime() + pObj->GetSaveDis() < now)
                 {
                     int iRet = SaveToDB(pObj);
-                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "save obj ret:{} {} {} {}", iRet, pObj->GetClassName(m_pObjPluginManager), pObj->GetTableID(), pObj->GetDBWrapName());
+                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "save obj ret:{} {} {} {}", iRet, pObj->GetClassName(), pObj->GetTableID(), pObj->GetDBWrapName());
                     ++iSavedObjNum;
                 }
             }
@@ -130,7 +130,7 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
 
     if (pObj->IsDataInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "data already inited:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName(m_pObjPluginManager))
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "data already inited:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName())
         return -1;
     }
 
@@ -146,7 +146,7 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
     if (iRet != 0)
     {
         NF_SAFE_DELETE(pMessage);
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(m_pObjPluginManager), iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(), iRet);
         m_failedObjList.PushBack(pObj->GetGlobalID());
         return iRet;
     }
@@ -154,12 +154,12 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
     pObj->SetLastDBOpTime(NFTime::Now().UnixSec());
     pObj->SetTransID(pTrans->GetGlobalID());
     iRet = pTrans->Load(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Load db ob from tableid:{} tablename:{} transName:{} iRet:{}", pObj->GetTableID(), pObj->GetDBWrapName(), pTrans->GetClassName(m_pObjPluginManager), iRet);
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Load db ob from tableid:{} tablename:{} transName:{} iRet:{}", pObj->GetTableID(), pObj->GetDBWrapName(), pTrans->GetClassName(), iRet);
     NF_SAFE_DELETE(pMessage);
     if (iRet != 0)
     {
         m_failedObjList.PushBack(pObj->GetGlobalID());
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(m_pObjPluginManager), iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(), iRet);
         return iRet;
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -238,7 +238,7 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, uint32_t err_code, const std::string* m
 int NFDBObjMgr::OnDataInserted(NFDBObjTrans* pTrans, bool success)
 {
     CHECK_NULL(pTrans);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Data Inserted:{} {}", pTrans->GetLinkedObjID(), pTrans->GetClassName(m_pObjPluginManager));
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Data Inserted:{} {}", pTrans->GetLinkedObjID(), pTrans->GetClassName());
     NFBaseDBObj* pObj = GetObj(pTrans->GetLinkedObjID());
     CHECK_NULL(pObj);
 
@@ -283,7 +283,7 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
 
     if (!pObj->IsDataInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "data not init:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName(m_pObjPluginManager))
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "data not init:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName())
         return -1;
     }
 
@@ -299,7 +299,7 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
     if (iRet != 0)
     {
         NF_SAFE_DELETE(pMessage);
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make save Failed:{} iRet:{}", pObj->GetClassName(m_pObjPluginManager), iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Make save Failed:{} iRet:{}", pObj->GetClassName(), iRet);
         return iRet;
     }
 

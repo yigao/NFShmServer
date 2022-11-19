@@ -120,6 +120,12 @@ public:
 
     virtual NFShmObj *CreateObj(int iType) = 0;
 
+    template<typename ShmObjType>
+    NFShmObj *CreateObj()
+    {
+        return CreateObj(ShmObjType::GetClassType(m_pObjPluginManager));
+    }
+
     virtual NFShmObj *GetHeadObj(int iType) = 0;
 
     virtual NFShmObj *GetNextObj(int iType, NFShmObj *pObj) = 0;
