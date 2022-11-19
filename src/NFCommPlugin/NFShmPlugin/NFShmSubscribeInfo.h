@@ -17,7 +17,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "NFComm/NFShmCore/NFSizeString.h"
+#include "NFComm/NFShmCore/NFShmString.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFShmEventKey.h"
 
@@ -72,7 +72,7 @@ public:
     /**
     *@brief 描述信息
     */
-    NFSizeString<32> szDesc;
+    NFShmString<32> szDesc;
 
     /**
      * @brief

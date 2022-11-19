@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-#include <NFComm/NFShmCore/NFSizeString.h>
+#include <NFComm/NFShmCore/NFShmString.h>
 #include <NFComm/NFShmCore/NFArray.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
@@ -16,11 +16,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t id;
-		NFSizeString<128> contract;
-		NFSizeString<128> machine_addr;
-		NFSizeString<128> ip;
-		NFSizeString<128> bus_name;
-		NFSizeString<128> server_desc;
+		NFShmString<128> contract;
+		NFShmString<128> machine_addr;
+		NFShmString<128> ip;
+		NFShmString<128> bus_name;
+		NFShmString<128> server_desc;
 		uint32_t cur_count;
 		uint64_t last_login_time;
 		uint64_t last_logout_time;

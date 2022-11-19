@@ -52,7 +52,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStack.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStaticList.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSizeString.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmString.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSubGameTypeDefines.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.h" />

@@ -13,7 +13,7 @@
 #include "NFIDescStoreModule.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFSizeString.h"
+#include "NFComm/NFShmCore/NFShmString.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include <fstream>
 #include <iostream>
@@ -158,7 +158,7 @@ protected:
     bool m_bIsLoaded;
     bool m_bIsChecked;
     int m_bSaveTimer;
-    NFSizeString<MAX_MD5_STR_LEN> m_szMD5;
-    NFSizeString<MAX_DESC_FILE_PATH_STR_LEN> m_filePathName;
-    NFSizeString<MAX_DESC_NAME_LEN> m_dbName;
+    NFShmString<MAX_MD5_STR_LEN> m_szMD5;
+    NFShmString<MAX_DESC_FILE_PATH_STR_LEN> m_filePathName;
+    NFShmString<MAX_DESC_NAME_LEN> m_dbName;
 };
