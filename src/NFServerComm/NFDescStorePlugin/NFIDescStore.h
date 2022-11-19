@@ -19,15 +19,15 @@
 #include <iostream>
 #include <sstream>
 
-#define REGISTER_DESCSTORE(className, ClassType)  \
+#define REGISTER_DESCSTORE(className)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType);\
-    REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
+    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetClassType(m_pObjPluginManager));\
+    REGISTER_SINGLETON_SHM_OBJ(className)      \
 
-#define REGISTER_DESCSTORE_WITH_DBNAME(className, ClassType, dbName)  \
+#define REGISTER_DESCSTORE_WITH_DBNAME(className, dbName)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, ClassType, dbName);\
-    REGISTER_SINGLETON_SHM_OBJ(className, ClassType)      \
+    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetClassType(m_pObjPluginManager), dbName);\
+    REGISTER_SINGLETON_SHM_OBJ(className)      \
 
 
 class NFIDescStore : public NFShmObj

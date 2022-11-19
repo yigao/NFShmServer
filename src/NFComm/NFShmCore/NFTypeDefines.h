@@ -34,20 +34,20 @@ typedef enum
 	EOT_MAX_TYPE = 1000,
 } EN_FRAME_SHMOBJ_TYPE;
 
-#define REGISTER_SHM_OBJ(ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
+#define REGISTER_SHM_OBJ(ClassName, ObjNum ) do{\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
     }while(0)
 
-#define REGISTER_SINGLETON_SHM_OBJ(ClassName, ClassType) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), 1, std::string(#ClassName), false, 0, 0, true);\
+#define REGISTER_SINGLETON_SHM_OBJ(ClassName) do{\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), 1, std::string(#ClassName), false, 0, 0, true);\
     }while(0)
 
-#define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ClassType, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
+#define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ObjNum ) do{\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
     }while(0)
 
-#define REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX( ClassName, ClassType, ObjNum , indexNum, indexTime) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassType, sizeof(ClassName), (ObjNum), std::string(#ClassName), true, indexNum, indexTime);\
+#define REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX( ClassName, ObjNum , indexNum, indexTime) do{\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true, indexNum, indexTime);\
     }while(0)
 
 

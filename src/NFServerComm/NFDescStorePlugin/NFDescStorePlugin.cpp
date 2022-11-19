@@ -66,9 +66,9 @@ bool NFDescStorePlugin::InitShmObjectRegister()
         maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
     }
 
-    REGISTER_SHM_OBJ(NFBaseDBObj, EOT_BASE_DB_OBJ, 0);
-    REGISTER_SHM_OBJ(NFDBObjTrans, EOT_TRANS_DB_OBJ, 100);
-    REGISTER_SINGLETON_SHM_OBJ(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR);
-    REGISTER_SHM_OBJ(NFDescStoreTrans, EOT_RPC_TRANS_ID, 100);
+    REGISTER_SHM_OBJ(NFBaseDBObj, 0);
+    REGISTER_SHM_OBJ(NFDBObjTrans, 100);
+    REGISTER_SINGLETON_SHM_OBJ(NFDBObjMgr);
+    REGISTER_SHM_OBJ(NFDescStoreTrans, 100);
     return true;
 }

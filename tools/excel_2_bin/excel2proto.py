@@ -658,7 +658,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			desc_store_register_file.write("REGISTER_DESCSTORE(" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc, " + "EOT_CONST_" + excel_file_name.upper() + "_" + sheet.name.upper() + "_DESC_ID);\n")
+			desc_store_register_file.write("REGISTER_DESCSTORE(" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc);\n")
 
 	proto_file.close()
 	makefile_file.close()
