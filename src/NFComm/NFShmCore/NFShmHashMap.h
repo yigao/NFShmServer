@@ -271,8 +271,6 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
         m_astHashMap[i].m_iListPos = -1;
         m_astHashMap[i].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[i].m_stData.DATA_TYPE::~DATA_TYPE();
-        new (&m_astHashMap[i].m_stKey)KEY_TYPE();
-        new (&m_astHashMap[i].m_stData)DATA_TYPE();
     }
 
     m_astHashMap[NODE_SIZE-1].m_iHashNext = -1;
@@ -386,11 +384,9 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(con
         m_astHashMap[iCurIndex].m_iHashNext = m_iFirstFreeIdx;
         m_astHashMap[iCurIndex].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[iCurIndex].m_stData.DATA_TYPE::~DATA_TYPE();
-        new (&m_astHashMap[iCurIndex].m_stKey)KEY_TYPE();
-        new (&m_astHashMap[iCurIndex].m_stData)DATA_TYPE();
         m_iFirstFreeIdx = iCurIndex;
         --m_iUsedNodeNum;
-        //add by shichaolin
+
         if(pOutSlotIdx)
         {
             *pOutSlotIdx = iCurIndex;
@@ -436,10 +432,8 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(co
     int iNowAssignIdx = m_iFirstFreeIdx;
     m_iFirstFreeIdx = m_astHashMap[m_iFirstFreeIdx].m_iHashNext;
     ++m_iUsedNodeNum;
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
     m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
     new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_stData = rstData;
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
@@ -454,7 +448,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(co
     {
         m_astHashMap[iPreIndex].m_iHashNext = iNowAssignIdx;
     }
-    //add by shichaolin
+
     if(pOutSlotIdx)
     {
         *pOutSlotIdx = iNowAssignIdx;
@@ -499,11 +493,8 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
     int iNowAssignIdx = m_iFirstFreeIdx;
     m_iFirstFreeIdx = m_astHashMap[m_iFirstFreeIdx].m_iHashNext;
     ++m_iUsedNodeNum;
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
     m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
     new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
-    //DATA_TYPE rstData;
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
     m_astHashMap[iNowAssignIdx].m_iListPos = m_usedList.PushBack(iNowAssignIdx);
@@ -517,7 +508,7 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
     {
         m_astHashMap[iPreIndex].m_iHashNext = iNowAssignIdx;
     }
-    //add by shichaolin
+
     if(pOutSlotIdx)
     {
         *pOutSlotIdx = iNowAssignIdx;
@@ -529,7 +520,6 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
 int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData,  int *pOutSlotIdx )
 {
-    //mdy by shichaolin
     DATA_TYPE* pstData = Find(rstKeyval, pOutSlotIdx);
 
     if(pstData == NULL)
@@ -538,7 +528,6 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(co
     }
 
     *pstData = rstData;
-    //memcpy(pstData, &rstData, sizeof(rstData));
 
     return 0;
 }
@@ -565,8 +554,6 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
         {
             m_astHashMap[iCurIndex].m_stKey = rstKeyval;
             m_astHashMap[iCurIndex].m_stData = rstData;
-            //memcpy(&m_astHashMap[iCurIndex].m_stKey, &rstKeyval, sizeof(rstKeyval));
-            //memcpy(&m_astHashMap[iCurIndex].m_stData, &rstData, sizeof(rstData));
 
             return 0;
         }
@@ -587,8 +574,6 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
     m_astHashMap[iNowAssignIdx].m_stKey = rstKeyval;
     new (&m_astHashMap[iNowAssignIdx].m_stData)DATA_TYPE();
     m_astHashMap[iNowAssignIdx].m_stData = rstData;
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stKey, &rstKeyval, sizeof(rstKeyval));
-    //memcpy(&m_astHashMap[iNowAssignIdx].m_stData, &rstData, sizeof(rstData));
     m_astHashMap[iNowAssignIdx].m_cUseFlag = EHNF_USED;
     m_astHashMap[iNowAssignIdx].m_iHashNext = -1;
     m_astHashMap[iNowAssignIdx].m_iListPos = m_usedList.PushBack(iNowAssignIdx);
