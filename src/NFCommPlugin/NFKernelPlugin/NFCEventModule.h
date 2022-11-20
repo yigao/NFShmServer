@@ -24,17 +24,6 @@
  事件嵌套层数不能太多，如果可以，尽量不要使用事件嵌套，主要是为了避免造成死循环，目前事件最大嵌套层数支持5层
 */
 
-//事件执行对象
-struct OnEventExecuteObj
-{
-	int operator()(NFEventObjBase* pSink, uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message) const
-	{
-		if (nullptr == pSink) return -1;
-
-		return pSink->OnExecute(serverType, nEventID, bySrcType, nSrcID, &message);
-	}
-};
-
 class NFIKernelModule;
 
 class NFCEventModule
@@ -97,7 +86,7 @@ public:
 	*/
 	virtual bool UnSubscribeAll(NFEventObjBase* pSink) override;
 private:
-	NFEventTemplate<NFEventObjBase, OnEventExecuteObj> m_ExecuteCenter;
+	NFEventTemplate<NFEventObjBase> m_ExecuteCenter;
 };
 
 #endif

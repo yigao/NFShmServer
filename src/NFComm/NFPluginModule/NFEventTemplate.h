@@ -153,7 +153,7 @@ namespace std
 /**
  *@brief 事件系统模版类
  */
-template<class TEventSink, class TEventObj>
+template<class TEventSink>
 class NFEventTemplate
 {
 private:
@@ -495,7 +495,10 @@ private:
                     try
                     {
                         pSubscribeInfo->Add();
-                        bRes = m_FireEventObj(pSubscribeInfo->pSink, serverType, nEventID, bySrcType, nSrcID, message);
+                        if (pSubscribeInfo->pSink)
+                        {
+                            bRes = pSubscribeInfo->pSink->OnExecute(serverType, nEventID, bySrcType, nSrcID, &message);
+                        }
                         pSubscribeInfo->Sub();
                     }
                     catch (...)
@@ -548,9 +551,6 @@ private:
     }
 
 private:
-    //
-    TEventObj m_FireEventObj;
-    //
     std::unordered_map<SEventKey, std::list<SubscribeInfo>> m_mapAllSubscribeObj;
     //
     std::unordered_map<void *, std::unordered_set<SEventKey>> m_mapAllSubscribeKey;
