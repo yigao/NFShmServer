@@ -266,8 +266,11 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
     for(i = 0; i < NODE_SIZE; ++i)
     {
         m_astHashMap[i].m_iHashNext = i + 1;
+        if (m_astHashMap[i].m_cUseFlag == EHNF_USED)
+        {
+            m_usedList.Erase(m_astHashMap[i].m_iListPos);
+        }
         m_astHashMap[i].m_cUseFlag = EHNF_NOT_USED;
-        m_usedList.Erase(m_astHashMap[i].m_iListPos);
         m_astHashMap[i].m_iListPos = -1;
         m_astHashMap[i].m_stKey.KEY_TYPE::~KEY_TYPE();
         m_astHashMap[i].m_stData.DATA_TYPE::~DATA_TYPE();
