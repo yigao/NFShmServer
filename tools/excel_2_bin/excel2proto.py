@@ -91,6 +91,9 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 
 
 def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
+	one_col_info = sheet_col_info[0]
+	key_en_name = one_col_info["col_en_name"].lower().strip()
+
 	desc_file_name = excel_name.capitalize() + sheet_name.capitalize() + "Desc.cpp"
 	desc_file = open(desc_file_name, 'w')
 	desc_file.write("#include \"" + excel_name.capitalize() + sheet_name.capitalize() + "Desc.h\"\n");
@@ -155,19 +158,19 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\tfor (int i = 0; i < (int)table." + excel_name.lower() + sheet_name.lower() + "_list_size(); i++)\n")
 	desc_file.write("\t{\n")
 	desc_file.write("\t\tconst proto_ff::" + excel_name + sheet_name + "& desc = table." + excel_name.lower() + sheet_name.lower() + "_list(i);\n")
-	desc_file.write("\t\tif (desc.has_" + str(sheet.cell_value(0, 0)).lower().strip() + "() == false && desc.ByteSize() == 0)\n")
+	desc_file.write("\t\tif (desc.has_" + key_en_name + "() == false && desc.ByteSize() == 0)\n")
 	desc_file.write("\t\t{\n")
 	desc_file.write("\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n")
 	desc_file.write("\t\t\tcontinue;\n")
 	desc_file.write("\t\t}\n")
 	desc_file.write("\t\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", desc.Utf8DebugString());\n")
 	desc_file.write("\t\tauto pDesc = &m_astDesc[i];\n")
-	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc Index Failed desc.id:{}\", desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
+	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc Index Failed desc.id:{}\", desc." + key_en_name + "());\n")
 	desc_file.write("\t\tpDesc->read_from_pbmsg(desc);\n");
-	desc_file.write("\t\tauto pIndex = m_astDescMap.Insert(desc." + str(sheet.cell_value(0, 0)).lower().strip() + "());\n")
-	desc_file.write("\t\tCHECK_EXPR(pIndex, -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + str(sheet.cell_value(0, 0)).lower() + "());\n")
+	desc_file.write("\t\tauto pIndex = m_astDescMap.Insert(desc." + key_en_name + "());\n")
+	desc_file.write("\t\tCHECK_EXPR(pIndex, -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + key_en_name + "());\n")
 	desc_file.write("\t\t*pIndex = i;\n");
-	desc_file.write("\t\tuint64_t hashKey = desc." + str(sheet.cell_value(0, 0)).lower() + "();\n");
+	desc_file.write("\t\tuint64_t hashKey = desc." + key_en_name + "();\n");
 	desc_file.write("\t\tif (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)\n")
 	desc_file.write("\t\t{\n")
 	desc_file.write("\t\t\tif (m_astDescIndex[hashKey] != -1)\n")
