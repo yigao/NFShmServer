@@ -1,0 +1,91 @@
+Index: game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// -------------------------------------------------------------------------\n//    @FileName         :    NFPackagePart.h\n//    @Author           :    gaoyi\n//    @Date             :    22-10-31\n//    @Email\t\t\t:    445267987@qq.com\n//    @Module           :    NFPackagePart\n//\n// -------------------------------------------------------------------------\n\n#pragma once\n\n\n#include \"NFComm/NFCore/NFPlatform.h\"\n#include \"NFComm/NFShmCore/NFShmObj.h\"\n#include \"NFComm/NFShmCore/NFShmMgr.h\"\n#include \"NFLogicCommon/PackageDefine.h\"\n#include \"NFLogicCommon/NFLogDefine.h\"\n#include \"NFPart.h\"\n\nclass NFPackagePart : public NFPart\n{\npublic:\n    NFPackagePart();\n\n    virtual ~NFPackagePart();\n\n    int CreateInit();\n\n    int ResumeInit();\npublic:\n    static int RetisterClientMessage(NFIPluginManager* pPluginManager);\n    static int RetisterServerMessage(NFIPluginManager* pPluginManager);\npublic:\n    /**\n     * @brief 处理客户端消息\n     * @param unLinkId\n     * @param packet\n     * @return\n     */\n    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet);\n\n    /**\n     * @brief 处理来自服务器的信息\n     * @param unLinkId\n     * @param packet\n     * @return\n     */\n    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);\npublic:\n    ///////////////////////////////// IPackage   /////////////////////////////////////////\n    //获取指定物品数量\n    virtual int64_t GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum);\n    //是否存在物品\n    virtual bool HasItem(LIST_ITEM &lstItem);\n    //移除物品\n    virtual bool RemoveItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t)EBindState::EBindState_all);\n    //移除物品 sourceParam : 物品移除来源（暂时没有）\n    virtual bool RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam);\n    //移除物品\n    virtual bool RemoveItem(uint32_t nPackageType, LIST_ITEM &lstItem, SCommonSource &sourceParam);\n    //移除物品 index,num sourceParam : 物品移除来源（暂时没有）\n    virtual bool RemoveItemByIndex(uint32_t nPackageType, uint16_t nIndex, int64_t nNum, SCommonSource &sourceParam);\n    //移除物品 index-num nGetType : 物品移除来源（暂时没有）\n    virtual bool RemoveItem(uint32_t nPackageType, MAP_UINT16_INT64 &mapIndexItem, SCommonSource &sourceParam);\n\n    //是否能添加物品\n    virtual bool CanAddItem(LIST_ITEM &lstItem);\n    //能否添加物品\n    virtual bool CanAddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx);\n    //添加物品\n    virtual bool AddItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t)EBindState::EBindState_no);\n    //添加物品 sourceParam : 物品来源（暂时没有）\n    virtual bool AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool update = true, bool tip = true);\n\n    //添加物品 sourceParam : 物品来源（暂时没有）\n    virtual bool AddItem(VEC_ITEM_PROTO &vecProtoItems, SCommonSource &sourceParam, bool update = true, bool tip = true);\n    //添加物品 sourceParam : 物品来源（暂时没有）\n    virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam, bool update = true, bool tip = true);\n    //添加物品 sourceParam : 物品来源（暂时没有）,这个接口是通过传进来的物品顺序添加前端物品tip提示\n    virtual bool AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam);\n    //添加物品 sourceParam : 物品来源（暂时没有） vecProtoItemsOut:传出参数，外部需要的物品数据\n    virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecProtoItemsOut, SCommonSource &sourceParam, bool update = true, bool tip = true);\n    //清空背包所有物品\n    virtual bool ClearPackage();\n    //扩展背包\n    virtual int32_t Expand(int32_t& nNum);\n    //扩展仓库\n    virtual int32_t ExpandStorage(int32_t& nNum);\n\n    //获取索引位置物品\n    virtual const CItemBase *GetItem(uint16_t nIndex);\n    virtual const CItemBase* GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex);\n    // \t//获取第一个指定ID的物品\n    virtual CItemBase* GetFirstItemById(uint32_t nPackageType, uint64_t item_id);\n    //移除所有指定类型的物品（根据 tem.xlsx 表中 subType 字段 移除物品）\n    virtual bool RemoveAllByType(int32_t itemSubType, SCommonSource &sourceParam);\n    virtual bool RemoveAllByType(uint32_t nPackageType, int32_t itemSubType, SCommonSource &sourceParam);\n    //使用物品 跟背包无关的使用物品接口 nNum:使用的数量,protoArg:使用物品需要的参数\n    virtual int32_t UseItem(CItemBase *pItem, int64_t& nNum, UseItemArgProto& protoArg);\n    //使用物品 nIndex:物品所在背包索引,nNum:使用的数量,protoArg:使用物品需要的参数\n    virtual int32_t UseItem(uint16_t nIndex, int64_t& nNum, UseItemArgProto &protoArg);\n    //仓库或背包容量全部开启\n    virtual void AllOpenGrid(uint32_t nPackageType);\n\n    //移除仓库物品（根据 item.xlsx 表中 subType 字段 移除物品）\n    bool RemoveSotrageItemByType(int32_t itemSubType);\n    //移除仓库物品\n    bool RemoveStorageItemByID(uint64_t nItemID);\n\n    //获取标签页空格子索引列表 nNum:为0表示标签页所有的空格子，大于0时 只返回 nNum 个空格子\n    bool GetEmptyGrid(uint32_t nPackageType, VEC_UINT16 &vecGrid);\n\n    //设置物品\n    uint16_t SetItemByIndex(uint32_t nPackageType,uint16_t nIndex,CItemBase *pItem);\n    //整理\n    void ItemSortByPackageType(uint32_t nPackageType);\n    //更新背包物品\n    void SendUpdatePackageByIndex(uint32_t nPackageType, CItemBase *pItem, bool bDel);\n\n    //添加背包更新信息\n    bool AddPackageUpdateInfo(CItemBase* pItem, NotifyPackageUpdate& ret, bool bDel = false);\n    void UpdatePackage(uint32_t nPackageType, NotifyPackageUpdate& ret);\nprivate:\nDECLARE_IDCREATE(NFPackagePart)\n};
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h b/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h
+--- a/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h	(revision e0cd9a1749bf7a58f3951df2c58f1bbbb79f9446)
++++ b/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h	(date 1669080930289)
+@@ -47,79 +47,6 @@
+      */
+     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
+ public:
+-    ///////////////////////////////// IPackage   /////////////////////////////////////////
+-    //获取指定物品数量
+-    virtual int64_t GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum);
+-    //是否存在物品
+-    virtual bool HasItem(LIST_ITEM &lstItem);
+-    //移除物品
+-    virtual bool RemoveItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t)EBindState::EBindState_all);
+-    //移除物品 sourceParam : 物品移除来源（暂时没有）
+-    virtual bool RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam);
+-    //移除物品
+-    virtual bool RemoveItem(uint32_t nPackageType, LIST_ITEM &lstItem, SCommonSource &sourceParam);
+-    //移除物品 index,num sourceParam : 物品移除来源（暂时没有）
+-    virtual bool RemoveItemByIndex(uint32_t nPackageType, uint16_t nIndex, int64_t nNum, SCommonSource &sourceParam);
+-    //移除物品 index-num nGetType : 物品移除来源（暂时没有）
+-    virtual bool RemoveItem(uint32_t nPackageType, MAP_UINT16_INT64 &mapIndexItem, SCommonSource &sourceParam);
+-
+-    //是否能添加物品
+-    virtual bool CanAddItem(LIST_ITEM &lstItem);
+-    //能否添加物品
+-    virtual bool CanAddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx);
+-    //添加物品
+-    virtual bool AddItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t)EBindState::EBindState_no);
+-    //添加物品 sourceParam : 物品来源（暂时没有）
+-    virtual bool AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool update = true, bool tip = true);
+-
+-    //添加物品 sourceParam : 物品来源（暂时没有）
+-    virtual bool AddItem(VEC_ITEM_PROTO &vecProtoItems, SCommonSource &sourceParam, bool update = true, bool tip = true);
+-    //添加物品 sourceParam : 物品来源（暂时没有）
+-    virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam, bool update = true, bool tip = true);
+-    //添加物品 sourceParam : 物品来源（暂时没有）,这个接口是通过传进来的物品顺序添加前端物品tip提示
+-    virtual bool AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam);
+-    //添加物品 sourceParam : 物品来源（暂时没有） vecProtoItemsOut:传出参数，外部需要的物品数据
+-    virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecProtoItemsOut, SCommonSource &sourceParam, bool update = true, bool tip = true);
+-    //清空背包所有物品
+-    virtual bool ClearPackage();
+-    //扩展背包
+-    virtual int32_t Expand(int32_t& nNum);
+-    //扩展仓库
+-    virtual int32_t ExpandStorage(int32_t& nNum);
+-
+-    //获取索引位置物品
+-    virtual const CItemBase *GetItem(uint16_t nIndex);
+-    virtual const CItemBase* GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex);
+-    // 	//获取第一个指定ID的物品
+-    virtual CItemBase* GetFirstItemById(uint32_t nPackageType, uint64_t item_id);
+-    //移除所有指定类型的物品（根据 tem.xlsx 表中 subType 字段 移除物品）
+-    virtual bool RemoveAllByType(int32_t itemSubType, SCommonSource &sourceParam);
+-    virtual bool RemoveAllByType(uint32_t nPackageType, int32_t itemSubType, SCommonSource &sourceParam);
+-    //使用物品 跟背包无关的使用物品接口 nNum:使用的数量,protoArg:使用物品需要的参数
+-    virtual int32_t UseItem(CItemBase *pItem, int64_t& nNum, UseItemArgProto& protoArg);
+-    //使用物品 nIndex:物品所在背包索引,nNum:使用的数量,protoArg:使用物品需要的参数
+-    virtual int32_t UseItem(uint16_t nIndex, int64_t& nNum, UseItemArgProto &protoArg);
+-    //仓库或背包容量全部开启
+-    virtual void AllOpenGrid(uint32_t nPackageType);
+-
+-    //移除仓库物品（根据 item.xlsx 表中 subType 字段 移除物品）
+-    bool RemoveSotrageItemByType(int32_t itemSubType);
+-    //移除仓库物品
+-    bool RemoveStorageItemByID(uint64_t nItemID);
+-
+-    //获取标签页空格子索引列表 nNum:为0表示标签页所有的空格子，大于0时 只返回 nNum 个空格子
+-    bool GetEmptyGrid(uint32_t nPackageType, VEC_UINT16 &vecGrid);
+-
+-    //设置物品
+-    uint16_t SetItemByIndex(uint32_t nPackageType,uint16_t nIndex,CItemBase *pItem);
+-    //整理
+-    void ItemSortByPackageType(uint32_t nPackageType);
+-    //更新背包物品
+-    void SendUpdatePackageByIndex(uint32_t nPackageType, CItemBase *pItem, bool bDel);
+-
+-    //添加背包更新信息
+-    bool AddPackageUpdateInfo(CItemBase* pItem, NotifyPackageUpdate& ret, bool bDel = false);
+-    void UpdatePackage(uint32_t nPackageType, NotifyPackageUpdate& ret);
+ private:
+ DECLARE_IDCREATE(NFPackagePart)
+ };
+\ No newline at end of file
