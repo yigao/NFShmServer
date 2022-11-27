@@ -30,7 +30,7 @@ void ignore_pipe_new()
 #endif
 }
 
-//ת����ػ����̺󣬻��½�һ������
+//转变成守护进程后，会新建一个进程
 void InitDaemon()
 {
 #if	NF_PLATFORM == NF_PLATFORM_LINUX
