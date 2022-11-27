@@ -580,14 +580,7 @@
       <workItem from="1669165497629" duration="3164000" />
       <workItem from="1669424665839" duration="21981000" />
       <workItem from="1669453194949" duration="3078000" />
-      <workItem from="1669510578212" duration="6726000" />
-    </task>
-    <task id="LOCAL-00298" summary="shm obj">
-      <created>1668658868273</created>
-      <option name="number" value="00298" />
-      <option name="presentableId" value="LOCAL-00298" />
-      <option name="project" value="LOCAL" />
-      <updated>1668658868273</updated>
+      <workItem from="1669510578212" duration="7776000" />
     </task>
     <task id="LOCAL-00299" summary="shm obj">
       <created>1668658877860</created>
@@ -925,7 +918,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669510631046</updated>
     </task>
-    <option name="localTasksCounter" value="347" />
+    <task id="LOCAL-00347" summary="package">
+      <created>1669539813520</created>
+      <option name="number" value="00347" />
+      <option name="presentableId" value="LOCAL-00347" />
+      <option name="project" value="LOCAL" />
+      <updated>1669539813520</updated>
+    </task>
+    <option name="localTasksCounter" value="348" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1172,6 +1172,11 @@
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.cpp</url>
           <line>83</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.cpp</url>
+          <line>510</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
