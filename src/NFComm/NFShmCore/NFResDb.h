@@ -88,7 +88,9 @@
     public:\
     virtual int GetResNum() const override { return m_astDesc.GetSize();}\
     NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
-    const NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() const { return m_astDesc; }\
+    const NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() const { return m_astDesc; } \
+    NFArray<DESCCLASSNAME, DESCNUM>* GetResDescPtr() { return &m_astDesc; }\
+    const NFArray<DESCCLASSNAME, DESCNUM>* GetResDescPtr() const { return &m_astDesc; }\
     virtual int Initialize() override\
     {\
         m_astDesc.CreateInit();\
