@@ -130,8 +130,12 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
+
 
 			"NFGameServerPlugin",
+			"NFBattlePlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
@@ -144,6 +148,8 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
@@ -159,9 +165,11 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFWorldServerPlugin",
-			--"NFWorldServerPlayerPlugin",
+			"NFWorldServerPlayerPlugin",
 		};
 		ServerType = NF_ST_WORLD_SERVER;
 	},
@@ -187,10 +195,11 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
-			--"NFCommLogicPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFLogicServerPlugin",
-			--"NFLogicServerPlayerPlugin",
+			"NFLogicServerPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
 	},
