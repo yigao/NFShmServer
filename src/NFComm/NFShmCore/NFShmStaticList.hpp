@@ -110,7 +110,7 @@ public:
 	{
 		return m_pNode < other.m_pNode;
 	}
-	///������������Ϊ
+
 	_Self &
 		operator+=(const ptrdiff_t n)
 	{

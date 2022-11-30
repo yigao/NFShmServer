@@ -54,6 +54,118 @@ bool CDefaultHashKeyCmp<KEY_TYPE>::operator() (const KEY_TYPE& rstKey1, const KE
     }
 }
 
+template<typename KEY_TYPE, typename DATA_TYPE, typename Container>
+struct NFShmHashMapIterator
+{
+protected:
+    typedef NFShmHashMapIterator<KEY_TYPE, DATA_TYPE, Container> _Self;
+    typedef typename Container::StaticListIterator StaticListIterator;
+public:
+    typedef ptrdiff_t DifferenceType;
+    typedef size_t SizeType;
+
+    NFShmHashMapIterator()
+    {
+    }
+
+    explicit NFShmHashMapIterator(const Container *pContainer, StaticListIterator listIter)
+            : m_pContainer(const_cast<Container *>(pContainer)), m_staticListIter(listIter)
+    {
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
+    }
+
+    std::pair<KEY_TYPE*, DATA_TYPE*> operator*()
+    {
+        return m_pair;
+    }
+
+    std::pair<KEY_TYPE*, DATA_TYPE*>* operator->()
+    {
+        return &m_pair;
+    }
+
+    _Self &
+    operator++()
+    {
+        m_staticListIter++;
+        return *this;
+    }
+
+    _Self operator++(int)
+    {
+        _Self __tmp = *this;
+        m_staticListIter++;
+        return __tmp;
+    }
+
+    _Self &
+    operator--()
+    {
+        m_staticListIter--;
+        return *this;
+    }
+
+    _Self operator--(int)
+    {
+        _Self __tmp = *this;
+        m_staticListIter--;
+        return __tmp;
+    }
+
+    bool operator==(const _Self &other) const
+    {
+        assert(m_pContainer == other.m_pContainer);
+        return m_staticListIter == other.m_staticListIter;
+    }
+
+    bool operator!=(const _Self &other) const
+    {
+        assert(m_pContainer == other.m_pContainer);
+        return m_staticListIter != other.m_staticListIter;
+    }
+
+    bool operator<(const _Self other) const
+    {
+        return m_staticListIter < other.m_staticListIter;
+    }
+
+    _Self &
+    operator+=(const ptrdiff_t n)
+    {
+        m_staticListIter += n;
+        return *this;
+    }
+
+    _Self operator+(const ptrdiff_t n) const
+    {
+        return _Self(m_pContainer, m_staticListIter + n);
+    }
+
+    _Self &
+    operator-=(const ptrdiff_t n)
+    {
+        m_staticListIter -= n;
+        return *this;
+    }
+
+    _Self operator-(const ptrdiff_t n) const
+    {
+        return _Self(m_pContainer, m_staticListIter - n);
+    }
+
+    ptrdiff_t operator-(const _Self other) const
+    {
+        return m_staticListIter - other.m_staticListIter;
+    }
+
+    Container *m_pContainer;
+    StaticListIterator m_staticListIter;
+    std::pair<KEY_TYPE*, DATA_TYPE*> m_pair;
+};
+
 //!三个模板值，Key是主键类型，T是数据类型，NODE_SIZE是数据最大的大小，需要预先分配，HASH_SIZE是Hash表大小
 /*
  * 经过测试，HASH_SIZE 等于 NODE_SIZE即可，HASH_SIZE即使等于NODE_SIZE的一半，效率也不会明显降低，提高到2倍，效率也没明显提升。效率比相同情况下的std::unorder_map效率要好
@@ -100,7 +212,8 @@ class NFShmHashMap
         int m_iListPos;
     } THashMapNode;
 public:
-    typedef typename NFShmStaticList<int, NODE_SIZE>::Iterator Iterator;
+    typedef NFShmHashMapIterator<KEY_TYPE, DATA_TYPE, NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>> Iterator;
+    typedef typename NFShmStaticList<int, NODE_SIZE>::Iterator StaticListIterator;
     typedef typename NFShmStaticList<int, NODE_SIZE>::_Node _Node;
 public:
     NFShmHashMap();
@@ -111,22 +224,22 @@ public:
 public:
     Iterator Begin()
     {
-        return m_usedList.Begin();
+        return Iterator(this, m_usedList.Begin());
     }
 
     Iterator End()
     {
-        return m_usedList.End();
+        return Iterator(this, m_usedList.End());
     }
 
     Iterator Erase(Iterator iter)
     {
-        _Node *pNode = static_cast<_Node *>(iter.m_pNode);
+        _Node *pNode = static_cast<_Node *>(iter.m_staticListIter.m_pNode);
         ptrdiff_t iNext = pNode->m_iNext;
 
-        EraseBySID(*iter);
+        EraseBySID(*iter.m_staticListIter);
 
-        return Iterator(&m_usedList, m_usedList.GetNode(iNext));
+        return Iterator(this, StaticListIterator(&m_usedList, m_usedList.GetNode(iNext)));
     }
 public:
     ////!通过数组下标的方式获取值（这里类似STL的Map如果发现该Key值的节点不存在会插入）
