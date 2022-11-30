@@ -55,6 +55,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmHashMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmHashMap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmStaticList.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmStaticList.hpp" afterDir="false" />
     </list>
@@ -584,14 +587,7 @@
       <workItem from="1669681470007" duration="1826000" />
       <workItem from="1669715802930" duration="2701000" />
       <workItem from="1669769328842" duration="8000" />
-      <workItem from="1669769774760" duration="8531000" />
-    </task>
-    <task id="LOCAL-00311" summary="event">
-      <created>1668746689963</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1668746689963</updated>
+      <workItem from="1669769774760" duration="11965000" />
     </task>
     <task id="LOCAL-00312" summary="event">
       <created>1668759803657</created>
@@ -929,7 +925,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669777706538</updated>
     </task>
-    <option name="localTasksCounter" value="360" />
+    <task id="LOCAL-00360" summary="package">
+      <created>1669783087728</created>
+      <option name="number" value="00360" />
+      <option name="presentableId" value="LOCAL-00360" />
+      <option name="project" value="LOCAL" />
+      <updated>1669783087728</updated>
+    </task>
+    <option name="localTasksCounter" value="361" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1169,28 +1172,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
-          <line>122</line>
+          <line>121</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
-          <line>452</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
-          <line>97</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
-          <line>384</line>
+          <line>383</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp</url>
-          <line>219</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp</url>
+          <line>94</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
+          <line>271</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp</url>
+          <line>150</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
