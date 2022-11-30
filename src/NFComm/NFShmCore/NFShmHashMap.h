@@ -91,6 +91,10 @@ public:
     operator++()
     {
         m_staticListIter++;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return *this;
     }
 
@@ -98,6 +102,10 @@ public:
     {
         _Self __tmp = *this;
         m_staticListIter++;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return __tmp;
     }
 
@@ -105,6 +113,10 @@ public:
     operator--()
     {
         m_staticListIter--;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return *this;
     }
 
@@ -112,6 +124,10 @@ public:
     {
         _Self __tmp = *this;
         m_staticListIter--;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return __tmp;
     }
 
@@ -136,6 +152,10 @@ public:
     operator+=(const ptrdiff_t n)
     {
         m_staticListIter += n;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return *this;
     }
 
@@ -148,6 +168,10 @@ public:
     operator-=(const ptrdiff_t n)
     {
         m_staticListIter -= n;
+        int pos = *m_staticListIter;
+        auto pKey = m_pContainer->GetKeyByIndex(pos);
+        auto pValue = m_pContainer->GetByIndex(pos);
+        m_pair = std::make_pair(pKey, pValue);
         return *this;
     }
 
@@ -228,6 +252,16 @@ public:
     }
 
     Iterator End()
+    {
+        return Iterator(this, m_usedList.End());
+    }
+
+    Iterator Begin() const
+    {
+        return Iterator(this, m_usedList.Begin());
+    }
+
+    Iterator End() const
     {
         return Iterator(this, m_usedList.End());
     }
