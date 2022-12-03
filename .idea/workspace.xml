@@ -54,7 +54,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="attr gm">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.h" afterDir="false" />
     </list>
@@ -581,14 +583,7 @@
       <workItem from="1669769328842" duration="8000" />
       <workItem from="1669769774760" duration="32851000" />
       <workItem from="1669942244170" duration="11269000" />
-      <workItem from="1670029533057" duration="19585000" />
-    </task>
-    <task id="LOCAL-00321" summary="event">
-      <created>1668820585935</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1668820585935</updated>
+      <workItem from="1670029533057" duration="20083000" />
     </task>
     <task id="LOCAL-00322" summary="nfshmstring">
       <created>1668824559309</created>
@@ -926,7 +921,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670059793810</updated>
     </task>
-    <option name="localTasksCounter" value="370" />
+    <task id="LOCAL-00370" summary="package">
+      <created>1670060626997</created>
+      <option name="number" value="00370" />
+      <option name="presentableId" value="LOCAL-00370" />
+      <option name="project" value="LOCAL" />
+      <updated>1670060626997</updated>
+    </task>
+    <option name="localTasksCounter" value="371" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1142,9 +1144,9 @@
     <MESSAGE value="nfshmstring" />
     <MESSAGE value="attr" />
     <MESSAGE value="excel" />
-    <MESSAGE value="package" />
     <MESSAGE value="attr gm" />
-    <option name="LAST_COMMIT_MESSAGE" value="attr gm" />
+    <MESSAGE value="package" />
+    <option name="LAST_COMMIT_MESSAGE" value="package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
