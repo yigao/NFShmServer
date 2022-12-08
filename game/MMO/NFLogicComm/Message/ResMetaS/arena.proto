@@ -1,0 +1,102 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message arenarobotattrDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 val = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message arenarobot
+{
+	optional int32 arenaId = 1[(yd_fieldoptions.field_cname) = "竞技场排名ID"];
+	optional string robotname = 2[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 aiId = 3[(yd_fieldoptions.field_cname) = "aiID"];
+	optional int32 rankId = 4[(yd_fieldoptions.field_cname) = "排名id"];
+	optional int32 robotProfession = 5[(yd_fieldoptions.field_cname) = "机器人职业"];
+	optional int32 robotLv = 6[(yd_fieldoptions.field_cname) = "机器人等级"];
+	optional int32 sword = 7[(yd_fieldoptions.field_cname) = "战力"];
+	optional int32 occupationID = 8[(yd_fieldoptions.field_cname) = "转职ID"];
+	repeated arenarobotattrDesc attr = 9[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_arenarobot
+{
+	repeated arenarobot arenarobot_List = 1[(yd_fieldoptions.field_arysize)=6000];
+}
+
+message arenaarenAwardRewardDesc
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 Value = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message arenaarenAward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 lvDown = 2[(yd_fieldoptions.field_cname) = "下限等级"];
+	optional int32 lvUp = 3[(yd_fieldoptions.field_cname) = "上限等级"];
+	repeated arenaarenAwardRewardDesc Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_arenaarenAward
+{
+	repeated arenaarenAward arenaarenAward_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}
+
+message arenarankawardRewardDesc
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 Value = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message arenarankaward
+{
+	optional int32 PrizeId = 1[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 arenaDown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 arenaUp = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated arenarankawardRewardDesc Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_arenarankaward
+{
+	repeated arenarankaward arenarankaward_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message arenafirstrankRewardDesc
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 Value = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message arenafirstrank
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 rankDown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 rankUp = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated arenafirstrankRewardDesc Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_arenafirstrank
+{
+	repeated arenafirstrank arenafirstrank_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message arenabuychallenge
+{
+	optional int32 count = 1[(yd_fieldoptions.field_cname) = "购买计次"];
+	optional int32 costType = 2[(yd_fieldoptions.field_cname) = "花费类型"];
+	optional int32 cost = 3[(yd_fieldoptions.field_cname) = "花费"];
+}
+
+
+message Sheet_arenabuychallenge
+{
+	repeated arenabuychallenge arenabuychallenge_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

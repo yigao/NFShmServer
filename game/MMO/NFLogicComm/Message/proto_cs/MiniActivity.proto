@@ -1,0 +1,55 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//CLIENT_TO_LOGIC_GET_GOD_RELICS_INFO_REQ = 952; //获得天机谱活动数据
+message GetGodRelicsInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_GET_GOD_RELICS_INFO_RSP = 953; //获得天机谱活动数据
+message GetGodRelicsInfoRsp
+{
+  repeated GodRelicsTaskGroupEntry group_data = 1;
+  optional int64 cur_group_id = 2;
+}
+
+//LOGIC_TO_CLIENT_UPDATE_GOD_RELICS_NOTIFY = 954; //当前任务更新, 小任务完成了，或整个任务组完成了
+message UpdateGodRelecsNotify
+{
+  optional GodRelicsTaskGroupEntry group_data = 1;
+}
+
+//CLIENT_TO_LOGIC_GET_GOD_RELICS_TASK_REWARD_REQ = 955; //领取小任务奖励
+message GetGodRelicsTaskRewardReq
+{
+  optional int64 group_id = 1;
+  optional int64 task_id = 2;
+}
+
+//LOGIC_TO_CLIENT_GET_GOD_RELICS_TASK_REWARD_RSP = 956; //领取小任务奖励
+message GetGodRelicsTaskRewardRsp
+{
+  optional int64 ret_code = 1;
+  optional int64 task_id = 2;
+  optional GodRelicsTaskGroupEntry group_data = 3;
+}
+
+//CLIENT_TO_LOGIC_GET_GOD_RELICS_GROUP_TASK_REWARD_REQ = 957; //领取任务组奖励，以及通知新的任务组
+message GetGodRelecsGroupTaskRewardReq
+{
+  optional int64 group_id = 1;
+}
+
+//LOGIC_TO_CLIENT_GET_GOD_RELICS_GROUP_TASK_REWARD_RSP = 958; //领取任务组奖励，以及通知新的任务组
+message GetGodRelecsGroupTaskRewardRsp
+{
+  optional int64 ret_code = 1;
+  optional GodRelicsTaskGroupEntry old_group_data = 2;
+  optional GodRelicsTaskGroupEntry new_group_data = 3;
+}

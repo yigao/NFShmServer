@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="Recast">
+			<UniqueIdentifier>{971291BC-69A1-654A-8E8B-7A2E0BF950FE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Recast\Include">
+			<UniqueIdentifier>{32F775C9-C54A-4A41-8B9C-916D3D9E65EA}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Recast\Source">
+			<UniqueIdentifier>{36794311-FB3B-AC45-A04A-BAD33BDD8D69}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\..\Recast\Include\Recast.h">
+			<Filter>Recast\Include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\Recast\Include\RecastAlloc.h">
+			<Filter>Recast\Include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\Recast\Include\RecastAssert.h">
+			<Filter>Recast\Include</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\..\Recast\Source\Recast.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastAlloc.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastArea.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastContour.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastFilter.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastLayers.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastMesh.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastMeshDetail.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastRasterization.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\Recast\Source\RecastRegion.cpp">
+			<Filter>Recast\Source</Filter>
+		</ClCompile>
+	</ItemGroup>
+</Project>

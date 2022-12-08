@@ -1,0 +1,177 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message equipequipattributeDesc
+{
+	optional int32 valueMin = 1[(yd_fieldoptions.field_cname) = "最小数值"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = ""];
+	optional int32 valueMax = 3[(yd_fieldoptions.field_cname) = "最大数值"];
+}
+
+message equipequipgodAttributeDesc
+{
+	optional int32 valueMin = 1[(yd_fieldoptions.field_cname) = "最小数值"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = ""];
+	optional int32 valueMax = 3[(yd_fieldoptions.field_cname) = "最大数值"];
+}
+
+message equipequip
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "装备ID"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "装备名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 position = 4[(yd_fieldoptions.field_cname) = "装备位置"];
+	optional string profession = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 professionLv = 6[(yd_fieldoptions.field_cname) = "转职等级"];
+	optional int32 level = 7[(yd_fieldoptions.field_cname) = "穿戴等级限制"];
+	optional int32 quality = 8[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 star = 9[(yd_fieldoptions.field_cname) = "装备星级"];
+	optional int32 refineAttributeDown = 10[(yd_fieldoptions.field_cname) = "星级属性数量下限"];
+	optional int32 refineAttributeUp = 11[(yd_fieldoptions.field_cname) = "星级属性数量上限"];
+	optional string refineAttribute_typeLibrary = 12[(yd_fieldoptions.field_cname) = "随机星级属性库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string refineAttribute_valueMin = 13[(yd_fieldoptions.field_cname) = "星级属性最小值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string refineAttribute_valueMax = 14[(yd_fieldoptions.field_cname) = "星级属性最大值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 blueStarNum = 15[(yd_fieldoptions.field_cname) = "蓝色星级属性条数"];
+	optional string blueStar_type = 16[(yd_fieldoptions.field_cname) = "蓝色星级属性类型库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string blueStar_lv = 17[(yd_fieldoptions.field_cname) = "蓝色星级等级间隔差", (yd_fieldoptions.field_bufsize) = 60];
+	optional string blueStar_number = 18[(yd_fieldoptions.field_cname) = "蓝色星级每级增加值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 isCanbind = 19[(yd_fieldoptions.field_cname) = "是否绑定"];
+	optional int32 isTradeBind = 20[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 sellPrice = 21[(yd_fieldoptions.field_cname) = "出售价格"];
+	optional string icon = 22[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 time = 23[(yd_fieldoptions.field_cname) = "限时装备"];
+	optional int32 broadcast = 24[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
+	optional string meltingResult = 25[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 specialAttributeDown = 26[(yd_fieldoptions.field_cname) = "特殊属性数量下限"];
+	optional int32 specialAttributeUp = 27[(yd_fieldoptions.field_cname) = "特殊属性数量上限"];
+	optional string specialAttribute_typeLibrary = 28[(yd_fieldoptions.field_cname) = "特殊星级属性库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string specialAttribute_valueMin = 29[(yd_fieldoptions.field_cname) = "特殊属性最小值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string specialAttribute_valueMax = 30[(yd_fieldoptions.field_cname) = "特殊属性最大值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string skillId = 31[(yd_fieldoptions.field_cname) = "附带技能", (yd_fieldoptions.field_bufsize) = 60];
+	repeated equipequipattributeDesc attribute = 32[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated equipequipgodAttributeDesc godAttribute = 33[(yd_fieldoptions.field_cname) = "仙尊属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_equipequip
+{
+	repeated equipequip equipequip_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message equipstrongtypeDesc
+{
+	optional string num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message equipstrong
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 srtongUp = 4[(yd_fieldoptions.field_cname) = "强化上限"];
+	repeated equipstrongtypeDesc type = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_equipstrong
+{
+	repeated equipstrong equipstrong_List = 1[(yd_fieldoptions.field_arysize)=400];
+}
+
+message equipstrongexp
+{
+	optional int32 Lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 gold = 2[(yd_fieldoptions.field_cname) = "强化消耗金币"];
+	repeated int32 costItem = 3[(yd_fieldoptions.field_cname) = "部位类型9999消耗道具", (yd_fieldoptions.field_arysize) = 2];
+	repeated string positionType = 4[(yd_fieldoptions.field_cname) = "部位类型", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 costNum = 5[(yd_fieldoptions.field_cname) = "部位类型9999道具数量", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_equipstrongexp
+{
+	repeated equipstrongexp equipstrongexp_List = 1[(yd_fieldoptions.field_arysize)=800];
+}
+
+message equipstrongtotalattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message equipstrongtotal
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "总等级ID"];
+	optional int32 idType = 2[(yd_fieldoptions.field_cname) = "总等级类型"];
+	optional int32 idNum = 3[(yd_fieldoptions.field_cname) = "总等级"];
+	repeated equipstrongtotalattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_equipstrongtotal
+{
+	repeated equipstrongtotal equipstrongtotal_List = 1[(yd_fieldoptions.field_arysize)=300];
+}
+
+message equipgem
+{
+	optional int32 position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional string gemType = 2[(yd_fieldoptions.field_cname) = "普通槽位宝石类型", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 speciallyGemType = 3[(yd_fieldoptions.field_cname) = "特殊槽位宝石类型"];
+	optional int32 payUnlockItem = 4[(yd_fieldoptions.field_cname) = "付费解锁槽道具"];
+	optional int32 payUnlockNnm = 5[(yd_fieldoptions.field_cname) = "解锁道具数量"];
+	repeated int32 gemUnlock = 6[(yd_fieldoptions.field_cname) = "装备槽解锁品阶", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_equipgem
+{
+	repeated equipgem equipgem_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message equipstoveattattributeDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message equipstoveatt
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 exp = 2[(yd_fieldoptions.field_cname) = "总经验值"];
+	repeated equipstoveattattributeDesc attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_equipstoveatt
+{
+	repeated equipstoveatt equipstoveatt_List = 1[(yd_fieldoptions.field_arysize)=2000];
+}
+
+message equipstoveexp
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
+}
+
+
+message Sheet_equipstoveexp
+{
+	repeated equipstoveexp equipstoveexp_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message equipgrade
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "序号"];
+}
+
+
+message Sheet_equipgrade
+{
+	repeated equipgrade equipgrade_List = 1[(yd_fieldoptions.field_arysize)=40];
+}

@@ -1,0 +1,123 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+//客户端登陆请求(连上网关第一个请求) CLIENT_LOGIN_REQ
+message ClientLoginReq
+{
+  optional uint32  uid = 1;
+  optional uint32  channel_id = 2;
+  optional string  token = 3;
+  required uint64  loginTimeStamp = 4;	//
+  optional uint32  zid = 5;				//
+  optional string  reserve = 6;			//预留字段
+}
+//返回登录结果 CLIENT_LOGIN_RSP
+message ClientLoginRsp
+{
+  required int32   ret = 1;				//返回码
+  repeated LoginRoleProto role_lst = 2;	//角色列表
+  required uint64 unix_sec = 3;			//UTC时间，单位：秒
+  required uint64 unix_msec = 4;			//UTC时间，单位：毫秒
+  required int32  time_zone = 5;			//服务器时区，比如：服务器位于 +8 时区，则 time_zone = 8
+}
+
+
+//创角请求 CLIENT_CREATE_ROLE_REQ
+message ClientCreateRoleReq
+{
+  optional string name				= 1;        // 名字
+  optional uint32 prof				= 2;        // 职业
+  optional int32 color				= 3;		// 模型颜色
+}
+//返回创角结果 CLIENT_CREATE_ROLE_RSP
+message ClientCreateRoleRsp
+{
+  required uint32 result = 1;
+  optional LoginRoleProto info = 2;
+}
+
+
+//排队位置请求 CLIENT_QUEUE_POS_REQ
+message ClientQueuePosReq
+{
+  //空
+}
+//返回排队位置 CLIENT_QUEUE_POS_RSP
+message ClientQueuePosRsp
+{
+  required int32 ret = 1;        //返回错误码
+  optional uint32   num  = 2;	   //当前排队人数
+}
+
+
+//取消排队请求 CLIENT_QUEUE_CANCEL_REQ
+message ClientCancelQueueReq
+{
+  //空
+}
+//返回取消排队结果 CLIENT_QUEUE_CANCEL_RSP
+message ClientCancelQueueRsp
+{
+  required int32 ret = 1; //返回码
+}
+
+
+
+//断线重连请求 CLIENT_RECONNECT_REQ
+message ClientReConnectReq
+{
+  required uint32 uid  = 1;
+  required uint64 cid  = 2;
+  required string token = 3;
+}
+
+//返回重连结果 CLIENT_RECONNECT_RSP
+message ClientReConnectRsp
+{
+  required int32 ret = 1;
+}
+
+
+//进入游戏请求 CLIENT_ENTER_GAME_REQ
+message ClientEnterGameReq
+{
+  required uint64 cid  = 1;
+}
+//返回进入游戏结果 CLIENT_ENTER_GAME_RSP
+message ClientEnterGameRsp
+{
+  required int32 ret = 1;	//进入结果
+}
+
+
+//请求返回角色列表界面 CLIENT_RET_ROLE_LIST_REQ
+message ReturnRoleListReq
+{
+  //空
+}
+
+//返回角色列表界面 的结果 CLIENT_RET_ROLE_LIST_RSP
+message ReturnRoleListRsp
+{
+  required int32 ret = 1;
+  repeated LoginRoleProto role_lst = 2;
+}
+
+
+//客户端 ping 消息  CLIENT_PING_REQ
+message ClientPingReq
+{
+  //空
+}
+//服务器返回 ping 结果 CLIENT_PING_RSP
+message ClientPingRsp
+{
+  required uint64 unix_sec = 1;			//UTC时间，单位：秒
+  required uint64 unix_msec = 2;			//UTC时间，单位：毫秒
+}

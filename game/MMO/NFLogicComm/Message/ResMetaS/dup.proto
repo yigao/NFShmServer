@@ -1,0 +1,89 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message dupBPlevel
+{
+	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	repeated int64 Bgdup = 2[(yd_fieldoptions.field_cname) = "八卦本", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_dupBPlevel
+{
+	repeated dupBPlevel dupBPlevel_List = 1[(yd_fieldoptions.field_arysize)=1100];
+}
+
+message dupdup
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 scripID = 2[(yd_fieldoptions.field_cname) = "刷怪脚本ID"];
+	optional int32 scripType = 3[(yd_fieldoptions.field_cname) = "刷怪脚本类型"];
+	optional int32 dupLevel = 4[(yd_fieldoptions.field_cname) = "副本等级"];
+	optional int32 groupID = 5[(yd_fieldoptions.field_cname) = "所属副本组ID"];
+	optional int32 layer = 6[(yd_fieldoptions.field_cname) = "层级"];
+	optional int32 duplicateType = 7[(yd_fieldoptions.field_cname) = "副本内容类型"];
+	optional int64 mapID = 8[(yd_fieldoptions.field_cname) = "场景ID"];
+	optional int32 levelLimit = 9[(yd_fieldoptions.field_cname) = "等级要求下限"];
+	optional int32 pre = 10[(yd_fieldoptions.field_cname) = "前置副本要求"];
+	optional int32 isAutoFight = 11[(yd_fieldoptions.field_cname) = "是否允许自动战斗"];
+	optional string condition = 12[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 reviveMaxTimes = 13[(yd_fieldoptions.field_cname) = "复活次数上限"];
+	optional int32 TeamObjectID = 14[(yd_fieldoptions.field_cname) = "组队目标ID"];
+	optional string gradeCondition = 15[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 sweepRewardBoxID = 16[(yd_fieldoptions.field_cname) = "扫荡奖励BOXID"];
+	optional int32 sweepRewardExp = 17[(yd_fieldoptions.field_cname) = "扫荡经验奖励"];
+	optional string trackpoint = 18[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 60];
+	optional string pathOfmonster = 19[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 isPatrol = 20[(yd_fieldoptions.field_cname) = "寻路前是否巡敌"];
+	optional int32 sweepType = 21[(yd_fieldoptions.field_cname) = "扫荡类型"];
+	repeated int32 box = 22[(yd_fieldoptions.field_cname) = "奖励9999组", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_dupdup
+{
+	repeated dupdup dupdup_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message duptowerReward
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 cond = 3[(yd_fieldoptions.field_cname) = "领取条件"];
+	optional int32 boxID = 4[(yd_fieldoptions.field_cname) = "box"];
+}
+
+
+message Sheet_duptowerReward
+{
+	repeated duptowerReward duptowerReward_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message dupgroup
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "副本组名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 privilegeType = 3[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int32 dynamiclevel = 4[(yd_fieldoptions.field_cname) = "是否动态等级"];
+	optional int32 groupTimesType = 5[(yd_fieldoptions.field_cname) = "组次数类型"];
+	optional int32 groupTimes = 6[(yd_fieldoptions.field_cname) = "次数上限值"];
+	optional int32 enterItemID = 7[(yd_fieldoptions.field_cname) = "副本进入道具"];
+	optional int32 sweepCondition = 8[(yd_fieldoptions.field_cname) = "扫荡条件"];
+	optional int32 mergeCondition = 9[(yd_fieldoptions.field_cname) = "合并条件"];
+	optional int32 addItemID = 10[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
+	optional int32 buyType = 11[(yd_fieldoptions.field_cname) = "购买次数消耗货币"];
+	optional int32 buyItemId = 12[(yd_fieldoptions.field_cname) = "购买次数消耗物品"];
+	optional string buyCost = 13[(yd_fieldoptions.field_cname) = "购买进入次数消耗", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 countDown = 14[(yd_fieldoptions.field_cname) = "倒计时时间"];
+	optional int32 endDown = 15[(yd_fieldoptions.field_cname) = "结束倒计时"];
+	optional int32 accountDown = 16[(yd_fieldoptions.field_cname) = "结算倒计时"];
+	optional int32 funcionID = 17[(yd_fieldoptions.field_cname) = "功能ID"];
+}
+
+
+message Sheet_dupgroup
+{
+	repeated dupgroup dupgroup_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

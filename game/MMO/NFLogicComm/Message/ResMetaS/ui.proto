@@ -1,0 +1,16 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message uieffect
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "特效ID"];
+	optional int32 time = 2[(yd_fieldoptions.field_cname) = "播放时间"];
+}
+
+
+message Sheet_uieffect
+{
+	repeated uieffect uieffect_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

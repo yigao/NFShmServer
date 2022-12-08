@@ -1,0 +1,617 @@
+// 定义公用的结构、变量等（服务器、客户端公用）
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+
+
+enum PingConfig
+{
+  option allow_alias  = true;
+  CLIENT_PING_INTERVAL = 9;					// 客户端发ping包的间隔(s)
+  SERVER_PING_INTERVAL = 9;					// 服务端之间发ping包的(s) （由于网络底层采用LRU机制超时，客户端和服务的超时时间需要一致，待后期分开后再改小点）
+};
+
+//角色性别
+enum ERoleSex{
+  EROLE_SEX_MALE = 1;		//男性
+  EROLE_SEX_FEMAL = 2;	//女性
+}
+
+//角色职业
+enum ERoleProf{
+  EROLE_PROF_MALE_MASTER		= 1;		//男法师
+  EROLE_PROF_FEMALE_MASTER	= 2;		//女法师
+  EROLE_PROF_MALE_SICKLE		= 3;		//男镰刀
+  EROLE_PROF_FEMALE_SICKLE	= 4;		//女镰刀
+  EROLE_PROF_MALE_SWORD		= 5;		//男剑客
+  EROLE_PROF_FEMALE_SWORD		= 6;		//女剑客
+  EROLE_PROF_MALE_KNIFE		= 7;		//男太刀
+  EROLE_PROF_FEMALE_KNIFE		= 8;		//女太刀
+}
+
+// 游戏货币类型
+enum CurrencyType
+{
+  VALUE_CURRENCY_NULL         = 0;
+  VALUE_CURRENCY_SILVER       = 1;			// 银币
+  VALUE_CURRENCY_GOLD         = 2;			// 金币
+  VALUE_CURRENCY_BIND_GOLD    = 3;			// 绑定金币
+  VALUE_CURRENCY_REPUTATION   = 5;			// 声望
+}
+
+//区域类型
+enum AreaType
+{
+  en_AreaType_Common		= 0;//常规区域
+  en_AreaType_Safe		= 1;//安全区
+  en_AreaType_Dup			= 2;//副本内部传送区域：仅针对同一个副本内部使用
+}
+
+// 导航网格行动标志
+enum SamplePolyFlags
+{
+  SAMPLE_POLYFLAGS_WALK		    = 0x01;		// 行走
+  SAMPLE_POLYFLAGS_SWIM		    = 0x02;		// 游泳
+  SAMPLE_POLYFLAGS_FORBIT_ACROSS  = 0x04;		// 禁止轻功跨障碍
+  SAMPLE_POLYFLAGS_DOOR			= 0x08;		// Ability to move through doors.
+  SAMPLE_POLYFLAGS_DISABLED	    = 0x10;		// 无效
+  SAMPLE_POLYFLAGS_ALL		    = 0xffff;
+};
+//地图导航网格数量和路径点数量定义
+enum MapDefine
+{
+  option allow_alias			= true;
+  MAX_NAV_POLYS				= 3076;			//1024 * 3
+  MAX_NAV_POINT_VALUE			= 1024;			//
+  INVALID_NAVMESH_POLYREF		= 0;
+};
+
+enum REGION_DEFINE
+{
+  option allow_alias			= true;
+  DEFAULT_REGION_WIDTH		= 18;			// 默认region宽度
+  DEFAULT_REGION_HEIGHT		= 18;			// 默认region高度
+};
+
+enum CharacterDefine
+{
+  option allow_alias = true;
+  MAX_CREATE_CHARACTER_COUNT	= 3;			// 最大可创建的角色数量（合服时可能超出这个数量）
+  CHARACTER_NAME_MIN_LENGTH	= 4;			// 最短角色名字节数，注意utf8编码一个汉字通常占3字节
+  CHARACTER_NAME_MAX_LENGTH	= 32;			// 最长角色名字节数
+};
+
+
+enum EItemType
+{
+  EItemType_None = 0;		//无
+  EItemType_Equip = 1;	//装备物品，配置在 equip.xlsx表的物品在数据结构上都属于这一类
+  EItemType_Material = 2;	//养成材料类
+  EItemType_Other = 3;	//其它类
+  EItemType_Task = 4;		//任务物品类
+  EItemType_Star = 5;		//命星类
+  EItemType_Soul = 6;		//灵魂类
+  EItemType_FaiMateri = 7;//领域材料类
+  EItemType_FaiCrystal = 8;//仙阵水晶类
+  EItemType_Symbol = 9;	//符印类
+  EItemType_BossIdentify = 10;//BOSS图鉴类
+  EItemType_FaiIdentify = 11;//仙阵图鉴类
+
+  EItemType_Limit = 12;
+};
+
+//包裹类型
+enum EPackageType
+{
+  EPackageType_None = 0;
+  EPackageType_Common = 1;	//背包
+  EPackageType_Storage = 2;	//仓库
+
+  EPackageType_Limit = 3;
+};
+
+//品质
+enum EQuality
+{
+  option allow_alias = true;
+
+  EQuality_grey	= 1;	//灰
+  EQuality_white	= 2;	//白
+  EQuality_green	= 3;	//绿
+  EQuality_blue	= 4;	//蓝
+  EQuality_purple = 5;	//紫
+  EQuality_orange = 6;	//橙
+  EQuality_red	= 7;	//红
+  EQuality_gold	= 8;	//金
+}
+
+
+//装备位置定义:1.主武器；2.副武器；3.帽子；4衣服；5.护手；6.腰带；7.鞋子；8.项链；9手镯；10.戒指
+enum EEquipPos
+{
+  option allow_alias = true;
+  EEquipPos_none				= 0;
+  EEquipPos_m_weapon			= 1;	//主武器
+  EEquipPos_s_weapon			= 2;	//从武器
+  EEquipPos_hat				= 3;	//帽子
+  EEquipPos_clothes			= 4;	//衣服
+  EEquipPos_hand				= 5;	//护手
+  EEquipPos_belt				= 6;	//腰带
+  EEquipPos_shoe				= 7;	//鞋子
+  EEquipPos_necklace			= 8;	//项链
+  EEquipPos_bracelet			= 9;	//手镯
+  EEquipPos_ring				= 10;	//戒指
+  EEquipPos_guard1			= 11;	//守护装备1
+  EEquipPos_guard2			= 12;	//守护装备2
+  EEquipPos_jade				= 13;	//玉玺
+  EEquipPos_marry				= 14;	//结婚装备
+  EEquipPos_limit				= 15;
+}
+
+
+enum EConst
+{
+  EConst_RelationRecentSize = 20;		//最近联系人上限
+  EConst_RelationFriendSize = 21;		//好友上限
+  EConst_RelationHateSize = 22;		//仇人上限
+  EConst_RelationBlackSize = 23;		//黑名单上限
+
+  EConst_ServerUpdateTime = 34;			//服务器更新时间
+
+  EConst_ChgNameItemId = 61;				//改名卡物品ID
+
+  EConst_WorldChatLevLimit = 75;			//世界聊天频道等级限制
+  EConst_CrossChatLevLimit = 76;			//跨服聊天频道等级限制
+  EConst_CrossChatCost = 113;				//跨服聊天消耗绑钻
+  EConst_WorldChannelNeedPay= 142;		//世界聊天频道需要的充值金额
+  EConst_CreateUnionNeedPay = 143;		//创建工会需要的充值额度
+  EConst_SceneChatLevLimit = 146;			//场景聊天功能充值金额限制
+  EConst_TeamEnList_CostBindDia = 149;  	//组队招募频道发消息扣除紫钻数量
+
+  EConst_RoleSkillPubCd = 181;			//角色技能公共CD
+  EConst_GodSkillPubCd = 182;				//天神技能公共CD
+  EConst_PetSkillPubCd = 183;				//宠物技能公共CD
+
+  EConst_SkillGroupChgCd = 190;			//技能组切换CD
+
+  EConst_CorpseTime = 192;				//默认尸体时间
+  EConst_BossCorpseTime = 193;			//BOSS尸体时间
+
+  EConst_DropProtectSec = 195;			//掉落保护时间,单位：秒
+
+  EConstTiredReliveNum = 200;				//疲劳复活的次数要求
+  EConstTiredContiSec = 201;				//疲劳状态的持续时间
+  EConstTiredReliveSec = 202;				//疲劳状态下的复活时间
+  EConst_ImmediateReliveCostItem =  203;  //原地复活的道具ID
+  EConst_ImmediateReliveCost =  206;		//原地复活货币数量
+  EConst_AutoPickDropSec = 231;			//自动拾取的服务器强制发送时间
+
+}
+
+
+//返回码（公用的返回码放到前面，模块相关的返回码放到后面）
+enum ERetCode
+{
+  option allow_alias = true;
+  //公用返回码 0 - 99
+  RET_SUCCESS				= 0;	//成功
+  RET_FAIL				= 1;	//失败
+  RET_LEVEL_LACK			= 2;	//等级不足
+  RET_MONEY_LACK			= 3;	//金钱不足
+  RET_GOLD_LACK			= 4;	//金币不足
+  RET_BIND_GOLD_LACK		= 5;	//绑定金币不足
+  RET_DIAMOND_LACK		= 6;	//钻石不足
+  RET_BIND_DIAMOND_LACK	= 7;	//绑定钻石不足
+  RET_VIP_LEVEL_LACK		= 8;	//vip等级不足
+  RET_PROF_ERROR			= 10;	//职业错误
+  RET_PLAYER_NOT_ONLINE	= 11;	//玩家不在线
+  RET_RACE_ERROR			= 12;	//种族错误
+  RET_SEX_ERROR			= 13;	//性别错误
+  RET_NOT_ONLINE			= 14;	//不在线
+  RET_DATA_ERROR			= 15;	//角色数据异常
+  RET_NOT_HAVE_CHARACTER  = 16;	//角色不存在
+  RET_BAG_FULL			= 17;	//背包满了
+  RET_PARMAR_ERROR		= 18;	//提交参数错误
+  RET_CONFIG_ERROR		= 19;	//配置错误
+  RET_OTHER_LEVEL_LACK	= 20;	//对方等级不足
+  RET_ID_UNKNOW			= 21;	//未知ID
+  RET_REPEATED_OPERATE	= 22;	//不可重复操作
+  RET_UNAVAILABLE			= 23;	//不可用
+  RET_FIGHT_LACK			= 24;	//战力不足
+  RET_APTITUDE_LACK		= 25;	//境界不走
+  RET_OVER_MAX_NUM		= 26;	//超过最大次数
+  RET_PRICE_ERROR			= 27;	//价格不对
+  RET_OTHER_NOT_ONLINE	= 28;	//对方不在线
+  RET_STAR_ESSENCE_LACK	= 29;	//命星精华不足
+  RET_STAR_LAYER_LIMIT	= 30;	//命星塔层数限制
+  RET_OCCUPATION_ERROR	= 31;	//转职职业错误
+  RET_SMALL_SPIRIT_LACK	= 32;	//小灵魄不足
+  RET_SMALL_BIG_LACK		= 33;	//大灵魄不足
+  RET_ITEM_PARAM_ERROR	= 34;	//物品参数错误
+  RET_CAN_NOT_RECONNECT	= 35;	//不能重连
+  RET_DISALLOW_ENTER_GAME	= 36;	//不允许进入游戏
+  RET_MATERIAL_LACK		= 37;	//材料不足(通用的错误提示码)
+
+  //登录 100 - 199
+  RET_LOGIN_BAD_USER_NAME_LEN		= 100;		//用户名长度错误
+  RET_LOGIN_CHARACTER_NOT_EXITS   = 101;		//角色不存在
+  RET_LOGIN_ACCOUNT_OTHER_LOGIN   = 102;		//账号异地登录
+  RET_LOGIN_CHARACTER_NUM_LIMIT	= 103;		//角色数量超过上限
+  RET_LOGIN_CHARACTER_NAME_EXISTS	= 104;		//名字已存在
+  RET_LOGIN_CHARACTER_SEX_ERROR	= 105;		//性别错误
+  RET_LOGIN_CHARACTER_PROF_ERROR	= 106;		//职业错误
+  RET_LOGIN_CHARACTER_NAME_LEN_ERROR = 107;	//名字长度错误
+  RET_LOGIN_CHARACTER_CREATE_FAILED = 108;	//创建角色失败
+  RET_LOGIN_CHARACTER_NOT_ACCOUNT		= 109;	//帐号不存在
+  RET_LOGIN_CHARACTER_ILLEGAL			= 110;	//名字有非法字符
+  RET_LOGIN_CHARACTER_VESION_ERR		= 111;	//版本号不对
+  RET_LOGIN_ACCOUNT_SYSTEM_MAINTENANCE= 112;	//全服系统维护
+  RET_LOGIN_ILLEGAL_REQUEST			= 113;  //非法登陆请求
+  RET_LOGIN_CHANNEL_FAIL				= 114;  //渠道登陆失败
+  RET_LOGIN_ORBIDDEN_ACCOUNT			= 115;  //帐号封号中
+  RET_LOGIN_QUEUE_ENOUGHT_NUM			= 116;	//排队人数已满
+  RET_LOGIN_HAS_DELETE_CHAR			= 117;	//该帐号已删除
+  RET_LOGIN_TIME_OUT      			= 118;	//登陆超时
+  RET_TOKEN_ERROR						= 119;	//登陆游戏服时间过长
+  RET_ACCOUNT_FULL					= 120;	//游戏服注册人数已满
+  RET_NOT_OPEN_TIME					= 121;	//没到开服时间
+  RET_CAN_NOT_RETURN_ROLE_LIST		= 122;	//不能返回角色列表界面
+  RET_LOGIN_TOKEN_ERROR				= 123;	//登录验证错误
+
+  //场景 200 - 299
+  RET_SCENE_DST_NOT_EXIST				= 200;  //场景不存在
+  RET_SCENE_INVALID_DST_POS			= 201;	//无效的目标坐标
+  RET_SCENE_CAN_NOT_TRAN				= 202;	//不能传送
+  RET_SCENE_TRANS_PARAM_ERROR			= 203;	//传送参数错误
+
+
+  //邮件300-399
+  RET_MAIL_SEND_TARGET_ERROR			= 300;	//目标玩家不存在
+  RET_MAIL_DATA_ERROR					= 301; //邮件数据出错
+  RET_MAIL_NOT_EXIST					= 302; //邮件不存在
+  RET_MAIL_NOT_HAVE_ATTACHMENT		= 303;	//没有附件
+  RET_MAIL_GOODS_NUM_LIMIT			= 304; //物品数量不足
+  RET_MAIL_TOPIC_LEN_LIMIT			= 305;	//邮件主题太长
+  RET_MAIL_ALREADY_FETCH				= 306;	//附件已领取
+  RET_MAIL_ATTATCH_COUNT_LIMIT		= 307; //邮件附件数量限制
+  RET_MAIL_ALREDAY_EXPIRE				= 308;	//邮件已过期
+  RET_MAIL_HAS_NOT_BEGIN_TIME			= 309;	//还没到邮件起始有效时间
+
+  //背包
+  RET_PACKAGE_ITEM_NOT_EXITS				= 401;		//物品不存在
+  RET_PACKAGE_ITEM_CAN_NOT_SELL			= 402;		//物品不能出售
+  RET_PACKAGE_ITEM_NUM_LACK				= 403;		//物品数量不够
+  RET_PACKAGE_ITEM_CAN_NOT_USE			= 404;		//物品不能使用
+  RET_PACKAGE_ITEM_CAN_NOT_BATCH_USE		= 405;		//物品不能批量使用
+  RET_PACKAGE_EXPAND_LIMIT				= 406;		//背包扩展已达上限
+  RET_PACKAGE_ITEM_FUNC_PARAM_ERR			= 407;		//物品功能参数错误
+  RET_PACKAGE_SORT_IN_COOL				= 408;		//整理在冷却中
+  RET_PACKAGE_COMMON_SPACE_NOT_ENOUGH		= 409;		//普通背包空间不够
+  RET_PACKAGE_STORAGE_SPACE_NOT_ENOUGH	= 410;		//仓库背包空间不够
+  RET_PACKAGE_HP_FULL						= 417;		//角色生命值已满
+  RET_PACKAGE_WAITING						= 421;		//使用物品返回(某些物品使用需要经过中心服验证 待中心服返回再通知前端使用结果)
+  RET_PACKAGE_USE_HANGUP_CARD_MAX			= 433;		//使用挂机卡超过20小时不能使用
+  RET_PACKAGE_LACK_CHANGE_NAME_ITEM		= 436;		//改名道具不足
+  RET_PACKAGE_USE_ITEM_NOT_REMOVE			= 437;		//背包物品使用后不减少
+  RET_PACKAGE_FUSHI_CARD_MAX				= 438;		//使用符石超过20小时不能使用
+
+  RET_PACKAGE_TASK_SPACE_NOT_ENOUGH		= 440;		//任务背包空间不够
+  RET_PACKAGE_STAR_SPACE_NOT_ENOUGH		= 441;		//命星背包空间不够
+  RET_PACKAGE_SOUL_SPACE_NOT_ENOUGH		= 442;		//灵魂背包空间不够
+  RET_PACKAGE_FAIMATERI_SPACE_NOT_ENOUGH	= 443;		//仙阵材料背包空间不够
+  RET_PACKAGE_FAICRYSTAL_SPACE_NOT_ENOUGH	= 444;		//仙阵水晶背包空间不够
+  RET_PACKAGE_SYMBOL_SPACE_NOT_ENOUGH		= 445;		//符印背包空间不够
+  RET_PACKAGE_BOSSIDENTIFY_SPACE_NOT_ENOUGH= 446;		//BOSS图鉴包背包空间不够
+  RET_PACKAGE_FAILIDENTIFY_SPACE_NOT_ENOUGH= 447;		//仙阵图鉴包背包空间不够
+  RET_PACKAGE_USE_NOT_HAVE_PK_VALUE = 448;		   //使用清除杀戮值物品，没有杀戮值 不能使用
+  RET_PACKAGE_ITEM_USE_LIMIT	 = 449;					//物品达到日使用上限
+  RET_PACKAGE_ITEM_LOGIN_GIFT_FETCHED		= 450;		//登录礼包已领取
+  RET_PACKAGE_USE_ITEM_MAP_LIMIT			= 451;		//该地图上不允许使用
+
+  //养成 500 - 510
+  RET_GROW_PART_ENTRY_LEVEL_FULL			= 500;		//星级已满级
+  RET_GROW_PART_NOT_ACTIVE				= 501;		//未激活
+
+  // 打坐 510-520
+  RET_PLAYER_SEAT_STATE_ERROR					= 510;		// 状态错误
+  RET_PLAYER_SEAT_MAP_NOT_SEAT				= 511;		// 该地图不能打坐
+  RET_PLAYER_SEAT_NO_TIME						= 512;		// 挂机时间不够不让打坐
+
+  //GM 601 - 619
+  RET_GM_NOT_KEY							= 601;  //GM没有关键字
+  RET_GM_PRAMA_COUNT_ERROR				= 602;	 //GM参数有错
+  RET_GM_NOT_FIND							= 603;	 //找不到该命令
+  //装备 620-700
+  RET_EQUIP_NOT_EXIST						= 620;	 //装备不存在
+  RET_EQUIP_POS_NOT_EXIT_EQUIP			= 621;	 //身上装备不存在
+
+  //任务 700-799
+  RET_MISSION_HAVE_ACCEPT					= 700;	//该任务已经接取过
+  RET_MISSION_CAN_NOT_ACCEPT				= 701;	//该任务无法接取
+  RET_MISSION_LEVEL_ERROR					= 702;	//等级条件不符合
+  RET_MISSION_NOT_EXIST					= 703;	//任务不存在
+  RET_MISSION_STATE_NOT_MATCH				= 704;	//任务状态不匹配
+  RET_MISSION_PROFESSION_LIMIT			= 705;  //职业限制
+  RET_MISSION_TIMES_ERROR					= 706;	//当天超过最大次数
+  RET_MISSION_HAVE_ACCEPT_NUMBER_LIMIT	= 707;  //接取的任务已经超过上限了
+  RET_MISSION_GROUP_LIMIT					= 708;	//前置任务限制
+  RET_MISSION_NOT_ABANDON					= 709;	//该任务无法放弃
+  RET_MISSION_PERIOD_FINISH_NUM_LIMIT		= 710;	//周期内接取次数限制
+  RET_MISSION_PERIOD_ONCE_EXIST_NUM_LIMIT = 711;  //周期内同时存在的任务数量限制
+  RET_MISSION_HAVE_TYPE_ACCEPT			= 712;	//该类型的任务已接取
+  RET_MISSION_CAN_NOT_ONE_KEY				= 713;	//不能一键完成
+  RET_MISSION_ONE_KEY_NUM_LIMIT			= 714;	//周期内没有剩余的任务次数
+  RET_MISSION_NOT_FINISH					= 715;	//任务未完成
+  RET_MISSION_NOT_ACCEPT_UNION			= 716;	//没有接取工会任务
+  RET_MISSION_CAN_NOT_ONCE_FINISH			= 717;	//不能立即完成
+  RET_MISSION_ALREADY_SUBMIT				= 718;	//任务已经提交
+
+  //好友 800-899
+  RET_RELATION_HAVE_APPLY					= 800;  //已经申请过了
+  RET_RELATION_NOT_AGREE					= 801;	//对方不同意添加你为好友
+  RET_RELATION_CAN_NOT_APPLY_SELF			= 802;	//自己不能申请添加自己为好友
+  RET_RELATION_APPLY_GROUP_ERROR			= 803;	//申请添加的组错误
+  RET_RELATION_NOT_ADD_SELF				= 804;	//自己不能添加自己为好友
+  RET_RELATION_NOT_IN_APPLY				= 805;  //没有在申请列表中无法进行同意
+  RET_RELATION_SIZE_LIMIT_NO_APPLY		= 806;  //好友人数已达上限无法进行申请
+  RET_RELATION_SIZE_LIMIT_NO_APPLY_OTHER	= 807;  //对方好友人数已达上限无法进行申请
+  RET_RELATION_IS_MY_FRIEND				= 808;  //对方已经是我的好友了
+  RET_RELATION_SIZE_LIMIT_NO_ADD			= 809;  //好友人数已达上限无法进行添加
+  RET_RELATION_SIZE_LIMIT_NO_ADD_OTHER	= 810;  //对方好友人数已达上限无法进行添加
+  RET_RELATION_ADD_BLACK_MYSELF			= 811;  //不能添加自己为黑名单
+  RET_RELATION_BALCK_SIZE_LIMIT			= 812;  //黑名单人数已经达到上限
+  RET_RELATION_IN_YOUR_BALCK				= 813;  //对方已经在你的黑名单中了
+  RET_RELATION_IN_OTHER_BALCK				= 814;  //你在对方的黑名单中了
+  RET_RELATION_IN_OTHER_BALCK_CAN_NOT_APPLY= 815;	//你在对方的黑名单中无法进行申请添加对方好友
+  RET_RELATION_IN_YOUR_BALCK_CAN_NOT_APPLY = 816;	//对方在你的黑名单中无法进行申请添加对方好友
+  RET_RELATION_NOT_SEARCH					= 817;  //该玩家不存在
+  RET_RELATION_NOT_FRIENDS				= 818;  //不是好友关系
+  RET_RELATION_CANOT_ADDFRIEND_TO_BLACK	= 819;  //不能把好友加到黑名单中
+  RET_RELATION_GIVE_PHYSICAL_TIMES_LIMIT  = 820;  //已经大最大赠送次数明天再来
+  RET_RELATION_GET_PHYSICAL_TIME_LIMTI    = 821;  //已经过了领取体力的时间
+  RET_RELATION_NOT_GET_PHYSICAL			= 822;  //该好友还未赠送过你体力无法领取
+  RET_RELATION_HAVE_GET_PHYSICAL			= 823;	//已经领取回赠过体力了
+  RET_RELATION_GET_PHYSICAL_GIFT_LIMIT	= 824;  //进度不够还不能领取体力礼包
+  RET_RELATION_IN_CD_TIME					= 825;  //在冷却时间中
+  RET_RELATION_TRACK_HATE_ERROR			= 826;  //玩家处于特殊场景无法追踪
+  RET_RELATION_GIFT_TO_MAIL				= 827;  //背包已满，礼包已通过邮件发送
+  RET_RELATION_HAVE_NO_DATA				= 828;  //无好友数据
+  RET_RELATION_MARRY_REFUSE				= 829;	//求婚被拒绝
+  RET_RELATION_HAS_MARRY					= 830;  //已经结婚
+  RET_RELATION_TARGET_HAS_MARRY			= 831;  //目标已经结婚
+  RET_RELATION_NOT_MARRY					= 832;	//尚未结婚
+  RET_RELATION_CLOSENESS_NOT_ENOUGH		= 833;	//亲密度不够
+  RET_RELATION_CAN_NOT_DELETE_SPOUSE		= 834;  //不能删除、拉黑配偶
+  RET_RELATION_HAVE_PROPOSE_MARRY			= 835;  //已经求婚
+  RET_RELATION_EXIST_SHIELD				= 836; //已经存在的屏蔽发言
+
+  RET_RELATION_WAIT_DBDATA				= 837; //等待返回消息（服务器专用，不需要提示）
+  RET_RELATION_GIFT_NOT_FRIEND			= 838; //不是好友不能送礼
+  RET_RELATION_GIFT_ERROR					= 839; //礼物id错误
+  RET_RELATION_NOT_HAVE_DATE				= 840; //没有玩家数据（跨服或已删号）
+
+  //聊天 900-999
+  RET_CHAT_NOT_MYSELF						= 900;	//不能跟自己聊天
+  RET_CHAT_TARGET_NOT_ONLINE				= 901;  //对方不在线无法进行聊天
+  RET_CHAT_TARGET_IN_BLACK				= 902;  //对方在你的黑名单中无法进行聊天
+  RET_CHAT_QUREY_CHAR_NOT_EXITS			= 903;	//查询的玩家不存在
+  RET_CHAT_FREE_TIMES_LIMIT				= 904;	//免费次数不够无法世界聊天
+  RET_CHAT_FREE_GOODS_LIMIT				= 905;	//道具不足无法世界聊天
+  RET_CHAT_CD_TIME_LIMIT					= 906;	//冷却时间没到
+  RET_CHAT_BIG_HORN_LIMIT					= 907;	//大喇叭不足无法聊天
+  RET_CHAT_CD_NoSpeakIng					= 908;	//禁言中
+  RET_CHAT_PAY_RMB_LIMIT					= 909;	//充值额度限制
+  RET_CHAT_COND_LIMIT						= 910;	//聊天频道条件限制
+
+  //Facade外观 1000-1099
+  RET_FACADE_UNACTIVE							= 100;		//外观未激活
+  RET_FACADE_MAX_LEVEL							= 4341;		//外观已经满级
+  RET_FACADE_HAVE_DRESS							= 4342;		//外观已经装备
+  RET_FACADE_HAVE_NOT_DRESS						= 4343;		//外观尚未装备
+  RET_FACADE_FRAGMENT_USE_LIMIT					= 4344;		//羽灵达到使用上限
+  RET_FACADE_NOT_BREAK							= 4339;		//外观未突破
+  RET_FACADE_ALREADY_BREAK						= 4338;		//外观已突破
+  //副本 700-799
+  RET_DUPLICATE_CAN_NOT_ENTER			= 920;	//不能进副本
+  RET_DUPLICATE_ALREAY_IN				= 921;	//已经在副本
+  RET_DUPLICATE_RELIVE_NO_DEAD		= 922;	//未死亡
+  RET_DUPLICATE_PRE_NOT_PASS			= 923;	//前置副本未通关
+  RET_DUPLICATE_MAX_LEVEL_LIMIT		= 924;	//副本最大进入等级限制
+  RET_DUPLICATE_CAN_NOT_LEAVE			= 925;	//不能离开副本
+  RET_DUPLICATE_LACK_ENTER_NUM		= 926;	//进入次数不足
+  RET_DUPLICATE_NOT_IN_TEAM			= 927;	//不在队伍中
+  RET_DUPLICATE_NOT_TEM_LEADER		= 928;	//不是队长
+  RET_DUPLICATE_PLAYER_NUM_LIMIT		= 929;	//副本人数限制
+  RET_DUPLICATE_RELIVE_NUM_LIMIT		= 930;	//复活次数限制
+  RET_DUPLICATE_BUY_NUM_LIMIT			= 931;	//购买次数不足
+  RET_DUPLICATE_ALREADY_PASS			= 932;	//已通关
+  RET_DUPLICATE_NOT_IN_DUPLICATE		= 933;	//不在副本
+  RET_DUPLICATE_TEAM_NOT_INVITE		= 934;	//不能邀请
+  RET_DUPLICATE_TEAM_NOT_REPLY		= 935;	//不能回复
+  RET_DUPLICATE_TEAM_ALREADY_REPLY	= 936;	//已经回复邀请
+  RET_DUPLICATE_TEAM_MEM_ALREADY_IN	= 937;	//有队员已经在副本中
+  RET_DUPLICATE_TEAM_MEM_NOT_ONLINE	= 938;	//有队员不在线
+  RET_DUPLICATE_TEAM_MEM_NOT_AGREE	= 939;	//有队员没有同意邀请
+  RET_DUPLICATE_NOT_EXISTS			= 940;	//副本不存在
+  RET_DUPLICATE_CAN_NOT_RELIVE		= 941;	//不能复活
+  RET_DUPLICATE_ALREDY_DEAD			= 942;	//死亡状态不能进副本
+  RET_DUPLICATE_LACK_GROUP_ENTER_NUM	= 943;	//副本组进入次数不足
+  RET_DUPLICATE_CAN_NOT_SEEP			= 944;	//不能扫荡
+  RET_DUPLICATE_STAR_LIMIT			= 945;	//副本星级不足
+  RET_DULICATE_SWEEP_ITEM_LACK		= 946;	//扫荡券不足
+  RET_DUPLICATE_TEAMDUP_NOT_ALLOW		= 947;	//组队副本中不允许的操作
+  RET_DUPLICATE_CAN_NOT_INSPIRE		= 948;	//不能鼓舞
+  RET_DUPLICATE_INSPIRE_NUM_LIMIT		= 949;	//鼓舞次数不足
+  RET_DUPLICATE_SWEEP_NOT_SET_INSPIRE	= 950;	//副本扫荡不能鼓舞
+  RET_DUPLICATE_TEAM_MEM_DEAD			= 951;	//有队员处于死亡状态
+  RET_DUPLICATE_TEAM_DIE_NOT_REPLY	= 952;	//死亡状态不能回复邀请
+  RET_DUPLICATE_TEAM_MEM_SPECIAL_MAP	= 953;	//有队员处于特殊地图中
+  RET_DUPLICATE_ALREDAY_END			= 954;	//副本已结束
+  RET_DUPLICATE_NOT_OPEN				= 955;	//副本未开放
+  RET_DUPLICATE_ALREADY_OPEN			= 956;	//副本已开启
+  RET_DUPLICATE_HAS_NO_OPEN			= 957;	//副本未开启
+  RET_DUPLICATE_IN_CREATE				= 958;	//副本正在创建中
+  RET_DUPLICATE_CAN_NOT_RESET			= 959;	//不能重置
+  RET_DUPLICATE_LAYER_ALL_FETCHED		= 960;	//该层所有奖励已经全部领取完了
+  RET_DUPLICATE_PALACE_LAYER_FETCHED	= 961;	//此序号奖励已领取
+  RET_DUPLICATE_NO_PALACE_REWARD		= 962;	//无此序号奖励
+  RET_DUPLICATE_TEAM_MEM_NO_UNION		= 963;	//有队员没有加入工会
+  RET_DUPLICATE_TEAM_MEM_NOT_SAME_UNION=964;	//有队员和队长不是同一个工会
+  RET_DUPLICATE_TEAM_NOT_SAME_UNION	= 965;	//和队长不是同一个工会
+  RET_DUPLICATE_MAX_PALACE_LAYER_LIMIT = 966;	//已经达到最高层了
+  RET_DUPLICATE_TEAM_MEM_NOT_IN_DUP	= 967;	//有队员不再副本中
+  RET_DUPLICATE_PALACE_LAYER_UNUSUAL	= 968;	//有队员地宫层数异常
+
+  //技能 1000 - 1100
+  RET_SKILL_IN_CD							= 1000;	//技能CD中
+  RET_SKILL_CAN_NOT_USE					= 1001;	//不能使用技能
+  RET_SKILL_TARGET_NOT_EXIST				= 1002;	//技能目标不存在
+  RET_SKILL_IN_GROUP_CD					= 1003;	//技能组CD中
+  RET_SKILL_IN_FACADE_CD					= 1004;	//变身CD中
+  RET_SKILL_NOT_EXIST						= 1005;	//技能不存在
+  RET_SKILL_LEV_MAX						= 1006;	//技能以达到最等级
+  RET_SKILL_ALREADY_WAKE_UP				= 1007; //技能已觉醒
+  RET_SKILL_INVALID_POS					= 1008;	//无效的技能位置
+  RET_SKILL_CAN_NOT_CHG_POS				= 1009;	//不能配置的位置
+  RET_SKILL_ALREADY_IN_POS				= 1010;	//技能已经在该位置了
+
+  //玩家 1101 - 1200
+
+  RET_PLAYER_TIRED_STATE			= 1101;	//玩家处于疲劳状态
+  RET_PLAYER_NOT_DEAD				= 1102;	//未处于死亡状态
+  RET_PLAYER_CAN_NOT_RELIVE		= 1103; //不能复活
+  RET_PLAYER_MAP_NOT_RELIVE		= 1104;	//地图不允许复活
+  RET_PLAYER_RELIVE_NUM_LIMIT		= 1105;	//复活次数用完
+
+
+  //队伍 1700-1799
+  RET_TEAM_ALREADY_JOIN					= 1700;	//已经加入队伍
+  RET_TEAM_OTHER_ALREADY_JOIN				= 1701; //对方已经加入队伍
+  RET_TEAM_OBJECT_NOT_CHANGE				= 1702;	//队伍目标没有改变
+  RET_TEAM_REPEAT_JOIN                    = 1703; //已有队伍
+  RET_TEAM_NO_EXIST						= 1704;	//队伍不存在
+  RET_TEAM_FULL                           = 1705; //队伍满人
+  RET_TEAM_HAVE_APPLICANT					= 1706;	//已经申请过了无法重复申请
+  RET_TEAM_INVALID_APPLICANT				= 1707;	//无效的申请
+  RET_TEAM_NOT_MEMBER                     = 1708; //不是队员
+  RET_TEAM_SETTING_LV_ERROR				= 1709;	//等级设置出错
+  RET_TEAM_NO_AUTO_MATCH					= 1710;	//没有设置了自动匹配
+  RET_TEAM_HAVE_AUTO_MATCH				= 1711;	//已经设置了自动匹配
+  RET_TEAM_NOT_LEADER						= 1712;	//不是队长
+  RET_TEAM_DUP_NOT_AUTO_MATCH				= 1713;	//副本中不能自动匹配
+  RET_TEAM_MAP_CAN_NOT_OPERATE			= 1714;	//地图不允许组队相关的操作
+  RET_TEAM_MAP_OTHER_CAN_NOT_OPERATE		= 1715;	//对方地图不允许组队相关的操作
+  RET_TEAM_MAP_SELF_IN_SPECIAL			= 1716;	//自己在特殊场景
+  RET_TEAM_MAP_OTHER_IN_SPECIAL			= 1717;	//对方在特殊场景
+  RET_TEAM_MAP_TARGET_IN_MATCH			= 1718;	//对方在匹配中，不能邀请组队
+  RET_TEAM_OBJECT_CAN_NOT_OPERATE			= 1719;	//组队目标不允许的操作
+  //使用物品
+  RET_USE_ITEM_DAY_LIMIT					= 1800; //当日使用该物品次数已满
+}
+
+
+//中心服通知下线类型
+enum LOGOUT_TYPE
+{
+  LOGOUT_NONE				= 0;					//无
+  LOGOUT_LOGOUT			= 1;					//正常下线
+  LOGOUT_KICK_OUT			= 2;					//被踢下线
+  LOGOUT_REPLACE			= 3;					//别处登陆,被挤下线
+  LOGOUT_DIS_TIME_OUT		= 4;					//断开超时下线
+  LOGOUT_CHANGE_LOGIC		= 5;					//切换逻辑节点
+  LOGOUT_RETURN_ROLE_LIST	= 6;					//返回角色列表界面
+  LOGOUT_LOGIN_TIME_OUT	= 7;					//登录超时
+
+  LOGOUT_WEB_KICK		= 8;					// 管理后台T人
+  LOGOUT_CHEAR_KICK	= 9;					// 作弊被T
+  LOGOUT_CRASH		= 10;					// 逻辑服挂了
+  LOGOUT_OTHER		= 11;					// 其它原因被T
+}
+
+//邮件类型
+enum EMailType
+{
+  MAIL_TYPE_PLAYER			= 2;				//玩家之间的邮件(发件人是玩家)
+  MAIL_TYPE_SYSTEM			= 3;				//系统邮件类型(发件人是系统)
+}
+
+enum CHAT_CHANNEL
+{
+  CHAT_CHANNEL_NONE		= 0;
+  CHAT_CHANNEL_WORLD		= 1;	//世界
+  CHAT_CHANNEL_GUILD		= 2;	//工会
+  CHAT_CHANNEL_ENLIST		= 3;	//招募 求组
+  CHAT_CHANNEL_TEAM		= 4;	//队伍
+  CHAT_CHANNEL_SCENE		= 5;	//场景
+  CHAT_CHANNEL_CROSS		= 6;	//跨服频道
+  CHAT_CHANNEL_SYSTEM		= 7;	//系统
+  CHAT_CHANNEL_PRIVATE    = 8;	//私聊
+  CHAT_CHANNEL_RUMOR		= 9;	//传闻 即是跑马灯
+  CHAT_CHANNEL_HORN = 10;		//喇叭
+  CHAT_CHANNEL_BACKEND_RUMOR = 11; //运营后台跑马灯
+  CHAT_CHANNEL_ACTIVITY = 12;		//活动频道
+  CHAT_CHANNEL_POKERROOM = 13;	//扑克聊天室
+  CHAT_CHANNEL_LIMIT = 14;
+}
+
+enum FacadeType
+{
+  FACADE_WING_TYPE = 1; //翅膀
+  FACADE_TREASURE_TYPE = 2; //宝具
+  FACADE_ARTIFACT_TYPE = 3; //神器系统
+  FACADE_PARTNER_TYPE = 4; //剑灵(伙伴)系统，
+  FACADE_TYPE_MAX = 5;
+}
+
+//Facede外观类型
+enum EFacadeType
+{
+  EFacadeType_Advance = 1;		//进阶外观
+  EFacadeType_Fantasy = 2;		//幻化外观
+};
+
+//功能开放功能ID枚举
+enum FunctionUnlock_ID_TYPE
+{
+  FunctionUnlock_ID_TYPE_ROLE                                 = 1001;    //角色
+  FunctionUnlock_ID_TYPE_SKILL                            	= 1002;    //技能
+  FunctionUnlock_ID_TYPE_WING                            	= 2022;    //翅膀
+  FunctionUnlock_ID_TYPE_TREASURE                            	= 2026;    //宝具
+  FunctionUnlock_ID_TYPE_ARTIFACT                            	= 2030;    //神兵
+  FunctionUnlock_ID_TYPE_PARTNER                            	= 2036;    //剑灵
+}
+
+enum EFacadeAttrType
+{
+  EAttrType_Advance = 1;
+  EAttrType_Fantasy = 2;
+  EAttrType_Fragment = 3;
+  EAttrType_Skill = 4;
+};
+
+enum EDailyTaskPlayType
+{
+  EDailyTaskPlayType_DUP = 1; //副本
+}
+
+enum EDailyTaskBackType
+{
+  EDailyTaskBackType_DUP = 1; //副本
+}
+
+//权限枚举
+enum PGType {
+  PGType_world_boss_add_num = 1; 	//世界boss每日次数增加，填写增加值
+  PGType_boss_dup_add_num =2;		//专属boss每日可购买次数增加，填写增加值
+  PGType_boss_nest_add_num =3;	//巢穴boss每日次数增加，填写增加值
+  PGType_boss_ghost_add_num =4;	//神魔boss每日次数增加，填写增加值
+  PGType_level_dup_add_num =5;	//福利副本每日可购买次数增加，填写加值
+  PGType_deify_dup_add_num =6;	//封神台副本每日可购买次数增加，填写加值
+  PGType_pet_dup_add_num =7;		//宠物副本每日可购买次数增加，填写加值
+  PGType_bagua_dup_add_num =8;	//八卦副本每日可购买次数增加，填写加值
+  PGType_dujie_dup_add_num =9;	//渡劫仙舟副本每日可购买次数增加，填写加值
+  PGType_equip_dup_add_num =10;	//装备副本每日可购买次数增加，填写加值
+}

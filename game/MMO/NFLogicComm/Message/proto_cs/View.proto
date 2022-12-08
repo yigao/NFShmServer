@@ -1,0 +1,75 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+//通知客户端创建生物  NOTIFY_CLIENT_CREATURE_CREATE
+message CreatureCreateData
+{
+	message Player
+	{
+		required uint64 cid					= 1;	//玩家角色id
+		required bytes name					= 2;	//玩家名
+		repeated Attr64 attr				= 3;	//玩家属性，等级，职业，性别，速度,工会ID等
+		required Vector3PB pos				= 4;	//坐标
+		required uint32 curstate			= 5;	//状态
+		optional RoleFacadeProto facade		= 6;	//角色外观
+		optional bytes guild_name			= 7;	//工会名字
+		optional uint32 zid					= 8;	//玩家所属区服ID
+		optional bytes titleName			= 9;	//称号名称
+		optional BuffListProto bufflst		= 10;	//buff列表
+		optional int32 head					= 11;	//是否有头顶归属标记
+	}
+	message Monster
+	{
+		required uint64 cid						= 1;	//怪物cid
+		required uint64 cfgid					= 2;	//怪物配置表id
+		repeated Attr64	attr					= 3;	//怪物属性，生命，速度等
+		required Vector3PB pos					= 4;	//坐标
+		required uint32 curstate				= 5;	//怪物状态
+		optional bool	isNewCreate				= 6;	//是否是刚创建的
+
+		optional uint32 func_type				= 7;	//功能类型 对应怪物配置表中的functionType字段
+		required Vector2PB	dir					= 8;	//生物朝向
+		optional int32 left_live_sec			= 9;	//剩余生存时间，大于0时前端显示倒计时，其他不显示
+		optional int64 guild_id					= 10;	//所属的工会ID
+		optional bytes guild_name				= 11;	//所属的工会名字
+		optional uint32 zid						= 12;	//所属的区服ID
+		optional uint64 ownercid				= 13;	//所属主人cid
+		optional bytes ownername				= 14;	//所属主人名字
+		optional BuffListProto bufflst			= 15;	//buff列表
+	}
+	message Drop
+	{
+		required uint64 cid			= 1; //掉落 cid
+		required Vector3PB pos		= 2; //坐标
+		required int32 type			= 3; //掉落值类型 1-玩家，2-队伍，3-工会, 4-公共(所有玩家)
+		repeated uint64 value		= 4; //掉落值，根据掉落值类型确定，1-玩家cid列表，2-玩家cid列表,3-玩家cid列表，4-空
+		required uint64 dropTime	= 5; //掉落那一刻的服务器时间, 单位：秒数（前端用于计算掉落生存时间，个人掉落的保护时间等）
+		optional ItemProtoInfo item = 6; //掉落物品信息
+		optional uint32 currency	= 7; //掉落货币值
+		optional uint32 init_protect= 8;//掉落初始保护时间，单位：毫秒
+		optional int32 pick_level	= 9;//拾取等级限制 0 表示无限制，大于0 表示 小于等于 拾取等级的玩家才能拾取
+		optional int32 currency_type= 10;//货币类型 1-金币，2-钻石，3-绑钻
+	}
+	repeated Player players = 1;  //玩家可见数据
+	repeated Monster monsters = 2; //怪物可见数据
+	repeated Drop drops = 3;		//掉落可见数据
+}
+
+//通知客户端销毁生物  NOTIFY_CLIENT_CREATURE_DESTORY
+message CreatureDestoryData
+{
+	repeated uint64 cids = 1;   //实体id列表
+}
+
+//广播角色改名 BROAD_CHG_NAME
+message BroadChgName
+{
+	required uint64 cid = 1;	//
+	required bytes name = 2;
+}

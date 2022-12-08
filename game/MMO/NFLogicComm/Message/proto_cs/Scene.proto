@@ -1,0 +1,205 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+
+//创建场景参数
+message CreateSceneParamProto
+{
+	required int32  param_type = 1;			//参数类型，详见 SceneDefine.h 中 ESceneParamType枚举定义
+	required uint32 zid = 2;				//场景所在的区服ID
+	//-------------------------- 副本场景参数 -------------------------------------
+	optional uint64 cid = 3;				//角色ID
+	optional uint64 dup_id = 4;				//副本ID
+	optional int32  key_type = 5;			//副本key值类型
+	optional uint64 key_value = 6;			//副本key值
+	optional int32  alive_time_sec = 7;		//副本预估存活时间(如果玩家一直没有进入存活多久消亡,可选不填，字段无效)
+	optional int32  mergenum = 8;			//副本合并次数
+}
+
+//切逻辑服时携带的参数
+message SceneTransParam
+{
+	optional uint64 src_map = 1;	//源地图ID
+	optional int32 trans_type = 2;	//切换类型,详见 SceneDefine.h中 ETransType 枚举
+	optional uint64 trans_val = 3;	//切换类型对应的类型值
+}
+
+//玩家切逻辑服需要携带的参数
+message PlayerTransParam
+{
+	required uint32 client_id = 1;						//连接ID
+	required uint64 enter_scene_id = 2;
+	required uint64 enter_map_id = 3;
+	required float enterposx = 4;
+	required float enterposy = 5;
+	required float enterposz = 6;
+	required uint64 last_scene_id = 7;
+	required uint64 last_map_id = 8;
+	required float lastposx = 9;
+	required float lastposy = 10;
+	required float lastposz = 11;
+	optional uint32 gateId = 12;						//网关Id
+	optional uint32 channId = 13;						//渠道id
+	optional uint32 uid     = 14;						//玩家uid
+	optional uint32 zid		= 15;						//区服ID
+	optional LoginSyncProto sync = 16;					//玩家登录中心服这边玩家属性数据（工会,队伍,夫妻等）
+	optional int32 prof = 17;							//职业
+	optional int32 last_state	= 18;					//玩家切逻辑节点前状态
+	optional int32 head_flag = 19;						//玩家头顶的掉落归属标记
+}
+
+//生物切逻辑服时需要携带的参数
+message CreatureTransParam
+{
+	required int32  kind = 1;					//生物类型（必须赋值,根据生物类型确定下面的那个字段有效）
+	required uint64 cid = 2;					//生物cid(必须赋值, 返回源逻辑服的切换结果的时候需要)
+	optional PlayerTransParam player_param = 3;	//玩家切场景参数
+	optional SceneTransParam trans_param = 4;	//传送参数
+}
+
+
+//-------------------------------------------------- 客户端协议 -----------------------------------------
+
+
+//通知客户端加载场景 NOTIFY_CLIENT_LOAD_MAP
+message NotifyLoadMap
+{
+	required uint64 mapid = 1;
+	required Vector3PB pos = 2;
+}
+
+// 请求场景传送  CLIENT_SCENE_TRANS_REQ
+message TransSceneReq
+{
+	required uint64 dst_mapid = 1;	//目标地图ID
+	optional int32	type = 2;		//传送类型 0-无，1-传送到指定路径点(path),2-传送到区域
+	optional uint64 id = 3;			//目标坐标(传送类型为 1 的时候表示路径点ID，为2的时候表示区域ID)
+}
+
+//客户端切换场景结果 NOTIFY_CLIENT_TRANS_SCENE_RSP
+message TransSceneRsp
+{
+	required int32 retcode = 1;
+	optional uint64 mapid = 2;
+}
+
+//客户端加载地图完成 CLIENT_LOAD_MAP_FINISH
+message LoadMapFinishReq
+{
+	//空
+}
+message CorpseInfo
+{
+	optional uint64 cfgId = 1;		//怪物ID
+	optional uint64 aliveTime = 2;  //存活时间
+	optional Vector3PB pos = 3; 	//坐标
+	optional uint64  cid = 4;		//唯一ID
+
+}
+
+//场景尸体信息 NOTIFY_SCENE_CORPSE_INFO_RSP
+message NotifySceneCorpseInfoRsp
+{
+	optional int32 type =1;		//0:所有尸体，1添加尸体2：删除尸体
+	repeated CorpseInfo infos = 2;
+}
+
+//场景驱离信息 NOTIFY_SCENE_DRIVE_RSP
+message NotifySceneDriveRsp
+{
+	optional int32 	curDrive =1;
+	optional int32 	maxDrive =2;
+	optional uint64 driveTime = 3;		//驱离时间 0：时间没到，有时间戳，就是要倒计时驱离了
+}
+
+
+//-----------------------------------------------------------------------------------------------------------
+
+
+// 中心服请求创建逻辑实例场景 CENTER_CREATE_SCENE_REQ_LOGIC
+message CenterCreateSceneReq{
+	required uint64  sceneId = 1;
+	required uint64  mapId = 2;
+	optional CreateSceneParamProto param = 3;//参数，后面需要可以在这里面添加
+
+}
+
+//中心服创建场景的结果 CENTER_CREATE_SCENE_RSP_LOGIC
+message CenterCreateSceneRsp
+{
+	required uint64 sceneId = 1;
+	required uint64 mapId = 2;
+}
+
+//社交服通知中心服添加新的场景  SOCIAL_TO_CENTER_ADD_NEW_SCENE
+message SCAddNewScene
+{
+	required uint64 mapid = 1;		//地图ID
+	required uint64 sceneid = 2;	//场景ID
+	required uint32 logicid = 3;	//逻辑服ID
+}
+//社交服通知中心服移除场景 SOCIAL_TO_CENTER_DEL_SCENE
+message SCDelScene
+{
+	required uint64 sceneid = 1;	//场景ID
+}
+
+
+// 逻辑服通知中心服场景关闭 LOGIC_NOTIFY_DESTORY_SCENE_CENTER
+message NotifyLogicSceneClose
+{
+	required uint64 sceneId = 1;
+	required uint64 mapId = 2;
+}
+
+//逻辑服向中心服请求生物切场景  LOGIC_CREATURE_TRANS_SCENE_REQ_CENTER
+message LogicCreatureTransSceneReq
+{
+	required uint64 curSceneId = 1;			//当前场景
+	required uint64 dstSceneId = 2;			//目标场景
+	required CreatureTransParam param = 3;	//生物切场景参数
+	required uint32 srcLogicId = 4;			//源逻辑服ID
+}
+//中心服返回 源逻辑服 生物切场景结果  CENTER_CREATURE_TRANS_SCENE_RSP_LOGIC_RESULT
+message CenterCreatureTransSceneResultRsp
+{
+	required int32 result = 1;			//结果
+	required uint64 cur_sceneid = 2;	//当前场景
+	required uint64 dst_sceneid = 3;	//目标场景
+	required int32  kind = 4;			//生物类型
+	required uint64 cid = 5;			//生物cid
+}
+
+//中心服返回 目标逻辑服 生物切场景成功  CENTER_CREATURE_TRANS_SCENE_RSP_LOGIC_SUCCESS
+message CenterCreatureTransSceneSuccessRsp
+{
+	required uint64 dst_sceneid = 1;		//目标场景
+	required uint64 dst_mapid = 2;			//目标场景
+	required CreatureTransParam param = 3;	//生物切场景参数
+}
+
+
+//逻辑服通知中心服玩家进入场景 NOTIFY_ROLE_ENTER_SCENE
+message NotifyRoleEnterScene
+{
+	required uint64 cid	= 1;		//玩家cid
+	required uint64 scene_id = 2;	//场景ID
+	required uint64 map_id = 3;		//地图ID
+	optional Vector3PB pos = 4;		//坐标
+
+}
+
+//逻辑服通知中心服玩家切换逻辑服成功 NOTIFY_ROLE_CHANGE_LOGIC
+message NotifyRoleChgLogic
+{
+	required uint64 cid	= 1;		//玩家cid
+	required uint32 uid = 2;		//UID
+	required uint32 clientid = 3;	//
+	required uint32 logicid = 4;	//逻辑服ID
+}

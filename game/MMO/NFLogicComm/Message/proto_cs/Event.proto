@@ -1,0 +1,24 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+message FunctionUnlockEvent
+{
+  optional uint64 functionId = 1;
+}
+
+message PlayerLeveUpEvent
+{
+  optional uint64 cid = 1;	//玩家cid
+  optional uint32 level = 2;	//升级到的等级
+}
+
+message ItemUseEvent
+{
+  optional uint64 itemId = 1;
+  optional int32 num = 2;
+}

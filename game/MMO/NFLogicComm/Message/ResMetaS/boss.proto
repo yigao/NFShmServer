@@ -1,0 +1,87 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message bossrareItem
+{
+	optional int64 itemID = 1[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 top = 2[(yd_fieldoptions.field_cname) = "是否置顶"];
+}
+
+
+message Sheet_bossrareItem
+{
+	repeated bossrareItem bossrareItem_List = 1[(yd_fieldoptions.field_arysize)=600];
+}
+
+message bossboss
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "bossID"];
+	optional int32 bossType = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
+	optional int32 monsterID = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 classOrder = 4[(yd_fieldoptions.field_cname) = "阶次"];
+	optional int32 sceneOrder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
+	optional int32 duplicateID = 6[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 peaceMask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
+	optional int32 pointID = 8[(yd_fieldoptions.field_cname) = "位置点"];
+	optional int32 group_type = 9[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 flashTime = 10[(yd_fieldoptions.field_cname) = "刷新间隔"];
+	optional int32 retrieveGiftID = 11[(yd_fieldoptions.field_cname) = "找回礼包id"];
+	optional int32 noTimes = 12[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
+}
+
+
+message Sheet_bossboss
+{
+	repeated bossboss bossboss_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message bossbosstypegroupDesc
+{
+	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 times = 2[(yd_fieldoptions.field_cname) = "次数"];
+}
+
+message bossbosstype
+{
+	optional int32 bossType = 1[(yd_fieldoptions.field_cname) = "总类型"];
+	optional int32 mapType = 2[(yd_fieldoptions.field_cname) = "地图类型"];
+	optional int32 functionId = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
+	optional int32 duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int32 privilegeType = 5[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int64 callingCardId = 6[(yd_fieldoptions.field_cname) = "召唤卡id"];
+	optional int32 enterTimes = 7[(yd_fieldoptions.field_cname) = "进入次数"];
+	optional int32 costitem = 8[(yd_fieldoptions.field_cname) = "进入消耗物品"];
+	optional string costnum = 9[(yd_fieldoptions.field_cname) = "进入消耗物品数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 bossTimes = 10[(yd_fieldoptions.field_cname) = "boss次数"];
+	optional int32 addItemID = 11[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
+	optional int32 canhelp = 12[(yd_fieldoptions.field_cname) = "是否可以援助"];
+	optional int32 qkill = 13[(yd_fieldoptions.field_cname) = "是否支持快速击杀"];
+	optional int32 retrievedDays = 14[(yd_fieldoptions.field_cname) = "找回天数"];
+	optional int32 skill = 15[(yd_fieldoptions.field_cname) = "纳入全服首杀"];
+	repeated bossbosstypegroupDesc group = 16[(yd_fieldoptions.field_cname) = "Boss组", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_bossbosstype
+{
+	repeated bossbosstype bossbosstype_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message bosslayer
+{
+	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 bossType = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 order = 3[(yd_fieldoptions.field_cname) = "排序"];
+	optional string name = 4[(yd_fieldoptions.field_cname) = "命名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string enterCondition = 5[(yd_fieldoptions.field_cname) = "进入条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional string unlockCondition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 mapID = 7[(yd_fieldoptions.field_cname) = "地图ID"];
+}
+
+
+message Sheet_bosslayer
+{
+	repeated bosslayer bosslayer_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

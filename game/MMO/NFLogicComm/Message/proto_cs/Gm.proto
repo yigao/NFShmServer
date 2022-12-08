@@ -1,0 +1,32 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//GM命令请求 	CLIENT_GM_REQ
+message GmReq
+{
+	required string cmd			= 1;	//gm命令
+	repeated string arg			= 2;	//gm参数
+}
+
+//返回 GM命令结果 CLIENT_GM_RSP
+message GmRsp
+{
+	required int32 retcode =1;  //结果
+}
+
+
+
+// ------------------------------------ 服务器之间的协议  ---------------------------
+
+//通知服务器执行GM命令 NOTIFY_SERVER_GM_RSP
+message NotifyGmRsp
+{
+	required uint64 cid       = 1;
+	required string cmd     = 2;
+	repeated string arg      = 3;
+}

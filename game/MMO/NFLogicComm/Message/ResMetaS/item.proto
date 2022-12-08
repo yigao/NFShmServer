@@ -1,0 +1,39 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message itemitem
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "物品名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 itemType = 3[(yd_fieldoptions.field_cname) = "物品类型"];
+	optional int32 subType = 4[(yd_fieldoptions.field_cname) = "子类型"];
+	optional int32 functionType = 5[(yd_fieldoptions.field_cname) = "物品功能类型"];
+	optional string functionValue = 6[(yd_fieldoptions.field_cname) = "物品功能参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional string usecondition = 7[(yd_fieldoptions.field_cname) = "使用条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 level = 8[(yd_fieldoptions.field_cname) = "物品等级"];
+	optional int32 quality = 9[(yd_fieldoptions.field_cname) = "物品品质"];
+	optional int32 levelRequest = 10[(yd_fieldoptions.field_cname) = "使用等级"];
+	optional string profession = 11[(yd_fieldoptions.field_cname) = "使用职业", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 bindType = 12[(yd_fieldoptions.field_cname) = "绑定类型"];
+	optional int32 isTradeBind = 13[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 dropNum = 14[(yd_fieldoptions.field_cname) = "每日掉落上限"];
+	optional int32 stackLimit = 15[(yd_fieldoptions.field_cname) = "堆叠上限"];
+	optional int32 sellPrice = 16[(yd_fieldoptions.field_cname) = "出售价格"];
+	optional int64 sellBox = 17[(yd_fieldoptions.field_cname) = "出售掉落"];
+	optional int32 broadcast = 18[(yd_fieldoptions.field_cname) = "是否跑马灯广播"];
+	optional int32 isCanBatchUse = 19[(yd_fieldoptions.field_cname) = "是否可批量使用"];
+	optional int32 dayUse = 20[(yd_fieldoptions.field_cname) = "每日使用次数"];
+	optional int32 time = 21[(yd_fieldoptions.field_cname) = "限时道具"];
+	optional string useLimit = 22[(yd_fieldoptions.field_cname) = "禁用本道具地图", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 blessing = 23[(yd_fieldoptions.field_cname) = "龙域祝福值"];
+	optional int32 invest = 24[(yd_fieldoptions.field_cname) = "龙域投资值"];
+	optional int32 exchange = 25[(yd_fieldoptions.field_cname) = "兑换魔灵值"];
+}
+
+
+message Sheet_itemitem
+{
+	repeated itemitem itemitem_List = 1[(yd_fieldoptions.field_arysize)=1000];
+}

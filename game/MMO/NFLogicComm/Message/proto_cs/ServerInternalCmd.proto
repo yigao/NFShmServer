@@ -1,0 +1,200 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//服务器和服务器之间的协议号定义
+enum ServerInternalCmd
+{
+  //系统 1 - 300
+  SYS_PING						= 1;			//ping消息
+  SYS_CLOSE_SERVER				= 2;			//关闭服务器
+
+  SYS_REDIRECT_CLIENT_BY_GATE		= 10;			//通过网关重定向到客户端
+  SYS_REDIRECT_CLIENT_BY_CENTER	= 11;			//通过中心服重定向到客户端
+  SYS_REDIRECT_SOCIAL_BY_CENTER	= 12;			//通过中心服重定向到社交服
+  SYS_REDIRECT_LOGIC_BY_CENTER    = 13;			//通过中心服重定向到逻辑服
+  SYS_REDIRECT_LOGIC_ID_BY_CENTER	= 14;			//通过中心服重定向到指定ID的逻辑服
+  SYS_REDIRECT_SERVER_BY_GATE		= 15;			//通过网关重定向到其他服务器
+
+
+  LOGIC_REGISTER_CENTER            = 16;			// 逻辑服向中心服注册
+  LOGIC_REGISTER_CENTER_RSP		 = 17;			// 中心服返回逻辑服 注册结果
+
+  LOGIC_REGISTER_GATE              = 18;			// 逻辑服向网关注册
+  LOGIC_REGISTER_GATE_RSP			 = 19;			// 网关返回逻辑服注册 结果
+
+  CENTER_REGISTER_GATE			 = 20;			// 中心服向网关注册
+  CENTER_REGISTER_GATE_RSP		 = 21;			// 网关返回中心服 注册结果
+
+  CENTER_REGISTER_DB				 = 22;			// 中心服向DB服注册
+
+  SOCIAL_REGISTER_CENTER			 = 23;			// 社交服向中心服注册
+  SOCIAL_REGISTER_CENTER_RSP		 = 24;			// 中心服返回社交服 注册结果
+
+  SOCIAL_QUERY_CENTER_INFO		 = 25;			// 社交服查询中心服信息(开服时间，是否加载完成，是否合服)
+  SOCIAL_QUERY_CENTER_INFO_RSP	 = 26;			// 中心服返回社交服 服务器信息
+
+  NOTIFY_LOGIC_STATE				 = 27;			// 中心服通知社交服，各个逻辑服的状态
+
+  INNER_LOG_REQ					 = 31;			//内部日志请求
+
+  NOTIFY_LOGIC_DATA_UPDATE		 = 32;			//通知逻辑服 数据更新(0点更新)
+
+  //登录 300 - 400
+  DB_ROLE_LIST_REQ				 = 301;			//从DB加载角色列表
+  DB_ROLE_LIST_RSP				 = 302;			//DB返回角色列表
+  DB_CREATE_ROLE_REQ				 = 303;			//创角请求
+  DB_CREATE_ROLE_RSP				 = 304;			//返回创角结果
+  DB_ROLE_INFO_REQ				 = 305;			//角色信息请求
+  DB_ROLE_INFO_RSP				 = 306;			//返回角色信息
+  DB_ROLE_INFO_UPDATE_REQ			 = 307;			//更新角色信息
+
+  NOTIFY_LOGIC_ENTER_GAME_REQ		 = 308;			//中心服通知逻辑服进入游戏
+  NOTIFY_LOGIC_ENTER_GAME_RSP		 = 309;			//逻辑服返回中心服进入游戏结果
+  NOTIFY_LOGIC_LEAVE_GAME_REQ		 = 310;			//中心服通知逻辑服退出游戏
+  NOTIFY_LOGIC_LEAVE_GAME_RSP		 = 311;			//逻辑服返回中心服退出游戏结果
+  NOTIFY_CENTER_KICK_REQ			 = 312;			//逻辑服通知中心服踢人
+  NOTIFY_GATE_ENTER_GAME			 = 313;			//中心服通知网关进入游戏
+  NOTIFY_GATE_CHANGE_LOGIC		 = 314;			//中心服通知网关切换逻辑服
+  NOTIFY_GATE_LEAVE_GAME			 = 315;			//中心服通知网关退出游戏
+  NOTIFY_GATE_RECONNECT_GAME		 = 316;			//中心服通知网关重连游戏
+  NOTIFY_CENTER_DISCONNECT		 = 317;			//网关通知中心服客户端掉线
+  NOTIFY_LOGIC_DISCONNECT			 = 318;			//中心服通知逻辑服断开连接
+  NOTIFY_LOGIC_RECONNECT			 = 319;			//中心服通知逻辑服 重连
+
+  DB_ROLE_SIMPLE_LIST_REQ			 = 320;			//请求 角色简要数据列表
+  DB_ROLE_SIMPLE_LIST_RSP			 = 321;			//DB返回 角色简要数据列表
+
+  SOCIAL_ROLE_INFO_REQ			 = 322;			//社交服向中心服请求角色信息
+  SOCIAL_ROLE_INFO_RSP			 = 323;			//中心服返回 社交服角色信息
+  SOCIAL_ROLE_INFO_EVENT			 = 324;			//中心服通知社交服，角色信息更新事件
+  SYN_ATTR_TO_CENTER_RSP			 = 325;			//逻辑服同步角色属性到中心服
+
+  DB_ROLE_CHG_NAME_REQ			 = 326;			//请求 角色改名
+  DB_ROLE_CHG_NAME_RSP			 = 327;			//返回 角色改名
+
+
+  //场景 400 - 450
+  CENTER_CREATE_SCENE_REQ_LOGIC								= 401;  //中心服通知逻辑服服创建场景
+  CENTER_CREATE_SCENE_RSP_LOGIC							    = 402;  //逻辑服回复创建场景结果
+
+  SOCIAL_TO_CENTER_ADD_NEW_SCENE								= 403;	//社交服通知中心服添加新场景
+  SOCIAL_TO_CENTER_DEL_SCENE									= 404;	//社交服通知中心服移除场景
+
+  LOGIC_NOTIFY_DESTORY_SCENE_CENTER							= 405;  //逻辑服通知中心服 场景销毁了
+
+  LOGIC_CREATURE_TRANS_SCENE_REQ_CENTER						= 406;	//逻辑服向中心服请求生物切场景
+  CENTER_CREATURE_TRANS_SCENE_RSP_LOGIC_RESULT				= 407;	//中心服返回 源逻辑服 生物切场景结果
+  CENTER_CREATURE_TRANS_SCENE_RSP_LOGIC_SUCCESS				= 408;	//中心服返回 目标逻辑服 生物切场景成功
+  DB_CREATURE_TRANS_SCENE_REQ									= 409;	//逻辑服向DB 请求生物切场景(主要用于玩家)
+  DB_CREATURE_TRANS_SCENE_RSP									= 410;	//DB返回逻辑服 生物切场景(主要用于玩家) 结果
+
+  NOTIFY_ROLE_ENTER_SCENE										= 411;	//逻辑服通知中心服玩家进入场景
+  NOTIFY_ROLE_CHANGE_LOGIC									= 412;	//逻辑服通知中心服玩家切换逻辑服成功
+
+  //邮件 450 - 479
+  DBPROXY_PROTOCOL_MAIL_BEGIN										= 450;
+  DBPROXY_PROTOCOL_CHARACTER_MAIL_DATA_REQ			= 451;	//	请求单个玩家邮件数据
+  DBPROXY_PROTOCOL_CHARACTER_MAIL_DATA_RSP			= 452;	//	玩家邮件数据返回
+  DBPROXY_PROTOCOL_MAX_MAIL_ID_REQ							= 453;	//  最大邮件ID请求
+  DBPROXY_PROTOCOL_MAX_MAIL_ID_RSP							= 454;	//  最大邮件ID返回
+  DBPROXY_PROTOCOL_CHARACTER_DELETE_MAIL_REQ		= 455;	//	删除某个玩家的所有邮件数据
+  DBPROXY_PROTOCOL_ALL_ZONE_MAIL_SAVE_REQ				= 456;  //  全服邮件保存
+  DBPROXY_PROTOCOL_ALL_ZONE_MAIL_SAVE_RSP				= 457;  //  全服邮件保存回复
+  DBPROXY_PROTOCOL_ZONE_MAIL_TRANS_REQ					= 458;  //  全服邮件保存回复
+  DBPROXY_PROTOCOL_ZONE_MAIL_TRANS_RSP					= 459;  //  全服邮件保存回复
+
+  DBPROXY_PROTOCOL_MAIL_SAVE_REQ								= 460;	// 保存邮件请求
+  DBPROXY_PROTOCOL_MAIL_SAVE_RSP								= 461;	// 保存邮件返回
+  DBPROXY_PROTOCOL_WEB_MAIL_DATA_REQ						= 462;	// 中心服向DB请求角色web邮件相关的数据
+  DBPROXY_PROTOCOL_WEB_MAIL_DATA_RSP						= 463;	// DB返回中心服角色web邮件相关的数据
+
+  CENTER_SERVER_PROTOCOL_SEND_MAIL_REQ						= 464;	//(废弃)
+  CENTER_SERVER_PROTOCOL_SEND_MAIL_RSP						= 465;
+  CENTER_SERVER_PROTOCOL_GET_MAIL_ATTACHMENT_TO_LOGIC				= 466;
+  CENTER_SERVER_PROTOCOL_UPDATE_MAIL_NOTIFY									= 467;  // 逻辑服通知世界服提取附件成功
+  CENTER_SERVER_PROTOCOL_GET_ALL_MAIL_ATTACHMENT_TO_LOGIC		= 468;	// 通知逻辑服一键领取所有附件
+  CENTER_SERVER_PROTOCOL_SEND_SYSTEM_MAIL										= 469;	// 逻辑服请求世界服发送系统邮件
+  CENTER_SERVER_PROTOCOL_SEND_MAIL_TO_LOGIC									= 470;	// 世界服通知逻辑服 (废弃)
+  DBPROXY_PROTOCOL_MAIL_END											= 479;
+
+  //聊天 480 - 489
+  SERVER_INTERNAL_CHAT_BEGIN									= 480;
+  CENTER_SERVER_PROTOCOL_CHAT_REQ								= 481;	// 请求聊天
+  CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY					= 482;	// 逻辑服通知世界服转发传闻或广播
+  SERVER_TO_SERVER_CROSS_CHAT									= 483;  // 跨服聊天消息
+  CENTER_TO_LOGCI_VIR_FORBID_RSP								= 484;	//中心服返回逻辑服 虚拟禁言玩家列表
+  SERVER_INTERNAL_CHAT_END									= 489;
+
+  //GM 500 - 550
+  NOTIFY_SERVER_GM_RSP			= 500;		//通知服务器执行GM命令
+
+  //好友 550-570
+  SERVER_INTERNAL_FRIEND_BEGIN								= 551;
+  LOGIC_TO_CENTER_ADD_HATE									= 552;	//逻辑服通知中心服增加仇恨列表
+  LOGIC_TO_CENTER_KILL_SOMEONE								= 553;	//逻辑服通知中心服击杀玩家
+  CENTER_TO_LOGIC_ADD_FRIEND									= 554;  //通知逻辑服添加好友成功
+  LOGIC_TO_CENTER_GIVING_GIFT									= 555;  //逻辑服通知中心服送礼
+  CENTER_TO_LOGIC_GIVING_GIFT_ERROR							= 556;  //中心服通知逻辑服送礼错误
+
+  //好友
+  DBPROXY_PROTOCOL_ALL_FRIEND_DATA_REQ				= 560;	// 获取所有好友数据
+  DBPROXY_PROTOCOL_SAVE_FRIEND_DATA_REQ				= 561;	// 保存好友数据
+  DBPROXY_PROTOCOL_ALL_FRIEND_DATA_RSP				= 562;	// 所有好友数据返回
+  DBPROXY_PROTOCOL_SAVE_FRIEND_DATA_RSP				= 563;	// 保存好友数据返回
+  DBPROXY_PROTOCOL_DELETE_FRIEND_DATA_NOTIFY	= 564;	// 删除好友数据
+  DBPROXY_PROTOCOL_FRIEND_DATA_REQ						= 565;	// 获取好友数据
+  DBPROXY_PROTOCOL_FRIEND_DATA_RSP						= 566;	// 返回好友数据
+
+  SERVER_INTERNAL_FRIEND_END									= 570;
+
+  //副本 600 - 700
+  L2C_ENTER_DUP_REQ						= 600;			//逻辑服请求中心服进入副本
+  L2C_CREATE_DUP_RSP						= 601;			//逻辑服创建副本返回给中心服
+  L2C_DUP_STATE_CHG_NOTIFY				= 602;			//逻辑服副本状态改变通知中心服
+  C2L_PULL_ROLE_ENTER_DUP_NOTIFY			= 603;			//拉取玩家进副本
+  L2C_DUP_ROLE_ACTION_NOTIFY				= 604;			//逻辑服更新角色副本行为
+  S2C_ENTER_DUP_REQ						= 605;			//社交服请求进入副本
+  C2S_ENTER_DUP_RSP						= 606;			//中心服返回进入副本结果
+  L2C_TOWER_RECV_RECORD_REQ				= 607;			//逻辑服玩家领取爬塔奖励通知中心服
+
+
+  //全局数据
+  DB_GET_GLOBAL_REQ						= 650;			//获取全局数据请求
+  DB_GET_GLOBAL_RSP						= 651;			//全局数据返回
+  DB_SET_GLOBAL_REQ						= 652;			//设置全局数据请求
+
+  //boss
+  L2C_UPDATE_BOSS_REQ						= 660;			//更新BOSS数据
+  L2C_SYN_ATTENT_REQ						= 661;			//同步关注信息
+  L2C_KILL_BOSS_REQ						= 662;			//击杀boss信息
+
+  //活动 700 - 800
+  DB_ACT_GET_DATA_REQ						= 700;			//获取活动数据
+  DB_ACT_GET_DATA_RSP						= 701;			//返回活动数据
+  DB_ACT_SAVE_DATA_REQ					= 702;			//保存活动数据
+
+  ACT_LS_INIT_DATA_REQ					= 703;			//场景服向跨服请求活动信息
+  ACT_LS_INIT_DATA_RSP					= 704;		    //跨服返回场景服活动数据局
+  ACT_CS_INIT_DATA_REQ					= 705;			//中心服向跨服请求活动信息
+  ACT_CS_INIT_DATA_RSP					= 706;			//跨服返回中心服活动数据局
+  ACT_LS_PRE_FINISH_REQ					= 707;			//场景服通知跨服活动提前完成
+  ACT_CL_INIT_DATA_REQ					= 708;			//中心服通知逻辑服 重新去社交服拉取活动数据
+
+
+
+
+
+
+
+
+
+  SERVER_INTER_MAX_CMD					= 5000;	  //最大协议ID
+
+
+
+};

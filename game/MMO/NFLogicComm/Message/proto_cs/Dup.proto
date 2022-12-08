@@ -1,0 +1,236 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+import "Scene.proto";
+
+
+//=================================结构=============================================
+//掉落数据
+message DupDropProto
+{
+	repeated ItemProtoInfo pick_item = 1;	//拾取的物品
+	optional int64 pick_gold = 2;			//拾取的金币
+	optional int64 pick_exp = 3;			//拾取的经验
+	optional int32 kill_num = 4;			//击杀怪物数量
+	repeated ItemProtoInfo star3 = 5;		//三星掉落
+}
+//爬塔领奖日志
+message DupTowerRecordEntry
+{
+	optional string name = 1;
+	optional uint64 time = 2;
+}
+
+
+//=================================类型副本数据==========================================
+//1:爬塔副本具体数据更新
+message TowerDupData
+{
+	repeated int64 ids = 1;					//已领取的奖励
+}
+
+message PassDupData
+{
+	optional int64 id = 1;					//通关boss的副本id
+	optional int32 star = 2;
+}
+
+//2：副本组数据
+message ComDupGroupData
+{
+	optional int32 group = 1;				//副本组
+	optional uint64 pass_dupId = 2;			//当前通关的副本ID
+	optional int32  enter_num = 3;			//可进入次数
+	optional int32 	max_num = 4;			//最大次数
+	optional int32 	buy_num = 5;			//购买的次数
+	optional int32  star = 6;				//当前副本星级
+	optional TowerDupData  tower = 7;		//爬塔
+	repeated PassDupData  pass = 8;			//副本通关数据
+}
+
+//=================================通信===========================================
+//1：进入副本请求 ENTER_DUP_REQ
+message EnterDupReq
+{
+	optional uint64 dupId = 1;	//副本ID
+	optional int32 mergeNum =2; //副本合并次数
+}
+//1-1:进入副本返回 ENTER_DUP_RSP
+message EnterDupRsp
+{
+	optional int32 ret = 1;
+	optional uint64 dupId = 2;
+	optional int32 	dupTime = 3;	//副本总时常，战前倒计时结束之后开始算时常。-1副本没有时间限制
+}
+
+//2-1: 请求副本结果 DUP_RESULT_REQ
+message DupResultReq
+{
+
+}
+//2-2: 副本结果返回 DUP_RESULT_RSP
+message DupResultRsp
+{
+	optional int32 result = 1;			//结果 0 成功，1 失败
+	optional uint64 dupId = 2;			//副本ID
+	optional int32 star = 3;			//星级
+	optional int32 cost_sec = 4;		//消耗的时间，单位：秒
+	optional DupDropProto info = 5;		//副本掉落物品
+}
+
+//3-1:离开副本请求 DUP_LEAVE_REQ
+message DupLeaveReq
+{
+
+}
+//3-2:离开副本返回 DUP_LEAVE_RSP
+message DupLeaveRsp
+{
+	optional int32 result = 1;
+	optional int64 dupId = 2;
+}
+
+
+//4: 上线通知副本数据及副本数据更新 NOTIFY_DUP_RSP
+message NotifyDupRsp
+{
+	optional int32 type = 1;				//0:发送全部数据 1：发送具体副本数据
+	repeated ComDupGroupData infos = 2;		//副本组数据
+}
+
+//5: 副本运行中界面数据更新 NOTIFY_DUP_RUN_RSP
+message NotifyDupRunRsp
+{
+	optional uint64 dupId = 1;
+	optional int32 kill_num = 2;			//是否击杀了怪物
+	optional int32 all_num  = 3;			//总数
+	optional int32 cur_wave = 4;			//当前波次
+	optional int32 max_wave = 5;			//最大波次
+	optional int64 cur_hp = 6;				//当前目标血量
+	optional int64 max_hp = 7;				//最大目标血量
+	repeated ComPair64 items = 8;			//掉落物品
+
+}
+
+//6: 副本结束状态 NOTIFY_DUP_END_RSP
+message NotifyDupEndRsp
+{
+	optional uint64 dupId = 1;
+}
+
+
+//7:玩家进入副本，战前倒计时 NOTIFY_DUP_BEGIN_CD_RSP (后期在用,先留着)
+message NotifyDupBeginCdRsp
+{
+	optional uint64 sceneId = 1;
+	optional uint64 dupId = 2;
+	optional uint64 timeEnd = 3;		//倒计时时间戳（未来时间节点 ）
+}
+
+//8:领取爬塔奖励 RECV_TOWER_DUP_REQ
+message RecvTowerDupReq
+{
+	optional uint64 	id = 1;
+}
+//8-1: 领取爬塔奖励 RECV_TOWER_DUP_RSP
+message RecvTowerDupRsp
+{
+	optional int32 result = 1;
+	optional uint64 id = 2;
+}
+//9-1: 购买副本次数请求 BUY_DUP_NUM_REQ
+message BuyDupNumReq
+{
+	optional int32 group = 1;
+	optional int32 num = 2;
+}
+//9-2: 购买副本次数返回 BUY_DUP_NUM_RSP
+message BuyDupNumRsp
+{
+	optional int32 result = 1;
+	optional int32 group = 2;
+	optional int32 num = 3;
+}
+
+//10-1: 查看爬塔领奖记录 DUP_TOWER_RECORD_REQ
+message DupTowerRecordReq
+{
+	optional uint64 id =1;
+}
+//10-2:爬塔领奖记录返回 DUP_TOWER_RECORD_RSP
+message DupTowerRecordRsp
+{
+	optional uint64 id =1;
+	repeated DupTowerRecordEntry entrys = 2;
+}
+
+
+
+
+// =========================服务器间通信===================
+
+//2：逻辑服请求进入或者创建副本  L2C_ENTER_DUP_REQ
+message L2CEnterDupReq
+{
+	optional CreateSceneParamProto params = 1;
+}
+
+//3：逻辑服创建副本返回给中心服 L2C_CREATE_DUP_RSP
+message L2CCreateDupRsp
+{
+	optional int32 ret = 1;				//返回码
+	optional uint64 sceneId = 2;		//副本场景ID
+	optional uint64 dupId = 3;			//副本ID
+}
+//4: 逻辑服副本状态改变通知中心服 L2C_DUP_STATE_CHG_NOTIFY
+message L2CDupStateChgNotify
+{
+	optional uint64 sceneId = 1;		//副本场景ID
+	optional uint64 dupId = 2;			//副本ID
+	optional int32 state = 3;			//当前状态
+	optional uint64 time = 4;			//改变状态的时间
+}
+
+//5: 中心服拉取玩家进副本 C2L_PULL_ROLE_ENTER_DUP_NOTIFY
+message C2LPullRoleEnterDupNotify
+{
+	required uint64 char_id = 1;			//角色ID
+	required uint64 duplicate_id = 2;		//副本ID
+	required uint64 scene_id = 3;			//副本场景ID
+	optional uint64 born_id  = 4;			//副本出生点ID
+	optional uint32 zoneid = 5;				//区服ID
+}
+
+//6:逻辑服更新角色副本行为 L2C_DUP_ROLE_ACTION_NOTIFY
+message L2CDupRoleActionNotify
+{
+	optional int64 sceneId = 1;
+	optional int64 cid = 2;
+	optional int32 actionId = 3;
+	optional int32 ret = 4;
+}
+
+//7:社交服向中心服 请求进入副本 S2C_ENTER_DUP_REQ
+message S2CEnterDupReq
+{
+	optional CreateSceneParamProto params = 1;
+}
+//8:中心服返回社交服副本进入结果  C2S_ENTER_DUP_RSP
+message C2SEnterDupRsp
+{
+	optional int32 		ret = 1;
+	optional CreateSceneParamProto params = 2;
+}
+//9:逻辑服玩家领取爬塔奖励通知中心服 L2C_TOWER_RECV_RECORD_REQ
+message L2CTowerRecvRecordReq
+{
+	optional int64 	 id = 1;
+	optional int64 	 cid = 2;
+	optional string  name = 3;
+	optional int64 	 time = 4;
+}

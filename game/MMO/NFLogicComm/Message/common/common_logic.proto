@@ -1,0 +1,79 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+
+enum TableID {
+  E_TABLE_NONE = 0;
+  E_TABLE_ROLE_DB_DATA = 1;
+};
+
+message PacketMsg {
+  optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl)=true];
+  optional uint32 serverType = 2;
+  optional uint32 upper_limit = 3;
+  optional uint32 min_interval = 4;
+  optional uint32 control_time = 5;
+}
+
+message ServerPacketMsg {
+  repeated PacketMsg PacketMsg = 1[(yd_fieldoptions.field_use_stl)=true];
+}
+
+message WorldExternalConfig {
+  optional bool TokenTimeCheck = 1[(yd_fieldoptions.field_use_stl) = true];
+  optional bool WhiteListState = 2;
+  optional uint32 MaxRegisterNum = 3;
+}
+
+message GameExternalConfig {
+  repeated uint64 map = 1[(yd_fieldoptions.field_use_stl)=true];
+}
+
+message MapPosInfo
+{
+  optional double x = 1[(yd_fieldoptions.field_use_stl) = true];
+  optional double y = 2;
+  optional double z = 3;
+}
+
+message MapJsonConfigObjsPos
+{
+  optional MapPosInfo pos = 1[(yd_fieldoptions.field_use_stl) = true];
+  optional double rot = 2;
+}
+
+message MapJsonConfigObjs
+{
+  optional uint64 id = 1[(yd_fieldoptions.field_use_stl) = true];
+  repeated MapJsonConfigObjsPos pos = 2;
+}
+
+message MapJsonConfigAreaDetail
+{
+  optional double radius = 1[(yd_fieldoptions.field_use_stl) = true];
+  optional MapPosInfo pos = 2;
+}
+
+message MapJsonConfigArea
+{
+  optional uint64 id = 1[(yd_fieldoptions.field_use_stl) = true];
+  repeated MapJsonConfigAreaDetail detail = 2;
+}
+
+message MapJsonConfigPath
+{
+  optional uint64 id = 1[(yd_fieldoptions.field_use_stl) = true];
+  repeated MapPosInfo pos = 2;
+}
+
+message MapJsonConfig
+{
+  repeated MapJsonConfigObjs objs = 1[(yd_fieldoptions.field_use_stl) = true];
+  repeated MapJsonConfigArea areas = 2;
+  repeated MapJsonConfigPath paths = 3;
+}
+
+
+
+

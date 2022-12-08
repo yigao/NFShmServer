@@ -1,0 +1,51 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//======================================结构===================================//
+
+//身上的装备信息
+message EquipInfoList
+{
+	repeated EquipInfo infos = 1;
+}
+
+//======================================通信===================================//
+
+//1-1:装备穿戴请求  CLIENT_EQUIP_DRESS_REQ
+message EquipDressReq
+{
+	optional int32 bag_pos = 1;	//背包中位置
+}
+//1-2:装备穿戴返回  CLIENT_EQUIP_DRESS_RSP
+message EquipDressRsp
+{
+	optional int32 bag_pos = 1;	//背包中位置
+	optional int32 ret = 2; //错误码
+}
+
+//2-1: 装备卸下请求  CLIENT_EQUIP_UNDRESS_REQ
+message EquipUnDressReq
+{
+	optional int32 slot_pos = 1;	//装备位置
+}
+
+//2-2: 装备卸下返回  CLIENT_EQUIP_UNDRESS_RSP
+message EquipUnDressRsp
+{
+	optional int32 slot_pos = 1;	//装备位置
+	optional int32 ret = 2; //错误码
+}
+
+//3：装备更新(全更新，单更新都走这条协议, 上线会发送所有装备信息) NOTIFY_EQUIP_INFO_RSP
+message NotifyEquipInfoRsp
+{
+	optional int32 	type =1;			//0：全拉 1单更
+	repeated EquipInfo infos = 2;
+}
+
+//================================================================================//

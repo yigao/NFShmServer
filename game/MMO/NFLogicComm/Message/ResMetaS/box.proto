@@ -1,0 +1,72 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message boxboxboxdataDesc
+{
+	optional int32 maxTimes = 1[(yd_fieldoptions.field_cname) = "次数上限"];
+	optional int64 id = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 weight = 3[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 minTimes = 4[(yd_fieldoptions.field_cname) = "次数下限"];
+}
+
+message boxbox
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 Rate = 3[(yd_fieldoptions.field_cname) = "生效概率"];
+	optional int32 Mask = 4[(yd_fieldoptions.field_cname) = "概率调整标签"];
+	optional int32 minTimes = 5[(yd_fieldoptions.field_cname) = "最小次数"];
+	optional int32 maxTimes = 6[(yd_fieldoptions.field_cname) = "最大次数"];
+	repeated boxboxboxdataDesc boxdata = 7[(yd_fieldoptions.field_cname) = "掉落", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_boxbox
+{
+	repeated boxbox boxbox_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message boxboxdataequipDesc
+{
+	optional int32 rand = 1[(yd_fieldoptions.field_cname) = "概率百分比"];
+	optional int32 minNum = 2[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional int32 isbind = 3[(yd_fieldoptions.field_cname) = "绑定"];
+	optional int32 maxNum = 4[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional string id = 5[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+message boxboxdataitemDesc
+{
+	optional string rand = 1[(yd_fieldoptions.field_cname) = "权重", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 maxNum = 2[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional int32 rarerand = 3[(yd_fieldoptions.field_cname) = "概率百分比"];
+	optional int32 minNum = 4[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional string isbind = 5[(yd_fieldoptions.field_cname) = "标定标记", (yd_fieldoptions.field_bufsize) = 60];
+	optional string id = 6[(yd_fieldoptions.field_cname) = "id", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+message boxboxdata
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "掉落包ID"];
+	optional int32 drop_type = 2[(yd_fieldoptions.field_cname) = "掉落类型"];
+	optional int32 goldminNum = 3[(yd_fieldoptions.field_cname) = "金币下限"];
+	optional int32 goldmaxNum = 4[(yd_fieldoptions.field_cname) = "金币上限"];
+	optional int32 goldrand = 5[(yd_fieldoptions.field_cname) = "金币掉落率"];
+	optional int32 bindjewelminNum = 6[(yd_fieldoptions.field_cname) = "绑钻下限"];
+	optional int32 bindjewelmaxNum = 7[(yd_fieldoptions.field_cname) = "绑钻上限"];
+	optional int32 bindjewelrand = 8[(yd_fieldoptions.field_cname) = "绑钻掉落率"];
+	optional int32 jewelminNum = 9[(yd_fieldoptions.field_cname) = "钻石下限"];
+	optional int32 jewelmaxNum = 10[(yd_fieldoptions.field_cname) = "钻石上限"];
+	optional int32 jewelrand = 11[(yd_fieldoptions.field_cname) = "钻石掉落率"];
+	optional string eq_profession = 12[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	repeated boxboxdataequipDesc equip = 13[(yd_fieldoptions.field_cname) = "稀有装备", (yd_fieldoptions.field_arysize) = 8];
+	repeated boxboxdataitemDesc item = 14[(yd_fieldoptions.field_cname) = "稀有物品", (yd_fieldoptions.field_arysize) = 50];
+}
+
+
+message Sheet_boxboxdata
+{
+	repeated boxboxdata boxboxdata_List = 1[(yd_fieldoptions.field_arysize)=40];
+}

@@ -1,0 +1,78 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+//======================================结构===================================//
+
+message GrowStarInfo
+{
+	optional int64 id = 1;
+	optional int32 lv = 2;
+	optional int32 state = 3;			//是否穿戴 0:未穿戴 1：穿戴
+}
+
+//某个养成系统信息
+message GrowSubInfo
+{
+	optional int32 type = 1;
+	repeated GrowStarInfo subs = 2; //已激活的列表
+}
+
+//======================================通信===================================//
+
+//1-1:养成数据返回 NOTIFY_GROW_RSP				
+message NotifyGrowRsp
+{
+	repeated GrowSubInfo subs = 1;
+}
+
+
+//2-1:升级请求  CLIENT_GROW_LVUP_REQ
+message GrowLvUpReq
+{
+	optional int64 id = 1;
+}
+
+//2-2:升级返回 CLIENT_GROW_LVUP_RSP
+message GrowLvUpRsp
+{
+	optional int64 id  = 1;
+	optional int32 ret = 2;
+}
+
+
+//3-1: 穿戴请求  CLIENT_GROW_FACADE_DRESS_REQ
+message GrowFacadeDressReq
+{
+	optional int64 id = 1;
+}
+
+//3-2: 穿戴返回 CLIENT_GROW_FACADE_DRESS_RSP
+message GrowFacadeDressRsp
+{
+	optional int64 id = 1;
+	optional int32 ret = 2;
+}
+
+
+//4-1: 卸下请求  CLIENT_GROW_FACADE_UNDRESS_REQ
+message GrowFacadeUnDressReq
+{
+	optional int64 id = 1;
+}
+
+//4-2: 卸下请求 CLIENT_GROW_FACADE_UNDRESS_RSP
+message GrowFacadeUnDressRsp
+{
+	optional int64 id = 1;
+	optional int32 ret = 2;
+}
+
+
+
+//================================================================================//

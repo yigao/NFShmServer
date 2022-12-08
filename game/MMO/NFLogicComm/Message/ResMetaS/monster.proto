@@ -1,0 +1,245 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message monstermonster
+{
+	optional int64 monsterID = 1[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional string monsterName = 2[(yd_fieldoptions.field_cname) = "怪物名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 functionType = 3[(yd_fieldoptions.field_cname) = "功能类型"];
+	optional int64 functionValue = 4[(yd_fieldoptions.field_cname) = "功能参数"];
+	optional int32 profession = 5[(yd_fieldoptions.field_cname) = "怪物职业"];
+	optional int32 damageAddType = 6[(yd_fieldoptions.field_cname) = "伤害加成类型"];
+	optional int32 monsterLV = 7[(yd_fieldoptions.field_cname) = "怪物等级"];
+	optional int32 droplimit = 8[(yd_fieldoptions.field_cname) = "最大掉落等级"];
+	optional int64 displayID = 9[(yd_fieldoptions.field_cname) = "资源与表现ID"];
+	optional int64 valuetype = 10[(yd_fieldoptions.field_cname) = "数值类型"];
+	optional int32 valueParam = 11[(yd_fieldoptions.field_cname) = "数值参数"];
+	optional int64 aiId = 12[(yd_fieldoptions.field_cname) = "AI表ID"];
+	optional int32 hpSectionNum = 13[(yd_fieldoptions.field_cname) = "怪物血条段数"];
+	optional int32 breedProb = 14[(yd_fieldoptions.field_cname) = "死亡触发新怪物几率"];
+	optional int64 breedMonID = 15[(yd_fieldoptions.field_cname) = "触发生成怪物ID"];
+	optional int32 breedMonLive = 16[(yd_fieldoptions.field_cname) = "怪物存活时间"];
+	optional string itemCost = 17[(yd_fieldoptions.field_cname) = "道具消耗", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 isBornActionOn = 18[(yd_fieldoptions.field_cname) = "是否启用出生动作"];
+	optional int32 belongshow = 19[(yd_fieldoptions.field_cname) = "怪物掉落归属是否显示"];
+	optional int32 dropGroupID = 20[(yd_fieldoptions.field_cname) = "掉落ID"];
+	optional int32 harmdrop_type = 21[(yd_fieldoptions.field_cname) = "伤害计算方式"];
+	optional int32 joninper = 22[(yd_fieldoptions.field_cname) = "参与奖最低百分比"];
+	optional int32 btnRange = 23[(yd_fieldoptions.field_cname) = "按钮范围"];
+	optional int64 btnId = 24[(yd_fieldoptions.field_cname) = "按钮ID"];
+	optional int32 drivePoint = 25[(yd_fieldoptions.field_cname) = "怒气"];
+	optional int32 corpseID = 26[(yd_fieldoptions.field_cname) = "尸体ID"];
+}
+
+
+message Sheet_monstermonster
+{
+	repeated monstermonster monstermonster_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message monsterdisplayskillDesc
+{
+	optional int64 id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message monsterdisplay
+{
+	optional int64 displayID = 1[(yd_fieldoptions.field_cname) = "资源与表现ID"];
+	optional int32 modelOffsetsX = 2[(yd_fieldoptions.field_cname) = "UI模型X坐标偏移"];
+	optional int32 modelOffsetsY = 3[(yd_fieldoptions.field_cname) = "UI模型Y坐标偏移"];
+	optional int32 modelScale = 4[(yd_fieldoptions.field_cname) = "UI模型缩放比例"];
+	optional int32 modelRadius = 5[(yd_fieldoptions.field_cname) = "怪物模型半径"];
+	optional int32 pathRadius = 6[(yd_fieldoptions.field_cname) = "寻路半径"];
+	optional int32 collisionRadius = 7[(yd_fieldoptions.field_cname) = "寻路半径"];
+	optional int32 rSpeed = 8[(yd_fieldoptions.field_cname) = "跑步速度"];
+	repeated monsterdisplayskillDesc skill = 9[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_monsterdisplay
+{
+	repeated monsterdisplay monsterdisplay_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message monstervalue
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "数值ID"];
+	optional int32 type = 2[(yd_fieldoptions.field_cname) = "怪物类型"];
+	optional int32 monsterLV = 3[(yd_fieldoptions.field_cname) = "怪物等级"];
+	optional int64 max_Hp = 4[(yd_fieldoptions.field_cname) = "最大生命"];
+	optional int64 atk = 5[(yd_fieldoptions.field_cname) = "攻击"];
+	optional int64 def = 6[(yd_fieldoptions.field_cname) = "防御"];
+	optional int64 brk_Armor = 7[(yd_fieldoptions.field_cname) = "破甲"];
+	optional int64 five_Dam = 8[(yd_fieldoptions.field_cname) = "五行伤害"];
+	optional int64 five_Armor = 9[(yd_fieldoptions.field_cname) = "五行护甲"];
+	optional int64 thump_Rate = 10[(yd_fieldoptions.field_cname) = "重击几率"];
+	optional int64 thump_Resist = 11[(yd_fieldoptions.field_cname) = "重击抵抗"];
+	optional int64 sky = 12[(yd_fieldoptions.field_cname) = "天道"];
+	optional int64 sky_Dam = 13[(yd_fieldoptions.field_cname) = "天道伤害"];
+	optional int64 sky_Redu_Resist = 14[(yd_fieldoptions.field_cname) = "天道减抗"];
+	optional int64 sky_Resist = 15[(yd_fieldoptions.field_cname) = "天道抗性"];
+	optional int64 kill_God = 16[(yd_fieldoptions.field_cname) = "弑神"];
+	optional int64 god_Body = 17[(yd_fieldoptions.field_cname) = "神体"];
+	optional int64 mortal_Rate = 18[(yd_fieldoptions.field_cname) = "凡免几率"];
+	optional int64 mortal_Resist = 19[(yd_fieldoptions.field_cname) = "凡免抗性"];
+	optional int64 fairy_Rate = 20[(yd_fieldoptions.field_cname) = "仙免几率"];
+	optional int64 fairy_Resist = 21[(yd_fieldoptions.field_cname) = "仙免抗性"];
+	optional int64 god_Rate = 22[(yd_fieldoptions.field_cname) = "神免几率"];
+	optional int64 god_Resist = 23[(yd_fieldoptions.field_cname) = "神免抗性"];
+	optional int64 crit_Rate = 24[(yd_fieldoptions.field_cname) = "暴击几率"];
+	optional int64 crit_resit_Rate = 25[(yd_fieldoptions.field_cname) = "抗暴几率"];
+	optional int64 crit_Dam = 26[(yd_fieldoptions.field_cname) = "暴击伤害"];
+	optional int64 crit_Redu = 27[(yd_fieldoptions.field_cname) = "暴击减免"];
+	optional int64 batter_Rate = 28[(yd_fieldoptions.field_cname) = "连击几率"];
+	optional int64 batter_Resist = 29[(yd_fieldoptions.field_cname) = "连击抵抗"];
+	optional int64 batter_Dam = 30[(yd_fieldoptions.field_cname) = "连击伤害"];
+	optional int64 batter_Redu = 31[(yd_fieldoptions.field_cname) = "连击减免"];
+	optional int64 brkdown_Rate = 32[(yd_fieldoptions.field_cname) = "击穿几率"];
+	optional int64 brkdown_Resist = 33[(yd_fieldoptions.field_cname) = "击穿抵抗"];
+	optional int64 dam_Add = 34[(yd_fieldoptions.field_cname) = "伤害加成"];
+	optional int64 dam_Redu = 35[(yd_fieldoptions.field_cname) = "伤害减免"];
+	optional int64 all_Add = 36[(yd_fieldoptions.field_cname) = "全能增伤"];
+	optional int64 all_Redu = 37[(yd_fieldoptions.field_cname) = "全能减免"];
+	optional int64 skill_Add = 38[(yd_fieldoptions.field_cname) = "技能增伤"];
+	optional int64 skill_Redu = 39[(yd_fieldoptions.field_cname) = "技能减伤"];
+	optional int64 rebound_Dam = 40[(yd_fieldoptions.field_cname) = "反弹伤害"];
+	optional int64 hp_Steal = 41[(yd_fieldoptions.field_cname) = "生命窃取"];
+	optional int64 dodge_Rate = 42[(yd_fieldoptions.field_cname) = "闪避几率"];
+	optional int64 hit_Rate = 43[(yd_fieldoptions.field_cname) = "命中几率"];
+	optional int64 blk_Rate = 44[(yd_fieldoptions.field_cname) = "格挡几率"];
+	optional int64 brk_blk_Rate = 45[(yd_fieldoptions.field_cname) = "破档几率"];
+	optional int64 blk_Free = 46[(yd_fieldoptions.field_cname) = "格挡免伤"];
+	optional int64 blk_Pierce = 47[(yd_fieldoptions.field_cname) = "格挡穿透"];
+	optional int64 rel_Armor = 48[(yd_fieldoptions.field_cname) = "真实护甲"];
+	optional int64 rel_Dam = 49[(yd_fieldoptions.field_cname) = "真实伤害"];
+	optional int64 five_Resist = 50[(yd_fieldoptions.field_cname) = "五行抗性"];
+	optional int64 five_resist_Redu = 51[(yd_fieldoptions.field_cname) = "五行减抗"];
+	optional int64 fire_Add = 52[(yd_fieldoptions.field_cname) = "离火增伤"];
+	optional int64 fire_Redu = 53[(yd_fieldoptions.field_cname) = "离火减伤"];
+	optional int64 ice_Add = 54[(yd_fieldoptions.field_cname) = "玄冰增伤"];
+	optional int64 ice_Redu = 55[(yd_fieldoptions.field_cname) = "玄冰减伤"];
+	optional int64 thunder_Add = 56[(yd_fieldoptions.field_cname) = "雷罚增伤"];
+	optional int64 thunder_Rdu = 57[(yd_fieldoptions.field_cname) = "雷罚减伤"];
+	optional int64 player_Add = 58[(yd_fieldoptions.field_cname) = "玩家减伤"];
+	optional int64 player_Redu = 59[(yd_fieldoptions.field_cname) = "玩家增伤"];
+	optional int64 leader_Add = 60[(yd_fieldoptions.field_cname) = "首领减伤"];
+	optional int64 leader_Redu = 61[(yd_fieldoptions.field_cname) = "首领增伤"];
+	optional int64 mon_Add = 62[(yd_fieldoptions.field_cname) = "怪物减伤"];
+	optional int64 mon_Redu = 63[(yd_fieldoptions.field_cname) = "怪物增伤"];
+	optional int64 var_Redu = 64[(yd_fieldoptions.field_cname) = "变身减伤"];
+	optional int64 var_Add = 65[(yd_fieldoptions.field_cname) = "变身增伤"];
+	optional int64 unusual_Resist = 66[(yd_fieldoptions.field_cname) = "异常抵抗"];
+	optional int64 unusual_Hit = 67[(yd_fieldoptions.field_cname) = "异常命中"];
+	optional int64 hp_Recover = 68[(yd_fieldoptions.field_cname) = "生命恢复"];
+	optional int64 unusual_Add = 69[(yd_fieldoptions.field_cname) = "异常增伤"];
+	optional int64 fix_Recover = 70[(yd_fieldoptions.field_cname) = "固定回复"];
+	optional int64 high_hp_Add = 71[(yd_fieldoptions.field_cname) = "高血增伤"];
+	optional int64 recover_hp_Add = 72[(yd_fieldoptions.field_cname) = "回血增效"];
+	optional int64 week_Add = 73[(yd_fieldoptions.field_cname) = "虚弱增伤"];
+	optional int64 shield = 74[(yd_fieldoptions.field_cname) = "护盾"];
+}
+
+
+message Sheet_monstervalue
+{
+	repeated monstervalue monstervalue_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message monstervalueParam
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 P_max_Hp = 2[(yd_fieldoptions.field_cname) = "最大生命"];
+	optional int32 P_atk = 3[(yd_fieldoptions.field_cname) = "攻击"];
+	optional int32 P_def = 4[(yd_fieldoptions.field_cname) = "防御"];
+	optional int32 P_brk_Armor = 5[(yd_fieldoptions.field_cname) = "破甲"];
+	optional int32 P_five_Dam = 6[(yd_fieldoptions.field_cname) = "五行伤害"];
+	optional int32 P_five_Armor = 7[(yd_fieldoptions.field_cname) = "五行护甲"];
+	optional int32 P_thump_Rate = 8[(yd_fieldoptions.field_cname) = "重击几率"];
+	optional int32 P_thump_Resist = 9[(yd_fieldoptions.field_cname) = "重击抵抗"];
+	optional int32 P_sky = 10[(yd_fieldoptions.field_cname) = "天道"];
+	optional int32 P_sky_Dam = 11[(yd_fieldoptions.field_cname) = "天道伤害"];
+	optional int32 P_sky_Redu_Resist = 12[(yd_fieldoptions.field_cname) = "天道减抗"];
+	optional int32 P_sky_Resist = 13[(yd_fieldoptions.field_cname) = "天道抗性"];
+	optional int32 P_kill_God = 14[(yd_fieldoptions.field_cname) = "弑神"];
+	optional int32 P_god_Body = 15[(yd_fieldoptions.field_cname) = "神体"];
+	optional int32 P_mortal_Rate = 16[(yd_fieldoptions.field_cname) = "凡免几率"];
+	optional int32 P_mortal_Resist = 17[(yd_fieldoptions.field_cname) = "凡免抗性"];
+	optional int32 P_fairy_Rate = 18[(yd_fieldoptions.field_cname) = "仙免几率"];
+	optional int32 P_fairy_Resist = 19[(yd_fieldoptions.field_cname) = "仙免抗性"];
+	optional int32 P_god_Rate = 20[(yd_fieldoptions.field_cname) = "神免几率"];
+	optional int32 P_god_Resist = 21[(yd_fieldoptions.field_cname) = "神免抗性"];
+	optional int32 P_crit_Rate = 22[(yd_fieldoptions.field_cname) = "暴击几率"];
+	optional int32 P_crit_resit_Rate = 23[(yd_fieldoptions.field_cname) = "抗暴几率"];
+	optional int32 P_crit_Dam = 24[(yd_fieldoptions.field_cname) = "暴击伤害"];
+	optional int32 P_crit_Redu = 25[(yd_fieldoptions.field_cname) = "暴击减免"];
+	optional int32 P_batter_Rate = 26[(yd_fieldoptions.field_cname) = "连击几率"];
+	optional int32 P_batter_Resist = 27[(yd_fieldoptions.field_cname) = "连击抵抗"];
+	optional int32 P_batter_Dam = 28[(yd_fieldoptions.field_cname) = "连击伤害"];
+	optional int32 P_batter_Redu = 29[(yd_fieldoptions.field_cname) = "连击减免"];
+	optional int32 P_brkdown_Rate = 30[(yd_fieldoptions.field_cname) = "击穿几率"];
+	optional int32 P_brkdown_Resist = 31[(yd_fieldoptions.field_cname) = "击穿抵抗"];
+	optional int32 P_dam_Add = 32[(yd_fieldoptions.field_cname) = "伤害加成"];
+	optional int32 P_dam_Redu = 33[(yd_fieldoptions.field_cname) = "伤害减免"];
+	optional int32 P_all_Add = 34[(yd_fieldoptions.field_cname) = "全能增伤"];
+	optional int32 P_all_Redu = 35[(yd_fieldoptions.field_cname) = "全能减免"];
+	optional int32 P_skill_Add = 36[(yd_fieldoptions.field_cname) = "技能增伤"];
+	optional int32 P_skill_Redu = 37[(yd_fieldoptions.field_cname) = "技能减伤"];
+	optional int32 P_rebound_Dam = 38[(yd_fieldoptions.field_cname) = "反弹伤害"];
+	optional int32 P_hp_Steal = 39[(yd_fieldoptions.field_cname) = "生命窃取"];
+	optional int32 P_dodge_Rate = 40[(yd_fieldoptions.field_cname) = "闪避几率"];
+	optional int32 P_hit_Rate = 41[(yd_fieldoptions.field_cname) = "命中几率"];
+	optional int32 P_blk_Rate = 42[(yd_fieldoptions.field_cname) = "格挡几率"];
+	optional int32 P_brk_blk_Rate = 43[(yd_fieldoptions.field_cname) = "破档几率"];
+	optional int32 P_blk_Free = 44[(yd_fieldoptions.field_cname) = "格挡免伤"];
+	optional int32 P_blk_Pierce = 45[(yd_fieldoptions.field_cname) = "格挡穿透"];
+	optional int32 P_rel_Armor = 46[(yd_fieldoptions.field_cname) = "真实护甲"];
+	optional int32 P_rel_Dam = 47[(yd_fieldoptions.field_cname) = "真实伤害"];
+	optional int32 P_five_Resist = 48[(yd_fieldoptions.field_cname) = "五行抗性"];
+	optional int32 P_five_resist_Redu = 49[(yd_fieldoptions.field_cname) = "五行减抗"];
+	optional int32 P_fire_Add = 50[(yd_fieldoptions.field_cname) = "离火增伤"];
+	optional int32 P_fire_Redu = 51[(yd_fieldoptions.field_cname) = "离火减伤"];
+	optional int32 P_ice_Add = 52[(yd_fieldoptions.field_cname) = "玄冰增伤"];
+	optional int32 P_ice_Redu = 53[(yd_fieldoptions.field_cname) = "玄冰减伤"];
+	optional int32 P_thunder_Add = 54[(yd_fieldoptions.field_cname) = "雷罚增伤"];
+	optional int32 P_thunder_Rdu = 55[(yd_fieldoptions.field_cname) = "雷罚减伤"];
+	optional int32 P_player_Add = 56[(yd_fieldoptions.field_cname) = "玩家减伤"];
+	optional int32 P_player_Redu = 57[(yd_fieldoptions.field_cname) = "玩家增伤"];
+	optional int32 P_leader_Add = 58[(yd_fieldoptions.field_cname) = "首领减伤"];
+	optional int32 P_leader_Redu = 59[(yd_fieldoptions.field_cname) = "首领增伤"];
+	optional int32 P_mon_Add = 60[(yd_fieldoptions.field_cname) = "怪物减伤"];
+	optional int32 P_mon_Redu = 61[(yd_fieldoptions.field_cname) = "怪物增伤"];
+	optional int32 P_var_Redu = 62[(yd_fieldoptions.field_cname) = "变身减伤"];
+	optional int32 P_var_Add = 63[(yd_fieldoptions.field_cname) = "变身增伤"];
+	optional int32 P_unusual_Resist = 64[(yd_fieldoptions.field_cname) = "异常抵抗"];
+	optional int32 P_unusual_Hit = 65[(yd_fieldoptions.field_cname) = "异常命中"];
+	optional int32 P_hp_Recover = 66[(yd_fieldoptions.field_cname) = "生命恢复"];
+	optional int32 P_unusual_Add = 67[(yd_fieldoptions.field_cname) = "异常增伤"];
+	optional int32 P_fix_Recover = 68[(yd_fieldoptions.field_cname) = "固定回复"];
+	optional int32 P_high_hp_Add = 69[(yd_fieldoptions.field_cname) = "高血增伤"];
+	optional int32 P_recover_hp_Add = 70[(yd_fieldoptions.field_cname) = "回血增效"];
+	optional int32 P_week_Add = 71[(yd_fieldoptions.field_cname) = "虚弱增伤"];
+	optional int64 shield = 72[(yd_fieldoptions.field_cname) = "护盾"];
+}
+
+
+message Sheet_monstervalueParam
+{
+	repeated monstervalueParam monstervalueParam_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message monsterdrop
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "掉落包ID"];
+	optional int32 group = 2[(yd_fieldoptions.field_cname) = "掉落组"];
+	optional int32 own = 3[(yd_fieldoptions.field_cname) = "归属权"];
+	optional int32 type = 4[(yd_fieldoptions.field_cname) = "掉落方式"];
+	repeated int64 boxID = 5[(yd_fieldoptions.field_cname) = "box", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_monsterdrop
+{
+	repeated monsterdrop monsterdrop_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

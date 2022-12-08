@@ -1,0 +1,167 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message skillbuff
+{
+	optional int64 buffID = 1[(yd_fieldoptions.field_cname) = "附加buffid"];
+	optional string buffName = 2[(yd_fieldoptions.field_cname) = "buff名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional string buffIcon = 3[(yd_fieldoptions.field_cname) = "buff图标", (yd_fieldoptions.field_bufsize) = 60];
+	optional string effectResources = 4[(yd_fieldoptions.field_cname) = "特效路径", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 showTpye = 5[(yd_fieldoptions.field_cname) = "显示类型"];
+	optional int32 startProbability = 6[(yd_fieldoptions.field_cname) = "生效概率"];
+	optional int32 Probability_up = 7[(yd_fieldoptions.field_cname) = "概率成长系数ID"];
+	optional int32 startType = 8[(yd_fieldoptions.field_cname) = "生效条件"];
+	optional string startTypeValue = 9[(yd_fieldoptions.field_cname) = "生效条件参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 endType = 10[(yd_fieldoptions.field_cname) = "常规结束条件"];
+	optional string endTypeValue = 11[(yd_fieldoptions.field_cname) = "生效条件参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 group = 12[(yd_fieldoptions.field_cname) = "buff组"];
+	optional string buffRule = 13[(yd_fieldoptions.field_cname) = "同一状态组叠加规则", (yd_fieldoptions.field_bufsize) = 60];
+	optional string immune = 14[(yd_fieldoptions.field_cname) = "免疫的组id", (yd_fieldoptions.field_bufsize) = 60];
+	optional string dispel = 15[(yd_fieldoptions.field_cname) = "驱散的组id", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 buffCd = 16[(yd_fieldoptions.field_cname) = "buff冷却"];
+	optional int32 effect_Time = 17[(yd_fieldoptions.field_cname) = "buff时间"];
+	optional int32 effect_Type = 18[(yd_fieldoptions.field_cname) = "效果类型"];
+	optional string effect_Param = 19[(yd_fieldoptions.field_cname) = "效果参数", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 effect_up = 20[(yd_fieldoptions.field_cname) = "成长系数ID"];
+}
+
+
+message Sheet_skillbuff
+{
+	repeated skillbuff skillbuff_List = 1[(yd_fieldoptions.field_arysize)=100];
+}
+
+message skillskilladvanceType1buffDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message skillskilladvanceType2buffDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message skillskillawakebuffDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message skillskilladvanceType3buffDesc
+{
+	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message skillskillbuffDesc
+{
+	optional int32 Target = 1[(yd_fieldoptions.field_cname) = "归属"];
+	optional int64 ID = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 Point = 3[(yd_fieldoptions.field_cname) = "生效点"];
+}
+
+message skillskill
+{
+	optional int64 skillID = 1[(yd_fieldoptions.field_cname) = "技能id"];
+	optional string name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 skillType = 3[(yd_fieldoptions.field_cname) = "技能类型"];
+	optional int32 group = 4[(yd_fieldoptions.field_cname) = "技能组"];
+	optional int32 position = 5[(yd_fieldoptions.field_cname) = "技能位置"];
+	optional int32 displaceTime = 6[(yd_fieldoptions.field_cname) = "位移开始时间点"];
+	optional int32 displaceSign = 7[(yd_fieldoptions.field_cname) = "位移正负标记"];
+	optional string displaceSpeed = 8[(yd_fieldoptions.field_cname) = "位移速度", (yd_fieldoptions.field_bufsize) = 60];
+	optional string disTimes = 9[(yd_fieldoptions.field_cname) = "位移时间", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 breakType = 10[(yd_fieldoptions.field_cname) = "打断类型"];
+	optional int32 cdSkill = 11[(yd_fieldoptions.field_cname) = "CD能否减少"];
+	optional int64 Relation = 12[(yd_fieldoptions.field_cname) = "普攻关联"];
+	optional string unlockCondition = 13[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 type = 14[(yd_fieldoptions.field_cname) = "目标类型"];
+	optional int32 cd = 15[(yd_fieldoptions.field_cname) = "cd"];
+	optional int32 noLock = 16[(yd_fieldoptions.field_cname) = "是否锁定"];
+	optional int32 priority = 17[(yd_fieldoptions.field_cname) = "挂机使用优先级"];
+	optional string fighting = 18[(yd_fieldoptions.field_cname) = "初始战斗力", (yd_fieldoptions.field_bufsize) = 60];
+	optional float fightingParama = 19[(yd_fieldoptions.field_cname) = "战斗力成长系数"];
+	optional int32 releaseType = 20[(yd_fieldoptions.field_cname) = "释放类型"];
+	optional int32 processTypes = 21[(yd_fieldoptions.field_cname) = "过程类型"];
+	optional int32 flySpeed = 22[(yd_fieldoptions.field_cname) = "飞行速度"];
+	optional int32 actTime = 23[(yd_fieldoptions.field_cname) = "动作总时间"];
+	optional int32 readyTime = 24[(yd_fieldoptions.field_cname) = "准备特效延迟时间"];
+	optional int32 attackTime = 25[(yd_fieldoptions.field_cname) = "攻击总时间"];
+	optional string damageTime = 26[(yd_fieldoptions.field_cname) = "伤害生效时间点", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 attackDistance = 27[(yd_fieldoptions.field_cname) = "攻击距离"];
+	optional int32 rangeType = 28[(yd_fieldoptions.field_cname) = "范围类型"];
+	optional string rangeTypeValue = 29[(yd_fieldoptions.field_cname) = "范围类型值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 warn = 30[(yd_fieldoptions.field_cname) = "预警id"];
+	optional int32 dazeTime = 31[(yd_fieldoptions.field_cname) = "发呆时间"];
+	optional int32 warnTime = 32[(yd_fieldoptions.field_cname) = "预警时间"];
+	optional string infomationId = 33[(yd_fieldoptions.field_cname) = "提示ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 attackMinDistance = 34[(yd_fieldoptions.field_cname) = "攻击最小距离"];
+	optional int32 goalMaxNum = 35[(yd_fieldoptions.field_cname) = "目标最大数量"];
+	optional int32 goalMaxNumMonster = 36[(yd_fieldoptions.field_cname) = "目标最大数量（怪物）"];
+	optional int32 damageType = 37[(yd_fieldoptions.field_cname) = "伤害类型"];
+	optional int32 damageRate = 38[(yd_fieldoptions.field_cname) = "伤害倍率"];
+	optional int32 awakeDamageRate = 39[(yd_fieldoptions.field_cname) = "觉醒后技能倍率"];
+	optional int32 advanceType1DamageRate = 40[(yd_fieldoptions.field_cname) = "进阶火后技能倍率"];
+	optional int32 advanceType2DamageRate = 41[(yd_fieldoptions.field_cname) = "进阶雷后技能倍率"];
+	optional int32 advanceType3DamageRate = 42[(yd_fieldoptions.field_cname) = "进阶冰后技能倍率"];
+	optional int32 damageValue = 43[(yd_fieldoptions.field_cname) = "附加伤害初始值"];
+	optional float damageParama = 44[(yd_fieldoptions.field_cname) = "伤害固定值成长系数"];
+	optional int32 addhitrate = 45[(yd_fieldoptions.field_cname) = "附加命中率"];
+	optional int32 awakeItemId = 46[(yd_fieldoptions.field_cname) = "觉醒消耗的道具ID"];
+	optional int32 awakeCostNum = 47[(yd_fieldoptions.field_cname) = "道具数量"];
+	repeated skillskilladvanceType1buffDesc advanceType1buff = 48[(yd_fieldoptions.field_cname) = "进阶火buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated skillskilladvanceType2buffDesc advanceType2buff = 49[(yd_fieldoptions.field_cname) = "进阶雷buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated skillskillawakebuffDesc awakebuff = 50[(yd_fieldoptions.field_cname) = "觉醒buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated skillskilladvanceType3buffDesc advanceType3buff = 51[(yd_fieldoptions.field_cname) = "进阶冰buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated skillskillbuffDesc buff = 52[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_skillskill
+{
+	repeated skillskill skillskill_List = 1[(yd_fieldoptions.field_arysize)=180];
+}
+
+message skillbuffUp
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id序号"];
+	optional int32 AddStartProbability = 2[(yd_fieldoptions.field_cname) = "概率成长值"];
+	optional int32 attributeId = 3[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 parama = 4[(yd_fieldoptions.field_cname) = "成长值"];
+}
+
+
+message Sheet_skillbuffUp
+{
+	repeated skillbuffUp skillbuffUp_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message skillskillUp
+{
+	optional int32 id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 group = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 skillLv = 3[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional string skillIds = 4[(yd_fieldoptions.field_cname) = "技能ID组", (yd_fieldoptions.field_bufsize) = 80];
+	optional int32 roleLv = 5[(yd_fieldoptions.field_cname) = "需求人物等级"];
+	optional int64 costItemId = 6[(yd_fieldoptions.field_cname) = "消耗的道具ID"];
+	optional int32 costNum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_skillskillUp
+{
+	repeated skillskillUp skillskillUp_List = 1[(yd_fieldoptions.field_arysize)=140];
+}
+
+message skillskillAwake
+{
+	optional int32 skillId = 1[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 costItemId = 2[(yd_fieldoptions.field_cname) = "消耗的道具ID"];
+	optional int32 costNum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_skillskillAwake
+{
+	repeated skillskillAwake skillskillAwake_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
