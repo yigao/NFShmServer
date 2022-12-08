@@ -210,7 +210,7 @@ public:
      * @brief
      * @return
      */
-    uint64_t GetCid() const;
+    uint64_t GetRoleId() const;
 
     /**
      * @brief
@@ -339,7 +339,7 @@ private:
     /**
      * @brief
      */
-    uint64_t m_charId;
+    uint64_t m_roleId;
 
     /**
      * @brief

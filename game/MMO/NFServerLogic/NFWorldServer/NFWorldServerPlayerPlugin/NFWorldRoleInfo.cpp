@@ -37,6 +37,7 @@ int NFWorldRoleInfo::CreateInit()
     m_mapId = 0;
     m_lastSceneId = 0;
     m_lastMapId = 0;
+    m_logicId = 0;
     return 0;
 }
 

@@ -42,7 +42,7 @@ int NFWorldPlayer::CreateInit()
     m_lastLogoutTime = 0;
     m_isDisconnect = false;
     m_tokenTimeStamp = 0;
-    m_charId = 0;
+    m_roleId = 0;
     m_channelId = 0;
     m_zid = 0;
     m_isWhite = false;
@@ -93,7 +93,7 @@ void  NFWorldPlayer::Tick()
 
             SetStatus(PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(), GetCid());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(), GetRoleId());
         }
             break;
         case PLAYER_STATUS_LOGOUT:
@@ -103,7 +103,8 @@ void  NFWorldPlayer::Tick()
                 break;
 
             SetStatus(PLAYER_STATUS_DEAD);
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{}, cid:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", GetUid(), GetCid());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{}, cid:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", GetUid(),
+                      GetRoleId());
         }
         break;
     }
@@ -219,14 +220,14 @@ void NFWorldPlayer::SetTokenTimeStamp(uint64_t tokenTimeStamp)
     m_tokenTimeStamp = tokenTimeStamp;
 }
 
-uint64_t NFWorldPlayer::GetCid() const
+uint64_t NFWorldPlayer::GetRoleId() const
 {
-    return m_charId;
+    return m_roleId;
 }
 
 void NFWorldPlayer::SetRoleId(uint64_t playCid)
 {
-    m_charId = playCid;
+    m_roleId = playCid;
 }
 
 uint32_t NFWorldPlayer::GetChannelId() const
@@ -267,27 +268,27 @@ void NFWorldPlayer::SetIsWhite(bool isWhite)
  */
 void NFWorldPlayer::SendMsgToProxyServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_charId);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_roleId);
 }
 
 void NFWorldPlayer::SendMsgToLogicServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, m_uid, m_charId);
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, m_uid, m_roleId);
 }
 
 void NFWorldPlayer::SendMsgToGameServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, m_uid, m_charId);
+    FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, m_uid, m_roleId);
 }
 
 void NFWorldPlayer::SendMsgToSnsServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, msgId, xData, m_uid, m_charId);
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, msgId, xData, m_uid, m_roleId);
 }
 
 void NFWorldPlayer::SendMsgToClient(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, NF_MODULE_CLIENT, msgId, xData, m_uid, m_charId);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, NF_MODULE_CLIENT, msgId, xData, m_uid, m_roleId);
 }
 
 uint32_t NFWorldPlayer::GetCharNum() const

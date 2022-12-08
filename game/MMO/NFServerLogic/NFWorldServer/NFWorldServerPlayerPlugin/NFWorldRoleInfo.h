@@ -43,4 +43,5 @@ public:
     uint64_t            m_lastSceneId;
     uint64_t            m_lastMapId;
     NFPoint3<float>     m_lastpos;
+    uint32_t            m_logicId;
 };
