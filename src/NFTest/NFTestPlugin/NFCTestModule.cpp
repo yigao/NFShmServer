@@ -39,6 +39,8 @@
 #include "NFShmHashMapTest.h"
 #include "NFEmailSenderTest.h"
 
+#include "NFShmStlTest/NFShmStlTest.h"
+
 NFCTestModule::NFCTestModule(NFIPluginManager* p): NFIDynamicModule(p)
 {
 }
@@ -51,11 +53,8 @@ NFCTestModule::~NFCTestModule()
 
 bool NFCTestModule::Init()
 {
-    //����NFShmHashMap������
-    TestShmHashMap();
-    TestShmHashMap2();
-
-    //TestEmailSender();
+    //TestShmHashMap();
+    //TestShmHashMap2();
 
 	SetTimer(1, 1000, 1);
 	return true;
@@ -64,6 +63,7 @@ bool NFCTestModule::Init()
 
 int NFCTestModule::OnTimer(uint32_t nTimerID)
 {
+    testMain();
     return 0;
 }
 

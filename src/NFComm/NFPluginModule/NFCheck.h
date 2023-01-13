@@ -110,6 +110,10 @@
     }while(0)
 #endif//CHECK_EXPR
 
+#ifndef CHECK_EQ
+#define CHECK_EQ(ret) CHECK_EXPR(ret, -1, "{}", #ret)
+#endif
+
 #ifndef CHECK_RET
 #define CHECK_RET(ret, format, ...) CHECK_EXPR(0 == ret, ret, format, ##__VA_ARGS__) 
 #endif//CHECK_RET
