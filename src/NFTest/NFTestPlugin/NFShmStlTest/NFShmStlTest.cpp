@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFComm/NFShmStl/NFShmPair.h"
-#include "NFComm/NFShmStl/NFShmIteratorBase.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"

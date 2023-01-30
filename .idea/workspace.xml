@@ -54,11 +54,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="add MMO">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmIteratorBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +129,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -328,11 +327,6 @@
       </method>
     </configuration>
     <configuration name="Sqlite3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="Sqlite3" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -602,14 +596,9 @@
       <workItem from="1670806076179" duration="579000" />
       <workItem from="1670893311355" duration="42000" />
       <workItem from="1672729861555" duration="6829000" />
-      <workItem from="1673572629264" duration="15000" />
-    </task>
-    <task id="LOCAL-00337" summary="package">
-      <created>1669079125159</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1669079125159</updated>
+      <workItem from="1673572629264" duration="1276000" />
+      <workItem from="1673594575286" duration="599000" />
+      <workItem from="1675050793583" duration="13832000" />
     </task>
     <task id="LOCAL-00338" summary="package">
       <created>1669079165635</created>
@@ -947,7 +936,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670492483731</updated>
     </task>
-    <option name="localTasksCounter" value="386" />
+    <task id="LOCAL-00386" summary="shm stl">
+      <created>1673573038440</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1673573038440</updated>
+    </task>
+    <option name="localTasksCounter" value="387" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1167,7 +1163,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="trans server" />
     <MESSAGE value="login" />
     <MESSAGE value="create role" />
     <MESSAGE value="map cfg" />
@@ -1192,7 +1187,8 @@
     <MESSAGE value="add mmo" />
     <MESSAGE value="delete submodule" />
     <MESSAGE value="add MMO" />
-    <option name="LAST_COMMIT_MESSAGE" value="add MMO" />
+    <MESSAGE value="shm stl" />
+    <option name="LAST_COMMIT_MESSAGE" value="shm stl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
