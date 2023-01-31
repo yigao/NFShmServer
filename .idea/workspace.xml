@@ -56,7 +56,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmIteratorBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,7 +226,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.9.1.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --allmoreserver --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=TestServer --ID=1.9.1.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -598,14 +598,8 @@
       <workItem from="1672729861555" duration="6829000" />
       <workItem from="1673572629264" duration="1276000" />
       <workItem from="1673594575286" duration="599000" />
-      <workItem from="1675050793583" duration="13832000" />
-    </task>
-    <task id="LOCAL-00338" summary="package">
-      <created>1669079165635</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1669079165635</updated>
+      <workItem from="1675050793583" duration="17884000" />
+      <workItem from="1675126612744" duration="27145000" />
     </task>
     <task id="LOCAL-00339" summary="package">
       <created>1669442204947</created>
@@ -943,7 +937,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673573038440</updated>
     </task>
-    <option name="localTasksCounter" value="387" />
+    <task id="LOCAL-00387" summary="shm stl">
+      <created>1675076370696</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1675076370696</updated>
+    </task>
+    <option name="localTasksCounter" value="388" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1194,59 +1195,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPartModule.cpp</url>
-          <line>70</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp</url>
-          <line>94</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp</url>
-          <line>349</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp</url>
-          <line>150</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/GM/NFLogicGMModule.cpp</url>
-          <line>153</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp</url>
-          <line>63</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.cpp</url>
-          <line>1965</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp</url>
-          <line>550</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>686</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
-          <line>314</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
-          <line>306</line>
-          <option name="timeStamp" value="60" />
+          <url>file://$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp</url>
+          <line>205</line>
+          <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

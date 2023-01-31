@@ -15,8 +15,57 @@
 #include <algorithm>
 
 template<class Tp, int MAX_SIZE>
-class NFShmVector
+class NFShmVectorBase
 {
+public:
+    explicit NFShmVectorBase()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    ~NFShmVectorBase()
+    {
+
+    }
+
+    int CreateInit()
+    {
+        m_size = 0;
+        if (std::is_pod<Tp>::value)
+        {
+            for (int i = 0; i < MAX_SIZE; i++)
+            {
+                std::_Construct(m_data + i, Tp());
+            }
+        }
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+
+protected:
+    Tp m_data[MAX_SIZE];
+    size_t m_size;
+};
+
+template<class Tp, int MAX_SIZE>
+class NFShmVector : protected NFShmVectorBase<Tp, MAX_SIZE>
+{
+private:
+    typedef NFShmVectorBase<Tp, MAX_SIZE> _Base;
+protected:
+    using _Base::m_data;
+    using _Base::m_size;
 public:
     typedef Tp value_type;
     typedef value_type *pointer;
@@ -30,21 +79,96 @@ public:
 
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
     typedef std::reverse_iterator<iterator> reverse_iterator;
-protected:
-    Tp *m_end_of_storage;
-    Tp m_data[MAX_SIZE];
-    size_type m_size;
-protected:
-    int _M_insert_aux(iterator __position, const Tp& __x);
-    int _M_insert_aux(iterator __position);
+public:
+    explicit NFShmVector()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    int CreateInit()
+    {
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+
+    explicit NFShmVector(size_type __n)
+    {
+        if (__n > MAX_SIZE)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "NFShmVector Constructor:__n:{} > MAX_SIZE:{}, Vector Space Not Enough! __n change to MAX_SIZE", __n,
+                         MAX_SIZE);
+            __n = MAX_SIZE;
+        }
+
+        std::uninitialized_fill_n(m_data, __n, Tp());
+        m_size = __n;
+    }
+
+    NFShmVector(size_type __n, const Tp &__value)
+    {
+        if (__n > MAX_SIZE)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "NFShmVector Constructor:__n:{} > MAX_SIZE:{}, Vector Space Not Enough! __n change to MAX_SIZE", __n,
+                         MAX_SIZE);
+            __n = MAX_SIZE;
+        }
+
+        std::uninitialized_fill_n(m_data, __n, __value);
+        m_size = __n;
+    }
+
+    template<int X_MAX_SIZE>
+    NFShmVector(const NFShmVector<Tp, X_MAX_SIZE> &__x)
+    {
+        int max_size = MAX_SIZE <= __x.size() ? MAX_SIZE : __x.size();
+        auto finish = std::uninitialized_copy_n(__x.begin(), max_size, m_data);
+        m_size = finish - begin();
+    }
+
+    NFShmVector(const std::initializer_list<Tp> &list)
+    {
+        for (auto it = list.begin(); it != list.end(); ++it)
+        {
+            if (push_back(*it) != 0)
+            {
+                break;
+            }
+        }
+    }
+
+    template<class _InputIterator>
+    NFShmVector(_InputIterator __first, _InputIterator __last)
+    {
+        typedef typename std::__is_integer<_InputIterator>::__type _Integral;
+        _M_initialize_aux(__first, __last, _Integral());
+    }
+
+    ~NFShmVector()
+    {
+
+    }
+
+    NFShmVector<Tp, MAX_SIZE> &operator=(const NFShmVector<Tp, MAX_SIZE> &__x);
+
 public:
     iterator begin() { return m_data; }
 
     const_iterator begin() const { return m_data; }
 
-    iterator end() { return m_data+m_size; }
+    iterator end() { return m_data + m_size; }
 
-    const_iterator end() const { return m_data+m_size; }
+    const_iterator end() const { return m_data + m_size; }
 
     reverse_iterator rbegin() { return reverse_iterator(end()); }
 
@@ -62,89 +186,43 @@ public:
 
     bool empty() const { return begin() == end(); }
 
-    reference operator[](size_type __n) { return *(begin() + __n); }
-
-    const_reference operator[](size_type __n) const { return *(begin() + __n); }
-
-    explicit NFShmVector()
+    reference operator[](size_type __n)
     {
-        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-        {
-            CreateInit();
-        }
-        else
-        {
-            ResumeInit();
-        }
+        NF_ASSERT(__n < m_size);
+        return *(begin() + __n);
     }
 
-    int CreateInit()
+    const_reference operator[](size_type __n) const
     {
-        for (int i = 0; i < MAX_SIZE; ++i)
-        {
-            std::_Construct(m_data+i, Tp());
-        }
-        m_size = 0;
-        m_end_of_storage = m_data + MAX_SIZE;
-        return 0;
+        NF_ASSERT(__n < m_size);
+        return *(begin() + __n);
     }
 
-    int ResumeInit()
+    reference at(size_type __n)
     {
-        m_end_of_storage = m_data + MAX_SIZE;
-        return 0;
+        NF_ASSERT(__n < m_size);
+        return *(begin() + __n);
     }
 
-    explicit NFShmVector(size_type __n)
+    const_reference at(size_type __n) const
     {
-        if (__n > MAX_SIZE)
-        {
-            __n = MAX_SIZE;
-        }
-        std::uninitialized_fill_n(m_data, __n, Tp());
-        m_size = __n;
+        NF_ASSERT(__n < m_size);
+        return *(begin() + __n);
     }
-
-    NFShmVector(const NFShmVector<Tp, MAX_SIZE> &__x)
-    {
-        auto finish = std::uninitialized_copy(__x.begin(), __x.end(), m_data);
-        m_size = finish - begin();
-    }
-
-    NFShmVector(const Tp *__first, const Tp *__last)
-    {
-        if (__last - __first <= MAX_SIZE)
-        {
-            auto finish = std::uninitialized_copy(__first, __last, m_data);
-            m_size = finish - begin();
-        }
-        else
-        {
-            __last = __first + MAX_SIZE;
-            auto finish = std::uninitialized_copy(__first, __last, m_data);
-            m_size = finish - begin();
-        }
-    }
-
-    ~NFShmVector()
-    {
-    }
-
-    NFShmVector<Tp, MAX_SIZE> &operator=(const NFShmVector<Tp, MAX_SIZE> &__x);
 
     void reserve(size_type __n)
     {
 
     }
 
-    // assign(), a generalized assignment member function.  Two
-    // versions: one that takes a count, and one that takes a range.
-    // The range version is a member template, so we dispatch on whether
-    // or not the type is an integer.
-
     void assign(size_type __n, const Tp &__val) { _M_fill_assign(__n, __val); }
 
-    void _M_fill_assign(size_type __n, const Tp &__val);
+    template<class _InputIterator>
+    void assign(_InputIterator __first, _InputIterator __last)
+    {
+        typedef typename std::__is_integer<_InputIterator>::__type _Integral;
+        _M_assign_dispatch(__first, __last, _Integral());
+    }
 
     reference front() { return *begin(); }
 
@@ -156,26 +234,32 @@ public:
 
     int push_back(const Tp &__x)
     {
-        if (m_data + m_size != m_end_of_storage)
+        if (m_data + m_size != m_data + MAX_SIZE)
         {
             std::_Construct(m_data + m_size, __x);
             ++m_size;
             return 0;
         }
         else
-            return _M_insert_aux(end(), __x);
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmVector push_back Failed, Vector Not Enough Space");
+            return -1;
+        }
     }
 
     int push_back()
     {
-        if (m_data + m_size != m_end_of_storage)
+        if (m_data + m_size != m_data + MAX_SIZE)
         {
             std::_Construct(m_data + m_size);
             ++m_size;
             return 0;
         }
         else
-            return _M_insert_aux(end());
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmVector push_back Failed, Vector Not Enough Space");
+            return -1;
+        }
     }
 
     void swap(NFShmVector<Tp, MAX_SIZE> &__x)
@@ -186,26 +270,36 @@ public:
     iterator insert(iterator __position, const Tp &__x)
     {
         size_type __n = __position - begin();
-        if (m_data + m_size != m_end_of_storage && __position == end())
+        if (m_data + m_size != m_data + MAX_SIZE && __position == end())
         {
             std::_Construct(m_data + m_size, __x);
             ++m_size;
         }
         else
-            _M_insert_aux(__position, __x);
+        {
+            if (_M_insert_aux(__position, __x) < 0)
+            {
+                return end();
+            }
+        }
         return begin() + __n;
     }
 
     iterator insert(iterator __position)
     {
         size_type __n = __position - begin();
-        if (m_data + m_size != m_end_of_storage && __position == end())
+        if (m_data + m_size != m_data + MAX_SIZE && __position == end())
         {
             std::_Construct(m_data + m_size);
             ++m_size;
         }
         else
-            _M_insert_aux(__position);
+        {
+            if (_M_insert_aux(__position) < 0)
+            {
+                return end();
+            }
+        }
         return begin() + __n;
     }
 
@@ -214,27 +308,30 @@ public:
 
     void insert(iterator __pos, size_type __n, const Tp &__x) { _M_fill_insert(__pos, __n, __x); }
 
-    void _M_fill_insert(iterator __pos, size_type __n, const Tp &__x);
-
     void pop_back()
     {
         --m_size;
-        destroy(m_data + m_size);
+        std::_Destroy(m_data + m_size);
+        std::_Construct(m_data + m_size, Tp());
     }
 
     iterator erase(iterator __position)
     {
         if (__position + 1 != end())
-            copy(__position + 1, m_data + m_size, __position);
+            std::copy(__position + 1, m_data + m_size, __position);
         --m_size;
         std::_Destroy(m_data + m_size);
+        std::_Construct(m_data + m_size, Tp());
         return __position;
     }
 
     iterator erase(iterator __first, iterator __last)
     {
-        iterator __i = copy(__last, m_data + m_size, __first);
+        iterator __i = std::copy(__last, m_data + m_size, __first);
         std::_Destroy(__i, m_data + m_size);
+        for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
+            std::_Construct(x_first, Tp());
+
         m_size = m_size - (__last - __first);
         return __first;
     }
@@ -247,39 +344,141 @@ public:
             insert(end(), __new_size - size(), __x);
     }
 
-    void resize(size_type __new_size) { resize(__new_size, Tp()); }
+    void resize(size_type __new_size)
+    {
+        resize(__new_size, Tp());
+    }
 
-    void clear() { erase(begin(), end()); }
+    void clear()
+    {
+        erase(begin(), end());
+    }
+
+protected:
+    int _M_insert_aux(iterator __position, const Tp &__x);
+
+    int _M_insert_aux(iterator __position);
+
+    void _M_fill_insert(iterator __pos, size_type __n, const Tp &__x);
+
+    void _M_fill_assign(size_type __n, const Tp &__val);
+
+    template<class _Integer>
+    void _M_initialize_aux(_Integer __n, _Integer __value, std::__true_type)
+    {
+        if (__n > MAX_SIZE)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0,
+                         "NFShmVector Constructor _M_initialize_aux, __n:{} > MAX_SIZE:{}, Vector Space Not Enough! __n change to MAX_SIZE", __n,
+                         MAX_SIZE);
+            __n = MAX_SIZE;
+        }
+        std::uninitialized_fill_n(m_data, __n, __value);
+        m_size = __n;
+    }
+
+    template<class _InputIterator>
+    void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
+                           std::__false_type)
+    {
+        _M_range_initialize(__first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
+    }
+
+    template<class _InputIterator>
+    void _M_range_initialize(_InputIterator __first,
+                             _InputIterator __last, std::input_iterator_tag)
+    {
+        for (; __first != __last; ++__first)
+        {
+            if (push_back(*__first) != 0)
+            {
+                break;
+            }
+        }
+    }
+
+    // This function is only called by the constructor.
+    template<class _ForwardIterator>
+    void _M_range_initialize(_ForwardIterator __first,
+                             _ForwardIterator __last, std::forward_iterator_tag)
+    {
+        size_type __n = std::distance(__first, __last);
+        if (__n > MAX_SIZE)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0,
+                         "NFShmVector Constructor _M_range_initialize, __n:{} > MAX_SIZE:{}, Vector Space Not Enough! __n change to MAX_SIZE", __n,
+                         MAX_SIZE);
+            __n = MAX_SIZE;
+        }
+        auto finish = std::uninitialized_copy_n(__first, __n, m_data);
+        m_size = finish - begin();
+    }
+
+    template<class _InputIterator>
+    void _M_range_insert(iterator __pos,
+                         _InputIterator __first, _InputIterator __last,
+                         std::input_iterator_tag);
+
+    template<class _ForwardIterator>
+    void _M_range_insert(iterator __pos,
+                         _ForwardIterator __first, _ForwardIterator __last,
+                         std::forward_iterator_tag);
+
+
+    template<class _Integer>
+    void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type)
+    {
+        _M_fill_assign((size_type) __n, (Tp) __val);
+    }
+
+    template<class _InputIter>
+    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::__false_type)
+    {
+        _M_assign_aux(__first, __last, typename std::iterator_traits<_InputIter>::iterator_category());
+    }
+
+    template<class _InputIterator>
+    void _M_assign_aux(_InputIterator __first, _InputIterator __last,
+                       std::input_iterator_tag);
+
+    template<class _ForwardIterator>
+    void _M_assign_aux(_ForwardIterator __first, _ForwardIterator __last,
+                       std::forward_iterator_tag);
 };
 
 
-template <class _Tp, int MAX_SIZE>
+template<class _Tp, int MAX_SIZE>
 inline bool
-operator==(const NFShmVector<_Tp, MAX_SIZE>& __x, const NFShmVector<_Tp, MAX_SIZE>& __y)
+operator==(const NFShmVector<_Tp, MAX_SIZE> &__x, const NFShmVector<_Tp, MAX_SIZE> &__y)
 {
     return __x.size() == __y.size() &&
            std::equal(__x.begin(), __x.end(), __y.begin());
 }
 
-template <class _Tp, int MAX_SIZE>
+template<class _Tp, int MAX_SIZE>
 inline bool
-operator<(const NFShmVector<_Tp, MAX_SIZE>& __x, const NFShmVector<_Tp, MAX_SIZE>& __y)
+operator<(const NFShmVector<_Tp, MAX_SIZE> &__x, const NFShmVector<_Tp, MAX_SIZE> &__y)
 {
     return std::lexicographical_compare(__x.begin(), __x.end(),
-                                   __y.begin(), __y.end());
+                                        __y.begin(), __y.end());
 }
 
-template <class _Tp, int MAX_SIZE>
-NFShmVector<_Tp, MAX_SIZE>&
-NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE>& __x)
+template<class _Tp, int MAX_SIZE>
+NFShmVector<_Tp, MAX_SIZE> &
+NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
 {
-    if (&__x != this) {
+    if (&__x != this)
+    {
         const size_type __xlen = __x.size();
-        if (size() >= __xlen) {
-            iterator __i = copy(__x.begin(), __x.end(), begin());
+        if (size() >= __xlen)
+        {
+            iterator __i = std::copy(__x.begin(), __x.end(), begin());
             std::_Destroy(__i, m_data + m_size);
+            for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
+                std::_Construct(x_first, _Tp());
         }
-        else {
+        else
+        {
             std::copy(__x.begin(), __x.begin() + size(), m_data);
             std::uninitialized_copy(__x.begin() + size(), __x.end(), m_data + m_size);
         }
@@ -288,26 +487,29 @@ NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE>& __x)
     return *this;
 }
 
-template <class _Tp, int MAX_SIZE>
-void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type& __val)
+template<class _Tp, int MAX_SIZE>
+void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type &__val)
 {
-    if (__n > capacity()) {
+    if (__n > capacity())
+    {
         __n = capacity();
     }
 
-    if (__n > size()) {
+    if (__n > size())
+    {
         std::fill(begin(), end(), __val);
         std::uninitialized_fill_n(m_data + m_size, __n - size(), __val);
         m_size = __n;
     }
     else
-        erase(fill_n(begin(), __n, __val), end());
+        erase(std::fill_n(begin(), __n, __val), end());
 }
 
-template <class _Tp, int MAX_SIZE>
-int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp& __x)
+template<class _Tp, int MAX_SIZE>
+int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__x)
 {
-    if (m_data + m_size != m_end_of_storage) {
+    if (m_data + m_size != m_data + MAX_SIZE)
+    {
         std::_Construct(m_data + m_size, *(m_data + m_size - 1));
         ++m_size;
         _Tp __x_copy = __x;
@@ -315,45 +517,52 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp& __
         *__position = __x_copy;
         return 0;
     }
-    else {
+    else
+    {
         return -1;
     }
 }
 
-template <class _Tp, int MAX_SIZE>
+template<class _Tp, int MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
 {
-    if (m_data + m_size != m_end_of_storage) {
+    if (m_data + m_size != m_data + MAX_SIZE)
+    {
         std::_Construct(m_data + m_size, *(m_data + m_size - 1));
         ++m_size;
         std::copy_backward(__position, m_data + m_size - 2, m_data + m_size - 1);
         *__position = _Tp();
         return 0;
     }
-    else {
+    else
+    {
         return -1;
     }
 }
 
-template <class _Tp, int MAX_SIZE>
+template<class _Tp, int MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type __n,
-                                              const _Tp& __x)
+                                                const _Tp &__x)
 {
-    if (__n != 0) {
-        if (size_type(m_end_of_storage - m_data + m_size) < __n) {
-            __n = size_type(m_end_of_storage - m_data + m_size);
+    if (__n != 0)
+    {
+        if (size_type(m_data + MAX_SIZE - m_data + m_size) < __n)
+        {
+            __n = size_type(m_data + MAX_SIZE - m_data + m_size);
         }
 
         _Tp __x_copy = __x;
         const size_type __elems_after = m_data + m_size - __position;
         iterator __old_finish = m_data + m_size;
-        if (__elems_after > __n) {
+        if (__elems_after > __n)
+        {
             std::uninitialized_copy(m_data + m_size - __n, m_data + m_size, m_data + m_size);
             m_size += __n;
             std::copy_backward(__position, __old_finish - __n, __old_finish);
             std::fill(__position, __position + __n, __x_copy);
         }
-        else {
+        else
+        {
             std::uninitialized_fill_n(m_data + m_size, __n - __elems_after, __x_copy);
             m_size += __n - __elems_after;
             std::uninitialized_copy(__position, __old_finish, m_data + m_size);
@@ -363,32 +572,148 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type _
     }
 }
 
-template <class _Tp, int MAX_SIZE>
+template<class _Tp, int MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::insert(iterator __position,
-                                 const_iterator __first,
-                                 const_iterator __last)
+                                        const_iterator __first,
+                                        const_iterator __last)
 {
-    if (__first != __last) {
-        size_type __n = 0;
-        std::distance(__first, __last, __n);
-        if (size_type(m_end_of_storage - m_data + m_size) < __n) {
-            __n = size_type(m_end_of_storage - m_data + m_size);
+    if (__first != __last)
+    {
+        size_type __n = std::distance(__first, __last);
+
+        if (size_type(m_data + MAX_SIZE - m_data + m_size) < __n)
+        {
+            __n = size_type(m_data + MAX_SIZE - m_data + m_size);
         }
 
         const size_type __elems_after = m_data + m_size - __position;
         iterator __old_finish = m_data + m_size;
-        if (__elems_after > __n) {
+        if (__elems_after > __n)
+        {
             std::uninitialized_copy(m_data + m_size - __n, m_data + m_size, m_data + m_size);
             m_size += __n;
             std::copy_backward(__position, __old_finish - __n, __old_finish);
             std::copy(__first, __last, __position);
         }
-        else {
+        else
+        {
             std::uninitialized_copy(__first + __elems_after, __last, m_data + m_size);
             m_size += __n - __elems_after;
             std::uninitialized_copy(__position, __old_finish, m_data + m_size);
             m_size += __elems_after;
             std::copy(__first, __first + __elems_after, __position);
+        }
+    }
+}
+
+template<class _Tp, int MAX_SIZE>
+template<class _InputIter>
+void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_InputIter __first, _InputIter __last,
+                                               std::input_iterator_tag)
+{
+    iterator __cur = begin();
+    for (; __first != __last && __cur != end(); ++__cur, ++__first)
+        *__cur = *__first;
+    if (__first == __last)
+        erase(__cur, end());
+    else
+        insert(end(), __first, __last);
+}
+
+template<class _Tp, int MAX_SIZE>
+template<class _ForwardIter>
+void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIter __last,
+                                               std::forward_iterator_tag)
+{
+    size_type __len = std::distance(__first, __last);
+
+    if (__len > capacity())
+    {
+        std::_Destroy(m_data, m_data + MAX_SIZE);
+        for (auto x_first = m_data; x_first != m_data + MAX_SIZE; ++x_first)
+            std::_Construct(x_first, _Tp());
+        auto finish = std::uninitialized_copy_n(__first, MAX_SIZE, m_data);
+        m_size = finish - begin();
+    }
+    else if (size() >= __len)
+    {
+        iterator __new_finish = std::copy(__first, __last, m_data);
+        std::_Destroy(__new_finish, m_data + m_size);
+        for (auto x_first = __new_finish; x_first != m_data + m_size; ++x_first)
+            std::_Construct(x_first, _Tp());
+        m_size = __new_finish - begin();
+    }
+    else
+    {
+        _ForwardIter __mid = __first;
+        std::advance(__mid, size());
+        std::copy(__first, __mid, m_data);
+        auto finish = std::uninitialized_copy(__mid, __last, m_data + m_size);
+        m_size = finish - begin();
+    }
+}
+
+template<class _Tp, int MAX_SIZE>
+template<class _InputIterator>
+void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __pos,
+                                                 _InputIterator __first,
+                                                 _InputIterator __last,
+                                                 std::input_iterator_tag)
+{
+    for (; __first != __last; ++__first)
+    {
+        __pos = insert(__pos, *__first);
+        if (__pos == end())
+        {
+            break;
+        }
+        ++__pos;
+    }
+}
+
+template<class _Tp, int MAX_SIZE>
+template<class _ForwardIterator>
+void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __position,
+                                                 _ForwardIterator __first,
+                                                 _ForwardIterator __last,
+                                                 forward_iterator_tag)
+{
+    if (__first != __last)
+    {
+        size_type __n = 0;
+        distance(__first, __last, __n);
+        if (size_type(MAX_SIZE - m_size) < __n)
+        {
+            __n = size_type(MAX_SIZE - m_size);
+            _ForwardIterator a_first = __first;
+            _ForwardIterator l_first = __first;
+            for (; __n > 0; --__n, ++a_first)
+            {
+                l_first = a_first;
+            }
+            __last = l_first;
+        }
+        if (size_type(MAX_SIZE - m_size) >= __n)
+        {
+            const size_type __elems_after = m_data + m_size - __position;
+            iterator __old_finish = m_data + m_size;
+            if (__elems_after > __n)
+            {
+                std::uninitialized_copy(m_data + m_size - __n, m_data + m_size, m_data + m_size);
+                m_size += __n;
+                std::copy_backward(__position, __old_finish - __n, __old_finish);
+                std::copy(__first, __last, __position);
+            }
+            else
+            {
+                _ForwardIterator __mid = __first;
+                std::advance(__mid, __elems_after);
+                std::uninitialized_copy(__mid, __last, m_data + m_size);
+                m_size += __n - __elems_after;
+                std::uninitialized_copy(__position, __old_finish, m_data + m_size);
+                m_size += __elems_after;
+                std::copy(__first, __mid, __position);
+            }
         }
     }
 }
