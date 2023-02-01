@@ -15,6 +15,7 @@
 #include <string.h>
 #include "NFShmMgr.h"
 #include "NFComm/NFCore/NFRandom.hpp"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 /**
 * 静态数组

@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include <iterator>
 #include <algorithm>
 
@@ -188,19 +189,19 @@ public:
 
     reference operator[](size_type __n)
     {
-        NF_ASSERT(__n < m_size);
+        NF_ASSERT(__n < MAX_SIZE);
         return *(begin() + __n);
     }
 
     const_reference operator[](size_type __n) const
     {
-        NF_ASSERT(__n < m_size);
+        NF_ASSERT(__n < MAX_SIZE);
         return *(begin() + __n);
     }
 
     reference at(size_type __n)
     {
-        NF_ASSERT(__n < m_size);
+        NF_ASSERT(__n < MAX_SIZE);
         return *(begin() + __n);
     }
 

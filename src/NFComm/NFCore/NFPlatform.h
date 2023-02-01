@@ -48,10 +48,10 @@ using namespace std;
 
 #include <assert.h>
 
-#define NF_ASSERT(condition)                    if (!(condition)) NFAssertFail(__FILE__, __LINE__); else { }
-#define NF_ASSERT_MSG(condition, msg)            if (!(condition)) NFAssertFail(__FILE__, __LINE__, msg); else { }
+#define NF_COMM_ASSERT(condition)                    if (!(condition)) NFCommAssertFail(__FILE__, __LINE__); else { }
+#define NF_COMM_ASSERT_MSG(condition, msg)            if (!(condition)) NFCommAssertFail(__FILE__, __LINE__, msg); else { }
 
-inline void NFAssertFail(const char *const file, const unsigned int line, const std::string &message = std::string())
+inline void NFCommAssertFail(const char *const file, const unsigned int line, const std::string &message = std::string())
 {
     fprintf(stderr, "FAIL in %s (%d)", file, line);
     if (!message.empty())
@@ -64,62 +64,9 @@ inline void NFAssertFail(const char *const file, const unsigned int line, const 
 }
 
 #else
-#define NF_ASSERT(condition)
-#define NF_ASSERT_MSG(condition, msg_)
+#define NF_COMM_ASSERT(condition)
+#define NF_COMM_ASSERT_MSG(condition, msg_)
 #endif
-
-#define NF_ASSERT_RET_VAL(exp_, val)   \
-    do                                  \
-    {                                   \
-        if ((exp_)) break;              \
-        assert(exp_);                   \
-        return val;                     \
-    } while (0);
-
-#define NF_ASSERT_BREAK(exp_)          \
-    if (!(exp_))                        \
-    {                                   \
-        assert(exp_);                   \
-        break;                          \
-    }                                   \
-    else {}
-
-#define NF_ASSERT_CONTINUE(exp_)       \
-    if (!(exp_))                        \
-    {                                   \
-        assert(exp_);                   \
-        continue;                       \
-    }                                   \
-    else {}
-
-#define NF_ASSERT_RET_NONE(exp_)       \
-    do                                  \
-    {                                   \
-        if ((exp_)) break;              \
-        assert(exp_);                   \
-        return;                         \
-    } while (0);
-
-#define NF_ASSERT_NO_EFFECT(exp_)      \
-    do                                  \
-    {                                   \
-        if (exp_) break;                \
-        assert(exp_);                   \
-    } while(0);
-
-#define NF_CHECK(EXPRESSION) \
-  NF_ASSERT_MSG(EXPRESSION, "CHECK failed: " #EXPRESSION)
-
-#define NF_CHECK_EQ(A, B) NF_CHECK((A) == (B))
-#define NF_CHECK_NE(A, B) NF_CHECK((A) != (B))
-#define NF_CHECK_LT(A, B) NF_CHECK((A) <  (B))
-#define NF_CHECK_LE(A, B) NF_CHECK((A) <= (B))
-#define NF_CHECK_GT(A, B) NF_CHECK((A) >  (B))
-#define NF_CHECK_GE(A, B) NF_CHECK((A) >= (B)
-
-//#define GOOGLE_GLOG_DLL_DECL=
-
-
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #define __WORDSIZE 64
@@ -194,7 +141,7 @@ inline NF_THREAD_ID ThreadId()
 
 #define NF_NEW new
 
-#define  NF_SAFE_DELETE(pData) { try { delete pData; } catch (...) { NF_ASSERT_MSG(false, "NFSafeDelete error"); } pData=NULL; }
+#define  NF_SAFE_DELETE(pData) { try { delete pData; } catch (...) { NF_COMM_ASSERT_MSG(false, "NFSafeDelete error"); } pData=NULL; }
 
 inline int64_t NFGetTime()
 {

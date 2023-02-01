@@ -8,6 +8,7 @@
 
 #include "NFIPlugin.h"
 #include "NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 bool NFIPlugin::AfterLoadAllPlugin()
 {

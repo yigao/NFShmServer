@@ -11,6 +11,7 @@
 
 #include "NFChunkPool.h"
 #include "NFMemTracker.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 template<class TYPE>
 class NFObjectPool : public NFChunkPool

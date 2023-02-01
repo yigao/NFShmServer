@@ -12,6 +12,7 @@
 #include "NFMemTracker.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFFileUtility.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 NFTrackData::NFTrackData(uint32_t line_no,
                          const char* file_name,
@@ -31,7 +32,7 @@ bool NFMemTracker::TrackMalloc(void* ptr,
                                const char* func_name,
                                uint32_t line_no)
 {
-    NF_ASSERT(ptr!= NULL);
+    NF_ASSERT(ptr != NULL);
     if (ptr == NULL)
     {
         return false;

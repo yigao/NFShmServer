@@ -505,7 +505,7 @@ bool NFCConfigModule::CheckConfig()
     if (!m_pObjPluginManager->IsLoadAllServer())
     {
         NF_ASSERT(m_appConfig);
-        NF_ASSERT(GetServerName((NF_SERVER_TYPES)m_appConfig->ServerType) == m_pObjPluginManager->GetAppName());
+        NF_ASSERT(GetServerName((NF_SERVER_TYPES) m_appConfig->ServerType) == m_pObjPluginManager->GetAppName());
     }
     return true;
 }

@@ -10,6 +10,7 @@
 
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmDefine.h"
 
 class NFShmObj;

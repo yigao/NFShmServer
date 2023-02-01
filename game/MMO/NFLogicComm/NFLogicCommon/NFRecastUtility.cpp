@@ -268,7 +268,7 @@ int NFRecastUtility::LoadNavMeshByJsonStream(const std::string& filePath, const 
             }
             readPoint += offMeshLinksSize;
 
-            NF_ASSERT((char*)meshHeader + tileLength== readPoint);
+            NF_ASSERT((char *) meshHeader + tileLength == readPoint);
 
             // add tile
             tileData = (unsigned char*)dtAlloc(tileLength, DT_ALLOC_PERM);

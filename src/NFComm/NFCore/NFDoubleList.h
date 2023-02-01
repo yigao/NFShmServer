@@ -88,7 +88,7 @@ public:
 
     void InsertTail(NFDoubleNode* elem)
     {
-        NF_ASSERT(elem);
+        NF_COMM_ASSERT(elem);
         if (LIKELY(tail_ != NULL))
         {
             Insert(tail_, elem);
@@ -104,7 +104,7 @@ public:
 
     void InsertHead(NFDoubleNode* elem)
     {
-        NF_ASSERT(elem);
+        NF_COMM_ASSERT(elem);
         if (LIKELY(head_ != NULL))
         {
             elem->next = head_;
@@ -125,7 +125,7 @@ public:
     NFDoubleNode* Tail() {return tail_;}
     NFDoubleNode* Prev(NFDoubleNode* cur)
     {
-        NF_ASSERT(cur);
+        NF_COMM_ASSERT(cur);
         if (cur)
         {
             return cur->prev;
@@ -137,7 +137,7 @@ public:
     }
     NFDoubleNode* Next(NFDoubleNode* cur)
     {
-        NF_ASSERT(cur);
+        NF_COMM_ASSERT(cur);
         if (cur)
         {
             return cur->next;

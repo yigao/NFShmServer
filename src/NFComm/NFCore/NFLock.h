@@ -46,7 +46,7 @@ public:
 	*/
 	NF_FORCEINLINE void Unlock()
 	{
-		NF_ASSERT(mLock.owns_lock() == true);
+		NF_COMM_ASSERT(mLock.owns_lock() == true);
 		mLock.unlock();
 	}
 
@@ -56,7 +56,7 @@ public:
 	*/
 	NF_FORCEINLINE void Relock()
 	{
-		NF_ASSERT(mLock.owns_lock() == false);
+		NF_COMM_ASSERT(mLock.owns_lock() == false);
 		mLock.lock();
 	}
 

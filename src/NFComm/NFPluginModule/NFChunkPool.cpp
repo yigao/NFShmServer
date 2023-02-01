@@ -9,6 +9,7 @@
 
 #include "NFChunkPool.h"
 #include "NFComm/NFCore/NFLikely.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 NFChunkPool::NFChunkPool(uint32_t reserve_size,
                          uint32_t chunk_size,

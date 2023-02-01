@@ -12,6 +12,88 @@
 #include "NFLogMgr.h"
 #include "NFComm/NFCore/NFPlatform.h"
 
+#ifndef NF_ASSERT
+#define NF_ASSERT(expr)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "NF_ASSERT {} failed", #expr);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+        }\
+    }while(0)
+#endif//NF_ASSERT
+
+#ifndef NF_ASSERT_MSG
+#define NF_ASSERT_MSG(expr, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "NF_ASSERT_MSG {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+        }\
+    }while(0)
+#endif//NF_ASSERT_MSG
+
+#define NF_ASSERT_RET_VAL(exp_, val)   \
+    do                                  \
+    {                                   \
+        if ((exp_)) break;              \
+        assert(exp_);                   \
+        return val;                     \
+    } while (0);
+
+#define NF_ASSERT_BREAK(exp_)          \
+    if (!(exp_))                        \
+    {                                   \
+        assert(exp_);                   \
+        break;                          \
+    }                                   \
+    else {}
+
+#define NF_ASSERT_CONTINUE(exp_)       \
+    if (!(exp_))                        \
+    {                                   \
+        assert(exp_);                   \
+        continue;                       \
+    }                                   \
+    else {}
+
+#define NF_ASSERT_RET_NONE(exp_)       \
+    do                                  \
+    {                                   \
+        if ((exp_)) break;              \
+        assert(exp_);                   \
+        return;                         \
+    } while (0);
+
+#define NF_ASSERT_NO_EFFECT(exp_)      \
+    do                                  \
+    {                                   \
+        if (exp_) break;                \
+        assert(exp_);                   \
+    } while(0);
+
+#define NF_CHECK(EXPRESSION) \
+  NF_ASSERT_MSG(EXPRESSION, "CHECK failed: " #EXPRESSION)
+
+#define NF_CHECK_EQ(A, B) NF_CHECK((A) == (B))
+#define NF_CHECK_NE(A, B) NF_CHECK((A) != (B))
+#define NF_CHECK_LT(A, B) NF_CHECK((A) <  (B))
+#define NF_CHECK_LE(A, B) NF_CHECK((A) <= (B))
+#define NF_CHECK_GT(A, B) NF_CHECK((A) >  (B))
+#define NF_CHECK_GE(A, B) NF_CHECK((A) >= (B))
+
 #ifndef _USE_ASSERT_
 #define _USE_ASSERT_ 0
 #endif
@@ -86,7 +168,7 @@
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
             }\
-			NF_ASSERT(expr);\
+			NF_COMM_ASSERT(expr);\
 			return ret;\
         }\
     }while(0)
@@ -104,7 +186,7 @@
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
             }\
-			NF_ASSERT(expr);\
+			NF_COMM_ASSERT(expr);\
 			return;\
         }\
     }while(0)

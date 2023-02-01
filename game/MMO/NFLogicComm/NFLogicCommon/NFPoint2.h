@@ -11,6 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 template<typename TYPE = int>
 class NFPoint2

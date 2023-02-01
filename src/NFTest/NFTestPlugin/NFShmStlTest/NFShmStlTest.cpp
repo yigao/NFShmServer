@@ -12,6 +12,7 @@
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
+#include "NFComm/NFCore/NFCommon.h"
 
 int checkPair()
 {
@@ -203,11 +204,15 @@ int checkVector()
            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "cv1.at: {}:{}", i, cv1.at(i));
        }
 
-/*         // operator[]
-        cv1[1] = 'a';
+       // operator[]
+        for(int i = 0; i < (int)cv1.size(); i++)
+        {
+            cv1[i] = "aaa" + NFCommon::tostr(cv1[i]);
+        }
+        cv1[6] = "aaa";
         printVector(cv1);
 
-        // front 容器首元素
+/*          // front 容器首元素
         cout << sv.front() << endl;
 
         // back 容器最后一个元素

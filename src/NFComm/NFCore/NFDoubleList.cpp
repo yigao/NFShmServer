@@ -11,8 +11,8 @@
 
 void NFDoubleList::Insert(NFDoubleNode* prev, NFDoubleNode* elem)
 {
-    NF_ASSERT(prev);
-    NF_ASSERT(elem);
+    NF_COMM_ASSERT(prev);
+    NF_COMM_ASSERT(elem);
     NFDoubleNode* next = prev->next;
     prev->next = elem;
     elem->prev = prev;
@@ -48,7 +48,7 @@ bool NFDoubleList::Delete(NFDoubleNode* elem)
         {
             head_->prev = NULL;
         }
-        NF_ASSERT(count_ > 0);
+        NF_COMM_ASSERT(count_ > 0);
         --count_;
         elem->ResetNode();
     }
@@ -56,7 +56,7 @@ bool NFDoubleList::Delete(NFDoubleNode* elem)
     {
         tail_ = tail_->prev;
         tail_->next = NULL;
-        NF_ASSERT(count_ > 0);
+        NF_COMM_ASSERT(count_ > 0);
         --count_;
         elem->ResetNode();
     }
@@ -64,7 +64,7 @@ bool NFDoubleList::Delete(NFDoubleNode* elem)
     {
         elem->prev->next = elem->next;
         elem->next->prev = elem->prev;
-        NF_ASSERT(count_ > 0);
+        NF_COMM_ASSERT(count_ > 0);
         --count_;
         elem->ResetNode();
     }

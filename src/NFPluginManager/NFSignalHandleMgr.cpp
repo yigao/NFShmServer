@@ -7,6 +7,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFSignalHandleMgr.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFGlobalSystem.h"
 #include "NFComm/NFCore/NFFileUtility.h"
