@@ -352,6 +352,7 @@ public:
     iterator erase(iterator __position)
     {
         CHECK_EXPR(__position != end(), end(), "");
+        CHECK_EXPR(__position - begin() < m_size, end(), "");
 
         if (__position + 1 != end())
             std::copy(__position + 1, m_data + m_size, __position);
@@ -364,6 +365,8 @@ public:
     iterator erase(iterator __first, iterator __last)
     {
         CHECK_EXPR(__first != end() && __last != end(), end(), "");
+        CHECK_EXPR(__first - begin() < m_size && __last - begin() < m_size, end(), "");
+        CHECK_EXPR(__first - begin() <= __last - begin(), end(), "");
         iterator __i = std::copy(__last, m_data + m_size, __first);
         std::_Destroy(__i, m_data + m_size);
         for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
