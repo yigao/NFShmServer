@@ -209,56 +209,47 @@ int checkVector()
         {
             cv1[i] = "aaa" + NFCommon::tostr(cv1[i]);
         }
-        cv1[6] = "aaa";
+
         printVector(cv1);
 
-/*          // front 容器首元素
-        cout << sv.front() << endl;
+         // front 容器首元素
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.front:{}", sv.front());
 
         // back 容器最后一个元素
-        cout << sv.back() << endl;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.back:{}", sv.back());
 
-        // begin 返回指向容器第一个元素的迭代器
-        // end 返回指向容器尾端的迭代器
-        for (vector<string>::iterator it = sv.begin(); it != sv.end(); it++) {
-            cout << *it << " ";
-        }
-        cout << endl;
 
         // rbegin 返回一个指向容器最后一个元素的反向迭代器
         // rend 返回一个指向容器前端的反向迭代器
-        for (vector<string>::reverse_iterator it = sv.rbegin(); it != sv.rend(); it++) {
-            cout << *it << " ";
+        for (auto it = sv.rbegin(); it != sv.rend(); it++) {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "reverse_iterator:{}", *it);
         }
-        cout << endl;
 
-        // empty 若容器为空则为 true ，否则为 false
+       // empty 若容器为空则为 true ，否则为 false
         if (sv.empty()) {
-            cout << "container is null." << endl;
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is null.");
         } else {
-            cout << "container is not null." << endl;
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is not null.");
         }
 
         // size	容器中的元素个数
-        cout << sv.size() << endl;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container size:{}", sv.size());
 
         // max_size 元素数量的最大值
-        cout << sv.max_size() << endl;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container max_size:{}", sv.max_size());
 
         // capacity 当前分配存储的容量
-        cout << sv.capacity() << endl;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container capacity:{}", sv.capacity());
 
         // resize 改变容器中可存储元素的个数
-        sv.resize(10);
-        cout << sv.capacity() << endl;
+        printVector(sv);
+        sv.resize(10, "111");
+        printVector(sv);
 
-        // shrink_to_fit 请求移除未使用的容量
-        sv.shrink_to_fit();
-        cout << sv.capacity() << endl;
+        sv.resize(2, "111");
+        printVector(sv);
 
         // clear 从容器移除所有元素
-        iv.clear();
-        printVector(iv);
 
         // insert:三种形式
         auto it = sv.begin();
@@ -269,8 +260,46 @@ int checkVector()
         printVector(sv);
 
         it = sv.begin();
-        vector<string> sv5(2, "xx");
+        it = sv.insert(it, "YES");
+        printVector(sv);
+
+        sv.insert(it, 2, "NO");
+        printVector(sv);
+
+        it = sv.begin();
+        NFShmVector<std::string, 10> sv5(2, "xx");
         sv.insert(it+2, sv5.begin(), sv5.end());
+        printVector(sv);
+
+        sv.pop_back();
+        printVector(sv);
+        it = sv.begin();
+        sv.insert(it+2, sv5.begin(), sv5.end());
+        printVector(sv);
+
+        sv.pop_back();
+        sv.pop_back();
+        printVector(sv);
+        it = sv.begin();
+        sv.insert(it+2, sv5.begin(), sv5.end());
+        printVector(sv);
+
+        it = sv.begin();
+        std::set<std::string> sv5_list = {"111", "222", "333", "444", "555"};
+        sv.insert(it+2, sv5_list.begin(), sv5_list.end());
+        printVector(sv);
+
+        sv.pop_back();
+        printVector(sv);
+        it = sv.begin();
+        sv.insert(it+2, sv5_list.begin(), sv5_list.end());
+        printVector(sv);
+
+        sv.pop_back();
+        sv.pop_back();
+        printVector(sv);
+        it = sv.begin();
+        sv.insert(it+2, sv5_list.begin(), sv5_list.end());
         printVector(sv);
 
         // erase 从容器移除指定的元素
@@ -281,18 +310,12 @@ int checkVector()
         printVector(sv);
 
         // push_back 向容器尾部插入元素
-        cout << sv.size() << endl;
         sv.push_back("add");
         printVector(sv);
 
         // pop_back 移除容器的最末元素
         sv.pop_back();
         printVector(sv);
-
-        // swap
-        sv.swap(sv5);
-        printVector(sv);
-        printVector(sv5);*/
     }
     return 0;
 }

@@ -18,7 +18,7 @@
         if (unlikely(!(expr)))\
         {\
            try {\
-			    NFLogError(NF_LOG_SYSTEMLOG, 0, "NF_ASSERT {} failed", #expr);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed", #expr);\
             }\
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
@@ -35,7 +35,7 @@
         {\
            try {\
                 std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
-			    NFLogError(NF_LOG_SYSTEMLOG, 0, "NF_ASSERT_MSG {} failed:{}", #expr, log_event);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
             }\
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
@@ -45,44 +45,178 @@
     }while(0)
 #endif//NF_ASSERT_MSG
 
-#define NF_ASSERT_RET_VAL(exp_, val)   \
-    do                                  \
-    {                                   \
-        if ((exp_)) break;              \
-        assert(exp_);                   \
-        return val;                     \
-    } while (0);
+#ifndef NF_ASSERT_RET_VAL
+#define NF_ASSERT_RET_VAL(expr, val, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed return:{}", #expr, val);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            return val;\
+        }\
+    }while(0)
+#endif//NF_ASSERT_RET_VAL
 
-#define NF_ASSERT_BREAK(exp_)          \
-    if (!(exp_))                        \
-    {                                   \
-        assert(exp_);                   \
-        break;                          \
-    }                                   \
-    else {}
+#ifndef NF_ASSERT_RET_VAL_MSG
+#define NF_ASSERT_RET_VAL_MSG(expr, val, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{} return:{}", #expr, log_event, val);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            return val;\
+        }\
+    }while(0)
+#endif//NF_ASSERT_RET_VAL_MSG
 
-#define NF_ASSERT_CONTINUE(exp_)       \
-    if (!(exp_))                        \
-    {                                   \
-        assert(exp_);                   \
-        continue;                       \
-    }                                   \
-    else {}
+#ifndef NF_ASSERT_BREAK
+#define NF_ASSERT_BREAK(expr)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed", #expr);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            break;\
+        }\
+    }
+#endif//NF_ASSERT_BREAK
 
-#define NF_ASSERT_RET_NONE(exp_)       \
-    do                                  \
-    {                                   \
-        if ((exp_)) break;              \
-        assert(exp_);                   \
-        return;                         \
-    } while (0);
+#ifndef NF_ASSERT_BREAK_MSG
+#define NF_ASSERT_BREAK_MSG(expr, format, ...)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            break;\
+        }\
+    }
+#endif//NF_ASSERT_BREAK_MSG
 
-#define NF_ASSERT_NO_EFFECT(exp_)      \
-    do                                  \
-    {                                   \
-        if (exp_) break;                \
-        assert(exp_);                   \
-    } while(0);
+#ifndef NF_ASSERT_CONTINUE
+#define NF_ASSERT_CONTINUE(expr)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed", #expr);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            continue;\
+        }\
+    }
+#endif//NF_ASSERT_CONTINUE
+
+#ifndef NF_ASSERT_CONTINUE_MSG
+#define NF_ASSERT_CONTINUE_MSG(expr, format, ...)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            continue;\
+        }\
+    }
+#endif//NF_ASSERT_CONTINUE_MSG
+
+#ifndef NF_ASSERT_RET_NONE
+#define NF_ASSERT_RET_NONE(expr)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:", #expr);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            return;\
+        }\
+    }
+#endif//NF_ASSERT_RET_NONE
+
+#ifndef NF_ASSERT_RET_NONE_MSG
+#define NF_ASSERT_RET_NONE_MSG(expr, format, ...)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+            return;\
+        }\
+    }
+#endif//NF_ASSERT_RET_NONE_MSG
+
+#ifndef NF_ASSERT_NO_EFFECT
+#define NF_ASSERT_NO_EFFECT(expr)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed", #expr);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+        }\
+    }
+#endif//NF_ASSERT_NO_EFFECT
+
+#ifndef NF_ASSERT_NO_EFFECT_MSG
+#define NF_ASSERT_NO_EFFECT_MSG(expr, format, ...)\
+    {\
+        if (unlikely(!(expr)))\
+        {\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }\
+			NF_COMM_ASSERT(expr);\
+        }\
+    }
+#endif//NF_ASSERT_NO_EFFECT_MSG
 
 #define NF_CHECK(EXPRESSION) \
   NF_ASSERT_MSG(EXPRESSION, "CHECK failed: " #EXPRESSION)
