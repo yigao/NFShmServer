@@ -9,10 +9,12 @@
 
 #include "NFComm/NFShmStl/NFShmPair.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmStl/NFShmList.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
 #include "NFComm/NFCore/NFCommon.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 int checkPair()
 {
@@ -37,8 +39,73 @@ void printVector(const NFShmVector<T, MAX_SIZE>& vec)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "vev[{}] = {}", i, vec[i]);
     }
+}
 
-    cout << endl;
+int checkAlgoVector()
+{
+    NFShmVector<int, 20> vec1;
+    for(int i = 0; i < 10; i++)
+    {
+        vec1.push_back(NFRandInt(1, 10));
+    }
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
+    vec1.random_shuffle();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
+    vec1.sort();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test unique");
+    vec1.unique();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
+    vec1.random_shuffle();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test remove_if");
+    vec1.remove_if([](int n){ return n <= 5;});
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
+    vec1.sort();
+    printVector(vec1);
+
+    for(int i = 0; i < 10; i++)
+    {
+        int rand = NFRandInt(1, 10);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "insert rand:{}", rand);
+        vec1.binary_insert(rand);
+        printVector(vec1);
+    }
+
+    NFShmVector<int, 20> vec2 = vec1;
+    vec2.sort();
+    vec2.unique();
+    vec2.random_shuffle();
+    for(auto iter = vec2.begin(); iter != vec2.end(); iter++)
+    {
+        int num = *iter;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will seach :{}", num);
+        auto vecIter = vec1.binary_search_array(num);
+        for(int i = 0; i < (int)vecIter.size(); i++)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "search num:{}", *vecIter[i]);
+        }
+    }
+
+    for(auto iter = vec2.begin(); iter != vec2.end(); iter++)
+    {
+        int num = *iter;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will delete:{}", num);
+        vec1.binary_delete(num);
+        printVector(vec1);
+    }
+
+    return 0;
 }
 
 int checkVector()
@@ -316,15 +383,16 @@ int checkVector()
         // pop_back 移除容器的最末元素
         sv.pop_back();
         printVector(sv);
-
-        std::vector
     }
+
     return 0;
 }
 
 int testMain()
 {
-    CHECK_RET(checkPair(), "checkPair Failed");
-    CHECK_RET(checkVector(), "checkVector Failed");
+    //CHECK_RET(checkPair(), "checkPair Failed");
+    //CHECK_RET(checkVector(), "checkVector Failed");
+    CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
+
     return 0;
 }

@@ -54,9 +54,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="nf_assert">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -599,14 +600,8 @@
       <workItem from="1673594575286" duration="599000" />
       <workItem from="1675050793583" duration="17884000" />
       <workItem from="1675126612744" duration="28407000" />
-      <workItem from="1675212922107" duration="24567000" />
-    </task>
-    <task id="LOCAL-00342" summary="package">
-      <created>1669452246606</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1669452246606</updated>
+      <workItem from="1675212922107" duration="27677000" />
+      <workItem from="1675300597443" duration="16951000" />
     </task>
     <task id="LOCAL-00343" summary="package">
       <created>1669453772381</created>
@@ -944,7 +939,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675241996293</updated>
     </task>
-    <option name="localTasksCounter" value="391" />
+    <task id="LOCAL-00391" summary="nf_assert">
+      <created>1675243853588</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1675243853588</updated>
+    </task>
+    <option name="localTasksCounter" value="392" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -14,6 +14,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include <iterator>
 #include <algorithm>
+#include <vector>
 
 template<class Tp, int MAX_SIZE>
 class NFShmVectorBase
@@ -220,6 +221,21 @@ public:
 
     }
 
+    void shrink_to_fit()
+    {
+
+    }
+
+    Tp *data()
+    {
+        return std::__addressof(front());
+    }
+
+    const Tp *data() const
+    {
+        return std::__addressof(front());
+    }
+
     void assign(size_type __n, const Tp &__val) { _M_fill_assign(__n, __val); }
 
     template<class _InputIterator>
@@ -364,9 +380,6 @@ public:
 
     iterator erase(iterator __first, iterator __last)
     {
-        CHECK_EXPR(__first != end() && __last != end(), end(), "");
-        CHECK_EXPR(__first - begin() < m_size && __last - begin() < m_size, end(), "");
-        CHECK_EXPR(__first - begin() <= __last - begin(), end(), "");
         iterator __i = std::copy(__last, m_data + m_size, __first);
         std::_Destroy(__i, m_data + m_size);
         for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
@@ -394,6 +407,125 @@ public:
         erase(begin(), end());
     }
 
+    iterator binary_insert(const Tp &val)
+    {
+        return binary_insert(val, std::less<Tp>());
+    }
+
+    template<typename _Compare>
+    iterator binary_insert(const Tp &val, _Compare comp)
+    {
+        CHECK_EXPR(m_size < MAX_SIZE, end(), "The Vector No Enough Space! binary_insert Fail!");
+
+        auto iter = std::lower_bound(begin(), end(), val, comp);
+        auto new_iter = insert(iter);
+        if (new_iter != end())
+        {
+            *new_iter = val;
+        }
+        return new_iter;
+    }
+
+    iterator binary_search(const Tp &val)
+    {
+        return binary_search(val, std::less<Tp>());
+    }
+
+    template<typename _Compare>
+    iterator binary_search(const Tp &val, _Compare comp)
+    {
+        auto pair_iter = std::equal_range(begin(), end(), val, comp);
+        if (pair_iter.first != pair_iter.second)
+        {
+            return pair_iter.first;
+        }
+        return NULL;
+    }
+
+    std::vector<iterator> binary_search_array(const Tp &val)
+    {
+        return binary_search_array(val, std::less<Tp>());
+    }
+
+    template<typename _Compare>
+    std::vector<iterator> binary_search_array(const Tp &val, _Compare comp)
+    {
+        std::vector<iterator> vec;
+        auto pair_iter = std::equal_range(begin(), end(), val, comp);
+        for (auto iter = pair_iter.first; iter != pair_iter.second; iter++)
+        {
+            vec.push_back(iter);
+        }
+        return vec;
+    }
+
+    template<typename _Compare>
+    int binary_delete(const Tp &val, _Compare comp)
+    {
+        auto pair_iter = std::equal_range(begin(), end(), val, comp);
+        erase(pair_iter.first, pair_iter.second);
+        return 0;
+    }
+
+    int binary_delete(const Tp &val)
+    {
+        return binary_delete(val, std::less<Tp>());
+    }
+
+    template<typename _Compare>
+    bool is_sorted(_Compare comp)
+    {
+        return std::is_sorted(begin(), end(), comp);
+    }
+
+    bool is_sorted()
+    {
+        return is_sorted(std::less<Tp>());
+    }
+
+    void sort()
+    {
+        return sort(std::less<Tp>());
+    }
+
+    template<typename _Compare>
+    void sort(_Compare comp)
+    {
+        return std::sort(begin(), end(), comp);
+    }
+
+    void random_shuffle()
+    {
+        std::random_shuffle(begin(), end());
+    }
+
+    void remove(const Tp& value)
+    {
+        auto iter = std::remove(begin(), end(), value);
+        if (iter != end())
+        {
+            erase(iter, end());
+        }
+    }
+
+    template<class Predicate>
+    void remove_if(Predicate pre)
+    {
+        auto iter = std::remove_if(begin(), end(), pre);
+        if (iter != end())
+        {
+            erase(iter, end());
+        }
+    }
+
+    void unique()
+    {
+        auto iter = std::unique(begin(), end());
+        if (iter != end())
+        {
+            erase(iter, end());
+        }
+    }
 protected:
     int _M_insert_aux(iterator __position, const Tp &__x);
 
