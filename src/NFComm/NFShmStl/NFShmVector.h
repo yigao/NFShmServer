@@ -16,7 +16,7 @@
 #include <algorithm>
 #include <vector>
 
-template<class Tp, int MAX_SIZE>
+template<class Tp, size_t MAX_SIZE>
 class NFShmVectorBase
 {
 public:
@@ -60,7 +60,7 @@ protected:
     size_t m_size;
 };
 
-template<class Tp, int MAX_SIZE>
+template<class Tp, size_t MAX_SIZE>
 class NFShmVector : protected NFShmVectorBase<Tp, MAX_SIZE>
 {
 private:
@@ -130,7 +130,7 @@ public:
         m_size = __n;
     }
 
-    template<int X_MAX_SIZE>
+    template<size_t X_MAX_SIZE>
     NFShmVector(const NFShmVector<Tp, X_MAX_SIZE> &__x)
     {
         int max_size = MAX_SIZE <= __x.size() ? MAX_SIZE : __x.size();
@@ -499,6 +499,11 @@ public:
         std::random_shuffle(begin(), end());
     }
 
+    void shuffle()
+    {
+        std::shuffle(begin(), end());
+    }
+
     void remove(const Tp& value)
     {
         auto iter = std::remove(begin(), end(), value);
@@ -650,7 +655,7 @@ operator<(const NFShmVector<_Tp, MAX_SIZE> &__x, const NFShmVector<_Tp, MAX_SIZE
                                         __y.begin(), __y.end());
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 NFShmVector<_Tp, MAX_SIZE> &
 NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
 {
@@ -674,7 +679,7 @@ NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
     return *this;
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type &__val)
 {
     if (__n > capacity())
@@ -693,7 +698,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type &__
         erase(std::fill_n(begin(), __n, __val), end());
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__x)
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
@@ -705,7 +710,7 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__
     return 0;
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
@@ -717,7 +722,7 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
     return 0;
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type __n,
                                                 const _Tp &__x)
 {
@@ -752,7 +757,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type _
     }
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::insert(iterator __position,
                                         const_iterator __first,
                                         const_iterator __last)
@@ -794,7 +799,7 @@ void NFShmVector<_Tp, MAX_SIZE>::insert(iterator __position,
     }
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 template<class _InputIter>
 void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_InputIter __first, _InputIter __last,
                                                std::input_iterator_tag)
@@ -808,7 +813,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_InputIter __first, _InputIter __
         insert(end(), __first, __last);
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 template<class _ForwardIter>
 void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIter __last,
                                                std::forward_iterator_tag)
@@ -841,7 +846,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
     }
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 template<class _InputIterator>
 void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __pos,
                                                  _InputIterator __first,
@@ -859,7 +864,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __pos,
     }
 }
 
-template<class _Tp, int MAX_SIZE>
+template<class _Tp, size_t MAX_SIZE>
 template<class _ForwardIterator>
 void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __position,
                                                  _ForwardIterator __first,

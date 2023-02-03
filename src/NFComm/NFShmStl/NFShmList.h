@@ -32,8 +32,9 @@ struct NFShmListNodeBase
 
     int CreateInit()
     {
-        _M_next = NULL;
-        _M_prev = NULL;
+        m_next = 0;
+        m_prev = 0;
+        m_self = 0;
         return 0;
     }
 
@@ -42,8 +43,9 @@ struct NFShmListNodeBase
         return 0;
     }
 
-    NFShmListNodeBase *_M_next;
-    NFShmListNodeBase *_M_prev;
+    ptrdiff_t m_next;
+    ptrdiff_t m_prev;
+    ptrdiff_t m_self;
 };
 
 template<class Tp>
@@ -64,6 +66,10 @@ struct NFShmListNode : public NFShmListNodeBase
     int CreateInit()
     {
         m_valid = false;
+        if (std::is_pod<Tp>::value)
+        {
+            std::_Construct(&m_data, Tp());
+        }
         return 0;
     }
 
@@ -72,56 +78,82 @@ struct NFShmListNode : public NFShmListNodeBase
         return 0;
     }
 
-    Tp _M_data;
+    Tp m_data;
     bool m_valid;
 };
 
+template<class Container>
 struct NFShmListIteratorBase
 {
     typedef size_t size_type;
     typedef ptrdiff_t difference_type;
     typedef std::bidirectional_iterator_tag iterator_category;
 
-    NFShmListNodeBase *_M_node;
+    Container *m_pContainer;
+    NFShmListNodeBase *m_node;
 
-    NFShmListIteratorBase(NFShmListNodeBase *__x) : _M_node(__x) {}
+    explicit NFShmListIteratorBase(const Container *pContainer, size_t iPos)
+            : m_pContainer(const_cast<Container *>(pContainer))
+    {
+        m_node = m_pContainer->GetNode(iPos);
+    }
 
-    NFShmListIteratorBase() {}
+    explicit NFShmListIteratorBase(const Container *pContainer, const NFShmListNodeBase *pNode)
+            : m_pContainer(const_cast<Container *>(pContainer)), m_node(const_cast<NFShmListNodeBase *>(pNode))
+    {
+    }
 
-    void _M_incr() { _M_node = _M_node->_M_next; }
+    NFShmListIteratorBase() : m_pContainer(NULL), m_node(NULL) {}
 
-    void _M_decr() { _M_node = _M_node->_M_prev; }
+    void _M_incr() { m_node = m_pContainer->GetNode(m_node->m_next); }
+
+    void _M_decr() { m_node = m_pContainer->GetNode(m_node->m_prev); }
 
     bool operator==(const NFShmListIteratorBase &__x) const
     {
-        return _M_node == __x._M_node;
+        return m_node == __x.m_node;
     }
 
     bool operator!=(const NFShmListIteratorBase &__x) const
     {
-        return _M_node != __x._M_node;
+        return m_node != __x.m_node;
     }
 };
 
-template<class Tp, class Ref, class Ptr>
-struct NFShmListIterator : public NFShmListIteratorBase
+template<class Tp, class Ref, class Ptr, class Container>
+struct NFShmListIterator : public NFShmListIteratorBase<Container>
 {
-    typedef NFShmListIterator<Tp, Tp &, Tp *> iterator;
-    typedef NFShmListIterator<Tp, const Tp &, const Tp *> const_iterator;
-    typedef NFShmListIterator<Tp, Ref, Ptr> _Self;
+    typedef NFShmListIterator<Tp, Tp &, Tp *, Container> iterator;
+    typedef NFShmListIterator<Tp, const Tp &, const Tp *, Container> const_iterator;
+    typedef NFShmListIterator<Tp, Ref, Ptr, Container> _Self;
 
     typedef Tp value_type;
     typedef Ptr pointer;
     typedef Ref reference;
     typedef NFShmListNode<Tp> _Node;
 
-    NFShmListIterator(_Node *__x) : NFShmListIteratorBase(__x) {}
+    using NFShmListIteratorBase<Container>::m_node;
 
-    NFShmListIterator() {}
+    explicit NFShmListIterator(const Container *pContainer, size_t iPos) : NFShmListIteratorBase<Container>(pContainer, iPos)
+    {
 
-    NFShmListIterator(const iterator &__x) : NFShmListIteratorBase(__x._M_node) {}
+    }
 
-    reference operator*() const { return ((_Node *) _M_node)->_M_data; }
+    explicit NFShmListIterator(const Container *pContainer, const NFShmListNodeBase *pNode) : NFShmListIteratorBase<Container>(pContainer, pNode)
+    {
+    }
+
+    NFShmListIterator()
+    {
+
+    }
+
+    NFShmListIterator(const iterator &__x) : NFShmListIteratorBase<Container>(__x.m_pContainer, __x.m_node)
+    {
+
+    }
+
+    reference operator*() const { return ((_Node *) m_node)->m_data; }
 
     pointer operator->() const { return &(operator*()); }
 
@@ -176,8 +208,20 @@ public:
     {
         m_size = 0;
         m_freeStart = 0;
-        _M_node->_M_next = _M_node;
-        _M_node->_M_prev = _M_node;
+
+        for (size_t i = 0; i < MAX_SIZE; i++)
+        {
+            m_node[i].m_next = i + 1;
+            m_node[i].m_prev = 0;
+            m_node[i].m_valid = false;
+            m_node[i].m_self = i;
+        }
+
+        m_node[MAX_SIZE].m_next = MAX_SIZE;
+        m_node[MAX_SIZE].m_prev = MAX_SIZE;
+        m_node[MAX_SIZE].m_self = MAX_SIZE;
+        m_node[MAX_SIZE].m_valid = false;
+
         return 0;
     }
 
@@ -186,8 +230,31 @@ public:
         return 0;
     }
 
+    void clear()
+    {
+        m_size = 0;
+        m_freeStart = 0;
+
+        for (size_t i = 0; i < MAX_SIZE; i++)
+        {
+            m_node[i].m_next = i + 1;
+            m_node[i].m_prev = 0;
+            m_node[i].m_valid = false;
+            m_node[i].m_self = i;
+            std::_Destroy(&(m_node[i].m_data));
+            std::_Construct(&(m_node[i].m_data), Tp());
+        }
+
+        m_node[MAX_SIZE].m_next = MAX_SIZE;
+        m_node[MAX_SIZE].m_prev = MAX_SIZE;
+        m_node[MAX_SIZE].m_self = MAX_SIZE;
+        m_node[MAX_SIZE].m_valid = false;
+        std::_Destroy(&(m_node[MAX_SIZE].m_data));
+        std::_Construct(&(m_node[MAX_SIZE].m_data), Tp());
+    }
+
 protected:
-    NFShmListNode<Tp> _M_node[MAX_SIZE + 1];
+    NFShmListNode<Tp> m_node[MAX_SIZE + 1];
     ptrdiff_t m_freeStart;
     size_t m_size;
 };
@@ -199,6 +266,7 @@ class NFShmList : protected NFShmListBase<Tp, MAX_SIZE>
 protected:
     typedef void *_Void_pointer;
 public:
+    typedef NFShmList<Tp, MAX_SIZE> ListType;
     typedef Tp value_type;
     typedef value_type *pointer;
     typedef const value_type *const_pointer;
@@ -208,62 +276,138 @@ public:
     typedef size_t size_type;
     typedef ptrdiff_t difference_type;
 
-    typedef typename _Base::allocator_type allocator_type;
-
-    allocator_type get_allocator() const { return _Base::get_allocator(); }
-
 public:
-    typedef NFShmListIterator<Tp, Tp &, Tp *> iterator;
-    typedef NFShmListIterator<Tp, const Tp &, const Tp *> const_iterator;
+    typedef NFShmListIterator<Tp, Tp &, Tp *, ListType> iterator;
+    typedef NFShmListIterator<Tp, const Tp &, const Tp *, ListType> const_iterator;
 
-#ifdef __STL_CLASS_PARTIAL_SPECIALIZATION
-    typedef reverse_iterator<const_iterator> const_reverse_iterator;
-  typedef reverse_iterator<iterator>       reverse_iterator;
-#else /* __STL_CLASS_PARTIAL_SPECIALIZATION */
-    typedef reverse_bidirectional_iterator <const_iterator, value_type,
-    const_reference, difference_type>
-            const_reverse_iterator;
-    typedef reverse_bidirectional_iterator <iterator, value_type, reference,
-    difference_type>
-            reverse_iterator;
-#endif /* __STL_CLASS_PARTIAL_SPECIALIZATION */
+    typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+    typedef std::reverse_iterator<iterator> reverse_iterator;
 
 protected:
-    using _Base::_M_node;
-    using _Base::_M_put_node;
-    using _Base::_M_get_node;
-
+    using _Base::m_node;
+    using _Base::m_freeStart;
+    using _Base::m_size;
 protected:
     _Node *_M_create_node(const Tp &__x)
     {
-        _Node *__p = _M_get_node();
-        __STL_TRY{
-                _Construct(&__p->_M_data, __x);
-        }
-        __STL_UNWIND(_M_put_node(__p));
-        return __p;
+        ptrdiff_t iSelf = m_freeStart;
+        m_freeStart = m_node[m_freeStart].m_next;
+
+        std::_Construct(&m_node[iSelf].m_data, __x);
+
+        NF_ASSERT(!m_node[iSelf].m_valid);
+        m_node[iSelf].m_valid = true;
+
+        return &m_node[iSelf];
     }
 
     _Node *_M_create_node()
     {
-        _Node *__p = _M_get_node();
-        __STL_TRY{
-                _Construct(&__p->_M_data);
-        }
-        __STL_UNWIND(_M_put_node(__p));
-        return __p;
+        ptrdiff_t iSelf = m_freeStart;
+        m_freeStart = m_node[m_freeStart].m_next;
+
+        std::_Construct(&m_node[iSelf].m_data, Tp());
+
+        NF_ASSERT(!m_node[iSelf].m_valid);
+        m_node[iSelf].m_valid = true;
+
+        return &m_node[iSelf];
+    }
+
+    void _M_recycle_node(_Node *pNode)
+    {
+        NF_ASSERT(pNode);
+        NF_ASSERT(pNode->m_valid);
+        std::_Destroy(&(pNode->m_data));
+        std::_Construct(&(pNode->m_data), Tp());
+
+        ptrdiff_t iSelf = pNode->m_self;
+        ptrdiff_t iSelf1 = m_node[pNode->m_next].m_prev;
+        ptrdiff_t iSelf2 = m_node[pNode->m_prev].m_next;
+        NF_ASSERT(iSelf == (int) iSelf1 && iSelf == (int) iSelf2);
+        pNode->m_valid = false;
+        pNode->m_next = m_freeStart;
+        m_freeStart = iSelf;
     }
 
 public:
-    explicit NFShmList(const allocator_type &__a = allocator_type()) : _Base(__a) {}
+    explicit NFShmList()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
 
-    iterator begin() { return (_Node *) (_M_node->_M_next); }
+    int CreateInit()
+    {
+        return 0;
+    }
 
-    const_iterator begin() const { return (_Node *) (_M_node->_M_next); }
+    int ResumeInit()
+    {
+        return 0;
+    }
 
-    iterator end() { return _M_node; }
+    NFShmList(size_type __n, const Tp &__value)
+    {
+        insert(begin(), __n, __value);
+    }
 
-    const_iterator end() const { return _M_node; }
+    explicit NFShmList(size_type __n)
+    {
+        insert(begin(), __n, Tp());
+    }
+
+    template<class _InputIterator>
+    NFShmList(_InputIterator __first, _InputIterator __last)
+    {
+        insert(begin(), __first, __last);
+    }
+
+    NFShmList(const Tp *__first, const Tp *__last)
+    {
+        this->insert(begin(), __first, __last);
+    }
+
+    NFShmList(const_iterator __first, const_iterator __last)
+    {
+        this->insert(begin(), __first, __last);
+    }
+
+    template<size_t X_MAX_SIZE>
+    NFShmList(const NFShmList<Tp, X_MAX_SIZE> &__x)
+    {
+        insert(begin(), __x.begin(), __x.end());
+    }
+
+    NFShmList(const std::initializer_list<Tp> &list)
+    {
+        for (auto it = list.begin(); it != list.end(); ++it)
+        {
+            push_back(*it);
+        }
+    }
+
+    ~NFShmList()
+    {
+
+    }
+
+    NFShmList<Tp, MAX_SIZE> &operator=(const NFShmList<Tp, MAX_SIZE> &__x);
+
+public:
+    iterator begin() { return iterator(this, m_node[MAX_SIZE].m_next); }
+
+    const_iterator begin() const { return iterator(this, m_node[MAX_SIZE].m_next); }
+
+    iterator end() { return iterator(this, MAX_SIZE); }
+
+    const_iterator end() const { return iterator(this, MAX_SIZE); }
 
     reverse_iterator rbegin() { return reverse_iterator(end()); }
 
@@ -273,16 +417,33 @@ public:
 
     const_reverse_iterator rend() const { return const_reverse_iterator(begin()); }
 
-    bool empty() const { return _M_node->_M_next == _M_node; }
+    bool empty() const
+    {
+        if (m_node[MAX_SIZE].m_next == MAX_SIZE)
+        {
+            NF_ASSERT(m_size == 0);
+        }
+        return m_node[MAX_SIZE].m_next == MAX_SIZE;
+    }
+
+    bool full() const
+    {
+        if (m_freeStart == MAX_SIZE)
+        {
+            NF_ASSERT(m_size == MAX_SIZE);
+        }
+        return m_freeStart == MAX_SIZE;
+    }
 
     size_type size() const
     {
-        size_type __result = 0;
-        distance(begin(), end(), __result);
-        return __result;
+        NF_ASSERT(std::distance(begin(), end()) == m_size);
+        return m_size;
     }
 
-    size_type max_size() const { return size_type(-1); }
+    size_type max_size() const { return MAX_SIZE; }
+
+    size_type capacity() const { return MAX_SIZE; }
 
     reference front() { return *begin(); }
 
@@ -292,71 +453,75 @@ public:
 
     const_reference back() const { return *(--end()); }
 
-    void swap(list<Tp, _Alloc> &__x) { __STD::swap(_M_node, __x._M_node); }
+    void swap(NFShmList<Tp, MAX_SIZE> &__x) {}
+
+    _Node *GetNode(size_t index)
+    {
+        NF_ASSERT(index <= MAX_SIZE);
+        return &m_node[index];
+    }
 
     iterator insert(iterator __position, const Tp &__x)
     {
+        if (full())
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "The List Space Not Enough, Insert Failed");
+            return end();
+        }
         _Node *__tmp = _M_create_node(__x);
-        __tmp->_M_next = __position._M_node;
-        __tmp->_M_prev = __position._M_node->_M_prev;
-        __position._M_node->_M_prev->_M_next = __tmp;
-        __position._M_node->_M_prev = __tmp;
-        return __tmp;
+        __tmp->m_next = __position.m_node->m_self;
+        __tmp->m_prev = __position.m_node->m_prev;
+        GetNode(__position.m_node->m_prev)->m_next = __tmp->m_self;
+        __position.m_node->m_prev = __tmp->m_self;
+
+        m_size++;
+        return iterator(this, __tmp);
     }
 
     iterator insert(iterator __position) { return insert(__position, Tp()); }
 
-#ifdef __STL_MEMBER_TEMPLATES
-    // Check whether it's an integral type.  If so, it's not an iterator.
 
-  template<class _Integer>
-  void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __x,
-                          __true_type) {
-    _M_fill_insert(__pos, (size_type) __n, (_Tp) __x);
-  }
-
-  template <class _InputIterator>
-  void _M_insert_dispatch(iterator __pos,
-                          _InputIterator __first, _InputIterator __last,
-                          __false_type);
-
-  template <class _InputIterator>
-  void insert(iterator __pos, _InputIterator __first, _InputIterator __last) {
-    typedef typename _Is_integer<_InputIterator>::_Integral _Integral;
-    _M_insert_dispatch(__pos, __first, __last, _Integral());
-  }
-
-#else /* __STL_MEMBER_TEMPLATES */
+    template<class _InputIterator>
+    void insert(iterator __pos, _InputIterator __first, _InputIterator __last)
+    {
+        typedef typename std::__is_integer<_InputIterator>::__type _Integral;
+        _M_insert_dispatch(__pos, __first, __last, _Integral());
+    }
 
     void insert(iterator __position, const Tp *__first, const Tp *__last);
 
     void insert(iterator __position,
                 const_iterator __first, const_iterator __last);
 
-#endif /* __STL_MEMBER_TEMPLATES */
-
     void insert(iterator __pos, size_type __n, const Tp &__x) { _M_fill_insert(__pos, __n, __x); }
-
-    void _M_fill_insert(iterator __pos, size_type __n, const Tp &__x);
 
     void push_front(const Tp &__x) { insert(begin(), __x); }
 
     void push_front() { insert(begin()); }
 
-    void push_back(const Tp &__x) { insert(end(), __x); }
+    void push_back(const Tp &__x)
+    {
+        insert(end(), __x);
+    }
 
-    void push_back() { insert(end()); }
+    void push_back()
+    {
+        insert(end());
+    }
 
     iterator erase(iterator __position)
     {
-        NFShmListNodeBase *__next_node = __position._M_node->_M_next;
-        NFShmListNodeBase *__prev_node = __position._M_node->_M_prev;
-        _Node *__n = (_Node *) __position._M_node;
-        __prev_node->_M_next = __next_node;
-        __next_node->_M_prev = __prev_node;
-        _Destroy(&__n->_M_data);
-        _M_put_node(__n);
-        return iterator((_Node *) __next_node);
+        if (__position == end())
+        {
+            return end();
+        }
+        ptrdiff_t __next_node = __position.m_node->m_next;
+        ptrdiff_t __prev_node = __position.m_node->m_prev;
+        _M_recycle_node(static_cast<_Node*>(__position.m_node));
+        m_node[__prev_node].m_next = __next_node;
+        m_node[__next_node].m_prev = __prev_node;
+        m_size--;
+        return iterator(this, __next_node);
     }
 
     iterator erase(iterator __first, iterator __last);
@@ -375,68 +540,16 @@ public:
         erase(--__tmp);
     }
 
-    NFShmList(size_type __n, const Tp &__value,
-              const allocator_type &__a = allocator_type())
-            : _Base(__a) { insert(begin(), __n, __value); }
-
-    explicit NFShmList(size_type __n)
-            : _Base(allocator_type()) { insert(begin(), __n, Tp()); }
-
-#ifdef __STL_MEMBER_TEMPLATES
-
-    // We don't need any dispatching tricks here, because insert does all of
-  // that anyway.
-  template <class _InputIterator>
-  list(_InputIterator __first, _InputIterator __last,
-       const allocator_type& __a = allocator_type())
-    : _Base(__a)
-    { insert(begin(), __first, __last); }
-
-#else /* __STL_MEMBER_TEMPLATES */
-
-    NFShmList(const Tp *__first, const Tp *__last,
-              const allocator_type &__a = allocator_type())
-            : _Base(__a) { this->insert(begin(), __first, __last); }
-
-    NFShmList(const_iterator __first, const_iterator __last,
-              const allocator_type &__a = allocator_type())
-            : _Base(__a) { this->insert(begin(), __first, __last); }
-
-#endif /* __STL_MEMBER_TEMPLATES */
-
-    NFShmList(const list<Tp, _Alloc> &__x) : _Base(__x.get_allocator()) { insert(begin(), __x.begin(), __x.end()); }
-
-    ~NFShmList() {}
-
-    list<Tp, _Alloc> &operator=(const list<Tp, _Alloc> &__x);
-
 public:
-    // assign(), a generalized assignment member function.  Two
-    // versions: one that takes a count, and one that takes a range.
-    // The range version is a member template, so we dispatch on whether
-    // or not the type is an integer.
-
     void assign(size_type __n, const Tp &__val) { _M_fill_assign(__n, __val); }
 
-    void _M_fill_assign(size_type __n, const Tp &__val);
+    template<class _InputIterator>
+    void assign(_InputIterator __first, _InputIterator __last)
+    {
+        typedef typename std::__is_integer<_InputIterator>::__type _Integral;
+        _M_assign_dispatch(__first, __last, _Integral());
+    }
 
-#ifdef __STL_MEMBER_TEMPLATES
-
-    template <class _InputIterator>
-  void assign(_InputIterator __first, _InputIterator __last) {
-    typedef typename _Is_integer<_InputIterator>::_Integral _Integral;
-    _M_assign_dispatch(__first, __last, _Integral());
-  }
-
-  template <class _Integer>
-  void _M_assign_dispatch(_Integer __n, _Integer __val, __true_type)
-    { _M_fill_assign((size_type) __n, (_Tp) __val); }
-
-  template <class _InputIterator>
-  void _M_assign_dispatch(_InputIterator __first, _InputIterator __last,
-                          __false_type);
-
-#endif /* __STL_MEMBER_TEMPLATES */
 
 protected:
     void transfer(iterator __position, iterator __first, iterator __last)
@@ -444,15 +557,15 @@ protected:
         if (__position != __last)
         {
             // Remove [first, last) from its old position.
-            __last._M_node->_M_prev->_M_next = __position._M_node;
-            __first._M_node->_M_prev->_M_next = __last._M_node;
-            __position._M_node->_M_prev->_M_next = __first._M_node;
+            GetNode(__last.m_node->m_prev)->m_next = __position.m_node->m_self;
+            GetNode(__first.m_node->m_prev)->m_next = __last.m_node->m_self;
+            GetNode(__position.m_node->m_prev)->m_next = __first.m_node->m_self;
 
             // Splice [first, last) into its new position.
-            NFShmListNodeBase *__tmp = __position._M_node->_M_prev;
-            __position._M_node->_M_prev = __last._M_node->_M_prev;
-            __last._M_node->_M_prev = __first._M_node->_M_prev;
-            __first._M_node->_M_prev = __tmp;
+            NFShmListNodeBase *__tmp = &m_node[__position.m_node->m_prev];
+            __position.m_node->m_prev = __last.m_node->m_prev;
+            __last.m_node->m_prev = __first.m_node->m_prev;
+            __first.m_node->m_prev = __tmp->m_self;
         }
     }
 
@@ -487,20 +600,47 @@ public:
 
     void sort();
 
-#ifdef __STL_MEMBER_TEMPLATES
-    template <class _Predicate> void remove_if(_Predicate);
-  template <class _BinaryPredicate> void unique(_BinaryPredicate);
-  template <class _StrictWeakOrdering> void merge(list&, _StrictWeakOrdering);
-  template <class _StrictWeakOrdering> void sort(_StrictWeakOrdering);
-#endif /* __STL_MEMBER_TEMPLATES */
+    template<class _Predicate>
+    void remove_if(_Predicate);
+
+    template<class _BinaryPredicate>
+    void unique(_BinaryPredicate);
+
+    template<class _StrictWeakOrdering>
+    void merge(NFShmList &, _StrictWeakOrdering);
+
+    template<class _StrictWeakOrdering>
+    void sort(_StrictWeakOrdering);
+
+protected:
+    template<class _Integer>
+    void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __x, std::__true_type)
+    {
+        _M_fill_insert(__pos, (size_type) __n, (Tp) __x);
+    }
+
+    template<class _InputIterator>
+    void _M_insert_dispatch(iterator __pos,
+                            _InputIterator __first, _InputIterator __last,
+                            __false_type);
+
+
+    template<class _Integer>
+    void _M_assign_dispatch(_Integer __n, _Integer __val, __true_type) { _M_fill_assign((size_type) __n, (Tp) __val); }
+
+    template<class _InputIterator>
+    void _M_assign_dispatch(_InputIterator __first, _InputIterator __last,
+                            __false_type);
+
+    void _M_fill_assign(size_type __n, const Tp &__val);
+
+    void _M_fill_insert(iterator __pos, size_type __n, const Tp &__x);
 };
 
-
-template<class _Tp, class _Alloc>
-inline bool
-operator==(const list<_Tp, _Alloc> &__x, const list<_Tp, _Alloc> &__y)
+template<class Tp, size_t MAX_SIZE>
+inline bool operator==(const NFShmList<Tp, MAX_SIZE> &__x, const NFShmList<Tp, MAX_SIZE> &__y)
 {
-    typedef typename NFShmList<_Tp, _Alloc>::const_iterator const_iterator;
+    typedef typename NFShmList<Tp, MAX_SIZE>::const_iterator const_iterator;
     const_iterator __end1 = __x.end();
     const_iterator __end2 = __y.end();
 
@@ -514,103 +654,59 @@ operator==(const list<_Tp, _Alloc> &__x, const list<_Tp, _Alloc> &__y)
     return __i1 == __end1 && __i2 == __end2;
 }
 
-template<class _Tp, class _Alloc>
-inline bool operator<(const list<_Tp, _Alloc> &__x,
-                      const list<_Tp, _Alloc> &__y)
+template<class Tp, size_t MAX_SIZE>
+inline bool operator<(const NFShmList<Tp, MAX_SIZE> &__x,
+                      const NFShmList<Tp, MAX_SIZE> &__y)
 {
-    return lexicographical_compare(__x.begin(), __x.end(),
-                                   __y.begin(), __y.end());
+    return std::lexicographical_compare(__x.begin(), __x.end(),
+                                        __y.begin(), __y.end());
 }
 
-#ifdef __STL_FUNCTION_TMPL_PARTIAL_ORDER
-
-template <class _Tp, class _Alloc>
-inline bool operator!=(const list<_Tp,_Alloc>& __x,
-                       const list<_Tp,_Alloc>& __y) {
-  return !(__x == __y);
-}
-
-template <class _Tp, class _Alloc>
-inline bool operator>(const list<_Tp,_Alloc>& __x,
-                      const list<_Tp,_Alloc>& __y) {
-  return __y < __x;
-}
-
-template <class _Tp, class _Alloc>
-inline bool operator<=(const list<_Tp,_Alloc>& __x,
-                       const list<_Tp,_Alloc>& __y) {
-  return !(__y < __x);
-}
-
-template <class _Tp, class _Alloc>
-inline bool operator>=(const list<_Tp,_Alloc>& __x,
-                       const list<_Tp,_Alloc>& __y) {
-  return !(__x < __y);
-}
-
-template <class _Tp, class _Alloc>
-inline void
-swap(list<_Tp, _Alloc>& __x, list<_Tp, _Alloc>& __y)
-{
-  __x.swap(__y);
-}
-
-#endif /* __STL_FUNCTION_TMPL_PARTIAL_ORDER */
-
-#ifdef __STL_MEMBER_TEMPLATES
-
-template <class _Tp, class _Alloc> template <class _InputIter>
-void
-list<_Tp, _Alloc>::_M_insert_dispatch(iterator __position,
-                                      _InputIter __first, _InputIter __last,
-                                      __false_type)
-{
-  for ( ; __first != __last; ++__first)
-    insert(__position, *__first);
-}
-
-#else /* __STL_MEMBER_TEMPLATES */
-
-template<class _Tp, class _Alloc>
-void
-NFShmList<_Tp, _Alloc>::insert(iterator __position,
-                               const _Tp *__first, const _Tp *__last)
+template<class _Tp, size_t MAX_SIZE>
+template<class _InputIter>
+void NFShmList<_Tp, MAX_SIZE>::_M_insert_dispatch(iterator __position,
+                                                  _InputIter __first, _InputIter __last,
+                                                  std::__false_type)
 {
     for (; __first != __last; ++__first)
         insert(__position, *__first);
 }
 
-template<class _Tp, class _Alloc>
-void
-NFShmList<_Tp, _Alloc>::insert(iterator __position,
-                               const_iterator __first, const_iterator __last)
+template<class Tp, size_t MAX_SIZE>
+void NFShmList<Tp, MAX_SIZE>::insert(iterator __position,
+                                     const Tp *__first, const Tp *__last)
 {
     for (; __first != __last; ++__first)
         insert(__position, *__first);
 }
 
-#endif /* __STL_MEMBER_TEMPLATES */
+template<class Tp, size_t MAX_SIZE>
+void NFShmList<Tp, MAX_SIZE>::insert(iterator __position,
+                                     const_iterator __first, const_iterator __last)
+{
+    for (; __first != __last; ++__first)
+        insert(__position, *__first);
+}
 
-template<class _Tp, class _Alloc>
-void
-NFShmList<_Tp, _Alloc>::_M_fill_insert(iterator __position,
-                                       size_type __n, const _Tp &__x)
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position,
+                                              size_type __n, const _Tp &__x)
 {
     for (; __n > 0; --__n)
         insert(__position, __x);
 }
 
-template<class _Tp, class _Alloc>
-typename list<_Tp, _Alloc>::iterator NFShmList<_Tp, _Alloc>::erase(iterator __first,
-                                                                   iterator __last)
+template<class _Tp, size_t MAX_SIZE>
+typename NFShmList<_Tp, MAX_SIZE>::iterator NFShmList<_Tp, MAX_SIZE>::erase(iterator __first,
+                                                                            iterator __last)
 {
     while (__first != __last)
         erase(__first++);
     return __last;
 }
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::resize(size_type __new_size, const _Tp &__x)
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::resize(size_type __new_size, const _Tp &__x)
 {
     iterator __i = begin();
     size_type __len = 0;
@@ -621,8 +717,8 @@ void NFShmList<_Tp, _Alloc>::resize(size_type __new_size, const _Tp &__x)
         insert(end(), __new_size - __len, __x);
 }
 
-template<class _Tp, class _Alloc>
-list<_Tp, _Alloc> &NFShmList<_Tp, _Alloc>::operator=(const list<_Tp, _Alloc> &__x)
+template<class _Tp, size_t MAX_SIZE>
+NFShmList<_Tp, MAX_SIZE> &NFShmList<_Tp, MAX_SIZE>::operator=(const NFShmList<_Tp, MAX_SIZE> &__x)
 {
     if (this != &__x)
     {
@@ -640,8 +736,8 @@ list<_Tp, _Alloc> &NFShmList<_Tp, _Alloc>::operator=(const list<_Tp, _Alloc> &__
     return *this;
 }
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::_M_fill_assign(size_type __n, const _Tp &__val)
+template<class _Tp, size_t MAX_SIZEc>
+void NFShmList<_Tp, MAX_SIZEc>::_M_fill_assign(size_type __n, const _Tp &__val)
 {
     iterator __i = begin();
     for (; __i != end() && __n > 0; ++__i, --__n)
@@ -652,27 +748,25 @@ void NFShmList<_Tp, _Alloc>::_M_fill_assign(size_type __n, const _Tp &__val)
         erase(__i, end());
 }
 
-#ifdef __STL_MEMBER_TEMPLATES
-
-template <class _Tp, class _Alloc> template <class _InputIter>
+template<class _Tp, size_t MAX_SIZEc>
+template<class _InputIter>
 void
-list<_Tp, _Alloc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2,
-                                      __false_type)
+NFShmList<_Tp, MAX_SIZEc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2,
+                                              __false_type)
 {
-  iterator __first1 = begin();
-  iterator __last1 = end();
-  for ( ; __first1 != __last1 && __first2 != __last2; ++__first1, ++__first2)
-    *__first1 = *__first2;
-  if (__first2 == __last2)
-    erase(__first1, __last1);
-  else
-    insert(__last1, __first2, __last2);
+    iterator __first1 = begin();
+    iterator __last1 = end();
+    for (; __first1 != __last1 && __first2 != __last2; ++__first1, ++__first2)
+        *__first1 = *__first2;
+    if (__first2 == __last2)
+        erase(__first1, __last1);
+    else
+        insert(__last1, __first2, __last2);
 }
 
-#endif /* __STL_MEMBER_TEMPLATES */
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::remove(const _Tp &__value)
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::remove(const _Tp &__value)
 {
     iterator __first = begin();
     iterator __last = end();
@@ -685,8 +779,8 @@ void NFShmList<_Tp, _Alloc>::remove(const _Tp &__value)
     }
 }
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::unique()
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::unique()
 {
     iterator __first = begin();
     iterator __last = end();
@@ -702,8 +796,8 @@ void NFShmList<_Tp, _Alloc>::unique()
     }
 }
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::merge(list<_Tp, _Alloc> &__x)
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::merge(NFShmList<_Tp, MAX_SIZE> &__x)
 {
     iterator __first1 = begin();
     iterator __last1 = end();
@@ -723,28 +817,28 @@ void NFShmList<_Tp, _Alloc>::merge(list<_Tp, _Alloc> &__x)
 
 inline void __List_base_reverse(NFShmListNodeBase *__p)
 {
-    NFShmListNodeBase *__tmp = __p;
+/*    NFShmListNodeBase *__tmp = __p;
     do
     {
-        __STD::swap(__tmp->_M_next, __tmp->_M_prev);
-        __tmp = __tmp->_M_prev;     // Old next node is now prev.
-    } while (__tmp != __p);
+        std::swap(__tmp->m_next, __tmp->m_prev);
+        __tmp = __tmp->m_prev;     // Old next node is now prev.
+    } while (__tmp != __p);*/
 }
 
-template<class _Tp, class _Alloc>
-inline void NFShmList<_Tp, _Alloc>::reverse()
+template<class _Tp, size_t MAX_SIZE>
+inline void NFShmList<_Tp, MAX_SIZE>::reverse()
 {
-    __List_base_reverse(this->_M_node);
+    __List_base_reverse(this->m_node);
 }
 
-template<class _Tp, class _Alloc>
-void NFShmList<_Tp, _Alloc>::sort()
+template<class _Tp, size_t MAX_SIZE>
+void NFShmList<_Tp, MAX_SIZE>::sort()
 {
     // Do nothing if the list has length 0 or 1.
-    if (_M_node->_M_next != _M_node && _M_node->_M_next->_M_next != _M_node)
+    if (GetNode(m_node->m_next) != m_node && GetNode(GetNode(m_node->m_next)->m_next) != m_node)
     {
-        list<_Tp, _Alloc> __carry;
-        list<_Tp, _Alloc> __counter[64];
+        NFShmList<_Tp, MAX_SIZE> __carry;
+        NFShmList<_Tp, MAX_SIZE> __counter[64];
         int __fill = 0;
         while (!empty())
         {
@@ -765,77 +859,85 @@ void NFShmList<_Tp, _Alloc>::sort()
     }
 }
 
-#ifdef __STL_MEMBER_TEMPLATES
-
-template <class _Tp, class _Alloc> template <class _Predicate>
-void list<_Tp, _Alloc>::remove_if(_Predicate __pred)
+template<class _Tp, size_t MAX_SIZE>
+template<class _Predicate>
+void NFShmList<_Tp, MAX_SIZE>::remove_if(_Predicate __pred)
 {
-  iterator __first = begin();
-  iterator __last = end();
-  while (__first != __last) {
+    iterator __first = begin();
+    iterator __last = end();
+    while (__first != __last)
+    {
+        iterator __next = __first;
+        ++__next;
+        if (__pred(*__first)) erase(__first);
+        __first = __next;
+    }
+}
+
+template<class _Tp, size_t MAX_SIZE>
+template<class _BinaryPredicate>
+void NFShmList<_Tp, MAX_SIZE>::unique(_BinaryPredicate __binary_pred)
+{
+    iterator __first = begin();
+    iterator __last = end();
+    if (__first == __last) return;
     iterator __next = __first;
-    ++__next;
-    if (__pred(*__first)) erase(__first);
-    __first = __next;
-  }
-}
-
-template <class _Tp, class _Alloc> template <class _BinaryPredicate>
-void list<_Tp, _Alloc>::unique(_BinaryPredicate __binary_pred)
-{
-  iterator __first = begin();
-  iterator __last = end();
-  if (__first == __last) return;
-  iterator __next = __first;
-  while (++__next != __last) {
-    if (__binary_pred(*__first, *__next))
-      erase(__next);
-    else
-      __first = __next;
-    __next = __first;
-  }
-}
-
-template <class _Tp, class _Alloc> template <class _StrictWeakOrdering>
-void list<_Tp, _Alloc>::merge(list<_Tp, _Alloc>& __x,
-                              _StrictWeakOrdering __comp)
-{
-  iterator __first1 = begin();
-  iterator __last1 = end();
-  iterator __first2 = __x.begin();
-  iterator __last2 = __x.end();
-  while (__first1 != __last1 && __first2 != __last2)
-    if (__comp(*__first2, *__first1)) {
-      iterator __next = __first2;
-      transfer(__first1, __first2, ++__next);
-      __first2 = __next;
+    while (++__next != __last)
+    {
+        if (__binary_pred(*__first, *__next))
+            erase(__next);
+        else
+            __first = __next;
+        __next = __first;
     }
-    else
-      ++__first1;
-  if (__first2 != __last2) transfer(__last1, __first2, __last2);
 }
 
-template <class _Tp, class _Alloc> template <class _StrictWeakOrdering>
-void list<_Tp, _Alloc>::sort(_StrictWeakOrdering __comp)
+template<class _Tp, size_t MAX_SIZE>
+template<class _StrictWeakOrdering>
+void NFShmList<_Tp, MAX_SIZE>::merge(NFShmList<_Tp, MAX_SIZE> &__x,
+                                     _StrictWeakOrdering __comp)
 {
-  // Do nothing if the list has length 0 or 1.
-  if (_M_node->_M_next != _M_node && _M_node->_M_next->_M_next != _M_node) {
-    list<_Tp, _Alloc> __carry;
-    list<_Tp, _Alloc> __counter[64];
-    int __fill = 0;
-    while (!empty()) {
-      __carry.splice(__carry.begin(), *this, begin());
-      int __i = 0;
-      while(__i < __fill && !__counter[__i].empty()) {
-        __counter[__i].merge(__carry, __comp);
-        __carry.swap(__counter[__i++]);
-      }
-      __carry.swap(__counter[__i]);
-      if (__i == __fill) ++__fill;
-    }
+    iterator __first1 = begin();
+    iterator __last1 = end();
+    iterator __first2 = __x.begin();
+    iterator __last2 = __x.end();
+    while (__first1 != __last1 && __first2 != __last2)
+        if (__comp(*__first2, *__first1))
+        {
+            iterator __next = __first2;
+            transfer(__first1, __first2, ++__next);
+            __first2 = __next;
+        }
+        else
+            ++__first1;
+    if (__first2 != __last2) transfer(__last1, __first2, __last2);
+}
 
-    for (int __i = 1; __i < __fill; ++__i)
-      __counter[__i].merge(__counter[__i-1], __comp);
-    swap(__counter[__fill-1]);
-  }
+template<class _Tp, size_t MAX_SIZE>
+template<class _StrictWeakOrdering>
+void NFShmList<_Tp, MAX_SIZE>::sort(_StrictWeakOrdering __comp)
+{
+    // Do nothing if the list has length 0 or 1.
+    if (m_node->_M_next != m_node && m_node->_M_next->_M_next != m_node)
+    {
+        NFShmList<_Tp, MAX_SIZE> __carry;
+        NFShmList<_Tp, MAX_SIZE> __counter[64];
+        int __fill = 0;
+        while (!empty())
+        {
+            __carry.splice(__carry.begin(), *this, begin());
+            int __i = 0;
+            while (__i < __fill && !__counter[__i].empty())
+            {
+                __counter[__i].merge(__carry, __comp);
+                __carry.swap(__counter[__i++]);
+            }
+            __carry.swap(__counter[__i]);
+            if (__i == __fill) ++__fill;
+        }
+
+        for (int __i = 1; __i < __fill; ++__i)
+            __counter[__i].merge(__counter[__i - 1], __comp);
+        swap(__counter[__fill - 1]);
+    }
 }
