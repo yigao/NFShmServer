@@ -687,6 +687,10 @@ int checkAlgoList()
     printList(vec1);
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test reverse");
+    vec1.sort();
+    printList(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test reverse");
     vec1.reverse();
     printList(vec1);
 

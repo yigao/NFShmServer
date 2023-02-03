@@ -558,7 +558,21 @@ public:
 
     void reverse();
 
-    void sort() { }
+    void sort()
+    {
+        std::list<Tp> list(begin(), end());
+        list.sort();
+        clear();
+        assign(list.begin(), list.end());
+    }
+
+    void random_shuffle()
+    {
+        std::vector<Tp> vec(begin(), end());
+        std::random_shuffle(vec.begin(), vec.end());
+        clear();
+        assign(vec.begin(), vec.end());
+    }
 
     template<class _Predicate>
     void remove_if(_Predicate);
