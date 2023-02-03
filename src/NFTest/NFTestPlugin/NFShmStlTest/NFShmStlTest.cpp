@@ -682,14 +682,22 @@ int checkAlgoList()
     }
     printList(vec1);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test reverse");
     vec1.sort();
     printList(vec1);
-/*
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test reverse");
+    vec1.reverse();
+    printList(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test reverse");
+    vec1.reverse();
+    printList(vec1);
+
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test unique");
     vec1.unique();
     printList(vec1);
-
+/*
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
     vec1.random_shuffle();
     printList(vec1);
@@ -741,6 +749,6 @@ int testMain()
     //CHECK_RET(checkPair(), "checkPair Failed");
     //CHECK_RET(checkVector(), "checkVector Failed");
     //CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
-    checkList();
+    checkAlgoList();
     return 0;
 }

@@ -551,66 +551,20 @@ public:
     }
 
 
-protected:
-    void transfer(iterator __position, iterator __first, iterator __last)
-    {
-        if (__position != __last)
-        {
-            // Remove [first, last) from its old position.
-            GetNode(__last.m_node->m_prev)->m_next = __position.m_node->m_self;
-            GetNode(__first.m_node->m_prev)->m_next = __last.m_node->m_self;
-            GetNode(__position.m_node->m_prev)->m_next = __first.m_node->m_self;
-
-            // Splice [first, last) into its new position.
-            NFShmListNodeBase *__tmp = &m_node[__position.m_node->m_prev];
-            __position.m_node->m_prev = __last.m_node->m_prev;
-            __last.m_node->m_prev = __first.m_node->m_prev;
-            __first.m_node->m_prev = __tmp->m_self;
-        }
-    }
-
 public:
-    void splice(iterator __position, NFShmList &__x)
-    {
-        if (!__x.empty())
-            this->transfer(__position, __x.begin(), __x.end());
-    }
-
-    void splice(iterator __position, NFShmList &, iterator __i)
-    {
-        iterator __j = __i;
-        ++__j;
-        if (__position == __i || __position == __j) return;
-        this->transfer(__position, __i, __j);
-    }
-
-    void splice(iterator __position, NFShmList &, iterator __first, iterator __last)
-    {
-        if (__first != __last)
-            this->transfer(__position, __first, __last);
-    }
-
     void remove(const Tp &__value);
 
     void unique();
 
-    void merge(NFShmList &__x);
-
     void reverse();
 
-    void sort();
+    void sort() { }
 
     template<class _Predicate>
     void remove_if(_Predicate);
 
     template<class _BinaryPredicate>
     void unique(_BinaryPredicate);
-
-    template<class _StrictWeakOrdering>
-    void merge(NFShmList &, _StrictWeakOrdering);
-
-    template<class _StrictWeakOrdering>
-    void sort(_StrictWeakOrdering);
 
 protected:
     template<class _Integer>
@@ -797,66 +751,9 @@ void NFShmList<_Tp, MAX_SIZE>::unique()
 }
 
 template<class _Tp, size_t MAX_SIZE>
-void NFShmList<_Tp, MAX_SIZE>::merge(NFShmList<_Tp, MAX_SIZE> &__x)
-{
-    iterator __first1 = begin();
-    iterator __last1 = end();
-    iterator __first2 = __x.begin();
-    iterator __last2 = __x.end();
-    while (__first1 != __last1 && __first2 != __last2)
-        if (*__first2 < *__first1)
-        {
-            iterator __next = __first2;
-            transfer(__first1, __first2, ++__next);
-            __first2 = __next;
-        }
-        else
-            ++__first1;
-    if (__first2 != __last2) transfer(__last1, __first2, __last2);
-}
-
-inline void __List_base_reverse(NFShmListNodeBase *__p)
-{
-/*    NFShmListNodeBase *__tmp = __p;
-    do
-    {
-        std::swap(__tmp->m_next, __tmp->m_prev);
-        __tmp = __tmp->m_prev;     // Old next node is now prev.
-    } while (__tmp != __p);*/
-}
-
-template<class _Tp, size_t MAX_SIZE>
 inline void NFShmList<_Tp, MAX_SIZE>::reverse()
 {
-    __List_base_reverse(this->m_node);
-}
-
-template<class _Tp, size_t MAX_SIZE>
-void NFShmList<_Tp, MAX_SIZE>::sort()
-{
-    // Do nothing if the list has length 0 or 1.
-    if (GetNode(m_node->m_next) != m_node && GetNode(GetNode(m_node->m_next)->m_next) != m_node)
-    {
-        NFShmList<_Tp, MAX_SIZE> __carry;
-        NFShmList<_Tp, MAX_SIZE> __counter[64];
-        int __fill = 0;
-        while (!empty())
-        {
-            __carry.splice(__carry.begin(), *this, begin());
-            int __i = 0;
-            while (__i < __fill && !__counter[__i].empty())
-            {
-                __counter[__i].merge(__carry);
-                __carry.swap(__counter[__i++]);
-            }
-            __carry.swap(__counter[__i]);
-            if (__i == __fill) ++__fill;
-        }
-
-        for (int __i = 1; __i < __fill; ++__i)
-            __counter[__i].merge(__counter[__i - 1]);
-        swap(__counter[__fill - 1]);
-    }
+    std::reverse(begin(), end());
 }
 
 template<class _Tp, size_t MAX_SIZE>
@@ -889,55 +786,5 @@ void NFShmList<_Tp, MAX_SIZE>::unique(_BinaryPredicate __binary_pred)
         else
             __first = __next;
         __next = __first;
-    }
-}
-
-template<class _Tp, size_t MAX_SIZE>
-template<class _StrictWeakOrdering>
-void NFShmList<_Tp, MAX_SIZE>::merge(NFShmList<_Tp, MAX_SIZE> &__x,
-                                     _StrictWeakOrdering __comp)
-{
-    iterator __first1 = begin();
-    iterator __last1 = end();
-    iterator __first2 = __x.begin();
-    iterator __last2 = __x.end();
-    while (__first1 != __last1 && __first2 != __last2)
-        if (__comp(*__first2, *__first1))
-        {
-            iterator __next = __first2;
-            transfer(__first1, __first2, ++__next);
-            __first2 = __next;
-        }
-        else
-            ++__first1;
-    if (__first2 != __last2) transfer(__last1, __first2, __last2);
-}
-
-template<class _Tp, size_t MAX_SIZE>
-template<class _StrictWeakOrdering>
-void NFShmList<_Tp, MAX_SIZE>::sort(_StrictWeakOrdering __comp)
-{
-    // Do nothing if the list has length 0 or 1.
-    if (m_node->_M_next != m_node && m_node->_M_next->_M_next != m_node)
-    {
-        NFShmList<_Tp, MAX_SIZE> __carry;
-        NFShmList<_Tp, MAX_SIZE> __counter[64];
-        int __fill = 0;
-        while (!empty())
-        {
-            __carry.splice(__carry.begin(), *this, begin());
-            int __i = 0;
-            while (__i < __fill && !__counter[__i].empty())
-            {
-                __counter[__i].merge(__carry, __comp);
-                __carry.swap(__counter[__i++]);
-            }
-            __carry.swap(__counter[__i]);
-            if (__i == __fill) ++__fill;
-        }
-
-        for (int __i = 1; __i < __fill; ++__i)
-            __counter[__i].merge(__counter[__i - 1], __comp);
-        swap(__counter[__fill - 1]);
     }
 }
