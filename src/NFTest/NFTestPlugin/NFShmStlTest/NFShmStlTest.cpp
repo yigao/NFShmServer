@@ -10,6 +10,7 @@
 #include "NFComm/NFShmStl/NFShmPair.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmList.h"
+#include "NFComm/NFShmStl/NFShmHashTable.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
