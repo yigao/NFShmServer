@@ -701,7 +701,7 @@ int checkAlgoList()
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test unique");
     vec1.unique();
     printList(vec1);
-/*
+
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
     vec1.random_shuffle();
     printList(vec1);
@@ -713,37 +713,6 @@ int checkAlgoList()
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
     vec1.sort();
     printList(vec1);
-
-    for (int i = 0; i < 10; i++)
-    {
-        int rand = NFRandInt(1, 10);
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "insert rand:{}", rand);
-        vec1.binary_insert(rand);
-        printVector(vec1);
-    }
-
-    NFShmVector<int, 20> vec2 = vec1;
-    vec2.sort();
-    vec2.unique();
-    vec2.random_shuffle();
-    for (auto iter = vec2.begin(); iter != vec2.end(); iter++)
-    {
-        int num = *iter;
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will seach :{}", num);
-        auto vecIter = vec1.binary_search_array(num);
-        for (int i = 0; i < (int) vecIter.size(); i++)
-        {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "search num:{}", *vecIter[i]);
-        }
-    }
-
-    for (auto iter = vec2.begin(); iter != vec2.end(); iter++)
-    {
-        int num = *iter;
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will delete:{}", num);
-        vec1.binary_delete(num);
-        printVector(vec1);
-    }*/
 
     return 0;
 }
