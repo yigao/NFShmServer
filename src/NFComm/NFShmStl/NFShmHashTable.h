@@ -17,6 +17,11 @@
 #include <algorithm>
 #include <vector>
 
+/**
+ * @brief NFShmHashTable是一种基于内存的Hash表，
+ * 它是使用共享内存实现的，可以在多个进程之间共享数据。它具有高性能，低内存使用，可用于存储和检索大量数据。
+ * 此外，它还支持锁定机制，以确保数据的安全性和一致性
+ */
 
 template<class Val>
 struct NFShmHashTableNode

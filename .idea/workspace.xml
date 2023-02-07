@@ -128,7 +128,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -602,14 +602,11 @@
       <workItem from="1675212922107" duration="27677000" />
       <workItem from="1675300597443" duration="28254000" />
       <workItem from="1675386433125" duration="17607000" />
-      <workItem from="1675644180912" duration="11679000" />
-    </task>
-    <task id="LOCAL-00349" summary="package">
-      <created>1669613199230</created>
-      <option name="number" value="00349" />
-      <option name="presentableId" value="LOCAL-00349" />
-      <option name="project" value="LOCAL" />
-      <updated>1669613199230</updated>
+      <workItem from="1675644180912" duration="14621000" />
+      <workItem from="1675732081719" duration="2043000" />
+      <workItem from="1675740552954" duration="959000" />
+      <workItem from="1675741539443" duration="29000" />
+      <workItem from="1675741578690" duration="330000" />
     </task>
     <task id="LOCAL-00350" summary="package">
       <created>1669613211856</created>
@@ -947,7 +944,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675653979543</updated>
     </task>
-    <option name="localTasksCounter" value="398" />
+    <task id="LOCAL-00398" summary="shm stl">
+      <created>1675681428739</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1675681428739</updated>
+    </task>
+    <option name="localTasksCounter" value="399" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
