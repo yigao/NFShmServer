@@ -365,6 +365,13 @@ public:
         std::_Construct(m_data + m_size, Tp());
     }
 
+    /**
+     * @brief This function erases the element at the given position and returns the iterator to the next element.
+     *          It also reduces the size of the vector and constructs a default object at the end of the vector.
+     *          It checks if the given position is valid and returns end() if it is not.
+     * @param __position
+     * @return
+     */
     iterator erase(iterator __position)
     {
         CHECK_EXPR(__position != end(), end(), "");
@@ -378,6 +385,15 @@ public:
         return __position;
     }
 
+    /**
+     * @brief   This function erases the elements in the range [__first, __last) from the vector.
+     *          It copies the elements beginning from __last to the position __first and destroys the elements from __i to m_data + m_size.
+     *          It then constructs the elements from __i to m_data + m_size with the default constructor and updates the size of the vector.
+     *          Finally, it returns the iterator __first.
+     * @param __first
+     * @param __last
+     * @return
+     */
     iterator erase(iterator __first, iterator __last)
     {
         iterator __i = std::copy(__last, m_data + m_size, __first);
@@ -389,6 +405,13 @@ public:
         return __first;
     }
 
+    /**
+     * @brief  This function resizes the vector to the given size '__new_size'.
+     * If the new size is less than the current size, elements from the beginning + __new_size to the end are erased.
+     * If the new size is greater than the current size, elements of value '__x' are inserted from the end to the new size.
+     * @param __new_size
+     * @param __x
+     */
     void resize(size_type __new_size, const Tp &__x)
     {
         if (__new_size < size())
@@ -412,6 +435,15 @@ public:
         return binary_insert(val, std::less<Tp>());
     }
 
+    /**
+     * @brief  // This function performs a binary insertion of the given value 'val' into the vector, using the provided comparison function 'comp'.
+     * If the vector does not have enough space, an iterator to the end of the vector is returned and an error message is thrown.
+     * Otherwise, the iterator to the newly inserted value is returned.
+     * @tparam _Compare
+     * @param val
+     * @param comp
+     * @return
+     */
     template<typename _Compare>
     iterator binary_insert(const Tp &val, _Compare comp)
     {
