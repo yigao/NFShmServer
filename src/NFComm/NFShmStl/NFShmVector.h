@@ -463,6 +463,14 @@ public:
         return binary_search(val, std::less<Tp>());
     }
 
+    /**
+     * @brief This function performs a binary search on the container for the given value, using the given comparison function.
+     * If the value is found, an iterator pointing to it is returned, otherwise a null iterator is returned.
+     * @tparam _Compare
+     * @param val
+     * @param comp
+     * @return
+     */
     template<typename _Compare>
     iterator binary_search(const Tp &val, _Compare comp)
     {

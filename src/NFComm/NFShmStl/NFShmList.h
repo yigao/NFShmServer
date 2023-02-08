@@ -288,6 +288,12 @@ protected:
     using _Base::m_freeStart;
     using _Base::m_size;
 protected:
+    /**
+     * @brief This function creates a node with the given data and assigns it to the free start position.
+     * It then updates the free start position and constructs the data at the node position. It also sets the valid flag to true.
+     * @param __x
+     * @return
+     */
     _Node *_M_create_node(const Tp &__x)
     {
         ptrdiff_t iSelf = m_freeStart;
@@ -314,6 +320,12 @@ protected:
         return &m_node[iSelf];
     }
 
+    /**
+     * @brief This function recycles a node given by the pointer pNode.
+     * It destroys the data stored in the node and constructs a new data object.
+     * The node is then marked as invalid and added to the start of the free list.
+     * @param pNode
+     */
     void _M_recycle_node(_Node *pNode)
     {
         NF_ASSERT(pNode);
@@ -461,6 +473,13 @@ public:
         return &m_node[index];
     }
 
+    /**
+    * Inserts the given element at the position of the iterator's next.
+    *
+    * @param __position - The position to insert the element.
+    * @param __x - The element to insert.
+    * @return An iterator pointing to the inserted element.
+    */
     iterator insert(iterator __position, const Tp &__x)
     {
         if (full())
@@ -509,6 +528,13 @@ public:
         insert(end());
     }
 
+    /**
+     * @brief  This function erases the element at the given position and returns an iterator pointing to the next element.
+     * If the position is at the end, it returns the end iterator.
+     * The node at the given position is recycled and the previous and next nodes are linked accordingly. The size of the list is also decremented.
+     * @param __position
+     * @return
+     */
     iterator erase(iterator __position)
     {
         if (__position == end())
@@ -720,7 +746,7 @@ template<class _Tp, size_t MAX_SIZEc>
 template<class _InputIter>
 void
 NFShmList<_Tp, MAX_SIZEc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2,
-                                              __false_type)
+                                              std::__false_type)
 {
     iterator __first1 = begin();
     iterator __last1 = end();
