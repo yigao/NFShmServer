@@ -1144,7 +1144,7 @@ template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::_M_erase_bucket(const size_type __n, _Node *__first, _Node *__last)
 {
-    _Node *__cur = m_buckets[__n];
+    _Node *__cur = &m_buckets[__n];
     if (__cur == __first)
         _M_erase_bucket(__n, __last);
     else
