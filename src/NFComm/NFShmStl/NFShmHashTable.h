@@ -1105,9 +1105,9 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::erase(iterator __first, iterator __last)
 {
     size_type __f_bucket = __first.m_curNode ?
-                           _M_bkt_num(__first._M_cur->m_value) : m_buckets.size();
+                           _M_bkt_num(__first.m_curNode->m_value) : m_buckets.size();
     size_type __l_bucket = __last.m_curNode ?
-                           _M_bkt_num(__last._M_cur->m_value) : m_buckets.size();
+                           _M_bkt_num(__last.m_curNode->m_value) : m_buckets.size();
 
     if (__first.m_curNode == __last.m_curNode)
         return;

@@ -742,6 +742,10 @@ int checkHashTable()
         //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", str);
     }
 
+    auto hashtable2 = hashtable;
+    hashtable2.erase(hashtable2.begin(), hashtable2.end());
+    hashtable2.debug_string();
+
     for(auto iter = set.begin(); iter != set.end(); iter++)
     {
         hashtable.erase(*iter);
