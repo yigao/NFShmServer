@@ -746,10 +746,10 @@ value_type(const NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
+inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
 distance_type(const NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
-    return (NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
+    return (typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
@@ -767,10 +767,10 @@ value_type(const NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _E
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
+inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
 distance_type(const NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
-    return (NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
+    return (typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
@@ -1085,10 +1085,10 @@ template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::erase(iterator __first, iterator __last)
 {
-    size_type __f_bucket = __first.m_curNode && get_first_index(__first.m_curNode->m_value) != -1 ?
-                           get_first_index(__first.m_curNode->m_value)  : (int)m_buckets.size();
-    size_type __l_bucket = __last.m_curNode && get_first_index(__last.m_curNode->m_value) != -1 ?
-                           get_first_index(__last.m_curNode->m_value) : (int)m_buckets.size();
+    size_type __f_bucket = __first.m_curNode ?
+                           _M_bkt_num(__first._M_cur->m_value) : m_buckets.size();
+    size_type __l_bucket = __last.m_curNode ?
+                           _M_bkt_num(__last._M_cur->m_value) : m_buckets.size();
 
     if (__first.m_curNode == __last.m_curNode)
         return;
@@ -1144,21 +1144,21 @@ template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::_M_erase_bucket(const size_type __n, _Node *__first, _Node *__last)
 {
-    _Node *__cur = &m_buckets[__n];
+    _Node *__cur = get_node(m_bucketsFirstIdx[__n]);
     if (__cur == __first)
         _M_erase_bucket(__n, __last);
     else
     {
+        NF_ASSERT(__cur);
         _Node *__next;
-        for (__next = __cur->m_next;
+        for (__next = get_node(__cur->m_next);
              __next != __first;
-             __cur = __next, __next = __cur->m_next);
+             __cur = __next, __next = get_node(__cur->m_next));
         while (__next != __last)
         {
             __cur->m_next = __next->m_next;
             _M_delete_node(__next);
-            __next = __cur->m_next;
-            --m_num_elements;
+            __next = get_node(__cur->m_next);
         }
     }
 }
@@ -1167,14 +1167,14 @@ template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::_M_erase_bucket(const size_type __n, _Node *__last)
 {
-    _Node *__cur = m_buckets[__n];
+    _Node *__cur = get_node(m_bucketsFirstIdx[__n]);
     while (__cur != __last)
     {
-        _Node *__next = __cur->m_next;
+        NF_ASSERT(__cur);
+        _Node *__next = get_node(__cur->m_next);
         _M_delete_node(__cur);
         __cur = __next;
-        m_buckets[__n] = __cur;
-        --m_num_elements;
+        m_bucketsFirstIdx[__n] = __cur ? __cur->m_self : -1;
     }
 }
 
