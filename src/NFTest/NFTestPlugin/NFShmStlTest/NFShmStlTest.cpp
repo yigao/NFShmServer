@@ -718,11 +718,46 @@ int checkAlgoList()
     return 0;
 }
 
+int checkHashTable()
+{
+    NFShmHashTable<int, int, 10, std::hash<int>, std::_Identity<int>, std::equal_to<int>> hashtable;
+
+    for(int i = 0; i < 10; i++)
+    {
+        int rand = NFRandInt(0, 5);
+        hashtable.insert_equal(rand);
+    }
+
+    hashtable.debug_string();
+    std::set<int> set;
+    for(auto iter = hashtable.begin(); iter != hashtable.end(); iter++)
+    {
+        set.insert(*iter);
+        auto it_pair = hashtable.equal_range(*iter);
+        std::string str = "find value:" + NFCommon::tostr(*iter);
+        for(auto it = it_pair.first; it != it_pair.second; it++)
+        {
+            str += NF_FORMAT(" node(self:{} valid:{} value:{} next:{})", it.m_curNode->m_self, it.m_curNode->m_valid, it.m_curNode->m_value, it.m_curNode->m_next);
+        }
+        //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", str);
+    }
+
+    for(auto iter = set.begin(); iter != set.end(); iter++)
+    {
+        hashtable.erase(*iter);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase {}:", *iter);
+        hashtable.debug_string();
+    }
+
+    return 0;
+}
+
 int testMain()
 {
     //CHECK_RET(checkPair(), "checkPair Failed");
     //CHECK_RET(checkVector(), "checkVector Failed");
     //CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
-    checkAlgoList();
+    //CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
+    checkHashTable();
     return 0;
 }
