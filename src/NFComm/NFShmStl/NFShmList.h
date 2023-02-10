@@ -231,6 +231,13 @@ public:
     int ResumeInit()
     {
         m_node = (NFShmListNode<Tp>*)m_mem;
+        for (size_t i = 0; i < MAX_SIZE; i++)
+        {
+            if (m_node[i].m_valid)
+            {
+                std::_Construct(&m_node[i].m_data);
+            }
+        }
         return 0;
     }
 
@@ -397,6 +404,11 @@ public:
 
     template<size_t X_MAX_SIZE>
     NFShmList(const NFShmList<Tp, X_MAX_SIZE> &__x)
+    {
+        insert(begin(), __x.begin(), __x.end());
+    }
+
+    NFShmList(const NFShmList<Tp, MAX_SIZE> &__x)
     {
         insert(begin(), __x.begin(), __x.end());
     }

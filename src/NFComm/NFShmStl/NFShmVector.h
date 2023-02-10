@@ -34,8 +34,7 @@ public:
 
     ~NFShmVectorBase()
     {
-        //if (MAX_SIZE > 0)
-        //    memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
         m_size = 0;
         m_data = NULL;
     }
@@ -43,8 +42,7 @@ public:
     int CreateInit()
     {
         m_size = 0;
-        if (MAX_SIZE > 0)
-            memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
         m_data = (Tp*)m_mem;
         return 0;
     }
@@ -52,6 +50,10 @@ public:
     int ResumeInit()
     {
         m_data = (Tp*)m_mem;
+        for(size_t i = 0; i < m_size; i++)
+        {
+            std::_Construct(m_data+i);
+        }
         return 0;
     }
 
@@ -133,6 +135,13 @@ public:
 
     template<size_t X_MAX_SIZE>
     NFShmVector(const NFShmVector<Tp, X_MAX_SIZE> &__x)
+    {
+        int max_size = MAX_SIZE <= __x.size() ? MAX_SIZE : __x.size();
+        auto finish = std::uninitialized_copy_n(__x.begin(), max_size, m_data);
+        m_size = finish - begin();
+    }
+
+    NFShmVector(const NFShmVector<Tp, MAX_SIZE> &__x)
     {
         int max_size = MAX_SIZE <= __x.size() ? MAX_SIZE : __x.size();
         auto finish = std::uninitialized_copy_n(__x.begin(), max_size, m_data);
