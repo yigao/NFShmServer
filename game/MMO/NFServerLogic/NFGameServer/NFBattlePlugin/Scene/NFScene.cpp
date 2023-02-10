@@ -83,11 +83,11 @@ int NFScene::Init(uint64_t mapId, uint64_t sceneId)
 
     m_mapId = mapId;
     m_sceneId = sceneId;
-    m_gridList.SetSize(m_gridMaxWidth);
-    for (uint32_t w = 0; w < (uint32_t) m_gridList.GetSize(); w++)
+    m_gridList.resize(m_gridMaxWidth);
+    for (uint32_t w = 0; w < (uint32_t) m_gridList.size(); w++)
     {
-        m_gridList[w].SetSize(m_gridMaxHeight);
-        for (uint32_t h = 0; h < (uint32_t) m_gridList[w].GetSize(); h++)
+        m_gridList[w].resize(m_gridMaxHeight);
+        for (uint32_t h = 0; h < (uint32_t) m_gridList[w].size(); h++)
         {
             m_gridList[w][h].SetGridPos({w, h});
         }
@@ -97,9 +97,9 @@ int NFScene::Init(uint64_t mapId, uint64_t sceneId)
 
 int NFScene::UnInit()
 {
-    for(int w = 0; w < (int)m_gridList.GetSize(); w++)
+    for(int w = 0; w < (int)m_gridList.size(); w++)
     {
-        for(int h = 0; h < (int)m_gridList[w].GetSize(); h++)
+        for(int h = 0; h < (int)m_gridList[w].size(); h++)
         {
             m_gridList[w][h].UnInit(m_pObjPluginManager);
         }

@@ -20,6 +20,7 @@
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFComm/NFShmCore/NFArray.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 
 #define NF_SCENE_MAX_GRID_NUM 100
 #define NF_SCENE_MAX_CREATURE_NUM 1000
@@ -77,7 +78,7 @@ private:
     uint64_t m_sceneId;
     uint32_t m_gridMaxWidth;
     uint32_t m_gridMaxHeight;
-    NFArray<NFArray<NFGrid, NF_SCENE_MAX_GRID_NUM>, NF_SCENE_MAX_GRID_NUM> m_gridList;
+    NFShmVector<NFShmVector<NFGrid, NF_SCENE_MAX_GRID_NUM>, NF_SCENE_MAX_GRID_NUM> m_gridList;
 private:
     NFShmNodeObjMultiList<NFCreature> m_creatureList;
     NFShmNodeObjMultiList<NFCreature> m_playerList;
