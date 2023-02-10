@@ -273,7 +273,10 @@ public:
         return *this;
     }
 
-    ~NFShmHashTable() {}
+    ~NFShmHashTable()
+    {
+
+    }
 
     int CreateInit()
     {
@@ -688,7 +691,6 @@ private:
     {
         __n->m_valid = false;
         std::_Destroy(&__n->m_value);
-        std::_Construct(&__n->m_value);
         _M_put_node(__n);
     }
 

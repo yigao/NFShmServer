@@ -34,29 +34,30 @@ public:
 
     ~NFShmVectorBase()
     {
-
+        //if (MAX_SIZE > 0)
+        //    memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        m_size = 0;
+        m_data = NULL;
     }
 
     int CreateInit()
     {
         m_size = 0;
-        if (std::is_pod<Tp>::value)
-        {
-            for (int i = 0; i < MAX_SIZE; i++)
-            {
-                std::_Construct(m_data + i, Tp());
-            }
-        }
+        if (MAX_SIZE > 0)
+            memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        m_data = (Tp*)m_mem;
         return 0;
     }
 
     int ResumeInit()
     {
+        m_data = (Tp*)m_mem;
         return 0;
     }
 
 protected:
-    Tp m_data[MAX_SIZE];
+    Tp* m_data;
+    int8_t m_mem[sizeof(Tp) * MAX_SIZE];
     size_t m_size;
 };
 
@@ -158,7 +159,7 @@ public:
 
     ~NFShmVector()
     {
-
+        clear();
     }
 
     NFShmVector<Tp, MAX_SIZE> &operator=(const NFShmVector<Tp, MAX_SIZE> &__x);
@@ -362,7 +363,6 @@ public:
     {
         --m_size;
         std::_Destroy(m_data + m_size);
-        std::_Construct(m_data + m_size, Tp());
     }
 
     /**
@@ -381,7 +381,6 @@ public:
             std::copy(__position + 1, m_data + m_size, __position);
         --m_size;
         std::_Destroy(m_data + m_size);
-        std::_Construct(m_data + m_size, Tp());
         return __position;
     }
 
@@ -398,9 +397,6 @@ public:
     {
         iterator __i = std::copy(__last, m_data + m_size, __first);
         std::_Destroy(__i, m_data + m_size);
-        for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
-            std::_Construct(x_first, Tp());
-
         m_size = m_size - (__last - __first);
         return __first;
     }
@@ -706,8 +702,6 @@ NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
         {
             iterator __i = std::copy(__x.begin(), __x.end(), begin());
             std::_Destroy(__i, m_data + m_size);
-            for (auto x_first = __i; x_first != m_data + m_size; ++x_first)
-                std::_Construct(x_first, _Tp());
         }
         else
         {
@@ -862,9 +856,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
 
     if (__len > capacity())
     {
-        std::_Destroy(m_data, m_data + MAX_SIZE);
-        for (auto x_first = m_data; x_first != m_data + MAX_SIZE; ++x_first)
-            std::_Construct(x_first, _Tp());
+        std::_Destroy(m_data, m_data + m_size);
         auto finish = std::uninitialized_copy_n(__first, MAX_SIZE, m_data);
         m_size = finish - begin();
     }
@@ -872,8 +864,6 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
     {
         iterator __new_finish = std::copy(__first, __last, m_data);
         std::_Destroy(__new_finish, m_data + m_size);
-        for (auto x_first = __new_finish; x_first != m_data + m_size; ++x_first)
-            std::_Construct(x_first, _Tp());
         m_size = __new_finish - begin();
     }
     else

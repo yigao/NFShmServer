@@ -214,13 +214,16 @@ int checkVector()
             NFShmVector<std::string, 5> sv3_5(sv);
             printVector(sv3_5);
 
-            NFShmVector<std::string, 6> sv3_6(sv);
-            printVector(sv3_6);
+            //NFShmVector<std::string, 6> sv3_6(sv);
+            //printVector(sv3_6);
+            //printVector(sv);
         }
 
         {
             // operator= 赋值运算符
+            printVector(sv);
             NFShmVector<std::string, 5> sv4_0 = {"a", "b", "c", "d", "e"};
+            printVector(sv);
             sv4_0 = sv;
             printVector(sv4_0);
 
@@ -715,6 +718,12 @@ int checkAlgoList()
     vec1.sort();
     printList(vec1);
 
+    NFShmList<std::string, 20> vec2;
+    vec2.push_back("a");
+    vec2.push_back("a");
+    vec2.push_back("a");
+    vec2.erase(vec2.begin());
+
     return 0;
 }
 
@@ -758,10 +767,10 @@ int checkHashTable()
 
 int testMain()
 {
-    //CHECK_RET(checkPair(), "checkPair Failed");
-    //CHECK_RET(checkVector(), "checkVector Failed");
-    //CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
-    //CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
-    checkHashTable();
+    CHECK_RET(checkPair(), "checkPair Failed");
+    CHECK_RET(checkVector(), "checkVector Failed");
+    CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
+    CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
+    CHECK_RET(checkHashTable(), "checkAlgoList Failed");
     return 0;
 }

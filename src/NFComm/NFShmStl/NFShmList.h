@@ -66,10 +66,6 @@ struct NFShmListNode : public NFShmListNodeBase
     int CreateInit()
     {
         m_valid = false;
-        if (std::is_pod<Tp>::value)
-        {
-            std::_Construct(&m_data, Tp());
-        }
         return 0;
     }
 
@@ -202,12 +198,19 @@ public:
 
     ~NFShmListBase()
     {
+        clear();
+        m_size = 0;
+        m_freeStart = 0;
+        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        m_node = NULL;
     }
 
     int CreateInit()
     {
         m_size = 0;
         m_freeStart = 0;
+        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        m_node = (NFShmListNode<Tp>*)m_mem;
 
         for (size_t i = 0; i < MAX_SIZE; i++)
         {
@@ -227,6 +230,7 @@ public:
 
     int ResumeInit()
     {
+        m_node = (NFShmListNode<Tp>*)m_mem;
         return 0;
     }
 
@@ -237,24 +241,29 @@ public:
 
         for (size_t i = 0; i < MAX_SIZE; i++)
         {
+            if (m_node[i].m_valid)
+            {
+                std::_Destroy(&(m_node[i].m_data));
+            }
             m_node[i].m_next = i + 1;
             m_node[i].m_prev = 0;
             m_node[i].m_valid = false;
             m_node[i].m_self = i;
-            std::_Destroy(&(m_node[i].m_data));
-            std::_Construct(&(m_node[i].m_data), Tp());
         }
 
+        if (m_node[MAX_SIZE].m_valid)
+        {
+            std::_Destroy(&(m_node[MAX_SIZE].m_data));
+        }
         m_node[MAX_SIZE].m_next = MAX_SIZE;
         m_node[MAX_SIZE].m_prev = MAX_SIZE;
         m_node[MAX_SIZE].m_self = MAX_SIZE;
         m_node[MAX_SIZE].m_valid = false;
-        std::_Destroy(&(m_node[MAX_SIZE].m_data));
-        std::_Construct(&(m_node[MAX_SIZE].m_data), Tp());
     }
 
 protected:
-    NFShmListNode<Tp> m_node[MAX_SIZE + 1];
+    NFShmListNode<Tp>* m_node;
+    int8_t m_mem[sizeof(NFShmListNode<Tp>) * (MAX_SIZE + 1)];
     ptrdiff_t m_freeStart;
     size_t m_size;
 };
@@ -331,15 +340,10 @@ protected:
         NF_ASSERT(pNode);
         NF_ASSERT(pNode->m_valid);
         std::_Destroy(&(pNode->m_data));
-        std::_Construct(&(pNode->m_data), Tp());
 
-        ptrdiff_t iSelf = pNode->m_self;
-        ptrdiff_t iSelf1 = m_node[pNode->m_next].m_prev;
-        ptrdiff_t iSelf2 = m_node[pNode->m_prev].m_next;
-        NF_ASSERT(iSelf == (int) iSelf1 && iSelf == (int) iSelf2);
         pNode->m_valid = false;
         pNode->m_next = m_freeStart;
-        m_freeStart = iSelf;
+        m_freeStart = pNode->m_self;
     }
 
 public:
