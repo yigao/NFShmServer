@@ -11,6 +11,8 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmList.h"
 #include "NFComm/NFShmStl/NFShmHashTable.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
@@ -762,6 +764,11 @@ int checkHashTable()
         hashtable.debug_string();
     }
 
+    return 0;
+}
+
+int checkHashSet()
+{
     return 0;
 }
 
