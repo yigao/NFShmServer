@@ -17,7 +17,7 @@
 #include "NFWorldCommonDefine.h"
 #include "NFWorldRoleInfo.h"
 #include "NFLogicCommon/NFAccountDefine.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "DBProto.pb.h"
 
 class NFWorldPlayer : public NFShmObj
@@ -271,7 +271,7 @@ public:
 
     void ClearRoleInfo();
 
-    NFShmOldHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM>& GetAllRoleInfo() { return m_roleInfo; }
+    NFShmHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM>& GetAllRoleInfo() { return m_roleInfo; }
 private:
     /**
      * @brief
@@ -361,7 +361,7 @@ private:
      */
     uint32_t m_charNum;
 private:
-    NFShmOldHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM> m_roleInfo;
+    NFShmHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM> m_roleInfo;
 private:
 DECLARE_IDCREATE(NFWorldPlayer)
 };

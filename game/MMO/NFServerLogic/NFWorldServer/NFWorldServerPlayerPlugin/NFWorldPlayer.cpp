@@ -303,7 +303,12 @@ void NFWorldPlayer::SetCharNum(uint32_t charNum)
 
 NFWorldRoleInfo *NFWorldPlayer::GetRoleInfo(uint64_t roleId)
 {
-    return m_roleInfo.Find(roleId);
+    auto iter = m_roleInfo.find(roleId);
+    if (iter != m_roleInfo.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
 }
 
 NFWorldRoleInfo *NFWorldPlayer::CreateRoleInfo(uint64_t roleId)
@@ -315,12 +320,18 @@ NFWorldRoleInfo *NFWorldPlayer::CreateRoleInfo(uint64_t roleId)
         return NULL;
     }
 
-    return m_roleInfo.Insert(roleId);
+    auto iter = m_roleInfo.emplace_hint(roleId, NFWorldRoleInfo());
+    if (iter != m_roleInfo.end())
+    {
+        return &iter->second;
+    }
+
+    return nullptr;
 }
 
 int NFWorldPlayer::DeleteRoleInfo(uint64_t roleId)
 {
-    return m_roleInfo.Erase(roleId);
+    return m_roleInfo.erase(roleId);
 }
 
 void NFWorldPlayer::ClearRoleInfo()

@@ -24,7 +24,7 @@ public:
     int ResumeInit();
 private:
     /**
-     * @brief 排队玩家UID
+     * @brief 鎺掗槦鐜╁UID
      */
     uint64_t m_playerId;
 public:
@@ -39,7 +39,7 @@ public:
 private:
 
     /**
-     * @brief 上一次请求排队名次的时间
+     * @brief 涓婁竴娆¤姹傛帓闃熷悕娆＄殑鏃堕棿
      */
     uint64_t m_lastReqTime;
 };

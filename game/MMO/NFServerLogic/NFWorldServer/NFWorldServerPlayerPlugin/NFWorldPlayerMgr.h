@@ -13,7 +13,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFWorldCommonDefine.h"
 #include "NFLoginQueue.h"
 #include <vector>
@@ -165,7 +165,7 @@ private:
     /**
      * @brief 记录排队uid表列
      */
-    NFShmOldHashMap<uint64_t, NFLoginQueue, WORLD_SERVER_MAX_ONLINE_COUNT> m_loginQueueMap;
+    NFShmHashMap<uint64_t, NFLoginQueue, WORLD_SERVER_MAX_ONLINE_COUNT> m_loginQueueMap;
 
     /**
      * @brief 计算已经进入的登陆的人数  包含在选角色界面和进入游戏的

@@ -301,7 +301,7 @@ public:
 
     _Node *get_node(int idx)
     {
-        if (idx >= 0 && idx < (int)m_buckets.size())
+        if (idx >= 0 && idx < (int) m_buckets.size())
         {
             return &m_buckets[idx];
         }
@@ -310,7 +310,7 @@ public:
 
     const _Node *get_node(int idx) const
     {
-        if (idx >= 0 && idx < (int)m_buckets.size())
+        if (idx >= 0 && idx < (int) m_buckets.size())
         {
             return &m_buckets[idx];
         }
@@ -347,6 +347,17 @@ public:
                            const NFShmHashTable<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &);
 
 public:
+    std::pair<iterator, bool> emplace(const key_type&__key, const value_type& __value)
+    {
+        return insert(std::make_pair(__key, __value));
+    }
+
+    iterator emplace_hint(const key_type&__key, const value_type& __value)
+    {
+        auto pair = insert(std::make_pair(__key, __value));
+        return pair->first;
+    }
+public:
 
     size_type bucket_count() const { return m_buckets.size(); }
 
@@ -360,7 +371,7 @@ public:
         return __result;
     }
 
-    pair<iterator, bool> insert_unique(const value_type &__obj)
+    std::pair<iterator, bool> insert_unique(const value_type &__obj)
     {
         return insert_unique_noresize(__obj);
     }
@@ -370,7 +381,7 @@ public:
         return insert_equal_noresize(__obj);
     }
 
-    pair<iterator, bool> insert_unique_noresize(const value_type &__obj);
+    std::pair<iterator, bool> insert_unique_noresize(const value_type &__obj);
 
     iterator insert_equal_noresize(const value_type &__obj);
 
@@ -493,11 +504,10 @@ public:
         NF_ASSERT(__n < m_bucketsFirstIdx.size());
         int iFirstIndex = m_bucketsFirstIdx[__n];
 
-        _Node* __first;
-        for ( __first = get_node(iFirstIndex);
-              __first && !m_equals(m_get_key(__first->m_value), __key);
-              __first = get_node(__first->m_next))
-        {}
+        _Node *__first;
+        for (__first = get_node(iFirstIndex);
+             __first && !m_equals(m_get_key(__first->m_value), __key);
+             __first = get_node(__first->m_next)) {}
 
         return iterator(__first, this);
     }
@@ -508,11 +518,10 @@ public:
         NF_ASSERT(__n < m_bucketsFirstIdx.size());
         int iFirstIndex = m_bucketsFirstIdx[__n];
 
-        _Node* __first;
-        for ( __first = get_node(iFirstIndex);
-              __first && !m_equals(m_get_key(__first->m_value), __key);
-              __first = get_node(__first->m_next))
-        {}
+        const _Node *__first;
+        for (__first = get_node(iFirstIndex);
+             __first && !m_equals(m_get_key(__first->m_value), __key);
+             __first = get_node(__first->m_next)) {}
 
         return const_iterator(__first, this);
     }
@@ -524,7 +533,7 @@ public:
         NF_ASSERT(__n < m_bucketsFirstIdx.size());
         int iFirstIndex = m_bucketsFirstIdx[__n];
 
-        for (const _Node* __cur = get_node(iFirstIndex); __cur; __cur = get_node(__cur->m_next))
+        for (const _Node *__cur = get_node(iFirstIndex); __cur; __cur = get_node(__cur->m_next))
         {
             if (m_equals(m_get_key(__cur->m_value), __key))
             {
@@ -558,7 +567,7 @@ public:
     void debug_string()
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "----------------NFShmHashTable begin size:{} MAX_SIZE:{}----------------", size(),
-                   MAX_SIZE);
+                  MAX_SIZE);
 
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "buckets begin:");
         for (int i = 0; i < (int) m_buckets.size(); ++i)
@@ -576,15 +585,18 @@ public:
             {
                 int nodes = 0;
                 std::string node_str;
-                for(_Node* curNode = get_node(m_bucketsFirstIdx[i]); curNode; curNode = get_node(curNode->m_next))
+                for (_Node *curNode = get_node(m_bucketsFirstIdx[i]); curNode; curNode = get_node(curNode->m_next))
                 {
                     nodes++;
                     if (std::is_integral<value_type>::value || std::is_same<value_type, std::string>::value)
                     {
-                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{} value:{}) ", nodes, curNode->m_self, curNode->m_valid, curNode->m_next, curNode->m_value);
+                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{} value:{}) ", nodes, curNode->m_self, curNode->m_valid,
+                                              curNode->m_next, curNode->m_value);
                     }
-                    else {
-                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{}) ", nodes, curNode->m_self, curNode->m_valid, curNode->m_next);
+                    else
+                    {
+                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{}) ", nodes, curNode->m_self, curNode->m_valid,
+                                              curNode->m_next);
                     }
                 }
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "frist idx:{} value:{} = nodes:{})", i, m_bucketsFirstIdx[i], node_str);
@@ -593,21 +605,24 @@ public:
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "first idx end");
 
         std::string str;
-        for(auto iter = begin(); iter != end(); iter++)
+        for (auto iter = begin(); iter != end(); iter++)
         {
             if (std::is_integral<value_type>::value || std::is_same<value_type, std::string>::value)
             {
-                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} value:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)), *iter, iter.m_curNode->m_next);
+                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} value:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self,
+                                 count(m_get_key(*iter)), *iter, iter.m_curNode->m_next);
             }
-            else {
-                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)), iter.m_curNode->m_next);
+            else
+            {
+                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)),
+                                 iter.m_curNode->m_next);
             }
         }
 
         std::string freeStr;
-        for(auto freeNode = get_node(m_firstFreeIdx); freeNode != NULL; freeNode = get_node(freeNode->m_next))
+        for (auto freeNode = get_node(m_firstFreeIdx); freeNode != NULL; freeNode = get_node(freeNode->m_next))
         {
-            freeStr += NF_FORMAT(" (buckets idx:{} next:{}) ", freeNode->m_self,  freeNode->m_next);
+            freeStr += NF_FORMAT(" (buckets idx:{} next:{}) ", freeNode->m_self, freeNode->m_next);
         }
 
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "iters:{}", str);
@@ -830,7 +845,7 @@ inline void swap(NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__
 
 /**
  * @brief insert_unique_noresize() inserts the given object into the NFShmHashTable,
- * if it is not already present. It returns a pair consisting of an iterator to the element
+ * if it is not already present. It returns a std::pair consisting of an iterator to the element
  * and a bool value which is true if the element was successfully inserted.
  * The bool value is false if the element was already present in the NFShmHashTable.
  * This function does not check for the size of the NFShmHashTable, and does not resize it.
@@ -844,7 +859,7 @@ inline void swap(NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__
  * @return
  */
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator, bool>
+std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator, bool>
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::insert_unique_noresize(const value_type &__obj)
 {
@@ -856,7 +871,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
     {
         if (m_equals(m_get_key(__cur->m_value), m_get_key(__obj)))
         {
-            return pair<iterator, bool>(iterator(__cur, this), false);
+            return std::pair<iterator, bool>(iterator(__cur, this), false);
         }
     }
 
@@ -868,7 +883,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 
     __tmp->m_next = iFirstIndex;
     m_bucketsFirstIdx[__n] = __tmp->m_self;
-    return pair<iterator, bool>(iterator(__tmp, this), true);
+    return std::pair<iterator, bool>(iterator(__tmp, this), true);
 }
 
 /**
@@ -946,7 +961,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_
     NF_ASSERT(__n < m_bucketsFirstIdx.size());
 
     int iFirstIndex = m_bucketsFirstIdx[__n];
-    for (_Node* __cur = get_node(iFirstIndex); __cur; __cur = get_node(__cur->m_next))
+    for (_Node *__cur = get_node(iFirstIndex); __cur; __cur = get_node(__cur->m_next))
     {
         if (m_equals(m_get_key(__cur->m_value), m_get_key(__obj)))
         {
@@ -967,12 +982,12 @@ std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator
         typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator>
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::equal_range(const key_type &__key)
 {
-    typedef pair<iterator, iterator> _Pii;
+    typedef std::pair<iterator, iterator> _Pii;
     const size_type __n = _M_bkt_num_key(__key);
     NF_ASSERT(__n < m_bucketsFirstIdx.size());
 
     int iFirstIndex = m_bucketsFirstIdx[__n];
-    for (_Node* __first = get_node(iFirstIndex); __first; __first = get_node(__first->m_next))
+    for (_Node *__first = get_node(iFirstIndex); __first; __first = get_node(__first->m_next))
     {
         if (m_equals(m_get_key(__first->m_value), __key))
         {
@@ -1002,12 +1017,12 @@ std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_it
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::equal_range(const key_type &__key) const
 {
-    typedef pair<const_iterator, const_iterator> _Pii;
+    typedef std::pair<const_iterator, const_iterator> _Pii;
     const size_type __n = _M_bkt_num_key(__key);
     NF_ASSERT(__n < m_bucketsFirstIdx.size());
 
     int iFirstIndex = m_bucketsFirstIdx[__n];
-    for (_Node* __first = get_node(iFirstIndex); __first; __first = get_node(__first->m_next))
+    for (_Node *__first = get_node(iFirstIndex); __first; __first = get_node(__first->m_next))
     {
         if (m_equals(m_get_key(__first->m_value), __key))
         {
@@ -1041,22 +1056,27 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const key_type &__key
     size_type __erased = 0;
 
     _Node *__first = get_node(iFirstIndex);
-    if (__first) {
-        _Node* __cur = __first;
-        _Node* __next = get_node(__cur->m_next);
-        while (__next) {
-            if (m_equals(m_get_key(__next->m_value), __key)) {
+    if (__first)
+    {
+        _Node *__cur = __first;
+        _Node *__next = get_node(__cur->m_next);
+        while (__next)
+        {
+            if (m_equals(m_get_key(__next->m_value), __key))
+            {
                 __cur->m_next = __next->m_next;
                 _M_delete_node(__next);
                 __next = get_node(__cur->m_next);
                 ++__erased;
             }
-            else {
+            else
+            {
                 __cur = __next;
                 __next = get_node(__cur->m_next);
             }
         }
-        if (m_equals(m_get_key(__first->m_value), __key)) {
+        if (m_equals(m_get_key(__first->m_value), __key))
+        {
             m_bucketsFirstIdx[__n] = __first->m_next;
             _M_delete_node(__first);
             ++__erased;
@@ -1128,7 +1148,7 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 inline void
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const_iterator __first,
-                                                              const_iterator __last)
+                                                           const_iterator __last)
 {
     erase(iterator(const_cast<_Node *>(__first.m_curNode),
                    const_cast<NFShmHashTable *>(__first.m_hashTable)),

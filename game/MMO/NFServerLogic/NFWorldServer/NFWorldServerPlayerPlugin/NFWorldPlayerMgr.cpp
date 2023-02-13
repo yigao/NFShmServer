@@ -114,9 +114,9 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetUid(), pPlayer->GetGlobalID());
 
     auto& mapRoleInfo = pPlayer->GetAllRoleInfo();
-    for(auto iter = mapRoleInfo.Begin(); iter != mapRoleInfo.End(); iter++)
+    for(auto iter = mapRoleInfo.begin(); iter != mapRoleInfo.end(); iter++)
     {
-        uint64_t roleId = *(iter->first);
+        uint64_t roleId = iter->first;
         DeleteCidIndex(roleId);
     }
 
@@ -168,7 +168,7 @@ bool NFWorldPlayerMgr::IsNeedLoginQueue() const
 
 bool NFWorldPlayerMgr::IsLoginQueueFull() const
 {
-    if ((uint32_t) m_loginQueueMap.GetUsedNum() >= m_maxQueueNum)
+    if ((uint32_t) m_loginQueueMap.size() >= m_maxQueueNum)
     {
         return true;
     }
@@ -183,8 +183,8 @@ bool NFWorldPlayerMgr::IsLoginQueueFull() const
  */
 bool NFWorldPlayerMgr::IsInLoginQueue(uint64_t playerId) const
 {
-    auto pData = m_loginQueueMap.Find(playerId);
-    if (pData)
+    auto iter = m_loginQueueMap.find(playerId);
+    if (iter != m_loginQueueMap.end())
     {
         return true;
     }
@@ -198,11 +198,11 @@ bool NFWorldPlayerMgr::IsInLoginQueue(uint64_t playerId) const
  */
 bool NFWorldPlayerMgr::InsertLoginQueue(uint64_t playerId)
 {
-    auto pData = m_loginQueueMap.Insert(playerId);
-    if (pData)
+    auto iter = m_loginQueueMap.emplace_hint(playerId, NFLoginQueue());
+    if (iter != m_loginQueueMap.end())
     {
-        pData->SetPlayerId(playerId);
-        pData->SetLastReqTime(NFServerTime::Instance()->UnixSec());
+        iter->second.SetPlayerId(playerId);
+        iter->second.SetLastReqTime(NFServerTime::Instance()->UnixSec());
         return true;
     }
     return false;
@@ -210,7 +210,12 @@ bool NFWorldPlayerMgr::InsertLoginQueue(uint64_t playerId)
 
 NFLoginQueue *NFWorldPlayerMgr::GetLoginQueue(uint64_t playerId)
 {
-    return m_loginQueueMap.Find(playerId);
+    auto iter = m_loginQueueMap.find(playerId);
+    if (iter != m_loginQueueMap.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
 }
 
 /**
@@ -219,7 +224,7 @@ NFLoginQueue *NFWorldPlayerMgr::GetLoginQueue(uint64_t playerId)
  */
 uint32_t NFWorldPlayerMgr::GetLoginQueueNum() const
 {
-    return (uint32_t) m_loginQueueMap.GetUsedNum();
+    return (uint32_t) m_loginQueueMap.size();
 }
 
 /**
@@ -229,7 +234,7 @@ uint32_t NFWorldPlayerMgr::GetLoginQueueNum() const
  */
 int NFWorldPlayerMgr::DeleteLoginQueue(uint64_t playerId)
 {
-    return m_loginQueueMap.Erase(playerId);
+    return m_loginQueueMap.erase(playerId);
 }
 
 NFWorldPlayer *NFWorldPlayerMgr::CreateCidIndexToUid(uint64_t cid, uint64_t uid)

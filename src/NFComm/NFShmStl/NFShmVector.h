@@ -285,6 +285,11 @@ public:
         return *(end() - 1);
     }
 
+    int emplace_back(const Tp &__x)
+    {
+        return push_back(__x);
+    }
+
     int push_back(const Tp &__x)
     {
         if (m_data + m_size != m_data + MAX_SIZE)
@@ -298,6 +303,11 @@ public:
             NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmVector push_back Failed, Vector Not Enough Space");
             return -1;
         }
+    }
+
+    int emplace_back()
+    {
+        return push_back();
     }
 
     int push_back()
@@ -320,6 +330,11 @@ public:
 
     }
 
+    iterator emplace(iterator __position, const Tp &__x)
+    {
+        return insert(__position, __x);
+    }
+
     iterator insert(iterator __position, const Tp &__x)
     {
         size_type __n = __position - begin();
@@ -336,6 +351,11 @@ public:
             }
         }
         return begin() + __n;
+    }
+
+    iterator emplace(iterator __position)
+    {
+        return insert(__position);
     }
 
     iterator insert(iterator __position)
