@@ -60,7 +60,7 @@ extern NFShmHashTableStat m_agHashTableStat[NFShmHashTableStat::HASH_TABLE_STAT_
 
 
 template <class TYPE, int iSize>
-class NFShmHashTable
+class NFShmOldHashTable
 {
 public:
 	// 返回0则比较成功，使用者具体实现
@@ -68,8 +68,8 @@ public:
 	typedef int(*HashFun)(const TYPE *tKey);
 
 public:
-	NFShmHashTable();
-	~NFShmHashTable();
+	NFShmOldHashTable();
+	~NFShmOldHashTable();
 
 	int Initialize();
 	int Reset();
@@ -158,12 +158,12 @@ int CHashTable<TYPE, iSize>::m_iNoItemCount = 0;
 */
 
 template<class TYPE, int iSize>
-NFShmHashTableStat *NFShmHashTable<TYPE, iSize>::m_pStat = NULL;
+NFShmHashTableStat *NFShmOldHashTable<TYPE, iSize>::m_pStat = NULL;
 
 
 //=============================================================================
 template<class TYPE, int iSize>
-NFShmHashTable<TYPE, iSize>::NFShmHashTable()
+NFShmOldHashTable<TYPE, iSize>::NFShmOldHashTable()
 {
 	//Recover就悲剧了，justinzhu,2016-2-24
 	//  Initialize();
@@ -185,7 +185,7 @@ NFShmHashTable<TYPE, iSize>::NFShmHashTable()
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::Initialize()
+int NFShmOldHashTable<TYPE, iSize>::Initialize()
 {
 	memset((void *)m_aHashItem, 0, iSize * sizeof(TYPE));
 
@@ -210,7 +210,7 @@ int NFShmHashTable<TYPE, iSize>::Initialize()
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::Reset()
+int NFShmOldHashTable<TYPE, iSize>::Reset()
 {
 	memset((void *)m_aHashItem, 0, iSize * sizeof(TYPE));
 
@@ -232,7 +232,7 @@ int NFShmHashTable<TYPE, iSize>::Reset()
 }
 
 template<class TYPE, int iSize>
-void NFShmHashTable<TYPE, iSize>::InitStat()
+void NFShmOldHashTable<TYPE, iSize>::InitStat()
 {
 	//m_iHashGetNumber = 0;
 	//m_iHashSearchNumber = 0;
@@ -240,12 +240,12 @@ void NFShmHashTable<TYPE, iSize>::InitStat()
 }
 
 template<class TYPE, int iSize>
-NFShmHashTable<TYPE, iSize>::~NFShmHashTable()
+NFShmOldHashTable<TYPE, iSize>::~NFShmOldHashTable()
 {
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::SetFuction(Compare keyCmp, HashFun hashFuc)
+int NFShmOldHashTable<TYPE, iSize>::SetFuction(Compare keyCmp, HashFun hashFuc)
 {
 	if (keyCmp && hashFuc)
 	{
@@ -258,7 +258,7 @@ int NFShmHashTable<TYPE, iSize>::SetFuction(Compare keyCmp, HashFun hashFuc)
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::CreatItemByKey(const TYPE *pvKey)
+int NFShmOldHashTable<TYPE, iSize>::CreatItemByKey(const TYPE *pvKey)
 {
 	if (!pvKey)
 	{
@@ -313,7 +313,7 @@ int NFShmHashTable<TYPE, iSize>::CreatItemByKey(const TYPE *pvKey)
 }
 
 template<class TYPE, int iSize>
-TYPE *NFShmHashTable<TYPE, iSize>::GetItemByKey(const TYPE *pvKey)
+TYPE *NFShmOldHashTable<TYPE, iSize>::GetItemByKey(const TYPE *pvKey)
 {
 	m_pStat->m_iHashGetNumber++;
 
@@ -367,7 +367,7 @@ TYPE *NFShmHashTable<TYPE, iSize>::GetItemByKey(const TYPE *pvKey)
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::DelItemByKey(const TYPE *pvKey)
+int NFShmOldHashTable<TYPE, iSize>::DelItemByKey(const TYPE *pvKey)
 {
 	if (!pvKey)
 	{
@@ -427,7 +427,7 @@ int NFShmHashTable<TYPE, iSize>::DelItemByKey(const TYPE *pvKey)
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::ELFHash(const TYPE *pvKey)
+int NFShmOldHashTable<TYPE, iSize>::ELFHash(const TYPE *pvKey)
 {
 	int iHash = 0;
 	int iPara = 0;
@@ -452,13 +452,13 @@ int NFShmHashTable<TYPE, iSize>::ELFHash(const TYPE *pvKey)
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::KeyCompare(const TYPE *tKey1, const TYPE *tKey2)
+int NFShmOldHashTable<TYPE, iSize>::KeyCompare(const TYPE *tKey1, const TYPE *tKey2)
 {
 	return memcmp((const void *)tKey1, (const void *)tKey2, sizeof(TYPE));
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::GetFreeItemIdx()
+int NFShmOldHashTable<TYPE, iSize>::GetFreeItemIdx()
 {
 	int iTempIdx = m_iFreeItemHead;
 
@@ -481,7 +481,7 @@ int NFShmHashTable<TYPE, iSize>::GetFreeItemIdx()
 }
 
 template<class TYPE, int iSize>
-int NFShmHashTable<TYPE, iSize>::DelUsedItemIdx(int iIdx)
+int NFShmOldHashTable<TYPE, iSize>::DelUsedItemIdx(int iIdx)
 {
 	if (iIdx < 0 || iIdx >= iSize)
 	{
@@ -499,7 +499,7 @@ int NFShmHashTable<TYPE, iSize>::DelUsedItemIdx(int iIdx)
 }
 
 template<class TYPE, int iSize>
-TYPE *NFShmHashTable<TYPE, iSize>::GetItemByIdx(int iIdx)
+TYPE *NFShmOldHashTable<TYPE, iSize>::GetItemByIdx(int iIdx)
 {
 	return &m_aHashItem[iIdx];
 }

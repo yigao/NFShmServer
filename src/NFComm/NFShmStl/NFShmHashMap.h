@@ -47,8 +47,6 @@ public:
     typedef typename _Ht::iterator iterator;
     typedef typename _Ht::const_iterator const_iterator;
 
-    typedef typename _Ht::allocator_type allocator_type;
-
     hasher hash_funct() const { return m_hashTable.hash_funct(); }
 
     key_equal key_eq() const { return m_hashTable.key_eq(); }

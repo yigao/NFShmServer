@@ -1128,7 +1128,7 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 inline void
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const_iterator __first,
-                                                           const_iterator __last)
+                                                              const_iterator __last)
 {
     erase(iterator(const_cast<_Node *>(__first.m_curNode),
                    const_cast<NFShmHashTable *>(__first.m_hashTable)),

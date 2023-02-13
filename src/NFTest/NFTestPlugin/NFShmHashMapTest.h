@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 
 #include <map>
 #include <set>
@@ -33,7 +33,7 @@ void TestShmHashMap()
 
     {
         uint64_t startTime = NFGetTime();
-        NFShmHashMap<int, std::string, 1000000, 500000> hashMap;
+        NFShmOldHashMap<int, std::string, 1000000, 500000> hashMap;
         for(int i = 0; i < 1000000; i++)
         {
             int ret = hashMap.Insert(vec[i], NFCommon::tostr(vec[i]));
@@ -177,7 +177,7 @@ void TestShmHashMap2()
 
     {
         uint64_t startTime = NFGetTime();
-        NFShmHashMap<int, int, 1000000, 500000> hashMap;
+        NFShmOldHashMap<int, int, 1000000, 500000> hashMap;
         for(int i = 0; i < 1000000; i++)
         {
             int ret = hashMap.Insert(vec[i], vec[i]);

@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "DBProto.pb.h"
 #include "Trans/NFTransSaveRoleDetail.h"
 #include "NFComm/NFShmCore/NFTickByRunIndexOP.h"

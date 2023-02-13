@@ -18,7 +18,7 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFComm/NFShmCore/NFShmString.h"
 #include "NFNavMeshInfo.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 
 #define GAME_SERVER_MAX_BATTLE_MAP_SIZE 100
 
@@ -92,6 +92,6 @@ public:
      */
     int ClearAllMap();
 private:
-    NFShmHashMap<NFShmString<MAP_NAME_MAX_LENGHT>, NFNavMeshInfo, GAME_SERVER_MAX_BATTLE_MAP_SIZE> m_mapNavMesh;
+    NFShmOldHashMap<NFShmString<MAP_NAME_MAX_LENGHT>, NFNavMeshInfo, GAME_SERVER_MAX_BATTLE_MAP_SIZE> m_mapNavMesh;
 DECLARE_IDCREATE(NFMapMgr)
 };

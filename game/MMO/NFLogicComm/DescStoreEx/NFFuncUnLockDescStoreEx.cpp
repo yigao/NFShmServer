@@ -146,7 +146,7 @@ int NFFuncUnLockDescStoreEx::CheckWhenAllDataLoaded()
 }
 
 //根据解锁类型和解锁值 获取对应的功能列表
-NFShmHashMap<uint64_t, bool, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM> *
+NFShmOldHashMap<uint64_t, bool, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM> *
 NFFuncUnLockDescStoreEx::GetUnlockFunctionList(uint32_t nType, uint64_t nValue, bool externFlag/* = false*/)
 {
     auto pTypeMap = m_mapUnlockCfg.Find(nType);

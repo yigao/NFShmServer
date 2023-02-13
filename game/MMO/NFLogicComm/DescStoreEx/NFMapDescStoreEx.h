@@ -217,12 +217,12 @@ public:
 
 
 private:
-    NFShmHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM> m_bornPosMap;
-    NFShmHashMap<uint64_t, uint64_t, 10> m_bornProfMap;
+    NFShmOldHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM> m_bornPosMap;
+    NFShmOldHashMap<uint64_t, uint64_t, 10> m_bornProfMap;
 private:
-    NFShmHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM * 10> m_pointMap;
-    NFShmHashMap<uint64_t, NFAreaCfg, MAX_MAP_MAP_NUM * 10> m_areaMap;
-    NFShmHashMap<uint64_t, NFPathCfg, MAX_MAP_MAP_NUM * 10> m_pathMap;
+    NFShmOldHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM * 10> m_pointMap;
+    NFShmOldHashMap<uint64_t, NFAreaCfg, MAX_MAP_MAP_NUM * 10> m_areaMap;
+    NFShmOldHashMap<uint64_t, NFPathCfg, MAX_MAP_MAP_NUM * 10> m_pathMap;
 private:
 DECLARE_IDCREATE(NFMapDescStoreEx);
 IMPL_RES_SIMPLE_DESC(NFMapDescStoreEx);

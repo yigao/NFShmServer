@@ -19,18 +19,18 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 
-typedef NFShmHashMap<uint64_t, NFArray<int64_t, 10>, 1000>  ITEM_FUNC_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<int32_t, bool, 10>, 1000>  ITEM_PROF_LIMIT_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<int64_t, bool, 10>, 1000>  ITEM_MAP_LIMIT_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<int32_t, bool, 10>, 1000>  ITEM_CD_GROUP_MAP;
-typedef NFShmHashMap<uint64_t, bool, 1000>  SET_NATURAL_MAP;
-typedef NFShmHashMap<uint64_t, int32_t, 1000>  MAP_VIRTUAL_ITEM_ATTR_MAP;
-typedef NFShmHashMap<int32_t, uint64_t, 1000>  MAP_ATTR_ITEM_VIRTUAL_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_FIX_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<int64_t, bool, 10>, 1000>  MAP_ITEM_USE_COND_ITEM;
-typedef NFShmHashMap<uint64_t, int64_t, 1000>  ITEM_ADD_MISSION_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<int64_t, bool, 10>, 1000>  MAP_DECOMPOSE_MAP;
-typedef NFShmHashMap<uint64_t, NFShmHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_EQUIP_SMELT;
+typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, 1000>  ITEM_FUNC_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_PROF_LIMIT_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  ITEM_MAP_LIMIT_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_CD_GROUP_MAP;
+typedef NFShmOldHashMap<uint64_t, bool, 1000>  SET_NATURAL_MAP;
+typedef NFShmOldHashMap<uint64_t, int32_t, 1000>  MAP_VIRTUAL_ITEM_ATTR_MAP;
+typedef NFShmOldHashMap<int32_t, uint64_t, 1000>  MAP_ATTR_ITEM_VIRTUAL_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_FIX_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  MAP_ITEM_USE_COND_ITEM;
+typedef NFShmOldHashMap<uint64_t, int64_t, 1000>  ITEM_ADD_MISSION_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  MAP_DECOMPOSE_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_EQUIP_SMELT;
 
 class NFItemDescStoreEx : public NFIDescStore
 {

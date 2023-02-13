@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFShmHashTable.h"
+#include "NFShmOldHashTable.h"
 
 int m_gHashTableStatNum = 0;
 NFShmHashTableStat m_agHashTableStat[NFShmHashTableStat::HASH_TABLE_STAT_MAX];

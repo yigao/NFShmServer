@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFShmCore/NFArray.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
 #define NF_MAX_DESC_STORE_INDEX_SIZE 10000
@@ -83,7 +83,7 @@
 #define IMPL_RES_HASH_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
     NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;\
-    NFShmHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
+    NFShmOldHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
     NFArray<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
     virtual int GetResNum() const override { return m_astDesc.GetSize();}\

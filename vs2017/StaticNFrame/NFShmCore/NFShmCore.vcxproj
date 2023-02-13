@@ -39,9 +39,9 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFServerFrameTypeDefines.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmBitMap.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashMap.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashMap.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashTable.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.h" />
@@ -66,7 +66,7 @@
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDBObjTrans.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreTrans.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashTable.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.cpp" />

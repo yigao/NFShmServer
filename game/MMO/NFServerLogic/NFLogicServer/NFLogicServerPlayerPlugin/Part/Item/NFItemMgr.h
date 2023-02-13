@@ -20,7 +20,7 @@
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "item_s.h"
 #include "equip_s.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 
 class NFItemMgr : public NFShmObj
 {
@@ -151,8 +151,8 @@ public:
 private:
     uint32_t m_nPickupMillsec;        //拾取掉落间隔，单位：毫秒
     uint32_t m_nPickupNumLimit;        //每次拾取数量限制
-    NFShmHashMap<uint8_t, bool, 100> m_setNormalPos;        //普通装备部位
-    NFShmHashMap<uint8_t, bool, 100> m_setJewelryPos;        //首饰部位
-    NFShmHashMap<uint8_t, bool, 100> m_setFairyPos;        //仙器部位
+    NFShmOldHashMap<uint8_t, bool, 100> m_setNormalPos;        //普通装备部位
+    NFShmOldHashMap<uint8_t, bool, 100> m_setJewelryPos;        //首饰部位
+    NFShmOldHashMap<uint8_t, bool, 100> m_setFairyPos;        //仙器部位
 DECLARE_IDCREATE(NFItemMgr)
 };

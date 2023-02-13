@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFShmHashMap.h
+//    @FileName         :    NFShmOldHashMap.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFShmHashMap.h
+//    @Module           :    NFShmOldHashMap.h
 //
 // -------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@
 #include <cstring>
 
 /**
-*@file NFShmHashMap.h
+*@file NFShmOldHashMap.h
 *@利用Hash索引来实现的简单Map
 *
 *	节点个数需要预先指定大小，暂不支持在节点用完时动态扩展的能力
@@ -55,20 +55,20 @@ bool CDefaultHashKeyCmp<KEY_TYPE>::operator() (const KEY_TYPE& rstKey1, const KE
 }
 
 template<typename KEY_TYPE, typename DATA_TYPE, typename Container>
-struct NFShmHashMapIterator
+struct NFShmOldHashMapIterator
 {
 protected:
-    typedef NFShmHashMapIterator<KEY_TYPE, DATA_TYPE, Container> _Self;
+    typedef NFShmOldHashMapIterator<KEY_TYPE, DATA_TYPE, Container> _Self;
     typedef typename Container::StaticListIterator StaticListIterator;
 public:
     typedef ptrdiff_t DifferenceType;
     typedef size_t SizeType;
 
-    NFShmHashMapIterator()
+    NFShmOldHashMapIterator()
     {
     }
 
-    explicit NFShmHashMapIterator(const Container *pContainer, StaticListIterator listIter)
+    explicit NFShmOldHashMapIterator(const Container *pContainer, StaticListIterator listIter)
             : m_pContainer(const_cast<Container *>(pContainer)), m_staticListIter(listIter)
     {
         int pos = *m_staticListIter;
@@ -196,7 +196,7 @@ public:
  */
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE = DEFAULT_HASH_MAP_NODE_SIZE,
         int HASH_SIZE = NODE_SIZE, typename CMP_FUNC = CDefaultHashKeyCmp<KEY_TYPE>>
-class NFShmHashMap
+class NFShmOldHashMap
 {
     typedef struct tagHashMapNode
     {
@@ -236,12 +236,12 @@ class NFShmHashMap
         int m_iListPos;
     } THashMapNode;
 public:
-    typedef NFShmHashMapIterator<KEY_TYPE, DATA_TYPE, NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>> Iterator;
+    typedef NFShmOldHashMapIterator<KEY_TYPE, DATA_TYPE, NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>> Iterator;
     typedef typename NFShmStaticList<int, NODE_SIZE>::Iterator StaticListIterator;
     typedef typename NFShmStaticList<int, NODE_SIZE>::_Node _Node;
 public:
-    NFShmHashMap();
-    ~NFShmHashMap();
+    NFShmOldHashMap();
+    ~NFShmOldHashMap();
     int CreateInit();
     int ResumeInit();
     int Initialize();
@@ -348,7 +348,7 @@ private:
 };
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::NFShmHashMap()
+NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::NFShmOldHashMap()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
@@ -358,20 +358,20 @@ NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::NFShmHashMap(
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::CreateInit()
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::CreateInit()
 {
     Initialize();
     return 0;
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::ResumeInit()
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::ResumeInit()
 {
     return 0;
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Initialize()
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Initialize()
 {
     m_iUsedNodeNum = 0;
     m_iFirstFreeIdx = 0;
@@ -398,13 +398,13 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Initializ
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::~NFShmHashMap()
+NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::~NFShmOldHashMap()
 {
     Erase();
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
 {
     m_iUsedNodeNum = 0;
     m_iFirstFreeIdx = 0;
@@ -436,7 +436,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase()
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::GetByIndex(int iDataIdx)
+DATA_TYPE* NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::GetByIndex(int iDataIdx)
 {
     if(iDataIdx < 0 || iDataIdx >= NODE_SIZE)
     {
@@ -454,7 +454,7 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Ge
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-KEY_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::GetKeyByIndex(int iDataIdx)
+KEY_TYPE* NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::GetKeyByIndex(int iDataIdx)
 {
     if(iDataIdx < 0 || iDataIdx >= NODE_SIZE)
     {
@@ -472,7 +472,7 @@ KEY_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Get
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::EraseBySID(int iSlotIdx, KEY_TYPE *pOutKey)
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::EraseBySID(int iSlotIdx, KEY_TYPE *pOutKey)
 {
     //int iHashIdx = 0;
     if(iSlotIdx < 0 || iSlotIdx >= NODE_SIZE || m_astHashMap[iSlotIdx].m_cUseFlag != EHNF_USED)
@@ -488,7 +488,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::EraseBySI
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(const KEY_TYPE& rstKeyval, int *pOutSlotIdx)
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(const KEY_TYPE& rstKeyval, int *pOutSlotIdx)
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -547,7 +547,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Erase(con
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData, int *pOutSlotIdx )
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData, int *pOutSlotIdx )
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -608,7 +608,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(co
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(const KEY_TYPE& rstKeyval, int *pOutSlotIdx )
+DATA_TYPE* NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Insert(const KEY_TYPE& rstKeyval, int *pOutSlotIdx )
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -668,7 +668,7 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::In
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData,  int *pOutSlotIdx )
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData,  int *pOutSlotIdx )
 {
     DATA_TYPE* pstData = Find(rstKeyval, pOutSlotIdx);
 
@@ -683,7 +683,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Update(co
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData,  int *pOutSlotIdx )
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(const KEY_TYPE& rstKeyval, const DATA_TYPE& rstData,  int *pOutSlotIdx )
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -746,7 +746,7 @@ int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Replace(c
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-const DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx ) const
+const DATA_TYPE* NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx ) const
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -779,7 +779,7 @@ const DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUN
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx)
+DATA_TYPE* NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Find(const KEY_TYPE& rstKeyval,  int *pOutSlotIdx)
 {
     int iHashIdx = 0;
     HashKeyToIndex(rstKeyval, iHashIdx);
@@ -812,7 +812,7 @@ DATA_TYPE* NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::Fi
 }
 
 template <typename KEY_TYPE, typename DATA_TYPE, int NODE_SIZE, int HASH_SIZE, typename CMP_FUNC>
-int NFShmHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyToIndex(const KEY_TYPE& rstKey, int& riIndex) const
+int NFShmOldHashMap<KEY_TYPE, DATA_TYPE, NODE_SIZE, HASH_SIZE, CMP_FUNC>::HashKeyToIndex(const KEY_TYPE& rstKey, int& riIndex) const
 {
     unsigned int uiHashSum = std::hash<KEY_TYPE>()(rstKey);
     /**

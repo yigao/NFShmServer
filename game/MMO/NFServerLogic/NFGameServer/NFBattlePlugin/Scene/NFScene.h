@@ -16,7 +16,7 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFGrid.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFComm/NFShmCore/NFArray.h"

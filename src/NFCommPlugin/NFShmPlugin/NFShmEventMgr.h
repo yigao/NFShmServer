@@ -16,7 +16,7 @@
 #include <NFComm/NFPluginModule/NFEventTemplate.h>
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFShmEventKey.h"
 #include "NFShmSubscribeInfo.h"
@@ -115,12 +115,12 @@ private:
     /**
      * @brief
      */
-    NFShmHashMap<NFShmEventKey, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_eventKeyAllSubscribe;
+    NFShmOldHashMap<NFShmEventKey, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_eventKeyAllSubscribe;
 
     /**
      * @brief
      */
-    NFShmHashMap<int, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_shmObjAllSubscribe;
+    NFShmOldHashMap<int, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_shmObjAllSubscribe;
 
     /**
      * @brief

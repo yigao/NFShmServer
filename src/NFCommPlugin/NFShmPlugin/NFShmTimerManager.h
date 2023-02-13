@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFShmTimer.h"
-#include "NFComm/NFShmCore/NFShmHashMap.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include <list>
 
@@ -147,6 +147,6 @@ private:
     int m_iFreeIndex;
     uint32_t m_timerSeq;                    // 每次tick的seq,只有当前m_currSlot已经遍历完了，才会++
 
-    NFShmHashMap<int, NFShmNodeObjList<NFShmTimer>, ALL_TIMER_COUNT> m_shmObjTimer;
+    NFShmOldHashMap<int, NFShmNodeObjList<NFShmTimer>, ALL_TIMER_COUNT> m_shmObjTimer;
 DECLARE_IDCREATE(NFShmTimerManager)
 };
