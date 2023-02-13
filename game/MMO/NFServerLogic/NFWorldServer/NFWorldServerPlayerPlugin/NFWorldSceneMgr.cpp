@@ -44,17 +44,17 @@ int NFWorldSceneMgr::LoadGameMap(const proto_ff::GameToWorldRegisterMapReq& xDat
     for(int i = 0; i < (int)xData.map_id_size(); i++)
     {
         uint64_t mapId = xData.map_id(i);
-        auto pArray = m_mapIdToGameBusIdMap.Find(mapId);
-        if (pArray == NULL)
+        auto iter = m_mapIdToGameBusIdMap.find(mapId);
+        if (iter == m_mapIdToGameBusIdMap.end())
         {
-            pArray = m_mapIdToGameBusIdMap.Insert(mapId);
-            CHECK_EXPR_CONTINUE(pArray, "m_mapIdToGameBusIdMap.Insert Failed, Not Enough Space, mapId:{} gameBus:{}", mapId, gameBus);
+            iter = m_mapIdToGameBusIdMap.emplace_hint(mapId, NFShmVector<uint32_t, NF_WORLD_MAP_ID_MAX_SERVER_NUM>());
+            CHECK_EXPR_CONTINUE(iter != m_mapIdToGameBusIdMap.end(), "m_mapIdToGameBusIdMap.Insert Failed, Not Enough Space, mapId:{} gameBus:{}", mapId, gameBus);
         }
 
         bool notHas = true;
-        for(int j = 0; j < pArray->GetSize(); j++)
+        for(int j = 0; j < (int)iter->second.size(); j++)
         {
-            if ((*pArray)[j] == gameBus)
+            if (iter->second[j] == gameBus)
             {
                 notHas = false;
                 break;
@@ -63,7 +63,7 @@ int NFWorldSceneMgr::LoadGameMap(const proto_ff::GameToWorldRegisterMapReq& xDat
 
         if (notHas)
         {
-            int ret = pArray->Add(gameBus);
+            int ret = iter->second.push_back(gameBus);
             CHECK_EXPR_CONTINUE(ret >= 0, "Add Failed, Not Enough Space, mapId:{} gameBus:{}", mapId, gameBus);
         }
     }
@@ -72,8 +72,8 @@ int NFWorldSceneMgr::LoadGameMap(const proto_ff::GameToWorldRegisterMapReq& xDat
 
 bool NFWorldSceneMgr::IsStaticMapId(uint64_t mapId) const
 {
-    auto pArray = m_mapIdToGameBusIdMap.Find(mapId);
-    if (pArray == NULL)
+    auto iter = m_mapIdToGameBusIdMap.find(mapId);
+    if (iter != m_mapIdToGameBusIdMap.end())
     {
         return true;
     }
@@ -82,12 +82,22 @@ bool NFWorldSceneMgr::IsStaticMapId(uint64_t mapId) const
 
 uint32_t NFWorldSceneMgr::GetStaticMapGameId(uint64_t mapId) const
 {
-    auto pArray = m_mapIdToGameBusIdMap.Find(mapId);
-    if (pArray == NULL)
+    auto iter = m_mapIdToGameBusIdMap.find(mapId);
+    if (iter == m_mapIdToGameBusIdMap.end())
     {
         return 0;
     }
 
-    int index = NFRandInt((int)0, (int)pArray->GetSize());
-    return (*pArray)[index];
+    if (iter->second.size() == 0)
+    {
+        return -1;
+    }
+    else if (iter->second.size() == 1)
+    {
+        return iter->second[0];
+    }
+    else {
+        int index = NFRandInt((int)0, (int)iter->second.size());
+        return iter->second[index];
+    }
 }

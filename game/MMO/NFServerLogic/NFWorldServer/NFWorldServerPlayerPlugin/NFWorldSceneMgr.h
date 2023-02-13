@@ -15,7 +15,8 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmCore/NFArray.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "ServerInternal2.pb.h"
@@ -45,8 +46,8 @@ public:
     bool IsStaticMapId(uint64_t mapId) const;
     uint32_t GetStaticMapGameId(uint64_t mapId) const;
 private:
-    NFShmOldHashMap<uint64_t, NFArray<uint32_t, NF_WORLD_MAP_ID_MAX_SERVER_NUM>, NF_WORLD_SERVER_MAX_MAP_NUM> m_mapIdToGameBusIdMap;
-    NFShmOldHashMap<uint64_t, SceneSimpleInfo, NF_WORLD_SERVER_MAX_MAP_NUM*10> m_sceneMap;
+    NFShmHashMap<uint64_t, NFShmVector<uint32_t, NF_WORLD_MAP_ID_MAX_SERVER_NUM>, NF_WORLD_SERVER_MAX_MAP_NUM> m_mapIdToGameBusIdMap;
+    NFShmHashMap<uint64_t, SceneSimpleInfo, NF_WORLD_SERVER_MAX_MAP_NUM*10> m_sceneMap;
 private:
 DECLARE_IDCREATE(NFWorldSceneMgr)
 };

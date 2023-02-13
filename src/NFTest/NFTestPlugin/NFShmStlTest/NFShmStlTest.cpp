@@ -13,6 +13,7 @@
 #include "NFComm/NFShmStl/NFShmHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+//#include "NFComm/NFShmStl/NFShmString.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
