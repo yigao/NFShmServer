@@ -75,7 +75,7 @@ int NFItemDescStoreEx::ProcessItem()
 {
     auto &itemArray = ItemItemDesc::Instance(m_pObjPluginManager)->GetResDesc();
 
-    for (int i = 0; i < (int) itemArray.GetSize(); i++)
+    for (int i = 0; i < (int) itemArray.size(); i++)
     {
         auto &itemCfg = itemArray[i];
         if (itemCfg.bindType == 1)
@@ -542,9 +542,9 @@ int NFItemDescStoreEx::ProcessItem()
     auto pMapEquip = EquipEquipDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
     if (pMapEquip)
     {
-        for (int i = 0; i < (int) pMapEquip->GetSize(); i++)
+        for (int i = 0; i < (int) pMapEquip->size(); i++)
         {
-            auto &info = *(pMapEquip->Get(i));
+            auto &info = pMapEquip->at(i);
             //
             if (info.isCanbind == 1)
             {

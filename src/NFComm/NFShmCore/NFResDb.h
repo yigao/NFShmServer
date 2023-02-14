@@ -11,8 +11,8 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
-#include "NFComm/NFShmCore/NFArray.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
 #define NF_MAX_DESC_STORE_INDEX_SIZE 10000
@@ -20,15 +20,13 @@
 //proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
 #define IMPL_RES_ARRAY_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
-    NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;                     \
-    NFArray<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
+    NFShmVector<DESCCLASSNAME, DESCNUM> m_astDesc;                     \
+    NFShmVector<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
-    int GetResNum() const override { return m_astDesc.GetSize();}\
-    NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
+    int GetResNum() const override { return m_astDesc.size();}\
+    NFShmVector<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
     int Initialize() override\
     {\
-        m_astDesc.CreateInit();\
-        m_astDesc.CreateInit();\
         return 0;\
     }\
     int Reload(NFResDB *pDB) override\
@@ -50,7 +48,7 @@
     int SaveDescStore() override\
     {\
         if (!IsLoaded()) return 0;\
-        for(int i = 0; i < (int)m_astDesc.GetSize(); i++)\
+        for(int i = 0; i < (int)m_astDesc.size(); i++)\
         {\
             if (m_astDesc[i].IsUrgentNeedSave())\
             {\
@@ -82,20 +80,17 @@
 
 #define IMPL_RES_HASH_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
-    NFArray<DESCCLASSNAME, DESCNUM> m_astDesc;\
-    NFShmOldHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
-    NFArray<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
+    NFShmVector<DESCCLASSNAME, DESCNUM> m_astDesc;\
+    NFShmHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
+    NFShmVector<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
-    virtual int GetResNum() const override { return m_astDesc.GetSize();}\
-    NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
-    const NFArray<DESCCLASSNAME, DESCNUM>& GetResDesc() const { return m_astDesc; } \
-    NFArray<DESCCLASSNAME, DESCNUM>* GetResDescPtr() { return &m_astDesc; }\
-    const NFArray<DESCCLASSNAME, DESCNUM>* GetResDescPtr() const { return &m_astDesc; }\
+    virtual int GetResNum() const override { return m_astDesc.size();}\
+    NFShmVector<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
+    const NFShmVector<DESCCLASSNAME, DESCNUM>& GetResDesc() const { return m_astDesc; } \
+    NFShmVector<DESCCLASSNAME, DESCNUM>* GetResDescPtr() { return &m_astDesc; }\
+    const NFShmVector<DESCCLASSNAME, DESCNUM>* GetResDescPtr() const { return &m_astDesc; }\
     virtual int Initialize() override\
     {\
-        m_astDesc.CreateInit();\
-        m_astDescMap.CreateInit();\
-        m_astDescIndex.CreateInit();\
         return 0;\
     }\
     virtual int Reload(NFResDB *pDB) override\
@@ -112,12 +107,12 @@
     virtual int CheckWhenAllDataLoaded() override;\
     virtual int CalcUseRatio() override\
     {\
-        return m_astDesc.GetSize() * 100 / m_astDesc.GetMaxSize();\
+        return m_astDesc.size() * 100 / m_astDesc.max_size();\
     }\
     virtual int SaveDescStore() override\
     {\
         if (!IsLoaded()) return 0;\
-        for(int i = 0; i < (int)m_astDesc.GetSize(); i++)\
+        for(int i = 0; i < (int)m_astDesc.size(); i++)\
         {\
             if (m_astDesc[i].IsUrgentNeedSave())\
             {\

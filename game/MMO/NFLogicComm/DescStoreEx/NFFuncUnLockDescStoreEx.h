@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"

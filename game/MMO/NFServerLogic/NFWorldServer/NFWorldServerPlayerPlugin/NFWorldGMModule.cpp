@@ -111,9 +111,9 @@ int NFWorldGMModule::GMMsgHandler(uint64_t uid, uint64_t roleId, const string &c
         auto pmap = GmcommandGmcommandDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
         if (nullptr != pmap)
         {
-            for (int i = 0; i < (int)pmap->GetSize(); i++)
+            for (int i = 0; i < (int)pmap->size(); i++)
             {
-                auto pInfo = pmap->Get(i);
+                auto pInfo = &pmap->at(i);
                 if (strcmd == pInfo->Key.ToString())
                 {
                     argcount = pInfo->ParamCount;

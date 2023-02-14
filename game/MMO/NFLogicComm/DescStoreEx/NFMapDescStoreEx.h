@@ -19,6 +19,8 @@
 #include "common_logic_s.h"
 #include "NFLogicCommon/NFPoint3.h"
 
+#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+
 #define NF_MAP_DESC_BORN_MAX_SIZE 40
 #define NF_MAP_DESC_AREA_MAX_POS_SIZE 10
 #define NF_MAP_DESC_PATH_MAX_POS_SIZE 10

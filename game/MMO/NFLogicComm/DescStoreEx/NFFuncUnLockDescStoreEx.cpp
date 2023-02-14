@@ -54,9 +54,9 @@ int NFFuncUnLockDescStoreEx::Load(NFResDB *pDB)
     auto mapUnlockCfg = FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
     CHECK_NULL(mapUnlockCfg);
 
-    for (int i = 0; i < (int) mapUnlockCfg->GetSize(); i++)
+    for (int i = 0; i < (int) mapUnlockCfg->size(); i++)
     {
-        auto &tInfo = *mapUnlockCfg->Get(i);
+        auto &tInfo = mapUnlockCfg->at(i);
 
         auto pOpenTypeMap = m_mapUnlockCfg.Find(tInfo.openType);
         if (pOpenTypeMap == NULL)

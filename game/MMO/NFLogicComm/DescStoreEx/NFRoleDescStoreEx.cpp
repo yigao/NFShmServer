@@ -57,7 +57,7 @@ int NFRoleDescStoreEx::Load(NFResDB *pDB)
     Initialize();
 
     auto &mapResDesc = RoleExpDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for (int i = 0; i < (int) mapResDesc.GetSize(); i++)
+    for (int i = 0; i < (int) mapResDesc.size(); i++)
     {
         auto pDesc = &mapResDesc[i];
         if (pDesc)

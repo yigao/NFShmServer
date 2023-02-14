@@ -46,15 +46,15 @@ int FunctionunlockPreviewDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.functionunlockpreview_list_size() < 0) || (table.functionunlockpreview_list_size() > (int)(m_astDesc.GetMaxSize())))
+	if ((table.functionunlockpreview_list_size() < 0) || (table.functionunlockpreview_list_size() > (int)(m_astDesc.size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.functionunlockpreview_list_size());
 		return -2;
 	}
 
-	m_astDesc.SetSize(table.functionunlockpreview_list_size());
-	m_astDescIndex.SetSize(m_astDescIndex.GetMaxSize());
-	for(int i = 0; i < (int)m_astDescIndex.GetSize(); i++)
+	m_astDesc.resize(table.functionunlockpreview_list_size());
+	m_astDescIndex.resize(m_astDescIndex.max_size());
+	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
 	{
 		m_astDescIndex[i] = -1;
 	}
@@ -70,9 +70,8 @@ int FunctionunlockPreviewDesc::Load(NFResDB *pDB)
 		auto pDesc = &m_astDesc[i];
 		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.functionid());
 		pDesc->read_from_pbmsg(desc);
-		auto pIndex = m_astDescMap.Insert(desc.functionid());
-		CHECK_EXPR(pIndex, -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.functionid());
-		*pIndex = i;
+		auto iter = m_astDescMap.emplace_hint(desc.functionid(), i);
+		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.functionid());
 		uint64_t hashKey = desc.functionid();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
@@ -109,16 +108,16 @@ const proto_ff_s::functionunlockpreview_s * FunctionunlockPreviewDesc::GetDesc(i
 		int index = m_astDescIndex[id];
 		if (index >= 0)
 		{
-			CHECK_EXPR_ASSERT(index < m_astDesc.GetSize(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.GetSize());
+			CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
 			return &m_astDesc[index];
 		}
 	}
 
-	auto pIndex = m_astDescMap.Find(id);
-	if (pIndex)
+	auto iter = m_astDescMap.find(id);
+	if (iter != m_astDescMap.end())
 	{
-		int index = *pIndex;
-		CHECK_EXPR_ASSERT(index >= 0 && index < m_astDesc.GetSize(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.GetSize());
+		int index = iter->second;
+		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
 		return &m_astDesc[index];
 	}
 

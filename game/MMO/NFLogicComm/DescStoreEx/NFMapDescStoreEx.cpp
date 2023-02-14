@@ -60,7 +60,7 @@ int NFMapDescStoreEx::Load(NFResDB *pDB)
     std::string dir = m_pObjPluginManager->GetConfigPath() + "/Json/";
 
     auto &mapResDesc = MapMapDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for (int i = 0; i < (int) mapResDesc.GetSize(); i++)
+    for (int i = 0; i < (int) mapResDesc.size(); i++)
     {
         auto pDesc = &mapResDesc[i];
         if (pDesc)
@@ -70,7 +70,7 @@ int NFMapDescStoreEx::Load(NFResDB *pDB)
     }
 
     auto &bornResDesc = RoleBornDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for (int i = 0; i < (int) bornResDesc.GetSize(); i++)
+    for (int i = 0; i < (int) bornResDesc.size(); i++)
     {
         auto pDesc = &bornResDesc[i];
         if (pDesc)

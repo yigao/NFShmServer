@@ -159,10 +159,9 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
 
     bool ret = false;
     auto pPreviewMap = FunctionunlockPreviewDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
-    for(auto i = 0; i < pPreviewMap->GetSize(); i++)
+    for(auto i = 0; i < (int)pPreviewMap->size(); i++)
     {
-        auto pPreview = pPreviewMap->Get(i);
-        NF_ASSERT(pPreview != NULL);
+        auto pPreview = &pPreviewMap->at(i);
 
         if ((uint64_t)pPreview->functionId == msgReq.function_id())
         {
@@ -201,9 +200,9 @@ int NFFunctionUnlockPart::UnlockAllFunc()
     VEC_UINT64 noticeList;
     noticeList.clear();
     //
-    for (auto i = 0; i < (int)pArrayUnlockCfg->Size(); i++)
+    for (auto i = 0; i < (int)pArrayUnlockCfg->size(); i++)
     {
-        auto pInfo = pArrayUnlockCfg->Get(i);
+        auto pInfo = &pArrayUnlockCfg->at(i);
         CHECK_NULL(pInfo);
         if (!isFunctionUnlock(pInfo->functionId))
         {
@@ -410,9 +409,9 @@ int NFFunctionUnlockPart::CheckALLFunctions(bool sync)
     VEC_UINT64 vecAddLst;
     vecAddLst.clear();
     //
-    for (auto i = 0; i < (int)pArrayUnLockCfg->GetSize(); i++)
+    for (auto i = 0; i < (int)pArrayUnLockCfg->size(); i++)
     {
-        auto pInfo = pArrayUnLockCfg->Get(i);
+        auto pInfo = &pArrayUnLockCfg->at(i);
         CHECK_NULL(pInfo);
 
         if(FUNCTION_UNLOCK_TYPE_SPECIAL ==  pInfo->openType)

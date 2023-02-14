@@ -61,7 +61,7 @@ int NFMapMgr::LoadConfig()
     FindModule<NFISharedMemModule>()->ClearAllObj(EOT_GAME_MAP_ID);
     CreateInit();
     auto &arrayMap = MapMapDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for (int i = 0; i < (int) arrayMap.GetSize(); i++)
+    for (int i = 0; i < (int) arrayMap.size(); i++)
     {
         auto &info = arrayMap[i];
         NFMap* pMap = CreateMap(info.mapId);
