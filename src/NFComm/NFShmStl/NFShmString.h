@@ -874,31 +874,27 @@ void NFShmBasicString<_CharT, MAX_SIZE, _Traits>::reserve(size_type __res_arg)
 
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>::append(size_type __n, _CharT __c)
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::append(size_type __n, _CharT __c)
 {
-    if (__n > max_size() || size() > max_size() - __n)
-        _M_throw_length_error();
+    NF_ASSERT(!(__n > max_size() || size() > max_size() - __n));
     if (size() + __n > capacity())
         reserve(size() + max(size(), __n));
     if (__n > 0)
     {
         uninitialized_fill_n(m_data + m_size + 1, __n - 1, __c);
-        __STL_TRY{
-                _M_construct_null(m_data + m_size + __n);
-        }
-        __STL_UNWIND(destroy(m_data + m_size + 1, m_data + m_size + __n));
+        _M_construct_null(m_data + m_size + __n);
         _Traits::assign(*m_data + m_size, __c);
         m_data + m_size += __n;
     }
     return *this;
 }
 
-template<class _Tp, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _Tp, int MAX_SIZE, class _Traits>
 template<class _InputIterator>
-basic_string<_Tp, _Traits, _Alloc> &
-NFShmBasicString<_Tp, _Traits, _Alloc>::append(_InputIterator __first,
+NFShmBasicString<_Tp, MAX_SIZE, _Traits> &
+NFShmBasicString<_Tp, MAX_SIZE, _Traits>::append(_InputIterator __first,
                                                _InputIterator __last,
                                                input_iterator_tag)
 {
@@ -907,21 +903,20 @@ NFShmBasicString<_Tp, _Traits, _Alloc>::append(_InputIterator __first,
     return *this;
 }
 
-template<class _Tp, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _Tp, int MAX_SIZE, class _Traits>
 template<class _ForwardIter>
-basic_string<_Tp, _Traits, _Alloc> &
-NFShmBasicString<_Tp, _Traits, _Alloc>::append(_ForwardIter __first,
+NFShmBasicString<_Tp, MAX_SIZE, _Traits> &
+NFShmBasicString<_Tp, MAX_SIZE, _Traits>::append(_ForwardIter __first,
                                                _ForwardIter __last,
-                                               forward_iterator_tag)
+                                               std::forward_iterator_tag)
 {
     if (__first != __last)
     {
         const size_type __old_size = size();
         difference_type __n = 0;
         distance(__first, __last, __n);
-        if (static_cast<size_type>(__n) > max_size() ||
-            __old_size > max_size() - static_cast<size_type>(__n))
-            _M_throw_length_error();
+        NF_ASSERT(!(static_cast<size_type>(__n) > max_size() ||
+            __old_size > max_size() - static_cast<size_type>(__n)));
         if (__old_size + static_cast<size_type>(__n) > capacity())
         {
             const size_type __len = __old_size +
@@ -946,10 +941,7 @@ NFShmBasicString<_Tp, _Traits, _Alloc>::append(_ForwardIter __first,
             _ForwardIter __f1 = __first;
             ++__f1;
             uninitialized_copy(__f1, __last, m_data + m_size + 1);
-            __STL_TRY{
-                    _M_construct_null(m_data + m_size + __n);
-            }
-            __STL_UNWIND(destroy(m_data + m_size + 1, m_data + m_size + __n));
+            _M_construct_null(m_data + m_size + __n);
             _Traits::assign(*m_data + m_size, *__first);
             m_data + m_size += __n;
         }
@@ -958,17 +950,16 @@ NFShmBasicString<_Tp, _Traits, _Alloc>::append(_ForwardIter __first,
 }
 
 
-template<class _Tp, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_Tp, _Traits, _Alloc> &
-NFShmBasicString<_Tp, _Traits, _Alloc>::append(const _Tp *__first,
+template<class _Tp, int MAX_SIZE, class _Traits>
+NFShmBasicString<_Tp, MAX_SIZE, _Traits> &
+NFShmBasicString<_Tp, MAX_SIZE, _Traits>::append(const _Tp *__first,
                                                const _Tp *__last)
 {
     if (__first != __last)
     {
         const size_type __old_size = size();
         ptrdiff_t __n = __last - __first;
-        if (__n > max_size() || __old_size > max_size() - __n)
-            _M_throw_length_error();
+        NF_ASSERT(!(__n > max_size() || __old_size > max_size() - __n));
         if (__old_size + __n > capacity())
         {
             const size_type __len = __old_size + max(__old_size, (size_t) __n) + 1;
@@ -991,11 +982,8 @@ NFShmBasicString<_Tp, _Traits, _Alloc>::append(const _Tp *__first,
         {
             const _Tp *__f1 = __first;
             ++__f1;
-            uninitialized_copy(__f1, __last, m_data + m_size + 1);
-            __STL_TRY{
-                    _M_construct_null(m_data + m_size + __n);
-            }
-            __STL_UNWIND(destroy(m_data + m_size + 1, m_data + m_size + __n));
+            std::uninitialized_copy(__f1, __last, m_data + m_size + 1);
+            _M_construct_null(m_data + m_size + __n);
             _Traits::assign(*m_data + m_size, *__first);
             m_data + m_size += __n;
         }
@@ -1003,9 +991,9 @@ NFShmBasicString<_Tp, _Traits, _Alloc>::append(const _Tp *__first,
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>::assign(size_type __n, _CharT __c)
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::assign(size_type __n, _CharT __c)
 {
     if (__n <= size())
     {
@@ -1020,9 +1008,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>::assign(size_type __n, _CharT __c)
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 template<class _InputIter>
-basic_string<_CharT, _Traits, _Alloc> &NFShmBasicString<_CharT, _Traits, _Alloc>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::_M_assign_dispatch(_InputIter __f, _InputIter __l, __false_type)
 {
     pointer __cur = m_data;
@@ -1040,9 +1028,9 @@ basic_string<_CharT, _Traits, _Alloc> &NFShmBasicString<_CharT, _Traits, _Alloc>
 }
 
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>::assign(const _CharT *__f,
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::assign(const _CharT *__f,
                                                   const _CharT *__l)
 {
     const ptrdiff_t __n = __l - __f;
@@ -1059,10 +1047,10 @@ NFShmBasicString<_CharT, _Traits, _Alloc>::assign(const _CharT *__f,
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::iterator
-NFShmBasicString<_CharT, _Traits, _Alloc>
-::_M_insert_aux(basic_string<_CharT, _Traits, _Alloc>::iterator __p,
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::iterator
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
+::_M_insert_aux(NFShmBasicString<_CharT, MAX_SIZE, _Traits>::iterator __p,
                 _CharT __c)
 {
     iterator __new_pos = __p;
@@ -1098,9 +1086,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     return __new_pos;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-void NFShmBasicString<_CharT, _Traits, _Alloc>
-::insert(basic_string<_CharT, _Traits, _Alloc>::iterator __position,
+template<class _CharT, int MAX_SIZE, class _Traits>
+void NFShmBasicString<_CharT, MAX_SIZE, _Traits>
+::insert(NFShmBasicString<_CharT, MAX_SIZE, _Traits>::iterator __position,
          size_t __n, _CharT __c)
 {
     if (__n != 0)
@@ -1155,9 +1143,9 @@ void NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _Tp, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _Tp, int MAX_SIZE, class _Traits>
 template<class _InputIter>
-void NFShmBasicString<_Tp, _Traits, _Alloc>::insert(iterator __p,
+void NFShmBasicString<_Tp, MAX_SIZE, _Traits>::insert(iterator __p,
                                                     _InputIter __first,
                                                     _InputIter __last,
                                                     input_iterator_tag)
@@ -1169,13 +1157,13 @@ void NFShmBasicString<_Tp, _Traits, _Alloc>::insert(iterator __p,
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 template<class _ForwardIter>
 void
-NFShmBasicString<_CharT, _Traits, _Alloc>::insert(iterator __position,
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::insert(iterator __position,
                                                   _ForwardIter __first,
                                                   _ForwardIter __last,
-                                                  forward_iterator_tag)
+                                                  std::forward_iterator_tag)
 {
     if (__first != __last)
     {
@@ -1234,9 +1222,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>::insert(iterator __position,
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 void
-NFShmBasicString<_CharT, _Traits, _Alloc>::insert(iterator __position,
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::insert(iterator __position,
                                                   const _CharT *__first,
                                                   const _CharT *__last)
 {
@@ -1296,9 +1284,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>::insert(iterator __position,
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::replace(iterator __first, iterator __last, size_type __n, _CharT __c)
 {
     const size_type __len = static_cast<size_type>(__last - __first);
@@ -1315,10 +1303,10 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 template<class _InputIter>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::replace(iterator __first, iterator __last, _InputIter __f, _InputIter __l,
           input_iterator_tag)
 {
@@ -1332,10 +1320,10 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 template<class _ForwardIter>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::replace(iterator __first, iterator __last,
           _ForwardIter __f, _ForwardIter __l,
           forward_iterator_tag)
@@ -1358,9 +1346,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc> &
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits> &
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::replace(iterator __first, iterator __last,
           const _CharT *__f, const _CharT *__l)
 {
@@ -1380,9 +1368,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     return *this;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find(const _CharT *__s, size_type __pos, size_type __n) const
 {
     if (__pos + __n > size())
@@ -1396,9 +1384,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find(_CharT __c, size_type __pos) const
 {
     if (__pos >= size())
@@ -1412,9 +1400,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::rfind(const _CharT *__s, size_type __pos, size_type __n) const
 {
     const size_t __len = size();
@@ -1433,9 +1421,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::rfind(_CharT __c, size_type __pos) const
 {
     const size_type __len = size();
@@ -1452,9 +1440,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find_first_of(const _CharT *__s, size_type __pos, size_type __n) const
 {
     if (__pos >= size())
@@ -1469,9 +1457,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
 }
 
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find_last_of(const _CharT *__s, size_type __pos, size_type __n) const
 {
     const size_type __len = size();
@@ -1490,9 +1478,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
 }
 
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find_first_not_of(const _CharT *__s, size_type __pos, size_type __n) const
 {
     if (__pos > size())
@@ -1505,9 +1493,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find_first_not_of(_CharT __c, size_type __pos) const
 {
     if (__pos > size())
@@ -1521,9 +1509,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_CharT, _Traits, _Alloc>::size_type
-NFShmBasicString<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 ::find_last_not_of(const _CharT *__s, size_type __pos, size_type __n) const
 {
 
@@ -1541,9 +1529,9 @@ NFShmBasicString<_CharT, _Traits, _Alloc>
     }
 }
 
-template<class _Tp, int MAX_SIZE, class _Traits, class _Alloc>
-basic_string<_Tp, _Traits, _Alloc>::size_type
-NFShmBasicString<_Tp, _Traits, _Alloc>
+template<class _Tp, int MAX_SIZE, class _Traits>
+NFShmBasicString<_Tp, MAX_SIZE, _Traits>::size_type
+NFShmBasicString<_Tp, MAX_SIZE, _Traits>
 ::find_last_not_of(_Tp __c, size_type __pos) const
 {
     const size_type __len = size();
@@ -1565,12 +1553,12 @@ NFShmBasicString<_Tp, _Traits, _Alloc>
 
 // Operator+
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_string<_CharT, _Traits, _Alloc>
-operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
-          const basic_string<_CharT, _Traits, _Alloc> &__y)
+template<class _CharT, int MAX_SIZE, class _Traits>
+inline NFShmBasicString<_CharT, MAX_SIZE, _Traits>
+operator+(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
+          const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
-    typedef basic_string<_CharT, _Traits, _Alloc> _Str;
+    typedef NFShmBasicString<_CharT, MAX_SIZE, _Traits> _Str;
     typedef typename _Str::_Reserve_t _Reserve_t;
     _Reserve_t __reserve;
     _Str __result(__reserve, __x.size() + __y.size(), __x.get_allocator());
@@ -1579,12 +1567,12 @@ operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
     return __result;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_string<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+inline NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 operator+(const _CharT *__s,
-          const basic_string<_CharT, _Traits, _Alloc> &__y)
+          const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
-    typedef basic_string<_CharT, _Traits, _Alloc> _Str;
+    typedef NFShmBasicString<_CharT, MAX_SIZE, _Traits> _Str;
     typedef typename _Str::_Reserve_t _Reserve_t;
     _Reserve_t __reserve;
     const size_t __n = _Traits::length(__s);
@@ -1594,12 +1582,12 @@ operator+(const _CharT *__s,
     return __result;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_string<_CharT, _Traits, _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
+inline NFShmBasicString<_CharT, MAX_SIZE, _Traits>
 operator+(_CharT __c,
-          const basic_string<_CharT, _Traits, _Alloc> &__y)
+          const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
-    typedef basic_string<_CharT, _Traits, _Alloc> _Str;
+    typedef NFShmBasicString<_CharT, MAX_SIZE, _Traits> _Str;
     typedef typename _Str::_Reserve_t _Reserve_t;
     _Reserve_t __reserve;
     _Str __result(__reserve, 1 + __y.size());
@@ -1608,12 +1596,12 @@ operator+(_CharT __c,
     return __result;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_string<_CharT, _Traits, _Alloc>
-operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
+template<class _CharT, int MAX_SIZE, class _Traits>
+inline NFShmBasicString<_CharT, MAX_SIZE, _Traits>
+operator+(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
           const _CharT *__s)
 {
-    typedef basic_string<_CharT, _Traits, _Alloc> _Str;
+    typedef NFShmBasicString<_CharT, MAX_SIZE, _Traits> _Str;
     typedef typename _Str::_Reserve_t _Reserve_t;
     _Reserve_t __reserve;
     const size_t __n = _Traits::length(__s);
@@ -1623,12 +1611,12 @@ operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
     return __result;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_string<_CharT, _Traits, _Alloc>
-operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
+template<class _CharT, int MAX_SIZE, class _Traits>
+inline NFShmBasicString<_CharT, MAX_SIZE, _Traits>
+operator+(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
           const _CharT __c)
 {
-    typedef basic_string<_CharT, _Traits, _Alloc> _Str;
+    typedef NFShmBasicString<_CharT, MAX_SIZE, _Traits> _Str;
     typedef typename _Str::_Reserve_t _Reserve_t;
     _Reserve_t __reserve;
     _Str __result(__reserve, __x.size() + 1, __x.get_allocator());
@@ -1639,422 +1627,58 @@ operator+(const basic_string<_CharT, _Traits, _Alloc> &__x,
 
 // Operator== and operator!=
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
-operator==(const basic_string<_CharT, _Traits, _Alloc> &__x,
-           const basic_string<_CharT, _Traits, _Alloc> &__y)
+operator==(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
+           const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
     return __x.size() == __y.size() &&
            _Traits::compare(__x.data(), __y.data(), __x.size()) == 0;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
 operator==(const _CharT *__s,
-           const basic_string<_CharT, _Traits, _Alloc> &__y)
+           const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
     size_t __n = _Traits::length(__s);
     return __n == __y.size() && _Traits::compare(__s, __y.data(), __n) == 0;
 }
 
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
-operator==(const basic_string<_CharT, _Traits, _Alloc> &__x,
+operator==(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
            const _CharT *__s)
 {
     size_t __n = _Traits::length(__s);
     return __x.size() == __n && _Traits::compare(__x.data(), __s, __n) == 0;
 }
 
-template<class _CharT, int MAX_SIZE, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
-operator<(const basic_string<_CharT, _Traits, _Alloc> &__x,
-          const basic_string<_CharT, _Traits, _Alloc> &__y)
+operator<(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
+          const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
-    return NFShmBasicString<_CharT, _Traits, _Alloc>
+    return NFShmBasicString<_CharT, MAX_SIZE, _Traits>
            ::_M_compare(__x.begin(), __x.end(), __y.begin(), __y.end()) < 0;
 }
 
-template<class _CharT, int MAX_SIZE, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
 operator<(const _CharT *__s,
-          const basic_string<_CharT, _Traits, _Alloc> &__y)
+          const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__y)
 {
     size_t __n = _Traits::length(__s);
-    return NFShmBasicString<_CharT, _Traits, _Alloc>
+    return NFShmBasicString<_CharT, MAX_SIZE, _Traits>
            ::_M_compare(__s, __s + __n, __y.begin(), __y.end()) < 0;
 }
 
-template<class _CharT, int MAX_SIZE, int MAX_SIZE, class _Traits, class _Alloc>
+template<class _CharT, int MAX_SIZE, class _Traits>
 inline bool
-operator<(const basic_string<_CharT, _Traits, _Alloc> &__x,
+operator<(const NFShmBasicString<_CharT, MAX_SIZE, _Traits> &__x,
           const _CharT *__s)
 {
     size_t __n = _Traits::length(__s);
-    return NFShmBasicString<_CharT, _Traits, _Alloc>
+    return NFShmBasicString<_CharT, MAX_SIZE, _Traits>
            ::_M_compare(__x.begin(), __x.end(), __s, __s + __n) < 0;
 }
-
-#include <iostream>
-
-template <class _CharT, int MAX_SIZE, class _Traits>
-inline bool
-__sgi_string_fill(basic_ostream<_CharT, _Traits>& __os,
-                  basic_streambuf<_CharT, _Traits>* __buf,
-                  size_t __n)
-{
-  _CharT __f = __os.fill();
-  size_t __i;
-  bool __ok = true;
-
-  for (__i = 0; __i < __n; __i++)
-    __ok = __ok && !_Traits::eq_int_type(__buf->sputc(__f), _Traits::eof());
-  return __ok;
-}
-
-template <class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_ostream<_CharT, _Traits>&
-operator<<(basic_ostream<_CharT, _Traits>& __os,
-           const basic_string<_CharT,_Traits,_Alloc>& __s)
-{
-  typename basic_ostream<_CharT, _Traits>::sentry __sentry(__os);
-  bool __ok = false;
-
-  if (__sentry) {
-    __ok = true;
-    size_t __n = __s.size();
-    size_t __pad_len = 0;
-    const bool __left = (__os.flags() & ios::left) != 0;
-    const size_t __w = __os.width(0);
-    basic_streambuf<_CharT, _Traits>* __buf = __os.rdbuf();
-
-    if (__w != 0 && __n < __w)
-      __pad_len = __w - __n;
-
-    if (!__left)
-      __ok = __sgi_string_fill(__os, __buf, __pad_len);
-
-    __ok = __ok &&
-           __buf->sputn(__s.data(), streamsize(__n)) == streamsize(__n);
-
-    if (__left)
-      __ok = __ok && __sgi_string_fill(__os, __buf, __pad_len);
-  }
-
-  if (!__ok)
-    __os.setstate(ios_base::failbit);
-
-  return __os;
-}
-
-template <class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_istream<_CharT, _Traits>&
-operator>>(basic_istream<_CharT, _Traits>& __is,
-           basic_string<_CharT,_Traits,_Alloc>& __s)
-{
-  typename basic_istream<_CharT, _Traits>::sentry __sentry(__is);
-
-  if (__sentry) {
-    basic_streambuf<_CharT, _Traits>* __buf = __is.rdbuf();
-    const ctype<_CharT>& __ctype = use_facet<ctype<_CharT> >(__is.getloc());
-
-    __s.clear();
-    size_t __n = __is.width(0);
-    if (__n == 0)
-      __n = static_cast<size_t>(-1);
-    else
-      __s.reserve(__n);
-
-
-    while (__n-- > 0) {
-      typename _Traits::int_type __c1 = __buf->sbumpc();
-      if (_Traits::eq_int_type(__c1, _Traits::eof())) {
-        __is.setstate(ios_base::eofbit);
-        break;
-      }
-      else {
-        _CharT __c = _Traits::to_char_type(__c1);
-
-        if (__ctype.is(ctype<_CharT>::space, __c)) {
-          if (_Traits::eq_int_type(__buf->sputbackc(__c), _Traits::eof()))
-            __is.setstate(ios_base::failbit);
-          break;
-        }
-        else
-          __s.push_back(__c);
-      }
-    }
-
-    // If we have read no characters, then set failbit.
-    if (__s.size() == 0)
-      __is.setstate(ios_base::failbit);
-  }
-  else
-    __is.setstate(ios_base::failbit);
-
-  return __is;
-}
-
-template <class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-basic_istream<_CharT, _Traits>&
-getline(istream& __is,
-        basic_string<_CharT,_Traits,_Alloc>& __s,
-        _CharT __delim)
-{
-  size_t __nread = 0;
-  typename basic_istream<_CharT, _Traits>::sentry __sentry(__is, true);
-  if (__sentry) {
-    basic_streambuf<_CharT, _Traits>* __buf = __is.rdbuf();
-    __s.clear();
-
-    int __c1;
-    while (__nread < __s.max_size()) {
-      int __c1 = __buf->sbumpc();
-      if (_Traits::eq_int_type(__c1, _Traits::eof())) {
-        __is.setstate(ios_base::eofbit);
-        break;
-      }
-      else {
-        ++__nread;
-        _CharT __c = _Traits::to_char_type(__c1);
-        if (!_Traits::eq(__c, __delim))
-          __s.push_back(__c);
-        else
-          break;              // Character is extracted but not appended.
-      }
-    }
-  }
-  if (__nread == 0 || __nread >= __s.max_size())
-    __is.setstate(ios_base::failbit);
-
-  return __is;
-}
-
-template <class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline basic_istream<_CharT, _Traits>&
-getline(basic_istream<_CharT, _Traits>& __is,
-        basic_string<_CharT,_Traits,_Alloc>& __s)
-{
-  return getline(__is, __s, '\n');
-}
-
-inline void __sgi_string_fill(ostream &__os, streambuf *__buf, size_t __n)
-{
-    char __f = __os.fill();
-    size_t __i;
-
-    for (__i = 0; __i < __n; __i++) __buf->sputc(__f);
-}
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-ostream &operator<<(ostream &__os,
-                    const basic_string<_CharT, _Traits, _Alloc> &__s)
-{
-    streambuf *__buf = __os.rdbuf();
-    if (__buf)
-    {
-        size_t __n = __s.size();
-        size_t __pad_len = 0;
-        const bool __left = (__os.flags() & ios::left) != 0;
-        const size_t __w = __os.width();
-
-        if (__w > 0)
-        {
-            __n = min(__w, __n);
-            __pad_len = __w - __n;
-        }
-
-        if (!__left)
-            __sgi_string_fill(__os, __buf, __pad_len);
-
-        const size_t __nwritten = __buf->sputn(__s.data(), __n);
-
-        if (__left)
-            __sgi_string_fill(__os, __buf, __pad_len);
-
-        if (__nwritten != __n)
-            __os.clear(__os.rdstate() | ios::failbit);
-
-        __os.width(0);
-    }
-    else
-        __os.clear(__os.rdstate() | ios::badbit);
-
-    return __os;
-}
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-istream &operator>>(istream &__is, basic_string<_CharT, _Traits, _Alloc> &__s)
-{
-    if (!__is)
-        return __is;
-
-    streambuf *__buf = __is.rdbuf();
-    if (__buf)
-    {
-
-#ifdef __USLC__
-        /* Jochen Schlick '1999  - operator >> modified. Work-around to get the
- *                         output buffer flushed (necessary when using
- *                         "cout" (without endl or flushing) followed by
- *                         "cin >>" ...)
- */
-    if (__is.flags() & ios::skipws) {
-      _CharT __c;
-      do
-         __is.get(__c);
-      while (__is && isspace(__c));
-      if (__is)
-         __is.putback(__c);
-    }
-#else
-        if (__is.flags() & ios::skipws)
-        {
-            int __c;
-            do
-            {
-                __c = __buf->sbumpc();
-            } while (__c != EOF && isspace((unsigned char) __c));
-
-            if (__c == EOF)
-            {
-                __is.clear(__is.rdstate() | ios::eofbit | ios::failbit);
-            }
-            else
-            {
-                if (__buf->sputbackc(__c) == EOF)
-                    __is.clear(__is.rdstate() | ios::failbit);
-            }
-        }
-#endif
-
-        // If we arrive at end of file (or fail for some other reason) while
-        // still discarding whitespace, then we don't try to read the string.
-        if (__is)
-        {
-            __s.clear();
-
-            size_t __n = __is.width();
-            if (__n == 0)
-                __n = static_cast<size_t>(-1);
-            else
-                __s.reserve(__n);
-
-            while (__n-- > 0)
-            {
-                int __c1 = __buf->sbumpc();
-                if (__c1 == EOF)
-                {
-                    __is.clear(__is.rdstate() | ios::eofbit);
-                    break;
-                }
-                else
-                {
-                    _CharT __c = _Traits::to_char_type(__c1);
-
-                    if (isspace((unsigned char) __c))
-                    {
-                        if (__buf->sputbackc(__c) == EOF)
-                            __is.clear(__is.rdstate() | ios::failbit);
-                        break;
-                    }
-                    else
-                        __s.push_back(__c);
-                }
-            }
-
-            // If we have read no characters, then set failbit.
-            if (__s.size() == 0)
-                __is.clear(__is.rdstate() | ios::failbit);
-        }
-
-        __is.width(0);
-    }
-    else                          // We have no streambuf.
-        __is.clear(__is.rdstate() | ios::badbit);
-
-    return __is;
-}
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-istream &getline(istream &__is,
-                 basic_string<_CharT, _Traits, _Alloc> &__s,
-                 _CharT __delim)
-{
-    streambuf *__buf = __is.rdbuf();
-    if (__buf)
-    {
-        size_t __nread = 0;
-        if (__is)
-        {
-            __s.clear();
-
-            while (__nread < __s.max_size())
-            {
-                int __c1 = __buf->sbumpc();
-                if (__c1 == EOF)
-                {
-                    __is.clear(__is.rdstate() | ios::eofbit);
-                    break;
-                }
-                else
-                {
-                    ++__nread;
-                    _CharT __c = _Traits::to_char_type(__c1);
-                    if (!_Traits::eq(__c, __delim))
-                        __s.push_back(__c);
-                    else
-                        break;              // Character is extracted but not appended.
-                }
-            }
-        }
-
-        if (__nread == 0 || __nread >= __s.max_size())
-            __is.clear(__is.rdstate() | ios::failbit);
-    }
-    else
-        __is.clear(__is.rdstate() | ios::badbit);
-
-    return __is;
-}
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-inline istream &
-getline(istream &__is, basic_string<_CharT, _Traits, _Alloc> &__s)
-{
-    return getline(__is, __s, '\n');
-}
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-void _S_string_copy(const basic_string<_CharT, _Traits, _Alloc> &__s,
-                    _CharT *__buf,
-                    size_t __n)
-{
-    if (__n > 0)
-    {
-        __n = min(__n - 1, __s.size());
-        copy(__s.begin(), __s.begin() + __n, __buf);
-        _Traits::assign(__buf[__n],
-                        NFShmBasicString<_CharT, _Traits, _Alloc>::_M_null());
-    }
-}
-
-inline const char *__get_c_string(const string &__s) { return __s.c_str(); }
-
-template<class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-size_t __stl_string_hash(const basic_string<_CharT, _Traits, _Alloc> &__s)
-{
-    unsigned long __h = 0;
-    for (NFShmBasicString<_CharT, _Traits, _Alloc>::const_iterator __i = __s.begin();
-         __i != __s.end();
-         ++__i)
-        __h = 5 * __h + *__i;
-    return size_t(__h);
-}
-
-template <class _CharT, int MAX_SIZE, class _Traits, class _Alloc>
-struct hash<basic_string<_CharT,_Traits,_Alloc> > {
-  size_t operator()(const basic_string<_CharT,_Traits,_Alloc>& __s) const
-    { return __stl_string_hash(__s); }
-};
-

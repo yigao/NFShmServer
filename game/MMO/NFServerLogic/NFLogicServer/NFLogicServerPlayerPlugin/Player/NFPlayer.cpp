@@ -57,7 +57,7 @@ int NFPlayer::CreateInit()
 {
     m_color = 0;
     m_lastFacade.CreateInit();
-    m_pPart.SetSize(m_pPart.GetMaxSize());
+    m_pPart.resize(m_pPart.max_size());
 
     return 0;
 }
@@ -742,7 +742,7 @@ void NFPlayer::SynAttrToClient()
 
 NFPart *NFPlayer::GetPart(uint32_t partType)
 {
-    if (partType > PART_NONE && partType < (uint32_t) m_pPart.GetSize())
+    if (partType > PART_NONE && partType < (uint32_t) m_pPart.size())
     {
         return m_pPart[partType].GetPoint();
     }

@@ -12,6 +12,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
@@ -177,6 +178,6 @@ public:
 
     NFPart* GetPart(uint32_t partType);
 private:
-    NFArray<NFShmPtr<NFPart>, PART_MAX> m_pPart;
+    NFShmVector<NFShmPtr<NFPart>, PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFPlayer)
 };

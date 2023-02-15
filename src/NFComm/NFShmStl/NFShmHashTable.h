@@ -347,17 +347,6 @@ public:
                            const NFShmHashTable<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &);
 
 public:
-    std::pair<iterator, bool> emplace(const key_type&__key, const value_type& __value)
-    {
-        return insert(std::make_pair(__key, __value));
-    }
-
-    iterator emplace_hint(const key_type&__key, const value_type& __value)
-    {
-        auto pair = insert(std::make_pair(__key, __value));
-        return pair->first;
-    }
-public:
 
     size_type bucket_count() const { return m_buckets.size(); }
 

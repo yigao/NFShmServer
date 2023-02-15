@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFPart.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "functionunlock_s.h"
 
@@ -124,6 +124,6 @@ private:
     uint32_t OpenDays();
 
 private:
-    NFShmOldHashMap<uint64_t, bool, MAX_FUNCTION_UNLOCK_NUM> m_mapUnLock; //玩家已解锁的功能
+    NFShmHashMap<uint64_t, bool, MAX_FUNCTION_UNLOCK_NUM> m_mapUnLock; //玩家已解锁的功能
 DECLARE_IDCREATE(NFFunctionUnlockPart)
 };

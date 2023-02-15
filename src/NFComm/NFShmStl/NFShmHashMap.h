@@ -106,8 +106,8 @@ public:
 
 public:
     std::pair<iterator, bool> insert(const value_type &__obj) { return m_hashTable.insert_unique(__obj); }
-    std::pair<iterator, bool> emplace(const key_type&__key, const data_type& __data) { return m_hashTable.emplace(__key, __data); }
-    iterator emplace_hint(const key_type&__key, const data_type& __data) { return emplace_hint(__key, __data); }
+    std::pair<iterator, bool> emplace(const key_type&__key, const data_type& __data) { return m_hashTable.insert_unique(std::make_pair(__key, __data)); }
+    iterator emplace_hint(const key_type&__key, const data_type& __data) { auto pair = m_hashTable.insert_unique(std::make_pair(__key, __data)); return pair.first; }
 
     template<class _InputIterator>
     void insert(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_unique(__f, __l); }

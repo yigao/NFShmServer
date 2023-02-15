@@ -59,8 +59,8 @@ int NFFunctionUnlockPart::Init(NFPlayer *pMaster, uint32_t partType, const proto
         for (int i = 0; i < unlockInfo.data_size(); ++i)
         {
             auto& data = unlockInfo.data(i);
-            int ret = m_mapUnLock.Insert(data.unlockid(), data.get_reward());
-            if (ret < 0)
+            auto iter = m_mapUnLock.emplace_hint(data.unlockid(), data.get_reward());
+            if (iter == m_mapUnLock.end())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, pMaster->GetRoleId(), "m_mapUnLock space not enouth, Insert Failed! unlockId:{} get_reward:{}", data.unlockid(), data.get_reward());
             }
@@ -99,16 +99,11 @@ int NFFunctionUnlockPart::SaveDB(proto_ff::RoleDBData &dbData)
     ::proto_ff::FunctionUnlockInfo* pInfo = dbData.mutable_unlockinfo();
 
     //已解锁功能id
-    for(auto iter = m_mapUnLock.Begin(); iter != m_mapUnLock.End(); iter++)
+    for(auto iter = m_mapUnLock.begin(); iter != m_mapUnLock.end(); iter++)
     {
-        uint64_t* pKey = iter->first;
-        bool* pValue = iter->second;
-        if (pKey && pValue)
-        {
-            auto pData = pInfo->add_data();
-            pData->set_unlockid(*pKey);
-            pData->set_get_reward(*pValue);
-        }
+        auto pData = pInfo->add_data();
+        pData->set_unlockid(iter->first);
+        pData->set_get_reward(iter->second);
     }
 
     return 0;
@@ -144,14 +139,14 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
     pData->set_unlockid(msgReq.function_id());
     pData->set_get_reward(false);
 
-    auto pValue = m_mapUnLock.Find(msgReq.function_id());
-    if (pValue == NULL)
+    auto iter = m_mapUnLock.find(msgReq.function_id());
+    if (iter == m_mapUnLock.end())
     {
         m_pMaster->SendMsgToClient(proto_ff::SERVER_TO_CLIENT_FUNCTIONUNLOCK_GET_REWARD_RSP, rsp);
         return -1;
     }
 
-    if (*pValue == true)
+    if (iter->second == true)
     {
         m_pMaster->SendMsgToClient(proto_ff::SERVER_TO_CLIENT_FUNCTIONUNLOCK_GET_REWARD_RSP, rsp);
         return -1;
@@ -181,7 +176,7 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
 
     if (ret)
     {
-        *pValue = true;
+        iter->second = true;
         rsp.set_ret_code(proto_ff::RET_SUCCESS);
         pData->set_get_reward(true);
         MarkDirty();
@@ -230,8 +225,8 @@ int NFFunctionUnlockPart::UnlockAllFunc()
 
 bool NFFunctionUnlockPart::isFunctionUnlock(uint64_t functionId)
 {
-    auto pValue = m_mapUnLock.Find(functionId);
-    return (pValue != NULL) ? true : false;
+    auto iter = m_mapUnLock.find(functionId);
+    return (iter != m_mapUnLock.end());
 }
 
 void NFFunctionUnlockPart::Unlock(int64_t functionId)
@@ -245,8 +240,8 @@ void NFFunctionUnlockPart::UnlockSendAdd(int64_t functionId)
 {
     if (isFunctionUnlock(functionId)) return;
     AddUnlock(functionId);
-    auto pValue = m_mapUnLock.Find(functionId);
-    if (pValue != NULL)
+    auto iter = m_mapUnLock.find(functionId);
+    if (iter != m_mapUnLock.end())
     {
         VEC_UINT64 list;
         list.push_back(functionId);
@@ -344,16 +339,11 @@ void NFFunctionUnlockPart::sendFunctionUnlockInfo(VEC_UINT64 *pList)
     {
         //发送全部以解锁功能
         infoRsp.set_syntype(FUNCTION_SYNC_TYPE_ALL);
-        for (auto iter = m_mapUnLock.Begin(); iter != m_mapUnLock.End(); iter++)
+        for (auto iter = m_mapUnLock.begin(); iter != m_mapUnLock.end(); iter++)
         {
-            auto pKey = iter->first;
-            auto pValue = iter->second;
-            if (pKey && pValue)
-            {
-                auto pData = infoRsp.add_data();
-                pData->set_unlockid(*pKey);
-                pData->set_get_reward(*pValue);
-            }
+            auto pData = infoRsp.add_data();
+            pData->set_unlockid(iter->first);
+            pData->set_get_reward(iter->second);
         }
     }
     else
@@ -376,13 +366,13 @@ void NFFunctionUnlockPart::sendFunctionUnlockInfo(VEC_UINT64 *pList)
 
 void NFFunctionUnlockPart::DelUnlock(uint64_t unlockid)
 {
-    m_mapUnLock.Erase(unlockid);
+    m_mapUnLock.erase(unlockid);
 }
 
 void NFFunctionUnlockPart::AddUnlock(uint64_t unlockid)
 {
-    int pos = m_mapUnLock.Insert(unlockid, false);
-    if (pos < 0)
+    auto iter = m_mapUnLock.emplace_hint(unlockid, false);
+    if (iter == m_mapUnLock.end())
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "AddUnlock Failed, unlockid:{}, not enough space!!", unlockid);
     }
@@ -533,16 +523,11 @@ int NFFunctionUnlockPart::OnLogin(proto_ff::PlayerInfoRsp &playerInfo)
     CheckALLFunctions(false);
 
     //已解锁功能id
-    for (auto iter = m_mapUnLock.Begin(); iter != m_mapUnLock.End(); iter++)
+    for (auto iter = m_mapUnLock.begin(); iter != m_mapUnLock.end(); iter++)
     {
-        auto pKey = iter->first;
-        auto pValue = iter->second;
         auto pData = proto->add_data();
-        if (pKey && pValue)
-        {
-            pData->set_unlockid(*pKey);
-            pData->set_get_reward(*pValue);
-        }
+        pData->set_unlockid(iter->first);
+        pData->set_get_reward(iter->second);
     }
     return 0;
 }
